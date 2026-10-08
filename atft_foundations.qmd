@@ -1,6 +1,9 @@
 ---
 title: "Affine Toda field theories as quantum field theories: a review, a critique, and a foundation"
 date: "Draft, October 2026"
+bibliography: references.bib
+nocite: |
+  @bender2007 @braden1991 @christe1990 @dorey1992 @dorey1993 @gandenberger1998 @ge2012 @johnson1997 @konno1966 @mostafazadeh2010 @osterwalder1973 @osterwalder1975
 ---
 
 ## Abstract
@@ -17,7 +20,7 @@ We review the field and list twelve gaps between what is used in practice and wh
 - **Continuum limit.** In finite volume, with Wick ordering done site by site, the lattice theory has a continuum limit for $\beta^2<2\pi$ and every algebra, with every term of the Coulomb-gas expansion positive (Theorem E). Without further counterterms the limit fails at and above the first collapse threshold $\beta^2_{\rm UV}$, and with site-independent Wick ordering it already fails at $2\pi$. In the window $2\pi\le\beta^2<\beta^2_{\rm UV}$ every term of the expansion converges (at sketch level), and summability is reduced to a version with cluster factors of a bound on products of nearest-neighbour distances, which we prove (Theorem 6.9). Summability is equivalent to a stability bound on the free energy at real fugacity (Lemma 6.15), whose expected exponent is set by the bulk free energy.
 - **Classical reality.** Classical energies are real precisely for $\Theta$-invariant asymptotic data, which turns the old ad hoc restriction to "good" solutions into a symmetry statement.
 - **Semiclassics.** The Picard–Lefschetz form of the semiclassical expansion requires eigenvalues to be counted with algebraic multiplicity. This resolves the long-standing disagreements over one-loop soliton masses, which we check against a regularization-independent lattice computation and exact S-matrices. We also derive the counting rule from the transmission factors. The size of each Jordan block equals the order of a zero of a transmission factor, also for eigenvalues embedded in the continuum (Theorem F). The weight with which the one-loop trace counts a given energy is the net order of the product of all transmission factors; this factorization is proved whenever the fluctuation solutions have Hirota form (Theorem G). A zero in one channel can be cancelled by a pole in another (Proposition 8.6). At the $c_n^{(1)}$ blocks, the second unit of weight is carried by a bounded threshold resonance rather than an $L^2$ vector (Proposition 8.7).
-- **Scattering.** Braiding (R-matrix) unitarity, crossing and the bootstrap follow from the universal R-matrix [Delius 1995], but they are not QFT unitarity, which in addition requires Hermitian analyticity [Miramontes 1999]. What the Krein structure does imply is that eigenvalues of S-matrices and multi-particle transfer matrices are pure phases or come in pairs $(s,1/\bar s)$. This turns the Takács–Watts criterion for a real finite-volume spectrum into a criterion for unbroken $\Theta$.
+- **Scattering.** Braiding (R-matrix) unitarity, crossing and the bootstrap follow from the universal R-matrix [@delius1995], but they are not QFT unitarity, which in addition requires Hermitian analyticity [@miramontes1999]. What the Krein structure does imply is that eigenvalues of S-matrices and multi-particle transfer matrices are pure phases or come in pairs $(s,1/\bar s)$. This turns the Takács–Watts criterion for a real finite-volume spectrum into a criterion for unbroken $\Theta$.
 - **What cannot be rescued.** We list the physical consequences of unitarity that fail in the unrestricted imaginary-coupling theories of rank $r\ge2$ and that no choice of inner product, basis, gradation or quantum-group restriction can restore, because their failure is detected by basis-independent quantities (Section 10).
 
 The resulting picture is that imaginary-coupling ATFTs are valid **non-unitary** quantum field theories, in the same sense as the scaling Lee–Yang model. They have a positive Euclidean measure, a Krein-space Hamiltonian formulation, a real vacuum energy, real masses for the asymptotic particles in every known exact solution, and a consistent S-matrix theory. Unitarity is not one of their properties: it fails in identifiable sectors, and requiring it was a category error. Section 10 states exactly which of its usual consequences are lost and cannot be recovered. We also correct a premise common in the literature: exact soliton S-matrices are *not* known for every algebra. They are missing, to our knowledge, for $c_n^{(1)}$ with $n\ge3$, $f_4^{(1)}$, $e_6^{(2)}$ and $a_{2n-1}^{(2)}$.
@@ -37,12 +40,12 @@ The resulting picture is that imaginary-coupling ATFTs are valid **non-unitary**
 
 For each affine Kac–Moody algebra $\hat g$ there is a Lagrangian field theory of $r=\operatorname{rank}g$ scalars with exponential interactions, the affine Toda field theory. These theories have been a laboratory for several central ideas in two-dimensional quantum field theory:
 
-- exact factorized S-matrices and the bootstrap [Zamolodchikov–Zamolodchikov 1979; Braden–Corrigan–Dorey–Sasaki 1990];
-- the geometry of root systems in scattering (Dorey's fusing rule [Dorey 1991]);
-- strong–weak coupling duality [Delius–Grisaru–Zanon 1992];
-- solitons with quantum-group symmetry [Bernard–LeClair 1991; Hollowood 1993];
-- integrable perturbations of conformal field theories [Zamolodchikov 1989; Eguchi–Yang 1989; Hollowood–Mansfield 1989];
-- the ODE/IM correspondence [Lukyanov–Zamolodchikov 2010; Dorey–Faldella–Negro–Tateo 2013].
+- exact factorized S-matrices and the bootstrap [@zz1979; @braden1990];
+- the geometry of root systems in scattering (Dorey's fusing rule [@dorey1991]);
+- strong–weak coupling duality [@dgz1992];
+- solitons with quantum-group symmetry [@bernard1991; @hollowood1993a; @hollowood1993b];
+- integrable perturbations of conformal field theories [@zamolodchikov1989; @eguchi1989; @hollowood1989];
+- the ODE/IM correspondence [@lukyanov2010; @dorey2013].
 
 The theories come in two regimes.
 
@@ -52,7 +55,7 @@ The theories come in two regimes.
 The theories are not only of historical interest. They are rich enough to show generic phenomena of quantum field theory, yet solvable enough that claims about them can be checked exactly. Five features keep them current.
 
 - **A family, not a single model.** There is one theory for each affine algebra, and results come with Lie-theoretic structure: Dorey's fusing rule, Perron–Frobenius masses, Lie duality. A general claim about integrable or massive two-dimensional QFT can therefore be tested across a whole family, not in one example.
-- **Exact benchmarks.** At real coupling the S-matrices are known for every algebra, together with the thermodynamic Bethe ansatz, form factors and the exact mass–coupling relation (Section 3.1). New methods are calibrated against them. Recent examples are tree-level integrability for every ATFT, derived from properties of root systems [Dorey–Polvara 2022], one-loop integrability of the simply-laced theories [Polvara 2023], and the comparison of one-loop amplitudes with the bootstrap S-matrices for the whole simply-laced class [Fabri–Polvara 2024].
+- **Exact benchmarks.** At real coupling the S-matrices are known for every algebra, together with the thermodynamic Bethe ansatz, form factors and the exact mass–coupling relation (Section 3.1). New methods are calibrated against them. Recent examples are tree-level integrability for every ATFT, derived from properties of root systems [@dorey_polvara2022], one-loop integrability of the simply-laced theories [@polvara2023], and the comparison of one-loop amplitudes with the bootstrap S-matrices for the whole simply-laced class [@fabri_polvara2024].
 - **A non-unitary QFT with structure.** The imaginary-coupling theories are the field-theoretic parents of non-unitary perturbed minimal and W-algebra models. We argue that their non-unitarity is organised by a Krein structure and an antilinear $PT$-type symmetry $\Theta$, and is not a pathology. That is the question non-Hermitian physics now asks of many systems (Section 1.5).
 - **Unfinished business.** Soliton S-matrices are still missing for four families (Section 3.3). The disagreements over one-loop soliton masses needed a new counting rule to resolve (Section 8). The missing-topological-charge problem is open. Open problems in a theory whose surroundings are this well mapped are unusually well posed.
 - **A meeting point of mathematics and physics.** Quantum affine algebras and their R-matrices, Hirota tau-functions, Coulomb gases and Picard–Lefschetz theory all act on the same model. Progress in any one of them tends to have consequences here.
@@ -62,12 +65,12 @@ The theories are not only of historical interest. They are rich enough to show g
 Three objections are routinely raised against the imaginary-coupling theories.
 
 1. **Complex action.** For real fields the Euclidean weight $e^{-S_E}$ is complex, so it is unclear what measure is being integrated and whether the theory has a sign problem.
-2. **Complex saddles.** The solitons are complex solutions of the field equations. A path integral over real fields gives no obvious reason to include them, and no criterion for which ones to include [MacKay–Watts 1995].
-3. **Non-unitarity.** The Hamiltonian is not Hermitian and the S-matrices are not unitary. In some sectors the finite-volume spectrum is complex [Takács–Watts 1999, 2002].
+2. **Complex saddles.** The solitons are complex solutions of the field equations. A path integral over real fields gives no obvious reason to include them, and no criterion for which ones to include [@mackay_watts1995].
+3. **Non-unitarity.** The Hamiltonian is not Hermitian and the S-matrices are not unitary. In some sectors the finite-volume spectrum is complex [@tw1999; @tw2002].
 
 ### 1.3 What we mean by a valid QFT
 
-We adopt operational criteria that apply equally to unitary and non-unitary theories, the scaling Lee–Yang model being the standard example of the latter [Fisher 1978; Cardy–Mussardo 1989].
+We adopt operational criteria that apply equally to unitary and non-unitary theories, the scaling Lee–Yang model being the standard example of the latter [@fisher1978; @cardy1989].
 
 - **(C1) Definition.** A regularized theory exists, its correlation functions are finite, and there is a continuum limit.
 - **(C2) Euclidean consistency.** The Euclidean correlation functions of a generating set of local observables satisfy the Osterwalder–Schrader axioms. Reflection positivity may be replaced by a twisted reflection positivity that yields a Krein space.
@@ -99,17 +102,17 @@ Unitarity (a positive inner product preserved by the S-matrix) is **not** on thi
 
 Read as statements about a non-unitary quantum field theory, these results connect to several active fields. The links are strongest for non-Hermitian physics and for resurgence. For both, the theorems above give exact field-theoretic examples of ideas that are mostly studied in quantum mechanics or in toy models. The connections below are our assessment, and the citations sample each field rather than survey it.
 
-- **Non-Hermitian and $PT$-symmetric physics.** The transfer matrix is self-adjoint for a Krein form and commutes with an antilinear symmetry $\Theta$ (Theorem C). So its spectrum is closed under complex conjugation, with $\Theta$-unbroken and $\Theta$-broken sectors (Section 9.2). The Jordan blocks of the soliton fluctuation operators (Section 8) are exceptional points, and Section 10 (U4, U8) spells out what they imply. Pseudo-Hermiticity, $PT$ symmetry, Jordan forms and exceptional points are the organising concepts of non-Hermitian physics [Bender–Boettcher 1998; Mostafazadeh 2002; Ashida–Gong–Ueda 2020]. That field now spans photonics, open quantum systems and topological phases.
-- **Resurgence, Lefschetz thimbles and complex saddles.** The complex solitons are critical points of the thimble decomposition of the lattice integral (5.1). Their one-loop determinants must be counted with algebraic multiplicity (Theorems F and G). Intersection numbers decide which topological sectors contribute (Conjecture 8.3). Resurgence relates perturbative data to the global structure of saddles in quantum mechanics and QFT [Witten 2010; Dunne–Ünsal 2015; Dunne 2025].
-- **The sign problem.** Theorem B turns a complex action into a positive Coulomb gas. This is a rare case where a complex weight is provably harmless. Complexifying field space by Picard–Lefschetz theory is a leading approach to sign problems such as QCD at finite density and the Hubbard model [Alexandru–Başar–Bedaque–Warrington 2022]. Here the answer is known exactly, which makes these theories a test case for those methods.
-- **Constructive QFT and probability.** The continuum limit of Section 6 is a statement about multi-species Coulomb gases and imaginary multiplicative chaos [Junnila–Saksman–Webb 2020]. The conformal endpoint is now being built rigorously. Compactified imaginary Liouville CFT has been constructed and shown to satisfy the CFT axioms [Guillarmou–Kupiainen–Rhodes 2025], and the construction has been extended to higher-rank compactified imaginary Toda CFT [Yao 2026]. Imaginary-coupling ATFT is this Toda theory perturbed by the vertex operator of the affine root.
-- **S-matrix bootstrap and perturbative integrability.** Crossing and the bootstrap have a Hopf-algebraic origin [Delius 1995]. Krein-unitarity replaces unitarity (Propositions 9.1 and 9.2), and Hermitian analyticity is the missing condition for QFT unitarity [Miramontes 1999]. The numerical S-matrix bootstrap explores the space of unitary two-dimensional S-matrices, with integrable models on its boundary [Paulos et al. 2017; Bercini et al. 2019]. The ladder of conditions in Section 9.2 raises the analogous question for Krein-unitary S-matrices.
-- **Non-unitary and complex CFTs.** RSOS restrictions give non-unitary minimal models of Lee–Yang type. These models distinguish the effective central charge from the central charge, and their complex finite-volume spectra are seen in the truncated conformal space approach (Sections 9.4 and 10, U5–U7). Complex CFTs control walking renormalization-group flows and weakly first-order transitions such as the $Q>4$ Potts model [Gorbenko–Rychkov–Zan 2018]. Conjecture 9.3 would give a criterion, checkable from the S-matrix, for when a restricted model is unitary.
-- **ODE/IM, exact WKB and gauge/string theory.** The linear problems of ATFT underlie the massive ODE/IM correspondence [Lukyanov–Zamolodchikov 2010; Dorey–Faldella–Negro–Tateo 2013]. The ultraviolet limit of the $A_r$ massive ODE/IM correspondence gives non-unitary $WA_r$ minimal models [Ito–Shu 2018]. A recent monograph reviews these correspondences, with applications to exact WKB, minimal surfaces and gluon amplitudes in AdS/CFT [Ito–Shu 2025].
-- **$q$-deformed world-sheet theories.** IRF bases restore unitarity of $q$-deformed S-matrices [Hoare–Hollowood–Miramontes 2013]. This is the mechanism we propose for unitary restrictions of ATFT (Section 9.4).
-- **Integrable circuits and analogue simulation.** The light-cone regularization of Proposition 9.2 is a brickwork circuit of R-matrix gates. It is unitary for a Krein form rather than for the Hilbert-space inner product. The zero-mode model of Section 5.6 and few-site versions of this circuit are small enough that complex-conjugate level pairs and exceptional points could be realised in $PT$-symmetric photonic or cold-atom systems [Ashida–Gong–Ueda 2020]. This link is more speculative than the others.
+- **Non-Hermitian and $PT$-symmetric physics.** The transfer matrix is self-adjoint for a Krein form and commutes with an antilinear symmetry $\Theta$ (Theorem C). So its spectrum is closed under complex conjugation, with $\Theta$-unbroken and $\Theta$-broken sectors (Section 9.2). The Jordan blocks of the soliton fluctuation operators (Section 8) are exceptional points, and Section 10 (U4, U8) spells out what they imply. Pseudo-Hermiticity, $PT$ symmetry, Jordan forms and exceptional points are the organising concepts of non-Hermitian physics [@bender1998; @mostafazadeh2002; @ashida2020]. That field now spans photonics, open quantum systems and topological phases.
+- **Resurgence, Lefschetz thimbles and complex saddles.** The complex solitons are critical points of the thimble decomposition of the lattice integral (5.1). Their one-loop determinants must be counted with algebraic multiplicity (Theorems F and G). Intersection numbers decide which topological sectors contribute (Conjecture 8.3). Resurgence relates perturbative data to the global structure of saddles in quantum mechanics and QFT [@witten2010; @dunne2015; @dunne2025].
+- **The sign problem.** Theorem B turns a complex action into a positive Coulomb gas. This is a rare case where a complex weight is provably harmless. Complexifying field space by Picard–Lefschetz theory is a leading approach to sign problems such as QCD at finite density and the Hubbard model [@alexandru2022]. Here the answer is known exactly, which makes these theories a test case for those methods.
+- **Constructive QFT and probability.** The continuum limit of Section 6 is a statement about multi-species Coulomb gases and imaginary multiplicative chaos [@junnila2020; see also @lacoin2015 for complex chaos]. The conformal endpoint is now being built rigorously. Compactified imaginary Liouville CFT has been constructed and shown to satisfy the CFT axioms [@guillarmou2025], and the construction has been extended to higher-rank compactified imaginary Toda CFT [@yao2026]. Imaginary-coupling ATFT is this Toda theory perturbed by the vertex operator of the affine root.
+- **S-matrix bootstrap and perturbative integrability.** Crossing and the bootstrap have a Hopf-algebraic origin [@delius1995]. Krein-unitarity replaces unitarity (Propositions 9.1 and 9.2), and Hermitian analyticity is the missing condition for QFT unitarity [@miramontes1999]. The numerical S-matrix bootstrap explores the space of unitary two-dimensional S-matrices, with integrable models on its boundary [@paulos2017; @bercini2019]. The ladder of conditions in Section 9.2 raises the analogous question for Krein-unitary S-matrices.
+- **Non-unitary and complex CFTs.** RSOS restrictions give non-unitary minimal models of Lee–Yang type. These models distinguish the effective central charge from the central charge, and their complex finite-volume spectra are seen in the truncated conformal space approach (Sections 9.4 and 10, U5–U7). Complex CFTs control walking renormalization-group flows and weakly first-order transitions such as the $Q>4$ Potts model [@gorbenko2018; @gorbenko2018b]. Conjecture 9.3 would give a criterion, checkable from the S-matrix, for when a restricted model is unitary.
+- **ODE/IM, exact WKB and gauge/string theory.** The linear problems of ATFT underlie the massive ODE/IM correspondence [@lukyanov2010; @dorey2013]. The ultraviolet limit of the $A_r$ massive ODE/IM correspondence gives non-unitary $WA_r$ minimal models [@ito_shu2018]. A recent monograph reviews these correspondences, with applications to exact WKB, minimal surfaces and gluon amplitudes in AdS/CFT [@ito_shu2025].
+- **$q$-deformed world-sheet theories.** IRF bases restore unitarity of $q$-deformed S-matrices [@hoare2013]. This is the mechanism we propose for unitary restrictions of ATFT (Section 9.4).
+- **Integrable circuits and analogue simulation.** The light-cone regularization of Proposition 9.2 is a brickwork circuit of R-matrix gates. It is unitary for a Krein form rather than for the Hilbert-space inner product. The zero-mode model of Section 5.6 and few-site versions of this circuit are small enough that complex-conjugate level pairs and exceptional points could be realised in $PT$-symmetric photonic or cold-atom systems [@ashida2020]. This link is more speculative than the others.
 
-These connections suggest where the results can be used. First, Theorems A–D use neither integrability nor the Lie-algebraic data, beyond the non-negativity of the fugacities (Section 5.1). So they give a template for other theories with periodic complex potentials, such as complex Liouville and Toda CFTs and their deformations. Second, the open problems of Section 12 are natural targets for these communities. The thimble intersection numbers (problem 4) can be attacked with the algorithms reviewed in [Alexandru et al. 2022]. The missing soliton S-matrices (problem 2) could be constrained by extending the on-shell loop methods of [Polvara 2023; Fabri–Polvara 2024] to non-simply-laced algebras and imaginary coupling. The $\Theta$-broken sectors (problems 6 and 8) can be mapped numerically with the truncated conformal space approach, tensor networks and the lattice of Proposition 9.2. The infinite-volume limit and mass gap (Conjecture 6.2) might be reached by adding the affine perturbation to the probabilistic constructions above, using Theorems B and E as input.
+These connections suggest where the results can be used. First, Theorems A–D use neither integrability nor the Lie-algebraic data, beyond the non-negativity of the fugacities (Section 5.1). So they give a template for other theories with periodic complex potentials, such as complex Liouville and Toda CFTs and their deformations. Second, the open problems of Section 12 are natural targets for these communities. The thimble intersection numbers (problem 4) can be attacked with the algorithms reviewed in [@alexandru2022]. The missing soliton S-matrices (problem 2) could be constrained by extending the on-shell loop methods of [@polvara2023; @fabri_polvara2024] to non-simply-laced algebras and imaginary coupling. The $\Theta$-broken sectors (problems 6 and 8) can be mapped numerically with the truncated conformal space approach, tensor networks and the lattice of Proposition 9.2. The infinite-volume limit and mass gap (Conjecture 6.2) might be reached by adding the affine perturbation to the probabilistic constructions above, using Theorems B and E as input.
 
 ---
 
@@ -117,14 +120,14 @@ These connections suggest where the results can be used. First, Theorems A–D u
 
 ### 2.1 Lie-algebraic data
 
-Let $\hat g$ be an affine Kac–Moody algebra with simple roots $\vec\alpha_0,\dots,\vec\alpha_r\in\mathbb R^r$, normalized so that the longest roots have $\lvert\vec\alpha\rvert^2=2$. The positive integers $n_j$ (Kac labels, with the normalization of [MacKay–Watts 1995]) satisfy $\sum_jn_j\vec\alpha_j=0$.
+Let $\hat g$ be an affine Kac–Moody algebra with simple roots $\vec\alpha_0,\dots,\vec\alpha_r\in\mathbb R^r$, normalized so that the longest roots have $\lvert\vec\alpha\rvert^2=2$. The positive integers $n_j$ (Kac labels, with the normalization of [@mackay_watts1995]) satisfy $\sum_jn_j\vec\alpha_j=0$.
 
 The algebras fall into three classes:
 
 - the self-dual algebras $a_n^{(1)},d_n^{(1)},e_n^{(1)},a_{2n}^{(2)}$;
 - the dual pairs of non-simply-laced algebras $(b_n^{(1)},a_{2n-1}^{(2)})$, $(c_n^{(1)},d_{n+1}^{(2)})$, $(g_2^{(1)},d_4^{(3)})$ and $(f_4^{(1)},e_6^{(2)})$.
 
-Duality reverses the arrows of the affine Dynkin diagram. Folding a simply-laced diagram by a diagram automorphism gives every non-simply-laced algebra [Olive–Turok 1983].
+Duality reverses the arrows of the affine Dynkin diagram. Folding a simply-laced diagram by a diagram automorphism gives every non-simply-laced algebra [@olive1983].
 
 ### 2.2 Lagrangians
 
@@ -141,11 +144,11 @@ V_{\rm real}=\frac{m^2}{\beta^2}\sum_jn_j\left(e^{\beta\vec\alpha_j\cdot\vec\phi
 V_{\rm imag}=-\frac{m^2}{\beta^2}\sum_jn_j\left(e^{i\beta\vec\alpha_j\cdot\vec\phi}-1\right). \tag{2.1}
 $$
 
-Here $\beta>0$ in both cases. Expanding about $\vec\phi=0$ gives the classical mass matrix $M^2=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$. Its eigenvalues are the classical particle masses, which form the Perron–Frobenius eigenvector of the Cartan matrix [Braden et al. 1990; Freeman 1991].
+Here $\beta>0$ in both cases. Expanding about $\vec\phi=0$ gives the classical mass matrix $M^2=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$. Its eigenvalues are the classical particle masses, which form the Perron–Frobenius eigenvector of the Cartan matrix [@braden1990; @freeman1991].
 
 The sign in $V_{\rm imag}$ matters. It makes $\vec\phi=0$ a minimum ($V\simeq\tfrac12\vec\phi^{\mathsf T}M^2\vec\phi$). In the Euclidean theory it gives positive fugacities (Section 5).
 
-The theories are classically integrable. They have a Lax pair and conserved charges of spins equal to the exponents of $\hat g$ modulo the Coxeter number [Olive–Turok 1985]. The higher-spin charges survive quantization [Feigin–Frenkel 1993; Delius–Grisaru–Zanon 1992; Niedermaier 1994].
+The theories are classically integrable. They have a Lax pair and conserved charges of spins equal to the exponents of $\hat g$ modulo the Coxeter number [@olive1985]. The higher-spin charges survive quantization [@feigin1993; @dgz1992; @niedermaier1994].
 
 ### 2.3 Imaginary coupling: vacua, solitons, symmetry
 
@@ -157,12 +160,12 @@ $$
 \vec\phi=\frac i\beta\sum_j\frac{2\vec\alpha_j}{\alpha_j^2}\ln\tau_j,
 $$
 
-with each $\tau_j$ a finite sum of products of exponentials of linear functions of $x$ and $t$ [Hollowood 1992; Olive–Turok–Underwood 1993; Kneipp–Olive 1996]. The soliton masses are proportional to particle masses:
+with each $\tau_j$ a finite sum of products of exponentials of linear functions of $x$ and $t$ [@hollowood1992; @olive1993a; @olive1993b; @kneipp1996]. The soliton masses are proportional to particle masses:
 
 - in the simply-laced and twisted cases, to the particle masses of the same theory;
 - in the untwisted non-simply-laced cases, to those of the theory based on $(g^\vee)^{(1)}$ ("Lie duality").
 
-The quantum theory has a non-local $U_q(\hat g^\vee)$ symmetry with $q=\pm e^{4\pi^2i/\beta^2}$ [Bernard–LeClair 1991; Felder–LeClair 1992]. Soliton S-matrices are therefore proportional to $U_q(\hat g^\vee)$ R-matrices.
+The quantum theory has a non-local $U_q(\hat g^\vee)$ symmetry with $q=\pm e^{4\pi^2i/\beta^2}$ [@bernard1991; @felder1992]. Soliton S-matrices are therefore proportional to $U_q(\hat g^\vee)$ R-matrices.
 
 ---
 
@@ -176,37 +179,37 @@ $$
 \{x\}=\frac{(x-1)(x+1)}{(x-1+B)(x+1-B)},\qquad (x)=\frac{\sinh\left(\frac\theta2+\frac{i\pi x}{2h}\right)}{\sinh\left(\frac\theta2-\frac{i\pi x}{2h}\right)},\qquad B(\beta)=\frac{1}{2\pi}\frac{\beta^2}{1+\beta^2/4\pi},
 $$
 
-constructed by Braden, Corrigan, Dorey and Sasaki, Christe and Mussardo, and Klassen and Melzer (all 1990), with a universal root-system formula due to Dorey [Dorey 1991].
+constructed by Braden, Corrigan, Dorey and Sasaki, Christe and Mussardo, and Klassen and Melzer (all 1990), with a universal root-system formula due to Dorey [@dorey1991].
 
-**Non-simply-laced algebras.** The S-matrices were found by Delius, Grisaru and Zanon [1992] and by Corrigan, Dorey and Sasaki [1993]. Here the Coxeter number "floats" with the coupling and interpolates between $h$ and $h^\vee$ of the dual algebra. The S-matrices of a dual pair are exchanged under $\beta\to4\pi/\beta$.
+**Non-simply-laced algebras.** The S-matrices were found by Delius, Grisaru and Zanon [-@dgz1992] and by Corrigan, Dorey and Sasaki [-@corrigan1993]. Here the Coxeter number "floats" with the coupling and interpolates between $h$ and $h^\vee$ of the dual algebra. The S-matrices of a dual pair are exchanged under $\beta\to4\pi/\beta$.
 
-**Checks.** These S-matrices have been checked at one loop [Braden et al. 1990; Delius–Grisaru–Zanon 1992], by Monte Carlo simulation (hep-th/9206112, hep-th/9508007), and more recently by tree-level and loop integrability arguments [Dorey–Polvara 2022].
+**Checks.** These S-matrices have been checked at one loop [@braden1990; @dgz1992], by Monte Carlo simulation (hep-th/9206112, hep-th/9508007), and more recently by tree-level and loop integrability arguments [@dorey_polvara2022].
 
 **Further results.** Further [Established] results include:
 
-- thermodynamic Bethe ansatz [Al. Zamolodchikov 1990; Klassen–Melzer 1990];
-- form factors [Fring–Mussardo–Simonetti 1993];
-- the exact mass–coupling relation [Fateev 1994];
-- ODE/IM descriptions [Lukyanov–Zamolodchikov 2010; Dorey et al. 2013; Ito–Locke 2014].
+- thermodynamic Bethe ansatz [@zamolodchikov1990; @klassen1990];
+- form factors [@fring1993];
+- the exact mass–coupling relation [@fateev1994];
+- ODE/IM descriptions [@lukyanov2010; @dorey2013; @ito2014].
 
-**Rigour.** The real-coupling potentials are bounded below and real, so these theories fall into the class of exponential interactions constructed rigorously by Albeverio and Høegh-Krohn [1974]. That construction gives the Wightman axioms and a mass gap for a single field in the super-renormalizable range. Extending it to several fields is expected to be routine, but to our knowledge has not been written down.
+**Rigour.** The real-coupling potentials are bounded below and real, so these theories fall into the class of exponential interactions constructed rigorously by Albeverio and Høegh-Krohn [-@albeverio1974]. That construction gives the Wightman axioms and a mass gap for a single field in the super-renormalizable range. Extending it to several fields is expected to be routine, but to our knowledge has not been written down.
 
 ### 3.2 Imaginary coupling: classical theory
 
-**Solutions.** Single and multi-soliton solutions are known for all algebras [Hollowood 1992; Olive–Turok–Underwood 1993; Kneipp–Olive 1996; MacKay–McGhee 1993; Aratyn–Constantinidis–Ferreira 1993; Zhu–Caldi 1995]. So are breathers [Harder–Iskandar–McGhee 1995] and soliton time delays [Fring–Johnson–Kneipp–Olive 1994].
+**Solutions.** Single and multi-soliton solutions are known for all algebras [@hollowood1992; @olive1993a; @olive1993b; @kneipp1996; @mackay1993; @aratyn1993; @zhu1995]. So are breathers [@harder1995] and soliton time delays [@fring1994].
 
-**Reality.** Although the fields are complex, the energy–momentum tensor is a total derivative up to an improvement term, and the energies are real [Olive–Turok–Underwood 1993; Zhu–Caldi 1995]. So are all the higher conserved charges [Freeman 1995].
+**Reality.** Although the fields are complex, the energy–momentum tensor is a total derivative up to an improvement term, and the energies are real [@olive1993a; @olive1993b; @zhu1995]. So are all the higher conserved charges [@freeman1995].
 
 **Known problems.**
 
-- The topological charges of single solitons do not fill the expected representations [McGhee 1994].
+- The topological charges of single solitons do not fill the expected representations [@mcghee1994].
 - Some solutions are singular at isolated spacetime points.
-- There are solutions with complex energy that become singular in finite time, and solutions with negative energy [Khastgir–Sasaki 1996].
-- In $a_2^{(1)}$, soliton–breather scattering produces *complex* classical time delays and can drive regular initial data into singular final states [Takács–Watts 1999].
+- There are solutions with complex energy that become singular in finite time, and solutions with negative energy [@khastgir1996].
+- In $a_2^{(1)}$, soliton–breather scattering produces *complex* classical time delays and can drive regular initial data into singular final states [@tw1999].
 
 ### 3.3 Imaginary coupling: quantum theory
 
-**Soliton S-matrices.** Their status is summarized below. They are built from $U_q(\hat g^\vee)$ R-matrices and fixed by crossing, unitarity in the R-matrix sense, and the bootstrap. In every case examined, the lowest breathers reproduce the real-coupling particle S-matrices continued to imaginary coupling (breather–particle identification [Smirnov 1991; Gandenberger 1995; Gandenberger–MacKay 1995; GMW 1996; Takács 1997]).
+**Soliton S-matrices.** Their status is summarized below. They are built from $U_q(\hat g^\vee)$ R-matrices and fixed by crossing, unitarity in the R-matrix sense, and the bootstrap. In every case examined, the lowest breathers reproduce the real-coupling particle S-matrices continued to imaginary coupling (breather–particle identification [@smirnov1991; @gandenberger1995; @gm1995; @gmw1996; @takacs1997a; @takacs1997b; @takacs1997c]).
 
 | $\hat g$ | soliton S-matrix | charge algebra |
 |---|---|---|
@@ -220,28 +223,28 @@ constructed by Braden, Corrigan, Dorey and Sasaki, Christe and Mussardo, and Kla
 | $d_n^{(1)},e_n^{(1)}$ | Johnson 1997 (some scalar factors undetermined) | self-dual |
 | $c_2^{(1)}\simeq b_2^{(1)}$ | via GMW 1996 | $U_q(a_3^{(2)})$ |
 | $c_n^{(1)}$, $n\ge3$ | **not constructed** | $U_q(d_{n+1}^{(2)})$ |
-| $f_4^{(1)}$ | **not constructed** (only the $\mathbf{27}$ R-matrix is known [GMW 1996]) | $U_q(e_6^{(2)})$ |
+| $f_4^{(1)}$ | **not constructed** (only the $\mathbf{27}$ R-matrix is known [@gmw1996]) | $U_q(e_6^{(2)})$ |
 | $e_6^{(2)}$ | **not constructed** | $U_q(f_4^{(1)})$ |
 | $a_{2n-1}^{(2)}$ | **not constructed** (spinor R-matrices missing) | $U_q(b_n^{(1)})$ |
 
-The bold entries are, to our knowledge, still open. The obstacle in each case is constructing R-matrices in representations whose tensor products are not multiplicity-free [GMW 1996; Delius–Gould–Zhang 1996].
+The bold entries are, to our knowledge, still open. The obstacle in each case is constructing R-matrices in representations whose tensor products are not multiplicity-free [@gmw1996; @dgz1996].
 
-For $a_{2n-1}^{(2)}$ there is lattice information. Vernier, Jacobsen and Saleur [2016] identify the scaling limit of the staggered $U_q(a_{2n-1}^{(2)})$ vertex model, in two of its three regimes, with imaginary-coupling $a_{2n-1}^{(2)}$ Toda theory, and find $n$ soliton types with coupling-dependent mass ratios [Established; computed, not proved]. They note that no systematic S-matrix study exists for this family beyond $a_3^{(2)}=d_3^{(2)}$, where the lattice reproduces [Gandenberger–MacKay 1995]. In their construction the lattice carries $U_q(a_{2n-1}^{(2)})$, while the soliton S-matrix carries $U_q(b_n^{(1)})$ (table above). In the third regime the same vertex model has a non-compact continuum limit.
+For $a_{2n-1}^{(2)}$ there is lattice information. Vernier, Jacobsen and Saleur [-@vernier2016] identify the scaling limit of the staggered $U_q(a_{2n-1}^{(2)})$ vertex model, in two of its three regimes, with imaginary-coupling $a_{2n-1}^{(2)}$ Toda theory, and find $n$ soliton types with coupling-dependent mass ratios [Established; computed, not proved]. They note that no systematic S-matrix study exists for this family beyond $a_3^{(2)}=d_3^{(2)}$, where the lattice reproduces [@gm1995]. In their construction the lattice carries $U_q(a_{2n-1}^{(2)})$, while the soliton S-matrix carries $U_q(b_n^{(1)})$ (table above). In the third regime the same vertex model has a non-compact continuum limit.
 
-**Semiclassical masses.** One-loop soliton masses were computed by the DHN method for $a_n^{(1)}$ [Hollowood 1993], for $c_2^{(1)}$ [Watts 1994], and for all algebras [MacKay–Watts 1995], with a competing result for $c_n^{(1)}$ [Delius–Grisaru 1995]. The exact $b_n^{(1)}$ masses disagree with MacKay and Watts' tabulated semiclassics [GMW 1996], and the issue was left unresolved [Gandenberger–MacKay 1996]. Section 8 resolves it.
+**Semiclassical masses.** One-loop soliton masses were computed by the DHN method for $a_n^{(1)}$ [@hollowood1993a; @hollowood1993b], for $c_2^{(1)}$ [Watts 1994], and for all algebras [@mackay_watts1995], with a competing result for $c_n^{(1)}$ [@delius_grisaru1995]. The exact $b_n^{(1)}$ masses disagree with MacKay and Watts' tabulated semiclassics [@gmw1996], and the issue was left unresolved [@gm1997]. Section 8 resolves it.
 
-**Restrictions.** At $q$ a root of unity, quantum-group (RSOS) restriction yields perturbed minimal models [Reshetikhin–Smirnov 1990; Smirnov 1991; Efthimiou 1993; de Vega–Fateev 1991; Takács–Kausch–Watts 1997; Takács 1997]. Some of these are unitary. Others have complex finite-volume spectra, confirmed by the truncated conformal space approach [Takács–Kausch–Watts 1997; Takács–Watts 2002].
+**Restrictions.** At $q$ a root of unity, quantum-group (RSOS) restriction yields perturbed minimal models [@reshetikhin1990; @smirnov1991; @efthimiou1993; @devega1991; @tkw1997; @takacs1997a; @takacs1997b; @takacs1997c]. Some of these are unitary. Others have complex finite-volume spectra, confirmed by the truncated conformal space approach [@tkw1997; @tw2002].
 
-**Non-unitarity.** Takács and Watts [1999, 2002] showed the following.
+**Non-unitarity.** Takács and Watts [-@tw1999; -@tw2002] showed the following.
 
 - In $a_2^{(1)}$, soliton–antisoliton and soliton–breather amplitudes do not have phase eigenvalues for real rapidity. The soliton–breather case is mirrored exactly by complex classical time delays, and it survives RSOS restriction because breathers are quantum-group singlets.
 - In $a_2^{(2)}$, the fundamental soliton–soliton amplitudes are well behaved, but soliton–excited-soliton amplitudes are not, so the spectrum is real only in the repulsive regime.
 - All theories based on $a_1^{(1)}$ have real finite-volume spectra.
 - A formal S-matrix description remains valid, and agrees with numerics, even when the spectrum is complex.
 
-**Two notions of unitarity.** Delius [1995] showed that S-matrices built from the universal R-matrix of $U_q(\hat g)$ satisfy crossing, the bootstrap and the relation $S_{ba}(-\theta)S_{ab}(\theta)=1$ as consequences of the Hopf-algebra axioms. He also showed that the Lorentz spins of the charges fix the gradation, which makes the pole positions coupling-dependent through a "quantum" dual Coxeter number. He stressed that the relation usually called unitarity is unrelated to whether the field theory is unitary.
+**Two notions of unitarity.** Delius [-@delius1995] showed that S-matrices built from the universal R-matrix of $U_q(\hat g)$ satisfy crossing, the bootstrap and the relation $S_{ba}(-\theta)S_{ab}(\theta)=1$ as consequences of the Hopf-algebra axioms. He also showed that the Lorentz spins of the charges fix the gradation, which makes the pole positions coupling-dependent through a "quantum" dual Coxeter number. He stressed that the relation usually called unitarity is unrelated to whether the field theory is unitary.
 
-Miramontes [1999] identified the missing condition. Braiding unitarity is equivalent to QFT unitarity when the S-matrix is also Hermitian analytic, a basis-dependent property that quantum-group S-matrices generally violate in the particle basis. Hoare, Hollowood and Miramontes [2013] later found that, for $q$ a root of unity, the IRF (RSOS) form of the $U_q(su(2)^{(1)})$-based S-matrices they studied (a $q$-deformed world-sheet theory and a generalized sine-Gordon theory) is manifestly Hermitian analytic, and hence unitary.
+Miramontes [-@miramontes1999] identified the missing condition. Braiding unitarity is equivalent to QFT unitarity when the S-matrix is also Hermitian analytic, a basis-dependent property that quantum-group S-matrices generally violate in the particle basis. Hoare, Hollowood and Miramontes [-@hoare2013] later found that, for $q$ a root of unity, the IRF (RSOS) form of the $U_q(su(2)^{(1)})$-based S-matrices they studied (a $q$-deformed world-sheet theory and a generalized sine-Gordon theory) is manifestly Hermitian analytic, and hence unitary.
 
 ---
 
@@ -259,17 +262,17 @@ We list the gaps between what the literature uses and what it establishes. In ea
 
 **H5. Vacuum.** With a non-Hermitian Hamiltonian, nothing a priori guarantees a real ground-state energy, or even that the vacuum is the state of lowest real energy.
 
-**H6. Classical reality.** Reality of soliton energies has been shown for specific solution classes. There are also complex-energy and negative-energy solutions [Khastgir–Sasaki 1996], and singular ones. No general criterion distinguishes the solutions that should count as physical.
+**H6. Classical reality.** Reality of soliton energies has been shown for specific solution classes. There are also complex-energy and negative-energy solutions [@khastgir1996], and singular ones. No general criterion distinguishes the solutions that should count as physical.
 
-**H7. Complex saddles.** DHN semiclassics expands around complex solitons. The justification usually offered (steepest descent may leave the real contour) does not say *which* complex saddles contribute, nor with what weight [MacKay–Watts 1995].
+**H7. Complex saddles.** DHN semiclassics expands around complex solitons. The justification usually offered (steepest descent may leave the real contour) does not say *which* complex saddles contribute, nor with what weight [@mackay_watts1995].
 
-**H8. Semiclassical quantization.** The fluctuation operator around a complex soliton is not Hermitian. Mode sums with orthonormal eigenfunctions assume it is diagonalizable, and independent calculations disagree ($c_n^{(1)}$ [Delius–Grisaru 1995; MacKay–Watts 1995]; $b_n^{(1)}$ semiclassics versus exact [GMW 1996]).
+**H8. Semiclassical quantization.** The fluctuation operator around a complex soliton is not Hermitian. Mode sums with orthonormal eigenfunctions assume it is diagonalizable, and independent calculations disagree ($c_n^{(1)}$ [@delius_grisaru1995; @mackay_watts1995]; $b_n^{(1)}$ semiclassics versus exact [@gmw1996]).
 
-**H9. Non-unitarity.** Most soliton S-matrices are not unitary. Some amplitudes do not have phase eigenvalues, and finite-volume spectra can be complex [Takács–Watts 1999, 2002]. It is unclear what replaces unitarity and what consistency conditions survive.
+**H9. Non-unitarity.** Most soliton S-matrices are not unitary. Some amplitudes do not have phase eigenvalues, and finite-volume spectra can be complex [@tw1999; @tw2002]. It is unclear what replaces unitarity and what consistency conditions survive.
 
-**H10. Exact S-matrices.** They are conjectures, built on quantum-group symmetry, R-matrix unitarity, crossing and the bootstrap. They are incomplete for four families (Section 3.3). Even where they exist, identifying the full spectrum is subtle: a closed bootstrap can contain particles that are neither solitons nor breathers [Takács–Watts 1999].
+**H10. Exact S-matrices.** They are conjectures, built on quantum-group symmetry, R-matrix unitarity, crossing and the bootstrap. They are incomplete for four families (Section 3.3). Even where they exist, identifying the full spectrum is subtle: a closed bootstrap can contain particles that are neither solitons nor breathers [@tw1999].
 
-**H11. Missing classical solutions.** The topological charges of classical solitons do not fill the quantum multiplets [McGhee 1994]. Classical counterparts of some quantum bound states are not known [Takács–Watts 1999].
+**H11. Missing classical solutions.** The topological charges of classical solitons do not fill the quantum multiplets [@mcghee1994]. Classical counterparts of some quantum bound states are not known [@tw1999].
 
 **H12. Unitary subtheories.** RSOS restriction sometimes yields unitary theories and sometimes not, depending on the coupling, the gradation, and whether breathers survive. There is no general criterion.
 
@@ -446,7 +449,7 @@ where the minimum runs over clusters with a positive denominator. Some values:
 
 With pointwise Wick ordering (Section 6.2), Hepp-sector power counting shows that the continuum integrand of each term of (5.2) is integrable near every *bulk* collapse exactly when $\beta^2<\beta^2_{\rm UV}$. In a Hepp sector the iterated integral at a node $S$ converges if and only if $2(\lvert S\rvert-1)>\frac{\beta^2}{4\pi}\big(\sum_{k\in S}\lvert\vec\alpha_k\rvert^2-\lvert\sum_{k\in S}\vec\alpha_k\rvert^2\big)$. Proposition 6.7 gives the "only if" direction rigorously. Proposition 6.13 gives the "if" direction at sketch level, including the boundary layer for clusters near a Dirichlet wall. With a site-independent Wick constant even the one-charge term diverges for $\beta^2\ge2\pi$ (Proposition 6.3).
 
-**The thresholds as resonances.** Let $\hat g$ be simply laced, write $x=\beta^2/2\pi$ for the scaling dimension of $e^{i\beta\vec\alpha_j\cdot\vec\phi}$, and let $g$ be the physical coupling (Section 6.2). By dimensional analysis the bulk vacuum-energy density is proportional to $g^{2/(2-x)}$, while a cluster of $k$ copies of the neutral cluster first contributes to it at order $g^{kh}$. The two have the same dimension exactly when $x=2-2/(kh)$, that is $\beta^2=4\pi(1-1/kh)$, which are the neutral thresholds above. For sine-Gordon ($h=2$) these are the poles of the exact bulk energy $-\frac{m^2}4\tan\frac{\pi\xi}2$, with $\xi=\beta^2/(4\pi-\beta^2)$, at odd $\xi$ [Established; Al.B. Zamolodchikov 1995]. By Theorem B the coefficient of $g^{kh}$ is positive and cannot vanish accidentally. For the other simply-laced algebras we therefore expect the exact bulk energy, written in terms of the bare coupling, to be singular at these couplings; no such resonance falls at $\beta^2=2\pi$ when $h\ge3$ [heuristic]. This can be tested with the integrable lattice regularizations of open problem 8, in which the thresholds of $a_{N-1}^{(1)}$ sit at $q^{kN}=-1$.
+**The thresholds as resonances.** Let $\hat g$ be simply laced, write $x=\beta^2/2\pi$ for the scaling dimension of $e^{i\beta\vec\alpha_j\cdot\vec\phi}$, and let $g$ be the physical coupling (Section 6.2). By dimensional analysis the bulk vacuum-energy density is proportional to $g^{2/(2-x)}$, while a cluster of $k$ copies of the neutral cluster first contributes to it at order $g^{kh}$. The two have the same dimension exactly when $x=2-2/(kh)$, that is $\beta^2=4\pi(1-1/kh)$, which are the neutral thresholds above. For sine-Gordon ($h=2$) these are the poles of the exact bulk energy $-\frac{m^2}4\tan\frac{\pi\xi}2$, with $\xi=\beta^2/(4\pi-\beta^2)$, at odd $\xi$ [Established, @zamolodchikov1995]. By Theorem B the coefficient of $g^{kh}$ is positive and cannot vanish accidentally. For the other simply-laced algebras we therefore expect the exact bulk energy, written in terms of the bare coupling, to be singular at these couplings; no such resonance falls at $\beta^2=2\pi$ when $h\ge3$ [heuristic]. This can be tested with the integrable lattice regularizations of open problem 8, in which the thresholds of $a_{N-1}^{(1)}$ sit at $q^{kN}=-1$.
 
 ### 6.2 Wick ordering and the statement
 
@@ -460,7 +463,7 @@ $$
 
 which replaces $z$ by $z_{a,j}(u)=z\,e^{\frac12\beta^2\lvert\vec\alpha_j\rvert^2C_a(u,u)}$ in (5.1). These fugacities depend on the root and on the spatial coordinate of $u$ only, so Theorems A–D apply to them (Section 5.1). External vertex operators are Wick ordered in the same way.
 
-**What pointwise Wick ordering means.** For fixed interior $u$, $C_a(u,u)=\frac1{2\pi}\ln\frac{R_\Omega(u)}a+c_0+o(1)$ as $a\to0$. Here $R_\Omega(u)$ is the conformal radius of $\Omega$ at $u$, defined by $G_\Omega(u,v)=\frac1{2\pi}\ln\frac{R_\Omega(u)}{\lvert u-v\rvert}+o(1)$ as $v\to u$, and $c_0$ is a lattice constant [Established; Lawler–Limic 2010]. Normalize vertex operators instead at the lattice scale, by the $u$-independent factor $e^{\frac12\lvert q_j\rvert^2(\frac1{2\pi}\ln\frac1a+c_0)}$. Relative to that normalization, pointwise Wick ordering is the position-dependent coupling
+**What pointwise Wick ordering means.** For fixed interior $u$, $C_a(u,u)=\frac1{2\pi}\ln\frac{R_\Omega(u)}a+c_0+o(1)$ as $a\to0$. Here $R_\Omega(u)$ is the conformal radius of $\Omega$ at $u$, defined by $G_\Omega(u,v)=\frac1{2\pi}\ln\frac{R_\Omega(u)}{\lvert u-v\rvert}+o(1)$ as $v\to u$, and $c_0$ is a lattice constant [Established, @lawler2010]. Normalize vertex operators instead at the lattice scale, by the $u$-independent factor $e^{\frac12\lvert q_j\rvert^2(\frac1{2\pi}\ln\frac1a+c_0)}$. Relative to that normalization, pointwise Wick ordering is the position-dependent coupling
 
 $$
 g_j(u)=z\,R_\Omega(u)^{x_j},\qquad x_j=\kappa\lvert\vec\alpha_j\rvert^2,
@@ -492,7 +495,7 @@ Pointwise Wick ordering removes exactly the diagonal terms $k=l$; pairs $k\ne l$
 
 Condition (6.2) says that no cluster collapsing onto an external charge is divergent. Each ingredient of the proposition is necessary: Proposition 6.3 shows that part 1 fails for a site-independent Wick constant when $\beta^2\ge2\pi$, that $Z_\Lambda$ itself tends to zero, and that part 2 fails whenever (6.2) is violated with $\lvert S\rvert=1$. Proposition 6.7 shows that part 1 fails for $\beta^2\ge\beta^2_{\rm UV}$.
 
-**Conjecture 6.2 [Conjecture].** For $0<\beta^2<4\pi$ (in our normalization, the range in which the vertex operators $e^{i\beta\vec\alpha_j\cdot\vec\phi}$ of the long roots are relevant), the infinite-volume Schwinger functions of vertex operators exist and decay exponentially, so there is a mass gap. For $\beta^2_{\rm UV}\le\beta^2<4\pi$ this requires additional counterterms generated by the collapsing clusters (Proposition 6.7 shows that some are needed). Only finitely many cluster types diverge in this range, since a divergent cluster has $\lvert S\rvert\le1/(1-\kappa)$, and we conjecture that the corresponding counterterms suffice, as in the Benfatto–Gallavotti–Nicolò treatment of sine-Gordon [BGN 1982]. For simply-laced $\hat g$ the counterterms can be specified. By Section 6.1, a bulk cluster with non-zero net charge diverges only at $\beta^2\ge4\pi$. So in this range every divergent bulk cluster consists of $k$ copies of the neutral cluster, and the bulk counterterms are field-independent: vacuum-energy terms at orders $z^{kh}$, at the resonances described in Section 6.1. Boundary terms near the Dirichlet walls are not covered by this count. For sine-Gordon the same count puts the first non-neutral divergence at $\beta_{\rm SG}^2=8\pi$.
+**Conjecture 6.2 [Conjecture].** For $0<\beta^2<4\pi$ (in our normalization, the range in which the vertex operators $e^{i\beta\vec\alpha_j\cdot\vec\phi}$ of the long roots are relevant), the infinite-volume Schwinger functions of vertex operators exist and decay exponentially, so there is a mass gap. For $\beta^2_{\rm UV}\le\beta^2<4\pi$ this requires additional counterterms generated by the collapsing clusters (Proposition 6.7 shows that some are needed). Only finitely many cluster types diverge in this range, since a divergent cluster has $\lvert S\rvert\le1/(1-\kappa)$, and we conjecture that the corresponding counterterms suffice, as in the Benfatto–Gallavotti–Nicolò treatment of sine-Gordon [@benfatto1982]. For simply-laced $\hat g$ the counterterms can be specified. By Section 6.1, a bulk cluster with non-zero net charge diverges only at $\beta^2\ge4\pi$. So in this range every divergent bulk cluster consists of $k$ copies of the neutral cluster, and the bulk counterterms are field-independent: vacuum-energy terms at orders $z^{kh}$, at the resonances described in Section 6.1. Boundary terms near the Dirichlet walls are not covered by this count. For sine-Gordon the same count puts the first non-neutral divergence at $\beta_{\rm SG}^2=8\pi$.
 
 The evidence for this conjecture is the sine-Gordon case ($a_1^{(1)}$), where it is established, together with the existence and internal consistency of the exact S-matrices throughout this range.
 
@@ -504,7 +507,7 @@ The evidence for this conjecture is the sine-Gordon case ($a_1^{(1)}$), where it
 - **(G4)** $C_a(u,v)\le\frac1{4\pi}\ln\big(1+4d_ud_v/\max(\lvert u-v\rvert,a)^2\big)+K$, where $d_u$ is the distance from $u$ to the nearer Dirichlet row.
 - **(G5)** For the lattice ball $B$ of radius $\rho$ about $x$, $G_B(x,y)=\frac1{2\pi}\ln\frac{\rho}{\max(\lvert x-y\rvert,a)}+O(1)$ for $\lvert x-y\rvert\le\rho/2$, and $G_B(x,y)\le c$ for $\lvert x-y\rvert\ge\rho/2$.
 
-These follow from domain monotonicity, from the image formula on the half-cylinder (the half-plane Green function $\mathfrak a(u-\bar v)-\mathfrak a(u-v)$, with $\bar v$ the reflection of $v$ in the wall, plus summable periodic images), from comparison with a disc of radius $m$, and from the potential-kernel asymptotics $\mathfrak a(x)=\frac1{2\pi}\ln\lvert x\rvert+O(1)$ [Lawler–Limic 2010, Thm 4.4.4, rescaled to $-\Delta$]. (G4) is the image bound $G(x,y)=\frac1{4\pi}\ln(1+4d_xd_y/\lvert x-y\rvert^2)$ for the half-plane, and (G5) is the standard asymptotics of Green functions of lattice balls [Lawler–Limic 2010, Ch. 6].
+These follow from domain monotonicity, from the image formula on the half-cylinder (the half-plane Green function $\mathfrak a(u-\bar v)-\mathfrak a(u-v)$, with $\bar v$ the reflection of $v$ in the wall, plus summable periodic images), from comparison with a disc of radius $m$, and from the potential-kernel asymptotics $\mathfrak a(x)=\frac1{2\pi}\ln\lvert x\rvert+O(1)$ [@lawler2010, Thm 4.4.4, rescaled to $-\Delta$]. (G4) is the image bound $G(x,y)=\frac1{4\pi}\ln(1+4d_xd_y/\lvert x-y\rvert^2)$ for the half-plane, and (G5) is the standard asymptotics of Green functions of lattice balls [@lawler2010, Ch. 6].
 
 ### 6.3 The corrections are necessary
 
@@ -536,7 +539,7 @@ $$
 $$
 Then parts 1 and 2 of Proposition 6.1 hold, for every affine algebra. Uniformly in $a$, the $N$-th term of $\Xi_a(w,v)$ is at most $K_0(Kz)^N(N+M)!^{\gamma/2}/N!$.
 
-For sine-Gordon, $\beta^2_{\rm UV}=2\pi$, so Theorem E covers the whole range of Proposition 6.1, consistent with [Fröhlich 1976].
+For sine-Gordon, $\beta^2_{\rm UV}=2\pi$, so Theorem E covers the whole range of Proposition 6.1, consistent with [@frohlich1976].
 
 **Lemma 6.4 (lattice Newton theorem) [Theorem].** Let $s_1,\dots,s_n$ be distinct interior sites carrying charges $Q_i\in\mathbb R^r$. Let $d_0=\min(L_t,L_x)/4$, let $\delta_i=\min\big(d_0,\min_{i'\ne i}\lvert s_i-s_{i'}\rvert\big)$, and let $\rho_i=(\delta_i-a)/2-a/8$. Let $B_i$ be the set of interior sites $y$ with $\lvert y-s_i\rvert\le\rho_i$ (empty if $\rho_i<0$), and let $\mu_i$ be the exit law from $B_i$ of simple random walk started at $s_i$ and killed on the Dirichlet rows (so $\mu_i=\delta_{s_i}$ if $B_i$ is empty). Then
 $$
@@ -622,7 +625,7 @@ By Section 6.1 this window is non-empty for every algebra except $a_1^{(1)}$. Th
 
 *Proof.* Near the diagonal, $e^{2\beta^2G_\Omega(x,y)}\ge c\lvert x-y\rvert^{-\beta^2/\pi}$, which is not integrable in two dimensions for $\beta^2\ge2\pi$. The lattice statements follow by Fatou and (G2). $\square$
 
-Consistently with part 2, imaginary multiplicative chaos for a single root is constructed for $\lvert q\rvert^2<4\pi$ [Junnila–Saksman–Webb 2020; see also Lacoin–Rhodes–Vargas 2015 for complex chaos], that is for $\beta^2<2\pi$ on long roots. So the probabilistic route reaches the same range as Theorem E and no further.
+Consistently with part 2, imaginary multiplicative chaos for a single root is constructed for $\lvert q\rvert^2<4\pi$ [@junnila2020; see also @lacoin2015 for complex chaos], that is for $\beta^2<2\pi$ on long roots. So the probabilistic route reaches the same range as Theorem E and no further.
 
 Below $\beta^2_{\rm UV}$ neither failure reflects the true weights. Both arise because the bounds introduce the conjugate charge $-\vec\alpha_j$, which is not in the gas for rank $\ge2$: no simple affine root is the negative of another except in $a_1^{(1)}$. Closing the window therefore needs a genuinely vector-valued stability estimate that uses $\vec\alpha_j+\vec\alpha_k\ne0$.
 
@@ -815,13 +818,13 @@ Given Proposition 6.13, Estimate (S), and hence Proposition 6.1 in the window, i
 
 ### 7.1 Reality of energy and momentum
 
-**Proposition 7.1 [Established; reformulated].** For a Hirota solution, the energy and momentum densities are total derivatives [Olive–Turok–Underwood 1993]. They integrate to
+**Proposition 7.1 [Established; reformulated].** For a Hirota solution, the energy and momentum densities are total derivatives [@olive1993a; @olive1993b]. They integrate to
 
 $$
 E=\sum_iM_{a_i}\cosh\theta_i,\qquad P=\sum_iM_{a_i}\sinh\theta_i,
 $$
 
-where $(a_i,\theta_i)$ are the species and (possibly complex) rapidities of the constituent solitons [Takács–Watts 1999, eq. 4.6]. The masses $M_a$ are real and positive. The same holds for all higher conserved charges [Freeman 1995].
+where $(a_i,\theta_i)$ are the species and (possibly complex) rapidities of the constituent solitons [@tw1999, eq. 4.6]. The masses $M_a$ are real and positive. The same holds for all higher conserved charges [@freeman1995].
 
 On Hirota data, $\Theta$ acts as $\tau_j\mapsto\bar\tau_j$. That is, $(a,\theta,p)\mapsto(\bar a,\bar\theta,\bar p)$, where $\bar a$ is the conjugate species ($\omega^{ja}\mapsto\omega^{-ja}$). Consequently:
 
@@ -834,7 +837,7 @@ This closes H6, apart from the question of singularities. The restriction to "go
 
 Zeros of $\tau_j$ in the real $(x,t)$ plane are isolated points: one complex condition, two real conditions. There the energy density has double poles with zero residue, so integrated charges are unaffected, and the Hirota data continue analytically through the singularity.
 
-The genuinely problematic phenomenon is different. In theories with non-self-conjugate species, soliton–breather scattering produces complex time delays and can carry regular data into singular regions [Takács–Watts 1999]. This is the classical image of a quantum sector in which $\Theta$ is broken (Section 9.3). It is not a failure of the formalism.
+The genuinely problematic phenomenon is different. In theories with non-self-conjugate species, soliton–breather scattering produces complex time delays and can carry regular data into singular regions [@tw1999]. This is the classical image of a quantum sector in which $\Theta$ is broken (Section 9.3). It is not a failure of the formalism.
 
 ---
 
@@ -842,7 +845,7 @@ The genuinely problematic phenomenon is different. In theories with non-self-con
 
 ### 8.1 Thimbles
 
-The lattice integral (5.1) is a finite-dimensional integral of a holomorphic function of the complexified fields. Picard–Lefschetz theory therefore applies to it directly [Pham 1983; Witten 2010]. The integral decomposes as
+The lattice integral (5.1) is a finite-dimensional integral of a holomorphic function of the complexified fields. Picard–Lefschetz theory therefore applies to it directly [@pham1983; @witten2010]. The integral decomposes as
 
 $$
 \int_{\mathbb R^n}=\sum_\sigma n_\sigma\int_{\mathcal J_\sigma},
@@ -888,7 +891,7 @@ Three independent checks favour the algebraic-multiplicity count:
 - **Exact S-matrix.** The exact S-matrix of $c_2^{(1)}\simeq b_2^{(1)}$ agrees with the algebraic-multiplicity result to $O(\beta^4)$.
 - **Fate of the block.** That exact S-matrix resolves the Jordan block into two real bound states, bound below threshold by amounts proportional to $\beta^2$ and $\beta^4$.
 
-The details are in our companion analysis. For $b_n^{(1)}$, the exact masses of [GMW 1996] agree with the multiplicity-counted semiclassics, as those authors observed.
+The details are in our companion analysis. For $b_n^{(1)}$, the exact masses of [@gmw1996] agree with the multiplicity-counted semiclassics, as those authors observed.
 
 **Conjecture 8.2 [Conjecture].** For every $\hat g$ and every soliton obtained by folding Hirota multisolitons, the fluctuation solutions have the Hirota form (H) of Section 8.5. Then the factorization (F) holds by Theorem G, so the algebraic multiplicity of each isolated eigenvalue is the net order (zeros minus poles) of $\prod_bX_{ab}$, and the same net order is the weight in the one-loop trace. Wherever Hypothesis (R) holds, the Jordan blocks have the sizes of the individual zeros (Theorem F). Counting accordingly, the one-loop masses of all solitons obtained by folding multisolitons ($b_n^{(1)}$, $c_n^{(1)}$, $g_2^{(1)}$, $f_4^{(1)}$) satisfy
 
@@ -933,7 +936,7 @@ This is the least developed part of the foundation. Computing $n_\sigma$ even in
 - **(R2)** $(\psi_c-X_cG_c)|_{\mathbb R_+}$ is analytic as an $L^2(\mathbb R_+)$-valued function;
 - **(R3)** $G_c=e^{\kappa_cx}(e_c+o(1))$ as $x\to+\infty$.
 
-In words: $\psi_c$ is the channel-$c$ fluctuation solution, it is reflectionless, and it leaves through channel $c$ only, with nothing in open or threshold channels. This is the structure the semiclassical literature works with [Hollowood 1993; MacKay–Watts 1995]. It is not automatic. Proposition 8.6 shows that it fails where a zero of one transmission factor is cancelled by a pole of another. Proposition 8.7 shows that it fails at the $c_n^{(1)}$ blocks, where a forced tail of $\psi_c$ resonates with the threshold of another channel.
+In words: $\psi_c$ is the channel-$c$ fluctuation solution, it is reflectionless, and it leaves through channel $c$ only, with nothing in open or threshold channels. This is the structure the semiclassical literature works with [@hollowood1993a; @hollowood1993b; @mackay_watts1995]. It is not automatic. Proposition 8.6 shows that it fails where a zero of one transmission factor is cancelled by a pole of another. Proposition 8.7 shows that it fails at the $c_n^{(1)}$ blocks, where a forced tail of $\psi_c$ resonates with the threshold of another channel.
 
 **Theorem F [Theorem].** Assume (R) at $\lambda_0$, and let $p_c=\operatorname{ord}_{\lambda_0}X_c$ for $c\in C$. Then the vectors
 
@@ -961,7 +964,7 @@ form a basis of $\mathcal R(\lambda_0)$ made of Jordan chains: $(\mathcal A-\lam
 
 **Step 3: the chains span $\mathcal R(\lambda_0)$.**
 
-1. Consider the solutions of $(\mathcal A-\lambda_0)u=0$ that lie in $L^2(\mathbb R_-)$. Because the perturbation decays exponentially, asymptotic integration applies [Coddington–Levinson 1955, Ch. 3]. Open channels give oscillating solutions and threshold channels give $1$ and $x$, none of which are in $L^2$. So this space has dimension $\lvert C\rvert$, and the $\psi_c(\lambda_0)$ span it.
+1. Consider the solutions of $(\mathcal A-\lambda_0)u=0$ that lie in $L^2(\mathbb R_-)$. Because the perturbation decays exponentially, asymptotic integration applies [@coddington1955, Ch. 3]. Open channels give oscillating solutions and threshold channels give $1$ and $x$, none of which are in $L^2$. So this space has dimension $\lvert C\rvert$, and the $\psi_c(\lambda_0)$ span it.
 2. Let $u_0,\dots,u_{q-1}$ be any Jordan chain in $L^2$. We show by induction on $j$ that there is a polynomial vector $\alpha(\lambda)=(\alpha_c(\lambda))_{c\in C}$ such that $v(\lambda)=\sum_c\alpha_c(\lambda)\psi_c(\lambda)$ satisfies $u_i=\frac1{i!}\partial^iv(\lambda_0)$ for $i\le j$, and $(\alpha_cX_c)^{(i)}(\lambda_0)=0$ for all $i\le j$ and all $c$.
 3. *Base case $j=0$.* By item 1, $u_0=\sum a_c\psi_c(\lambda_0)$. On $\mathbb R_+$, $u_0=\sum a_cX_c(\lambda_0)G_c(\lambda_0)+L^2$. The $G_c(\lambda_0)$ are independent modulo $L^2(\mathbb R_+)$ by (R3), so $a_cX_c(\lambda_0)=0$ for every $c$. Take $\alpha=a$.
 4. *Step $j\to j+1$.* Since $(\mathcal A-\lambda_0)\big[\frac1{(j+1)!}\partial^{j+1}v(\lambda_0)\big]=u_j$, the difference between $u_{j+1}$ and that term is an $L^2(\mathbb R_-)$ solution, hence equal to $\sum b_c\psi_c(\lambda_0)$. Add $b_c(\lambda-\lambda_0)^{j+1}$ to $\alpha_c$; this does not change the lower derivatives. By (R2) and the induction hypothesis, $u_{j+1}=\sum_c\frac{(\alpha_cX_c)^{(j+1)}(\lambda_0)}{(j+1)!}G_c(\lambda_0)+L^2(\mathbb R_+)$. Since $u_{j+1}\in L^2$, each coefficient $(\alpha_cX_c)^{(j+1)}(\lambda_0)$ vanishes.
@@ -969,7 +972,7 @@ form a basis of $\mathcal R(\lambda_0)$ made of Jordan chains: $(\mathcal A-\lam
 
 **Step 4: self-orthogonality.** $\langle\chi_0,\chi_0\rangle=\langle(\mathcal A-\lambda_0)\chi_1,\chi_0\rangle=\langle\chi_1,(\mathcal A-\lambda_0)\chi_0\rangle=0$. $\square$
 
-**Remark.** Without the species-diagonal assumption, the same proof applies with $\psi_c-\sum_dT_{cd}G_d\in L^2(\mathbb R_+)$. It then gives $\dim\mathcal R(\lambda_0)=\operatorname{ord}_{\lambda_0}\det T$, with block sizes equal to the partial multiplicities of the matrix function $T$ at $\lambda_0$ [Gohberg–Sigal 1971]. Species-diagonality is what turns these into the individual orders. For isolated eigenvalues this recovers the Evans-function multiplicity theorem [Alexander–Gardner–Jones 1990] in this setting.
+**Remark.** Without the species-diagonal assumption, the same proof applies with $\psi_c-\sum_dT_{cd}G_d\in L^2(\mathbb R_+)$. It then gives $\dim\mathcal R(\lambda_0)=\operatorname{ord}_{\lambda_0}\det T$, with block sizes equal to the partial multiplicities of the matrix function $T$ at $\lambda_0$ [@gohberg1971]. Species-diagonality is what turns these into the individual orders. For isolated eigenvalues this recovers the Evans-function multiplicity theorem [@alexander1990] in this setting.
 
 **Lemma 8.4 [Theorem].** Suppose $\psi_b(\cdot,k)$ is an exact single-channel solution at both $k$ and $-k$, as the Hirota fluctuation solutions are. Then $X_b(k)\,X_{\bar b}(-k)=1$. In particular $X_b(0)\ne0$, so no transmission factor vanishes at its own threshold.
 
@@ -1023,7 +1026,7 @@ Consequently, part 1 of Proposition 8.5 holds unconditionally for such solitons.
 
 1. The Wronskian $W(\psi_b^-,\psi_d^+)$ is independent of $x$. For large $x$ it equals $e^{(\kappa_b-\kappa_d)x}F(x)$. Here $F(x)=\sum_rf_re^{-rx}$ is the convergent expansion of a rational function of the $E_i$, running over a discrete set of exponents $r\ge0$, and $f_0=-(\kappa_b+\kappa_d)X_b\,u_b^{\mathsf T}u_d$.
 2. Suppose $m_b\ne m_d$. For $\lambda$ off a discrete set, $\kappa_b-\kappa_d$ is non-real or avoids every $r$. Since exponentials with distinct exponents are linearly independent, constancy in $x$ forces every term to vanish, so $W=0$. Suppose instead $m_b=m_d$. Then only the $r=0$ term can survive, and $W=f_0=-2\kappa_bX_b\,u_b^{\mathsf T}u_d$. Both identities extend to all $\lambda$ by meromorphy. This proves item 1.
-3. By the matrix Jost–Pais formula [Jost–Pais 1951; Gesztesy–Makarov 2003; Gesztesy–Latushkin–Makarov 2007], $\det(I+K)=\det\mathcal W^{\rm J}/\det\mathcal W_0$. Here $\mathcal W^{\rm J}$ is the Wronskian matrix of the Jost solutions $\psi_b^{{\rm J},\mp}=e^{\pm\kappa_bx}(u_b+o(1))$ at $\mp\infty$.
+3. By the matrix Jost–Pais formula [@jost1951; @gesztesy2003; @gesztesy2007], $\det(I+K)=\det\mathcal W^{\rm J}/\det\mathcal W_0$. Here $\mathcal W^{\rm J}$ is the Wronskian matrix of the Jost solutions $\psi_b^{{\rm J},\mp}=e^{\pm\kappa_bx}(u_b+o(1))$ at $\mp\infty$.
 4. Take $\lambda$ off a null set, where the real parts $\operatorname{Re}\kappa_c$ are distinct. The difference $\psi_b^--\psi_b^{{\rm J},-}$ decays at $-\infty$ and is $o(e^{\operatorname{Re}\kappa_bx})$ there. So it is a combination of the $\psi_c^{{\rm J},-}$ with $\operatorname{Re}\kappa_c>\operatorname{Re}\kappa_b$.
 5. Order the channels by $\operatorname{Re}\kappa$. Then the change of basis from Jost to Hirota solutions is unit triangular, and the same holds at $+\infty$. Hence $\det\mathcal W=\det\mathcal W^{\rm J}$, and item 2 follows from item 1. $\square$
 
@@ -1036,7 +1039,7 @@ Consequently, part 1 of Proposition 8.5 holds unconditionally for such solitons.
 
 ### 8.6 Example: $a_n^{(1)}$, and why zeros alone over-count
 
-Let $h=n+1$, $m_b=2m\sin(\pi b/h)$, $A=\pi a/h$ and $B=\pi b/h$. Take the static soliton of species $a$, $\tau_j=1+\omega^{ja}E$ with $\omega=e^{2\pi i/h}$ and $E=e^{m_ax+\xi}$. Linearizing the two-soliton Hirota solution in the amplitude of the second soliton, with that soliton continued to a linear wave $e^{ikx-i\omega t}$ of species $b$, gives exact fluctuation solutions. Their transmission factor is the two-soliton interaction coefficient [Hollowood 1992; Fring–Johnson–Kneipp–Olive 1994] evaluated at $\cosh\theta=ik/m_b$:
+Let $h=n+1$, $m_b=2m\sin(\pi b/h)$, $A=\pi a/h$ and $B=\pi b/h$. Take the static soliton of species $a$, $\tau_j=1+\omega^{ja}E$ with $\omega=e^{2\pi i/h}$ and $E=e^{m_ax+\xi}$. Linearizing the two-soliton Hirota solution in the amplitude of the second soliton, with that soliton continued to a linear wave $e^{ikx-i\omega t}$ of species $b$, gives exact fluctuation solutions. Their transmission factor is the two-soliton interaction coefficient [@hollowood1992; @fring1994] evaluated at $\cosh\theta=ik/m_b$:
 
 $$
 X_{ab}(k)=\frac{ik/m_b-\cos(A-B)}{ik/m_b-\cos(A+B)}.
@@ -1106,7 +1109,7 @@ Every known imaginary-coupling soliton S-matrix satisfies:
 - braiding (R-matrix) unitarity, $\check S_{ab}(\theta)\check S_{ba}(-\theta)=1$;
 - the bootstrap.
 
-These are not independent assumptions. Delius [1995] showed that all four follow from the defining properties of the universal R-matrix, for any theory whose conserved charges generate $U_q(\hat g)$ and have definite Lorentz spins:
+These are not independent assumptions. Delius [-@delius1995] showed that all four follow from the defining properties of the universal R-matrix, for any theory whose conserved charges generate $U_q(\hat g)$ and have definite Lorentz spins:
 
 - the intertwining property $R\Delta=\Delta^{\mathsf T}R$ gives braiding unitarity and factorization;
 - $(\mathcal S\otimes1)R=R^{-1}$ gives crossing;
@@ -1115,9 +1118,9 @@ These are not independent assumptions. Delius [1995] showed that all four follow
 Two further consequences of his analysis matter here.
 
 - **Crossing constrains the gradation.** Crossing is possible only for gradations satisfying a constraint that introduces a coupling-dependent "quantum" dual Coxeter number. The particle poles, and hence the quantum mass ratios, are therefore not rigid.
-- **Real masses need $\lvert q\rvert=1$.** Particle poles lie on the imaginary rapidity axis, as stable particles require, only when $q$ is a pure phase. In imaginary-coupling ATFT, $q$ is a pure phase for real $\beta$ [Bernard–LeClair 1991], so this condition holds.
+- **Real masses need $\lvert q\rvert=1$.** Particle poles lie on the imaginary rapidity axis, as stable particles require, only when $q$ is a pure phase. In imaginary-coupling ATFT, $q$ is a pure phase for real $\beta$ [@bernard1991], so this condition holds.
 
-Given the quantum affine symmetry, these statements are [Established]. What they do not give is unitarity in the quantum-field-theory sense, $S(\theta)S(\theta)^\dagger=1$ for real $\theta$. Delius states explicitly that braiding unitarity is unrelated to whether the field theory is unitary. The S-matrices do not in general satisfy parity [Takács–Watts 1999], and braiding unitarity plus real analyticity plus parity would be needed to give QFT unitarity. The question is what replaces it.
+Given the quantum affine symmetry, these statements are [Established]. What they do not give is unitarity in the quantum-field-theory sense, $S(\theta)S(\theta)^\dagger=1$ for real $\theta$. Delius states explicitly that braiding unitarity is unrelated to whether the field theory is unitary. The S-matrices do not in general satisfy parity [@tw1999], and braiding unitarity plus real analyticity plus parity would be needed to give QFT unitarity. The question is what replaces it.
 
 ### 9.2 Krein-unitarity
 
@@ -1145,7 +1148,7 @@ $$
 R(x)=(xq-x^{-1}q^{-1})\sum_iE_{ii}\otimes E_{ii}+(x-x^{-1})\sum_{i\ne j}E_{ii}\otimes E_{jj}+(q-q^{-1})\sum_{i\ne j}x^{\operatorname{sgn}(j-i)}E_{ij}\otimes E_{ji},
 $$
 
-let $S$ be the swap of the two factors, and let $G(x)=S\,R(x)/(xq-x^{-1}q^{-1})$. On $2M$ sites with periodic conditions, the light-cone (brickwork) evolution is $U=U_eU_o$. Here $U_o$ is the product of $G$ over the bonds $(1,2),(3,4),\dots$ and $U_e$ the product over $(2,3),\dots,(2M,1)$. The light-cone cutoff rapidity $\Lambda$ enters through $x=e^{2\Lambda}$ [Destri–de Vega 1987]. Let $\Pi$ be the reflection $j\mapsto2M+1-j$ about a bond centre, $\Pi_s$ the reflection $j\mapsto2-j$ (mod $2M$) about a site, $C$ the colour reversal $i\mapsto n+1-i$ on every site, and $K$ complex conjugation in the standard basis. Then:
+let $S$ be the swap of the two factors, and let $G(x)=S\,R(x)/(xq-x^{-1}q^{-1})$. On $2M$ sites with periodic conditions, the light-cone (brickwork) evolution is $U=U_eU_o$. Here $U_o$ is the product of $G$ over the bonds $(1,2),(3,4),\dots$ and $U_e$ the product over $(2,3),\dots,(2M,1)$. The light-cone cutoff rapidity $\Lambda$ enters through $x=e^{2\Lambda}$ [@destri1987]. Let $\Pi$ be the reflection $j\mapsto2M+1-j$ about a bond centre, $\Pi_s$ the reflection $j\mapsto2-j$ (mod $2M$) about a site, $C$ the colour reversal $i\mapsto n+1-i$ on every site, and $K$ complex conjugation in the standard basis. Then:
 
 1. $G(x)^{\mathsf T}=G(x)$, $G(x)G(x^{-1})=1$, and $\overline{G(x)}=S\,G(x)^{-1}S$.
 2. $U^\dagger\Pi U=\Pi$, so $U$ is unitary for the Krein form $[\psi,\chi]=\langle\psi,\Pi\chi\rangle$.
@@ -1165,12 +1168,12 @@ Consequently the spectrum of $U$ is invariant under $\lambda\mapsto1/\bar\lambda
 
 Heuristically, $C$ acts on the weights of the vector representation as the longest Weyl element $w_0$, and $-w_0$ is the diagram automorphism. Then $C\Pi$ corresponds to spatial parity, and $\Pi$ to the field parity $P$ of Theorem C composed with the diagram automorphism and spatial parity, both symmetries of the theory. In this sense Proposition 9.2 is a lattice-exact, real-time counterpart of Theorem C, and its Krein-unitarity is the structure that Proposition 9.1 assumes in the continuum.
 
-**Hermitian analyticity.** Miramontes [1999] showed that braiding unitarity becomes QFT unitarity exactly when, in addition, the S-matrix is Hermitian analytic. He also showed that Hermitian analyticity is consistent with the bootstrap but depends on the basis of states. Together with the results above, this gives a ladder of conditions, from weakest to strongest:
+**Hermitian analyticity.** Miramontes [-@miramontes1999] showed that braiding unitarity becomes QFT unitarity exactly when, in addition, the S-matrix is Hermitian analytic. He also showed that Hermitian analyticity is consistent with the bootstrap but depends on the basis of states. Together with the results above, this gives a ladder of conditions, from weakest to strongest:
 
-1. braiding unitarity, automatic for quantum-group S-matrices [Delius 1995];
+1. braiding unitarity, automatic for quantum-group S-matrices [@delius1995];
 2. Krein-unitarity (Proposition 9.1), which allows eigenvalue pairs $(s,1/\bar s)$;
-3. unimodular eigenvalues of every multi-particle transfer matrix, which is what a real finite-volume spectrum requires (to leading order in $e^{-mL}$) [Takács–Watts 1999];
-4. Hermitian analyticity in some basis of states, which together with 1 is QFT unitarity [Miramontes 1999].
+3. unimodular eigenvalues of every multi-particle transfer matrix, which is what a real finite-volume spectrum requires (to leading order in $e^{-mL}$) [@tw1999];
+4. Hermitian analyticity in some basis of states, which together with 1 is QFT unitarity [@miramontes1999].
 
 **Unbroken and broken sectors.** We call a sector **$\Theta$-unbroken** when condition 3 holds in it, and **$\Theta$-broken** otherwise.
 
@@ -1185,25 +1188,25 @@ This reclassifies H9. QFT unitarity is not a property of the unrestricted theori
 |---|---|---|
 | real coupling, all $\hat g$ | Hermitian and unitary | [Established] |
 | breather–breather, all $\hat g$ | $\Theta$-unbroken | the amplitudes are real-coupling S-matrices continued to $B<0$; their blocks are phases for real $\theta$ [Established] |
-| all sectors of $a_1^{(1)}$ (sine-Gordon) | unbroken; real finite-volume spectra | [Takács–Watts 2002] |
-| $a_2^{(2)}$, soliton–soliton | unbroken (numerical, three particles) | [Takács–Watts 1999] |
-| $a_2^{(2)}$, soliton–excited soliton | broken; spectrum real only in the repulsive regime | [Takács–Watts 1999] |
-| $a_n^{(1)}$ ($n\ge2$), $d_{2n+1}^{(1)}$, $e_6^{(1)}$: soliton–antisoliton and soliton–breather | broken for generic $\beta$; mirrored by complex classical time delays | [Takács–Watts 1999] for $a_2^{(1)}$; [Conjecture] in general |
-| self-conjugate theories, soliton–breather | unbroken | [Conjecture]. Evidence: one-loop transmission factors are pure phases for real $k$ (shown for $c_n^{(1)}$); the transmission factors fail parity only when both species are non-self-conjugate [Takács–Watts 1999] |
+| all sectors of $a_1^{(1)}$ (sine-Gordon) | unbroken; real finite-volume spectra | [@tw2002] |
+| $a_2^{(2)}$, soliton–soliton | unbroken (numerical, three particles) | [@tw1999] |
+| $a_2^{(2)}$, soliton–excited soliton | broken; spectrum real only in the repulsive regime | [@tw1999] |
+| $a_n^{(1)}$ ($n\ge2$), $d_{2n+1}^{(1)}$, $e_6^{(1)}$: soliton–antisoliton and soliton–breather | broken for generic $\beta$; mirrored by complex classical time delays | [@tw1999] for $a_2^{(1)}$; [Conjecture] in general |
+| self-conjugate theories, soliton–breather | unbroken | [Conjecture]. Evidence: one-loop transmission factors are pure phases for real $k$ (shown for $c_n^{(1)}$); the transmission factors fail parity only when both species are non-self-conjugate [@tw1999] |
 | self-conjugate theories, soliton–excited soliton | to be checked case by case | $a_2^{(2)}$ shows these sectors can be broken in attractive regimes |
 
 ### 9.4 Unitary subtheories
 
-At $q$ a root of unity, RSOS restriction replaces the Krein space by the space of states of a perturbed minimal model, which carries a positive inner product when the minimal model is unitary. The transfer-matrix eigenvalues after restriction are a *different* set from those before [Takács–Watts 1999]. So restriction can cure a broken sector, but it cannot touch quantum-group singlets such as breathers.
+At $q$ a root of unity, RSOS restriction replaces the Krein space by the space of states of a perturbed minimal model, which carries a positive inner product when the minimal model is unitary. The transfer-matrix eigenvalues after restriction are a *different* set from those before [@tw1999]. So restriction can cure a broken sector, but it cannot touch quantum-group singlets such as breathers.
 
-**Conjecture 9.3 [Conjecture].** An RSOS-restricted ATFT is unitary if and only if its restricted (IRF) S-matrix is Hermitian analytic [Miramontes 1999]. We conjecture that this holds exactly when (i) the underlying minimal CFT is unitary and (ii) every sector surviving the restriction is $\Theta$-unbroken.
+**Conjecture 9.3 [Conjecture].** An RSOS-restricted ATFT is unitary if and only if its restricted (IRF) S-matrix is Hermitian analytic [@miramontes1999]. We conjecture that this holds exactly when (i) the underlying minimal CFT is unitary and (ii) every sector surviving the restriction is $\Theta$-unbroken.
 
 Evidence:
 
 - the de Vega–Fateev unitary $W_3$ series, at couplings where breathers decouple;
 - $M_{6,7}+\Phi_{1,2}$, unitary;
-- $M_{3,14}+\Phi_{1,5}$, where TCSA confirms a complex spectrum [Takács–Kausch–Watts 1997; Takács–Watts 1999];
-- the $U_q(su(2)^{(1)})$-based S-matrices of Hoare, Hollowood and Miramontes [2013], whose IRF form at $q$ a root of unity is manifestly Hermitian analytic and hence unitary. This is the mechanism by which restriction restores unitarity. To our knowledge it has not been shown for the RSOS restrictions of higher-rank ATFTs.
+- $M_{3,14}+\Phi_{1,5}$, where TCSA confirms a complex spectrum [@tkw1997; @tw1999];
+- the $U_q(su(2)^{(1)})$-based S-matrices of Hoare, Hollowood and Miramontes [-@hoare2013], whose IRF form at $q$ a root of unity is manifestly Hermitian analytic and hence unitary. This is the mechanism by which restriction restores unitarity. To our knowledge it has not been shown for the RSOS restrictions of higher-rank ATFTs.
 
 This reduces H12 to a criterion that can be checked from the S-matrix.
 
@@ -1217,9 +1220,9 @@ In a unitary quantum field theory, unitarity is the source of a list of physical
 - properties recoverable only in some sectors or after restriction;
 - properties that **cannot be rescued in any way**.
 
-**Scope.** The negative statements concern the *unrestricted* imaginary-coupling theories of rank $r\ge2$. Real-coupling ATFTs are unitary. Sine-Gordon theory, $a_1^{(1)}$, is unitary and has real finite-volume spectra in all sectors [Takács–Watts 2002]. Particular restricted models can be unitary (Section 9.4).
+**Scope.** The negative statements concern the *unrestricted* imaginary-coupling theories of rank $r\ge2$. Real-coupling ATFTs are unitary. Sine-Gordon theory, $a_1^{(1)}$, is unitary and has real finite-volume spectra in all sectors [@tw2002]. Particular restricted models can be unitary (Section 9.4).
 
-**What "cannot be rescued" means.** A property is unrescuable when its failure is detected by a quantity that no admissible change of description alters: an eigenvalue of the Hamiltonian or of a transfer matrix, the modulus of such an eigenvalue, the existence of a Jordan block, or the residue of a scalar amplitude. Such quantities do not depend on the inner product, on the basis of states (including rapidity-dependent bases, so regradation does not help either), or on how the Krein form is chosen. For amplitudes of quantum-group singlets such as breathers, they are also unchanged by RSOS restriction [Takács–Watts 1999].
+**What "cannot be rescued" means.** A property is unrescuable when its failure is detected by a quantity that no admissible change of description alters: an eigenvalue of the Hamiltonian or of a transfer matrix, the modulus of such an eigenvalue, the existence of a Jordan block, or the residue of a scalar amplitude. Such quantities do not depend on the inner product, on the basis of states (including rapidity-dependent bases, so regradation does not help either), or on how the Krein form is chosen. For amplitudes of quantum-group singlets such as breathers, they are also unchanged by RSOS restriction [@tw1999].
 
 ### 10.1 A no-go lemma
 
@@ -1236,7 +1239,7 @@ Likewise, if $U$ is unitary with respect to some positive-definite inner product
 
 *Proof.* If $H\psi=E\psi$, then $E\langle\psi,\psi\rangle=\langle\psi,H\psi\rangle=\langle H\psi,\psi\rangle=\bar E\langle\psi,\psi\rangle$, and $\langle\psi,\psi\rangle>0$, so $E$ is real. A symmetric operator on a finite-dimensional inner-product space is diagonalizable by the spectral theorem. If $U\psi=s\psi$, then $\lvert s\rvert^2\langle\psi,\psi\rangle=\langle U\psi,U\psi\rangle=\langle\psi,\psi\rangle$, so $\lvert s\rvert=1$. $\square$
 
-The lemma covers non-local metric operators as well. No choice of metric $\eta>0$ in the sense of quasi-Hermiticity [Scholtz–Geyer–Hahne 1992; Mostafazadeh 2002] can make an operator with a non-real eigenvalue self-adjoint.
+The lemma covers non-local metric operators as well. No choice of metric $\eta>0$ in the sense of quasi-Hermiticity [@scholtz1992; @mostafazadeh2002] can make an operator with a non-real eigenvalue self-adjoint.
 
 ### 10.2 The properties that cannot be rescued
 
@@ -1245,7 +1248,7 @@ Each item below gives the property as it holds in a unitary theory, then how it 
 **U1. Real energies and stationary states in finite volume.**
 
 - *In a unitary theory:* all energy levels are real.
-- *In imaginary-coupling ATFT:* complex-conjugate pairs of levels occur in $\Theta$-broken sectors. This is predicted at leading Bethe–Yang order for $a_2^{(1)}$ whenever solitons and breathers are both present, and for $a_2^{(2)}$ in the attractive regime [Takács–Watts 1999]. It is confirmed by TCSA in $M_{3,14}+\Phi_{1,5}$ [Takács–Kausch–Watts 1997]. The zero-mode reductions of $a_2$ and $c_2$ show complex pairs among excited levels at all couplings (Section 5.6).
+- *In imaginary-coupling ATFT:* complex-conjugate pairs of levels occur in $\Theta$-broken sectors. This is predicted at leading Bethe–Yang order for $a_2^{(1)}$ whenever solitons and breathers are both present, and for $a_2^{(2)}$ in the attractive regime [@tw1999]. It is confirmed by TCSA in $M_{3,14}+\Phi_{1,5}$ [@tkw1997]. The zero-mode reductions of $a_2$ and $c_2$ show complex pairs among excited levels at all couplings (Section 5.6).
 - *Why it cannot be rescued:* energies are eigenvalues and do not depend on the basis.
 - *Scope:* every theory with a $\Theta$-broken sector. The zero-mode results suggest that complex finite-volume levels may be generic for $r\ge2$, but the minisuperspace approximation does not prove this.
 
@@ -1259,8 +1262,8 @@ Each item below gives the property as it holds in a unitary theory, then how it 
 **U3. Probability conservation in scattering ($\lvert s\rvert=1$; transmission and reflection probabilities in $[0,1]$).**
 
 - *In a unitary theory:* every eigenvalue of the S-matrix is a pure phase.
-- *In imaginary-coupling ATFT:* soliton–antisoliton and soliton–breather amplitudes in $a_2^{(1)}$, and soliton–excited-soliton amplitudes in $a_2^{(2)}$, have eigenvalue pairs $(s,1/\bar s)$ with $\lvert s\rvert\ne1$ [Takács–Watts 1999; Proposition 9.1]. One member of each pair has $\lvert s\rvert>1$.
-- *Why it cannot be rescued:* eigenvalue moduli do not depend on the basis, so Hermitian analyticity [Miramontes 1999] cannot hold in any basis. Breather amplitudes are quantum-group singlets and are untouched by RSOS restriction.
+- *In imaginary-coupling ATFT:* soliton–antisoliton and soliton–breather amplitudes in $a_2^{(1)}$, and soliton–excited-soliton amplitudes in $a_2^{(2)}$, have eigenvalue pairs $(s,1/\bar s)$ with $\lvert s\rvert\ne1$ [@tw1999, Proposition 9.1]. One member of each pair has $\lvert s\rvert>1$.
+- *Why it cannot be rescued:* eigenvalue moduli do not depend on the basis, so Hermitian analyticity [@miramontes1999] cannot hold in any basis. Breather amplitudes are quantum-group singlets and are untouched by RSOS restriction.
 - *Scope:* $a_n^{(1)}$ ($n\ge2$), $d_{2n+1}^{(1)}$ and $e_6^{(1)}$ for generic $\beta$ (established for $a_2^{(1)}$, conjectured for the others); $a_2^{(2)}$ in the attractive regime.
 
 **U4. Bounded real-time evolution.**
@@ -1273,7 +1276,7 @@ Each item below gives the property as it holds in a unitary theory, then how it 
 **U5. Positive residues of bound-state poles (real on-shell three-point couplings, positive norm of bound states).**
 
 - *In a unitary theory:* each forward-channel bound-state pole has a residue of definite sign, set by the square of a real coupling.
-- *In imaginary-coupling ATFT:* continuing $\beta\to i\beta$ makes the cubic couplings of the real-coupling theory imaginary. Some physical-strip poles of the breather amplitudes then change sign, which Hollowood called the hallmark of non-unitarity [Hollowood 1991]. The scaling Lee–Yang model, itself an RSOS restriction of sine-Gordon, is the classic example [Cardy–Mussardo 1989].
+- *In imaginary-coupling ATFT:* continuing $\beta\to i\beta$ makes the cubic couplings of the real-coupling theory imaginary. Some physical-strip poles of the breather amplitudes then change sign, which Hollowood called the hallmark of non-unitarity [@hollowood1991]. The scaling Lee–Yang model, itself an RSOS restriction of sine-Gordon, is the classic example [@cardy1989].
 - *Why it cannot be rescued:* the residue of a scalar (singlet) amplitude is basis-independent and unchanged by restriction.
 - *Scope:* [Established] for $a_n^{(1)}$; [Conjecture] for every $\hat g$ whose real-coupling theory has cubic couplings, which is all except $a_1^{(1)}$. That exception is consistent with the unitarity of sine-Gordon theory.
 
@@ -1305,10 +1308,10 @@ Each item below gives the property as it holds in a unitary theory, then how it 
 | real vacuum energy, of minimal real part | Theorem D | every theory, finite lattice volume |
 | positive partition function; real, non-negative vertex-operator correlation sums | Theorem B | every theory |
 | conjugation-symmetric spectrum; conserved Krein form | Theorem C, Proposition 9.1 | every theory |
-| real masses of all asymptotic particles | Proposition 7.1 (classical); one-loop (Section 8); $\lvert q\rvert=1$ in every known exact S-matrix [Delius 1995] | every theory |
-| factorization, Yang–Baxter, crossing, braiding unitarity, bootstrap | universal R-matrix [Delius 1995] | wherever the quantum affine symmetry holds |
-| real finite-volume spectra; unimodular S-matrix eigenvalues | Bethe–Yang [Takács–Watts 1999] | $\Theta$-unbroken sectors only: all of sine-Gordon; breather–breather sectors; $a_2^{(2)}$ repulsive regime; conjecturally soliton–breather sectors of self-conjugate theories |
-| QFT unitarity | Hermitian analyticity [Miramontes 1999] | specific RSOS restrictions (de Vega–Fateev $W_3$ series, $M_{6,7}+\Phi_{1,2}$); mechanism shown for $U_q(su(2)^{(1)})$-based S-matrices [Hoare–Hollowood–Miramontes 2013] |
+| real masses of all asymptotic particles | Proposition 7.1 (classical); one-loop (Section 8); $\lvert q\rvert=1$ in every known exact S-matrix [@delius1995] | every theory |
+| factorization, Yang–Baxter, crossing, braiding unitarity, bootstrap | universal R-matrix [@delius1995] | wherever the quantum affine symmetry holds |
+| real finite-volume spectra; unimodular S-matrix eigenvalues | Bethe–Yang [@tw1999] | $\Theta$-unbroken sectors only: all of sine-Gordon; breather–breather sectors; $a_2^{(2)}$ repulsive regime; conjecturally soliton–breather sectors of self-conjugate theories |
+| QFT unitarity | Hermitian analyticity [@miramontes1999] | specific RSOS restrictions (de Vega–Fateev $W_3$ series, $M_{6,7}+\Phi_{1,2}$); mechanism shown for $U_q(su(2)^{(1)})$-based S-matrices [@hoare2013] |
 
 In short, imaginary-coupling ATFTs with $r\ge2$ have a protected vacuum, real particle masses and a consistent S-matrix. They do not have, and cannot be given, a global probability interpretation, probability-conserving scattering, bounded real-time evolution, positive local spectral densities, or positivity-based monotonicity theorems. All of these are lost exactly where $\Theta$ is broken, or, for U5 to U7, wherever imaginary cubic couplings or non-unitary restrictions arise.
 
@@ -1322,7 +1325,7 @@ In short, imaginary-coupling ATFTs with $r\ge2$ have a protected vacuum, real pa
 | (C2) Euclidean axioms | twisted reflection positivity, giving a Krein-space OS reconstruction (Section 5.4); other axioms as for Coulomb gases |
 | (C3) Hamiltonian | $P$-self-adjoint transfer matrix, $\Theta$-symmetry, real vacuum energy: Theorems C and D |
 | (C4) real masses | classical: Proposition 7.1. One-loop: $\Theta$ plus complex translation, with lattice evaluation. Exact: real in every known S-matrix |
-| (C5) scattering | factorization, Yang–Baxter, crossing, braiding unitarity and bootstrap follow from the universal R-matrix [Delius 1995] where S-matrices exist; Krein-unitarity: Proposition 9.1 (sketch), exact on the integrable light-cone lattice (Proposition 9.2). QFT unitarity needs Hermitian analyticity [Miramontes 1999] and fails in $\Theta$-broken sectors. **Incomplete for four families (H10)** |
+| (C5) scattering | factorization, Yang–Baxter, crossing, braiding unitarity and bootstrap follow from the universal R-matrix [@delius1995] where S-matrices exist; Krein-unitarity: Proposition 9.1 (sketch), exact on the integrable light-cone lattice (Proposition 9.2). QFT unitarity needs Hermitian analyticity [@miramontes1999] and fails in $\Theta$-broken sectors. **Incomplete for four families (H10)** |
 | (C6) predictivity | TBA and TCSA agree with restricted S-matrices, including complex spectra; semiclassics agrees with exact S-matrices once eigenvalues are counted by algebraic multiplicity, which is the net order of the transmission factors (Theorem F, Propositions 8.5 and 8.6) |
 
 **Conclusion.** Imaginary-coupling ATFTs are valid **non-unitary** quantum field theories.
@@ -1339,17 +1342,17 @@ They are not unitary. In $\Theta$-unbroken sectors their finite-volume spectra a
 ## 12. Open problems
 
 1. Conjecture 6.14, the bound of Theorem 6.9 with the intra-unit factors of (6.5) included. By Lemmas 6.10–6.12 and Proposition 6.13 it completes Proposition 6.1 in the window $2\pi\le\beta^2<\beta^2_{\rm UV}$, where every term of the expansion is already shown, at sketch level, to converge. By Lemma 6.15, the bound (S1) that it would give is equivalent to a stability bound $\sup_a\log\Xi_a(z)\le A(1+z^{1/(1-\kappa)})$ at real fugacity. Also open here: a full write-up of the power counting sketched in Proposition 6.13, and the infinite-volume limit and mass gap (Conjecture 6.2), using multi-species Coulomb-gas methods, including the claim that only vacuum-energy counterterms are needed in the bulk for simply-laced algebras. Theorem E settles Proposition 6.1 for $\beta^2<2\pi$. Theorem 6.9 proves the bound without the unit factors. Proposition 6.8 shows that per-charge (Onsager or moment) bounds cannot go further.
-2. Exact soliton S-matrices for $c_n^{(1)}$ ($n\ge3$), $f_4^{(1)}$, $e_6^{(2)}$ and $a_{2n-1}^{(2)}$. These require R-matrices in representations that are not multiplicity-free. Our one-loop results constrain them: masses $M_a\propto\epsilon_a\sin(a\pi/H)$ with $H=2n-\beta^2/4\pi+O(\beta^4)$ for $c_n^{(1)}$, and the exceptional points predict pairs of nearby poles. Two routes avoid the missing R-matrices. The nested Bethe ansatz of the lattice models of open problem 8 gives finite-volume levels and multi-particle transfer-matrix eigenvalues directly, which is all the $\Theta$-breaking criterion of Section 9.2 uses. For $a_{2n-1}^{(2)}$, the lattice mass ratios of [Vernier–Jacobsen–Saleur 2016] (Section 3.3), converted to the normalization of Section 2.1 (their longest roots have squared length 4), give a direct check of the one-loop counting rule of Section 8.
+2. Exact soliton S-matrices for $c_n^{(1)}$ ($n\ge3$), $f_4^{(1)}$, $e_6^{(2)}$ and $a_{2n-1}^{(2)}$. These require R-matrices in representations that are not multiplicity-free. Our one-loop results constrain them: masses $M_a\propto\epsilon_a\sin(a\pi/H)$ with $H=2n-\beta^2/4\pi+O(\beta^4)$ for $c_n^{(1)}$, and the exceptional points predict pairs of nearby poles. Two routes avoid the missing R-matrices. The nested Bethe ansatz of the lattice models of open problem 8 gives finite-volume levels and multi-particle transfer-matrix eigenvalues directly, which is all the $\Theta$-breaking criterion of Section 9.2 uses. For $a_{2n-1}^{(2)}$, the lattice mass ratios of [@vernier2016] (Section 3.3), converted to the normalization of Section 2.1 (their longest roots have squared length 4), give a direct check of the one-loop counting rule of Section 8.
 3. Conjecture 8.2 in general. The counting rule is now Theorems F and G and Proposition 8.5, including for embedded eigenvalues and eigenvalues at thresholds. What remains is fourfold. First, check the Hirota form (H) for the $d_n^{(1)}$ and $e_n^{(1)}$ solitons and their foldings ($b_n^{(1)}$, $g_2^{(1)}$, $f_4^{(1)}$ and the twisted algebras). By Theorem G this gives the factorization (F) for them. (H) is proved for $a_n^{(1)}$ and $c_n^{(1)}$ (Propositions 8.6 and 8.7). Second, give a general theory of the trace weight at threshold resonances, which can exceed the dimension of the $L^2$ root space (Proposition 8.7). Third, treat spectral singularities (zeros of $X_b$ at real $k$), which can occur in $\Theta$-broken sectors. Fourth, prove the mass-ratio statement.
 4. Computation of the thimble intersection numbers, and Conjecture 8.3 (the filling of quantum multiplets).
 5. A proof of Krein asymptotic completeness, completing Proposition 9.1.
 6. The sector classification for self-conjugate theories, in particular soliton–excited-soliton sectors in attractive regimes.
-7. Whether $\Theta$-unbroken sectors of higher-rank RSOS restrictions admit Hermitian-analytic (IRF) bases, extending [Hoare–Hollowood–Miramontes 2013] beyond $U_q(su(2)^{(1)})$.
-8. Integrable lattice regularizations: light-cone (staggered) $U_q$ vertex models [Destri–de Vega 1987; Reshetikhin–Saleur 1994], with Bethe-ansatz control of the scaling limit through non-linear integral equations [Destri–de Vega 1992, 1995; Zinn-Justin 1998 for untwisted simply-laced $\hat g$]. Doikou and Nepomechie [1999] identify the hole S-matrix of the critical $A_{N-1}^{(1)}$ chain with the $a_{N-1}^{(1)}$ soliton S-matrix. Matching their S-matrix parameter $e^{i\pi/(\nu-1)}$, $\nu=\pi/\mu$, with Section 2.3 shows that for $a_{N-1}^{(1)}$ the lattice anisotropy $q=e^{i\mu}$ corresponds to $\beta^2=4(\pi-\mu)$; for $N=2$ this is the Destri–de Vega relation $\beta_{\rm SG}^2=8(\pi-\mu)$. Theorem E's range is then $\mu>\pi/2$, the attractive regime. The window is $\pi/N<\mu\le\pi/2$, and the neutral thresholds of Section 6.1 sit at $q^{kN}=-1$. The light-cone evolution is exactly Krein-unitary (Proposition 9.2).
+7. Whether $\Theta$-unbroken sectors of higher-rank RSOS restrictions admit Hermitian-analytic (IRF) bases, extending [@hoare2013] beyond $U_q(su(2)^{(1)})$.
+8. Integrable lattice regularizations: light-cone (staggered) $U_q$ vertex models [@destri1987; @reshetikhin1994], with Bethe-ansatz control of the scaling limit through non-linear integral equations [@destri1992; @destri1995; @zinnjustin1998 for untwisted simply-laced $\hat g$]. Doikou and Nepomechie [-@doikou1999] identify the hole S-matrix of the critical $A_{N-1}^{(1)}$ chain with the $a_{N-1}^{(1)}$ soliton S-matrix. Matching their S-matrix parameter $e^{i\pi/(\nu-1)}$, $\nu=\pi/\mu$, with Section 2.3 shows that for $a_{N-1}^{(1)}$ the lattice anisotropy $q=e^{i\mu}$ corresponds to $\beta^2=4(\pi-\mu)$; for $N=2$ this is the Destri–de Vega relation $\beta_{\rm SG}^2=8(\pi-\mu)$. Theorem E's range is then $\mu>\pi/2$, the attractive regime. The window is $\pi/N<\mu\le\pi/2$, and the neutral thresholds of Section 6.1 sit at $q^{kN}=-1$. The light-cone evolution is exactly Krein-unitary (Proposition 9.2).
 
-   Three questions precede any use as a definition. (i) Which algebra and which regime. [Vernier–Jacobsen–Saleur 2016] obtain imaginary $a_{2n-1}^{(2)}$ Toda from the $U_q(a_{2n-1}^{(2)})$ chain. This suggests that the lattice carries $U_q(\hat g)$ and that $\hat g^\vee$ appears only in the continuum S-matrix, with a renormalized $q$ (Section 3.3). The same R-matrix also has non-Toda continuum limits in other regimes. (ii) The ground-state structure, which [Zinn-Justin 1998; Doikou–Nepomechie 1999] assume and which is subtle for twisted algebras. Rigorous Bethe-ansatz tools exist so far only for six-vertex models [Duminil-Copin–Kozlowski–Krachun–Manolescu–Tikhonovskaia 2022], that is for $a_1^{(1)}$, where the window is empty. The Euclidean weights carry phases, so Theorems B and D have no evident counterpart (Proposition 9.2, checks). (iii) The comparison with Section 6. The lattice has periodic boundary conditions and constant coupling, while Theorem E's theory has the coupling profile of Section 6.2. The natural target is a bridge theorem: for $0<\beta^2<2\pi$, the vacuum energy given by the non-linear integral equations on a circle of length $L_t$ equals $-\lim_{L_x\to\infty}L_x^{-1}\log\Xi$, where far from the walls the coupling is constant. This needs a crossed-channel version of Section 5.4, with the spatial zero mode compactified as in Appendix A.
+   Three questions precede any use as a definition. (i) Which algebra and which regime. [@vernier2016] obtain imaginary $a_{2n-1}^{(2)}$ Toda from the $U_q(a_{2n-1}^{(2)})$ chain. This suggests that the lattice carries $U_q(\hat g)$ and that $\hat g^\vee$ appears only in the continuum S-matrix, with a renormalized $q$ (Section 3.3). The same R-matrix also has non-Toda continuum limits in other regimes. (ii) The ground-state structure, which [@zinnjustin1998; @doikou1999] assume and which is subtle for twisted algebras. Rigorous Bethe-ansatz tools exist so far only for six-vertex models [@duminil2022], that is for $a_1^{(1)}$, where the window is empty. The Euclidean weights carry phases, so Theorems B and D have no evident counterpart (Proposition 9.2, checks). (iii) The comparison with Section 6. The lattice has periodic boundary conditions and constant coupling, while Theorem E's theory has the coupling profile of Section 6.2. The natural target is a bridge theorem: for $0<\beta^2<2\pi$, the vacuum energy given by the non-linear integral equations on a circle of length $L_t$ equals $-\lim_{L_x\to\infty}L_x^{-1}\log\Xi$, where far from the walls the coupling is constant. This needs a crossed-channel version of Section 5.4, with the spatial zero mode compactified as in Appendix A.
 
-   This route does not bypass Conjecture 6.14. What it can supply is the bulk energy and its singularities across the window (Section 6.1), finite-volume form factors through the quantum inverse problem [Hegedűs 2017], and the data missing in problem 2.
+   This route does not bypass Conjecture 6.14. What it can supply is the bulk energy and its singularities across the window (Section 6.1), finite-volume form factors through the quantum inverse problem [@hegedus2017], and the data missing in problem 2.
 
 ---
 
@@ -1373,98 +1376,5 @@ Calibration:
 
 ## References
 
-- H. Aratyn, C.P. Constantinidis, L.A. Ferreira, Nucl. Phys. B406 (1993) 727.
-- J. Alexander, R. Gardner, C. Jones, J. Reine Angew. Math. 410 (1990) 167.
-- S. Albeverio and R. Høegh-Krohn, J. Funct. Anal. 16 (1974) 39.
-- A. Alexandru, G. Başar, P.F. Bedaque, N.C. Warrington, *Complex paths around the sign problem*, Rev. Mod. Phys. 94 (2022) 015006.
-- Y. Ashida, Z. Gong, M. Ueda, *Non-Hermitian physics*, Adv. Phys. 69 (2020) 249, arXiv:2006.01837.
-- G. Benfatto, G. Gallavotti, F. Nicolò, Commun. Math. Phys. 83 (1982) 387.
-- C.M. Bender and S. Boettcher, Phys. Rev. Lett. 80 (1998) 5243; C.M. Bender, Rep. Prog. Phys. 70 (2007) 947.
-- L. Bercini, M. Fabri, A. Homrich, P. Vieira, *S-matrix bootstrap: supersymmetry, $\mathbb Z_2$, and $\mathbb Z_4$ symmetry*, arXiv:1909.06453.
-- D. Bernard and A. LeClair, Commun. Math. Phys. 142 (1991) 99.
-- H.W. Braden, E. Corrigan, P.E. Dorey, R. Sasaki, Nucl. Phys. B338 (1990) 689; B356 (1991) 469.
-- J.L. Cardy and G. Mussardo, Phys. Lett. B225 (1989) 275.
-- E.A. Coddington and N. Levinson, *Theory of Ordinary Differential Equations*, McGraw–Hill (1955).
-- P. Christe and G. Mussardo, Nucl. Phys. B330 (1990) 465.
-- E. Corrigan, P.E. Dorey, R. Sasaki, Nucl. Phys. B408 (1993) 579.
-- G.W. Delius, *Exact S-matrices with affine quantum group symmetry*, Nucl. Phys. B451 (1995) 445, hep-th/9503079.
-- G.W. Delius and M.T. Grisaru, Nucl. Phys. B441 (1995) 259.
-- G.W. Delius, M.D. Gould, Y.-Z. Zhang, q-alg/9508012.
-- G.W. Delius, M.T. Grisaru, D. Zanon, Nucl. Phys. B382 (1992) 365.
-- C. Destri and H.J. de Vega, Nucl. Phys. B290 (1987) 363.
-- C. Destri and H.J. de Vega, Phys. Rev. Lett. 69 (1992) 2313; Nucl. Phys. B438 (1995) 413 (hep-th/9407117).
-- H.J. de Vega and V.A. Fateev, Int. J. Mod. Phys. A6 (1991) 3221.
-- A. Doikou and R.I. Nepomechie, *Soliton S matrices for the critical $A^{(1)}_{N-1}$ chain*, hep-th/9906069.
-- P.E. Dorey, Nucl. Phys. B358 (1991) 654; B374 (1992) 741; Phys. Lett. B312 (1993) 291.
-- P. Dorey, S. Faldella, S. Negro, R. Tateo, Phil. Trans. R. Soc. A371 (2013) 20120052.
-- P. Dorey and D. Polvara, JHEP 02 (2022) 199.
-- G.V. Dunne and M. Ünsal, *New nonperturbative methods in quantum field theory: from large-N orbifold equivalence to bions and resurgence*, arXiv:1511.05977.
-- G.V. Dunne, lectures on resurgence (CERN, 2024), arXiv:2511.15528.
-- H. Duminil-Copin, K.K. Kozlowski, D. Krachun, I. Manolescu, T. Tikhonovskaia, *On the six-vertex model's free energy*, Commun. Math. Phys. 395 (2022) 1383.
-- C.J. Efthimiou, Nucl. Phys. B398 (1993) 697.
-- T. Eguchi and S.-K. Yang, Phys. Lett. B224 (1989) 373.
-- V.A. Fateev, Phys. Lett. B324 (1994) 45.
-- F. Fabri and D. Polvara, arXiv:2402.12087.
-- G. Felder and A. LeClair, Int. J. Mod. Phys. A7 (1992) 239.
-- B. Feigin and E. Frenkel, in *Integrable Systems, Quantum Groups and Quantum Field Theories* (1993), hep-th/9310022.
-- M.E. Fisher, Phys. Rev. Lett. 40 (1978) 1610.
-- M.D. Freeman, Phys. Lett. B261 (1991) 57; Nucl. Phys. B433 (1995) 657.
-- A. Fring, P.R. Johnson, M.A.C. Kneipp, D.I. Olive, Nucl. Phys. B430 (1994) 597.
-- A. Fring, G. Mussardo, P. Simonetti, Nucl. Phys. B393 (1993) 413.
-- J. Fröhlich, Commun. Math. Phys. 47 (1976) 233.
-- G.M. Gandenberger, Nucl. Phys. B449 (1995) 375; Int. J. Mod. Phys. A13 (1998) 4553 (hep-th/9703158).
-- G.M. Gandenberger and N.J. MacKay, Nucl. Phys. B457 (1995) 240; Phys. Lett. B390 (1997) 185.
-- G.M. Gandenberger, N.J. MacKay, G.M.T. Watts (GMW), Nucl. Phys. B465 (1996) 329.
-- L. Ge, Y.D. Chong, A.D. Stone, Phys. Rev. A85 (2012) 023802.
-- F. Gesztesy and K.A. Makarov, Integral Equations Operator Theory 47 (2003) 457.
-- F. Gesztesy, Y. Latushkin, K.A. Makarov, Arch. Ration. Mech. Anal. 186 (2007) 361.
-- I.C. Gohberg and E.I. Sigal, Math. USSR Sb. 13 (1971) 603.
-- V. Gorbenko, S. Rychkov, B. Zan, *Walking, weak first-order transitions, and complex CFTs*, JHEP 10 (2018) 108, arXiv:1807.11512; part II, SciPost Phys. 5 (2018) 050, arXiv:1808.04380.
-- C. Guillarmou, A. Kupiainen, R. Rhodes, *Compactified imaginary Liouville theory*, Commun. Am. Math. Soc. 5 (2025).
-- U. Harder, A.A. Iskandar, W.A. McGhee, Int. J. Mod. Phys. A10 (1995) 1879.
-- Á. Hegedűs, *Lattice approach to finite volume form-factors of the massive Thirring (sine-Gordon) model*, JHEP 08 (2017) 059, arXiv:1705.00319.
-- T.J. Hollowood, Nucl. Phys. B384 (1992) 523; Phys. Lett. B300 (1993) 73; Int. J. Mod. Phys. A8 (1993) 947.
-- T.J. Hollowood and P. Mansfield, Phys. Lett. B226 (1989) 73.
-- K. Ito and C. Locke, Nucl. Phys. B885 (2014) 600.
-- K. Ito and H. Shu, arXiv:1805.08062 (massive ODE/IM for $A_r^{(1)}$-type modified affine Toda).
-- K. Ito and H. Shu, *ODE/IM Correspondence and Quantum Periods*, Springer (2025).
-- P.R. Johnson, *On soliton quantum S-matrices in simply laced affine Toda field theories*, Nucl. Phys. B (1997).
-- J. Junnila, E. Saksman, C. Webb, Ann. Appl. Probab. 30 (2020) 2099.
-- S.P. Khastgir and R. Sasaki, Prog. Theor. Phys. 95 (1996) 485.
-- T.R. Klassen and E. Melzer, Nucl. Phys. B338 (1990) 485.
-- M.A.C. Kneipp and D.I. Olive, Commun. Math. Phys. 177 (1996) 561.
-- R. Jost and A. Pais, Phys. Rev. 82 (1951) 840.
-- R. Konno and S.T. Kuroda, J. Fac. Sci. Univ. Tokyo Sect. I 13 (1966) 55.
-- H. Lacoin, R. Rhodes, V. Vargas, Commun. Math. Phys. 337 (2015) 569.
-- G.F. Lawler and V. Limic, *Random Walk: A Modern Introduction*, Cambridge University Press (2010).
-- S.L. Lukyanov and A.B. Zamolodchikov, JHEP 07 (2010) 008.
-- N.J. MacKay and W.A. McGhee, Int. J. Mod. Phys. A8 (1993) 2791.
-- N.J. MacKay and G.M.T. Watts, Nucl. Phys. B441 (1995) 277.
-- W.A. McGhee, Int. J. Mod. Phys. A9 (1994) 2645.
-- A. Mostafazadeh, J. Math. Phys. 43 (2002) 205; Int. J. Geom. Meth. Mod. Phys. 7 (2010) 1191.
-- M.R. Niedermaier, Nucl. Phys. B424 (1994) 184.
-- D.I. Olive and N. Turok, Nucl. Phys. B215 (1983) 470; B257 (1985) 277.
-- D.I. Olive, N. Turok, J.W.R. Underwood, Nucl. Phys. B401 (1993) 663; B409 (1993) 509.
-- K. Osterwalder and R. Schrader, Commun. Math. Phys. 31 (1973) 83; 42 (1975) 281.
-- M.F. Paulos, J. Penedones, J. Toledo, B.C. van Rees, P. Vieira, *The S-matrix bootstrap II: two dimensional amplitudes*, JHEP 11 (2017) 143, arXiv:1607.06110.
-- F. Pham, Proc. Symp. Pure Math. 40 (1983) 319.
-- D. Polvara, JHEP 04 (2023) 020.
-- N.Yu. Reshetikhin and F.A. Smirnov, Commun. Math. Phys. 131 (1990) 157.
-- N.Yu. Reshetikhin and H. Saleur, Nucl. Phys. B419 (1994) 507.
-- F.A. Smirnov, Int. J. Mod. Phys. A6 (1991) 1407.
-- G. Takács, Nucl. Phys. B489 (1997) 532; B501 (1997) 711; B502 (1997) 629.
-- G. Takács, H.G. Kausch, G.M.T. Watts, Nucl. Phys. B489 (1997) 557.
-- G. Takács and G.M.T. Watts, hep-th/9810006 (*Non-unitarity in quantum affine Toda theory and perturbed conformal field theory*); hep-th/0203073 (*RSOS revisited*).
-- B. Hoare, T.J. Hollowood, J.L. Miramontes, *Restoring unitarity in the q-deformed world-sheet S-matrix*, JHEP 10 (2013) 050, arXiv:1303.1447.
-- T.J. Hollowood, *Quantum solitons in affine Toda field theories*, hep-th/9110010.
-- J.L. Miramontes, *Hermitian analyticity versus real analyticity in two-dimensional factorised S-matrix theories*, Phys. Lett. B455 (1999) 231, hep-th/9901145.
-- F.G. Scholtz, H.B. Geyer, F.J.W. Hahne, Ann. Phys. 213 (1992) 74.
-- E. Vernier, J.L. Jacobsen, H. Saleur, *The continuum limit of $a^{(2)}_{N-1}$ spin chains*, arXiv:1601.01559.
-- E. Witten, arXiv:1001.2933.
-- Yao, *Compactified imaginary Toda theory*, arXiv:2605.25494 (2026).
-- A.B. Zamolodchikov, Adv. Stud. Pure Math. 19 (1989) 641.
-- A.B. Zamolodchikov and Al.B. Zamolodchikov, Ann. Phys. 120 (1979) 253.
-- Al.B. Zamolodchikov, Nucl. Phys. B342 (1990) 695.
-- Al.B. Zamolodchikov, *Mass scale in the sine-Gordon model and its reductions*, Int. J. Mod. Phys. A10 (1995) 1125.
-- Z. Zhu and D.G. Caldi, *Reality of complex affine Toda solitons*, J. Math. Phys. 36 (1995).
-- P. Zinn-Justin, *Non-linear integral equations for complex affine Toda models associated to simply laced Lie algebras*, J. Phys. A31 (1998) 6747, hep-th/9712222.
+::: {#refs}
+:::
