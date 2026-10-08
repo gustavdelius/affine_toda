@@ -1,0 +1,23 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "Affine Toda field theory"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: atft_foundations.qmd
+        text: Foundations
+      - href: toda_soliton_smatrices.qmd
+        text: Soliton S-matrices
+  repo-url: https://github.com/gustavdelius/affine_toda
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    number-sections: false
+    html-math-method: mathjax

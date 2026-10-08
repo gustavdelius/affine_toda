@@ -1,6 +1,7 @@
-# Exact S-matrices for affine Toda solitons: $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$
-
-*7 October 2026*
+---
+title: "Exact S-matrices for affine Toda solitons: $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$"
+date: "7 October 2026"
+---
 
 ## Abstract
 

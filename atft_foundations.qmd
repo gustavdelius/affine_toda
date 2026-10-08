@@ -1,6 +1,7 @@
-# Affine Toda field theories as quantum field theories: a review, a critique, and a foundation
-
-*Draft, October 2026*
+---
+title: "Affine Toda field theories as quantum field theories: a review, a critique, and a foundation"
+date: "Draft, October 2026"
+---
 
 ## Abstract
 

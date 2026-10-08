@@ -1,0 +1,8 @@
+---
+title: "Affine Toda field theory"
+---
+
+- [Affine Toda field theories as quantum field theories: a review, a critique, and a foundation](atft_foundations.qmd)
+- [Exact S-matrices for affine Toda solitons: $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$](toda_soliton_smatrices.qmd)
+
+Supporting code: [soliton_rmatrix_code](https://github.com/gustavdelius/affine_toda/tree/main/soliton_rmatrix_code).
