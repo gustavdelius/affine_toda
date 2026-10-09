@@ -1,40 +1,128 @@
 # Semiclassical quantization of solitons {#sec-dhn}
 
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
-- Compute one-loop soliton masses by the DHN method.
+- Compute one-loop soliton masses by the method of Dashen, Hasslacher and Neveu (DHN).
 - Express the mass correction through the transmission factors of the fluctuation operator.
-- Work out sine-Gordon and $a_n^{(1)}$ in full.
-- See why complex solitons make the fluctuation operator non-Hermitian.
+- Work out the sine-Gordon, $\phi^4$ and $a_n^{(1)}$ solitons.
+- See why complex solitons make the fluctuation operator non-Hermitian, and what goes wrong.
 :::
 
-::: {.callout-warning appearance="simple" title="To be written"}
-Sources to draw on: Dashen–Hasslacher–Neveu 1975; Rajaraman; Hollowood 1993; MacKay–Watts 1995; Delius–Grisaru 1995.
+@sec-sg-semiclassics quoted the one-loop mass of the sine-Gordon kink. This chapter derives it and its generalization to the solitons of affine Toda theory. For a real soliton, as in sine-Gordon, the method is textbook material and the result is unambiguous. For the complex solitons of the other affine Toda theories the same method is ambiguous, and different authors obtained different answers. The rest of Part V resolves the ambiguity.
+
+## The DHN method {#sec-dhn-method}
+
+Let $\vec\phi_s(x)$ be a static soliton and expand $\vec\phi=\vec\phi_s+\vec\eta$. To quadratic order the energy is the classical mass plus
+
+$$
+\frac12\int dx\,\Big(\dot{\vec\eta}^2+\vec\eta^{\mathsf T}\mathcal A\,\vec\eta\Big),\qquad\mathcal A=-\partial_x^2+M(x),\qquad M(x)=\frac{\partial^2V}{\partial\vec\phi\,\partial\vec\phi}\Big|_{\vec\phi_s(x)} .
+$$
+
+For affine Toda theory at imaginary coupling, $M(x)=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}e^{i\beta\vec\alpha_j\cdot\vec\phi_s(x)}$, as in @sec-counting-rule-transmission-factors. It tends to the vacuum mass matrix $M_0=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$ at both ends.
+
+If $\mathcal A$ has a complete set of eigenfunctions with eigenvalues $\omega_n^2$, the fluctuations are a set of oscillators, and quantizing them gives the one-loop mass
+
+$$
+M=M_{\rm cl}+\frac12\sum_n\omega_n-\frac12\sum_n\omega_n^{(0)}+\delta M_{\rm ct}+O(\beta^2) .
+$$ {#eq-dhn-mode-sum}
+
+Three points need care.
+
+- **The zero mode.** Translation invariance gives an eigenvector $\vec\phi_s'(x)$ with $\omega=0$. It is not an oscillator but the collective coordinate of the soliton's position. Quantizing it gives the soliton its momentum. It contributes nothing to (-@eq-dhn-mode-sum) at this order.
+- **The vacuum subtraction.** The sums diverge, and only their difference is meaningful. One compares the soliton and vacuum sectors in the same large box, with the same number of modes.
+- **The counterterm.** The difference is still logarithmically divergent. The divergence is removed by the same normal ordering that makes the vacuum sector finite (@sec-feynman-rules), and $\delta M_{\rm ct}$ is its effect on the soliton.
+
+@sec-counting-rule writes (-@eq-dhn-mode-sum) as a trace, (-@eq-one-loop-mass), which makes all three points automatic.
+
+## Transmission factors {#sec-transmission-factors}
+
+Consider first a single field of mass $m$, so that $\mathcal A=-\partial_x^2+m^2+U(x)$ with $U\to0$ at both ends. Solutions of $\mathcal A\eta=\lambda\eta$ with $\lambda=k^2+m^2$ behave as $e^{ikx}$ at $x\to-\infty$. For the solitons in this book the potential is **reflectionless**, so the solution at $x\to+\infty$ is $X(k)\,e^{ikx}$, with a **transmission factor** $X$. Write $\kappa=\sqrt{m^2-\lambda}=-ik$ and $z=\kappa/m$. For the Pöschl–Teller potentials that arise from Hirota solitons, $X$ is a rational function of $z$:
+
+$$
+X(z)=\prod_j\frac{z-z_j}{z+z_j},\qquad0<z_j\le1 .
+$$
+
+Each zero $z_j$ is a bound state with $\omega_j^2=m^2(1-z_j^2)$, so $\omega_j=m\cos t_j$ with $z_j=\sin t_j$. The zero mode is $z_j=1$.
+
+The mode sum (-@eq-dhn-mode-sum) can be evaluated entirely in terms of $X$. In a box, the continuum modes are quantized by the phase $\delta(k)=-i\ln X$, so the density of states differs from the vacuum by $\delta'(k)/2\pi$. Adding the bound states, using Levinson's theorem to account for the modes that have moved into bound states, and fixing the counterterm by the Born approximation to $\delta$ at large $k$, one finds the formula of Cahill, Comtet and Glauber [@cahill1976],
+
+$$
+\Delta M=-\frac m\pi\sum_j\big(\sin t_j-t_j\cos t_j\big).
+$$ {#eq-ccg}
+
+Equivalently, summing over all zeros and poles $w$ of $X$ with their orders (zeros positive, poles negative),
+
+$$
+\Delta M=\frac m2\sum_w\operatorname{ord}_w(X)\,\psi(\arcsin w),\qquad\psi(t)=\frac{t\cos t-\sin t}\pi .
+$$ {#eq-dhn-psi}
+
+Since $\psi$ is odd, a zero at $z_j$ and a pole at $-z_j$ each give half of the term in (-@eq-ccg). Formula (-@eq-dhn-psi) is the form that generalizes. @prp-one-loop-mass derives it, for several channels and for complex solitons, from the trace formula (-@eq-one-loop-mass).
+
+## Sine-Gordon and $\phi^4$ {#sec-dhn-examples}
+
+**Sine-Gordon.** The fluctuation operator (-@eq-sg-fluctuation) has $X(z)=(z-1)/(z+1)$: one bound state, the zero mode. Then $t=\pi/2$ and
+
+$$
+\Delta M=-\frac m\pi ,
+$$
+
+which is (-@eq-sg-one-loop-mass).
+
+**The $\phi^4$ kink.** For $V=\frac\lambda4(\phi^2-v^2)^2$ with meson mass $m$, the kink's fluctuation operator is a Pöschl–Teller potential with two bound states, the zero mode and $\omega=\frac{\sqrt3}2m$. So $t_1=\frac\pi2$, $t_2=\frac\pi6$, and (-@eq-ccg) gives the classic result of Dashen, Hasslacher and Neveu [-@dhn1975]:
+
+$$
+\Delta M=m\Big(\frac1{4\sqrt3}-\frac3{2\pi}\Big).
+$$
+
+## The $a_n^{(1)}$ solitons {#sec-dhn-an}
+
+For a theory with several fields the fluctuations split into **channels**, one for each particle species $b$ of mass $m_b$. A fluctuation that is a wave of species $b$ far to the left of the soliton emerges far to the right as a wave of the same species, multiplied by a transmission factor $X_{ab}$. That the waves neither reflect nor change species is a special property of integrable solitons. Hollowood [@hollowood1993a] showed that for the soliton of species $a$ of $a_n^{(1)}$, with $A=\pi a/h$ and $B=\pi b/h$,
+
+$$
+X_{ab}(z)=\frac{z-\cos(A-B)}{z-\cos(A+B)},\qquad z=\kappa_b/m_b .
+$$ {#eq-an-transmission}
+
+This is the classical two-soliton interaction coefficient (-@eq-interaction-coefficient), continued to the rapidity at which the second soliton becomes a linear wave (@sec-example-an1-zeros-alone). Applying (-@eq-dhn-psi) channel by channel and summing over $b$ gives Hollowood's result
+
+$$
+\Delta M_a=-m_a\Big[\frac h{2\pi}-\frac14\cot\frac\pi h\Big].
+$$ {#eq-hollowood-mass}
+
+Since $\Delta M_a$ is proportional to $m_a$, the soliton mass ratios are unchanged at one loop, just as the particle mass ratios are (@sec-one-loop-masses-real). With the classical mass (-@eq-soliton-mass), $M_a=m_a\big(\frac{2h}{\beta^2}-\frac h{2\pi}+\frac14\cot\frac\pi h\big)+O(\beta^2)$. For $h=2$ this is $M=\frac{8m_0}{\beta_{\rm SG}^2}-\frac{m_0}\pi$, the sine-Gordon result.
+
+## Complex solitons {#sec-dhn-complex}
+
+For $a_1^{(1)}$ the soliton is real and $\mathcal A$ is a Hermitian Schrödinger operator. For every other affine Toda theory the soliton is complex, and so is $M(x)$. The operator $\mathcal A$ is then **complex symmetric**: $M^{\mathsf T}=M$ but $\bar M\ne M$. It is symmetric with respect to the bilinear form $\int u^{\mathsf T}v\,dx$, without complex conjugation, but it is not Hermitian (@sec-jordan-blocks). Three things that the derivation of (-@eq-dhn-mode-sum) took for granted can fail.
+
+- **Why expand around a complex solution at all?** The path integral runs over real fields, and a complex soliton is not in the domain of integration. Steepest-descent arguments suggest that complex saddles can contribute, but they do not say which ones, or with what weight [@mackay_watts1995].
+- **Completeness.** The mode sum assumes a basis of eigenvectors, normalized with the bilinear form. A complex symmetric operator can have Jordan blocks, whose eigenvectors are self-orthogonal and cannot be normalized. Then the oscillator decomposition does not exist.
+- **Counting.** If eigenvalues are degenerate, they can be counted by the number of eigenvectors (geometric multiplicity) or by the order of the zero of the determinant (algebraic multiplicity). For a Hermitian operator these agree. Here they need not.
+
+These are not academic worries. For $c_n^{(1)}$, MacKay and Watts [-@mackay_watts1995] and Delius and Grisaru [-@delius_grisaru1995] computed the one-loop soliton masses and disagreed. For $b_n^{(1)}$, the semiclassical masses tabulated in [@mackay_watts1995] disagree with the exact S-matrix of Gandenberger, MacKay and Watts [@gmw1996], and the disagreement was left unresolved [@gm1997].
+
+@sec-semiclassics answers the first question with Picard–Lefschetz theory, and shows that the Gaussian integrals of the semiclassical expansion count eigenvalues by algebraic multiplicity. @sec-jordan-chains derives the algebraic multiplicities from the transmission factors. @sec-one-loop-masses applies this to every folded soliton and resolves both disagreements.
+
+## Exercises {#sec-dhn-exercises}
+
+::: {#exr-pt-transmission}
+For the Pöschl–Teller operator $-\partial_x^2+m^2-\ell(\ell+1)\mu^2\operatorname{sech}^2\mu x$, show that the potential is reflectionless for integer $\ell$, and that $X(k)=\prod_{j=1}^\ell\frac{k+ij\mu}{k-ij\mu}$. Express this as a function of $z=\kappa/m$, and recover the sine-Gordon case ($\ell=1$, $\mu=m$) and the $\phi^4$ case ($\ell=2$, $\mu=m/2$).
 :::
 
-## The DHN method
+::: {#exr-ccg-psi}
+Show that (-@eq-ccg) and (-@eq-dhn-psi) agree when $X(z)=\prod_j(z-z_j)/(z+z_j)$.
+:::
 
-*To be written.*
+::: {#exr-phi4}
+Use (-@eq-ccg) to compute the one-loop $\phi^4$ kink mass, and compare with the sine-Gordon kink. Why is the $\phi^4$ correction more negative?
+:::
 
-## Phase shifts and transmission factors
+::: {#exr-hollowood}
+For $a_2^{(1)}$, write down $X_{1b}$ for $b=1,2$, locate their zeros and poles, and sum (-@eq-dhn-psi) over the two channels to verify (-@eq-hollowood-mass). Note that $X_{11}$ has a pole in the bound-state half-plane $0<z\le1$. What does that mean physically? (Compare @prp-an-zeros.)
+:::
 
-*To be written.*
+::: {#exr-mass-ratio-oneloop}
+Show from (-@eq-hollowood-mass) that the $a_n^{(1)}$ soliton masses keep the ratios $\sin\frac{\pi a}h$ at one loop. Compare with what happens for $c_n^{(1)}$ in @sec-one-loop-masses-folded.
+:::
 
-## Sine-Gordon
+## Notes and references {#sec-dhn-notes}
 
-*To be written.*
-
-## The $a_n^{(1)}$ solitons
-
-*To be written.*
-
-## Complex solitons
-
-*To be written.*
-
-## Exercises
-
-*To be written.*
-
-## Notes and references
-
-*To be written.*
+The semiclassical method is due to Dashen, Hasslacher and Neveu [-@dhn1975], and the formula (-@eq-ccg) to Cahill, Comtet and Glauber [@cahill1976]. Rajaraman's book [@rajaraman1982] gives a careful account, including the zero mode and the counterterm. The affine Toda soliton masses were computed by Hollowood [@hollowood1993a; @hollowood1993b] for $a_n^{(1)}$, and for all algebras by MacKay and Watts [-@mackay_watts1995]; Delius and Grisaru [-@delius_grisaru1995] gave a competing result for $c_n^{(1)}$.

@@ -5,7 +5,7 @@ Self-contained task briefs for follow-up work on the book. The first two were wr
 | Brief | Task | Paper location |
 |---|---|---|
 | `exchange_statistics.md` | Decide which exchange of soliton labels the Bethe–Yang equations require, and hence which multi-soliton sectors are $\Theta$-broken | Section `sec-sector-status` (caveat on exchange statistics), open problem 6 (see below) |
-| `referee_textbook.md` | Referee the textbook chapters 1–15: what was verified, and a prioritized list of unverified formulas, conventions, claims and references | `part1-background/`, `part2-algebra/`, `part3-classical/`, `part4-real-coupling/`, `textbook_code/` |
+| `referee_textbook.md` | Referee the textbook chapters 1–16 and the textbook framing of 17–19: what was verified, and a prioritized list of unverified formulas, conventions, claims and references | `part1-background/`, `part2-algebra/`, `part3-classical/`, `part4-real-coupling/`, `part5-semiclassics/`, `textbook_code/` |
 | `rigorous_heat_trace.md` | Turn Proposition `prp-net-count` part 2 and Proposition `prp-one-loop-mass` from sketches into theorems | Sections `sec-counting-rule-transmission-factors` and `sec-one-loop-masses-folded`, open problem 3 (see below) |
 
 Recommended protocol, which worked in the session that wrote these briefs:

@@ -1,5 +1,16 @@
 # Jordan chains and the transmission factors {#sec-jordan-chains}
 
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Construct Jordan chains of a complex symmetric Schrödinger operator from its transmission factors.
+- Relate the algebraic multiplicity of an eigenvalue to the orders of zeros and poles of the transmission factors.
+- Understand why zeros alone over-count, and how threshold resonances carry weight.
+- See the Hirota form of the fluctuations, which makes all of this computable for every algebra.
+:::
+
+@sec-semiclassics showed that the one-loop mass counts eigenvalues by algebraic multiplicity. This chapter computes those multiplicities. The tool is the transmission factor of @sec-transmission-factors: for the integrable solitons of affine Toda theory, the fluctuations in each channel are reflectionless, and a bound state shows up as a zero of the channel's transmission factor. For a Hermitian operator every zero is simple. For the complex symmetric operators of complex solitons, zeros can be multiple, and a multiple zero is a Jordan block. Zeros of one channel can also be cancelled by poles of another. The precise statements are theorems given a hypothesis (D), which is verified for every case used in this book.
+
+The chapter is more technical than its predecessors. A reader who wants the result can read @thm-jordan-chains, @thm-hirota-factorization and @sec-example-an1-zeros-alone, and go on to @sec-one-loop-masses.
+
 ## The counting rule from the transmission factors {#sec-counting-rule-transmission-factors}
 
 **Setting.** The fluctuation operator about a static soliton is $\mathcal A=-\partial_x^2+M(x)$ on $L^2(\mathbb R,\mathbb C^r)$, with $M(x)=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}e^{i\beta\vec\alpha_j\cdot\vec\phi_s(x)}$. The matrix $M$ is complex symmetric, and it tends exponentially to $M_0=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$ at both ends, because both vacua lie on the co-weight lattice.
@@ -271,10 +282,24 @@ The Jordan types were read off from the ranks of $(\mathcal A_N-\lambda_0)^k$ on
 
 Simple zeros can also sit exactly at another channel's threshold: in $a_n^{(1)}$ with $h$ even (@prp-an-zeros, case $\cos B=0$), in $d_n^{(1)}$ with $n$ odd, and in $e_6^{(1)}$. There the exact solution tends to a constant in the threshold channel. It adds nothing to the $L^2$ root space, but the heat trace counts it with weight 1: dropping it changes the $a_3^{(1)}$ trace by $e^{-0.6}=0.55$ at $t=0.3$. So the trace weight can exceed the dimension of the $L^2$ root space already for single simply-laced solitons. Scripts: `foundations_code/hirota/`.
 
-## Exercises
+## Exercises {#sec-jordan-chains-exercises}
 
-*To be written.*
+::: {#exr-wronskian-bilinear}
+Show that for $\mathcal A=-\partial_x^2+M(x)$ with $M^{\mathsf T}=M$, the Wronskian $W(u,v)=u^{\mathsf T}v'-u'^{\mathsf T}v$ of two solutions at the same $\lambda$ is constant. Why is complex conjugation not needed?
+:::
 
-## Notes and references
+::: {#exr-chain}
+Differentiate $(\mathcal A-\lambda)\psi_c(\lambda)=0$ with respect to $\lambda$ to show that $\partial_\lambda\psi_c(\lambda_0)$ is a generalized eigenvector when $\psi_c(\lambda_0)$ is an eigenvector. What extra condition makes it square integrable?
+:::
 
-*To be written.*
+::: {#exr-a4-cancellation}
+For the species-1 soliton of $a_4^{(1)}$, use (-@eq-an-transmission) to show that $X_{12}$ has a zero and $X_{11}$ a pole at the same $\lambda=1.25\,m^2$, below the lowest threshold $m_1^2\approx1.382\,m^2$. Conclude from @prp-an-zeros that there is no eigenvalue there.
+:::
+
+::: {#exr-cn-double-zero}
+For $c_n^{(1)}$, show that $X_n(z)=\big(\frac{z-\sin A}{z+\sin A}\big)^2$ has its double zero at the threshold of channel $n-a$, using $m_b=2m\sin\frac{\pi b}{2n}$.
+:::
+
+## Notes and references {#sec-jordan-chains-notes}
+
+Jordan chains and the root spaces of non-self-adjoint operators are treated by Kato [@kato1966] and by Gohberg and Krein [@gohberg1971]. Jost solutions and their analyticity go back to Jost [@jost1951], and Coddington and Levinson [@coddington1955] give the theory of linear ODEs used here. The relation between transmission factors and Fredholm determinants for matrix Schrödinger operators is developed in [@gesztesy2003; @gesztesy2007]. The results of this chapter are new here.

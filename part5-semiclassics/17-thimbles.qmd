@@ -1,6 +1,44 @@
 # Complex saddles, Lefschetz thimbles and the counting rule {#sec-semiclassics}
 
-*Introduction to Picard–Lefschetz theory for physicists: to be written.*
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Decompose an integral with a complex weight into steepest-descent thimbles of complex critical points.
+- Recognise that a complex saddle may or may not contribute, and that this is decided by intersection numbers, not by the size of its action.
+- Show that the Gaussian integral over a thimble counts eigenvalues by algebraic multiplicity.
+- Apply this to the complex solitons of affine Toda theory, and see what remains open.
+:::
+
+@sec-dhn-complex raised two questions about the semiclassical expansion around complex solitons: why complex saddles should contribute to an integral over real fields, and how their fluctuation eigenvalues should be counted. Both are answered by Picard–Lefschetz theory, the theory of steepest descent for integrals of holomorphic functions. This chapter introduces it in one variable, where everything can be seen, and then applies it to the lattice regularization of affine Toda theory from Part VII.
+
+## Picard–Lefschetz theory in one variable {#sec-picard-lefschetz}
+
+Consider $I(\hbar)=\int_{\mathbb R}e^{-S(x)/\hbar}dx$ with $\hbar>0$ and $S$ holomorphic, real or not on the real line. Continue $S$ to $z\in\mathbb C$. At each critical point $z_\sigma$, $S'(z_\sigma)=0$, define
+
+- the **thimble** $\mathcal J_\sigma$: the curve of points reached by the upward flow $\dot z=\overline{S'(z)}$ from $z_\sigma$, along which $\frac{d}{dt}S=\lvert S'\rvert^2>0$. So $\operatorname{Re}S$ increases and $\operatorname{Im}S$ is constant;
+- the **dual thimble** $\mathcal K_\sigma$: the curve of points reached by the downward flow from $z_\sigma$.
+
+On $\mathcal J_\sigma$ the integrand has constant phase and decays away from $z_\sigma$, so the integral over it converges and is dominated by the neighbourhood of $z_\sigma$:
+
+$$
+\int_{\mathcal J_\sigma}e^{-S/\hbar}dz\simeq e^{-S(z_\sigma)/\hbar}\sqrt{\frac{2\pi\hbar}{S''(z_\sigma)}}\,\big(1+O(\hbar)\big).
+$$
+
+The **Picard–Lefschetz decomposition** writes the original contour as an integer combination of thimbles,
+
+$$
+\int_{\mathbb R}=\sum_\sigma n_\sigma\int_{\mathcal J_\sigma},\qquad n_\sigma=\langle\mathbb R,\mathcal K_\sigma\rangle ,
+$$
+
+where the intersection number $n_\sigma$ counts, with orientation, how often the real line crosses the dual thimble of $z_\sigma$ [@pham1983; @witten2010]. The semiclassical expansion is then the sum over the saddles with $n_\sigma\ne0$. As $\arg\hbar$ varies, the $n_\sigma$ can jump when two saddles have equal $\operatorname{Im}(S/\hbar)$. These are **Stokes phenomena**.
+
+**Example: zero-dimensional $i\phi^3$.** Take $S(x)=\frac{x^2}2+\frac{ix^3}3$, the zero-dimensional version of Fisher's Lee–Yang Lagrangian (@sec-lee-yang), and $\hbar=1/\lambda$. Then:
+
+- The critical points are $z=0$, with $S=0$, and $z=i$, with $S(i)=-\frac16$. The second has the *lower* action and would dominate if it contributed, by a factor $e^{\lambda/6}$.
+- But on the real line $\lvert e^{-\lambda S}\rvert=e^{-\lambda x^2/2}$, so $\lvert I\rvert\le\sqrt{2\pi/\lambda}$. An exponentially large contribution is impossible, so $n_i=0$ and $I=\int_{\mathcal J_0}$.
+- Expanding around $z=0$ gives $I=\sqrt{2\pi/\lambda}\,\big(1-\frac5{6\lambda}+O(\lambda^{-2})\big)$, which agrees with the numerical integral (`textbook_code/semiclassics.py`).
+- The antilinear map $x\mapsto-\bar x$ maps the real line to itself and $S$ to $\bar S$, and both critical points are fixed by it. This is the zero-dimensional $\Theta$.
+
+So the question is never "is there a complex saddle?", but "what is its intersection number?". In field theory the intersection numbers are hard to compute, and that is the difficulty of gap H7 (@sec-critique).
+
 
 ## Thimbles {#sec-thimbles}
 
@@ -67,10 +105,24 @@ The one-loop mass (-@eq-one-loop-mass) is independent of $\operatorname{Im}\xi$.
 - **[Numerical]** For $a_2^{(1)}$ with $L=1$, $\kappa=1$ and $\vec\lambda$ a weight of $\mathbf3$, 54 complex critical points were found, and exactly four contribute, each with $\lvert n_\sigma\rvert=1$. They are a $\Theta$-pair of real-action kinks centred on the two bonds and a $\Theta$-pair of complex-action kinks centred on the site, the lattice image of the complex translation orbit. $\Theta$ maps these thimbles to each other and conjugates their contributions. The decomposition reproduces the exact integral. After the exactly integrated real pair is subtracted, the residual equals the two-loop contribution of the complex pair to $6.6\times10^{-9}$ of the total at $\hbar=0.15$, which is 2% of that contribution and the size of its two-loop truncation error. The $n_\sigma$ are unchanged at $\arg\hbar=\pm0.02$. For $L=2$ the same pattern appears: real-action kinks on bonds and complex-action kinks on sites.
 - The reduced model validates the method, but it cannot decide @cnj-missing-charge, because it contains only static saddles. Scripts: `foundations_code/thimbles/`.
 
-## Exercises
+## Exercises {#sec-semiclassics-exercises}
 
-*To be written.*
+::: {#exr-airy}
+The Airy function is $\operatorname{Ai}(a)=\frac1{2\pi}\int_{\mathbb R}e^{i(t^3/3+at)}dt$. Find the critical points for $a>0$ and $a<0$, sketch the thimbles, and determine the intersection numbers in each case. Deduce the asymptotic behaviour of $\operatorname{Ai}(a)$ as $a\to\pm\infty$.
+:::
 
-## Notes and references
+::: {#exr-iphi3}
+For $S=\frac{x^2}2+\frac{ix^3}3$, find $S''$ at both critical points, and verify the coefficient $-\frac5{6\lambda}$ by expanding $e^{-i\lambda x^3/3}$ to second order.
+:::
 
-*To be written.*
+::: {#exr-thimble-gaussian}
+Prove @prp-thimble-gaussian for $n=2$ by writing $B$ in Schur form. Check it on the matrix of @exr-jordan-determinant.
+:::
+
+::: {#exr-hg}
+Show that $H_g=-\partial_x^2+ge^{ix}$ is lower triangular in the basis $e^{ikx}$, that its spectrum is $\{k^2\}$, and that $n^2$ ($n\ge1$) has algebraic multiplicity 2 but geometric multiplicity 1. Why is $\operatorname{Tr}e^{-TH_g}$ independent of $g$?
+:::
+
+## Notes and references {#sec-semiclassics-notes}
+
+Picard–Lefschetz theory is classical [@pham1983]. Its use for path integrals was developed by Witten [-@witten2010], and its relation to resurgence is reviewed by Dunne and Ünsal [@dunne2015]. Alexandru, Başar, Bedaque and Warrington [@alexandru2022] review its use against sign problems, including algorithms for computing thimbles and intersection numbers. The application to affine Toda solitons is new here.

@@ -1,5 +1,14 @@
 # One-loop soliton masses for every algebra {#sec-one-loop-masses}
 
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Compute one-loop soliton masses from transmission factors alone.
+- See how counting by algebraic multiplicity resolves the $c_n^{(1)}$ and $b_n^{(1)}$ disagreements.
+- Read the pattern of floating Coxeter numbers for solitons, and its relation to Lie duality.
+- Understand the one-loop prediction for $f_4^{(1)}$ and why it rules out the obvious soliton S-matrix.
+:::
+
+This chapter puts the previous two to work. With eigenvalues counted by algebraic multiplicity, and the multiplicities read off the transmission factors, the one-loop masses of all solitons obtained by folding become explicit sums over zeros and poles. The results agree with every exact S-matrix where one is known, settle two old disagreements, and make a prediction for $f_4^{(1)}$ that Part VI uses.
+
 ## Resolution of the semiclassical mass disagreements {#sec-resolution-semiclassical-mass-disagreements}
 
 In $c_n^{(1)}$, the fluctuation operator around soliton $a<n$ has a Jordan block at frequency $\nu_0=m_{n-a}$. Its eigenvector comes from a double zero of the transmission factor of the perturbing soliton $n$. The eigenvector is self-orthogonal, and its generalized eigenvector sits at the $(n-a)$ threshold. Counting this block once gives the MacKay–Watts result; counting it with its algebraic multiplicity gives Delius–Grisaru's. @prp-cn-threshold-blocks (@sec-example-cn1-jordan-blocks) makes this precise. The eigenvector $\psi_n(\lambda_0)$ is in $L^2$ and self-orthogonal. The generalized eigenvector $\partial_\lambda\psi_n(\lambda_0)$ tends to a nonzero constant in channel $n-a$, so it is a bounded threshold resonance rather than an $L^2$ vector. The one-loop trace nevertheless counts $\lambda_0$ twice.
@@ -93,10 +102,24 @@ $$
 
 while the breathers have $H_b=12-3\beta^2/4\pi$. So, as in $g_2^{(1)}$ and unlike $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$, $H_s\ne H_b$: the soliton fusion angles are not those of the breathers. Part VI writes the $f_4^{(1)}$ amplitude with a scalar factor of period $T$, and in its $\mathbf{27}$ family the soliton and breather fusion angles are tied to the same $T$. The one-loop result $H_s\ne H_b$ therefore excludes every lift of that family, independently of the comparison with Corrigan–Dorey–Sasaki. Part VI had fixed the lifts by assuming equal fusion angles (@sec-one-loop-data-fix). Using the one-loop soliton masses and the coupling map $1/\omega=\beta^2/4\pi$ instead, the integer solutions are $T=6\omega+\tfrac32+6j$, with zeros at $\omega+j$, $3\omega+\tfrac12+3j$ and $4\omega+1+4j$ [Numerical; @sec-soliton-masses-one-loop]. For $j=0$ this is Part VI's choice with the $\mathbf{378}$ and $\mathbf{79}$ zeros lowered by one, and with these lifts the lowest-breather amplitude still matches no Corrigan–Dorey–Sasaki amplitude [Numerical; @sec-soliton-masses-one-loop]. The tree term of Part VI's breather amplitude implies $1/\omega=\beta^2/8\pi$ rather than $\beta^2/4\pi$, which is a second sign that the $\mathbf{27}$ family is not the right one.
 
-## Exercises
+## Exercises {#sec-one-loop-masses-exercises}
 
-*To be written.*
+::: {#exr-psi-properties}
+Show that $\psi(t)=(t\cos t-\sin t)/\pi$ is odd and smooth at $t=0$, and that $\psi(\arcsin w)$ is continuous at $w=0$. Why does this mean that a zero crossing a threshold causes no jump in $\Delta M$?
+:::
 
-## Notes and references
+::: {#exr-sg-calibration}
+Apply @prp-one-loop-mass to the sine-Gordon kink and to the $a_n^{(1)}$ solitons, and recover $-m_1/\pi$ and (-@eq-hollowood-mass).
+:::
 
-*To be written.*
+::: {#exr-double-count}
+Suppose a channel has a double zero at $w_0$ and a double pole at $-w_0$. Compare $\Delta M$ from @prp-one-loop-mass with the value obtained by counting the zero once (keeping the continuum). Show that the difference is $\frac12\omega_0$, with $\omega_0=m\sqrt{1-w_0^2}$.
+:::
+
+::: {#exr-g2-duality}
+Using the $g_2^{(1)}$ numbers quoted in this chapter, check that $H_s-h=-(H_b-h)$ at $O(\beta^2)$. What does the rule predict for $f_4^{(1)}$, and how does it compare with the table?
+:::
+
+## Notes and references {#sec-one-loop-masses-notes}
+
+The competing one-loop computations are MacKay and Watts [-@mackay_watts1995] and Delius and Grisaru [-@delius_grisaru1995] for $c_n^{(1)}$, and the exact $b_n^{(1)}$ masses are in Gandenberger, MacKay and Watts [-@gmw1996], with the open discrepancy noted in [@gm1997]. The exact masses used for comparison are those of [@gm1995; @gandenberger1998; @takacs1997c; @takacs1997d]. The resolution by algebraic multiplicity, the transmission-factor formula and the $f_4^{(1)}$ prediction are new here. Scripts: `foundations_code/oneloop/`.
