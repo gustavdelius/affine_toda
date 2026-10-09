@@ -3,50 +3,197 @@
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
 - Build untwisted affine algebras from loop algebras and their central extension.
 - Read affine and twisted Dynkin diagrams, Kac labels and the dual Coxeter number.
-- Obtain every non-simply-laced algebra by folding and identify the dual pairs.
-- Understand gradations, the spectral parameter and the principal (Lorentz-spin) gradation.
-- Meet the vertex-operator representations that will build solitons in Part III.
+- Obtain every non-simply-laced affine Toda theory by folding a simply-laced one, and identify the dual pairs.
+- Understand gradations, the spectral parameter and the principal gradation.
+- Meet the vertex-operator representations that build solitons in Part III.
 :::
 
-::: {.callout-warning appearance="simple" title="To be written"}
-Sources to draw on: Kac, *Infinite-Dimensional Lie Algebras*; Goddard–Olive 1986; Olive–Turok 1983; Fuchs, *Affine Lie Algebras and Quantum Groups*.
-:::
+Physicists usually meet affine Lie algebras as current algebras: the modes of the chiral currents of a Wess–Zumino–Witten model, or the algebra behind the Sugawara construction. Affine Toda theory uses them differently. What matters is less the central extension than the **affine Dynkin diagram**, with its extra node and its Kac labels, and the **gradations**, which tie the loop parameter to Lorentz boosts. This chapter develops both.
 
-## Loop algebras and the central extension
+## Loop algebras and the central extension {#sec-loop-algebras}
 
-*To be written.*
+Let $g$ be a simple Lie algebra with basis $T^a$, structure constants $[T^a,T^b]=f^{ab}{}_cT^c$, and invariant form $(T^a,T^b)$ normalized so that long roots have length$^2$ 2. The **loop algebra** $g\otimes\mathbb C[\lambda,\lambda^{-1}]$ consists of Laurent polynomials in a variable $\lambda$ with values in $g$, with the pointwise bracket. Its **central extension** adds an element $c$:
 
-## Twisted affine algebras
+$$
+[T^a\otimes\lambda^m,T^b\otimes\lambda^n]=f^{ab}{}_c\,T^c\otimes\lambda^{m+n}+m\,\delta_{m+n,0}\,(T^a,T^b)\,c .
+$$ {#eq-affine-bracket}
 
-*To be written.*
+Adding the derivation $d=\lambda\frac{d}{d\lambda}$ gives the **untwisted affine Kac–Moody algebra** $\hat g=g^{(1)}$. In a highest-weight representation $c$ acts as a number, the **level** $k$, and with $J^a_m=T^a\otimes\lambda^m$ the bracket is the current algebra $[J^a_m,J^b_n]=f^{ab}{}_cJ^c_{m+n}+km\,\delta_{m+n,0}(T^a,T^b)$ familiar from conformal field theory.
 
-## Folding and duality
+For affine Toda theory the central extension plays a minor role. The Lax pair of @sec-theories takes values in the loop algebra, and the finite-dimensional representations used for solitons and R-matrices have level zero. The central extension appears in the vertex-operator construction of solitons (@sec-vertex-operators).
 
-*To be written.*
+## The affine root system and Dynkin diagram {#sec-affine-dynkin}
 
-## Gradations
+The loop algebra has the Chevalley generators of $g$, which have degree 0 in $\lambda$, and one more pair,
 
-*To be written.*
+$$
+e_0=E^{-\vec\theta}\otimes\lambda,\qquad f_0=E^{\vec\theta}\otimes\lambda^{-1},
+$$
 
-## Vertex-operator representations
+where $\vec\theta$ is the highest root of $g$. As far as the Cartan subalgebra of $g$ is concerned, $e_0$ carries the root
 
-*To be written.*
+$$
+\vec\alpha_0=-\vec\theta .
+$$
 
-## Lie-algebraic data {#sec-lie-algebraic-data}
+The $r+1$ vectors $\vec\alpha_0,\vec\alpha_1,\dots,\vec\alpha_r\in\mathbb R^r$ are the **affine simple roots** projected to $\mathbb R^r$ (the full affine roots carry an extra component counting powers of $\lambda$, which we suppress). They are linearly dependent, and by (-@eq-highest-root)
+
+$$
+\sum_{j=0}^rn_j\vec\alpha_j=0,\qquad n_0=1 .
+$$ {#eq-kac-labels}
+
+The positive integers $n_j$ are the **Kac labels** (or marks), and $h=\sum_jn_j$ is the Coxeter number of $g$. This relation is the one that appears in the affine Toda Lagrangian (-@eq-imaginary-potential), where it makes $\vec\phi=0$ a stationary point of the potential.
+
+The **affine Dynkin diagram** is drawn from the $(r+1)\times(r+1)$ affine Cartan matrix $a_{ij}=\vec\alpha_i^\vee\cdot\vec\alpha_j$ by the rules of @sec-dynkin. It is the Dynkin diagram of $g$ with one more node, attached to the nodes that have a nonzero product with $\vec\theta$. The affine Cartan matrix has rank $r$, its null vector being $(n_j)$.
+
+| $\hat g$ | Kac labels $n_j$ | $h$ | $h^\vee$ |
+|---|---|---|---|
+| $a_n^{(1)}$ | all 1; the diagram is a cycle of $n+1$ nodes | $n+1$ | $n+1$ |
+| $b_n^{(1)}$ | 1 on the two forked end nodes, 2 on the others (including the short end node) | $2n$ | $2n-1$ |
+| $c_n^{(1)}$ | 1 on the two long end nodes, 2 on the $n-1$ short nodes | $2n$ | $n+1$ |
+| $d_n^{(1)}$ | 1 on the four end nodes, 2 on the others | $2n-2$ | $2n-2$ |
+| $e_6^{(1)}$ | 1 on the three ends, 2 on the middle nodes of the legs, 3 at the centre | 12 | 12 |
+| $e_7^{(1)}$ | $1,2,3,4,3,2,1$ along the long chain, 2 on the short leg | 18 | 18 |
+| $e_8^{(1)}$ | $1,2,3,4,5,6,4,2$ along the long chain, 3 on the short leg | 30 | 30 |
+| $f_4^{(1)}$ | $1,2,3,4,2$ along the chain | 12 | 9 |
+| $g_2^{(1)}$ | $1,2,3$ along the chain | 6 | 4 |
+
+: The untwisted affine algebras. The dual Coxeter number is $h^\vee=\sum_jn_j^\vee$, with the dual labels $n_j^\vee=n_j\,\vec\alpha_j^2/2$. {#tbl-untwisted}
+
+The extra node has a symmetry that the finite diagram lacks. For $a_n^{(1)}$ the diagram is a cycle, with the cyclic group $\mathbb Z_{n+1}$ of rotations. This is the centre of $SU(n+1)$, and the same is true in general: the symmetries of the affine diagram that move the extra node correspond to the centre of the simply connected group. In affine Toda theory they act on the particles as charge-conjugation-like symmetries, and the particles of $a_n^{(1)}$ carry a $\mathbb Z_{n+1}$ charge.
+
+## Twisted affine algebras {#sec-twisted}
+
+Let $\sigma$ be an automorphism of $g$ of order $k$ that comes from a symmetry of the Dynkin diagram of $g$. Then $g=\bigoplus_{j\in\mathbb Z_k}g_{(j)}$, with $\sigma=e^{2\pi ij/k}$ on $g_{(j)}$. The **twisted loop algebra** keeps only the elements
+
+$$
+\sum_mX_m\otimes\lambda^m,\qquad X_m\in g_{(m\bmod k)} .
+$$
+
+Its central extension is a **twisted affine algebra** $g^{(k)}$. Diagram automorphisms of order 2 exist for $A_n$, $D_n$ and $E_6$, and of order 3 for $D_4$ (triality), so the twisted algebras are
+
+$$
+a_{2n}^{(2)},\quad a_{2n-1}^{(2)},\quad d_{n+1}^{(2)},\quad e_6^{(2)},\quad d_4^{(3)} .
+$$
+
+They too have affine Dynkin diagrams with $r+1$ nodes and positive labels $n_j$ with $\sum_jn_j\vec\alpha_j=0$, and they define affine Toda theories by the same Lagrangian. In the twisted case the finite algebra underlying the diagram is not $g$ but the fixed-point subalgebra $g_{(0)}$, or a closely related one: $a_{2n-1}^{(2)}$ has rank $n$, as do $a_{2n}^{(2)}$ and $d_{n+1}^{(2)}$, while $e_6^{(2)}$ has rank 4 and $d_4^{(3)}$ rank 2. The normalization of the labels used for twisted algebras varies in the literature, and we follow [@mackay_watts1995].
+
+## Folding and duality {#sec-affine-folding}
+
+Every non-simply-laced affine Toda theory is a reduction of a simply-laced one [@olive1983]. Let $\tau$ be a symmetry of the affine Dynkin diagram of a simply-laced $\hat g$ that maps roots to roots preserving inner products. Restrict the field $\vec\phi$ to the subspace fixed by $\tau$. For such $\vec\phi$, all roots in a $\tau$-orbit $O$ have the same inner product with $\vec\phi$ as their average
+
+$$
+\vec\alpha_O=\frac1{\lvert O\rvert}\sum_{j\in O}\vec\alpha_j ,
+$$
+
+which is their projection onto the fixed subspace. The potential $\sum_jn_je^{\beta\vec\alpha_j\cdot\vec\phi}$ becomes $\sum_O\lvert O\rvert n_Oe^{\beta\vec\alpha_O\cdot\vec\phi}$, which is the affine Toda potential of the algebra whose simple roots are the $\vec\alpha_O$ and whose labels are $\lvert O\rvert n_O$. Orbits of orthogonal roots give shorter roots, $\vec\alpha_O^2=2/\lvert O\rvert$.
+
+**Example.** The diagram of $a_3^{(1)}$ is a square with nodes $0,1,2,3$. The reflection that fixes nodes 0 and 2 and exchanges 1 and 3 has orbits $\{0\}$, $\{2\}$ and $\{1,3\}$. The folded roots $\vec\alpha_0$, $\vec\alpha_2$ are long, $\vec\alpha_{\{1,3\}}=\frac12(\vec\alpha_1+\vec\alpha_3)$ is short with length$^2$ 1, and the labels are $1,1,2$. This is $c_2^{(1)}$.
+
+Folding preserves solutions of the field equations: a $\tau$-invariant solution of the parent theory is a solution of the folded theory. This is how classical solitons of non-simply-laced theories are constructed, and why Part V speaks of "folded solitons". The foldings used in this book are:
+
+| folded $\hat g$ | parent | dual algebra $\hat g^\vee$ | $h$ | $h^\vee$ |
+|---|---|---|---|---|
+| $b_n^{(1)}$ | $d_{n+1}^{(1)}$ | $a_{2n-1}^{(2)}$ | $2n$ | $2n-1$ |
+| $c_n^{(1)}$ | $a_{2n-1}^{(1)}$ | $d_{n+1}^{(2)}$ | $2n$ | $n+1$ |
+| $f_4^{(1)}$ | $e_6^{(1)}$ | $e_6^{(2)}$ | 12 | 9 |
+| $g_2^{(1)}$ | $d_4^{(1)}$ | $d_4^{(3)}$ | 6 | 4 |
+| $a_{2n-1}^{(2)}$ | $d_{2n}^{(1)}$ | $b_n^{(1)}$ | $2n-1$ | $2n$ |
+| $d_{n+1}^{(2)}$ | $d_{n+2}^{(1)}$ | $c_n^{(1)}$ | $n+1$ | $2n$ |
+| $e_6^{(2)}$ | $e_7^{(1)}$ | $f_4^{(1)}$ | 9 | 12 |
+| $d_4^{(3)}$ | $e_6^{(1)}$ | $g_2^{(1)}$ | 4 | 6 |
+| $a_{2n}^{(2)}$ | $d_{2n+2}^{(1)}$ | $a_{2n}^{(2)}$ | $2n+1$ | $2n+1$ |
+
+: Foldings of affine Toda theories and the duality between affine algebras. {#tbl-foldings}
+
+**Duality.** Reversing the arrows of an affine Dynkin diagram gives the diagram of the **dual** algebra $\hat g^\vee$. The simply-laced algebras and $a_{2n}^{(2)}$ are self-dual, and the non-simply-laced ones fall into the four dual pairs of @tbl-foldings. Duality exchanges the Coxeter number and the dual Coxeter number, as the table shows. It is central to affine Toda theory in three ways.
+
+- The masses of the solitons of an untwisted non-simply-laced theory are proportional to the particle masses of the *dual* theory (@sec-imaginary-coupling-vacua).
+- The non-local charges of the imaginary-coupling theory based on $\hat g$ generate the quantum affine algebra $U_q(\hat g^\vee)$ of the *dual* algebra (@sec-qg-symmetry).
+- The real-coupling S-matrices of a dual pair are exchanged by the strong–weak duality $\beta\to4\pi/\beta$ (@sec-non-simply-laced).
+
+## Gradations {#sec-gradations}
+
+The bracket (-@eq-affine-bracket) is compatible with many $\mathbb Z$-gradings. A **gradation** is specified by non-negative integers $s=(s_0,\dots,s_r)$, not all zero, by declaring
+
+$$
+\deg e_j=s_j,\qquad\deg f_j=-s_j,\qquad\deg h_j=0 .
+$$
+
+Two gradations are distinguished.
+
+- The **homogeneous** gradation $s=(1,0,\dots,0)$ is the grading by powers of $\lambda$ used in @sec-loop-algebras.
+- The **principal** gradation $s=(1,1,\dots,1)$ gives every simple root degree 1.
+
+In a representation, a gradation turns into a **spectral parameter**. If $\pi$ is a representation of the loop algebra and $x\in\mathbb C^*$, then
+
+$$
+\pi_x(e_j)=x^{s_j}\pi(e_j),\qquad\pi_x(f_j)=x^{-s_j}\pi(f_j)
+$$
+
+is another representation. Representations obtained from different gradations are related by a conjugation that depends on $x$ and by a change of variable $x\mapsto x^p$. Physical quantities do not depend on the choice, but formulas do, and @sec-quantum-groups gives an example.
+
+**The principal gradation and Lorentz spin.** In affine Toda theory the principal gradation is singled out by Lorentz invariance. The Lax pair (@sec-theories) involves the element
+
+$$
+E_1=\sum_{j=0}^rc_j\,e_j ,
+$$
+
+with nonzero coefficients $c_j$ fixed by the Kac labels and the normalization of the fields. It has principal degree 1, and a Lorentz boost $x^\pm\mapsto e^{\pm\vartheta}x^\pm$ can be compensated by the automorphism that multiplies elements of principal degree $s$ by $e^{s\vartheta}$. Charges built from elements of principal degree $s$ therefore have Lorentz spin $s$. The centralizer of $E_1$ in the loop algebra, the **principal Heisenberg subalgebra**, is spanned by elements whose principal degrees are the exponents of $\hat g$ modulo $h$ [@kac1990]. This is why the conserved charges of affine Toda theory have spins equal to the exponents modulo the Coxeter number.
+
+For the non-local charges of the imaginary-coupling theory, the same argument with a gradation determined by the Lorentz spins of the charges fixes the parameter $T$ of @sec-amplitude-and-gradation. It is the origin of the formula $2T=4\pi h/\beta^2-h^\vee$, in which both the Coxeter number and the dual Coxeter number appear.
+
+## Vertex-operator representations {#sec-vertex-operators}
+
+The affine algebra $\hat g$ has irreducible highest-weight representations $L(\Lambda)$, analogous to those of @sec-weights but infinite-dimensional. The **fundamental weights** $\Lambda_0,\dots,\Lambda_r$ of $\hat g$ give the fundamental representations $L(\Lambda_j)$, of level $n_j^\vee$. For simply-laced $\hat g$ the level-one representations $L(\Lambda_j)$ with $n_j=1$ can be realized on a Fock space of free bosons by **vertex operators**, exponentials of free fields. This is the Frenkel–Kac construction in the homogeneous gradation and the Lepowsky–Wilson construction in the principal gradation [@kac1990].
+
+In the principal realization, elements $F^a(z)$ of the completed loop algebra that diagonalize the adjoint action of the principal Heisenberg subalgebra,
+
+$$
+[E_{\pm1},F^a(z)]=\mu_a\,z^{\pm1}F^a(z) ,
+$$
+
+are realized as vertex operators (we suppress normalizations). Olive, Turok and Underwood [@olive1993a; @olive1993b] showed that the soliton solutions of affine Toda theory are matrix elements
+
+$$
+\tau_j=\langle\Lambda_j\rvert\,\prod_k\exp\big(Q_kF^{a_k}(z_k)\big)\,\lvert\Lambda_j\rangle ,
+$$
+
+where the species $a_k$ fix the soliton masses through $\mu_{a_k}$, and $z_k$ and $Q_k$ encode rapidity, position and internal phase. Because $F^a$ is nilpotent on $L(\Lambda_j)$, each exponential truncates, and $\tau_j$ is a finite sum of exponentials, as Hirota's method gives directly. @sec-classical-solitons develops this.
+
+## Summary: the Lie-algebraic data used in this book {#sec-lie-algebraic-data}
 
 Let $\hat g$ be an affine Kac–Moody algebra with simple roots $\vec\alpha_0,\dots,\vec\alpha_r\in\mathbb R^r$, normalized so that the longest roots have $\lvert\vec\alpha\rvert^2=2$. The positive integers $n_j$ (Kac labels, with the normalization of [@mackay_watts1995]) satisfy $\sum_jn_j\vec\alpha_j=0$.
 
-The algebras fall into three classes:
+The algebras fall into two classes:
 
 - the self-dual algebras $a_n^{(1)},d_n^{(1)},e_n^{(1)},a_{2n}^{(2)}$;
 - the dual pairs of non-simply-laced algebras $(b_n^{(1)},a_{2n-1}^{(2)})$, $(c_n^{(1)},d_{n+1}^{(2)})$, $(g_2^{(1)},d_4^{(3)})$ and $(f_4^{(1)},e_6^{(2)})$.
 
 Duality reverses the arrows of the affine Dynkin diagram. Folding a simply-laced diagram by a diagram automorphism gives every non-simply-laced algebra [@olive1983].
 
-## Exercises
+## Exercises {#sec-affine-algebras-exercises}
 
-*To be written.*
+::: {#exr-jacobi-central}
+Show that the bracket (-@eq-affine-bracket) satisfies the Jacobi identity. Which property of the invariant form is needed?
+:::
 
-## Notes and references
+::: {#exr-affine-cartan}
+Write down the affine Cartan matrices of $a_2^{(1)}$ and $c_2^{(1)}$, and check that $(n_j)$ is a null vector in each case.
+:::
 
-*To be written.*
+::: {#exr-fold-d4}
+Fold $d_4^{(1)}$ by the triality symmetry that fixes the central node and the affine node and permutes the other three end nodes. Find the folded roots, their lengths and labels, and identify the result as $g_2^{(1)}$.
+:::
+
+::: {#exr-fold-mass}
+Show that folding commutes with taking the classical mass matrix: the mass matrix $m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$ of the parent, restricted to the $\tau$-invariant subspace, is the mass matrix of the folded theory. Conclude that the particle masses of $c_2^{(1)}$ are a subset of those of $a_3^{(1)}$.
+:::
+
+::: {#exr-dual-coxeter}
+Using the dual labels $n_j^\vee=n_j\vec\alpha_j^2/2$, verify $h^\vee$ for $b_n^{(1)}$, $c_n^{(1)}$, $f_4^{(1)}$ and $g_2^{(1)}$ in @tbl-untwisted.
+:::
+
+## Notes and references {#sec-affine-algebras-notes}
+
+Kac's book [@kac1990] is the standard reference, including the twisted algebras, gradations, the principal Heisenberg subalgebra and vertex-operator constructions. Goddard and Olive [@goddard1986] review affine algebras and their vertex-operator representations for physicists. Folding of affine Toda theories goes back to Olive and Turok [-@olive1983], who also showed that every non-simply-laced theory arises this way, and the role of duality in the masses and S-matrices was clarified by Delius, Grisaru and Zanon [-@dgz1992] and Corrigan, Dorey and Sasaki [-@corrigan1993].

@@ -4,41 +4,187 @@
 - Work with roots, the Cartan matrix and Dynkin diagrams of every simple Lie algebra.
 - Use the Weyl group, the Coxeter element, the Coxeter number and the exponents.
 - Construct weights and the fundamental representations.
-- Compute the Perron–Frobenius eigenvector of a Cartan matrix and see why it will reappear as a mass spectrum.
+- Compute the Perron–Frobenius eigenvector of a Cartan matrix and see why it reappears as a mass spectrum.
 :::
 
-::: {.callout-warning appearance="simple" title="To be written"}
-Sources to draw on: Humphreys, *Introduction to Lie Algebras and Representation Theory*; Fuchs–Schweigert, *Symmetries, Lie Algebras and Representations*; Kostant 1959.
+The particle masses, couplings and conserved charges of affine Toda theory are all determined by root data. This chapter collects what is needed, assuming only that the reader has met $su(2)$ and $su(3)$ in physics. Proofs are omitted when they are standard and can be found in [@humphreys1972; @fuchs1997]. The emphasis is on the Coxeter element and the Perron–Frobenius eigenvector, which are less familiar to physicists and play a central role in Part IV.
+
+## Roots and the Cartan matrix {#sec-roots}
+
+Let $g$ be a complex simple Lie algebra of dimension $d$, and $\mathfrak h\subset g$ a Cartan subalgebra: a maximal abelian subalgebra whose elements are diagonalizable in the adjoint representation. Its dimension $r$ is the **rank** of $g$. Choosing an orthonormal basis $H^1,\dots,H^r$ of $\mathfrak h$ with respect to the Killing form (suitably normalized), the remaining generators can be chosen as simultaneous eigenvectors,
+
+$$
+[H^i,E^{\vec\alpha}]=\alpha^iE^{\vec\alpha} .
+$$
+
+The eigenvalues $\vec\alpha\in\mathbb R^r$ are the **roots**, and the set $\Phi$ of roots has $d-r$ elements. This is the **Cartan–Weyl basis**. Its remaining relations are
+
+$$
+[E^{\vec\alpha},E^{-\vec\alpha}]=\frac{2\,\vec\alpha\cdot\vec H}{\vec\alpha^2},\qquad
+[E^{\vec\alpha},E^{\vec\beta}]=\begin{cases}N_{\vec\alpha,\vec\beta}E^{\vec\alpha+\vec\beta}&\vec\alpha+\vec\beta\in\Phi,\\0&\vec\alpha+\vec\beta\notin\Phi\cup\{0\},\end{cases}
+$$
+
+with structure constants $N_{\vec\alpha,\vec\beta}$. For $su(2)$ there is one positive root and these are the familiar relations of $J^3,J^\pm$.
+
+The roots have strong properties. For each root $\vec\alpha$, the generators $E^{\pm\vec\alpha}$ and $2\vec\alpha\cdot\vec H/\vec\alpha^2$ span an $su(2)$ subalgebra, and decomposing $g$ under it shows that
+
+$$
+\frac{2\,\vec\alpha\cdot\vec\beta}{\vec\beta^2}\in\mathbb Z\quad\text{for all }\vec\alpha,\vec\beta\in\Phi,
+$$
+
+and that $\vec\beta-\frac{2\vec\alpha\cdot\vec\beta}{\vec\alpha^2}\vec\alpha\in\Phi$. Roots come in at most two lengths. We normalize so that the **long** roots have $\vec\alpha^2=2$, as in @sec-lie-algebraic-data. The **coroot** of $\vec\alpha$ is $\vec\alpha^\vee=2\vec\alpha/\vec\alpha^2$, and long roots coincide with their coroots.
+
+**Simple roots.** Choose a generic vector $\vec v$ and call a root **positive** if $\vec\alpha\cdot\vec v>0$. A positive root that is not a sum of two positive roots is **simple**. There are exactly $r$ simple roots $\vec\alpha_1,\dots,\vec\alpha_r$, they form a basis of $\mathbb R^r$, and every positive root is a combination of them with non-negative integer coefficients. The sum of these coefficients is the **height** of the root. There is a unique root of greatest height, the **highest root** $\vec\theta$, and we write
+
+$$
+\vec\theta=\sum_{i=1}^rn_i\vec\alpha_i .
+$$ {#eq-highest-root}
+
+The positive integers $n_i$ are the **marks** of $g$. In @sec-affine-algebras they become the Kac labels.
+
+**The Cartan matrix** is
+
+$$
+a_{ij}=\vec\alpha_i^\vee\cdot\vec\alpha_j=\frac{2\,\vec\alpha_i\cdot\vec\alpha_j}{\vec\alpha_i^2}.
+$$ {#eq-cartan-matrix}
+
+Its diagonal entries are 2, its off-diagonal entries are $0,-1,-2$ or $-3$, and $a_{ij}=0$ if and only if $a_{ji}=0$. It determines $g$ up to isomorphism: the **Chevalley–Serre** presentation uses generators $e_i=E^{\vec\alpha_i}$, $f_i=E^{-\vec\alpha_i}$, $h_i=\vec\alpha_i^\vee\cdot\vec H$ with relations
+
+$$
+[h_i,h_j]=0,\quad[h_i,e_j]=a_{ij}e_j,\quad[h_i,f_j]=-a_{ij}f_j,\quad[e_i,f_j]=\delta_{ij}h_i,
+$$
+$$
+(\operatorname{ad}e_i)^{1-a_{ij}}e_j=0,\qquad(\operatorname{ad}f_i)^{1-a_{ij}}f_j=0\quad(i\ne j).
+$$ {#eq-chevalley-serre}
+
+These relations are the ones that are deformed in @sec-quantum-groups.
+
+## Classification and Dynkin diagrams {#sec-dynkin}
+
+The **Dynkin diagram** of $g$ has a node for each simple root. Nodes $i$ and $j$ are joined by $a_{ij}a_{ji}$ lines, with an arrow pointing towards the shorter root when the roots have different lengths. The diagram is connected because $g$ is simple, and the possible diagrams are classified completely.
+
+| $g$ | real form | $d$ | $h$ | $h^\vee$ | exponents |
+|---|---|---|---|---|---|
+| $A_n$, $n\ge1$ | $su(n+1)$ | $n(n+2)$ | $n+1$ | $n+1$ | $1,2,\dots,n$ |
+| $B_n$, $n\ge2$ | $so(2n+1)$ | $n(2n+1)$ | $2n$ | $2n-1$ | $1,3,\dots,2n-1$ |
+| $C_n$, $n\ge3$ | $sp(2n)$ | $n(2n+1)$ | $2n$ | $n+1$ | $1,3,\dots,2n-1$ |
+| $D_n$, $n\ge4$ | $so(2n)$ | $n(2n-1)$ | $2n-2$ | $2n-2$ | $1,3,\dots,2n-3$; $n-1$ |
+| $E_6$ | | 78 | 12 | 12 | $1,4,5,7,8,11$ |
+| $E_7$ | | 133 | 18 | 18 | $1,5,7,9,11,13,17$ |
+| $E_8$ | | 248 | 30 | 30 | $1,7,11,13,17,19,23,29$ |
+| $F_4$ | | 52 | 12 | 9 | $1,5,7,11$ |
+| $G_2$ | | 14 | 6 | 4 | $1,5$ |
+
+: The simple Lie algebras. The Coxeter number $h$, dual Coxeter number $h^\vee$ and exponents are defined below. {#tbl-simple-lie}
+
+The algebras $A_n$, $D_n$ and $E_{6,7,8}$ have all roots of the same length and are called **simply laced**. Their Cartan matrices are symmetric, $a_{ij}=2\delta_{ij}-G_{ij}$, where $G$ is the adjacency matrix of the Dynkin diagram. The others are **non-simply-laced**: $B_n$, $C_n$ and $F_4$ have roots of two lengths in the ratio $\sqrt2$, and $G_2$ in the ratio $\sqrt3$.
+
+**Duality.** Replacing every root by its coroot gives another root system, the **dual** $\Phi^\vee$. Its Dynkin diagram is obtained by reversing the arrows. This exchanges $B_n$ and $C_n$ and maps the others to themselves (up to relabelling). After rescaling so that the long roots of $\Phi^\vee$ have length$^2$ 2, the short roots of $\Phi$ become the long roots of $\Phi^\vee$. The dual Coxeter number is defined through coroots. With the expansion $\vec\theta^\vee=\sum_in_i^\vee\vec\alpha_i^\vee$ of the coroot of the highest root,
+
+$$
+h=1+\sum_in_i,\qquad h^\vee=1+\sum_in_i^\vee .
+$$ {#eq-coxeter-numbers}
+
+For simply-laced algebras $n_i^\vee=n_i$ and $h=h^\vee$. For affine algebras, duality exchanges the roles of $h$ and $h^\vee$ (@sec-affine-folding).
+
+## The Weyl group and the Coxeter element {#sec-weyl-coxeter}
+
+The reflection in the hyperplane orthogonal to a root,
+
+$$
+s_{\vec\alpha}(\vec v)=\vec v-(\vec\alpha^\vee\cdot\vec v)\,\vec\alpha ,
+$$
+
+maps $\Phi$ to itself. The reflections generate a finite group $W$, the **Weyl group**, which is generated already by the $r$ **simple reflections** $s_i=s_{\vec\alpha_i}$. For $su(n+1)$ it is the symmetric group $S_{n+1}$, acting by permuting the eigenvalues of a traceless diagonal matrix.
+
+A **Coxeter element** is a product of all simple reflections, each taken once, in some order:
+
+$$
+w=s_{i_1}s_{i_2}\cdots s_{i_r}.
+$$
+
+All Coxeter elements are conjugate in $W$. Their common order is the **Coxeter number** $h$, which agrees with (-@eq-coxeter-numbers). The eigenvalues of $w$ on $\mathbb R^r\otimes\mathbb C$ are
+
+$$
+e^{2\pi i m_k/h},\qquad k=1,\dots,r ,
+$$
+
+where the integers $1=m_1\le m_2\le\dots\le m_r=h-1$ are the **exponents** of $g$ listed in @tbl-simple-lie. Two facts are worth keeping in mind:
+
+- the exponents are symmetric, $m_k\mapsto h-m_k$, because $w$ is real;
+- the number of roots is $rh$, and $w$ permutes them in $r$ orbits of $h$ elements each.
+
+The exponents also give the degrees $m_k+1$ of the independent Casimir invariants of $g$. In affine Toda theory they reappear as the **spins** of the conserved charges, repeated modulo $h$ (@sec-theories).
+
+**The bicoloured Coxeter element.** Since a Dynkin diagram is a tree, its nodes can be coloured black and white so that no two nodes of the same colour are joined. Simple reflections of the same colour commute, so $w=s_{\rm black}s_{\rm white}$, with $s_{\rm black}=\prod_{i\ \rm black}s_i$, is a well-defined Coxeter element. Steinberg showed that $w$ acts on a distinguished plane in $\mathbb R^r$ as a rotation by $2\pi/h$, and that the projections of the roots onto this plane form $r$ regular $h$-gons. Dorey's fusing rule (@sec-simply-laced) reads off the three-point couplings of affine Toda theory from these orbits.
+
+## Weights and representations {#sec-weights}
+
+A finite-dimensional representation of $g$ is decomposed into simultaneous eigenspaces of the $H^i$. Their eigenvalues $\vec\lambda$ are the **weights** of the representation. Weights satisfy $\vec\alpha^\vee\cdot\vec\lambda\in\mathbb Z$ for every root, so they lie in the **weight lattice**, which is generated by the **fundamental weights** $\vec\lambda_i$, defined by
+
+$$
+\vec\alpha_i^\vee\cdot\vec\lambda_j=\delta_{ij}.
+$$
+
+Every irreducible finite-dimensional representation has a unique highest weight $\vec\lambda=\sum_ip_i\vec\lambda_i$ with non-negative integers $p_i$, and every such $\vec\lambda$ occurs. The representations $L(\vec\lambda_i)$ with fundamental highest weights are the **fundamental representations**. For $su(n+1)$ they are the antisymmetric tensor powers $\Lambda^k\mathbb C^{n+1}$, $k=1,\dots,n$.
+
+Two further lattices appear in the book.
+
+- The **root lattice** $\Lambda_R$ is generated by the simple roots. The quotient of the weight lattice by $\Lambda_R$ is a finite group, isomorphic to the centre of the simply connected group. For $su(n+1)$ it is $\mathbb Z_{n+1}$.
+- The **coweight lattice** is generated by the fundamental coweights $\vec\lambda_i^\vee$, with $\vec\alpha_i\cdot\vec\lambda_j^\vee=\delta_{ij}$. The imaginary-coupling Toda potential is periodic under translations of $\vec\phi$ by $2\pi/\beta$ times coweights (@sec-imaginary-coupling-vacua). The topological charges of solitons therefore lie in the coweight lattice, and the question of which coweights are carried by classical solitons is the missing-charge problem of @sec-which-saddles-contribute.
+
+The **Weyl vector** $\vec\rho=\sum_i\vec\lambda_i$ equals half the sum of the positive roots. The quadratic Casimir takes the value
+
+$$
+C(\vec\lambda)=\vec\lambda\cdot(\vec\lambda+2\vec\rho)
+$$ {#eq-casimir}
+
+on $L(\vec\lambda)$. Differences of Casimirs determine the R-matrices of @sec-r-matrices.
+
+## The Perron–Frobenius eigenvector {#sec-perron-frobenius}
+
+For a simply-laced algebra, $a=2-G$ with $G$ the adjacency matrix of a connected graph. By the Perron–Frobenius theorem, the largest eigenvalue of the non-negative irreducible matrix $G$ is simple, and its eigenvector can be chosen with all components positive. The eigenvalues of the Cartan matrix are
+
+$$
+4\sin^2\frac{\pi m_k}{2h},\qquad k=1,\dots,r ,
+$$ {#eq-cartan-eigenvalues}
+
+so the Perron–Frobenius eigenvector is the eigenvector of the smallest eigenvalue $4\sin^2(\pi/2h)$, belonging to the exponent 1.
+
+**Example: $A_n$.** The vector $v_a=\sin\frac{a\pi}{n+1}$, $a=1,\dots,n$, satisfies $2v_a-v_{a-1}-v_{a+1}=4\sin^2\frac{\pi}{2(n+1)}\,v_a$ (with $v_0=v_{n+1}=0$), and it is positive.
+
+The reason this matters is a theorem of Freeman [@freeman1991], which @sec-theories explains: *in the simply-laced affine Toda theory based on $g$, the classical masses $m_a$ of the $r$ particles are proportional to the components of the Perron–Frobenius eigenvector of the Cartan matrix of $g$.* For $a_n^{(1)}$ this gives
+
+$$
+m_a=2m\sin\frac{a\pi}{h},\qquad a=1,\dots,n,\quad h=n+1,
+$$
+
+and for $a_1^{(1)}$ the single mass $2m$ of @sec-sg-dictionary. For $E_8$ the two lightest masses are in the golden ratio, $m_2/m_1=2\cos\frac\pi5$. These are the masses that Zamolodchikov found in the scaling Ising model in a magnetic field [@zamolodchikov1989], whose S-matrix is the coupling-independent (minimal) part of the $e_8^{(1)}$ Toda S-matrix [@braden1990].
+
+The other eigenvectors of the Cartan matrix are also physical: their components are the eigenvalues $\chi_a^{(s)}$ of the conserved charges of spin $s=m_k$ on the particles, in the sense of (-@eq-charge-eigenvalue) [@freeman1991]. The Cartan matrix thus encodes both the mass spectrum and the higher conserved charges.
+
+## Exercises {#sec-root-systems-exercises}
+
+::: {#exr-a2-roots}
+For $A_2$, take $\vec\alpha_1=(\sqrt2,0)$ and $\vec\alpha_2=(-1/\sqrt2,\sqrt{3/2})$. Write down all six roots, the fundamental weights and the Cartan matrix. Show that $s_1s_2$ is a rotation by $2\pi/3$ and confirm $h=3$ and exponents $1,2$.
 :::
 
-## Roots and the Cartan matrix
+::: {#exr-g2}
+For $G_2$, with long roots of length$^2$ 2, find the length of the short roots, the Cartan matrix, the highest root and its marks. Check that $h=6$ and $h^\vee=4$ using (-@eq-coxeter-numbers).
+:::
 
-*To be written.*
+::: {#exr-d4-masses}
+Find the Perron–Frobenius eigenvector of the $D_4$ Cartan matrix. Show that three of its components are equal (a consequence of triality), and that the fourth is $\sqrt3$ times larger. These are the mass ratios of the $d_4^{(1)}$ Toda theory.
+:::
 
-## Classification and Dynkin diagrams
+::: {#exr-cartan-eigenvalues}
+Verify (-@eq-cartan-eigenvalues) for $A_n$ by finding all eigenvectors explicitly. Which eigenvector corresponds to each exponent?
+:::
 
-*To be written.*
+::: {#exr-roots-count}
+Use @tbl-simple-lie to check $d=r(h+1)$ for every simple Lie algebra, and explain why this is equivalent to $\lvert\Phi\rvert=rh$.
+:::
 
-## The Weyl group and the Coxeter element
+## Notes and references {#sec-root-systems-notes}
 
-*To be written.*
-
-## Exponents and the Coxeter number
-
-*To be written.*
-
-## Weights and representations
-
-*To be written.*
-
-## The Perron–Frobenius eigenvector
-
-*To be written.*
-
-## Exercises
-
-*To be written.*
-
-## Notes and references
-
-*To be written.*
+Humphreys [@humphreys1972] is the standard concise introduction to root systems and their classification, and Fuchs and Schweigert [@fuchs1997] is written for physicists. Kostant [@kostant1959] relates the exponents to the principal three-dimensional subalgebra and the Coxeter element, and Steinberg's bicolouring argument is reviewed by Dorey [-@dorey1991] in the context of affine Toda theory. The connection between Perron–Frobenius eigenvectors and affine Toda masses was found by Freeman [-@freeman1991], following the observation of Braden, Corrigan, Dorey and Sasaki [-@braden1990] that the masses of all simply-laced theories fit this pattern.
