@@ -1,5 +1,11 @@
 # $e_6^{(2)}$ solitons {#sec-sm-e6}
 
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Construct the S-matrix of the 26-dimensional $e_6^{(2)}$ soliton from a $U_q(f_4^{(1)})$ R-matrix.
+- Fix the scalar factor in advance from the Corrigan–Dorey–Sasaki mass pattern.
+- Confirm the result by the breather–particle identification and at one loop.
+:::
+
 The 26-dimensional $e_6^{(2)}$ soliton transforms under $U_q(f_4^{(1)})$. Its scalar factor is fixed in advance by the CDS mass pattern, and its lowest breather then reproduces the CDS particle amplitude $S_{11}$ exactly.
 
 ## Representation and R-matrix {#sec-sm-e6-representation-r-matrix}
@@ -46,10 +52,16 @@ $$
 
 at the predicted $H=18+6/\omega$, with no adjustment. The lowest breather of the $\mathbf{26}$ is therefore CDS particle 1. A one-loop computation from the $e_6^{(2)}$ Lagrangian gives $\delta H/\tilde B_{\rm tree}=-3.000000$, exactly CDS's $H=18-3\tilde B$ at this end of their range (@sec-app-numerics), so this S-matrix is also consistent with perturbation theory. The same holds when the breather amplitude is compared directly with the Lagrangian, without reference to CDS. Its first-order term has exactly the tree-level $\theta$-dependence at eight rapidities, and that term fixes the coupling map $1/\omega=\beta^2/2\pi$, which is the gradation assumed. With that map the amplitude predicts the one-loop shifts of all three mass ratios exactly.
 
-## Exercises
+## Exercises {#sec-sm-e6-exercises}
 
-*To be written.*
+::: {#exr-cds-masses}
+With $1/H+1/H'=1/6$, show that the CDS masses satisfy $m_3/m_1=2\cos\frac\pi H$ and $m_2/m_1=2\cos\big(\frac\pi H+\frac\pi6\big)$. Evaluate them at $H=18$ and compare with the classical soliton mass ratios.
+:::
 
-## Notes and references
+::: {#exr-e6-H}
+From $T=9\omega+3$ derive $H=2T/\omega=18+6/\omega$, and expand it to first order in $\beta^2$ in the normalization of @sec-lie-algebraic-data.
+:::
 
-*To be written.*
+## Notes and references {#sec-sm-e6-notes}
+
+The particle S-matrices compared with are those of Corrigan, Dorey and Sasaki [-@corrigan1993]. The 26-dimensional representation of $U_q(f_4^{(1)})$ and its R-matrix are constructed here directly from the defining relations (@sec-app-numerics).

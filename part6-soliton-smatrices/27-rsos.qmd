@@ -6,21 +6,39 @@
 - Understand Hermitian analyticity, and why IRF bases can restore unitarity.
 :::
 
-::: {.callout-warning appearance="simple" title="To be written"}
-Sources to draw on: Reshetikhin–Smirnov 1990; Smirnov 1991; Efthimiou 1993; Takács 1997; Miramontes 1999; Hoare–Hollowood–Miramontes 2013.
-:::
+The imaginary-coupling theories are not unitary, but some of their restrictions are. At special couplings, where $q$ is a root of unity, the quantum-group symmetry allows a consistent truncation of the space of states, and the truncated theories are perturbed minimal models, some unitary and some not. This chapter explains the restriction, identifies the restricted theories, and asks when the result is unitary. @sec-sg-quantum-group did this for sine-Gordon; here the general case is treated, ending with an exact criterion for the fundamental kinks of $a_2^{(1)}$.
 
-## Quantum-group restriction
+## Quantum-group restriction {#sec-qg-restriction}
 
-*To be written.*
+At a root of unity the representation theory of $U_q(g)$ truncates (@sec-roots-of-unity): only finitely many irreducible representations have nonzero quantum dimension, and their tensor products, with the quantum-dimension-zero summands discarded, close on themselves. The S-matrix of the solitons commutes with $U_q(\hat g^\vee)$, so it can be written in the IRF form of @sec-irf. Its states are then labelled by sequences of heights, highest weights $a_0,a_1,\dots,a_N$ with $L(a_{k+1})\subset L(a_k)\otimes V$, and the heights are interpreted as vacua between kinks.
 
-## Perturbed minimal and $W$ models
+**Restriction** keeps only the heights in the finite set allowed at the root of unity. Because the face weights never connect allowed heights to disallowed ones, the restricted S-matrix still satisfies the Yang–Baxter equation, unitarity, crossing and the bootstrap. The restricted theory has finitely many vacua and kinks interpolating between them [@reshetikhin1990; @leclair1989; @smirnov1991].
 
-*To be written.*
+For $a_n^{(1)}$ with $\beta^2/4\pi=p/p'$, $p<p'$ coprime, $q$ is a root of unity and the allowed heights are the weights of $su(n+1)$ at level $p-n-1$. For $n=1$ these are the spins $j\le(p-2)/2$ of @sec-roots-of-unity; for $n=2$ they are the level-$(p-3)$ weights used in @prp-rsos-kinks.
 
-## Hermitian analyticity and IRF bases
+Two features of restriction matter for unitarity.
 
-*To be written.*
+- **Breathers are singlets.** Restriction acts on the quantum-group labels, and breathers carry none. Their amplitudes with kinks and with each other are untouched by the restriction. A sector that is $\Theta$-broken because of breathers stays broken.
+- **The basis changes.** The IRF basis is not the soliton basis. Eigenvalues of transfer matrices are basis-independent, but Hermitian analyticity is not, so restriction can change whether a QFT inner product exists.
+
+## Perturbed minimal and $W$ models {#sec-perturbed-minimal}
+
+The conformal Toda theory based on the finite algebra $g$ at imaginary coupling is a free-field realization of a $W$-algebra conformal field theory, and the affine Toda theory perturbs it by the vertex operator of the affine root $\vec\alpha_0$. After restriction, the conformal theory becomes a minimal model of the $W$-algebra, and the perturbation becomes one of its primary fields. The known cases are:
+
+| affine Toda theory | restricted theory |
+|---|---|
+| $a_1^{(1)}$ (sine-Gordon), $\beta^2/4\pi=p/p'$ | $\mathcal M(p,p')+\phi_{1,3}$ (@prp-sg-rsos) |
+| $a_2^{(2)}$ | $\mathcal M(p,p')+\phi_{1,2}$ or $\phi_{2,1}$ [@smirnov1991; @efthimiou1993] |
+| $a_n^{(1)}$, $\beta^2/4\pi=p/p'$ | $W_{n+1}(p,p')$ minimal model perturbed by the field of the adjoint representation; for $n=2$ see @prp-rsos-kinks |
+| other algebras | perturbations of $W$-algebra minimal models, studied in [@takacs1997a; @takacs1997b; @takacs1997c; @tkw1997] |
+
+Examples include the thermal perturbation of the 3-state Potts model, $W_3(4,5)$, the $\phi_{1,2}$ perturbation of $\mathcal M(3,4)$, which is the Ising model in a magnetic field, and the scaling Lee–Yang model, which arises from both sine-Gordon and $a_2^{(2)}$ (@sec-lee-yang).
+
+The unitary minimal models are those with $p'=p+1$, and in the cases checked their perturbations have unitary S-matrices. The others are non-unitary, and some of them have complex finite-volume spectra, observed directly in the truncated conformal space approach [@tkw1997; @tw2002].
+
+## Hermitian analyticity and IRF bases {#sec-hermitian-analyticity-irf}
+
+By @sec-unitarity-crossing-intro, a braiding-unitary S-matrix is unitary in the QFT sense exactly when it is also Hermitian analytic, $S(\theta)^\dagger=S(-\theta^*)$, in some basis of one-particle states [@miramontes1999]. For quantum-group S-matrices in the soliton (vertex) basis this generally fails, because the $*$-structure of $U_q$ at $\lvert q\rvert=1$ reverses tensor factors (@sec-qg-hermitian). In the IRF basis the situation can be different. The face weights are built from $q$-Clebsch–Gordan coefficients, whose normalization involves square roots of quantum dimensions. If all quantum dimensions of the allowed heights are positive, these can be chosen real, and the face weights become Hermitian analytic. Hoare, Hollowood and Miramontes [-@hoare2013] showed this for the $U_q(su(2)^{(1)})$-based S-matrices of $q$-deformed world-sheet theories and generalized sine-Gordon models. When some quantum dimensions are negative, square roots of negative numbers enter, and Hermitian analyticity can fail in a way no rescaling of states can repair. @prp-rsos-kinks makes this precise for $a_2^{(1)}$.
 
 ## Unitary subtheories {#sec-unitary-subtheories}
 
@@ -65,10 +83,20 @@ Three consequences follow.
 
 This reduces H12 to a criterion that can be checked from the S-matrix.
 
-## Exercises
+## Exercises {#sec-rsos-exercises}
 
-*To be written.*
+::: {#exr-allowed-heights}
+For $U_q(sl_2)$ with $q=e^{i\pi/p}$, show that the spin-$\frac12$ IRF model restricted to heights $0\le j\le(p-2)/2$ is consistent: the face weights between allowed heights never require a disallowed one.
+:::
 
-## Notes and references
+::: {#exr-quantum-dims}
+For $q=e^{i\pi r/p}$ with $r$ coprime to $p$, compute the quantum dimensions $[k]_q$, $1\le k\le p-1$, of the allowed spins. Show that all are positive if and only if $r\equiv\pm1\pmod{2p}$, that they alternate in sign if and only if $r\equiv p\pm1\pmod{2p}$, and that the ratios $[k+1]_q[k-1]_q/[k]_q^2$ are positive for all $2\le k\le p-2$ if and only if $r\equiv\pm1\pmod p$. Compare with step 1 of the proof of @prp-rsos-kinks.
+:::
 
-*To be written.*
+::: {#exr-lee-yang-restriction}
+Show that sine-Gordon at $\beta^2/4\pi=2/5$ restricts to a theory with no kinks and one breather, and identify it as the scaling Lee–Yang model. Which unitarity property fails, and why can restriction not repair it?
+:::
+
+## Notes and references {#sec-rsos-notes}
+
+Quantum-group restriction of sine-Gordon is due to LeClair [-@leclair1989], Smirnov [-@smirnov1991] and Reshetikhin and Smirnov [-@reshetikhin1990]; Efthimiou [-@efthimiou1993] treated $a_2^{(2)}$. Takács and collaborators studied the restrictions of higher affine Toda theories and their finite-volume spectra [@takacs1997a; @takacs1997b; @takacs1997c; @tkw1997], and Takács and Watts found the complex spectra [@tw1999; @tw2002]. Miramontes [-@miramontes1999] identified Hermitian analyticity as the missing condition, and Hoare, Hollowood and Miramontes [-@hoare2013] showed how IRF bases restore it. The criterion of @prp-rsos-kinks and @cnj-unitary-rsos are new here.

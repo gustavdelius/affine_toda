@@ -1,6 +1,6 @@
 # Verification code for the textbook chapters
 
-Scripts behind the symbolic and numerical checks of the textbook material in Parts I–IV (`part1-background/` to `part4-real-coupling/`) and the textbook chapters of Part V. Python 3 with numpy, sympy and mpmath. Each script runs on its own and prints one `PASS` or `FAIL` line per check.
+Scripts behind the symbolic and numerical checks of the textbook material in Parts I–IV (`part1-background/` to `part4-real-coupling/`) and the textbook parts of Parts V–VI. Python 3 with numpy, sympy and mpmath. Each script runs on its own and prints one `PASS` or `FAIL` line per check.
 
 | Script | Book location (ids) | What it checks | Runtime |
 |---|---|---|---|
@@ -11,5 +11,6 @@ Scripts behind the symbolic and numerical checks of the textbook material in Par
 | `toda_classical.py` | `eq-lax-pair`, `eq-toda-eom`, `eq-spin3-current`, `sec-masses-couplings`, `prp-dorey-rule`, `eq-area-rule`, `eq-hirota-bilinear`, `eq-an-soliton`, `eq-n-soliton`, `eq-interaction-coefficient`, `eq-soliton-mass`, `eq-theta-data`, `exr-breather-real` | Lax pair ⇔ field equation for $a_2^{(1)}$; sinh-Gordon spin-3 current; masses = Perron–Frobenius vector and sum rule; Dorey's rule and $\lvert C_{abc}\rvert=\frac{4\beta}{\sqrt h}\Delta_{abc}$ for $e_7,e_8$; one- and two-soliton $a_n^{(1)}$ solutions; soliton energy $2hm_a/\beta^2$ at complex $\xi$; $\Theta$ on Hirota data; sine-Gordon breather reality | a few minutes |
 | `smatrix_simply_laced.py` | `eq-blocks`, `eq-dorey-formula`, `eq-an-smatrix`, `sec-strong-weak`, `sec-tree-level` | Dorey's formula: unitarity, crossing, $B\to2-B$, $e_8$ $S_{11}$, $a_n$ closed form, bootstrap at every $e_7$/$e_8$ fusing; sinh-Gordon tree level. Requires `toda_classical.py` in the same directory | about a minute |
 | `semiclassics.py` | `eq-dhn-psi`, `eq-ccg`, `eq-hollowood-mass`, `sec-picard-lefschetz`, `prp-thimble-gaussian` | one-loop masses of the sine-Gordon and $\phi^4$ kinks and of the $a_n^{(1)}$ solitons from transmission factors; the zero-dimensional $i\phi^3$ integral; Gaussian over a Jordan block; Jordan blocks of $-\partial^2+ge^{ix}$ | seconds |
+| `rsos_qdims.py` | `exr-quantum-dims`, exercises of chapters 22–25 | sign criteria for $U_q(sl_2)$ quantum dimensions at $q=e^{i\pi r/p}$; $T$, $H$ and mass identities for $g_2^{(1)}$, $d_4^{(3)}$, $c_n^{(1)}$, $a_{2n-1}^{(2)}$, $e_6^{(2)}$ | seconds |
 
 What these scripts establish, what was checked only by hand, and what is still unchecked is recorded in `briefs/referee_textbook.md`.

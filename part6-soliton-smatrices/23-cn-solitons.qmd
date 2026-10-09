@@ -1,5 +1,12 @@
 # $c_n^{(1)}$ solitons {#sec-sm-cn}
 
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Construct the spinor-soliton S-matrix of $c_n^{(1)}$ from a closed-form $U_q(d_{n+1}^{(2)})$ R-matrix.
+- Fix the integer lifts by the soliton mass pattern and obtain exact masses with a floating Coxeter number.
+- Verify the breather–particle identification against the DGZ amplitudes.
+- Obtain all six soliton amplitudes of $c_3^{(1)}$ by fusion.
+:::
+
 The spinor soliton of $c_n^{(1)}$ has an S-matrix with a closed-form R-matrix and exact masses for all $n$. Its lowest breather reproduces the DGZ particle amplitude exactly for $n=2,3,4$.
 
 ## The spinor representation and its R-matrix {#sec-cn-representation}
@@ -119,10 +126,16 @@ Breather–soliton amplitudes are finite block products, with blocks in the nota
 
 All six breather–breather amplitudes, including $S[B^1,B^2]$, $S[B^2,B^2]$ and $S[B^2,B^3]$ not listed here, are identical to the DGZ $c_3^{(1)}$ particle amplitudes. The identification is $H=2T/(\omega+\tfrac12)=6+B$ with $B=-1/(\omega+\tfrac12)$, and the comparison is done in exact arithmetic in $\omega$. Among the lowest breathers, which are the particles, we find the fusions $1+1\to2$, $1+2\to1$, $1+2\to3$, $1+3\to2$ and $2+3\to1$. The remaining poles of the breather amplitudes are DGZ's own displaced and split double poles. These are inherited from the particle S-matrix, not artefacts of the soliton construction.
 
-## Exercises
+## Exercises {#sec-sm-cn-exercises}
 
-*To be written.*
+::: {#exr-cn-H}
+Show that $T=n\omega+\frac{n-1}2$ gives $H=2T/(\omega+\frac12)=2n+B$ with $B=-1/(\omega+\frac12)$, and that with $\omega=4\pi/\beta^2-1$, $H=2n-\beta^2/4\pi+O(\beta^4)$. Compare with the one-loop result in @sec-one-loop-masses-folded.
+:::
 
-## Notes and references
+::: {#exr-cn-lifts}
+Check that the lifts $a_j=j\omega+(j-1)/2$ satisfy $T-a_j\in(\omega+\frac12)\mathbb Z$, as required in @sec-integer-lifts, and find the corresponding bound-state masses.
+:::
 
-*To be written.*
+## Notes and references {#sec-sm-cn-notes}
+
+The one-loop $c_n^{(1)}$ soliton masses that this S-matrix reproduces are those of Delius and Grisaru [-@delius_grisaru1995]; the competing values are in MacKay and Watts [-@mackay_watts1995]. The particle amplitudes used in the breather test are those of Delius, Grisaru and Zanon [-@dgz1992]. The $c_2^{(1)}\simeq b_2^{(1)}$ case was known from [@gmw1996]. The construction for $n\ge3$ is new here; code in `soliton_rmatrix_code/`.

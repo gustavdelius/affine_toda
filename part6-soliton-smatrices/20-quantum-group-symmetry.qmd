@@ -2,35 +2,113 @@
 
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
 - Construct the non-local conserved charges of imaginary-coupling affine Toda theory.
-- Show that they generate $U_q(\hat g^\vee)$ and compute $q$ in terms of $\beta$.
-- Fix the gradation from the Lorentz spins of the charges.
-- Conclude that soliton S-matrices are R-matrices times scalar factors.
+- See why they act on multi-soliton states through a non-cocommutative coproduct, and generate $U_q(\hat g^\vee)$.
+- Fix the spectral parameter of the soliton multiplets from the Lorentz spins of the charges.
+- Conclude that soliton S-matrices are R-matrices times scalar factors, and know what this does and does not determine.
 :::
 
-::: {.callout-warning appearance="simple" title="To be written"}
-Sources to draw on: Bernard–LeClair 1991; Felder–LeClair 1992; Delius 1995; Gandenberger–MacKay–Watts 1996.
+The local charges of @sec-conserved-charges make the S-matrix factorize, but they act on the solitons of a multiplet by the same number and do not distinguish them. What fixes the matrix structure of soliton scattering is a second, **non-local** symmetry. In sine-Gordon theory it was found by Bernard and LeClair [-@bernard1991], who showed that the charges generate the quantum affine algebra $U_q(\widehat{sl}_2)$ at zero centre. For a general affine Toda theory based on $\hat g$, the non-local charges generate $U_q(\hat g^\vee)$, the quantum affine algebra of the *dual* algebra [@bernard1991; @felder1992]. This chapter explains how the charges arise, why they combine into a quantum group rather than a Lie group, and what follows for the S-matrix.
+
+## Non-local charges {#sec-nonlocal-charges}
+
+Consider first sine-Gordon theory in the variables of @sec-sg-dictionary. At the conformal point $m_0=0$ the field splits into left- and right-moving parts, $\phi=\phi_L(x^+)+\phi_R(x^-)$, with $x^\pm=t\pm x$. Chiral vertex operators $e^{ia\phi_L}$ are holomorphic currents of conformal weight $h=a^2/8\pi$ in the normalization in which $e^{i\beta_{\rm SG}\phi}$ has weights $h=\bar h=\beta_{\rm SG}^2/8\pi$.
+
+Bernard and LeClair choose the exponent so that the current carries topological charge $\pm1$:
+
+$$
+J_\pm=e^{\pm ia\phi_L},\qquad h_J=\frac{8\pi}{\beta_{\rm SG}^2}.
+$$
+
+At the conformal point $\partial_-J_\pm=0$, and $\int dx\,J_\pm$ is conserved. When the perturbation $\frac{m_0^2}{\beta_{\rm SG}^2}\cos\beta_{\rm SG}\phi$ is switched on, conformal perturbation theory shows that conservation survives to first order, and in fact exactly, in the form
+
+$$
+\partial_-J_\pm=\partial_+H_\pm ,
+$$
+
+where $H_\pm$ is proportional to $m_0^2$ times a vertex operator containing both chiralities. The conserved charges
+
+$$
+Q_\pm=\int dx\,\big(J_\pm+H_\pm\big),\qquad\bar Q_\pm=\int dx\,\big(\bar J_\pm+\bar H_\pm\big)
+$$
+
+are built from right-movers in the second case. They are **non-local**, because $\phi_L$ is a non-local functional of $\phi$ and its conjugate momentum: $\phi_L(x)$ involves $\int^x\pi\,dy$. Their Lorentz spins are $\pm(h_J-1)$:
+
+$$
+s=\frac{8\pi}{\beta_{\rm SG}^2}-1=\lambda ,
+$$ {#eq-nonlocal-spin}
+
+the same $\lambda$ that appears in the sine-Gordon S-matrix (-@eq-sg-smatrix). For $\beta_{\rm SG}^2<8\pi$ the spin is positive and in general not an integer.
+
+For a general $\hat g$ there are charges $Q_j$, $\bar Q_j$, one pair for each node $j=0,\dots,r$ of the affine Dynkin diagram, built from vertex operators of $\phi_L$ in the direction of the coroot $\vec\alpha_j^\vee$, together with the topological charges $\vec T$ [@bernard1991; @felder1992]. Since the vertex operators involve coroots, the relations they satisfy are those of the dual algebra. For simply-laced $\hat g$ every charge has spin $\frac{4\pi}{\beta^2}-1$ in the normalization of @sec-lie-algebraic-data; for $a_1^{(1)}$ this is (-@eq-nonlocal-spin), since $\beta_{\rm SG}^2=2\beta^2$.
+
+## The coproduct and the algebra {#sec-qg-coproduct}
+
+A non-local charge acting on a two-soliton state is not the sum of its actions on the two solitons. The charge density at a point $x$ involves the field to the left of $x$, through $\phi_L$. When the density passes the first soliton, it picks up a phase from the topological charge of that soliton. The result is a coproduct of the form
+
+$$
+\Delta(Q_j)=Q_j\otimes1+q^{T_j}\otimes Q_j ,
+$$
+
+where $T_j$ is the component of the topological charge along the corresponding root, and $q$ is the braiding phase of the chiral vertex operators,
+
+$$
+q=\pm e^{i\pi h_J}=\pm e^{8\pi^2i/\beta_{\rm SG}^2}=\pm e^{4\pi^2i/\beta^2}.
+$$
+
+This is the structure of @sec-hopf: the coproduct is not cocommutative, and the order of the solitons matters. Computing the commutation relations of the charges and the topological charges gives the Drinfeld–Jimbo relations of @sec-uqghat for $U_q(\hat g^\vee)$ at zero centre, with the $Q_j$ as the $e_j$, the $\bar Q_j$ as the $f_j$ (up to normalization), and $q^{T_j}$ as the $k_j$ [@bernard1991; @felder1992]. For sine-Gordon this is $U_q(\widehat{sl}_2)$: $(Q_+,\bar Q_-,T)$ give $(e_1,f_1,k_1)$ and $(Q_-,\bar Q_+,-T)$ give $(e_0,f_0,k_0)$.
+
+**Why the dual algebra.** The vertex operators that define the charges are exponentials of $\phi_L$ in directions $\vec\alpha_j^\vee$, and their mutual braiding is governed by the inner products $\vec\alpha_i^\vee\cdot\vec\alpha_j^\vee$, which form the Cartan matrix of the dual root system (@sec-dynkin). For simply-laced and self-dual algebras the distinction disappears. For $c_n^{(1)}$, for example, the soliton symmetry is $U_q(d_{n+1}^{(2)})$, which is why Part VI needs R-matrices of twisted algebras.
+
+## Lorentz spin and the gradation {#sec-qg-gradation}
+
+The solitons of a multiplet form a representation of $U_q(\hat g^\vee)$ in which the charges act on one-soliton states of rapidity $\theta$. A Lorentz boost by $\vartheta$ multiplies a charge of spin $s$ by $e^{s\vartheta}$ and shifts the rapidity of the soliton. So the representation on solitons of rapidity $\theta$ is an evaluation representation $V(x)$ whose spectral parameter depends on $\theta$. If $e_j$ has spin $s_j$, it acts with a factor $e^{s_j\theta}=x^{s_j/2T}$, where $x=e^{2T\theta}$. Gradations that redistribute the spins among the generators are related by rapidity-dependent changes of basis (@sec-gradations), so only the total spin of the null root, $\sum_jn_js_j$, is fixed, and it determines $T$. With the normalization of @sec-amplitude-and-gradation,
+
+$$
+x(\theta)=e^{2T\theta},\qquad2T=\frac{4\pi h}{\beta^2}-h^\vee ,
+$$
+
+where $2T$ is the total spin of the null root $\sum_jn_j\vec\alpha_j$ [@delius1995; @gmw1996]. For simply-laced $\hat g$ this is $2T=\sum_jn_j\big(\frac{4\pi}{\beta^2}-1\big)$. For sine-Gordon, $T=\lambda$.
+
+Two checks show that this is right.
+
+- **Crossing.** Crossing requires $x(i\pi)=x_c$, the crossing point of @sec-qg-crossing. For sine-Gordon in the homogeneous gradation $x_c=q^2$, and $e^{2\pi i\lambda}=q^2$ is exactly the relation between $q$ and $\lambda$ found from the S-matrix in @sec-six-vertex.
+- **Breathers.** In the rapidity variable $t=T\theta/(i\pi)$ of @sec-amplitude-and-gradation, the sine-Gordon breather poles $\theta=i(\pi-n\xi)$ lie at $t=T-nT\xi/\pi=T-n$, because $T\xi=\pi$. These are the breather towers that Part VI uses for every algebra (@sec-breather-test).
+
+## Consequences for the S-matrix {#sec-qg-consequences}
+
+The non-local charges commute with the S-matrix. If the two-soliton states of multiplets $a$ and $b$ form a representation $V_a(x_1)\otimes V_b(x_2)$ that is irreducible for generic rapidities, Schur's lemma gives
+
+$$
+S_{ab}(\theta)=\Phi_{ab}(\theta)\,\check R_{ab}\big(x(\theta)\big),
+$$
+
+the form used throughout Part VI. The R-matrix is fixed by the quantum group, and the scalar factor $\Phi_{ab}$ by unitarity, crossing, the bootstrap and minimality. Several further consequences follow.
+
+- **Multiplets.** The solitons of species $a$ form a finite-dimensional representation of $U_q(\hat g^\vee)$ whose weights are the topological charges. For $a_n^{(1)}$ these are the fundamental representations $\Lambda^a\mathbb C^{n+1}$. The classical solitons of @sec-topological-charges realize only some of these weights. This is the missing-charge problem (@sec-missing-charges).
+- **Bound states and fusion.** Poles of $\check R$ project onto submodules (@sec-fusion), so bound-state multiplets are representations obtained by fusion, and the bootstrap is fusion of R-matrices.
+- **Breathers.** Breathers are quantum-group singlets, so their scattering with solitons is a scalar times the identity, and among themselves they scatter diagonally. This is why they can be compared with the particle S-matrices of Part IV.
+- **No unitarity for free.** For $\lvert q\rvert=1$ the invariant Hermitian forms on tensor products are indefinite, and the $*$-structure reverses tensor factors (@sec-qg-hermitian). The quantum group therefore does not make the S-matrix unitary. It makes it **Krein-unitary** (@sec-krein-unitarity), and whether it is unitary in the QFT sense depends on the basis (@sec-rsos).
+
+What the symmetry does not fix is the scalar factor, and in particular the positions of its zeros modulo integers (@sec-integer-lifts). Those must be fixed by physics: the soliton masses, the breather–particle identification, and perturbation theory. Chapters [-@sec-sm-construction]–[-@sec-sm-f4] show how far this goes.
+
+## Exercises {#sec-qg-symmetry-exercises}
+
+::: {#exr-nonlocal-spin}
+A density of conformal weights $(h,\bar h)$ has Lorentz spin $h-\bar h$, and $\int dx$ lowers the spin by one. Use this to show that $\int dx\,J_\pm$ has spin $h_J-1$, and check that $H_\pm$ must then have weights $(h_J-1,1)$ up to $O(m_0^2)$ corrections.
 :::
 
-## Non-local charges
+::: {#exr-coproduct-q}
+Show that $\Delta(Q)=Q\otimes1+q^{T}\otimes Q$ is coassociative, and compare with (-@eq-coproduct). Which generator of $U_q(sl_2)$ corresponds to $Q$, and with which convention for $K$?
+:::
 
-*To be written.*
+::: {#exr-sg-gradation}
+For sine-Gordon, verify $2T=\frac{4\pi h}{\beta^2}-h^\vee=2\lambda$, and that the breather poles sit at $t=T-n$. Where in $t$ is the crossing point?
+:::
 
-## The algebra of the charges
+::: {#exr-an-gradation}
+For $a_n^{(1)}$, show that $2T=h\omega$ with $\omega=\frac{4\pi}{\beta^2}-1$, and that the fusing angle $u_{11}^2=2\pi/h$ corresponds to $t=\omega$.
+:::
 
-*To be written.*
+## Notes and references {#sec-qg-symmetry-notes}
 
-## Lorentz spin and the gradation
-
-*To be written.*
-
-## Consequences for the S-matrix
-
-*To be written.*
-
-## Exercises
-
-*To be written.*
-
-## Notes and references
-
-*To be written.*
+The non-local charges of sine-Gordon and their $U_q(\widehat{sl}_2)$ algebra are due to Bernard and LeClair [-@bernard1991], and the extension to affine Toda theories to Felder and LeClair [-@felder1992]. Delius [-@delius1995] showed that the Lorentz spins of the charges fix the gradation, and that crossing, the bootstrap and braiding unitarity follow from the Hopf-algebra structure. Gandenberger, MacKay and Watts [@gmw1996] give the formula for $T$ used in Part VI. The quantum-group structure of affine Toda solitons is also studied by Hollowood [-@hollowood1993b] and Efthimiou [@efthimiou1993].

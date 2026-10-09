@@ -1,5 +1,14 @@
 # Known soliton S-matrices {#sec-known-smatrices}
 
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Know which soliton S-matrices were known before this book, and for which algebras they were missing.
+- Read the table of soliton symmetries $U_q(\hat g^\vee)$ and see Lie duality in it.
+- See the construction of @sec-sm-construction reproduce Takács's $d_4^{(3)}$ and $g_2^{(1)}$ S-matrices.
+- Know what the following chapters add.
+:::
+
+This chapter surveys the soliton S-matrices of the imaginary-coupling theories: those in the literature, a check that the construction of @sec-sm-construction reproduces two of them, and an overview of the new constructions in Chapters [-@sec-sm-cn]–[-@sec-sm-f4].
+
 ## Imaginary coupling: quantum theory {#sec-imaginary-coupling-quantum-theory}
 
 **Soliton S-matrices.** Their status is summarized below. They are built from $U_q(\hat g^\vee)$ R-matrices and fixed by crossing, unitarity in the R-matrix sense, and the bootstrap. In every case examined, the lowest breathers reproduce the real-coupling particle S-matrices continued to imaginary coupling (breather–particle identification [@smirnov1991; @gandenberger1995; @gm1995; @gmw1996; @takacs1997a; @takacs1997b; @takacs1997c]).
@@ -95,10 +104,20 @@ The main results are:
 
 Two chapters of Part V and Part VII bear on these results. @sec-resolution-semiclassical-mass-disagreements resolves the one-loop disagreement for $c_n^{(1)}$ soliton masses between Delius–Grisaru [@delius_grisaru1995] and MacKay–Watts [@mackay_watts1995]. It traces the disagreement to a Jordan block in the fluctuation operator, and finds the Delius–Grisaru value correct. Our exact $c_3^{(1)}$ masses reproduce that value. @sec-lattice establishes the existence and Krein-space structure of the lattice theory, the setting in which a non-Hermitian S-matrix of this kind is meaningful.
 
-## Exercises
+## Exercises {#sec-known-smatrices-exercises}
 
-*To be written.*
+::: {#exr-qg-table}
+For each row of the table in @sec-imaginary-coupling-quantum-theory, check that the charge algebra is $U_q(\hat g^\vee)$ by reversing the arrows of the affine Dynkin diagram of $\hat g$ (@tbl-foldings).
+:::
 
-## Notes and references
+::: {#exr-g2-d43-T}
+Using $2T=4\pi h/\beta^2-h^\vee$ and the normalization $\beta_{\rm lit}^2=\beta^2/k$ for twisted algebras, reproduce $T=3\omega+1$ for $g_2^{(1)}$ and $T=6\omega+3$ for $d_4^{(3)}$, with $\omega=4\pi/\beta^2-1$.
+:::
 
-*To be written.*
+::: {#exr-g2-split}
+For Takács's $g_2^{(1)}$ amplitude, the solitons have $H_s=6+2/\omega$ and the breathers $H_b=6T/(T+1)$ with $T=3\omega+1$. Expand both to first order in $1/\omega$ and show $H_s-6=-(H_b-6)$.
+:::
+
+## Notes and references {#sec-known-smatrices-notes}
+
+The soliton S-matrices of the table are due to Hollowood [@hollowood1993b] and Gandenberger [@gandenberger1995] for $a_n^{(1)}$, Smirnov [@smirnov1991] and Efthimiou [@efthimiou1993] for $a_2^{(2)}$, Gandenberger [@gandenberger1998] for $a_{2n}^{(2)}$, Gandenberger and MacKay [@gm1995] and Delius [@delius1995] for $d_{n+1}^{(2)}$, Gandenberger, MacKay and Watts [@gmw1996] for $b_n^{(1)}$, Takács [@takacs1997c; @takacs1997d] for $g_2^{(1)}$ and $d_4^{(3)}$, and Johnson [@johnson1997] for $d_n^{(1)}$ and $e_n^{(1)}$. The non-unitarity results are Takács and Watts [-@tw1999; -@tw2002].

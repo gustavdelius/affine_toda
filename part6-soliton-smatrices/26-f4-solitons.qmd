@@ -1,5 +1,11 @@
 # The $f_4^{(1)}$ solitons: an open case {#sec-sm-f4}
 
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- See a soliton S-matrix that satisfies every axiom and is nevertheless wrong.
+- Understand how one-loop perturbation theory rules it out.
+- Know what the one-loop data fix, and what remains open for $f_4^{(1)}$.
+:::
+
 For $f_4^{(1)}$ we construct the $U_q(e_6^{(2)})$ R-matrix on $\mathbf{27}=\mathbf{26}\oplus\mathbf1$ and a soliton amplitude that passes every structural check. Its lowest breather, however, does not reproduce any CDS $f_4^{(1)}$ particle amplitude.
 
 ## Representation and R-matrix {#sec-sm-f4-representation-r-matrix}
@@ -156,10 +162,16 @@ Open problems:
 5. **Larger $n$.** Checks for $n\ge5$ need spinor R-matrix projectors of dimension $2^{2n}$, at increasing cost. The closed forms of @sec-sm-cn and @sec-sm-a2n are conjectured for all $n$.
 6. **Unitarity.** These S-matrices are not unitary in the Hilbert-space sense. @sec-scattering shows they are unitary with respect to an indefinite (Krein) inner product. A unitary theory requires a restriction of RSOS type, which remains to be carried out for these algebras.
 
-## Exercises
+## Exercises {#sec-sm-f4-exercises}
 
-*To be written.*
+::: {#exr-f4-H}
+Compare the floating Coxeter number $H=12+3B$ of the CDS $f_4^{(1)}$ particle S-matrix with the value $H=12+\frac92B$ implied by the $\mathbf{27}$ amplitude. At which order in $\beta$ do they first differ, and why is that enough to rule the amplitude out?
+:::
 
-## Notes and references
+::: {#exr-f4-split}
+Using @sec-one-loop-masses-folded, explain why $H_s\ne H_b$ for $f_4^{(1)}$ excludes every lift of the $\mathbf{27}$ family, in which soliton and breather fusion angles are tied to the same $T$.
+:::
 
-*To be written.*
+## Notes and references {#sec-sm-f4-notes}
+
+The $\mathbf{27}$ R-matrix of $U_q(e_6^{(2)})$ was considered by Gandenberger, MacKay and Watts [@gmw1996], and the particle S-matrix is that of Corrigan, Dorey and Sasaki [-@corrigan1993]. The construction, the one-loop exclusion and the open problems listed in @sec-sm-discussion are new here.

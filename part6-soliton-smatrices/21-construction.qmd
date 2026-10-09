@@ -1,5 +1,14 @@
 # The construction {#sec-sm-construction}
 
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Assemble a soliton S-matrix from an R-matrix, a gradation and a scalar factor.
+- Impose unitarity and crossing, and see what they leave undetermined.
+- Fix the remaining freedom by the soliton masses, and test the result against the particle S-matrices through the breathers.
+- Work through the construction for $a_n^{(1)}$, where every step can be done by hand.
+:::
+
+@sec-qg-symmetry showed that soliton S-matrices have the form $\Phi\,\check R$. This chapter turns that observation into a procedure. It is the procedure used for every new S-matrix in this part, and it reproduces the known ones. The worked example in @sec-an-example applies it to $a_n^{(1)}$, Hollowood's case, where the R-matrix is the simplest one beyond sine-Gordon.
+
 Every amplitude in this part is built in the same five steps. The case-specific inputs are the representation, the R-matrix and the integer lifts of the scalar factor's zeros.
 
 ## Amplitude, gradation and rapidity variable {#sec-amplitude-and-gradation}
@@ -64,12 +73,56 @@ Our numerical crossing test compares $S(i\pi-\theta)$ with $(C\otimes 1)\,S_{21}
 
 ## Worked example: the $a_n^{(1)}$ solitons {#sec-an-example}
 
-*Hollowood's $a_n^{(1)}$ soliton S-matrix, rederived by this construction: to be written.*
+For $a_n^{(1)}$ the algebra is self-dual, so the soliton symmetry is $U_q(a_n^{(1)})$ itself, and the solitons of species $a$ form the fundamental representation $V_a=\Lambda^a\mathbb C^{n+1}$ (@sec-qg-consequences). Hollowood [-@hollowood1993b] constructed their S-matrices. We follow the steps of this chapter for the species-1 solitons.
 
-## Exercises
+**Gradation.** With $h=h^\vee=n+1$, the formula of @sec-amplitude-and-gradation gives $2T=h\big(\frac{4\pi}{\beta^2}-1\big)=h\omega$, with $\omega=\frac{4\pi}{\beta^2}-1$. For $n=1$, $T=\omega=\lambda$, the sine-Gordon value (@sec-qg-gradation).
 
-*To be written.*
+**R-matrix.** $V_1\otimes V_1$ is the sum of the $q$-symmetric and $q$-antisymmetric tensors, and the tensor-product graph gives Jimbo's R-matrix (@sec-tpg),
 
-## Notes and references
+$$
+\check R_{11}(x)=P_{\rm sym}+\rho(x)\,P_{\rm antisym},
+$$
 
-*To be written.*
+with $\rho$ the six-vertex eigenvalue (-@eq-six-vertex-eigenvalue) for every $n$. In the conventions of this chapter ($q=e^{-i\pi\omega}$, which corresponds to $q\to q^{-1}$ relative to @sec-six-vertex), $\rho$ has its pole at $x=q^{-2}$ and its zero at $x=q^{2}$. The residue at the pole projects onto the antisymmetric tensors, which are $V_2=\Lambda^2\mathbb C^{n+1}$.
+
+**Bound states.** The pole $x=q^{-2}$ lies at $t\equiv\omega\pmod1$. With $2T=h\omega$, the value $t=\omega$ corresponds to
+
+$$
+\theta=\frac{i\pi t}T=\frac{2\pi i}h ,
+$$
+
+which is exactly the fusing angle $u_{11}^2$ of the particles of $a_n^{(1)}$ (@sec-an-smatrix). So the bound state $1+1\to2$ appears at a coupling-independent angle with the right multiplet, and its mass is $M_2=2M_1\cos\frac\pi h$. Continuing by fusion (@sec-fusion), the species-$a$ soliton has
+
+$$
+M_a=M_1\frac{\sin(\pi a/h)}{\sin(\pi/h)} ,
+$$
+
+the classical ratio, now exact. No integer lift is needed: the scalar factor can place its zero at $t=\omega$ itself. This is special to the self-dual, simply-laced case. In Chapters [-@sec-sm-cn]–[-@sec-sm-f4] the lifts are what decides the masses.
+
+**Crossing.** The dual of $V_1$ is $V_n$, the antisoliton. Crossing therefore relates $S_{11}$ to $S_{1n}$, and the crossing point $x(i\pi)=e^{2\pi iT}=e^{i\pi h\omega}$ is a power of $q$, as @sec-qg-crossing requires. The scalar factor is fixed by unitarity, crossing and minimality as an infinite product of Gamma functions, given explicitly by Hollowood [-@hollowood1993b].
+
+**Breathers.** In the soliton–antisoliton channel $V_a\otimes V_{\bar a}$ the singlet carries towers of breather poles. Gandenberger [@gandenberger1995] showed that the lowest breathers scatter as the particles of $a_n^{(1)}$ with the S-matrix (-@eq-an-smatrix) continued to imaginary coupling, the first instance of the breather–particle identification beyond sine-Gordon.
+
+**Check: $n=1$.** For sine-Gordon $V_1\otimes V_1$ is spin $\frac12\otimes\frac12$, $T=\lambda$, and the antisymmetric pole at $t=\omega$ corresponds to $\theta=i\pi$, the edge of the physical strip: two solitons do not bind, as they should not. The breather towers of the scalar factor lie at $t=T-k$, $k=1,2,\dots$, which are the poles $\theta=i(\pi-k\xi)$ of the Zamolodchikov S-matrix (@sec-qg-gradation).
+
+## Exercises {#sec-sm-construction-exercises}
+
+::: {#exr-scalar-unitarity}
+Show that $f$ as defined in @sec-scalar-factor satisfies $f(T-t)=f(t)$ and $f(t)f(-t)=1/\big(c(t)c(-t)\big)$, using only the functional equation of the Gamma function.
+:::
+
+::: {#exr-lift-cdd}
+Show that shifting a zero $a_j\to a_j+1$ multiplies $F$ by a crossing-symmetric, unitary CDD factor. Express it in terms of the blocks $(y)$ of @sec-breather-test.
+:::
+
+::: {#exr-an-fusing}
+For $a_n^{(1)}$, verify that the pole of $\check R_{11}$ at $t=\omega$ gives $\theta=2\pi i/h$ for every coupling, and derive $M_a/M_1=\sin(\pi a/h)/\sin(\pi/h)$ by repeated fusion.
+:::
+
+::: {#exr-block-translation}
+Show that a DGZ/CDS block $(x)_H$ equals the block $(y)$ of @sec-breather-test when $y/T=x/H$. What does this say about the relation between $T$, $H$ and the breather masses?
+:::
+
+## Notes and references {#sec-sm-construction-notes}
+
+The general structure $S=\Phi\check R$ goes back to Zamolodchikov and Zamolodchikov's sine-Gordon S-matrix [@zz1979], was developed for affine Toda solitons by Hollowood [@hollowood1993a; @hollowood1993b], and was put on a Hopf-algebraic footing by Delius [-@delius1995]. The form of the scalar factor as $c\,f$ with Gamma functions is that of Gandenberger, MacKay and Watts [@gmw1996]. The use of the soliton masses to fix the integer lifts, and the breather test against the DGZ and CDS amplitudes in exact arithmetic, are new here.

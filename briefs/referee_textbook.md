@@ -1,10 +1,10 @@
-# Brief: referee the textbook chapters (Parts I–IV and the textbook parts of Part V)
+# Brief: referee the textbook chapters (Parts I–IV and the textbook parts of Parts V–VI)
 
 You are a mathematical-physics referee. The repository is `/home/gustav/Git/affine_toda`, a Quarto book on affine Toda field theory. Do not edit any file in it. Work in your own scratch directory and deliver your full report in your final message: subagents may be unable to write report files.
 
 ## Context
 
-Chapters 1–15 (`part1-background/`, `part2-algebra/`, `part3-classical/`, `part4-real-coupling/`) were drafted on 2026-10-09, together with chapter 16 and the textbook framing of chapters 17–19 (introductions, `sec-picard-lefschetz`, exercises, notes; the research content of chapters 17–19 is not in scope here) as textbook material for a reader who knows QFT but not affine Toda theory or quantum groups. Most of the content is standard, but many formulas, conventions and bibliographic details were written from memory. Some have been verified, and the rest need an independent check. Experience in this repository is that every adversarial referee pass finds real errors, so look hard.
+Chapters 1–15 (`part1-background/`, `part2-algebra/`, `part3-classical/`, `part4-real-coupling/`) were drafted on 2026-10-09, together with chapter 16 and the textbook framing of chapters 17–19 (introductions, `sec-picard-lefschetz`, exercises, notes), chapter 20, the worked example `sec-an-example` of chapter 21, the first three sections of chapter 27, and the framing of chapters 21–27 (learning goals, introductions, exercises, notes). The research content of chapters 17–19 and 21–27 is not in scope here as textbook material for a reader who knows QFT but not affine Toda theory or quantum groups. Most of the content is standard, but many formulas, conventions and bibliographic details were written from memory. Some have been verified, and the rest need an independent check. Experience in this repository is that every adversarial referee pass finds real errors, so look hard.
 
 Find any object with `grep -rn '{#<id>}' part*/` (prefixes: `sec-`, `eq-`, `prp-`, `exr-`, `tbl-`). Conventions are in `sec-conventions` (chapter 1): long roots have length$^2$ 2, $\beta_{\rm SG}^2=2\beta^2$, and twisted-algebra couplings in the literature satisfy $\beta_{\rm lit}^2=\beta^2/k$.
 
@@ -18,6 +18,7 @@ Find any object with `grep -rn '{#<id>}' part*/` (prefixes: `sec-`, `eq-`, `prp-
 - `toda_classical.py` (Part III): the Lax pair `eq-lax-pair` gives the $a_2^{(1)}$ field equation `eq-toda-eom` (light-cone convention $\partial_\pm=\partial_t\pm\partial_x$); the sinh-Gordon spin-3 current `eq-spin3-current`; masses = Perron–Frobenius vector and $\sum_am_a^2=2hm^2$ for $a_2,a_5,d_4,d_6,e_{6,7,8}$; $\lvert\Phi\rvert=rh$; the Coxeter orbits of $\vec\gamma_a=(1-w^{-1})\vec\lambda_a$ partition the roots, `prp-dorey-rule` and the area rule `eq-area-rule` with constant exactly $4\beta/\sqrt h$, for $e_7$ and $e_8$ only; one- and two-soliton $a_n^{(1)}$ solutions `eq-an-soliton`, `eq-n-soliton`, `eq-interaction-coefficient` solve the time-dependent field equation (to $10^{-29}$); the static soliton energy is real and equals `eq-soliton-mass` for $a_2,a_3$ at complex $\xi$; $\Theta$ acts on data as `eq-theta-data`; the sine-Gordon breather is real for $\xi_2=\bar\xi_1+i\pi$ and imaginary for $\xi_2=\bar\xi_1$.
 - `smatrix_simply_laced.py` (Part IV): Dorey's formula `eq-dorey-formula` in the printed convention ($w^p$, exponent $-\frac12$, colour shift $\frac12(c(b)-c(a))$) gives unitary, crossing-symmetric, $B\to2-B$ invariant S-matrices for $a_4,d_4,d_6,e_7,e_8$; reproduces $e_8$ $S_{11}=\{1\}\{11\}\{19\}\{29\}$ and the $a_n$ closed form `eq-an-smatrix` ($n\le5$); satisfies the bootstrap at all 112 ($e_7$) and 224 ($e_8$) fusings given by `prp-dorey-rule`; the sinh-Gordon tree amplitude agrees with the exact S-matrix (`sec-tree-level`). Note: the variant with $w^{-p}$ (variant 0 of `foundations_code/hirota/dorey.py`) is also unitary, crossing-symmetric and bootstrap-consistent but is not the physical S-matrix; the research code uses variant 1, which is correct.
 - `semiclassics.py` (Part V): `eq-dhn-psi` and `eq-ccg` give $-m/\pi$ for the sine-Gordon kink and $m(\frac1{4\sqrt3}-\frac3{2\pi})$ for the $\phi^4$ kink; summing `eq-dhn-psi` over channels with `eq-an-transmission` reproduces `eq-hollowood-mass` for $n\le7$; the zero-dimensional $i\phi^3$ integral of `sec-picard-lefschetz` is bounded by the Gaussian and matches $1-\frac5{6\lambda}$ (so $n_i=0$); `prp-thimble-gaussian` on a $2\times2$ Jordan block; the Jordan blocks of $H_g=-\partial^2+ge^{ix}$.
+- `rsos_qdims.py` (Part VI): the sign criteria of `exr-quantum-dims` for $5\le p<60$ (note $q=e^{i\pi r/p}$ depends on $r$ mod $2p$); the parameter identities used in the exercises of chapters 22–25.
 - `spin1_tpg.py`: `eq-tpg-rule` for $U_q(\widehat{sl}_2)$ spin $\frac12\otimes\frac12$ and spin $1\otimes1$ (the claims of `exr-tpg-check` and `exr-spin1`), and $q$-Serre for the spin-1 evaluation representation.
 
 **By hand** (worth a second look, but each was derived explicitly):
@@ -36,6 +37,8 @@ Find any object with `grep -rn '{#<id>}' part*/` (prefixes: `sec-`, `eq-`, `prp-
 - Chapter 14: `eq-floating-h` reproduces $H=2n+B$ ($c_n^{(1)}$, as in `sec-sm-cn`) and $H=12+3B$ ($f_4^{(1)}$, as in `sec-sm-f4`).
 - Chapter 16: the Pöschl–Teller data in `exr-pt-transmission` (bound states at $z=j\mu/m$); the sine-Gordon limit of `eq-hollowood-mass`.
 - Chapters 17–19 exercises: `exr-a4-cancellation` ($\lambda=1.25\,m^2$ from both channels), `exr-cn-double-zero`, `exr-double-count` (difference $\frac12\omega_0$, consistent with the statement in `sec-one-loop-masses-folded`).
+- Chapter 20: consistency of the spin $s=4\pi/\beta^2-1$ (simply laced) with $2T=\sum_jn_js_j=4\pi h/\beta^2-h^\vee$ and with Bernard–LeClair's $8\pi/\beta_{\rm SG}^2-1=\lambda$; the sine-Gordon breather poles at $t=T-n$; crossing $x(i\pi)=q^2$ consistent with `sec-qg-crossing`.
+- Chapter 21 example: with $q_{\rm VI}=e^{-i\pi\omega}$ the six-vertex pole of chapter 7 at $z=q_7^2$ is at $x=q_{\rm VI}^{-2}$, i.e. $t=\omega$, $\theta=2\pi i/h$; for $n=1$ it is at $\theta=i\pi$.
 - Chapter 11: $\Theta$ maps solutions to solutions and acts by $\tau_j\mapsto\bar\tau_j$; $\overline{A_{ab}(\theta)}=A_{h-a,h-b}(\bar\theta)$; the three examples in `sec-reality-energy-momentum`.
 
 ## To be checked
@@ -53,7 +56,7 @@ Report on each item: correct / wrong (with the correction) / unclear (with what 
 9. **Chapter 5 statements.** Steinberg's statement in `sec-weyl-coxeter`; the attribution to Freeman of "conserved-charge eigenvalues are eigenvectors of the Cartan matrix" in `sec-perron-frobenius`; the $E_8$/Ising sentence (the Ising S-matrix as the minimal part of the $e_8^{(1)}$ Toda S-matrix).
 10. **Chapter 6 statements.** The folding rows of `tbl-foldings` not checked by hand, in particular $d_{n+1}^{(2)}\leftarrow d_{n+2}^{(1)}$, $a_{2n}^{(2)}\leftarrow d_{2n+2}^{(1)}$, $a_{2n-1}^{(2)}\leftarrow d_{2n}^{(1)}$, $e_6^{(2)}\leftarrow e_7^{(1)}$, $d_4^{(3)}\leftarrow e_6^{(1)}$ (copied from the table in `sec-one-loop-masses-folded`); the ranks of the twisted algebras; "symmetries of the affine diagram that move the extra node correspond to the centre"; the level $n_j^\vee$ of $L(\Lambda_j)$; principal Heisenberg degrees = exponents mod $h$; the schematic vertex-operator formula in `sec-vertex-operators` against Olive–Turok–Underwood.
 11. **Chapter 7 statements.** The Kirillov–Reshetikhin remark in `sec-uqghat`; the claim that $\prod_ik_i^{n_i^\vee}$ is central; the quasitriangularity consequences listed in `sec-universal-r` for the stated coproduct; `exr-hermitian-spin1`.
-12. **Exercises in general.** Every exercise in chapters 2–19 should be true and solvable at the level of the chapter. Flag any that are not.
+12. **Exercises in general.** Every exercise in chapters 2–27 should be true and solvable at the level of the chapter. Flag any that are not.
 
 13. **Part III statements not yet checked.**
     - `eq-hirota-bilinear` for a non-simply-laced or twisted algebra (e.g. by folding an explicit $a_{2n-1}^{(1)}$ solution to $c_n^{(1)}$ and substituting).
@@ -84,6 +87,14 @@ Report on each item: correct / wrong (with the correction) / unclear (with what 
     - `sec-dhn-complex`: the characterisation of the MacKay–Watts / Delius–Grisaru and $b_n^{(1)}$ disagreements.
     - `exr-airy`, `exr-hg`, `exr-g2-duality`: true and solvable?
 18. **Citation added for Part V**: `cahill1976`.
+
+19. **Part VI textbook statements not yet checked.**
+    - `sec-nonlocal-charges`: the Bernard–LeClair currents (exponent, weight $h_J=8\pi/\beta_{\rm SG}^2$, topological charge $\pm1$, the form of $H_\pm$), the general construction "along the coroots", and the statement that every charge has spin $4\pi/\beta^2-1$ for simply-laced $\hat g$. The non-simply-laced spins are not stated; check that $2T=4\pi h/\beta^2-h^\vee$ is the total spin of the null root [GMW 1996; Delius 1995].
+    - `sec-qg-coproduct`: the coproduct $\Delta(Q_j)=Q_j\otimes1+q^{T_j}\otimes Q_j$, $q=\pm e^{i\pi h_J}$, and the identification of $(Q_\pm,\bar Q_\mp,\pm T)$ with the Chevalley generators.
+    - `sec-an-example`: attribution of the $a_n^{(1)}$ soliton S-matrix to Hollowood 1993b and of the breather identification to Gandenberger 1995; the claim that $\rho$ is the same function for every $n$ in the book's gradation.
+    - `sec-qg-restriction`: the allowed heights for $a_n^{(1)}$ at $\beta^2/4\pi=p/p'$ ("level $p-n-1$", interpolated between the $n=1$ and $n=2$ cases); `sec-perturbed-minimal`: the table of restricted theories, in particular "$W_{n+1}(p,p')$ perturbed by the field of the adjoint representation" and the $a_2^{(2)}$ row.
+    - `sec-hermitian-analyticity-irf`: the description of the Hoare–Hollowood–Miramontes mechanism.
+    - Exercises of chapters 20–27.
 
 ## Deliverable
 
