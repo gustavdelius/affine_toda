@@ -66,7 +66,7 @@ Each item below gives the property as it holds in a unitary theory, then how it 
 - *In a unitary theory:* every eigenvalue of the S-matrix is a pure phase.
 - *In imaginary-coupling ATFT:* soliton–antisoliton and soliton–breather amplitudes in $a_2^{(1)}$, and soliton–excited-soliton amplitudes in $a_2^{(2)}$, have eigenvalue pairs $(s,1/\bar s)$ with $\lvert s\rvert\ne1$ [@tw1999, Proposition 9.1]. One member of each pair has $\lvert s\rvert>1$.
 - *Why it cannot be rescued:* eigenvalue moduli do not depend on the basis, so Hermitian analyticity [@miramontes1999] cannot hold in any basis. Breather amplitudes are quantum-group singlets and are untouched by RSOS restriction.
-- *Scope:* $a_n^{(1)}$ ($n\ge2$), $d_{2n+1}^{(1)}$ and $e_6^{(1)}$ for generic $\beta$ (established for $a_2^{(1)}$, conjectured for the others); $a_2^{(2)}$ in the attractive regime. With bosonic exchange of soliton labels, also the fundamental two-soliton amplitudes of the spinor solitons of $c_n^{(1)}$ and $a_{2n-1}^{(2)}$, and of the $a_2^{(2)}$ kinks for $\cos(2\pi^2/3\xi)<0$ [Numerical, @sec-sector-status].
+- *Scope:* $a_n^{(1)}$ ($n\ge2$), $d_{2n+1}^{(1)}$ and $e_6^{(1)}$ for generic $\beta$ (established for $a_2^{(1)}$, conjectured for the others); $a_2^{(2)}$ in the attractive regime. With bosonic exchange of soliton labels, also the fundamental two-soliton amplitudes of the spinor solitons of $c_n^{(1)}$ and $a_{2n-1}^{(2)}$, and of the $a_2^{(2)}$ kinks for $\cos(2\pi^2/3\xi)<0$ [Numerical] (@sec-sector-status).
 
 **U4. Bounded real-time evolution.**
 
