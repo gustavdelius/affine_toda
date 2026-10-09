@@ -1,0 +1,7 @@
+N=3 consistency 0.0
+xi= 0.30pi  |psi|/pi=0.951 (1/N thresholds .5,.333,.25,.2):  N=3: 1.5e-14  N=4: 4.9e-13  N=5: 1.7e-02
+xi= 0.35pi  |psi|/pi=0.038 (1/N thresholds .5,.333,.25,.2):  N=3: 2.0e-14  N=4: 1.0e-12  N=5: 1.6e-11
+xi= 2.00pi  |psi|/pi=0.953 (1/N thresholds .5,.333,.25,.2):  N=3: 8.6e-12  N=4: 1.9e-03  N=5: 2.0e-03
+xi= 3.00pi  |psi|/pi=0.698 (1/N thresholds .5,.333,.25,.2):  N=3: 2.0e-14  N=4: 3.2e-13  N=5: 1.9e-02
+xi= 6.00pi  |psi|/pi=0.349 (1/N thresholds .5,.333,.25,.2):  N=3: 4.3e-14  N=4: 2.5e-12  N=5: 2.0e-11
+xi=12.00pi  |psi|/pi=0.175 (1/N thresholds .5,.333,.25,.2):  N=3: 3.5e-14  N=4: 1.2e-12  N=5: 3.5e-11

@@ -1,0 +1,14 @@
+e8 a=1 lam=20.179: max|R|=2.7e-11 max|T_offdiag|=3.7e-11 max|T_cc - X_c|=1.4e-10  |X_c|=[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+e8 a=1 lam=22.579: max|R|=9.7e-12 max|T_offdiag|=2.1e-11 max|T_cc - X_c|=1.1e-10  |X_c|=[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+e8 a=2 lam=20.179: max|R|=5.4e-12 max|T_offdiag|=8.9e-12 max|T_cc - X_c|=9.2e-11  |X_c|=[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+e8 a=2 lam=22.579: max|R|=2.3e-12 max|T_offdiag|=5.7e-12 max|T_cc - X_c|=7.1e-11  |X_c|=[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+e8 a=3 lam=20.179: max|R|=3.7e-11 max|T_offdiag|=3.4e-11 max|T_cc - X_c|=6.5e-11  |X_c|=[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+e8 a=3 lam=22.579: max|R|=9.1e-12 max|T_offdiag|=2.3e-11 max|T_cc - X_c|=4.9e-11  |X_c|=[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+Traceback (most recent call last):
+  File "/tmp/claude-1000/-home-gustav-Git-affine-toda/779c90c9-8fd2-4214-9b37-cf34f0579037/scratchpad/hirota/transfer_check.py", line 43, in <module>
+    bg, t, mu = single_soliton(A, a)
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/tmp/claude-1000/-home-gustav-Git-affine-toda/779c90c9-8fd2-4214-9b37-cf34f0579037/scratchpad/hirota/fluctop.py", line 86, in single_soliton
+    assert dr < mp.mpf(10) ** (-dps + 8) and res < mp.mpf(10) ** (-dps + 8), (dr, res)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (mpf('1.05322017271497529792036631704545e-22'), mpf('2.7188452409618638437377699575362e-19'))

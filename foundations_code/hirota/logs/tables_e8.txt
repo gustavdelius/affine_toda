@@ -1,0 +1,69 @@
+=== e8  h=30  m^2: 1:2.2288, 2:4.9236, 3:8.8180, 4:19.4794, 5:12.8902, 6:7.4405, 7:3.3682, 8:0.8513
+ soliton 1:
+   isolated: 0.000000[net +1; X1:q0^+1]; 0.096347[net +0; X1:q2^-1 X3:q1^+1]; 0.294131[net +1; X8:q6^+1]; 0.470166[net +0; X8:q8^-1 X2:q3^+1]; 0.770046[net +2; X1:q6^+1 X8:q12^+1]; 0.842040[net +0; X4:q2^+1 X7:q5^+1 X8:q14^-1 X3:q3^-1]
+   embedded: 1.230909[net +0; X5:q3^+1 X1:q8^-1 X2:q5^-1 X6:q4^+1]; 1.671631[net +1; X1:q10^+1]; 2.204489[net +0; X7:q9^-1 X1:q14^-1 X2:q7^+1 X3:q5^+1]; 2.810948[net +1; X7:q11^+1]; 7.359159[net +2; X3:q11^+1 X6:q14^+1]; 8.436778[net +0; X5:q9^+1 X3:q13^-1]; 10.757755[net +0; X4:q8^+1 X5:q11^-1]; 12.333039[net +1; X5:q13^+1]
+   FLAG cancellation at 0.09635: X1:q2^-1 X3:q1^+1
+   FLAG cancellation at 0.47017: X8:q8^-1 X2:q3^+1
+   FLAG cancellation at 0.84204: X4:q2^+1 X7:q5^+1 X8:q14^-1 X3:q3^-1
+   FLAG cancellation at 1.23091: X5:q3^+1 X1:q8^-1 X2:q5^-1 X6:q4^+1
+   FLAG cancellation at 2.20449: X7:q9^-1 X1:q14^-1 X2:q7^+1 X3:q5^+1
+   FLAG cancellation at 8.43678: X5:q9^+1 X3:q13^-1
+   FLAG cancellation at 10.75776: X4:q8^+1 X5:q11^-1
+ soliton 2:
+   isolated: 0.000000[net +1; X2:q0^+1]; 0.212835[net +2; X4:q1^+1 X2:q2^-1 X8:q5^+1 X1:q3^+1]; 0.381176[net +0; X8:q7^-1 X3:q2^+1]; 0.557210[net +2; X5:q2^+1 X1:q5^-1 X7:q4^+1 X8:q9^+1]; 0.710500[net +0; X8:q11^-1 X6:q3^+1]; 0.814540[net +2; X8:q13^+1 X2:q4^+1]
+   embedded: 0.997932[net +1; X1:q7^+1]; 3.331358[net +2; X7:q14^+1 X6:q7^+1]; 3.692728[net +1; X2:q10^+1]; 4.453472[net +0; X5:q6^+1 X2:q12^-1]; 4.869841[net +2; X4:q5^+1 X2:q14^+1 X3:q8^+1 X6:q9^-1]; 6.209545[net +1; X6:q11^+1]; 11.659340[net +1; X5:q12^+1]; 12.749408[net +0; X4:q9^+1 X5:q14^-1]
+   FLAG cancellation at 0.21284: X4:q1^+1 X2:q2^-1 X8:q5^+1 X1:q3^+1
+   FLAG cancellation at 0.38118: X8:q7^-1 X3:q2^+1
+   FLAG cancellation at 0.55721: X5:q2^+1 X1:q5^-1 X7:q4^+1 X8:q9^+1
+   FLAG cancellation at 0.71050: X8:q11^-1 X6:q3^+1
+   FLAG cancellation at 4.45347: X5:q6^+1 X2:q12^-1
+   FLAG cancellation at 4.86984: X4:q5^+1 X2:q14^+1 X3:q8^+1 X6:q9^-1
+   FLAG cancellation at 12.74941: X4:q9^+1 X5:q14^-1
+ soliton 3:
+   isolated: 0.000000[net +1; X3:q0^+1]; 0.024353[net +1; X1:q1^+1]; 0.212835[net +2; X4:q1^+1 X2:q2^+1 X8:q5^+1 X1:q3^-1]; 0.557210[net +2; X5:q2^+1 X1:q5^+1 X7:q4^+1 X8:q9^-1]; 0.710500[net +2; X8:q11^+1 X6:q3^+1]
+   embedded: 1.163670[net +1; X7:q6^+1]; 1.860114[net +2; X4:q3^+1 X7:q8^-1 X1:q11^+1 X6:q5^+1]; 2.132495[net +0; X5:q4^+1 X1:q13^-1]; 2.719149[net +1; X2:q8^+1]; 3.046528[net +2; X7:q12^+1 X3:q6^+1]; 6.613466[net +1; X3:q10^+1]; 7.118824[net +2; X5:q8^+1 X6:q13^+1]; 8.721607[net +0; X4:q7^+1 X3:q14^-1]; 12.749408[net +2; X4:q9^+1 X5:q14^+1]
+   FLAG cancellation at 0.21284: X4:q1^+1 X2:q2^+1 X8:q5^+1 X1:q3^-1
+   FLAG cancellation at 0.55721: X5:q2^+1 X1:q5^+1 X7:q4^+1 X8:q9^-1
+   FLAG cancellation at 1.86011: X4:q3^+1 X7:q8^-1 X1:q11^+1 X6:q5^+1
+   FLAG cancellation at 2.13249: X5:q4^+1 X1:q13^-1
+   FLAG cancellation at 8.72161: X4:q7^+1 X3:q14^-1
+ soliton 4:
+   isolated: 0.000000[net +1; X4:q0^+1]; 0.053797[net +1; X2:q1^+1]; 0.096347[net +2; X1:q2^+1 X3:q1^+1]; 0.140841[net +2; X5:q1^+1 X8:q4^+1]; 0.321631[net +2; X7:q3^+1 X6:q2^+1]; 0.842040[net +4; X4:q2^+1 X7:q5^+1 X8:q14^+1 X3:q3^+1]
+   embedded: 1.230909[net +4; X5:q3^+1 X1:q8^+1 X2:q5^+1 X6:q4^+1]; 2.570614[net +1; X6:q6^+1]; 3.222562[net +4; X4:q4^+1 X5:q5^+1 X7:q13^+1 X2:q9^+1]; 3.948113[net +1; X3:q7^+1]; 5.771426[net +2; X5:q7^+1 X3:q9^+1]; 6.729954[net +2; X4:q6^+1 X6:q12^+1]; 10.757755[net +2; X4:q8^+1 X5:q11^+1]; 14.609522[net +1; X4:q10^+1]
+ soliton 5:
+   isolated: 0.000000[net +1; X5:q0^+1]; 0.081296[net +2; X8:q3^+1 X6:q1^+1]; 0.145596[net +1; X7:q2^+1]; 0.212835[net +2; X4:q1^+1 X2:q2^+1 X8:q5^-1 X1:q3^+1]; 0.381176[net +2; X8:q7^+1 X3:q2^+1]
+   embedded: 1.458796[net +2; X1:q9^+1 X3:q4^+1]; 1.701075[net +1; X2:q6^+1]; 1.860114[net +2; X4:q3^+1 X7:q8^+1 X1:q11^-1 X6:q5^+1]; 2.132495[net +2; X5:q4^+1 X1:q13^+1]; 4.453472[net +2; X5:q6^+1 X2:q12^+1]; 4.869841[net +2; X4:q5^+1 X2:q14^-1 X3:q8^+1 X6:q9^+1]; 8.721607[net +2; X4:q7^+1 X3:q14^+1]; 9.667687[net +1; X5:q10^+1]; 16.256800[net +1; X4:q11^+1]
+   FLAG cancellation at 0.21284: X4:q1^+1 X2:q2^+1 X8:q5^-1 X1:q3^+1
+   FLAG cancellation at 1.86011: X4:q3^+1 X7:q8^+1 X1:q11^-1 X6:q5^+1
+   FLAG cancellation at 4.86984: X4:q5^+1 X2:q14^-1 X3:q8^+1 X6:q9^+1
+ soliton 6:
+   isolated: 0.000000[net +1; X6:q0^+1]; 0.036801[net +2; X8:q2^+1 X7:q1^+1]; 0.140841[net +0; X5:q1^+1 X8:q4^-1]; 0.368728[net +1; X1:q4^+1]; 0.470166[net +2; X8:q8^+1 X2:q3^+1]; 0.842040[net +0; X4:q2^+1 X7:q5^-1 X8:q14^-1 X3:q3^+1]
+   embedded: 1.508045[net +1; X7:q7^+1]; 2.204489[net +4; X7:q9^+1 X1:q14^+1 X2:q7^+1 X3:q5^+1]; 3.222562[net +0; X4:q4^+1 X5:q5^+1 X7:q13^-1 X2:q9^-1]; 4.109097[net +2; X2:q11^+1 X6:q8^+1]; 5.580341[net +1; X6:q10^+1]; 6.729954[net +0; X4:q6^+1 X6:q12^-1]; 8.436778[net +2; X5:q9^+1 X3:q13^+1]; 17.619249[net +1; X4:q12^+1]
+   FLAG cancellation at 0.14084: X5:q1^+1 X8:q4^-1
+   FLAG cancellation at 0.84204: X4:q2^+1 X7:q5^-1 X8:q14^-1 X3:q3^+1
+   FLAG cancellation at 3.22256: X4:q4^+1 X5:q5^+1 X7:q13^-1 X2:q9^-1
+   FLAG cancellation at 6.72995: X4:q6^+1 X6:q12^-1
+ soliton 7:
+   isolated: 0.000000[net +1; X7:q0^+1]; 0.009302[net +1; X8:q1^+1]; 0.081296[net +0; X8:q3^-1 X6:q1^+1]; 0.557210[net +2; X5:q2^+1 X1:q5^+1 X7:q4^-1 X8:q9^+1]; 0.814540[net +0; X8:q13^-1 X2:q4^+1]
+   embedded: 1.458796[net +0; X1:q9^-1 X3:q4^+1]; 1.860114[net +2; X4:q3^+1 X7:q8^+1 X1:q11^+1 X6:q5^-1]; 2.526119[net +1; X7:q10^+1]; 3.046528[net +0; X7:q12^-1 X3:q6^+1]; 3.331358[net +0; X7:q14^-1 X6:q7^+1]; 4.869841[net +2; X4:q5^+1 X2:q14^+1 X3:q8^-1 X6:q9^+1]; 7.118824[net +0; X5:q8^+1 X6:q13^-1]; 7.975914[net +1; X3:q12^+1]; 18.637323[net +1; X4:q13^+1]
+   FLAG cancellation at 0.08130: X8:q3^-1 X6:q1^+1
+   FLAG cancellation at 0.55721: X5:q2^+1 X1:q5^+1 X7:q4^-1 X8:q9^+1
+   FLAG cancellation at 0.81454: X8:q13^-1 X2:q4^+1
+   FLAG cancellation at 1.45880: X1:q9^-1 X3:q4^+1
+   FLAG cancellation at 1.86011: X4:q3^+1 X7:q8^+1 X1:q11^+1 X6:q5^-1
+   FLAG cancellation at 3.04653: X7:q12^-1 X3:q6^+1
+   FLAG cancellation at 3.33136: X7:q14^-1 X6:q7^+1
+   FLAG cancellation at 4.86984: X4:q5^+1 X2:q14^+1 X3:q8^-1 X6:q9^+1
+   FLAG cancellation at 7.11882: X5:q8^+1 X6:q13^-1
+ soliton 8:
+   isolated: 0.000000[net +1; X8:q0^+1]; 0.036801[net +0; X8:q2^-1 X7:q1^+1]; 0.321631[net +0; X7:q3^-1 X6:q2^+1]; 0.638506[net +1; X8:q10^+1]; 0.770046[net +0; X1:q6^+1 X8:q12^-1]
+   embedded: 1.230909[net +0; X5:q3^+1 X1:q8^-1 X2:q5^+1 X6:q4^-1]; 2.016006[net +1; X1:q12^+1]; 2.204489[net +0; X7:q9^+1 X1:q14^-1 X2:q7^-1 X3:q5^+1]; 3.222562[net +0; X4:q4^+1 X5:q5^-1 X7:q13^-1 X2:q9^+1]; 4.109097[net +0; X2:q11^-1 X6:q8^+1]; 4.710802[net +1; X2:q13^+1]; 5.771426[net +0; X5:q7^+1 X3:q9^-1]; 7.359159[net +0; X3:q11^+1 X6:q14^-1]; 19.266527[net +1; X4:q14^+1]
+   FLAG cancellation at 0.03680: X8:q2^-1 X7:q1^+1
+   FLAG cancellation at 0.32163: X7:q3^-1 X6:q2^+1
+   FLAG cancellation at 0.77005: X1:q6^+1 X8:q12^-1
+   FLAG cancellation at 1.23091: X5:q3^+1 X1:q8^-1 X2:q5^+1 X6:q4^-1
+   FLAG cancellation at 2.20449: X7:q9^+1 X1:q14^-1 X2:q7^-1 X3:q5^+1
+   FLAG cancellation at 3.22256: X4:q4^+1 X5:q5^-1 X7:q13^-1 X2:q9^+1
+   FLAG cancellation at 4.10910: X2:q11^-1 X6:q8^+1
+   FLAG cancellation at 5.77143: X5:q7^+1 X3:q9^-1
+   FLAG cancellation at 7.35916: X3:q11^+1 X6:q14^-1

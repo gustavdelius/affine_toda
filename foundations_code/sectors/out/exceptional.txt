@@ -1,0 +1,3 @@
+allowed entries per generator: {1: 6, 2: 6, 3: 12, 4: 12, 0: 6}
+U_q(f_4) on 26: max relation residual 2.2e-16  [67s]
+affine node 0 (alpha_0 = -theta, Cartan row 0 = [2, -1, 0, 0, 0]): max residual 2.2e-16  [72s]

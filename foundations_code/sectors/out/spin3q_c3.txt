@@ -1,0 +1,2 @@
+c_3 spinor omega=2.37: 3-body inside 2-body window (|l|<0.281): max dev 6.0e-02 (Krein 9e-15); unrestricted: 8.4e-01 (Krein 7e-14)  [134s]
+c_3 spinor omega=1.61: 3-body inside 2-body window (|l|<0.531): max dev 7.5e-02 (Krein 1e-14); unrestricted: 3.8e-01 (Krein 4e-14)  [153s]

@@ -1,0 +1,1 @@
+condition sigma(x+2)=sigma(x) on [1,p-1]  <=>  r = +-1 mod p, for 4<=p<=60, 1<=r<2p: exceptions []

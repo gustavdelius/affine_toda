@@ -17,10 +17,10 @@ We review the field and list twelve gaps between what is used in practice and wh
 - **Positivity.** On a lattice, every imaginary-coupling ATFT is a well-defined statistical model. After integrating out the free field, its partition function is a convergent sum of *positive* Coulomb-gas weights. The "complex action" therefore never produces a sign problem.
 - **Krein structure.** The lattice transfer matrix is self-adjoint with respect to an indefinite (Krein) inner product whose fundamental symmetry is field parity $\vec\phi\mapsto-\vec\phi$. It commutes with an antilinear PT-type symmetry $\Theta$. So the spectrum is closed under complex conjugation.
 - **Real vacuum energy.** Positivity of $\operatorname{Tr}T^N$ together with Pringsheim's theorem proves that the finite-volume vacuum energy is real and has the smallest real part in the spectrum. Excited levels can be complex, and an exactly solvable reduction shows they are.
-- **Continuum limit.** In finite volume, with Wick ordering done site by site, the lattice theory has a continuum limit for $\beta^2<2\pi$ and every algebra, with every term of the Coulomb-gas expansion positive (Theorem E). Without further counterterms the limit fails at and above the first collapse threshold $\beta^2_{\rm UV}$, and with site-independent Wick ordering it already fails at $2\pi$. In the window $2\pi\le\beta^2<\beta^2_{\rm UV}$ every term of the expansion converges (at sketch level), and summability is reduced to a version with cluster factors of a bound on products of nearest-neighbour distances, which we prove (Theorem 6.9). Summability is equivalent to a stability bound on the free energy at real fugacity (Lemma 6.15), whose expected exponent is set by the bulk free energy.
+- **Continuum limit.** In finite volume, with Wick ordering done site by site, the lattice theory has a continuum limit for every algebra and every coupling below the first collapse threshold, $\beta^2<\beta^2_{\rm UV}$. Every term of the Coulomb-gas expansion is positive (Theorems E and H). Without further counterterms the limit fails at and above $\beta^2_{\rm UV}$, and with site-independent Wick ordering it already fails at $2\pi$. Below $2\pi$ a nearest-neighbour bound suffices. In the window $2\pi\le\beta^2<\beta^2_{\rm UV}$ the proof keeps the exact interactions inside small clusters of charges, repulsion included, and uses a cluster bound on products of $m$-th-neighbour distances (Theorems 6.9 and 6.14). The resulting estimate is a stability bound on the free energy at real fugacity, with the exponent set by the bulk free energy (Lemma 6.15).
 - **Classical reality.** Classical energies are real precisely for $\Theta$-invariant asymptotic data, which turns the old ad hoc restriction to "good" solutions into a symmetry statement.
-- **Semiclassics.** The Picard–Lefschetz form of the semiclassical expansion requires eigenvalues to be counted with algebraic multiplicity. This resolves the long-standing disagreements over one-loop soliton masses, which we check against a regularization-independent lattice computation and exact S-matrices. We also derive the counting rule from the transmission factors. The size of each Jordan block equals the order of a zero of a transmission factor, also for eigenvalues embedded in the continuum (Theorem F). The weight with which the one-loop trace counts a given energy is the net order of the product of all transmission factors; this factorization is proved whenever the fluctuation solutions have Hirota form (Theorem G). A zero in one channel can be cancelled by a pole in another (Proposition 8.6). At the $c_n^{(1)}$ blocks, the second unit of weight is carried by a bounded threshold resonance rather than an $L^2$ vector (Proposition 8.7).
-- **Scattering.** Braiding (R-matrix) unitarity, crossing and the bootstrap follow from the universal R-matrix [@delius1995], but they are not QFT unitarity, which in addition requires Hermitian analyticity [@miramontes1999]. What the Krein structure does imply is that eigenvalues of S-matrices and multi-particle transfer matrices are pure phases or come in pairs $(s,1/\bar s)$. This turns the Takács–Watts criterion for a real finite-volume spectrum into a criterion for unbroken $\Theta$.
+- **Semiclassics.** The Picard–Lefschetz form of the semiclassical expansion requires eigenvalues to be counted with algebraic multiplicity. This resolves the long-standing disagreements over one-loop soliton masses, which we check against a regularization-independent lattice computation and exact S-matrices. We also derive the counting rule from the transmission factors. The size of each Jordan block equals the order of a zero of a transmission factor, also for eigenvalues embedded in the continuum (Theorem F). The weight with which the one-loop trace counts a given energy is the net order of the product of all transmission factors; this factorization is proved whenever the fluctuation solutions have Hirota form (Theorem G). A zero in one channel can be cancelled by a pole in another (Proposition 8.6). At the $c_n^{(1)}$ blocks, the second unit of weight is carried by a bounded threshold resonance rather than an $L^2$ vector (Proposition 8.7). The Hirota form holds for every static soliton of $d_n^{(1)}$ and $e_n^{(1)}$ and for their foldings, given a degree bound verified up to rank 8 (Proposition 8.8). With the counting rule, the one-loop masses of all folded solitons follow a single floating Coxeter number and agree with every known exact result (Section 8.9). This settles the $b_n^{(1)}$ disagreement and predicts the $f_4^{(1)}$ soliton masses.
+- **Scattering.** Braiding (R-matrix) unitarity, crossing and the bootstrap follow from the universal R-matrix [@delius1995], but they are not QFT unitarity, which in addition requires Hermitian analyticity [@miramontes1999]. What the Krein structure does imply is that eigenvalues of S-matrices and multi-particle transfer matrices are pure phases or come in pairs $(s,1/\bar s)$. This turns the Takács–Watts criterion for a real finite-volume spectrum into a criterion for unbroken $\Theta$. For the exact S-matrix of the fundamental solitons of $a_n^{(1)}$ the Krein structure is proved directly from the R-matrix, without asymptotic completeness (Proposition 9.3). It shows that three-soliton states of $a_2^{(1)}$ carrying all three colours are $\Theta$-broken at every coupling, although every two-soliton amplitude has phase eigenvalues. RSOS restriction to the perturbed $W_3(p,p')$ models cures this exactly when $p'\equiv\pm1\pmod p$, when the restricted kink S-matrix is Hermitian analytic and unitary (Proposition 9.6). For $p'=p+2$ the kink sectors are unbroken, yet no Hermitian-analytic basis exists.
 - **What cannot be rescued.** We list the physical consequences of unitarity that fail in the unrestricted imaginary-coupling theories of rank $r\ge2$ and that no choice of inner product, basis, gradation or quantum-group restriction can restore, because their failure is detected by basis-independent quantities (Section 10).
 
 The resulting picture is that imaginary-coupling ATFTs are valid **non-unitary** quantum field theories, in the same sense as the scaling Lee–Yang model. They have a positive Euclidean measure, a Krein-space Hamiltonian formulation, a real vacuum energy, real masses for the asymptotic particles in every known exact solution, and a consistent S-matrix theory. Unitarity is not one of their properties: it fails in identifiable sectors, and requiring it was a category error. Section 10 states exactly which of its usual consequences are lost and cannot be recovered. We also correct a premise common in the literature: exact soliton S-matrices were *not* known for every algebra. They were missing for $c_n^{(1)}$ with $n\ge3$, $f_4^{(1)}$, $e_6^{(2)}$ and $a_{2n-1}^{(2)}$. A [companion note on soliton S-matrices](toda_soliton_smatrices.qmd) constructs them for $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$ (the first and second for the spinor soliton, verified for small $n$). For $f_4^{(1)}$ it constructs a candidate amplitude that satisfies all the axioms but is ruled out by a one-loop computation, so that case remains open.
@@ -87,16 +87,16 @@ Unitarity (a positive inner product preserved by the S-matrix) is **not** on thi
 |---|---|---|
 | H1 | existence of the regularized theory | closed: Theorems A and B (lattice) |
 | H2 | sign problem from the complex action | closed: Theorem B (positive Coulomb gas) |
-| H3 | continuum limit | closed in finite volume for $\beta^2<2\pi$ (Theorem E); for $2\pi\le\beta^2<\beta^2_{\rm UV}$ every term converges (Proposition 6.13, sketch) and summability is reduced to Conjecture 6.14, a version with cluster factors of a geometric bound proved as Theorem 6.9; further counterterms needed at and above $\beta^2_{\rm UV}$ (Proposition 6.7); infinite volume open (Conjecture 6.2) |
+| H3 | continuum limit | closed in finite volume for $\beta^2<\beta^2_{\rm UV}$: Theorem E for $\beta^2<2\pi$, Theorem H in the window $2\pi\le\beta^2<\beta^2_{\rm UV}$; further counterterms needed at and above $\beta^2_{\rm UV}$ (Proposition 6.7); infinite volume open (Conjecture 6.2) |
 | H4 | Hilbert space and Hamiltonian | closed: Theorem C (Krein space, $\Theta$-symmetry) |
 | H5 | reality of the vacuum energy | closed: Theorem D |
 | H6 | reality of classical energies; singular and complex-energy solutions | closed: Proposition 7.1 and the $\Theta$ selection rule |
 | H7 | which complex saddles contribute | reduced: thimble formulation; masses shown independent of the choice |
-| H8 | semiclassical mass corrections | closed: algebraic-multiplicity rule, with lattice and exact checks; counting rule derived from the transmission factors (Theorems F and G, Proposition 8.5) and checked for $a_n^{(1)}$ and $c_n^{(1)}$ (Propositions 8.6 and 8.7) |
-| H9 | non-unitarity of S-matrices and complex finite-volume spectra | reclassified: Krein-unitarity (Proposition 9.1), exact on an integrable lattice regularization (Proposition 9.2); sector-by-sector classification; consequences of unitarity that cannot be rescued identified (Section 10) |
-| H10 | completeness and correctness of exact S-matrices | partly open: soliton S-matrices constructed in a companion note for $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$; $f_4^{(1)}$ open |
+| H8 | semiclassical mass corrections | closed: algebraic-multiplicity rule, with lattice and exact checks; counting rule derived from the transmission factors (Theorems F and G, Proposition 8.5) and checked for $a_n^{(1)}$ and $c_n^{(1)}$ (Propositions 8.6 and 8.7); Hirota form for $d_n^{(1)}$, $e_n^{(1)}$ and their foldings given a degree bound verified to rank 8 (Proposition 8.8); one-loop masses of all folded solitons, agreeing with every known exact result (Section 8.9) |
+| H9 | non-unitarity of S-matrices and complex finite-volume spectra | reclassified: Krein-unitarity (Proposition 9.1), exact on an integrable lattice regularization (Proposition 9.2) and for the exact fundamental-soliton S-matrices of $a_n^{(1)}$ (Proposition 9.3); sector-by-sector classification; consequences of unitarity that cannot be rescued identified (Section 10) |
+| H10 | completeness and correctness of exact S-matrices | partly open: soliton S-matrices constructed in a companion note for $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$, all three agreeing with the one-loop soliton masses (Section 8.9), and $a_{2n-1}^{(2)}$ also with integrable-lattice masses (Section 3.3); $f_4^{(1)}$ open, with its one-loop soliton masses predicted (Section 8.9) |
 | H11 | missing classical topological charges and solutions | open, reformulated via thimbles |
-| H12 | unitary subtheories and RSOS restriction | established in specific cases; general criterion conjectured |
+| H12 | unitary subtheories and RSOS restriction | established in specific cases; exact criterion for the fundamental kinks of $a_2^{(1)}$ (Proposition 9.6); general criterion conjectured (Conjecture 9.5) |
 
 ### 1.5 Connections to current research
 
@@ -107,12 +107,12 @@ Read as statements about a non-unitary quantum field theory, these results conne
 - **The sign problem.** Theorem B turns a complex action into a positive Coulomb gas. This is a rare case where a complex weight is provably harmless. Complexifying field space by Picard–Lefschetz theory is a leading approach to sign problems such as QCD at finite density and the Hubbard model [@alexandru2022]. Here the answer is known exactly, which makes these theories a test case for those methods.
 - **Constructive QFT and probability.** The continuum limit of Section 6 is a statement about multi-species Coulomb gases and imaginary multiplicative chaos [@junnila2020; see also @lacoin2015 for complex chaos]. The conformal endpoint is now being built rigorously. Compactified imaginary Liouville CFT has been constructed and shown to satisfy the CFT axioms [@guillarmou2025], and the construction has been extended to higher-rank compactified imaginary Toda CFT [@yao2026]. Imaginary-coupling ATFT is this Toda theory perturbed by the vertex operator of the affine root.
 - **S-matrix bootstrap and perturbative integrability.** Crossing and the bootstrap have a Hopf-algebraic origin [@delius1995]. Krein-unitarity replaces unitarity (Propositions 9.1 and 9.2), and Hermitian analyticity is the missing condition for QFT unitarity [@miramontes1999]. The numerical S-matrix bootstrap explores the space of unitary two-dimensional S-matrices, with integrable models on its boundary [@paulos2017; @bercini2019]. The ladder of conditions in Section 9.2 raises the analogous question for Krein-unitary S-matrices.
-- **Non-unitary and complex CFTs.** RSOS restrictions give non-unitary minimal models of Lee–Yang type. These models distinguish the effective central charge from the central charge, and their complex finite-volume spectra are seen in the truncated conformal space approach (Sections 9.4 and 10, U5–U7). Complex CFTs control walking renormalization-group flows and weakly first-order transitions such as the $Q>4$ Potts model [@gorbenko2018; @gorbenko2018b]. Conjecture 9.3 would give a criterion, checkable from the S-matrix, for when a restricted model is unitary.
+- **Non-unitary and complex CFTs.** RSOS restrictions give non-unitary minimal models of Lee–Yang type. These models distinguish the effective central charge from the central charge, and their complex finite-volume spectra are seen in the truncated conformal space approach (Sections 9.4 and 10, U5–U7). Complex CFTs control walking renormalization-group flows and weakly first-order transitions such as the $Q>4$ Potts model [@gorbenko2018; @gorbenko2018b]. Conjecture 9.5 would give a criterion, checkable from the S-matrix, for when a restricted model is unitary.
 - **ODE/IM, exact WKB and gauge/string theory.** The linear problems of ATFT underlie the massive ODE/IM correspondence [@lukyanov2010; @dorey2013]. The ultraviolet limit of the $A_r$ massive ODE/IM correspondence gives non-unitary $WA_r$ minimal models [@ito_shu2018]. A recent monograph reviews these correspondences, with applications to exact WKB, minimal surfaces and gluon amplitudes in AdS/CFT [@ito_shu2025].
 - **$q$-deformed world-sheet theories.** IRF bases restore unitarity of $q$-deformed S-matrices [@hoare2013]. This is the mechanism we propose for unitary restrictions of ATFT (Section 9.4).
 - **Integrable circuits and analogue simulation.** The light-cone regularization of Proposition 9.2 is a brickwork circuit of R-matrix gates. It is unitary for a Krein form rather than for the Hilbert-space inner product. The zero-mode model of Section 5.6 and few-site versions of this circuit are small enough that complex-conjugate level pairs and exceptional points could be realised in $PT$-symmetric photonic or cold-atom systems [@ashida2020]. This link is more speculative than the others.
 
-These connections suggest where the results can be used. First, Theorems A–D use neither integrability nor the Lie-algebraic data, beyond the non-negativity of the fugacities (Section 5.1). So they give a template for other theories with periodic complex potentials, such as complex Liouville and Toda CFTs and their deformations. Second, the open problems of Section 12 are natural targets for these communities. The thimble intersection numbers (problem 4) can be attacked with the algorithms reviewed in [@alexandru2022]. The missing soliton S-matrices (problem 2) could be constrained by extending the on-shell loop methods of [@polvara2023; @fabri_polvara2024] to non-simply-laced algebras and imaginary coupling. The $\Theta$-broken sectors (problems 6 and 8) can be mapped numerically with the truncated conformal space approach, tensor networks and the lattice of Proposition 9.2. The infinite-volume limit and mass gap (Conjecture 6.2) might be reached by adding the affine perturbation to the probabilistic constructions above, using Theorems B and E as input.
+These connections suggest where the results can be used. First, Theorems A–D use neither integrability nor the Lie-algebraic data, beyond the non-negativity of the fugacities (Section 5.1). So they give a template for other theories with periodic complex potentials, such as complex Liouville and Toda CFTs and their deformations. Second, the open problems of Section 12 are natural targets for these communities. The thimble intersection numbers (problem 4) can be attacked with the algorithms reviewed in [@alexandru2022]. The missing soliton S-matrices (problem 2) could be constrained by extending the on-shell loop methods of [@polvara2023; @fabri_polvara2024] to non-simply-laced algebras and imaginary coupling. The $\Theta$-broken sectors (problems 6 and 8) can be mapped numerically with the truncated conformal space approach, tensor networks and the lattice of Proposition 9.2. The infinite-volume limit and mass gap (Conjecture 6.2) might be reached by adding the affine perturbation to the probabilistic constructions above, using Theorems B, E and H as input.
 
 ---
 
@@ -229,7 +229,13 @@ constructed by Braden, Corrigan, Dorey and Sasaki, Christe and Mussardo, and Kla
 
 The entries marked "companion note" are constructed in the [companion note on soliton S-matrices](toda_soliton_smatrices.qmd), in each case as a scalar Gamma-function factor times the R-matrix of the dual quantum affine algebra. In every one, the lowest breathers reproduce the conjectured real-coupling particle S-matrices of Delius–Grisaru–Zanon and Corrigan–Dorey–Sasaki [@dgz1992; @corrigan1993] continued to imaginary coupling, and the soliton masses are $M_a=2M_n\sin(a\pi/H)$. For $c_n^{(1)}$ they reproduce the Delius–Grisaru one-loop soliton mass [@delius_grisaru1995]. Only the spinor (respectively 26-dimensional) soliton is treated for $a_{2n-1}^{(2)}$ and $e_6^{(2)}$, and for $c_n^{(1)}$ only $n=3$ has the full set of species. The closed forms for general $n$ are conjectured. The earlier obstacle was constructing R-matrices in representations whose tensor products are not multiplicity-free [@gmw1996; @dgz1996]; the companion note solves the intertwining equations directly. Only $f_4^{(1)}$ remains open, as the $\mathbf{27}$ amplitude contradicts the one-loop relation $H=12+3B$.
 
-For $a_{2n-1}^{(2)}$ there is lattice information. Vernier, Jacobsen and Saleur [-@vernier2016] identify the scaling limit of the staggered $U_q(a_{2n-1}^{(2)})$ vertex model, in two of its three regimes, with imaginary-coupling $a_{2n-1}^{(2)}$ Toda theory, and find $n$ soliton types with coupling-dependent mass ratios [Established; computed, not proved]. They note that no systematic S-matrix study existed for this family beyond $a_3^{(2)}=d_3^{(2)}$, where the lattice reproduces [@gm1995]; the spinor soliton S-matrices of the [companion note on soliton S-matrices](toda_soliton_smatrices.qmd) now supply one. In their construction the lattice carries $U_q(a_{2n-1}^{(2)})$, while the soliton S-matrix carries $U_q(b_n^{(1)})$ (table above). In the third regime the same vertex model has a non-compact continuum limit.
+For $a_{2n-1}^{(2)}$ there is lattice information, and it agrees exactly with the companion note. Vernier, Jacobsen and Saleur [-@vernier2016] identify the scaling limit of the staggered $U_q(a_{2n-1}^{(2)})$ vertex model, in two of its three regimes, with imaginary-coupling $a_{2n-1}^{(2)}$ Toda theory [Established; computed, not proved]. Their longest root has squared length 4, and their coupling obeys $\beta_{\rm VJS}^2/8\pi=\gamma/2\pi$, where $q=e^{i\gamma}$ is the lattice anisotropy. In the normalization of Section 2.1 this is $\beta^2=8\gamma$. Their regime I, $0<\gamma<\pi/2$, is then exactly $0<\beta^2<\beta^2_{\rm UV}=4\pi$, the range covered by Theorem H. The holes in the $n$ Fermi seas are $n$ soliton types. Their masses follow from the dressed Bethe source terms, which can be inverted in closed form for every $n$:
+
+$$
+\frac{M_a}{M_n}=2\sin\frac{a\pi}{H},\qquad H=2n-1-\frac{\gamma}{\pi-\gamma}=2n-1-\frac{\beta^2}{8\pi-\beta^2},\qquad a=1,\dots,n-1 .
+$$
+
+This is exactly the spectrum of the companion note's spinor-soliton S-matrix, with $M_n$ the spinor soliton and $M_1$ the vector. The closed form was checked to $10^{-30}$ for $n\le8$, and the two mass formulas agree identically. The companion note follows [@gm1995; @dgz1992] in giving the longest root of a twisted algebra squared length 4, so its coupling is $\beta^2/2$ in the present normalization. For $n=2$ the lattice reproduces the $d_3^{(2)}$ S-matrix of [@gm1995]. To first order $H=2n-1-\beta^2/8\pi$. This is the one-loop particle value computed from (2.1), and it agrees with the one-loop soliton masses of [@mackay_watts1995] [Numerical]. Vernier, Jacobsen and Saleur noted that no systematic S-matrix study existed for this family beyond $a_3^{(2)}=d_3^{(2)}$; the companion note now supplies one. The lattice carries $U_q(a_{2n-1}^{(2)})$ with $q=e^{i\gamma}$, while the soliton S-matrix carries $U_q(b_n^{(1)})$ with $q=-e^{-i\pi^2/2\gamma}$ (table above). Their regime II, $4\pi<\beta^2<4\pi(2n-1)/n$, continues regime I past $\beta^2_{\rm UV}$. In the third regime the same vertex model has a non-compact continuum limit. (Their general formula (98) has $a\pi$ where their cases $n=2,3$, (66) and (92), require $(a-1)\pi$.) Scripts: `foundations_code/vernier/`.
 
 **Semiclassical masses.** One-loop soliton masses were computed by the DHN method for $a_n^{(1)}$ [@hollowood1993a; @hollowood1993b], for $c_2^{(1)}$ [Watts 1994], and for all algebras [@mackay_watts1995], with a competing result for $c_n^{(1)}$ [@delius_grisaru1995]. The exact $b_n^{(1)}$ masses disagree with MacKay and Watts' tabulated semiclassics [@gmw1996], and the issue was left unresolved [@gm1997]. Section 8 resolves it.
 
@@ -238,7 +244,7 @@ For $a_{2n-1}^{(2)}$ there is lattice information. Vernier, Jacobsen and Saleur 
 **Non-unitarity.** Takács and Watts [-@tw1999; -@tw2002] showed the following.
 
 - In $a_2^{(1)}$, soliton–antisoliton and soliton–breather amplitudes do not have phase eigenvalues for real rapidity. The soliton–breather case is mirrored exactly by complex classical time delays, and it survives RSOS restriction because breathers are quantum-group singlets.
-- In $a_2^{(2)}$, the fundamental soliton–soliton amplitudes are well behaved, but soliton–excited-soliton amplitudes are not, so the spectrum is real only in the repulsive regime.
+- In $a_2^{(2)}$, the fundamental soliton–soliton amplitudes are well behaved, but soliton–excited-soliton amplitudes are not, so the spectrum is real only in the repulsive regime. (With bosonic exchange of kink labels, their own eigenvalue equation shows the fundamental amplitudes to be well behaved only for part of the coupling range; see Section 9.3.)
 - All theories based on $a_1^{(1)}$ have real finite-volume spectra.
 - A formal S-matrix description remains valid, and agrees with numerics, even when the spectrum is complex.
 
@@ -447,9 +453,17 @@ where the minimum runs over clusters with a positive denominator. Some values:
 - For $b_n^{(1)}$, $c_n^{(1)}$, $g_2^{(1)}$ and $a_2^{(2)}$ the minimum is $4\pi$, attained by a pair of adjacent roots with $\vec\alpha_i\cdot\vec\alpha_j=-1$.
 - For every $\hat g\ne a_1^{(1)}$, $8\pi/3\le\beta^2_{\rm UV}\le4\pi$. The upper bound comes from a longest root and any neighbour, whose inner product is $-1$. For the lower bound, the denominator is at most $\sum_k\lvert\vec\alpha_k\rvert^2\le2\lvert S\rvert$, so clusters with $\lvert S\rvert\ge3$ give at least $4\pi(1-1/\lvert S\rvert)\ge8\pi/3$. Two distinct simple affine roots have $\lvert\vec\alpha_i\cdot\vec\alpha_j\rvert\le1$ unless $\vec\alpha_i=-\vec\alpha_j$, which happens only for $a_1^{(1)}$; two copies of one root give a negative denominator. In particular $\beta^2_{\rm UV}>2\pi$ for every algebra except $a_1^{(1)}$, where $\beta^2_{\rm UV}=2\pi$.
 
-With pointwise Wick ordering (Section 6.2), Hepp-sector power counting shows that the continuum integrand of each term of (5.2) is integrable near every *bulk* collapse exactly when $\beta^2<\beta^2_{\rm UV}$. In a Hepp sector the iterated integral at a node $S$ converges if and only if $2(\lvert S\rvert-1)>\frac{\beta^2}{4\pi}\big(\sum_{k\in S}\lvert\vec\alpha_k\rvert^2-\lvert\sum_{k\in S}\vec\alpha_k\rvert^2\big)$. Proposition 6.7 gives the "only if" direction rigorously. Proposition 6.13 gives the "if" direction at sketch level, including the boundary layer for clusters near a Dirichlet wall. With a site-independent Wick constant even the one-charge term diverges for $\beta^2\ge2\pi$ (Proposition 6.3).
+With pointwise Wick ordering (Section 6.2), Hepp-sector power counting shows that the continuum integrand of each term of (5.2) is integrable near every *bulk* collapse exactly when $\beta^2<\beta^2_{\rm UV}$. In a Hepp sector the iterated integral at a node $S$ converges if and only if $2(\lvert S\rvert-1)>\frac{\beta^2}{4\pi}\big(\sum_{k\in S}\lvert\vec\alpha_k\rvert^2-\lvert\sum_{k\in S}\vec\alpha_k\rvert^2\big)$. Proposition 6.7 gives the "only if" direction rigorously. Theorem 6.14 gives the "if" direction, including the boundary layer for clusters near a Dirichlet wall. With a site-independent Wick constant even the one-charge term diverges for $\beta^2\ge2\pi$ (Proposition 6.3).
 
-**The thresholds as resonances.** Let $\hat g$ be simply laced, write $x=\beta^2/2\pi$ for the scaling dimension of $e^{i\beta\vec\alpha_j\cdot\vec\phi}$, and let $g$ be the physical coupling (Section 6.2). By dimensional analysis the bulk vacuum-energy density is proportional to $g^{2/(2-x)}$, while a cluster of $k$ copies of the neutral cluster first contributes to it at order $g^{kh}$. The two have the same dimension exactly when $x=2-2/(kh)$, that is $\beta^2=4\pi(1-1/kh)$, which are the neutral thresholds above. For sine-Gordon ($h=2$) these are the poles of the exact bulk energy $-\frac{m^2}4\tan\frac{\pi\xi}2$, with $\xi=\beta^2/(4\pi-\beta^2)$, at odd $\xi$ [Established, @zamolodchikov1995]. By Theorem B the coefficient of $g^{kh}$ is positive and cannot vanish accidentally. For the other simply-laced algebras we therefore expect the exact bulk energy, written in terms of the bare coupling, to be singular at these couplings; no such resonance falls at $\beta^2=2\pi$ when $h\ge3$ [heuristic]. This can be tested with the integrable lattice regularizations of open problem 8, in which the thresholds of $a_{N-1}^{(1)}$ sit at $q^{kN}=-1$.
+**The thresholds as resonances.** Let $\hat g$ be simply laced, write $x=\beta^2/2\pi$ for the scaling dimension of $e^{i\beta\vec\alpha_j\cdot\vec\phi}$, and let $g$ be the physical coupling (Section 6.2). By dimensional analysis the bulk vacuum-energy density is proportional to $g^{2/(2-x)}$, while a cluster of $k$ copies of the neutral cluster first contributes to it at order $g^{kh}$. The two have the same dimension exactly when $x=2-2/(kh)$, that is $\beta^2=4\pi(1-1/kh)$, which are the neutral thresholds above. For sine-Gordon ($h=2$) these are the poles of the exact bulk energy $-\frac{m^2}4\tan\frac{\pi\xi}2$, with $\xi=\beta^2/(4\pi-\beta^2)$, at odd $\xi$ [Established, @zamolodchikov1995]. By Theorem B the coefficient of $g^{kh}$ is positive and cannot vanish accidentally.
+
+The exact bulk energy confirms this for every simply-laced algebra. Fateev's mass–coupling relation and the bulk energy of the real-coupling theory [@fateev1994; @ahn2000] can be continued to imaginary coupling by $b^2\to-\kappa$, with $\kappa=\beta^2/4\pi$. At fixed bare fugacity $z$ this gives
+
+$$
+f\ \propto\ \big(\pi z\,\gamma(1-\kappa)\big)^{\frac1{1-\kappa}}\ \frac{\Gamma\big(1-\frac1{h(1-\kappa)}\big)\,\Gamma\big(1+\frac{\kappa}{h(1-\kappa)}\big)}{B\ \Gamma\big(\frac1{h(1-\kappa)}\big)\,\Gamma\big(1-\frac{\kappa}{h(1-\kappa)}\big)},\qquad B=-\frac{\kappa}{1-\kappa},\quad\gamma(x)=\frac{\Gamma(x)}{\Gamma(1-x)}.
+$$
+
+For $0<\kappa<1$ the only singularities are the poles of the first Gamma function, at $\kappa=1-1/(kh)$ with $k=1,2,\dots$. These are exactly the neutral thresholds $\beta^2=4\pi(1-1/kh)$. In particular the first pole is at $\beta^2_{\rm UV}$, and no resonance falls at $\beta^2=2\pi$ when $h\ge3$. For $h=2$ this reproduces the sine-Gordon poles. The formula is [Established] at real coupling; the continuation to imaginary coupling is an assumption, which holds for sine-Gordon. The poles were also located numerically (`foundations_code/bulk_poles.py`). The integrable lattice regularizations of open problem 8 give an independent test, since there the thresholds of $a_{N-1}^{(1)}$ sit at $q^{kN}=-1$.
 
 ### 6.2 Wick ordering and the statement
 
@@ -471,9 +485,9 @@ $$
 
 where $x_j$ is the scaling dimension of $e^{i\beta\vec\alpha_j\cdot\vec\phi}$. Near a wall $R_\Omega(u)\simeq2d$, so the coupling vanishes like $(2d)^{x_j}$, consistently with (G3). Three consequences follow.
 
-- The walls are harmless in Theorem E and Proposition 6.13 because the interaction is switched off there.
+- The walls are harmless in Theorems E and H because the interaction is switched off there.
 - A site-independent Wick constant keeps the coupling constant up to the wall. Heuristically, the boundary free energy then scales as $g^{1/(2-x)}$, which has the dimension of the first-order term exactly at $x=1$, that is at $\beta^2=2\pi$ for a long root, whatever the algebra. This is the threshold of Proposition 6.3.
-- The finite-volume theory of Theorem E is the ATFT with this coupling profile, not with a constant coupling. Comparisons with exact S-matrices, TCSA or integrable lattice data must use the profile. In Conjecture 6.2 the infinite-volume limit is taken at fixed physical coupling, that is, with the fugacity of root $j$ scaled like $L^{-x_j}$, or equivalently with Wick ordering at a fixed reference scale.
+- The finite-volume theory of Theorems E and H is the ATFT with this coupling profile, not with a constant coupling. Comparisons with exact S-matrices, TCSA or integrable lattice data must use the profile. In Conjecture 6.2 the infinite-volume limit is taken at fixed physical coupling, that is, with the fugacity of root $j$ scaled like $L^{-x_j}$, or equivalently with Wick ordering at a fixed reference scale.
 
 **Renormalized partition function.** With these fugacities in both terms of (5.1), $Z_\Lambda=e^{-a^2\sum_u\sum_jn_jz_{a,j}(u)}\,\Xi_a$, where
 
@@ -484,7 +498,7 @@ $$
 
 Pointwise Wick ordering removes exactly the diagonal terms $k=l$; pairs $k\ne l$ at the same site are kept. The prefactor is field-independent (a vacuum-energy counterterm) and cancels from all correlation functions. For external charges $\beta\vec w_m$ at sites $v_m$, let $\Xi_a(w,v)$ be the same expansion with these charges added (not summed over) and with $W_a$ including all pairs. Then $\big\langle\prod_m:e^{i\beta\vec w_m\cdot\vec\phi_{v_m}}:\big\rangle=\Xi_a(w,v)/\Xi_a$. The continuum versions replace $C_a$ by $G_\Omega$ and $a^2\sum_u$ by $\int_\Omega$.
 
-**Proposition 6.1 [Theorem for $\beta^2<2\pi$ (Theorem E); Conjecture for $2\pi\le\beta^2<\beta^2_{\rm UV}$, reduced to Conjecture 6.14].** Let $0<\beta^2<\beta^2_{\rm UV}(\hat g)$, fix the finite volume, and use pointwise Wick ordering.
+**Proposition 6.1 [Theorem: Theorem E for $\beta^2<2\pi$, Theorem H for $2\pi\le\beta^2<\beta^2_{\rm UV}$].** Let $0<\beta^2<\beta^2_{\rm UV}(\hat g)$, fix the finite volume, and use pointwise Wick ordering.
 
 1. $\Xi_a$ converges as $a\to0$ to the continuum version of (6.1). Every term is positive and finite, and the series converges.
 2. The same holds for $\Xi_a(w,v)$, with fixed distinct interior points $v_m$ (approximated by lattice sites), provided that for every $m$ and every non-empty multiset $S$ of affine roots
@@ -636,7 +650,7 @@ Below $\beta^2_{\rm UV}$ neither failure reflects the true weights. Both arise b
 
 The same statements are made with external charges satisfying (6.2). Given (S), the proof of Theorem E goes through with Vitali's theorem in place of dominated convergence, and proves Proposition 6.1 in the window.
 
-**Status of (S).** The rest of this section establishes two things, the first at sketch level. First, (S2) holds throughout the window (Proposition 6.13, sketch). This means every term of the expansion has a finite continuum limit, including near the Dirichlet walls. Second, (S1) follows from a bound on products of nearest-neighbour distances of points in $\Omega$. That bound is proved below as Theorem 6.9. The version needed here also carries the intra-unit factors of (6.5); this is Conjecture 6.14. The mechanism is to smear adaptively chosen clusters of charges, called units, with a common radius. This keeps each unit's internal interactions exact and charges self-energy only at the scale that separates the unit from everything else.
+**Status of (S).** Both statements hold throughout the window (Theorem 6.14), and so does Proposition 6.1 (Theorem H). The proof has two ingredients. The first is a bound on products of nearest-neighbour distances of points in $\Omega$, Theorem 6.9. The second is to smear adaptively chosen clusters of charges, called units, with a common radius. This keeps each unit's internal interactions exact, repulsion as well as attraction, and charges self-energy only at the scale that separates the unit from everything else. Capping the smearing radius at the typical interparticle distance $N^{-1/2}$ makes every singular factor local at that scale. The cluster bound in the proof of Theorem 6.9 then applies, with signed exponents.
 
 **Theorem 6.9 (products of nearest-neighbour distances) [Theorem].** For a configuration $x\in\Omega^N$, let $\delta_k^{(m)}$ be the distance from $x_k$ to its $m$-th nearest other point, capped at $D$, with $\delta_k^{(m)}=D$ when $N-1<m$. For every $m\ge1$ and $0\le\gamma<2m/(m+1)$,
 
@@ -701,13 +715,13 @@ Choose $\varepsilon$ small enough that $\zeta(\varepsilon)\le1$. Undoing the res
 
 *Checks.* For random labelled trees with up to 8 vertices, all edge orderings were enumerated. The grouping by Kruskal dendrogram matches the hook-length count, and $\sum_{T\sim\tau}\prod_j1/h_j=1$ exactly. The nested-integral formula of Step 3.4 was checked symbolically on a 4-leaf dendrogram with $m=2$ and $\gamma=6/5$: both sides equal $25/24$. The argument has been reviewed only by AI-assisted checks so far, and a referee's reading of Step 3 would be valuable.
 
-**Units.** Fix $K\ge10$. A set $S$ of charges is *$K$-tight* if $\operatorname{diam}S\le\operatorname{dist}(S,\text{rest})/K$, with distances capped at $D$; singletons are tight.
+**Units.** Fix $K_{\rm t}\ge21$, and write $\hat r=\max(r,a)$ for any distance $r$. A set $S$ of charges, at points of $\Omega$, is *tight* if it is a singleton or $K_{\rm t}\max(\operatorname{diam}S,2a)\le\operatorname{dist}(S,\text{rest})$, with distances capped at $D$.
 
-- *Laminarity.* Two tight sets are either nested or disjoint. Suppose instead that $S$ and $T$ are tight and cross, and pick $s\in S\setminus T$, $t\in T\setminus S$ and $u\in S\cap T$. Since $s\notin T$, $\lvert s-u\rvert\ge K\operatorname{diam}T$; since $s,u\in S$, $\lvert s-u\rvert\le\operatorname{diam}S$. So $\operatorname{diam}S\ge K\operatorname{diam}T$, and by symmetry $\operatorname{diam}T\ge K\operatorname{diam}S$. Hence $\operatorname{diam}S=0$, which contradicts $s\ne u$.
+- *Laminarity.* Two tight sets are either nested or disjoint. Suppose instead that $S$ and $T$ are tight and cross, so neither is a singleton, and pick $s\in S\setminus T$, $t\in T\setminus S$ and $u\in S\cap T$. Write $\Delta(S)=\max(\operatorname{diam}S,2a)$. Since $s\notin T$, $\lvert s-u\rvert\ge K_{\rm t}\Delta(T)$; since $s,u\in S$, $\lvert s-u\rvert\le\Delta(S)$. So $\Delta(S)\ge K_{\rm t}\Delta(T)$, and by symmetry $\Delta(T)\ge K_{\rm t}\Delta(S)$, which is impossible for $K_{\rm t}>1$.
 - *Units.* For $m\ge1$, the *units* $\mathcal U_m(x)$ are the maximal tight sets with at most $m$ charges. By laminarity they partition the configuration.
-- *Notation.* For a unit $B$, write $R_B=\operatorname{dist}(B,\text{rest})$, $\rho_B=R_B/3$, and $d_k$ for the distance from $x_k$ to the nearer Dirichlet row.
+- *Notation.* For a set $B$ of charges, write $R_B=\operatorname{dist}(B,\text{rest})$, $\rho_B=\max(0,R_B/3-a)$, and $d_k$ for the distance from $x_k$ to the nearer Dirichlet row. Subtracting $a$ in $\rho_B$ keeps the smearing balls of different sets apart when $R_B$ is of order $a$.
 
-**Lemma 6.10 (overlap identity) [Theorem].** Let $x_1,\dots,x_n$ be interior sites with charges $q_k$, and choose radii $\rho_k\ge0$. Let $B_k$ be the set of interior sites within distance $\rho_k$ of $x_k$. Let $\mu_k$ be the exit law from $B_k$ of simple random walk started at $x_k$ and killed on the Dirichlet rows, with $\mu_k=\delta_{x_k}$ if $B_k$ is empty. Let $G_B$ be the Green function of $B$ with Dirichlet conditions outside $B$. Then for $k\ne l$,
+**Lemma 6.10 (overlap identity) [Theorem].** Let $x_1,\dots,x_n$ be interior sites with charges $q_k$, and choose radii $\rho_k\ge0$. Let $B_k$ be the set of interior sites within distance $\rho_k$ of $x_k$, with $B_k=\emptyset$ if $\rho_k=0$. Let $\mu_k$ be the exit law from $B_k$ of simple random walk started at $x_k$ and killed on the Dirichlet rows, with $\mu_k=\delta_{x_k}$ if $B_k$ is empty. Let $G_B$ be the Green function of $B$ with Dirichlet conditions outside $B$. Then for $k\ne l$,
 
 $$
 \Delta_{kl}:=C_a(x_k,x_l)-C_a(\mu_k,\mu_l)=\mathbb 1[x_l\in B_k]\,G_{B_k}(x_k,x_l)+\sum_{y\in B_l}\mu_k(y)\,G_{B_l}(x_l,y)\ \ge0 .
@@ -727,90 +741,162 @@ $$
 
 When the balls are disjoint, every $\Delta_{kl}$ vanishes and (6.4) reduces to Lemma 6.4. When balls overlap, the overlapping pairs keep their exact short-distance interaction.
 
-**Lemma 6.11 (unit majorant) [Theorem].** Let $\mathcal P$ be any partition of the charges into $K$-tight sets of at most $m$ charges each. For $k,l$ in the same set $B$, write $s_{kl}=\min(\rho_B,\sqrt{d_kd_l})$ and $D_{kl}=-2\vec\alpha_{j_k}\cdot\vec\alpha_{j_l}$. Then
+**Lemma 6.11 (unit majorant) [Theorem].** Let $\mathcal P$ be any partition of the charges, at lattice sites, into sets of at most $m$ charges each. For each $B\in\mathcal P$ choose a radius $0\le\rho'_B\le d_0$ such that $r_{kl}>\rho'_B+\rho'_{B'}+a$ for all $k\in B$ and $l\in B'\ne B$ unless $\rho'_B=\rho'_{B'}=0$; for example $\rho'_B\le\min(\rho_B,d_0)$. For $k,l$ in the same set $B$, write $s_{kl}=\min(\rho'_B,\sqrt{d_kd_l})$ and $D_{kl}=-2\vec\alpha_{j_k}\cdot\vec\alpha_{j_l}$. Then
 
 $$
-W_a(u)\le e^{c(N+M)}\prod_{B\in\mathcal P}\Big[\Big(\frac{D}{\max(\rho_B,a)}\Big)^{\sum_{k\in B}\gamma_k}\prod_{k<l\in B}\max\Big(\frac{s_{kl}}{\max(r_{kl},a)},1\Big)^{\kappa D_{kl}}\Big],
+W_a(u)\le e^{c(N+M)}\prod_{B\in\mathcal P}\Big[\Big(\frac{D}{\max(\rho'_B,a)}\Big)^{\sum_{k\in B}\gamma_k}\prod_{k<l\in B}\max\Big(\frac{s_{kl}}{\hat r_{kl}},1\Big)^{\kappa D_{kl}}\Big],
 $$
 
-with $c$ depending only on $K$, $m$, $\beta$ and $\Omega$. The bound keeps both the attractive pairs ($D_{kl}>0$) and the repulsive pairs ($D_{kl}<0$) inside each set.
+with $c$ depending only on $m$, $\beta$, $\Omega$ and the external charges, and not on the radii. The bound keeps both the attractive pairs ($D_{kl}>0$) and the repulsive pairs ($D_{kl}<0$) inside each set.
 
 *Proof.*
 
-1. Apply Lemma 6.10, giving every charge of $B$ the radius $\rho_B$ centred at its own position, and drop $-\frac12\langle\nu,C_a\nu\rangle\le0$.
-2. *Different sets.* For $k\in B$ and $l\in B'\ne B$, tightness gives $r_{kl}\ge\max(R_B,R_{B'})>\rho_B+\rho_{B'}+a$. So $x_l\notin B_k$ and $\operatorname{supp}\mu_k\cap B_l=\emptyset$, and therefore $\Delta_{kl}=0$.
-3. *Self-energies.* $C_a(\mu_k,\mu_k)\le\max_{y\notin B_k}C_a(x_k,y)\le\frac1{2\pi}\ln\frac D{\max(\rho_B,a)}+K$, by (G1).
-4. *Same set: upper bound.* Here $r_{kl}\le\operatorname{diam}B\le R_B/K<\rho_B/3$. The first term of $\Delta_{kl}$ is at most $\frac1{2\pi}\ln\frac{\rho_B}{r_{kl}}+c$ by (G5). The second term is at most $c$, because $\operatorname{supp}\mu_k$ lies at distance at least $\rho_B/2$ from $x_l$. Also $\Delta_{kl}\le C_a(x_k,x_l)\le\frac1{4\pi}\ln\big(1+4d_kd_l/r_{kl}^2\big)+K$ by (G4). Together, $\Delta_{kl}\le\frac1{2\pi}\ln_+(s_{kl}/r_{kl})+c$.
-5. *Same set: lower bound.* Suppose $r_{kl}\le s_{kl}/8$. Then $d_k\ge7r_{kl}$, and the ball of radius $t=\min(\rho_B,d_k)/2\ge s_{kl}/2.2$ about $x_k$ lies in $B_k$ and avoids the walls. So $\Delta_{kl}\ge G_{B_k}(x_k,x_l)\ge\frac1{2\pi}\ln(t/r_{kl})-c$ by (G5). If instead $r_{kl}>s_{kl}/8$, simply use $\Delta_{kl}\ge0$. In both cases $\Delta_{kl}\ge\frac1{2\pi}\ln_+(s_{kl}/r_{kl})-c$.
-6. Use the upper bound for attractive pairs and the lower bound for repulsive pairs, and note $-q_k\cdot q_l/2\pi=\kappa D_{kl}$. A set has at most $m^2/2$ pairs, so the $O(1)$ errors total at most $e^{c(N+M)}$. Distances below $a$ (multiply occupied sites) are handled as in Lemma 6.5. $\square$
+1. Apply Lemma 6.10, giving every charge of $B$ the radius $\rho'_B$ centred at its own position, and drop $-\frac12\langle\nu,C_a\nu\rangle\le0$.
+2. *Different sets.* Let $k\in B$ and $l\in B'\ne B$. If both radii vanish, $B_k=B_l=\emptyset$ and $\Delta_{kl}=0$. Otherwise $r_{kl}>\rho'_B+\rho'_{B'}+a$ by assumption; for $\rho'\le\rho_B$ this holds because $r_{kl}\ge\max(R_B,R_{B'})$. The support of $\mu_k$ lies within $\rho'_B+a$ of $x_k$. So $x_l\notin B_k$ and $\operatorname{supp}\mu_k\cap B_l=\emptyset$, and therefore $\Delta_{kl}=0$.
+3. *Self-energies.* $C_a(\mu_k,\mu_k)\le\max_{y\notin B_k}C_a(x_k,y)\le\frac1{2\pi}\ln\frac D{\max(\rho'_B,a)}+K$, by (G1). For $\rho'_B=0$ this is (G1) at $u=v$.
+4. *Same set: upper bound.* The first term of $\Delta_{kl}$ is non-zero only if $r_{kl}\le\rho'_B$, and is then at most $\frac1{2\pi}\ln_+(\rho'_B/\hat r_{kl})+c$ by (G5). The second term is at most $c$. If $r_{kl}\le\rho'_B/2$, every point of $\operatorname{supp}\mu_k$ lies outside $B_k$, hence at distance more than $\rho'_B/2$ from $x_l$, where $G_{B_l}(x_l,\cdot)\le c$ by (G5). If $r_{kl}>\rho'_B/2$, let $\tilde B$ be the ball of radius $\tilde\rho=r_{kl}+\rho'_B+2a$ about $x_l$. By domain monotonicity $G_{B_l}(x_l,\cdot)\le G_{\tilde B}(x_l,\cdot)$, which is superharmonic on $\tilde B$. The walk started at $x_k$ stays in $\tilde B$ up to its exit from $B_k$, so by optional stopping the second term is at most $G_{\tilde B}(x_l,x_k)$. Since $\tilde\rho<3r_{kl}+2a\le5\hat r_{kl}$, this is at most $c$ by (G5); if $\tilde\rho>d_0$, so that $\tilde B$ wraps around the cylinder, then $5\hat r_{kl}>d_0$ and $G_{\tilde B}(x_l,x_k)\le C_a(x_l,x_k)\le c$ by (G1). Also $\Delta_{kl}\le C_a(x_k,x_l)\le\frac1{4\pi}\ln\big(1+4d_kd_l/\hat r_{kl}^2\big)+K$ by (G4). Together, $\Delta_{kl}\le\frac1{2\pi}\ln_+(s_{kl}/\hat r_{kl})+c$.
+5. *Same set: lower bound.* Suppose $\hat r_{kl}\le s_{kl}/8$. Then $d_k\ge7\hat r_{kl}$, and the ball of radius $t=\min(\rho'_B,d_k)/2\ge s_{kl}/2.2$ about $x_k$ lies in $B_k$ and avoids the walls. So $\Delta_{kl}\ge G_{B_k}(x_k,x_l)\ge\frac1{2\pi}\ln(t/\hat r_{kl})-c$ by (G5). If instead $\hat r_{kl}>s_{kl}/8$, simply use $\Delta_{kl}\ge0$. In both cases $\Delta_{kl}\ge\frac1{2\pi}\ln_+(s_{kl}/\hat r_{kl})-c$.
+6. Use the upper bound for attractive pairs and the lower bound for repulsive pairs, and note $-q_k\cdot q_l/2\pi=\kappa D_{kl}$. A set has at most $m^2/2$ pairs, so the $O(1)$ errors total at most $e^{c(N+M)}$. $\square$
 
-**Lemma 6.12 (tightness forces $m$-th neighbours) [Theorem].** Let $\mathcal P=\mathcal U_m(x)$ be the partition into units. Then for every $B\in\mathcal U_m$ and every $k\in B$,
+For $\rho'_B=\rho_B$ and $R_B\gg a$ this is the bound with smearing at the unit's own isolation scale. The freedom to choose a smaller common radius is what localizes the estimate below.
+
+**Lemma 6.12 (tightness forces $m$-th neighbours) [Theorem].** Let $\mathcal U_m(x)$ be the units of a configuration of points. Then for every unit $B$ other than the whole configuration, and every $k\in B$,
 
 $$
-R_B\ \ge\ c_{K,m}\,\delta_k^{(m)},\qquad c_{K,m}=\tfrac12(3K+3)^{1-m}.
+\hat R_B\ \ge\ c_m\,\delta_k^{(m)},\qquad c_m=\tfrac12(3K_{\rm t}+3)^{1-m}.
 $$
 
 *Proof.*
 
-1. Order the other units $B_1,B_2,\dots$ by $r_i=\operatorname{dist}(B,B_i)$, so that $r_1=R_B$. Let $S_j=B\cup B_1\cup\dots\cup B_j$.
-2. Suppose $S_j$ has at most $m$ charges. Then $S_j$ is not tight, by maximality of $B$. So some unit outside $S_j$ lies within $K\operatorname{diam}S_j$ of it, and hence $r_{j+1}\le(K+1)\operatorname{diam}S_j$.
-3. Units are tight, so $\operatorname{diam}B_i\le r_i/K$. Hence $\operatorname{diam}S_j\le3r_j$, and $r_{j+1}\le3(K+1)r_j$.
-4. Let $\ell$ be the first index with $\lvert S_\ell\rvert>m$; then $\ell\le m$. The $m$-th nearest other charge of $x_k$ lies in $S_\ell$, so $\delta_k^{(m)}\le r_\ell+\operatorname{diam}B_\ell+\operatorname{diam}B\le2r_\ell\le2(3K+3)^{m-1}R_B$. $\square$
+1. Order the other units $B_1,B_2,\dots$ by $r_i=\operatorname{dist}(B,B_i)$, so that $r_1=R_B$. Let $S_j=B\cup B_1\cup\dots\cup B_j$. Units are tight, so $\operatorname{diam}B_i\le r_i/K_{\rm t}$ and $\operatorname{diam}B\le r_1/K_{\rm t}$. Hence $\operatorname{diam}S_j\le3r_j$.
+2. Suppose $S_j$ has at most $m$ charges. Then $S_j$ is not tight, by maximality of $B$. So some charge outside $S_j$ lies within $K_{\rm t}\max(\operatorname{diam}S_j,2a)\le3K_{\rm t}\hat r_j$ of $S_j$, and hence $\hat r_{j+1}\le3(K_{\rm t}+1)\hat r_j$.
+3. Let $i_*$ be the first index with $\lvert S_{i_*}\rvert>m$; then $i_*\le m$. The $m$-th nearest other charge of $x_k$ lies in $S_{i_*}$, so $\delta_k^{(m)}\le r_{i_*}+\operatorname{diam}B_{i_*}+\operatorname{diam}B\le2r_{i_*}\le2(3K_{\rm t}+3)^{m-1}\hat R_B$.
+4. If no such index exists, the configuration has at most $m$ charges and $\delta_k^{(m)}=D$. If $D\le2K_{\rm t}a$, then $\hat R_B\ge a\ge D/2K_{\rm t}$, which suffices for $m\ge2$. Otherwise the whole configuration is not tight, so its diameter exceeds $D/K_{\rm t}$, and step 2 gives $\hat R_B\ge D(3K_{\rm t}+3)^{1-m}$. $\square$
 
-**The combined majorant.** Lemmas 6.11 and 6.12, with $\mathcal P=\mathcal U_m(x)$, give
-
-$$
-W_a(u)\le C^{N+M}\prod_k\Big(\frac{D}{\max(\delta_k^{(m)},a)}\Big)^{\gamma_k}\prod_{B\in\mathcal U_m(x)}\ \prod_{k<l\in B}\max\Big(\frac{s_{kl}}{\max(r_{kl},a)},1\Big)^{\kappa D_{kl}}. \tag{6.5}
-$$
-
-This replaces per-charge smearing at the nearest-neighbour distance (Lemma 6.5) with three ingredients: per-charge smearing at the $m$-th-neighbour distance, the exact interaction inside each unit, and wall-aware pair scales.
-
-**Proposition 6.13 [Proposition, sketch].** Let $0<\beta^2<\beta^2_{\rm UV}(\hat g)$ and choose $m>\kappa/(1-\kappa)$, so that $\gamma_k\le2\kappa<2m/(m+1)$. Then for every $N$ the continuum version of the majorant (6.5) is integrable on $\Omega^N$, and the lattice weights are uniformly integrable. Hence (S2) holds in the whole window, and every term of $\Xi_a$ converges to a finite continuum limit, including near the Dirichlet walls. External charges satisfying (6.2) are handled in the same way, with the units containing an external point.
-
-*Sketch.* For fixed $N$, split $\Omega^N$ into the finitely many regions on which $\mathcal U_m(x)$ is constant. Within a region, there are three kinds of collapse.
-
-1. **Inside a unit.** The intra-unit factors in (6.5) reproduce the true power counting, because both attraction and repulsion are kept. So these collapses are integrable for $\beta^2<\beta^2_{\rm UV}$ (Section 6.1). Near a wall the pair scales $s_{kl}$ only weaken the factors.
-2. **A group of at most $m$ charges spanning several units.** There is no singular factor, because each member's $m$-th neighbour lies outside the group.
-3. **A group of $P>m$ charges.** The $m$-th-neighbour factors give at most $r^{-P\gamma}$ against a measure $r^{2(P-1)}$. This is integrable when $P\gamma<2(P-1)$, which follows from $\gamma<2m/(m+1)$.
-
-A full proof bounds each $m$-th-neighbour factor by the geometric mean of the distances to the $m$ nearest charges. It then integrates each unit's internal coordinates first, at scale $\rho_B$, and applies the power-counting criterion: near the diagonal, $\int\prod_{k<l}\lvert x_k-x_l\rvert^{-a_{kl}}$ with real $a_{kl}$ converges if and only if $\sum_{k<l\in S}a_{kl}<2(\lvert S\rvert-1)$ for every subset $S$ with $\lvert S\rvert\ge2$.
-
-The criterion must be used with signed exponents, because the repulsive intra-unit factors cannot be dropped. For example, in $a_4^{(1)}$ a unit $\{\vec\alpha_1,\vec\alpha_1,\vec\alpha_2,\vec\alpha_2\}$ is allowed once $m\ge4$, which the condition $m>\kappa/(1-\kappa)$ forces for $\kappa\ge3/4$. Its attractive pairs alone give $\sum a_{kl}=8\kappa$ against $2(\lvert S\rvert-1)=6$, which fails for $3\pi\le\beta^2<16\pi/5$, inside the window; with the repulsive pairs included the sum is $0$. For signed exponents the criterion follows from the single-linkage sectors used in the proof of Theorem 6.9. On the sector of a dendrogram, $s_{{\rm lca}(k,l)}\le\lvert x_k-x_l\rvert\le(n-1)\,s_{{\rm lca}(k,l)}$, and integrating the nested scales from the leaves up gives exactly the condition $\sum_{k<l\in S}a_{kl}<2(\lvert S\rvert-1)$ at every node $S$; necessity follows by uniform collapse, as in Proposition 6.7. We have checked the bookkeeping in the cases above but have not written out the general case. Structures below the lattice scale contribute at most $a^{2(\lvert S\rvert-1)-\kappa D(S)}\to0$. Pointwise convergence is (G2), and Vitali's theorem then gives convergence of each term.
-
-So Proposition 6.13 supplies, at sketch level, the boundary layer that Section 6.1 left open.
-
-**Conjecture 6.14 (Theorem 6.9 with unit factors) [Conjecture].** Let $0<\beta^2<\beta^2_{\rm UV}(\hat g)$ and $m>\kappa/(1-\kappa)$. Then the continuum version of the right-hand side of (6.5) satisfies
+**The combined majorant.** Fix $\ell>0$. Take $\mathcal P=\mathcal U_m(x)$, the units of the embedded configuration, and the radii $\rho'_B=\min(\rho_B,\ell)$ with $\rho_B$ computed from $x$ and $\ell\le d_0$. The separation condition of Lemma 6.11 holds for the sites $u(x)$, because $R_B(u)\ge R_B(x)-\sqrt2a$. Then
 
 $$
-\int_{\Omega^N}\prod_k\Big(\frac{D}{\delta_k^{(m)}}\Big)^{\gamma_k}\prod_{B\in\mathcal U_m(x)}\ \prod_{k<l\in B}\max\Big(\frac{s_{kl}}{r_{kl}},1\Big)^{\kappa D_{kl}}dx\le C^N\,N!^{\kappa}.
+W_a(u(x))\le C^{N+M}\Big(\frac D\ell\Big)^{\sum_k\gamma_k}\prod_k\max\Big(1,\frac{\ell}{\hat\delta_k^{(m)}}\Big)^{\gamma_k}\prod_{B\in\mathcal U_m(x)}\ \prod_{k<l\in B}\max\Big(\frac{s_{kl}}{\hat r_{kl}},1\Big)^{\kappa D_{kl}}, \tag{6.5}
 $$
 
-By (6.5), Conjecture 6.14 implies (S1) with $\theta=\kappa<1$. Together with Proposition 6.13, it therefore implies Proposition 6.1 in the window.
+where every quantity on the right is computed from $x$, $s_{kl}=\min(\rho_B,\ell,\sqrt{d_kd_l})$, and $C$ depends neither on $a$ nor on $\ell$. To see this, apply Lemma 6.11. Split $D/\max(\rho'_B,a)\le(D/\ell)\max\big(1,\ell/\max(\rho_B,a)\big)$, and bound the second factor by Lemma 6.12. Finally, replacing $u$ by $x$ changes every distance by at most $\sqrt2a$, and hence changes every regularized distance, and $\max(\rho_B,a)$, by a bounded factor.
 
-Evidence:
+Every singular factor in (6.5) is now local at scale $\ell$. The $m$-th-neighbour factor is non-trivial only if $m$ other charges lie within $\ell$. A pair factor is non-trivial only if $\hat r_{kl}<s_{kl}\le\ell$. Compared with Lemma 6.5, (6.5) has three new features: per-charge smearing at the $m$-th-neighbour distance, the exact interaction inside each unit, and wall-aware pair scales.
 
-- Without the unit factors this is Theorem 6.9, with $\gamma=2\kappa$.
-- The unit factors involve only groups of at most $m$ charges. They are scale-invariant, and their singularities are integrable for $\beta^2<\beta^2_{\rm UV}$.
-- The proof of Theorem 6.9 should extend by integrating each unit's internal coordinates inside the cluster bound of Step 3. This has not been checked.
-- The exponent $\theta=\kappa$ is the one dictated by the scaling of the bulk free energy, and heuristically it cannot be improved (Lemma 6.15 and the remark after it).
+**Lemma 6.13 (nested scales) [Theorem].** Let $T$ be a rooted tree whose internal nodes $j$ carry scales $s_j\ge0$ and real exponents $e_j$. Let $h_j$ be the number of internal nodes in the subtree of $j$ and $C_j=\sum_{i\le j}e_i$ the sum of the exponents over that subtree, and suppose $E_j=2h_j-C_j>0$ for every $j$. Let $b>0$ and $\hat s=\max(s,b)$. Then for $t>0$,
+
+$$
+\int_{s_j\le s_{{\rm parent}(j)},\ s_{\rm root}\le t}\ \prod_js_j\,\hat s_j^{-e_j}\,ds\ \le\ t^{2h}\,\hat t^{-C}\prod_j\frac2{\min(E_j,2h_j)},
+$$
+
+where $h$ and $C$ refer to the root.
+
+*Proof.* Induct from the leaves up. If the bound holds for the children of $j$, the integrand at $j$ is at most a constant times $s^{2h_j-1}\hat s^{-C_j}$. For $t\le b$ the integral of this is $b^{-C_j}t^{2h_j}/2h_j$. For $t>b$ it is at most $b^{E_j}/2h_j+t^{E_j}/E_j\le2t^{E_j}/\min(E_j,2h_j)$, and $t^{E_j}=t^{2h_j}\hat t^{-C_j}$. $\square$
+
+For $b\to0$ and $C_j\ge0$ this recovers the formula of Step 3.4 in the proof of Theorem 6.9, up to the factors 2. The exponents may be negative, which is what signed pair interactions require. The bound was also checked numerically, on 708 random trees with up to four internal nodes and random signed exponents (`foundations_code/nested_check.py`).
+
+**Theorem 6.14 (cluster bound with unit factors) [Theorem].** Let $0<\beta^2<\beta^2_{\rm UV}(\hat g)$ and use pointwise Wick ordering. Let external charges $\beta\vec w_m$ sit at fixed distinct interior points $v_m$ and satisfy (6.2). Then there are $p_0>1$ and $C<\infty$ such that, for $1\le p<p_0$, all $N$ and all $a$,
+
+$$
+\sum_{j\in J^N}\prod_kn_{j_k}\int_{\Omega^N}W_a(u(x))^p\,dx\ \le\ C^N\,N!^{\,p\kappa}. \tag{6.6}
+$$
+
+For $p=1$ this is (S1) with $\theta=\kappa$. For each $N$, a bound in $L^p$ with $p>1$, uniform in $a$, gives uniform integrability, which is (S2).
+
+*Proof.* Write $\bar\gamma=2\kappa$ for the largest internal $\gamma_k$, $\gamma_{\rm ext}=\sum_m\kappa\lvert\vec w_m\rvert^2$ for the external charges, and $d_v$ for the smallest distance between two external points. For a multiset $S$ of charges, let $D(S)=\sum_{k\in S}\lvert\vec\alpha_k\rvert^2-\lvert\sum_{k\in S}\vec\alpha_k\rvert^2$, with $\vec w_m$ in place of $\vec\alpha_k$ for an external charge. For $S$ made of $\lvert S\rvert\ge2$ affine roots, $\beta^2<\beta^2_{\rm UV}$ says exactly that $\kappa D(S)<2(\lvert S\rvert-1)$. For $S$ made of affine roots and one external charge, (6.2) says the same. Choose $m$ with $2m>(m+1)\bar\gamma$ and $(2-\bar\gamma)m>2\gamma_{\rm ext}$. Then choose $p_0>1$ such that, for $p<p_0$, these two inequalities hold with $\bar\gamma,\gamma_{\rm ext}$ replaced by $p\bar\gamma,p\gamma_{\rm ext}$, and
+
+$$
+\eta=\min_{2\le\lvert S\rvert\le m}\Big[2(\lvert S\rvert-1)-p\kappa\max\big(D(S),0\big)\Big]>0,
+$$
+
+the minimum running over the finitely many multisets $S$ of at most $m$ charges, at most one of them external. The constants below depend on $m$, $p$, $\eta$, $K_{\rm t}$, $\beta$, $\Omega$ and the external charges, never on $a$ or $N$.
+
+**Step 1: localization.** Take $\ell=\min(\varepsilon N^{-1/2},\ell_0)$, with $\ell_0\le d_0$ so small that $d_v/\ell_0\ge m$ and $(2-p\bar\gamma)d_v/\ell_0>4p\gamma_{\rm ext}+2$, and raise (6.5) to the power $p$. Since $\sum_k\gamma_k\le\bar\gamma N+\gamma_{\rm ext}$ and $N^N\le e^NN!$, the factor $(D/\ell)^{p\sum\gamma_k}$ is at most $C^NN!^{p\kappa}$. The sum over species contributes $(\sum_jn_j)^N$. It remains to show $\int_{\Omega^N}F^p\,dx\le C^N\lvert\Omega\rvert^N$, where $F$ is the product of the $m$-th-neighbour and pair factors in (6.5).
+
+**Step 2: factorization over clusters.** Join two points when their distance is at most $\ell$, and call the connected components *clusters*. Every non-trivial factor of $F$ involves points of a single cluster: its $m$ nearest neighbours, or both members of a pair, lie within $\ell$ of each other. The units inside a cluster $Q$ are determined by $Q$ alone, with one exception, as follows.
+
+- A proper subset $S\subsetneq Q$ has a point of $Q\setminus S$ within $\ell$, so $\operatorname{dist}(S,\text{rest})=\operatorname{dist}(S,Q\setminus S)$, and whether $S$ is tight depends on $Q$ only.
+- A tight set that meets $Q$ and its complement has diameter greater than $\ell$, so it lies at distance greater than $K_{\rm t}\ell$ from the rest. Hence it contains $Q$.
+- So either $Q$ lies inside a single unit, which may be strictly larger than $Q$, or the units meeting $Q$ are the maximal proper tight subsets of $Q$ with at most $m$ charges. Pairs of a unit that lie in different clusters have $r_{kl}>\ell\ge s_{kl}$, so their factors are trivial. If $B\subsetneq Q$, then $\rho_B<\ell$ is computed within $Q$. If $Q$ lies inside a unit $B$, then $R_B>\ell$. For $a\le\ell/6$ this gives $\rho_B\ge\ell/6$, so every pair scale $s_{kl}$ in $Q$ is within a factor $6$ of $\min(\ell,\sqrt{d_kd_l})$, which depends on $Q$ only.
+
+Let $F_Q$ be the larger of the two candidate products. Then $F^p\le\prod_QF_Q^p$, with $F_Q$ depending only on the points of $Q$. Singletons have $F_Q=1$. As in Step 4 of the proof of Theorem 6.9, the bound $\int F^p\le C^N\lvert\Omega\rvert^N$ follows once
+
+$$
+Z_n=\sup_{u_1}\int_{\{u\ \text{1-connected}\}}\max\big(F_Q^p,1\big)\,du_2\cdots du_n\ \le\ A^n\,n!\qquad(n\ge2)
+$$
+
+in the variables $u=x/\ell$, for a cluster containing no external point or exactly one, placed at $u_1$. Clusters with several external points are treated after Step 3. Here $\max(F_Q^p,1)-1\ge0$ plays the role of $W(C)-1$. In the rescaled variables, write $b=a/\ell$. If $b\ge1/6$, every factor of $F_Q$ is bounded by a constant, because all regularized distances are at least $\ell/6$ and all scales at most $\ell$. Then $F_Q\le C^n$, and $Z_n$ is at most $C^n$ times the volume of 1-connected configurations, which is at most $n^{n-2}\pi^{n-1}$. So take $b<1/6$.
+
+**Step 3: decorated dendrograms.** Split by the Euclidean minimum spanning tree $\tau$ and its Kruskal dendrogram $T$, as in Steps 3.1–3.2 of the proof of Theorem 6.9; all edges have $s_j\le1$. Write $S_j$ for the set of points below node $j$. Three facts about a sector $\{\tau,T\}$ are used.
+
+- (a) For $k\ne l$ with lowest common ancestor $j$, $s_j\le\lvert u_k-u_l\rvert\le(\lvert S_j\rvert-1)s_j$. The lower bound holds because a minimum spanning tree minimizes the longest edge on paths. The upper bound holds because the tree path joining them stays inside $S_j$.
+- (b) Every tight set $B$ with at least two points is some $S_j$, and $R_B$ is the length of the edge that merges it. Indeed $B$ is a connected component of the graph of pairs closer than $\operatorname{dist}(B,\text{rest})$, hence a single-linkage cluster. In particular units are nodes of $T$, and a node is either inside one unit or a union of units.
+- (c) $\delta_k^{(m)}\ge s_{i(k)}$, where $i(k)$ is the lowest ancestor of $k$ with at least $m+1$ points below it (Step 3.2 of the proof of Theorem 6.9).
+
+*The $m$-th-neighbour factors.* By (c), each is at most $\hat s_{i(k)}^{-p\gamma_k}$. Place the exponent $p\gamma_k$ at the node $i(k)$.
+
+*The pair factors.* Fix a unit $B$ and a node $j$ inside it. Let $d_j=\min_{k\in S_j}d_k$ and $\sigma_j=\min(\rho_B,1,d_j)$, in rescaled units, with $\rho_B$ replaced by $1$ if the cluster lies inside $B$. The points of $S_j$ have wall distances in $[d_j,d_j+(m-1)s_j]$. So by (a), for every pair with lowest common ancestor $j$,
+
+$$
+c'^{-1}\max(\sigma_j/\hat s_j,1)\ \le\ \max(s_{kl}/\hat r_{kl},1)\ \le\ c'\max(\sigma_j/\hat s_j,1),\qquad c'=12m.
+$$
+
+Indeed, if $d_j\ge ms_j$, then $s_{kl}$ is within a factor $12$ of $\sigma_j$ (a factor $2$ from the wall distances and $6$ from Step 2) and $\hat r_{kl}\in[\hat s_j,m\hat s_j]$; if $d_j<ms_j$, both maxima lie in $[1,12m]$. Call $j$ *active* if $\hat s_j<\sigma_j$. Going up the tree, $\hat s_j$ increases and $\sigma_j$ decreases, so the active nodes of $B$ form subtrees. Let $j^*$ be the top of one of them. For $j$ below $j^*$, $\sigma_{j^*}\le\sigma_j\le m\sigma_{j^*}$, because the points of $S_{j^*}$ have wall distances within $(m-1)s_{j^*}<(m-1)d_{j^*}$ of each other. Up to a factor $C^{\lvert B\rvert}$, the pair factors of this subtree are therefore
+
+$$
+\sigma_{j^*}^{\,p\kappa D(S_{j^*})}\prod_{j\le j^*}\hat s_j^{-p\kappa D_j},\qquad D_j=\sum_{{\rm lca}(k,l)=j}D_{kl}.
+$$
+
+Place $p\kappa D_j$ at each active node. The remaining factor is handled according to the sign of $D(S_{j^*})$.
+
+- If $D(S_{j^*})<0$, then $\sigma_{j^*}^{p\kappa D(S_{j^*})}\le\hat s_{j^*}^{p\kappa D(S_{j^*})}$. Place $-p\kappa D(S_{j^*})$ at $j^*$ itself.
+- If $D(S_{j^*})\ge0$, let $q$ be the parent of $j^*$. If $q$ lies in $B$, it is inactive, so $\sigma_{j^*}\le\sigma_q+(m-1)s_q\le m\hat s_q$. If $j^*$ is the top of $B$, then $\sigma_{j^*}\le\rho_B\le R_B=s_q$ by (b). Place $-p\kappa D(S_{j^*})$ at $q$. If $j^*$ is the root of the cluster, $\sigma_{j^*}\le1$ and the factor is simply dropped.
+
+Pairs whose lowest common ancestor is inactive have bounded factors. On each sector the integrand is therefore at most $C^n$ times a sum, over at most $2\cdot4^n$ admissible decorations, of $\prod_j\hat s_j^{-e_j}$ with the exponents placed as above. A decoration records which nodes are unit tops, which are active, and whether the cluster lies inside a single unit. It is admissible if units are nodes with at most $m$ points, active nodes form down-closed sets inside units, and every top's parent is inactive or outside its unit. Every configuration has an admissible decoration, and the bounds below use only admissibility.
+
+*Cumulative exponents.* Let $C_j$ be the sum of the exponents placed in the subtree of $j$, and $E_j=2h_j-C_j$, where $h_j=\lvert S_j\rvert-1$.
+
+- (i) $j$ active: $C_j=p\kappa D(S_j)$, or $C_j=0$ if $j$ is a top with $D(S_j)<0$. Every pair below $j$ lies in the unit, so $E_j\ge\eta$.
+- (ii) $j$ inactive with $\lvert S_j\rvert\le m$: every active top below $j$ has had its exponent cancelled at $j$ or below, so $C_j=0$ and $E_j=2h_j$.
+- (iii) $\lvert S_j\rvert\ge m+1$: $S_j$ is a union of units, whose pair exponents all cancel below $j$, and every $k\in S_j$ has $i(k)\le j$. So $C_j=p\sum_{k\in S_j}\gamma_k$. Without an external point, $E_j\ge(2-p\bar\gamma)h_j-p\bar\gamma\ge2m-(m+1)p\bar\gamma>0$. With one, $E_j\ge(2-p\bar\gamma)h_j-p\gamma_{\rm ext}>0$, since $h_j\ge m$.
+
+In every case $E_j>0$ and $2h_j/\min(E_j,2h_j)$ is bounded by a constant, because $h_j\le m-1$ in case (i) and the ratios in case (iii) decrease in $h_j\ge m$. Lemma 6.13 with $t=1$ and $b<1$, and the polar measure $(2\pi)^{n-1}\prod_js_j\,ds_j$ of the edge vectors, bound each decorated sector by $C^n\prod_j1/(2h_j)$. By the hook-length identity $\sum_{T\sim\tau}\prod_j1/h_j=1$ (Step 3.5 of the proof of Theorem 6.9), each $\tau$ contributes at most $C^n$, and Cayley's formula gives $Z_n\le n^{n-2}C^n\le A^nn!$.
+
+*Clusters with several external points.* The $\ell$-graph can join $v_m$ and $v_{m'}$ through a chain of internal points, so a cluster may contain $r\ge2$ external points. Such a cluster has at least $L=d_v/\ell$ points. Let $Z^{(r)}_n$ be the integral of $\max(F_Q^p,1)$ over its $n-r$ internal points, with the external points fixed. On a sector, let $J$ be the set of the $r-1$ nodes of $T$ at which two subtrees containing external points merge. By (a), every node containing two external points has $h_j\ge L$ and $s_j\ge L/n$. Since $L\ge m$, such nodes have more than $m$ points, so they lie inside no unit and fall under case (iii), which by the choice of $\ell_0$ gives $E_j\ge(2-p\bar\gamma)h_j/2$.
+
+- *Variables.* Removing the edges in $J$ from $\tau$ leaves $r$ subtrees, each containing exactly one external point. So the internal points are parametrized, with unit Jacobian, by the $n-r$ edge vectors not in $J$.
+- *Exponents.* For $j\in J$, let $q$ be its lowest ancestor not in $J$, or the scale $1$ if there is none. Relax the constraints $s_c\le s_j$ on the children of $j$ to $s_c\le s_q$. Since $\hat s_j$ and $\hat s_q$ lie in $[L/n,1]$, $\hat s_j^{-e_j}\le(n/L)^{\lvert e_j\rvert}\hat s_q^{-e_j}$, and $\lvert e_j\rvert$ is bounded by a constant depending only on $m$. Move $e_j$ to $q$. This leaves the cumulative exponent of every node outside $J$ unchanged.
+- *Integration.* In the induction of Lemma 6.13, the integrand at $q$ lacks a factor $s_q^2$ for each of the $k$ nodes of $J$ attached to it. Since $s_q\ge L/n$, $\int_{L/n}^ts^{2h-1-2k}\hat s^{-C}ds\le(n/L)^{2k}\int_0^ts^{2h-1}\hat s^{-C}ds$. The hook factors $1/h_j$ of the nodes in $J$ are missing, which costs at most $n^{r-1}$.
+
+Hence $Z^{(r)}_n\le n^{C}A^nn!$, with $C$ depending only on $m$ and $M$.
+
+**Step 4: summation.** This is Step 4 of the proof of Theorem 6.9, with $\zeta(\varepsilon)=\sum_{n\ge2}A^n(\varepsilon^2/\lvert\Omega\rvert)^{n-1}$. A cluster with one external point has no translation integral and contributes a factor independent of $N$. A cluster with $r\ge2$ external points has at least $L$ points. Summed over its size and over the choice of its internal points, it contributes at most $\sum_{n\ge L}n^{C+r}A^n(\varepsilon^2/\lvert\Omega\rvert)^{n-r}$, using $N\ell^2\le\varepsilon^2$. This is bounded uniformly in $N$ for small $\varepsilon$. There are at most $M$ clusters containing external points. $\square$
+
+The signed exponents are essential. For example, in $a_4^{(1)}$ a unit $\{\vec\alpha_1,\vec\alpha_1,\vec\alpha_2,\vec\alpha_2\}$ is allowed once $m\ge4$, which the condition $2m>(m+1)\bar\gamma$ forces for $\kappa\ge3/4$. Its attractive pairs alone give the exponent $8\kappa$ against $2(\lvert S\rvert-1)=6$, which fails for $3\pi\le\beta^2<16\pi/5$, inside the window. With the repulsive pairs included the exponent is $0$. The wall-aware scales $\sigma_j$ matter in the same way: near a wall both the attraction and the repulsion inside a unit are switched off below the scale $d_j$, and case (i) uses only that they are switched off together.
+
+**Theorem H [Theorem].** Proposition 6.1 holds for $0<\beta^2<\beta^2_{\rm UV}(\hat g)$ and every affine algebra.
+
+*Proof.* Here $a$ runs over values with $L_t/a$ and $L_x/a$ integers, and $W_a(u(x))$ is set to $0$ outside the cells. By Theorem 6.14 with $p=1$, the $N$-th term of $\Xi_a(w,v)$ is at most $C^NN!^{\kappa}/N!$, uniformly in $a$, and this is summable because $\kappa<1$. For each $N$, Theorem 6.14 with some $p>1$ makes $x\mapsto W_a(u(x))$ uniformly integrable as $a\to0$. For almost every $x$, $W_a(u(x))\to W(x)$ by (G2). Vitali's theorem gives convergence of each term, and Tannery's theorem gives convergence of the series. The limiting terms are positive and finite, and $\lim\Xi_a\ge1$, so the normalized correlation functions converge. $\square$
+
+Theorem H includes the boundary layer that Section 6.1 left open: clusters collapsing near a Dirichlet wall are covered by the wall-aware pair scales. Together with Proposition 6.7, it shows that pointwise Wick ordering suffices exactly below the first collapse threshold.
+
+*Checks.* The proof of Theorem 6.14 reuses the combinatorics of Theorem 6.9, which was checked by enumeration. An adversarial AI review of this section found two gaps in a first version, both now repaired: the upper bound of step 4 of Lemma 6.11, and clusters joining several external points. It then tested the argument numerically. Lemma 6.13 held on 13,326 random trees, with up to six internal nodes, signed exponents in $[-6,4]$ and cutoffs down to $10^{-6}$. The bookkeeping of Step 3 was tested on about 25,000 random multi-scale clusters next to a wall, for $a_4^{(1)}$, $c_2^{(1)}$ and $g_2^{(1)}$ inside the window, with and without an external charge, with tight sets found by brute force. Facts (a)–(c), the down-closedness of active sets, and $E_j>0$ held in every sample, and the ratio of the true product of factors to the majorant did not grow with the separation of scales. The second term of $\Delta_{kl}$ in Lemma 6.11 was checked to stay bounded with exact lattice Green functions. Scripts: `foundations_code/review614/`. Like Theorem 6.9, the argument has so far been reviewed only by AI-assisted checks, and a referee's reading would be valuable.
 
 **Lemma 6.15 (stability form of (S1)) [Theorem].** Write $c_N(a)=\sum_{j\in J^N}\prod_kn_{j_k}\int W_a(u(x))\,dx$, so that $\Xi_a(z)=\sum_{N\ge0}z^Nc_N(a)/N!$ with $c_N(a)\ge0$ (Theorem B).
 
 1. If $c_N(a)\le C^NN!^{\theta}$ for all $N$ and $a$, with $0\le\theta<1$ (no loss of generality), then $\log\Xi_a(z)\le\ln2+(1-\theta)\,2^{\theta/(1-\theta)}(Cz)^{1/(1-\theta)}$ for all $z>0$ and all $a$.
 2. Conversely, if $\log\Xi_a(z)\le A(1+z^\rho)$ for all $z>0$ and all $a$, then $c_N(a)\le e^A(eA\rho)^{N/\rho}N!^{\,1-1/\rho}$ for $N\ge1$, which is (S1) with $\theta=1-1/\rho$.
 
-So (S1) holds for some $\theta<1$ if and only if the renormalized free energy at real fugacity grows at most polynomially in $z$, uniformly in $a$. In other words, (S1) is a stability bound.
+So (S1) holds for some $\theta<1$ if and only if the renormalized free energy at real fugacity grows at most polynomially in $z$, uniformly in $a$. In other words, (S1) is a stability bound. By Theorem 6.14 it holds with $\theta=\kappa$, that is $\sup_a\log\Xi_a(z)\le A(1+z^{1/(1-\kappa)})$.
 
 *Proof.*
 
 1. Put $s=1-\theta$ and $y=(Cz)^{1/s}$, so that $\Xi_a(z)\le\sum_N(y^N/N!)^s$. For $s=1$ this is $e^y$. For $0<s<1$, write $(y^N/N!)^s=\big((2^{(1-s)/s}y)^N/N!\big)^s\cdot2^{-(1-s)N}$ and apply Hölder's inequality with exponents $1/s$ and $1/(1-s)$. This gives $\sum_N(y^N/N!)^s\le2^{1-s}\exp\big(s\,2^{(1-s)/s}y\big)$.
 2. All terms are non-negative, so $c_N(a)r^N/N!\le\Xi_a(r)\le e^{A(1+r^\rho)}$ for every $r>0$. Choose $r^\rho=N/(A\rho)$ and use $N^N\ge N!$. $\square$
 
-**Remark (the exponent $\theta=\kappa$ is sharp) [heuristic].** For a long root $x=2\kappa$, so the growth exponent corresponding to $\theta=\kappa$ is $\rho=1/(1-\kappa)=2/(2-x)$. This is exactly how the bulk free energy scales with the physical coupling. With the coupling profile of Section 6.2 one expects $\log\Xi(z)\simeq K(\beta)\,z^{2/(2-x)}\int_\Omega R_\Omega^{2x/(2-x)}$ for large $z$, with $K(\beta)>0$ fixed by the exact bulk energy. If $K(\beta)\ne0$, then $\Xi$ has order exactly $1/(1-\kappa)$ as an entire function of $z$, and by part 1 no bound (S1) with $\theta<\kappa$ can hold. So the exponent of Conjecture 6.14 is optimal, and Theorem E already attains it (without external charges, $\gamma/2=\kappa$ there). What the window requires is a finite constant. That constant must diverge as $\beta^2\uparrow\beta^2_{\rm UV}$, where $\Xi_a$ itself diverges (Proposition 6.7) and the bulk energy has the resonance described in Section 6.1.
+**Remark (the exponent $\theta=\kappa$ is sharp) [heuristic].** For a long root $x=2\kappa$, so the growth exponent corresponding to $\theta=\kappa$ is $\rho=1/(1-\kappa)=2/(2-x)$. This is exactly how the bulk free energy scales with the physical coupling. With the coupling profile of Section 6.2 one expects $\log\Xi(z)\simeq K(\beta)\,z^{2/(2-x)}\int_\Omega R_\Omega^{2x/(2-x)}$ for large $z$, with $K(\beta)$ fixed by the exact bulk energy. For simply-laced algebras the formula of Section 6.1 has exactly this power of $z$, and its coefficient is negative and finite for $0<\beta^2<\beta^2_{\rm UV}$, so $K(\beta)>0$ there. If $K(\beta)\ne0$, then $\Xi$ has order exactly $1/(1-\kappa)$ as an entire function of $z$, and by part 1 no bound (S1) with $\theta<\kappa$ can hold. So the exponent of Theorem 6.14 is then optimal, as is that of Theorem E (without external charges, $\gamma/2=\kappa$ there). The constant $C$ of Theorem 6.14 diverges as $\beta^2\uparrow\beta^2_{\rm UV}$, through $\eta\to0$. There $\Xi_a$ itself diverges (Proposition 6.7), and the bulk energy has the resonance described in Section 6.1.
 
-Given Proposition 6.13, Estimate (S), and hence Proposition 6.1 in the window, is reduced to Conjecture 6.14.
-
-**Status of H1–H5.** With Theorems A–D, Theorem E closes H1–H5 in finite volume for $0<\beta^2<2\pi$, for every affine algebra. For sine-Gordon this is the whole range below the first collapse threshold. The window $2\pi\le\beta^2<\beta^2_{\rm UV}$ is non-empty for every other algebra. There, every term of the expansion converges (Proposition 6.13, sketch). Summability is reduced to Conjecture 6.14, the version of Theorem 6.9 that carries the unit factors of (6.5). At and above $\beta^2_{\rm UV}$ further counterterms are needed (Proposition 6.7). The infinite-volume limit remains Conjecture 6.2.
+**Status of H1–H5.** With Theorems A–D, Theorems E and H close H1–H5 in finite volume for $0<\beta^2<\beta^2_{\rm UV}(\hat g)$, for every affine algebra. Theorem E gives the simpler proof, with an explicit bound, for $\beta^2<2\pi$; for sine-Gordon this is already the whole range. At and above $\beta^2_{\rm UV}$ further counterterms are needed (Proposition 6.7). The infinite-volume limit remains Conjecture 6.2.
 
 ---
 
@@ -891,27 +977,29 @@ Three independent checks favour the algebraic-multiplicity count:
 - **Exact S-matrix.** The exact S-matrix of $c_2^{(1)}\simeq b_2^{(1)}$ agrees with the algebraic-multiplicity result to $O(\beta^4)$.
 - **Fate of the block.** That exact S-matrix resolves the Jordan block into two real bound states, bound below threshold by amounts proportional to $\beta^2$ and $\beta^4$.
 
-The details are in our companion analysis. For $b_n^{(1)}$, the exact masses of [@gmw1996] agree with the multiplicity-counted semiclassics, as those authors observed.
+The details are in our companion analysis. For $b_n^{(1)}$ the spinor soliton is the coincident pair $(s,s')$ of $d_{n+1}^{(1)}$. Every vector channel $b$ has a double zero at $\lambda=2m^2\sin^2(\pi b/n)$. These zeros are isolated, embedded, or (for $b=n/2$) at the spinor threshold. Counted with weight 2 they give $H=2n+\beta^2/4\pi$ from every ratio, which is the exact result of [@gmw1996]. Counted once they give MacKay and Watts' table (Section 8.9).
 
-**Conjecture 8.2 [Conjecture].** For every $\hat g$ and every soliton obtained by folding Hirota multisolitons, the fluctuation solutions have the Hirota form (H) of Section 8.5. Then the factorization (F) holds by Theorem G, so the algebraic multiplicity of each isolated eigenvalue is the net order (zeros minus poles) of $\prod_bX_{ab}$, and the same net order is the weight in the one-loop trace. Wherever Hypothesis (R) holds, the Jordan blocks have the sizes of the individual zeros (Theorem F). Counting accordingly, the one-loop masses of all solitons obtained by folding multisolitons ($b_n^{(1)}$, $c_n^{(1)}$, $g_2^{(1)}$, $f_4^{(1)}$) satisfy
+**Conjecture 8.2 [Part 1: Theorem given a degree bound; part 2: Conjecture].**
+
+1. For every $\hat g$ and every soliton obtained by folding Hirota multisolitons, the fluctuation solutions have the Hirota form (H) of Section 8.5. Then the factorization (F) holds by Theorem G, the algebraic multiplicity of each isolated eigenvalue is the net order (zeros minus poles) of $\prod_bX_{ab}$, and the same net order is the weight in the one-loop trace. Wherever Hypothesis (R) holds, the Jordan blocks have the sizes of the individual zeros (Theorem F).
+2. Counting accordingly, the one-loop masses of all solitons obtained by folding multisolitons satisfy
 
 $$
 \frac{M_a^{\rm qu}}{m_a^{\vee,\rm qu}}\ \text{independent of }a\ \text{to }O(\beta^2),
 $$
 
-where $m^\vee$ are the particle masses of the Lie-dual real-coupling theory.
+where, for untwisted $\hat g$, $m^\vee$ are the particle masses of the Lie-dual theory at real coupling $\beta_r^2=\beta^2$, and for twisted $\hat g$ the particle masses of the same theory continued to $\beta_r^2=-\beta^2$.
 
-Evidence:
+Part 1 is a theorem given the degree bound (D) of Section 8.8, for the parent solitons and their orbits (Proposition 8.8 and the foldings paragraph after it). (D) is verified for $d_n^{(1)}$ with $n\le8$, for all $e_n^{(1)}$, and for the 19 foldings listed there. Evidence for part 2:
 
-- The $c_n^{(1)}$ blocks were constructed explicitly as Jordan chains.
-- The lattice evaluation of (8.1) agrees with the algebraic-multiplicity count.
-- The exact $b_n^{(1)}$ and $c_2^{(1)}$ S-matrices agree with it.
-- (H) holds for $a_n^{(1)}$ and $c_n^{(1)}$, so for these the counting part is a theorem (Propositions 8.6 and 8.7). For $a_n^{(1)}$ with $n\le6$ the net count was also checked against the numerical spectrum.
-- For $c_n^{(1)}$ with $n\le4$, the net count reproduces the full heat trace, including weight 2 at the threshold blocks (Proposition 8.7).
+- In every family tested, the counting rule makes all one-loop soliton mass ratios follow one floating Coxeter number, and counting each multiple zero once breaks this (Section 8.9). The families are $b_n^{(1)}$ ($n\le7$), $c_n^{(1)}$ ($n\le6$), $g_2^{(1)}$, $f_4^{(1)}$, $a_{2n-1}^{(2)}$ ($n\le4$), $d_{n+1}^{(2)}$ ($n\le6$), $a_{2n}^{(2)}$ ($n\le3$), $d_4^{(3)}$ and $e_6^{(2)}$.
+- The resulting floating Coxeter numbers agree at $O(\beta^2)$ with every known exact result: $c_n^{(1)}$, $b_n^{(1)}$ [@gmw1996], $g_2^{(1)}$ and $d_4^{(3)}$ (Takács), $d_{n+1}^{(2)}$ [@gm1995], $a_{2n}^{(2)}$ (Gandenberger), and the $a_{2n-1}^{(2)}$ and $e_6^{(2)}$ results of the companion note.
+- The $c_n^{(1)}$ blocks were constructed explicitly as Jordan chains (Proposition 8.7), and the lattice evaluation of (8.1) agrees with the algebraic-multiplicity count.
+- For $b_3^{(1)}$ and $g_2^{(1)}$ the spectrum and heat trace on a Fourier grid confirm clusters of algebraic multiplicity 4 at $\lambda=\tfrac32$, and Proposition 8.5 part 2, to $10^{-5}$.
 
-The counting part is a theorem once (H) or (R) is known (Theorems F and G, Proposition 8.5). The weight relevant to (8.1) is the net order from (F). It agrees with the dimension of the $L^2$ root space where (R) holds, but not at the threshold blocks of $c_n^{(1)}$ (Proposition 8.7). The simpler statement, that every zero of $X_{ab}$ in the bound-state half-plane is an eigenvalue of multiplicity equal to its order, is false: in $a_4^{(1)}$ a zero of $X_{12}$ is cancelled by a pole of $X_{11}$ (Proposition 8.6).
+The weight relevant to (8.1) is the net order from (F). It agrees with the dimension of the $L^2$ root space where (R) holds, but not at threshold resonances (Proposition 8.7 and Section 8.8). The simpler statement, that every zero of $X_{ab}$ in the bound-state half-plane is an eigenvalue of multiplicity equal to its order, is false: in $a_4^{(1)}$ a zero of $X_{12}$ is cancelled by a pole of $X_{11}$ (Proposition 8.6).
 
-This closes H8 for $c_n^{(1)}$ and $b_n^{(1)}$. Elsewhere it reduces H8 to checking the Hirota form (H) of the explicit fluctuation solutions, for the $d_n^{(1)}$ and $e_n^{(1)}$ solitons and their foldings, together with the mass-ratio statement.
+This closes H8 at the level of counting for every algebra, up to the degree bound (D) beyond rank 8 in the $d_n^{(1)}$ series. The mass-ratio statement holds numerically in every family tested and remains to be proved.
 
 ### 8.4 Which saddles contribute
 
@@ -974,9 +1062,21 @@ form a basis of $\mathcal R(\lambda_0)$ made of Jordan chains: $(\mathcal A-\lam
 
 **Remark.** Without the species-diagonal assumption, the same proof applies with $\psi_c-\sum_dT_{cd}G_d\in L^2(\mathbb R_+)$. It then gives $\dim\mathcal R(\lambda_0)=\operatorname{ord}_{\lambda_0}\det T$, with block sizes equal to the partial multiplicities of the matrix function $T$ at $\lambda_0$ [@gohberg1971]. Species-diagonality is what turns these into the individual orders. For isolated eigenvalues this recovers the Evans-function multiplicity theorem [@alexander1990] in this setting.
 
-**Lemma 8.4 [Theorem].** Suppose $\psi_b(\cdot,k)$ is an exact single-channel solution at both $k$ and $-k$, as the Hirota fluctuation solutions are. Then $X_b(k)\,X_{\bar b}(-k)=1$. In particular $X_b(0)\ne0$, so no transmission factor vanishes at its own threshold.
+**Lemma 8.4 [Theorem].** Suppose $\psi_b(\cdot,k)$ is an exact single-channel solution at both $k$ and $-k$, as the Hirota fluctuation solutions are. Then $X_b(k)\,X_{\bar b}(-k)=1$. Consequently:
 
-*Proof.* The Wronskian $W(\psi_b(k),\psi_{\bar b}(-k))$ is constant. It equals $-2ik$ at $-\infty$ and $-2ik\,X_b(k)X_{\bar b}(-k)$ at $+\infty$. $\square$
+- $\operatorname{ord}_{k=0}X_b=-\operatorname{ord}_{k=0}X_{\bar b}$;
+- if $b=\bar b$, then $X_b(0)=\pm1$;
+- the product $X_\mu=\prod_{c:\,m_c=\mu}X_c$ over a mass level has neither a zero nor a pole at $k=0$.
+
+*Proof.* The Wronskian $W(\psi_b(k),\psi_{\bar b}(-k))$ is constant. It equals $-2ik$ at $-\infty$ and $-2ik\,X_b(k)X_{\bar b}(-k)$ at $+\infty$. Compare orders at $k=0$; the channels of a mass level pair up as $(c,\bar c)$. $\square$
+
+A single factor can vanish at its own threshold when $b\ne\bar b$. In $a_3^{(1)}$ with $a=1$, $X_{13}=ik/(ik+m_1)$ and $X_{11}=(ik-m_1)/ik$. For static solitons it happens exactly in the theories with non-self-conjugate particles [Theorem for $a_n^{(1)}$; Numerical otherwise]:
+
+- $a_n^{(1)}$ with $h$ even, where $X_{ab}(0)=0$ if and only if $\lvert a-b\rvert=h/2$;
+- the spinor solitons of $d_n^{(1)}$ with $n$ odd;
+- $e_6^{(1)}$.
+
+At such a zero $\psi_b(\cdot,0)$ tends to $u_b$ at $-\infty$ and decays at $+\infty$. It is a bounded half-bound state.
 
 **Proposition 8.5 (the net count).** Write $\mathcal A-\mathcal A_0=V_1V_2$ with exponentially decaying factors. Let $K(\lambda)=V_2(\mathcal A_0-\lambda)^{-1}V_1$ be the Birman–Schwinger operator, which is trace class, and let $d(\lambda)=\det(I+K(\lambda))$. Assume the factorization
 
@@ -987,11 +1087,11 @@ $$
 on the physical sheet $\mathbb C\setminus[m_1^2,\infty)$. Theorem G below proves (F) whenever the fluctuation solutions have the Hirota form (H).
 
 1. **[Theorem]** For every isolated eigenvalue $\lambda_0$, $m_{\rm alg}(\lambda_0)=\sum_b\operatorname{ord}_{\lambda_0}X_b$, where zeros count positively and poles negatively.
-2. **[Proposition, sketch; checked numerically for the $c_n^{(1)}$ solitons with $n\le4$ (Proposition 8.7)]** Suppose in addition that no $X_b(k)$ vanishes at real $k$. Then for $t>0$,
+2. **[Proposition, sketch; checked numerically for the $c_n^{(1)}$ solitons with $n\le4$ (Proposition 8.7)]** Suppose in addition that no $X_b(k)$ vanishes at real $k\ne0$. Then for $t>0$,
    $$
-   \operatorname{Tr}\big(e^{-t\mathcal A}-e^{-t\mathcal A_0}\big)=\sum_b\Big[\sum_\zeta\operatorname{ord}_\zeta X_b\;e^{-t(m_b^2+\zeta^2)}+\frac1{\pi i}\int_0^\infty e^{-t(m_b^2+k^2)}\,\partial_k\log X_b(k)\,dk\Big],
+   \operatorname{Tr}\big(e^{-t\mathcal A}-e^{-t\mathcal A_0}\big)=\sum_\mu\Big[\sum_\zeta\operatorname{ord}_\zeta X_\mu\;e^{-t(\mu^2+\zeta^2)}+\frac1{\pi i}\int_0^\infty e^{-t(\mu^2+k^2)}\,\partial_k\log X_\mu(k)\,dk\Big],
    $$
-   where the inner sum runs over the zeros and poles of $X_b$ with $\operatorname{Im}\zeta<0$, signed as in part 1. Each zero is counted with its order whether its energy is isolated or embedded in other channels' continua.
+   where $\mu$ runs over the distinct masses, $X_\mu=\prod_{c:\,m_c=\mu}X_c$, and the inner sum runs over the zeros and poles of $X_\mu$ with $\operatorname{Im}\zeta<0$, signed as in part 1. Checked also for the $a_3^{(1)}$ soliton $a=1$, where single channels have threshold zeros: grids, the formula and the closed form $(1+e^{-2t})\operatorname{erf}\sqrt{2t}$ agree to $10^{-6}$. Each zero is counted with its order whether its energy is isolated or embedded in other channels' continua.
 
 *Proof of part 1.*
 
@@ -1003,7 +1103,7 @@ on the physical sheet $\mathbb C\setminus[m_1^2,\infty)$. Theorem G below proves
 
 1. Write the heat trace as $\frac1{2\pi i}\int_\Gamma e^{-t\lambda}\,\partial_\lambda\log d\,d\lambda$, with $\Gamma$ a contour around the spectrum.
 2. By (F) the integrand splits into one term per channel. The $b$-th factor $X_b$ depends on $\lambda$ only through $k_b$, so it is meromorphic off $[m_b^2,\infty)$. Deform each channel's contour to wrap $[m_b^2,\infty)$ and encircle its zeros and poles.
-3. The jumps across the cuts, summed over $b$ using Lemma 8.4, give the integrals. Since $X_b(0)\ne0$, there is no threshold term.
+3. The jumps across the cuts, summed over the channels of each mass level using Lemma 8.4, give the integrals. By Lemma 8.4, $X_\mu$ has neither a zero nor a pole at $k=0$, so there is no threshold term. For a single channel with $X_b(0)=0$ the integrand behaves like $1/k$, which is why the channels must be grouped.
 
 **Hypothesis (H) (Hirota form).** For each channel $b$ there are solutions $\psi_b^\mp(\cdot,\lambda)$ of $(\mathcal A-\lambda)u=0$, meromorphic in $\lambda$ on the physical sheet, of the form
 
@@ -1013,7 +1113,7 @@ $$
 
 Here each $R_b^\mp$ is a rational function, with vector coefficients, of finitely many exponentials $E_i=e^{\mu_ix+\xi_i}$ with $\mu_i>0$. Its limits are as follows: $R_b^-\to u_b$ as $x\to-\infty$; $R_b^-\to X_b(\lambda)\,u_b$ as $x\to+\infty$; and $R_b^+\to u_b$ as $x\to+\infty$. The channel vectors are normalized so that $u_b^{\mathsf T}u_c=\delta_{c\bar b}$.
 
-This is the form of the fluctuation solutions obtained by linearizing a Hirota two-soliton solution in the amplitude of the second soliton, continued to a linear wave. $\psi_b^+$ is the solution at $-k$, divided by $X_b(-k)$. Sections 8.6 and 8.7 show that (H) holds for $a_n^{(1)}$ and $c_n^{(1)}$.
+This is the form of the fluctuation solutions obtained by linearizing a Hirota two-soliton solution in the amplitude of the second soliton, continued to a linear wave. $\psi_b^+$ is the solution at $-k$, divided by $X_b(-k)$. Sections 8.6 and 8.7 show that (H) holds for $a_n^{(1)}$ and $c_n^{(1)}$, and Section 8.8 extends this to $d_n^{(1)}$, $e_n^{(1)}$ and their foldings.
 
 **Theorem G [Theorem].** Assume (H). Then:
 
@@ -1030,7 +1130,7 @@ Consequently, part 1 of Proposition 8.5 holds unconditionally for such solitons.
 4. Take $\lambda$ off a null set, where the real parts $\operatorname{Re}\kappa_c$ are distinct. The difference $\psi_b^--\psi_b^{{\rm J},-}$ decays at $-\infty$ and is $o(e^{\operatorname{Re}\kappa_bx})$ there. So it is a combination of the $\psi_c^{{\rm J},-}$ with $\operatorname{Re}\kappa_c>\operatorname{Re}\kappa_b$.
 5. Order the channels by $\operatorname{Re}\kappa$. Then the change of basis from Jost to Hirota solutions is unit triangular, and the same holds at $+\infty$. Hence $\det\mathcal W=\det\mathcal W^{\rm J}$, and item 2 follows from item 1. $\square$
 
-*Numerical check.* For the $a_4^{(1)}$ soliton $a=1$ and the $c_2^{(1)}$ and $c_3^{(1)}$ solitons, the Hirota Wronskian matrix is diagonal to $10^{-8}$ at complex $\lambda$, with diagonal entries $X_b$. The ratio $\det(\mathcal A_N-\lambda)/\det(\mathcal A_{0,N}-\lambda)$ on a Fourier grid, corrected for the momentum cutoff by the factor $\exp\!\big(-\int\operatorname{tr}(M-M_0)\,dx/\pi k_{\max}\big)$, equals $\prod_bX_b(\lambda)$ to about $10^{-4}$. It converges to it as the grid is refined: for $a_4^{(1)}$ the ratio is $0.99999$ at $N=640$.
+*Numerical check.* For the $a_4^{(1)}$ soliton $a=1$ and the $c_2^{(1)}$ and $c_3^{(1)}$ solitons, the Hirota Wronskian matrix is diagonal to $10^{-8}$ at complex $\lambda$, with diagonal entries $X_b$. The ratio $\det(\mathcal A_N-\lambda)/\det(\mathcal A_{0,N}-\lambda)$ on a Fourier grid, multiplied by $\exp\!\big(\int\operatorname{tr}(M-M_0)\,dx/\pi k_{\max}\big)$ to correct for the momentum cutoff, equals $\prod_bX_b(\lambda)$ to about $10^{-4}$. It converges to it as the grid is refined: for $a_4^{(1)}$ the ratio is $0.99999$ at $N=640$. The same check gives $1$ to $10^{-4}$ for solitons of $d_4^{(1)}$, $d_5^{(1)}$ and $e_6^{(1)}$ (Section 8.8).
 
 
 **Check.** For the sine-Gordon kink, $\mathcal A=-\partial^2+1-2\operatorname{sech}^2x$ and $X(k)=(k+i)/(k-i)$. Part 2 gives $1-\operatorname{erfc}\sqrt t=\operatorname{erf}\sqrt t$. This has the correct small-$t$ behaviour, $2\sqrt{t/\pi}$, and tends to $1$ as $t\to\infty$, as the zero mode requires.
@@ -1051,7 +1151,7 @@ Explicitly, the channel-$b$ solution has components $f_j=e^{ikx}\big(\omega^{jb}
 
 **Proposition 8.6.**
 
-1. **[Theorem]** Take a zero of $X_{ab}$ with $b\ne a$ and $\cos(A-B)>0$. The exact solution at the zero is in $L^2$ if and only if $\cos B\,\sin(A-B)>0$. Otherwise it grows at $+\infty$ in channel $c\equiv b-a\pmod h$, and $X_{ac}$ has a pole at the same energy. (For $b=a$ the zero is the translation mode at $\lambda=0$.)
+1. **[Theorem]** Take a zero of $X_{ab}$ with $b\ne a$ and $\cos(A-B)>0$. The exact solution at the zero is in $L^2$ if and only if $\cos B\,\sin(A-B)>0$. If $\cos B\,\sin(A-B)<0$, it grows at $+\infty$ in channel $c\equiv b-a\pmod h$, and $X_{ac}$ has a pole at the same energy. If $\cos B=0$, that is $b=h/2$, the zero sits at the threshold $\lambda=m_c^2$; the solution tends to a constant vector in channel $c$, so it is a bounded threshold resonance. (For $b=a$ the zero is the translation mode at $\lambda=0$.)
 2. **[Theorem, by Theorem G and Proposition 8.5; checked numerically for $n\le6$]** For every $n$ and every soliton, the isolated eigenvalues of $\mathcal A$, counted with algebraic multiplicity, are exactly the net count (zeros minus poles) of $\prod_bX_{ab}$. Counting zeros alone over-counts. For example, in $a_4^{(1)}$ with $a=1$, $X_{12}$ has a simple zero at $\lambda=1.25\,m^2$, below the lowest threshold $m_1^2=1.382\,m^2$. But $X_{11}$ has a pole there, and $\mathcal A$ has no eigenvalue there: below threshold it has only the zero mode.
 
 *Proof of part 1.*
@@ -1095,6 +1195,109 @@ $$
 *Numerics.* The soliton and every fluctuation solution were checked against the field and fluctuation equations, with residuals at the level of the finite-difference error. The block structure was checked for all $a<n\le4$. Numerically $\lvert\langle\psi,\psi\rangle\rvert\sim10^{-15}$ against $\lVert\psi\rVert^2\sim10$–$40$. The tail of $\partial_\lambda\psi_n$ is constant to six digits from $x=10$ to $x=40$, and lies along channel $n-a$ to six digits. Heat traces were computed on periodic Fourier grids of periods 36–72. Because the background is reflectionless, they showed no dependence on the box.
 
 **What this means for the counting rule.** The weight with which the one-loop trace (8.1) counts an energy is the net order of the product of all transmission factors (Proposition 8.5). This weight can differ from the dimension of the $L^2$ root space in both directions. It is smaller when a zero is cancelled by a pole in another channel (Proposition 8.6). It is larger at the $c_n^{(1)}$ blocks, where the second unit of weight is carried by a bounded threshold resonance (Proposition 8.7). On a lattice or in a box the threshold resonance becomes normalizable, the block becomes a genuine finite-dimensional Jordan block, and Proposition 8.1 counts it twice. This is why the lattice evaluation of (8.1) and the exact S-matrices both agree with Delius–Grisaru. It also fits the exact $c_2^{(1)}$ result of Section 8.3: quantum corrections pull both members of the threshold block below threshold, as two real bound states.
+
+
+### 8.8 The Hirota form for $d_n^{(1)}$, $e_n^{(1)}$ and their foldings
+
+**Setting.** Take a simply-laced $\hat g$ with $\lvert\vec\alpha\rvert^2=2$ and $m=1$. With $\vec\phi=\frac i\beta\sum_j\vec\alpha_j\ln\tau_j$, the field equations follow from the bilinear equations
+
+$$
+\tfrac12(D_x^2-D_t^2)\,\tau_j\cdot\tau_j=n_j\Big(\tau_j^2-\prod_{l\sim j}\tau_l\Big),
+$$
+
+because $\sum_jn_j\vec\alpha_j=0$. Every static soliton of species $a$ of $d_4^{(1)},\dots,d_8^{(1)}$ and $e_{6,7,8}^{(1)}$ has $\tau_j$ a polynomial of degree exactly $n_j$ in $E=e^{m_ax+\xi}$, with constant term 1 [Numerical, residuals below $10^{-38}$ at 50 digits]. The fluctuation in channel $b$ is $\tau_j+\epsilon\,e^{ikx-i\omega t}S_j(E)$, with $S_j(0)=\delta^b_j$, the coefficients of the channel-$b$ linear wave.
+
+**Hypothesis (D) (degree bound).** For each channel $b$ and generic $k$, the linearized bilinear equations have a polynomial solution $S_j$ of degree at most $n_j$.
+
+**Proposition 8.8 [Theorem given (D), as labelled].**
+
+1. **[Theorem]** Under (D), the fluctuation solutions about every static soliton of $a_n^{(1)}$, $d_n^{(1)}$ and $e_n^{(1)}$ have the Hirota form (H), with $X_{ab}$ rational in $z=\kappa_b/m_b$. So (F) holds by Theorem G, and part 1 of Proposition 8.5 applies.
+2. **[Numerical]** (D) holds for every soliton and channel of $d_4^{(1)},\dots,d_8^{(1)}$ and $e_{6,7,8}^{(1)}$, at 96 random complex $k$ per pair, to $10^{-25}$ or better. For $a_n^{(1)}$ it is explicit (Section 8.6). For general rank it would follow from the vertex-operator construction of the $\tau$-functions if $(F^a)^{n_j+1}=0$ on the level-1 module $L(\Lambda_j)$ [Proposition, sketch].
+3. **[Numerical, exact to $10^{-23}$ in all 355 pairs]** $X_{ab}(z)=\prod_{x\in A_{ab}}\dfrac{z-\cos(\pi(x-1)/h)}{z-\cos(\pi(x+1)/h)}$, where $S_{ab}=\prod_{x\in A_{ab}}\{x\}$ is Dorey's block content of the real-coupling S-matrix. This is the interaction factor of [@fring1994] at $\cosh\theta=z$.
+4. **[Theorem, given 3]** No $X_{ab}$ has a zero or a pole at real $k\ne0$. So static solitons have no spectral singularities.
+
+*Proof of 1.*
+
+1. The coefficients of $S$ satisfy a linear recursion, $\big((K^2m_a^2+2Km_am_bz+m_b^2)I-NC\big)s_K=r_K$, whose determinant is a polynomial in $z$ with non-zero leading coefficient. So $S$ is unique, rational in $z$, and $f_j=e^{ikx}S_j/\tau_j$ is rational in $E$. At $-\infty$, $f\to e^{ikx}\delta^b$.
+2. At $+\infty$, $f\to e^{ikx}w$ with $w_j=s_{j,n_j}/t_{j,n_j}$. The top-degree terms of the soliton and fluctuation equations give $NCw=m_b^2w$, so $\sum_j\vec\alpha_jw_j$ lies in the $m_b^2$-eigenspace of $M_0$. If that mass is non-degenerate, (H) follows.
+3. Degenerate masses are separated by the centre $\mathcal Z$ of the affine diagram (its automorphisms with linear part in the Weyl group), through the characters $\chi_g(c)=e^{-2\pi i(C^{-1})_{g(0),c}}$. The degeneracies are the conjugate pairs of $a_n^{(1)}$ and $e_6^{(1)}$, the spinor pair of $d_n^{(1)}$, and in $d_n^{(1)}$ with $3\mid n-1$ the vector $(n-1)/3$ with the spinors. In each case the characters differ; for $a_n^{(1)}$ they are $\omega^{ja}$.
+4. The non-resonance condition $Km_a\ne m_c$ for $2\le K\le\max n_j$ holds for all $a_n^{(1)},d_n^{(1)},e_n^{(1)}$. For $d_n^{(1)}$ it reduces to excluding $2\cos x=\cos y$ for rational angles, by Niven's theorem and the Conway–Jones classification of vanishing sums of cosines. So the polynomial solutions are unique, and $g\in\mathcal Z$ maps the soliton to itself with $E\mapsto\chi_g(a)E$ and the channel-$b$ solution to $\chi_g(b)$ times itself. Comparing top coefficients gives $w_{g(j)}=\chi_g(b)w_j$, so $w\propto\delta^b$. $\square$
+
+*Numerics.* (H) holds in all 339 soliton–channel pairs of $d_4^{(1)},\dots,d_8^{(1)}$ and $e_{6,7,8}^{(1)}$. Components along other equal-mass species are at most $7\times10^{-24}$. Direct integration of the fluctuation equation gives reflectionless, species-diagonal scattering with $T_{cc}=X_c$ to $2\times10^{-10}$ (all solitons of $a_3,d_4,d_5,d_7,e_6,e_7$, and three of $e_8$). The Hirota Wronskian matrices are constant and diagonal to $4\times10^{-15}$. Isolated grid eigenvalues and their multiplicities match the net count, with cancelled zeros absent (for example $\{0,0.95096\}$ for $e_6^{(1)}$, $a=1$, with the cancelled $0.31699$ absent).
+
+**Foldings [Numerical; Theorem given (D) for the parent orbits].** (H) holds in every folded channel of 19 foldings, with $X_b^{\rm fold}=\prod_{a'\in O(a)}X_{a'b}$ to $3\times10^{-23}$: $c_{2,3,4}^{(1)}$, $b_{3,\dots,6}^{(1)}$, $g_2^{(1)}$, $f_4^{(1)}$, $a_{2,4,6}^{(2)}$, $d_{3,4,5}^{(2)}$, $a_{3,5}^{(2)}$, $d_4^{(3)}$ and $e_6^{(2)}$. Two kinds of folding occur. Foldings by a diagram automorphism fixing the affine node have coincident orbits of parent solitons as solitons. Foldings by a centre element keep the parent solitons of character 1. The only folded-channel degeneracy, in $b_n^{(1)}$ with $3\mid n$, is separated by an automorphism that commutes with the folding.
+
+**Multiple zeros and threshold resonances [Numerical].** All zeros of single simply-laced solitons are simple, and all net counts are non-negative. Multiple zeros occur only for coincident orbits:
+
+| theory, soliton | multiple zero | $\lambda_0$ | structure |
+|---|---|---|---|
+| $c_n^{(1)}$, soliton $a<n$ | $X_n$ double | $m_{n-a}^2$ | threshold block (Proposition 8.7) |
+| $b_n^{(1)}$, spinor pair | each vector channel $b$ double; $b$ and $n-b$ coincide | $2\sin^2(\pi b/n)$ | isolated for $b\in\{1,n-1\}$, net 4; threshold block for $b=n/2$ |
+| $g_2^{(1)}$, triple orbit | $X_2$ triple, with a simple zero of $X_1$ | $\tfrac32$ | isolated, multiplicity 4, Jordan type $(3,1)$ |
+| $b_3^{(1)}$, soliton 3 | $X_1,X_2$ double | $\tfrac32$ | isolated, net 4, Jordan type $(2,2)$ |
+| $f_4^{(1)}$, solitons 1 and 3 | double | various | threshold blocks; one isolated cluster of net order 4; one double zero cancelled by a double pole |
+
+The Jordan types were read off from the ranks of $(\mathcal A_N-\lambda_0)^k$ on Fourier grids, and from the $\epsilon^{1/3}$ splitting of the $g_2^{(1)}$ triple. Where (R) fails away from thresholds, they still equal the individual orders.
+
+Simple zeros can also sit exactly at another channel's threshold: in $a_n^{(1)}$ with $h$ even (Proposition 8.6, case $\cos B=0$), in $d_n^{(1)}$ with $n$ odd, and in $e_6^{(1)}$. There the exact solution tends to a constant in the threshold channel. It adds nothing to the $L^2$ root space, but the heat trace counts it with weight 1: dropping it changes the $a_3^{(1)}$ trace by $0.55$ at $t=0.3$. So the trace weight can exceed the dimension of the $L^2$ root space already for single simply-laced solitons. Scripts: `foundations_code/hirota/`.
+
+### 8.9 One-loop masses of the folded solitons
+
+The counting rule turns the one-loop masses into a computation with the transmission factors alone. Write $z=\kappa_b/m_b$, so that $X_b$ becomes a rational function of $z$ for Hirota solitons.
+
+**Proposition 8.9 (one-loop mass from the transmission factors) [Proposition, sketch].** Assume (H), and that $X_b(z)$ is rational with zeros and poles in $(-1,1)$. Then (8.1) equals
+
+$$
+\Delta M=\tfrac12\sum_bm_b\sum_w\operatorname{ord}_w(X_b)\,\psi(\arcsin w),\qquad \psi(t)=\frac{t\cos t-\sin t}{\pi},
+$$
+
+where $w$ runs over all zeros and poles of $X_b$ in both half-planes, with zeros counted positively and poles negatively. Bound states, the continuum phase shift and the counterterm are all contained in $\psi$.
+
+*Sketch.*
+
+1. Insert the Mellin representations of $\sqrt\lambda$ and $\lambda^{-1/2}$ into (8.1). The bracket of heat traces is $O(t^{3/2})$, so the $t$-integral converges.
+2. Insert Proposition 8.5 part 2 and do the $k$-integral first. The counterterm is fixed channel by channel by the Born approximation, $\log X_b(k)=-ic_b/2k+O(k^{-2})$ with $c_b=\int e_{\bar b}^{\mathsf T}(M-M_0)e_b\,dx$. This uses species-diagonality.
+3. Pair channel $b$ with $\bar b$ by Lemma 8.4, $X_{\bar b}(z)=1/X_b(-z)$. The contribution of a root $w$ then collapses to $\psi(\arcsin w)$. $\square$
+
+$\psi$ is continuous at $w=0$, so a zero that crosses a threshold causes no jump. A threshold zero of $X_b$ that is cancelled by a pole of $X_{\bar b}$ contributes nothing once the pair is grouped (Lemma 8.4). A double or triple zero counts two or three times, whether its eigenvalue is isolated, embedded, or at another channel's threshold. A naive energy-weighted phase-shift sum misses a term $c_b/4\pi$ per channel; for the sine-Gordon kink it gives $0$ instead of $-m_1/\pi$.
+
+*Calibration.* The formula reproduces the sine-Gordon kink, $-2m/\pi$ in the units of Section 2.1, and Hollowood's $a_n^{(1)}$ masses, $\Delta M_a=-m_a\big[\tfrac h{2\pi}-\tfrac14\cot\tfrac\pi h\big]$. It also reproduces the Delius–Grisaru $c_n^{(1)}$ masses and the universal twisted rule of [@mackay_watts1995]. The closed form, the unpaired form, the direct phase-shift form and the heat-trace route agree to $10^{-12}$.
+
+**Transmission factors.** For the single solitons of $a_n^{(1)}$ ($n\le9$), $d_n^{(1)}$ ($n\le8$), $e_6^{(1)}$ and $e_7^{(1)}$, the linearized two-soliton $\tau$-functions were computed by a Hirota recursion. The recursion terminates at degree $n_j$ in $\tau_j$, so the fluctuation solutions have the Hirota form (H) and are species-diagonal [Numerical, to $10^{-11}$–$10^{-15}$]. All zeros and poles sit at $z=\cos(\pi x/h)$ with $x$ an integer, and
+
+$$
+X_{ab}(z)=\prod_x\Big[\frac{z-\cos(\pi(x-1)/h)}{z-\cos(\pi(x+1)/h)}\Big]^{m_x}\qquad\text{when}\qquad S_{ab}=\prod_x\{x\}^{m_x}.
+$$
+
+This agrees with the $a_n^{(1)}$ formula of Section 8.6 and with the $d_n^{(1)}$ tables of [@mackay_watts1995]. The folded composites of $b_3^{(1)},b_4^{(1)},b_5^{(1)},g_2^{(1)},c_4^{(1)}$ and $f_4^{(1)}$ are again of Hirota form, with $X_b=\prod_cX_{cb}$ over the constituents $c$ [Numerical, to $10^{-9}$]. So Theorem G and Proposition 8.5 part 1 apply to them.
+
+**Results.** In every family, the counting rule makes all one-loop soliton mass ratios follow the classical pattern with $h$ replaced by one floating Coxeter number $H_s=h+\delta H\,\beta^2+O(\beta^4)$, the same for every ratio [Numerical, to round-off]. Counting each multiple zero once breaks this wherever multiple zeros occur.
+
+| $\hat g$ | folded from | multiple zeros | $\delta H$, counting rule | counting each zero once | exact |
+|---|---|---|---|---|---|
+| $c_n^{(1)}$, $n\le6$ | $a_{2n-1}^{(1)}$ | double, at a threshold | $-1/4\pi$ | inconsistent between ratios | $-1/4\pi$ [@delius_grisaru1995], companion note |
+| $b_n^{(1)}$, $n\le7$ | $d_{n+1}^{(1)}$ | double: isolated, embedded or at a threshold | $+1/4\pi$ | spinor ratio $-(n-1)/4\pi$, as tabulated in [@mackay_watts1995] | $+1/4\pi$ [@gmw1996] |
+| $g_2^{(1)}$ | $d_4^{(1)}$ | triple plus simple, isolated | $+1/2\pi$ | $-1/\pi$, as tabulated in [@mackay_watts1995] | $+1/2\pi$ (Takács) |
+| $f_4^{(1)}$ | $e_6^{(1)}$ | double: isolated, embedded or at a threshold | $+3/4\pi$ | inconsistent between ratios | open |
+| $a_{2n-1}^{(2)}$, $n\le4$ | $d_{2n}^{(1)}$ | none | $-1/8\pi$ | same | companion note |
+| $d_{n+1}^{(2)}$, $n\le6$ | $d_{n+2}^{(1)}$ | none | $+1/2\pi$ | same | [@gm1995] |
+| $a_{2n}^{(2)}$, $n\le3$ | $d_{2n+2}^{(1)}$ | none | $0$ | same | Gandenberger |
+| $d_4^{(3)}$ | $e_6^{(1)}$ | none | $+3/2\pi$ | same | Takács |
+| $e_6^{(2)}$ | $e_7^{(1)}$ | none | $+3/2\pi$ | same | companion note |
+
+For twisted algebras the exact papers normalize the longest root to squared length $2k$, so the comparison uses $\beta^2_{\rm exact}=\beta^2/k$. With that identification every known exact result agrees at $O(\beta^2)$. For the $b_3^{(1)}$ spinor and the $g_2^{(1)}$ triple composite, a Fourier-grid diagonalization finds four eigenvalues clustered at $\lambda=\tfrac32$, as the net count predicts. The heat trace matches Proposition 8.5 part 2 to $10^{-5}$, and the grid value of (8.1) converges towards the closed form. Scripts: `foundations_code/oneloop/`.
+
+This settles the $b_n^{(1)}$ disagreement noted in Section 3.3. The exact masses of [@gmw1996] and the tabulated semiclassics of [@mackay_watts1995] differ by $\tfrac12\omega$ for each double zero of the spinor's transmission factors, which the tables count once. The same mechanism accounts for the $g_2^{(1)}$ entries, with a triple zero.
+
+**Untwisted and twisted.** For untwisted algebras the soliton mass ratios equal the one-loop particle mass ratios of the Lie-dual theory at real coupling $\beta_r^2=\beta^2$. For twisted algebras they equal the particle mass ratios of the same theory continued to $\beta_r^2=-\beta^2$, that is, the breather ratios. [Numerical, in all the families of the table.] In $g_2^{(1)}$ the two differ: Takács's exact amplitude has solitons with $H_s=6+2/\omega\approx6+\beta^2/2\pi$ and breathers with $H_b=6T/(T+1)\approx6-\beta^2/2\pi$.
+
+**A prediction for $f_4^{(1)}$.** The four solitons have the Corrigan–Dorey–Sasaki mass pattern with
+
+$$
+H_s=12+\frac{3\beta^2}{4\pi}+O(\beta^4),
+$$
+
+while the breathers have $H_b=12-3\beta^2/4\pi$ [Numerical, one loop]. Like $g_2^{(1)}$, and unlike $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$, the soliton fusion angles are not those of the particles. The companion note fixes the integer lifts of the $f_4^{(1)}$ scalar factor by assuming that they are (its Section 7.6). With the one-loop soliton masses and the gradation coupling map $1/\omega=\beta^2/4\pi$ instead, the integer solutions are $T=6\omega+\tfrac32+6j$, with zeros at $\omega+j$, $3\omega+\tfrac12+3j$ and $4\omega+1+4j$. For $j=0$ this is the companion note's choice with the $\mathbf{378}$ and $\mathbf{79}$ zeros lowered by one. Rerunning the companion note's construction with these lifts, the lowest-breather amplitude still matches no Corrigan–Dorey–Sasaki amplitude. So the one-loop data relocate the obstruction but do not remove it.
 
 ---
 
@@ -1168,6 +1371,32 @@ Consequently the spectrum of $U$ is invariant under $\lambda\mapsto1/\bar\lambda
 
 Heuristically, $C$ acts on the weights of the vector representation as the longest Weyl element $w_0$, and $-w_0$ is the diagram automorphism. Then $C\Pi$ corresponds to spatial parity, and $\Pi$ to the field parity $P$ of Theorem C composed with the diagram automorphism and spatial parity, both symmetries of the theory. In this sense Proposition 9.2 is a lattice-exact, real-time counterpart of Theorem C, and its Krein-unitarity is the structure that Proposition 9.1 assumes in the continuum.
 
+**Proposition 9.3 (exact Krein-unitarity of the fundamental-soliton S-matrix) [Theorem].** Let $q=e^{i\mu}$ with $0<\mu<\pi$, and let $\tilde R(x)=R(x)/(xq-x^{-1}q^{-1})$, with $R$ Jimbo's R-matrix as in Proposition 9.2. Let $S(\theta)=\Phi(\theta)\tilde R(x(\theta))$, where $x(\theta)>0$ and $x(-\theta)=1/x(\theta)$ for real $\theta$, and where the scalar factor is unitary, $\Phi(\theta)\Phi(-\theta)=1$, and real analytic, $\overline{\Phi(\theta)}=\Phi(-\bar\theta)$. This is the form of the $U_q(\widehat{sl}_n)$ S-matrix of the fundamental solitons of $a_{n-1}^{(1)}$ [@hollowood1993a] in the homogeneous gradation, with $x(\theta)=e^{2T\theta}$. For $N$ such solitons with real rapidities, let
+
+$$
+T_1=S_{1N}(\theta_1-\theta_N)\cdots S_{12}(\theta_1-\theta_2)
+$$
+
+be the Bethe–Yang transfer matrix of soliton 1 on $V^{\otimes N}$, $V=\mathbb C^n$, and let $\mathcal C=C^{\otimes N}$, with $C$ the colour reversal of Proposition 9.2. Then:
+
+1. $\tilde R(y)^\dagger=\tilde R(1/\bar y)$ for every complex $y$, and $(C\otimes C)\tilde R_{12}(C\otimes C)=\tilde R_{21}$.
+2. $T_1^\dagger=\mathcal C\,T_1^{-1}\,\mathcal C$. So $T_1$ is unitary for the Krein form $[\psi,\chi]=\langle\psi,\mathcal C\chi\rangle$, and its eigenvalues are pure phases or come in pairs $(s,1/\bar s)$.
+3. On every topological-charge sector whose states use at most two colours, $T_1$ is similar to a unitary matrix. Such sectors are $\Theta$-unbroken.
+
+In another gradation $\tilde R_{1j}$ becomes $\mathcal D\tilde R_{1j}\mathcal D^{-1}$, with $\mathcal D=\bigotimes_kD(x_k)$ diagonal, by weight conservation. So $T_1$ changes by a similarity, and its eigenvalues do not change.
+
+*Proof.*
+
+1. The entrywise check of part 1 of Proposition 9.2 holds for complex $y$: $R(y)^\dagger=-R(1/\bar y)$ and $\overline{yq-y^{-1}q^{-1}}=-(\bar y^{-1}q-\bar yq^{-1})$. The colour reversal identity is step 4 of that proof.
+2. For real $\theta$, $\lvert\Phi(\theta)\rvert^2=\Phi(\theta)\Phi(-\theta)=1$. With $x=x(\theta_1-\theta_j)>0$, part 1 and the unitarity relation $\tilde R_{1j}(x^{-1})=\tilde R_{j1}(x)^{-1}$ give $S_{1j}^\dagger=\Phi(\theta_1-\theta_j)^{-1}\tilde R_{j1}(x)^{-1}=\mathcal C\,S_{1j}^{-1}\,\mathcal C$. Taking the adjoint of the product reverses its order, so $T_1^\dagger=\mathcal C\,S_{12}^{-1}\cdots S_{1N}^{-1}\,\mathcal C=\mathcal C\,T_1^{-1}\,\mathcal C$. Eigenvalues pair as in Proposition 9.1.
+3. $\tilde R$ conserves the colour content, and on states built from two colours $i<j$ it acts as the $U_q(\widehat{sl}_2)$ R-matrix. In the principal gradation, reached by the similarity above, that R-matrix is symmetric under the swap. Then $\tilde R_{12}(x)\tilde R_{12}(x^{-1})=1$, and part 1 makes it unitary. A product of unitaries is unitary. $\square$
+
+For these S-matrices, Proposition 9.3 proves the conclusion of Proposition 9.1 without assuming asymptotic completeness. The Krein form uses $\mathcal C$, which by the remark after Proposition 9.2 corresponds to the field parity $P$ composed with the diagram automorphism.
+
+*Numerics.* Parts 1 and 2 hold to machine precision for $n=2,3,4$ and $N\le4$. In sectors that use three or more colours the eigenvalues generically leave the unit circle. For $n=3$ and $N=3$, with random real rapidities, $\max\lvert\lvert s\rvert-1\rvert$ in the sector containing all three colours ranges from $0.07$ to $0.47$ for $0.3\le\mu\le3$. The same holds for $n=4$ and for $N=4$. Every two-soliton amplitude, by contrast, has phase eigenvalues, and so do all sectors with at most two colours. So the fundamental-soliton sector of $a_2^{(1)}$ is $\Theta$-broken at three particles for every coupling, although it is unbroken at two. This is the possibility stressed by Takács and Watts [-@tw1999]: phase eigenvalues of all two-particle S-matrices do not imply real finite-volume spectra. It matches Proposition 9.2, where pairs off the unit circle occur only in sectors that contain all three colours. It also shows that no basis of one-soliton states makes the unrestricted $a_2^{(1)}$ fundamental-soliton S-matrix Hermitian analytic: Hermitian analyticity and braiding unitarity would make every $T_1$ unitary. RSOS restriction removes this breaking for $p'\equiv\pm1\pmod p$ (Proposition 9.6). Scripts: `foundations_code/krein_bethe.py` and `foundations_code/scan_n4.py`.
+
+Soliton–antisoliton amplitudes need the crossed R-matrix, which carries diagonal twists by powers of $q$. We have not checked whether part 2 extends to them with a twisted $\mathcal C$. The eigenvalue pairs that Takács and Watts found in that sector (Section 9.2, check against known results) suggest that it does.
+
 **Hermitian analyticity.** Miramontes [-@miramontes1999] showed that braiding unitarity becomes QFT unitarity exactly when, in addition, the S-matrix is Hermitian analytic. He also showed that Hermitian analyticity is consistent with the bootstrap but depends on the basis of states. Together with the results above, this gives a ladder of conditions, from weakest to strongest:
 
 1. braiding unitarity, automatic for quantum-group S-matrices [@delius1995];
@@ -1189,24 +1418,73 @@ This reclassifies H9. QFT unitarity is not a property of the unrestricted theori
 | real coupling, all $\hat g$ | Hermitian and unitary | [Established] |
 | breather–breather, all $\hat g$ | $\Theta$-unbroken | the amplitudes are real-coupling S-matrices continued to $B<0$; their blocks are phases for real $\theta$ [Established] |
 | all sectors of $a_1^{(1)}$ (sine-Gordon) | unbroken; real finite-volume spectra | [@tw2002] |
-| $a_2^{(2)}$, soliton–soliton | unbroken (numerical, three particles) | [@tw1999] |
-| $a_2^{(2)}$, soliton–excited soliton | broken; spectrum real only in the repulsive regime | [@tw1999] |
+| $a_2^{(2)}$, $N$ fundamental kinks | unbroken if and only if $\lvert\psi\rvert\le\pi/N$, where $q^2=-e^{i\psi}$, $\psi=2\pi^2/3\xi$ in the conventions of [@tw1999] | [Numerical], $N\le5$, with bosonic exchange of kink labels; breaking for $\cos\psi<0$ proved at large $\theta$; corrects the two-kink statement of [@tw1999] |
+| $a_2^{(2)}$, soliton–excited soliton | broken; spectrum real only in the repulsive regime | [@tw1999]; the R-part is $\check R(-x)$ (Proposition 9.4) |
+| $a_n^{(1)}$ ($n\ge1$), fundamental solitons, sectors using at most two colours | unbroken, at any number of particles | Proposition 9.3, part 3 [Theorem] |
+| $a_n^{(1)}$ ($n\ge2$), fundamental solitons, sectors using three or more colours | unbroken at two particles; broken at three, for every coupling | Proposition 9.3 [Theorem for the Krein pairing; Numerical for the breaking] |
 | $a_n^{(1)}$ ($n\ge2$), $d_{2n+1}^{(1)}$, $e_6^{(1)}$: soliton–antisoliton and soliton–breather | broken for generic $\beta$; mirrored by complex classical time delays | [@tw1999] for $a_2^{(1)}$; [Conjecture] in general |
-| self-conjugate theories, soliton–breather | unbroken | [Conjecture]. Evidence: one-loop transmission factors are pure phases for real $k$ (shown for $c_n^{(1)}$); the transmission factors fail parity only when both species are non-self-conjugate [@tw1999] |
-| self-conjugate theories, soliton–excited soliton | to be checked case by case | $a_2^{(2)}$ shows these sectors can be broken in attractive regimes |
+| self-conjugate theories, soliton–breather | unbroken, with any number of breathers | Proposition 9.4 [Theorem, given the block form of the breather amplitudes] |
+| self-conjugate theories, soliton–excited soliton | broken wherever an excited soliton at an odd tower level exists | Proposition 9.4 [Theorem for the R-part $\check R(-x)$; Numerical for its spectrum] |
+| $c_n^{(1)}$ ($n\le4$) and $a_{2n-1}^{(2)}$ ($n=3,4$), spinor solitons | broken at every coupling sampled, already at two solitons, outside a window $\lvert\theta\rvert<\theta_c\approx0.003$–$0.05$; three solitons broken even inside it ($c_3^{(1)}$) | [Numerical], with bosonic exchange |
+| $c_3^{(1)}$, all soliton–soliton pairs computed | broken | [Numerical], with bosonic exchange |
+| RSOS-restricted $a_2^{(1)}$ kinks, $p'\equiv\pm1\pmod p$ | unitary at every particle number | Proposition 9.6 [Theorem] |
+| RSOS-restricted $a_2^{(1)}$ kinks, $p'=p+2$ | unbroken, but no Hermitian-analytic basis | Proposition 9.6 [Theorem for the basis; Numerical, up to six kinks, for unbrokenness] |
+| RSOS-restricted $a_2^{(1)}$ kinks, other $p'$ with $p'-p\ge3$ | broken at two kinks, with exact Krein pairs | Proposition 9.6 [Numerical] |
+
+**Proposition 9.4 (scalar factors and breathers) [Theorem].**
+
+1. A scalar factor that is unitary, $F(\theta)F(-\theta)=1$, and real analytic, $\overline{F(\theta)}=F(-\bar\theta)$, has modulus 1 for real $\theta$. So does any product $\prod_kF(\theta+i\alpha_k)$ over a set of real shifts symmetric under $\alpha\to-\alpha$. So scalar factors, including those of fused amplitudes between solitons of equal mass, never cause $\Theta$-breaking. The eigenvalue moduli are those of the R-matrices at real $x$, and depend on the coupling only through $q$.
+2. Suppose every breather amplitude is $\pm\prod(y)$, with the blocks $(y)$ of Section 3.1 and real $y$, as in every known case. Then for real rapidities every Bethe–Yang transfer matrix of a state containing breathers is a phase times the transfer matrix of its solitons alone. So a sector is $\Theta$-unbroken if and only if its soliton content is, and every sector with at most one soliton is unbroken.
+3. An excited soliton at a tower pole $t=a_j-k$ of a fusion of equal-mass solitons carries the module $W((-1)^kx)$, so its R-matrix with the ground solitons is $\check R((-1)^kx)$.
+
+*Proof.*
+
+1. $\overline{F(\theta+i\alpha)}=F(-\theta+i\alpha)=1/F(\theta-i\alpha)$, and the shifts pair up.
+2. Breathers are quantum-group singlets, so every amplitude involving one is a scalar, and $(y)$ has modulus 1 for real $\theta$ and real $y$.
+3. The bound state at relative rapidity $t$ lies in the image of $V(xe^{i\pi t})\otimes V(xe^{-i\pi t})$, so shifting $t$ by an integer $k$ multiplies both spectral parameters by $(-1)^k$. $\square$
+
+Part 2 proves the soliton–breather row of the table. With bosonic exchange of soliton labels, $P\check R(-x)$ has eigenvalues off the unit circle for every R-matrix and every $q$ sampled, with deviations from $0.06$ to $4\times10^3$. So soliton–excited-soliton sectors at odd tower levels are broken wherever they exist. For $a_2^{(2)}$ this is the Takács–Watts result, with threshold $\xi=2\pi/3$.
+
+*Fundamental kinks of $a_2^{(2)}$.* Write the Takács–Watts parameter as $q^2=-e^{i\psi}$, with $\psi=2\pi^2/3\xi$. Their eigenvalue equation for the two-kink amplitude [@tw1999, eq. 5.5] has roots off the unit circle whenever $\cos\psi<0$. For example, at $\xi=0.9\pi$ and $\theta=0.55$ two roots have moduli $2.118$ and $0.472=1/2.118$. So their statement that these eigenvalues are phases for $x>0$ holds only for $\cos\psi\ge0$. At large $x$ a doubly degenerate root splits as $\delta^2=-16\sin^2\psi\cos\psi/x$, which proves the breaking for $\cos\psi<0$ [Theorem]. For $N$ kinks the sector is unbroken if and only if $\lvert\psi\rvert\le\pi/N$ [Numerical, $N\le5$].
+
+*Spinor solitons.* For the spinor solitons of $c_n^{(1)}$ ($n\le4$) and $a_{2n-1}^{(2)}$ ($n=3,4$), the two-soliton amplitude has a pair $(s,1/\bar s)$ off the unit circle at every coupling sampled [Numerical]. Phases survive only for $\lvert\theta\rvert<\theta_c$, with $\theta_c$ between $0.003$ and $0.05$. For $c_3^{(1)}$, three solitons are broken even inside this window, and every soliton–soliton amplitude computed ($S_{33},S_{31},S_{11},S_{32},S_{12}$) is broken. At large $\theta$ the deviation decays like $x^{-1/(n+1)}$. Such an $(n+1)$-fold Puiseux cycle cannot stay on the unit circle once $n+1\ge3$, because the real parts of $c\,e^{2\pi ik/(n+1)}$ sum to zero.
+
+*Caveat: exchange statistics.* These statements use the ordinary flip of soliton labels in the Bethe–Yang equations. A $\mathbb Z_2$ grading of the multiplet changes the eigenvalue moduli; a change of gradation does not. With the charged $a_2^{(2)}$ kinks treated as fermions, the two-kink amplitude has phase eigenvalues at every coupling, as Takács and Watts state, and the $N$-kink sector is unbroken if and only if $\lvert\psi\rvert\le2\pi/N$. The $c_2^{(1)}$ spinor behaves the same way up to three solitons. No $\mathbb Z_2$ grading restores the $c_3^{(1)}$ spinor amplitude. In either convention, sectors with enough fundamental solitons are broken at every coupling tested. So self-conjugacy does not protect multi-soliton sectors. Which convention the field theory selects is part of open problem 6.
+
+In every spectrum computed, the eigenvalues satisfy $\{s\}=\{1/\bar s\}$ to $10^{-9}$ or better, as Proposition 9.1 requires. Scripts: `foundations_code/sectors/`.
 
 ### 9.4 Unitary subtheories
 
 At $q$ a root of unity, RSOS restriction replaces the Krein space by the space of states of a perturbed minimal model, which carries a positive inner product when the minimal model is unitary. The transfer-matrix eigenvalues after restriction are a *different* set from those before [@tw1999]. So restriction can cure a broken sector, but it cannot touch quantum-group singlets such as breathers.
 
-**Conjecture 9.3 [Conjecture].** An RSOS-restricted ATFT is unitary if and only if its restricted (IRF) S-matrix is Hermitian analytic [@miramontes1999]. We conjecture that this holds exactly when (i) the underlying minimal CFT is unitary and (ii) every sector surviving the restriction is $\Theta$-unbroken.
+**Conjecture 9.5 [Conjecture].** The S-matrix of an RSOS-restricted ATFT is unitary if and only if its restricted (IRF) S-matrix is Hermitian analytic in some basis of kink states [@miramontes1999]. We conjecture that this holds exactly when (i) the underlying minimal CFT is unitary and (ii) every sector surviving the restriction is $\Theta$-unbroken. Unitarity of the field theory requires in addition positive bound-state residues (U5). The scaling Lee–Yang model, whose S-matrix is a pure phase but whose residue has the wrong sign, shows that Hermitian analyticity alone does not suffice for that.
 
 Evidence:
 
 - the de Vega–Fateev unitary $W_3$ series, at couplings where breathers decouple;
 - $M_{6,7}+\Phi_{1,2}$, unitary;
 - $M_{3,14}+\Phi_{1,5}$, where TCSA confirms a complex spectrum [@tkw1997; @tw1999];
-- the $U_q(su(2)^{(1)})$-based S-matrices of Hoare, Hollowood and Miramontes [-@hoare2013], whose IRF form at $q$ a root of unity is manifestly Hermitian analytic and hence unitary. This is the mechanism by which restriction restores unitarity. To our knowledge it has not been shown for the RSOS restrictions of higher-rank ATFTs.
+- the $U_q(su(2)^{(1)})$-based S-matrices of Hoare, Hollowood and Miramontes [-@hoare2013], whose IRF form at $q$ a root of unity is manifestly Hermitian analytic and hence unitary. This is the mechanism by which restriction restores unitarity.
+- the RSOS-restricted fundamental kinks of $a_2^{(1)}$ (Proposition 9.6), the first higher-rank case. In every class of couplings tested, the S-matrix is unitary exactly when (i) and (ii) hold.
+
+**Proposition 9.6 (RSOS kinks of $a_2^{(1)}$) [Theorem, given a unitary and real-analytic scalar factor].** Let $\beta^2/4\pi=p/p'$ with $p<p'$ coprime and $p\ge4$. RSOS restriction gives the perturbed $W_3(p,p')$ minimal model, whose vacua are the level-$(p-3)$ weights of $su(3)$; for $W_3(4,5)$ this is the thermal 3-state Potts model. In the symmetric gauge the IRF S-matrix of the fundamental kinks is the Jimbo–Miwa–Okado face weight with each off-diagonal weight multiplied by $\sqrt{d_bd_d/(d_ad_c)}$, where $d_h$ is the quantum dimension of the height $h$. The kink–antikink part follows by crossing. Then:
+
+1. If $p'\equiv\pm1\pmod p$, every $d_h$ is positive, the S-matrix is Hermitian analytic in all four sectors ($33$, $\bar3\bar3$, $3\bar3$, $\bar33$), and $SS^\dagger=1$ for real $\theta$. Every multi-kink transfer matrix is unitary.
+2. If $p'\not\equiv\pm1\pmod p$, some soliton–soliton block has $d_ad_bd_cd_d<0$. No rescaling of kink states that preserves the vacuum labels, even a rapidity-dependent one, makes the S-matrix Hermitian analytic or unitary.
+
+*Proof.*
+
+1. Write $r=p'-p$ and $[x]=\sin(\pi rx/p)/\sin(\pi r/p)$. Then $\operatorname{sgn}[x+2]=\operatorname{sgn}[x]$ for all $1\le x\le p-3$ if and only if $r\equiv\pm1\pmod p$. Indeed, $\operatorname{sgn}[x]=\pm(-1)^{\lfloor sx/p\rfloor}$ with $s\equiv r$, and the increments of $\lfloor sx/p\rfloor$ lie in $\{0,1\}$, so the condition forces them to be constant on $[1,p-2]$, which gives $s\in\{1,p-1\}$.
+2. If $r\equiv\pm1$, every $d_h>0$, so the gauge factors are real. Every weight is a real constant times $[x\pm u]$ or $[x\pm u\pm\tfrac32]$ with $u=3i\theta/2\pi$ imaginary for real $\theta$, so $\overline{w(\theta)}=w(-\theta)$. The gauge is symmetric under exchanging the in and out middle heights. This is Hermitian analyticity, and with braiding unitarity it gives $SS^\dagger=1$ [@miramontes1999]. Products of unitary kink S-matrices are unitary.
+3. If $r\not\equiv\pm1$, step 1 gives some $A$ with $[A+1][A-1]<0$, and $A$ occurs as a height difference in a $2\times2$ soliton–soliton block. There $d_ad_bd_cd_d<0$, so the off-diagonal constant is imaginary and $\overline{S_{db}(\theta)}=-S'_{bd}(-\theta)$ for the reversed process $S'$. Unitarity in a positive diagonal metric would require $\overline{S_{db}}=(n^{\rm in}_b/n^{\rm out}_d)\,S'_{bd}(-\theta)$, so $n^{\rm in}_b/n^{\rm out}_d=-1$, which is impossible. $\square$
+
+*Numerics.* The mixed Yang–Baxter equations and braiding unitarity hold to $10^{-14}$ in all four sectors. Hermitian analyticity and $SS^\dagger=1$ hold to $10^{-12}$ at the eight couplings tested with $p'\equiv\pm1$, and fail by $O(1)$ at the five others. The sign criterion was checked by brute force for $4\le p\le60$. Scripts: `foundations_code/irf/`.
+
+Three consequences follow.
+
+- **Restriction cures the vertex-form breaking.** For $p'\equiv\pm1$ the three-soliton breaking of Proposition 9.3 and the soliton–antisoliton breaking of Takács and Watts both disappear: all restricted transfer matrices are unitary (part 1), and numerically unimodular to $10^{-14}$ for up to six kinks. Breathers are absent exactly when $3(p'-p)\le p$ [@tw1999]. Together with $p'\equiv\pm1$ this leaves $p'=p+1$, the unitary $W_3$ series.
+- **Unbroken does not imply Hermitian analytic.** For $p'=p+2$, for example $W_3(7,9)$, $W_3(9,11)$ and $W_3(11,13)$, every kink transfer matrix computed has unimodular eigenvalues, up to six kinks [Numerical]. These sectors are $\Theta$-unbroken but, by part 2, admit no Hermitian-analytic basis. The obstruction is the sign pattern of the quantum dimensions, which reflects condition (i), not (ii).
+- **Krein pairs survive restriction.** For $p'-p\ge3$ with $p'\not\equiv\pm1$, for example $W_3(10,13)$, the restricted soliton–antisoliton transfer matrices already have eigenvalues off the unit circle at two kinks. They come in exact pairs $(s,1/\bar s)$ to $10^{-12}$, so the restricted S-matrix is still Krein-unitary.
 
 This reduces H12 to a criterion that can be checked from the S-matrix.
 
@@ -1248,9 +1526,9 @@ Each item below gives the property as it holds in a unitary theory, then how it 
 **U1. Real energies and stationary states in finite volume.**
 
 - *In a unitary theory:* all energy levels are real.
-- *In imaginary-coupling ATFT:* complex-conjugate pairs of levels occur in $\Theta$-broken sectors. This is predicted at leading Bethe–Yang order for $a_2^{(1)}$ whenever solitons and breathers are both present, and for $a_2^{(2)}$ in the attractive regime [@tw1999]. It is confirmed by TCSA in $M_{3,14}+\Phi_{1,5}$ [@tkw1997]. The zero-mode reductions of $a_2$ and $c_2$ show complex pairs among excited levels at all couplings (Section 5.6).
+- *In imaginary-coupling ATFT:* complex-conjugate pairs of levels occur in $\Theta$-broken sectors. This is predicted at leading Bethe–Yang order for $a_2^{(1)}$ whenever solitons and breathers are both present, and for $a_2^{(2)}$ in the attractive regime [@tw1999]. It is also predicted for three fundamental solitons of $a_2^{(1)}$ carrying all three colours, at every coupling, although all two-soliton amplitudes have phase eigenvalues (Proposition 9.3). It is confirmed by TCSA in $M_{3,14}+\Phi_{1,5}$ [@tkw1997]. The zero-mode reductions of $a_2$ and $c_2$ show complex pairs among excited levels at all couplings (Section 5.6).
 - *Why it cannot be rescued:* energies are eigenvalues and do not depend on the basis.
-- *Scope:* every theory with a $\Theta$-broken sector. The zero-mode results suggest that complex finite-volume levels may be generic for $r\ge2$, but the minisuperspace approximation does not prove this.
+- *Scope:* every theory with a $\Theta$-broken sector. With bosonic exchange of soliton labels this includes multi-soliton sectors of the self-conjugate theories $c_n^{(1)}$ and $a_{2n-1}^{(2)}$ at every coupling sampled, and of $a_2^{(2)}$ (Section 9.3). The zero-mode results suggest that complex finite-volume levels may be generic for $r\ge2$, but the minisuperspace approximation does not prove this.
 
 **U2. A global probability interpretation (Born rule, conserved positive total probability).**
 
@@ -1310,8 +1588,8 @@ Each item below gives the property as it holds in a unitary theory, then how it 
 | conjugation-symmetric spectrum; conserved Krein form | Theorem C, Proposition 9.1 | every theory |
 | real masses of all asymptotic particles | Proposition 7.1 (classical); one-loop (Section 8); $\lvert q\rvert=1$ in every known exact S-matrix [@delius1995] | every theory |
 | factorization, Yang–Baxter, crossing, braiding unitarity, bootstrap | universal R-matrix [@delius1995] | wherever the quantum affine symmetry holds |
-| real finite-volume spectra; unimodular S-matrix eigenvalues | Bethe–Yang [@tw1999] | $\Theta$-unbroken sectors only: all of sine-Gordon; breather–breather sectors; $a_2^{(2)}$ repulsive regime; conjecturally soliton–breather sectors of self-conjugate theories |
-| QFT unitarity | Hermitian analyticity [@miramontes1999] | specific RSOS restrictions (de Vega–Fateev $W_3$ series, $M_{6,7}+\Phi_{1,2}$); mechanism shown for $U_q(su(2)^{(1)})$-based S-matrices [@hoare2013] |
+| real finite-volume spectra; unimodular S-matrix eigenvalues | Bethe–Yang [@tw1999] | $\Theta$-unbroken sectors only: all of sine-Gordon; breather–breather sectors; soliton–breather sectors of self-conjugate theories (Proposition 9.4); fundamental-soliton sectors of $a_n^{(1)}$ using at most two colours (Proposition 9.3); $N$ kinks of $a_2^{(2)}$ for $\lvert\psi\rvert\le\pi/N$; RSOS-restricted $a_2^{(1)}$ kinks for $p'\equiv\pm1\pmod p$ (Proposition 9.6) |
+| QFT unitarity | Hermitian analyticity [@miramontes1999] | specific RSOS restrictions (de Vega–Fateev $W_3$ series, $M_{6,7}+\Phi_{1,2}$); mechanism shown for $U_q(su(2)^{(1)})$-based S-matrices [@hoare2013] and for the kinks of $a_2^{(1)}$, where it holds exactly for $p'\equiv\pm1\pmod p$ (Proposition 9.6) |
 
 In short, imaginary-coupling ATFTs with $r\ge2$ have a protected vacuum, real particle masses and a consistent S-matrix. They do not have, and cannot be given, a global probability interpretation, probability-conserving scattering, bounded real-time evolution, positive local spectral densities, or positivity-based monotonicity theorems. All of these are lost exactly where $\Theta$ is broken, or, for U5 to U7, wherever imaginary cubic couplings or non-unitary restrictions arise.
 
@@ -1321,12 +1599,12 @@ In short, imaginary-coupling ATFTs with $r\ge2$ have a protected vacuum, real pa
 
 | Criterion | Status |
 |---|---|
-| (C1) definition | lattice: Theorems A and B. Continuum, finite volume: Theorem E for $\beta^2<2\pi$; for $2\pi\le\beta^2<\beta^2_{\rm UV}$ every term converges (Proposition 6.13, sketch), and Proposition 6.1 is conditional on Conjecture 6.14; further counterterms needed above (Proposition 6.7). Infinite volume: Conjecture 6.2 |
+| (C1) definition | lattice: Theorems A and B. Continuum, finite volume: Theorem E for $\beta^2<2\pi$ and Theorem H for $2\pi\le\beta^2<\beta^2_{\rm UV}$; further counterterms needed at and above $\beta^2_{\rm UV}$ (Proposition 6.7). Infinite volume: Conjecture 6.2 |
 | (C2) Euclidean axioms | twisted reflection positivity, giving a Krein-space OS reconstruction (Section 5.4); other axioms as for Coulomb gases |
 | (C3) Hamiltonian | $P$-self-adjoint transfer matrix, $\Theta$-symmetry, real vacuum energy: Theorems C and D |
 | (C4) real masses | classical: Proposition 7.1. One-loop: $\Theta$ plus complex translation, with lattice evaluation. Exact: real in every known S-matrix |
-| (C5) scattering | factorization, Yang–Baxter, crossing, braiding unitarity and bootstrap follow from the universal R-matrix [@delius1995] where S-matrices exist; Krein-unitarity: Proposition 9.1 (sketch), exact on the integrable light-cone lattice (Proposition 9.2). QFT unitarity needs Hermitian analyticity [@miramontes1999] and fails in $\Theta$-broken sectors. **Incomplete for four families (H10)** |
-| (C6) predictivity | TBA and TCSA agree with restricted S-matrices, including complex spectra; semiclassics agrees with exact S-matrices once eigenvalues are counted by algebraic multiplicity, which is the net order of the transmission factors (Theorem F, Propositions 8.5 and 8.6) |
+| (C5) scattering | factorization, Yang–Baxter, crossing, braiding unitarity and bootstrap follow from the universal R-matrix [@delius1995] where S-matrices exist; Krein-unitarity: Proposition 9.1 (sketch), exact on the integrable light-cone lattice (Proposition 9.2) and for the fundamental-soliton S-matrices of $a_n^{(1)}$ (Proposition 9.3). QFT unitarity needs Hermitian analyticity [@miramontes1999] and fails in $\Theta$-broken sectors. **Incomplete for $f_4^{(1)}$ (H10)** |
+| (C6) predictivity | TBA and TCSA agree with restricted S-matrices, including complex spectra; semiclassics agrees with exact S-matrices once eigenvalues are counted by algebraic multiplicity, which is the net order of the transmission factors (Theorem F, Propositions 8.5, 8.6 and 8.8), for every folded algebra with a known exact S-matrix (Section 8.9); integrable-lattice mass ratios agree exactly with the $a_{2n-1}^{(2)}$ S-matrix (Section 3.3) |
 
 **Conclusion.** Imaginary-coupling ATFTs are valid **non-unitary** quantum field theories.
 
@@ -1341,18 +1619,26 @@ They are not unitary. In $\Theta$-unbroken sectors their finite-volume spectra a
 
 ## 12. Open problems
 
-1. Conjecture 6.14, the bound of Theorem 6.9 with the intra-unit factors of (6.5) included. By Lemmas 6.10–6.12 and Proposition 6.13 it completes Proposition 6.1 in the window $2\pi\le\beta^2<\beta^2_{\rm UV}$, where every term of the expansion is already shown, at sketch level, to converge. By Lemma 6.15, the bound (S1) that it would give is equivalent to a stability bound $\sup_a\log\Xi_a(z)\le A(1+z^{1/(1-\kappa)})$ at real fugacity. Also open here: a full write-up of the power counting sketched in Proposition 6.13, and the infinite-volume limit and mass gap (Conjecture 6.2), using multi-species Coulomb-gas methods, including the claim that only vacuum-energy counterterms are needed in the bulk for simply-laced algebras. Theorem E settles Proposition 6.1 for $\beta^2<2\pi$. Theorem 6.9 proves the bound without the unit factors. Proposition 6.8 shows that per-charge (Onsager or moment) bounds cannot go further.
-2. Exact soliton S-matrices. The [companion note on soliton S-matrices](toda_soliton_smatrices.qmd) supplies the lowest solitons of $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$. Still open are $f_4^{(1)}$, where the scalar factor of the $\mathbf{27}$ amplitude is not known, the remaining soliton species, and general $n$ (the closed forms are verified for $n\le4$). The one-loop results of this paper constrain them: masses $M_a\propto\epsilon_a\sin(a\pi/H)$ with $H=2n-\beta^2/4\pi+O(\beta^4)$ for $c_n^{(1)}$, and the exceptional points predict pairs of nearby poles. Two routes avoid the missing S-matrices. The nested Bethe ansatz of the lattice models of open problem 8 gives finite-volume levels and multi-particle transfer-matrix eigenvalues directly, which is all the $\Theta$-breaking criterion of Section 9.2 uses. For $a_{2n-1}^{(2)}$, the lattice mass ratios of [@vernier2016] (Section 3.3), converted to the normalization of Section 2.1 (their longest roots have squared length 4), give a direct check of the one-loop counting rule of Section 8.
-3. Conjecture 8.2 in general. The counting rule is now Theorems F and G and Proposition 8.5, including for embedded eigenvalues and eigenvalues at thresholds. What remains is fourfold. First, check the Hirota form (H) for the $d_n^{(1)}$ and $e_n^{(1)}$ solitons and their foldings ($b_n^{(1)}$, $g_2^{(1)}$, $f_4^{(1)}$ and the twisted algebras). By Theorem G this gives the factorization (F) for them. (H) is proved for $a_n^{(1)}$ and $c_n^{(1)}$ (Propositions 8.6 and 8.7). Second, give a general theory of the trace weight at threshold resonances, which can exceed the dimension of the $L^2$ root space (Proposition 8.7). Third, treat spectral singularities (zeros of $X_b$ at real $k$), which can occur in $\Theta$-broken sectors. Fourth, prove the mass-ratio statement.
+1. The infinite-volume limit and mass gap (Conjecture 6.2), using multi-species Coulomb-gas methods. This includes the claim that only vacuum-energy counterterms are needed in the bulk for simply-laced algebras, and the counterterms needed at and above $\beta^2_{\rm UV}$. In finite volume the continuum limit is now settled below $\beta^2_{\rm UV}$ for every algebra (Theorems E and H). Theorem 6.14 gives the stability bound $\sup_a\log\Xi_a(z)\le A(1+z^{1/(1-\kappa)})$, with the exponent dictated by the bulk free energy (Lemma 6.15). A natural first step towards infinite volume is a version of Theorem 6.14 at fixed physical coupling, with a constant per unit area that is uniform in the volume. Theorems 6.9 and 6.14 would also benefit from an independent referee's check.
+2. Exact soliton S-matrices. The [companion note on soliton S-matrices](toda_soliton_smatrices.qmd) supplies the lowest solitons of $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$. Still open are $f_4^{(1)}$, where the scalar factor of the $\mathbf{27}$ amplitude is not known, the remaining soliton species, and general $n$ (the closed forms are verified for $n\le4$). The one-loop results of Section 8.9 constrain them. They give the floating Coxeter number of the soliton masses for every folded algebra, for example $H=2n-\beta^2/4\pi+O(\beta^4)$ for $c_n^{(1)}$, and the exceptional points predict pairs of nearby poles. For $f_4^{(1)}$ they predict the Corrigan–Dorey–Sasaki soliton mass pattern with $H_s=12+3\beta^2/4\pi$, while the breathers have $H_b=12-3\beta^2/4\pi$. So the assumption of the companion note that soliton and breather fusion angles coincide fails for $f_4^{(1)}$, as it does for Takács's $g_2^{(1)}$ amplitude. The one-loop masses select different integer lifts (Section 8.9), but with them the lowest-breather amplitude still does not match. A construction that ties the solitons to $H_s$ and the breathers to $H_b$ separately, as Takács's $g_2^{(1)}$ amplitude does, is the natural next attempt. Two routes avoid the missing S-matrices. The nested Bethe ansatz of the lattice models of open problem 8 gives finite-volume levels and multi-particle transfer-matrix eigenvalues directly, which is all the $\Theta$-breaking criterion of Section 9.2 uses. For $a_{2n-1}^{(2)}$ the lattice mass ratios of [@vernier2016] agree with the companion note's masses for every $n$ and every coupling in their regime I (Section 3.3). This confirms the S-matrix masses but does not test the counting rule. The $a_{2n-1}^{(2)}$ solitons fold single $d_{2n}^{(1)}$ solitons. These have only simple zeros (Section 8.9), so algebraic and geometric multiplicities coincide there. A lattice test of the counting rule needs a staggered vertex model whose scaling limit is $c_n^{(1)}$ or $b_n^{(1)}$ Toda; by the pattern of Section 3.3 these are the $U_q(c_n^{(1)})$ and $U_q(b_n^{(1)})$ models (open problem 8).
+3. Conjecture 8.2 in general. The counting rule is Theorems F and G and Proposition 8.5. Proposition 8.8 gives (H) for every static soliton of a simply-laced algebra and for every folding, given the degree bound (D), and Section 8.9 checks the mass-ratio statement numerically in every family. The open parts are:
+   - **The degree bound.** Prove (D) for all ranks, presumably through the nilpotency $(F^a)^{n_j+1}=0$ on $L(\Lambda_j)$.
+   - **Threshold weights.** Give a general theory of the trace weight at threshold resonances. These are not special to folding: simple zeros of $X_{ab}$ sit at other channels' thresholds in $a_n^{(1)}$ ($h$ even), $d_n^{(1)}$ ($n$ odd) and $e_6^{(1)}$, and double zeros do so in $b_n^{(1)}$, $c_n^{(1)}$ and $f_4^{(1)}$ (Section 8.8).
+   - **Jordan types without (R).** Prove that the Jordan types equal the individual orders where (R) fails away from thresholds, as in $b_n^{(1)}$, $g_2^{(1)}$ and $f_4^{(1)}$; numerically they do, for example type $(3,1)$ at $\lambda=\tfrac32$ in $g_2^{(1)}$.
+   - **Spectral singularities.** Static solitons have none (Proposition 8.8). They can occur only for moving or breather backgrounds in $\Theta$-broken sectors.
+   - **The mass ratio.** Prove it, and explain why the Lie-dual particle masses appear at $\beta_r^2=+\beta^2$ for untwisted algebras and the theory's own particle masses at $-\beta^2$ for twisted ones. Make Proposition 8.5 part 2, and with it Proposition 8.9, rigorous.
 4. Computation of the thimble intersection numbers, and Conjecture 8.3 (the filling of quantum multiplets).
-5. A proof of Krein asymptotic completeness, completing Proposition 9.1.
-6. The sector classification for self-conjugate theories, in particular soliton–excited-soliton sectors in attractive regimes.
-7. Whether $\Theta$-unbroken sectors of higher-rank RSOS restrictions admit Hermitian-analytic (IRF) bases, extending [@hoare2013] beyond $U_q(su(2)^{(1)})$.
-8. Integrable lattice regularizations: light-cone (staggered) $U_q$ vertex models [@destri1987; @reshetikhin1994], with Bethe-ansatz control of the scaling limit through non-linear integral equations [@destri1992; @destri1995; @zinnjustin1998 for untwisted simply-laced $\hat g$]. Doikou and Nepomechie [-@doikou1999] identify the hole S-matrix of the critical $A_{N-1}^{(1)}$ chain with the $a_{N-1}^{(1)}$ soliton S-matrix. Matching their S-matrix parameter $e^{i\pi/(\nu-1)}$, $\nu=\pi/\mu$, with Section 2.3 shows that for $a_{N-1}^{(1)}$ the lattice anisotropy $q=e^{i\mu}$ corresponds to $\beta^2=4(\pi-\mu)$; for $N=2$ this is the Destri–de Vega relation $\beta_{\rm SG}^2=8(\pi-\mu)$. Theorem E's range is then $\mu>\pi/2$, the attractive regime. The window is $\pi/N<\mu\le\pi/2$, and the neutral thresholds of Section 6.1 sit at $q^{kN}=-1$. The light-cone evolution is exactly Krein-unitary (Proposition 9.2).
+5. A proof of Krein asymptotic completeness, completing Proposition 9.1. For the fundamental solitons of $a_n^{(1)}$ the conclusion of Proposition 9.1 holds exactly, without it (Proposition 9.3). The direct route extends to any S-matrix whose R-matrix satisfies the Hermiticity and colour-reversal identities of Proposition 9.3. The open cases are the crossed (soliton–antisoliton) amplitudes, where the Krein form must absorb the twists of crossing, and the fused and non-simply-laced R-matrices of the companion note.
+6. The sector classification for self-conjugate theories. Soliton–breather sectors are now settled: they are unbroken, with any number of breathers (Proposition 9.4). Soliton–excited-soliton sectors are broken wherever an excited soliton at an odd tower level exists, because their R-part is $\check R(-x)$. With bosonic exchange, the fundamental multi-soliton sectors are broken too: the spinor two-soliton amplitudes of $c_n^{(1)}$ and $a_{2n-1}^{(2)}$ outside a narrow rapidity window, and the $N$-kink sectors of $a_2^{(2)}$ for $\lvert\psi\rvert>\pi/N$ (Section 9.3). What remains:
+   - **Exchange statistics.** Decide which exchange of soliton labels the Bethe–Yang equations require. A $\mathbb Z_2$ grading changes the $a_2^{(2)}$ rule to $\lvert\psi\rvert\le2\pi/N$, and the question may be related to the crossing sign $(-1)^n$ of the companion note. The nested Bethe ansatz of the lattice models of open problem 8 would settle it.
+   - **The $\pi/N$ rule.** Prove it, perhaps through the signature of the $U_q$-invariant Hermitian form on $V^{\otimes N}$ at $\lvert q\rvert=1$.
+   - **Remaining amplitudes.** The $e_6^{(2)}$, $d_4^{(3)}$ and $g_2^{(1)}$ soliton sectors, and the excited solitons of $c_3^{(1)}$, whose towers have half-integer spacing.
+7. Hermitian-analytic (IRF) bases beyond $U_q(su(2)^{(1)})$. For the fundamental kinks of $a_2^{(1)}$ the answer is Proposition 9.6: such a basis exists if and only if $p'\equiv\pm1\pmod p$. So $\Theta$-unbroken sectors need not admit one; the $W_3(p,p+2)$ kink sectors are examples. Three questions remain. (a) The criterion for $U_q(\widehat{sl}_n)$ with $n\ge4$ and for other algebras, which needs fused face weights; the necessity argument of Proposition 9.6 already works for vector kinks at any rank. (b) A proof that the $p'=p+2$ kink sectors are unbroken at every particle number, and an explanation of why $p'-p=2$ is special. (c) The Krein form behind the exact $(s,1/\bar s)$ pairs of the restricted theory, and its relation to that of Proposition 9.3.
+8. Integrable lattice regularizations: light-cone (staggered) $U_q$ vertex models [@destri1987; @reshetikhin1994], with Bethe-ansatz control of the scaling limit through non-linear integral equations [@destri1992; @destri1995; @zinnjustin1998 for untwisted simply-laced $\hat g$]. Doikou and Nepomechie [-@doikou1999] identify the hole S-matrix of the critical $A_{N-1}^{(1)}$ chain with the $a_{N-1}^{(1)}$ soliton S-matrix. Matching their S-matrix parameter $e^{i\pi/(\nu-1)}$, $\nu=\pi/\mu$, with Section 2.3 shows that for $a_{N-1}^{(1)}$ the lattice anisotropy $q=e^{i\mu}$ corresponds to $\beta^2=4(\pi-\mu)$; for $N=2$ this is the Destri–de Vega relation $\beta_{\rm SG}^2=8(\pi-\mu)$. Theorem E's range is then $\mu>\pi/2$, the attractive regime, and Theorem H extends it to $\mu>\pi/N$. The window is $\pi/N<\mu\le\pi/2$, and the neutral thresholds of Section 6.1, the poles of the exact bulk energy, sit at $q^{kN}=-1$. The light-cone evolution is exactly Krein-unitary (Proposition 9.2).
 
-   Three questions precede any use as a definition. (i) Which algebra and which regime. [@vernier2016] obtain imaginary $a_{2n-1}^{(2)}$ Toda from the $U_q(a_{2n-1}^{(2)})$ chain. This suggests that the lattice carries $U_q(\hat g)$ and that $\hat g^\vee$ appears only in the continuum S-matrix, with a renormalized $q$ (Section 3.3). The same R-matrix also has non-Toda continuum limits in other regimes. (ii) The ground-state structure, which [@zinnjustin1998; @doikou1999] assume and which is subtle for twisted algebras. Rigorous Bethe-ansatz tools exist so far only for six-vertex models [@duminil2022], that is for $a_1^{(1)}$, where the window is empty. The Euclidean weights carry phases, so Theorems B and D have no evident counterpart (Proposition 9.2, checks). (iii) The comparison with Section 6. The lattice has periodic boundary conditions and constant coupling, while Theorem E's theory has the coupling profile of Section 6.2. The natural target is a bridge theorem: for $0<\beta^2<2\pi$, the vacuum energy given by the non-linear integral equations on a circle of length $L_t$ equals $-\lim_{L_x\to\infty}L_x^{-1}\log\Xi$, where far from the walls the coupling is constant. This needs a crossed-channel version of Section 5.4, with the spatial zero mode compactified as in Appendix A.
+   Three questions precede any use as a definition. (i) Which algebra and which regime. [@vernier2016] obtain imaginary $a_{2n-1}^{(2)}$ Toda from the $U_q(a_{2n-1}^{(2)})$ chain. This suggests that the lattice carries $U_q(\hat g)$ and that $\hat g^\vee$ appears only in the continuum S-matrix, with a renormalized $q$ (Section 3.3). For $a_{2n-1}^{(2)}$ the renormalization is explicit: the lattice has $q=e^{i\gamma}$ and the soliton S-matrix $q=-e^{-i\pi^2/2\gamma}$. The same R-matrix also has non-Toda continuum limits in other regimes. (ii) The ground-state structure, which [@zinnjustin1998; @doikou1999] assume and which is subtle for twisted algebras. Rigorous Bethe-ansatz tools exist so far only for six-vertex models [@duminil2022], that is for $a_1^{(1)}$, where the window is empty. The Euclidean weights carry phases, so Theorems B and D have no evident counterpart (Proposition 9.2, checks). (iii) The comparison with Section 6. The lattice has periodic boundary conditions and constant coupling, while Theorem E's theory has the coupling profile of Section 6.2. The natural target is a bridge theorem: for $0<\beta^2<2\pi$, the vacuum energy given by the non-linear integral equations on a circle of length $L_t$ equals $-\lim_{L_x\to\infty}L_x^{-1}\log\Xi$, where far from the walls the coupling is constant. This needs a crossed-channel version of Section 5.4, with the spatial zero mode compactified as in Appendix A.
 
-   This route does not bypass Conjecture 6.14. What it can supply is the bulk energy and its singularities across the window (Section 6.1), finite-volume form factors through the quantum inverse problem [@hegedus2017], and the data missing in problem 2.
+   In finite volume this route is no longer needed for existence below $\beta^2_{\rm UV}$ (Theorem H). What it can supply is the bulk energy and its singularities across the window (Section 6.1), finite-volume form factors through the quantum inverse problem [@hegedus2017], and the data missing in problem 2.
 
 ---
 

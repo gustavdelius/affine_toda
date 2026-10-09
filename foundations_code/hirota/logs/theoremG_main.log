@@ -1,0 +1,19 @@
+### d4 soliton 1: mu=1.4142 xi=0.0000+1.0472j min|tau|=0.500 channels m^2={1: 2.0, 2: 6.0, 3: 2.0, 4: 2.0}
+  W at lam=0.300+0.700j: x-variation 2.7e-15; |W - diag(-2 kappa X u^T u)|/|W| = 6.8e-16; Hirota X vs closed form 6.9e-16
+  W at lam=1.000-0.400j: x-variation 4.1e-15; |W - diag(-2 kappa X u^T u)|/|W| = 2.1e-15; Hirota X vs closed form 9.4e-16
+  W at lam=6.600+0.900j: x-variation 5.9e-16; |W - diag(-2 kappa X u^T u)|/|W| = 3.8e-16; Hirota X vs closed form 4.6e-16
+  det ratio at lam=(0.3+0.7j): raw/prodX=1.083927+0.000005j  corrected/prodX=0.99999002+0.00000419j  (prod X=-0.00183-0.00131j)
+  det ratio at lam=(-0.5+0.2j): raw/prodX=1.083922+0.000001j  corrected/prodX=0.99998524+0.00000120j  (prod X=0.00189-0.00095j)
+  det ratio at lam=(1.7-1.1j): raw/prodX=1.083936-0.000007j  corrected/prodX=0.99999840-0.00000659j  (prod X=-0.00105-0.00897j)
+  N=512 Lp=24.0: eigenvalues below lowest threshold 2.0000: [0j, (1.5+0j), (1.5+0j)]
+  net count prediction: [(0.0, 1), (1.5, 2)]  cancelled: []
+   lam=0.000000: predicted 1, found 1, max dev 1.4e-11
+   lam=1.500000: predicted 2, found 2, max dev 1.7e-07
+  SPECTRUM OK (92s)
+### e6 soliton 4: mu=3.0764 xi=0.0000+1.4923j min|tau|=0.665 channels m^2={1: 1.2679, 2: 2.5359, 3: 4.7321, 4: 9.4641, 5: 4.7321, 6: 1.2679}
+  W at lam=0.300+0.700j: x-variation 2.1e-15; |W - diag(-2 kappa X u^T u)|/|W| = 6.9e-16; Hirota X vs closed form 5.8e-16
+  W at lam=0.634-0.400j: x-variation 3.4e-15; |W - diag(-2 kappa X u^T u)|/|W| = 2.7e-15; Hirota X vs closed form 5.0e-16
+  W at lam=10.411+0.900j: x-variation 8.5e-16; |W - diag(-2 kappa X u^T u)|/|W| = 6.1e-16; Hirota X vs closed form 7.8e-16
+  det ratio at lam=(0.3+0.7j): raw/prodX=1.419913+0.000026j  corrected/prodX=0.99993071+0.00001820j  (prod X=-0.00000+0.00000j)
+  det ratio at lam=(-0.5+0.2j): raw/prodX=1.419884+0.000007j  corrected/prodX=0.99990992+0.00000520j  (prod X=-0.00000-0.00000j)
+  det ratio at lam=(1.7-1.1j): raw/prodX=1.419965-0.000045j  corrected/prodX=0.99996728-0.00003195j  (prod X=-0.00000+0.00000j)

@@ -143,7 +143,7 @@ $$
 \frac{M_a}{M_n}=2\sin\frac{a\pi}{H},\qquad H=\frac{2T}{\omega+\frac12}=2n+B,\qquad B=-\frac{1}{\omega+\frac12}=-\frac{2\beta^2}{8\pi-\beta^2},\qquad a=1,\dots,n-1 .
 $$
 
-This is the classical $c_n^{(1)}$ soliton spectrum with $h$ replaced by $H$. For $n=3$ it reproduces the Delius–Grisaru one-loop corrections [@delius_grisaru1995], since $H=6+\beta^2/2\pi+O(\beta^4)$. This confirms their value in the dispute with [@mackay_watts1995].
+This is the classical $c_n^{(1)}$ soliton spectrum with $h$ replaced by $H$. For $n=3$ it reproduces the Delius–Grisaru one-loop corrections [@delius_grisaru1995], since $H=6-\beta^2/4\pi+O(\beta^4)$. This confirms their value in the dispute with [@mackay_watts1995].
 
 ### 3.4 Breather–particle identification
 
@@ -252,7 +252,7 @@ $$
 a_j=(2j-1)\,\omega+(j-1),\qquad T=a_n=(2n-1)\,\omega+n-1,\qquad \omega=\frac{2\pi}{\beta^2}-1,\qquad q=-e^{-2\pi^2 i/\beta^2} .
 $$
 
-This $T$ coincides exactly with the gradation of Section 2.1. Again $T-a_j=2(n-j)(\omega+\tfrac12)$, and the other lift choices we tested fail the breather test.
+Here, as in [@gm1995; @dgz1992], the longest root of the twisted algebra has squared length 4. In the normalization of the foundations paper, where the longest roots have squared length 2, $\beta^2$ is replaced by $\beta^2/2$, so that $\omega=4\pi/\beta^2-1$. This $T$ coincides exactly with the gradation of Section 2.1. Again $T-a_j=2(n-j)(\omega+\tfrac12)$, and the other lift choices we tested fail the breather test.
 
 The bound state $n+n\to n-j$ sits at $t=a_j$. At $n=4$ the residue ranks are $93=84+9$ (the Kirillov–Reshetikhin module $W^{(3)}$), $37=36+1$ and $9$ (the vector). The masses are
 

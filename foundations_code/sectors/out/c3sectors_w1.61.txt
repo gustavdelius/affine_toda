@@ -1,0 +1,7 @@
+omega=1.61, T=5.8300, masses M1=1.07674 M2=1.81476 M3=1
+2* (1+1 at t=omega) residue singular values (29,30th rel): [0.12669 0.12669 0.      0.     ]
+3* (3+1 at t=2w+1/4, M=1.23486) residue sv: [8.38248e-01 8.38248e-01 1.00000e-06 1.00000e-06]
+S[3,3] (dims 8x8; symmetric offsets True): max ||s|-1| = 1.74e+00 at log x = 2T theta = -1.75; Krein pairing err 3e-13; closure 0e+00; unimodular window in log x: (-0.5, 0.5)  [3s]
+S[3,1] (dims 8x8; symmetric offsets True): max ||s|-1| = 1.94e+01 at log x = 2T theta = -0.00; Krein pairing err 1e-11; closure 4e-14; unimodular window in log x: None  [16s]
+S[1,1] (dims 8x8; symmetric offsets True): max ||s|-1| = 2.38e+00 at log x = 2T theta = -1.00; Krein pairing err 4e-13; closure 2e-10; unimodular window in log x: (-0.0, 0.0)  [178s]
+S[3,2] (dims 8x29; symmetric offsets True): max ||s|-1| = 1.32e+02 at log x = 2T theta = 0.00; Krein pairing err 7e-10; closure 3e-14; unimodular window in log x: None  [476s]

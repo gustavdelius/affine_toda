@@ -1,0 +1,179 @@
+
+##### c_2^(1) from a_3^(1)  (beta_parent^2 = 1.0 beta^2)
+  folded channel masses^2 (thresholds): [2. 4.]
+  soliton [2]: M_cl = 16.000000/beta^2, ratio to lightest 1.000000, dM = -0.70492966, dM/M_cl = -0.04405810 beta^2 (single count: -0.04405810)
+  soliton [0, 1]: M_cl = 22.627417/beta^2, ratio to lightest 1.414214, dM = -0.64336769, dM/M_cl = -0.02843310 beta^2 (single count: -0.05968310)
+      zero of order 2 in channel [2] (m=2.00000) at x=1: lambda=2.000000, AT THRESHOLD
+  [same theory continued, beta_r^2 = -beta^2] particle dlog(m_a/m_1) per beta^2: [-0.       -0.015625]
+      soliton  dlog(M_a/M_1) counting rule : [0.       0.015625]  -> max dev 3.1e-02
+      soliton  dlog(M_a/M_1) single count  : [ 0.       -0.015625]  -> max dev 1.0e-17
+      M_a^qu/m_a^qu - classical, per beta^2 (should be a-independent): [-0.0753081 -0.0440581]
+
+##### c_3^(1) from a_5^(1)  (beta_parent^2 = 1.0 beta^2)
+  folded channel masses^2 (thresholds): [1. 3. 4.]
+  soliton [4]: M_cl = 24.000000/beta^2, ratio to lightest 1.000000, dM = -0.84022684, dM/M_cl = -0.03500945 beta^2 (single count: -0.03500945)
+  soliton [0, 1]: M_cl = 24.000000/beta^2, ratio to lightest 1.000000, dM = -0.55155171, dM/M_cl = -0.02298132 beta^2 (single count: -0.05906571)
+      zero of order 2 in channel [4] (m=2.00000) at x=2: lambda=3.000000, AT THRESHOLD
+  soliton [2, 3]: M_cl = 41.569219/beta^2, ratio to lightest 1.732051, dM = -1.12198225, dM/M_cl = -0.02699070 beta^2 (single count: -0.03901883)
+      zero of order 2 in channel [4] (m=2.00000) at x=1: lambda=1.000000, AT THRESHOLD
+  [Lie-dual real coupling, beta_r^2 = +beta^2] degenerate classical masses: pairing within degenerate groups chosen by match: [0, 1, 2]
+  [Lie-dual real coupling, beta_r^2 = +beta^2] particle dlog(m_a/m_1) per beta^2: [0.         0.01202813 0.00801875]
+      soliton  dlog(M_a/M_1) counting rule : [0.         0.01202813 0.00801875]  -> max dev 2.1e-17
+      soliton  dlog(M_a/M_1) single count  : [ 0.         -0.02405626 -0.00400938]  -> max dev 3.6e-02
+      M_a^qu/m_a^qu - classical, per beta^2 (should be a-independent): [0.00107494 0.00107494 0.00107494]
+  [same theory continued, beta_r^2 = -beta^2] classical ratios do not match: solitons [1.      1.      1.73205], particles [1.      1.73205 2.     ]
+
+##### c_4^(1) from a_7^(1)  (beta_parent^2 = 1.0 beta^2)
+  folded channel masses^2 (thresholds): [0.585786 2.       3.414214 4.      ]
+  soliton [0, 1]: M_cl = 24.491740/beta^2, ratio to lightest 1.000000, dM = -0.52520955, dM/M_cl = -0.02144435 beta^2 (single count: -0.05916644)
+      zero of order 2 in channel [6] (m=2.00000) at x=3: lambda=3.414214, AT THRESHOLD
+  soliton [6]: M_cl = 32.000000/beta^2, ratio to lightest 1.306563, dM = -0.98799604, dM/M_cl = -0.03087488 beta^2 (single count: -0.03087488)
+  soliton [2, 3]: M_cl = 45.254834/beta^2, ratio to lightest 1.847759, dM = -1.04368401, dM/M_cl = -0.02306238 beta^2 (single count: -0.03868738)
+      zero of order 2 in channel [6] (m=2.00000) at x=2: lambda=2.000000, AT THRESHOLD
+  soliton [4, 5]: M_cl = 59.128290/beta^2, ratio to lightest 2.414214, dM = -1.53856607, dM/M_cl = -0.02602081 beta^2 (single count: -0.03249290)
+      zero of order 2 in channel [6] (m=2.00000) at x=1: lambda=0.585786, AT THRESHOLD
+  [Lie-dual real coupling, beta_r^2 = +beta^2] particle dlog(m_a/m_1) per beta^2: [ 0.         -0.00943052 -0.00161802 -0.00457646]
+      soliton  dlog(M_a/M_1) counting rule : [ 0.         -0.00943052 -0.00161802 -0.00457646]  -> max dev 1.4e-17
+      soliton  dlog(M_a/M_1) single count  : [0.         0.02829157 0.02047907 0.02667354]  -> max dev 3.8e-02
+      M_a^qu/m_a^qu - classical, per beta^2 (should be a-independent): [0.00684721 0.00684721 0.00684721 0.00684721]
+  [same theory continued, beta_r^2 = -beta^2] classical ratios do not match: solitons [1.      1.30656 1.84776 2.41421], particles [1.      1.84776 2.41421 2.61313]
+
+##### c_5^(1) from a_9^(1)  (beta_parent^2 = 1.0 beta^2)
+  folded channel masses^2 (thresholds): [0.381966 1.381966 2.618034 3.618034 4.      ]
+  soliton [0, 1]: M_cl = 24.721360/beta^2, ratio to lightest 1.000000, dM = -0.51461841, dM/M_cl = -0.02081675 beta^2 (single count: -0.05928780)
+      zero of order 2 in channel [8] (m=2.00000) at x=4: lambda=3.618034, AT THRESHOLD
+  soliton [8]: M_cl = 40.000000/beta^2, ratio to lightest 1.618034, dM = -1.14043843, dM/M_cl = -0.02851096 beta^2 (single count: -0.02851096)
+  soliton [2, 3]: M_cl = 47.022820/beta^2, ratio to lightest 1.902113, dM = -1.01705899, dM/M_cl = -0.02162905 beta^2 (single count: -0.03883383)
+      zero of order 2 in channel [8] (m=2.00000) at x=3: lambda=2.618034, AT THRESHOLD
+  soliton [4, 5]: M_cl = 64.721360/beta^2, ratio to lightest 2.618034, dM = -1.49259699, dM/M_cl = -0.02306189 beta^2 (single count: -0.03214367)
+      zero of order 2 in channel [8] (m=2.00000) at x=2: lambda=1.381966, AT THRESHOLD
+  soliton [6, 7]: M_cl = 76.084521/beta^2, ratio to lightest 3.077684, dM = -1.92202921, dM/M_cl = -0.02526176 beta^2 (single count: -0.02932326)
+      zero of order 2 in channel [8] (m=2.00000) at x=1: lambda=0.381966, AT THRESHOLD
+  [Lie-dual real coupling, beta_r^2 = +beta^2] particle dlog(m_a/m_1) per beta^2: [ 0.         -0.00769421 -0.0008123  -0.00224514 -0.00444501]
+      soliton  dlog(M_a/M_1) counting rule : [ 0.         -0.00769421 -0.0008123  -0.00224514 -0.00444501]  -> max dev 4.9e-17
+      soliton  dlog(M_a/M_1) single count  : [0.         0.03077684 0.02045397 0.02714412 0.02996454]  -> max dev 3.8e-02
+      M_a^qu/m_a^qu - classical, per beta^2 (should be a-independent): [0.00996008 0.00996008 0.00996008 0.00996008 0.00996008]
+  [same theory continued, beta_r^2 = -beta^2] classical ratios do not match: solitons [1.      1.61803 1.90211 2.61803 3.07768], particles [1.      1.90211 2.61803 3.07768 3.23607]
+
+##### b_3^(1) from d_4^(1)  (beta_parent^2 = 1.0 beta^2)
+  folded channel masses^2 (thresholds): [2. 6.]
+  soliton [0]: M_cl = 16.970563/beta^2, ratio to lightest 1.000000, dM = -0.71714710, dM/M_cl = -0.04225830 beta^2 (single count: -0.04225830)
+  soliton [3]: M_cl = 29.393877/beta^2, ratio to lightest 1.732051, dM = -1.12428409, dM/M_cl = -0.03824892 beta^2 (single count: -0.03824892)
+  soliton [1, 2]: M_cl = 33.941125/beta^2, ratio to lightest 2.000000, dM = -1.02604592, dM/M_cl = -0.03023017 beta^2 (single count: -0.06631456)
+      zero of order 2 in channel [0] (m=1.41421) at x=2: lambda=1.500000, isolated (below all thresholds)
+      zero of order 2 in channel [3] (m=2.44949) at x=1: lambda=1.500000, isolated (below all thresholds)
+  [Lie-dual real coupling, beta_r^2 = +beta^2] particle dlog(m_a/m_1) per beta^2: [0.         0.00400938 0.01202813]
+      soliton  dlog(M_a/M_1) counting rule : [0.         0.00400938 0.01202813]  -> max dev 2.3e-16
+      soliton  dlog(M_a/M_1) single count  : [ 0.          0.00400938 -0.02405626]  -> max dev 3.6e-02
+      M_a^qu/m_a^qu - classical, per beta^2 (should be a-independent): [-0.01218797 -0.01218797 -0.01218797]
+  [same theory continued, beta_r^2 = -beta^2] classical ratios do not match: solitons [1.      1.73205 2.     ], particles [1.      1.      1.73205]
+
+##### b_4^(1) from d_5^(1)  (beta_parent^2 = 1.0 beta^2)
+  folded channel masses^2 (thresholds): [1.171573 2.       4.       6.828427]
+  soliton [0]: M_cl = 17.318275/beta^2, ratio to lightest 1.000000, dM = -0.71591537, dM/M_cl = -0.04133872 beta^2 (single count: -0.04133872)
+  soliton [3]: M_cl = 32.000000/beta^2, ratio to lightest 1.847759, dM = -1.27106242, dM/M_cl = -0.03972070 beta^2 (single count: -0.03972070)
+  soliton [4]: M_cl = 41.810015/beta^2, ratio to lightest 2.414214, dM = -1.53703088, dM/M_cl = -0.03676227 beta^2 (single count: -0.03676227)
+  soliton [1, 2]: M_cl = 45.254834/beta^2, ratio to lightest 2.613126, dM = -1.44400033, dM/M_cl = -0.03190820 beta^2 (single count: -0.06963029)
+      zero of order 2 in channel [0] (m=1.08239) at x=3: lambda=1.000000, isolated (below all thresholds)
+      zero of order 2 in channel [3] (m=2.00000) at x=2: lambda=2.000000, AT THRESHOLD
+      zero of order 2 in channel [4] (m=2.61313) at x=1: lambda=1.000000, isolated (below all thresholds)
+  [Lie-dual real coupling, beta_r^2 = +beta^2] particle dlog(m_a/m_1) per beta^2: [0.         0.00161802 0.00457646 0.00943052]
+      soliton  dlog(M_a/M_1) counting rule : [0.         0.00161802 0.00457646 0.00943052]  -> max dev 8.0e-17
+      soliton  dlog(M_a/M_1) single count  : [ 0.          0.00161802  0.00457646 -0.02829157]  -> max dev 3.8e-02
+      M_a^qu/m_a^qu - classical, per beta^2 (should be a-independent): [-0.01304716 -0.01304716 -0.01304716 -0.01304716]
+  [same theory continued, beta_r^2 = -beta^2] classical ratios do not match: solitons [1.      1.84776 2.41421 2.61313], particles [1.      1.30656 1.84776 2.41421]
+
+##### b_5^(1) from d_6^(1)  (beta_parent^2 = 1.0 beta^2)
+  folded channel masses^2 (thresholds): [0.763932 2.       2.763932 5.236068 7.236068]
+  soliton [0]: M_cl = 17.480641/beta^2, ratio to lightest 1.000000, dM = -0.71395988, dM/M_cl = -0.04084289 beta^2 (single count: -0.04084289)
+  soliton [3]: M_cl = 33.250155/beta^2, ratio to lightest 1.902113, dM = -1.33102332, dM/M_cl = -0.04003059 beta^2 (single count: -0.04003059)
+  soliton [4]: M_cl = 45.764912/beta^2, ratio to lightest 2.618034, dM = -1.76642260, dM/M_cl = -0.03859775 beta^2 (single count: -0.03859775)
+  soliton [5]: M_cl = 53.799881/beta^2, ratio to lightest 3.077684, dM = -1.95820146, dM/M_cl = -0.03639788 beta^2 (single count: -0.03639788)
+  soliton [1, 2]: M_cl = 56.568542/beta^2, ratio to lightest 3.236068, dM = -1.87517252, dM/M_cl = -0.03314868 beta^2 (single count: -0.07161972)
+      zero of order 2 in channel [0] (m=0.87403) at x=4: lambda=0.690983, isolated (below all thresholds)
+      zero of order 2 in channel [3] (m=1.66251) at x=3: lambda=1.809017, embedded
+      zero of order 2 in channel [4] (m=2.28825) at x=2: lambda=1.809017, embedded
+      zero of order 2 in channel [5] (m=2.68999) at x=1: lambda=0.690983, isolated (below all thresholds)
+  [Lie-dual real coupling, beta_r^2 = +beta^2] particle dlog(m_a/m_1) per beta^2: [0.         0.0008123  0.00224514 0.00444501 0.00769421]
+      soliton  dlog(M_a/M_1) counting rule : [0.         0.0008123  0.00224514 0.00444501 0.00769421]  -> max dev 6.6e-17
+      soliton  dlog(M_a/M_1) single count  : [ 0.          0.0008123   0.00224514  0.00444501 -0.03077684]  -> max dev 3.8e-02
+      M_a^qu/m_a^qu - classical, per beta^2 (should be a-independent): [-0.01391316 -0.01391316 -0.01391316 -0.01391316 -0.01391316]
+  [same theory continued, beta_r^2 = -beta^2] classical ratios do not match: solitons [1.      1.90211 2.61803 3.07768 3.23607], particles [1.      1.61803 1.90211 2.61803 3.07768]
+
+##### b_6^(1) from d_7^(1)  (beta_parent^2 = 1.0 beta^2)
+  folded channel masses^2 (thresholds): [0.535898 2.       4.       6.       7.464102]
+  soliton [0]: M_cl = 17.569219/beta^2, ratio to lightest 1.000000, dM = -0.71242730, dM/M_cl = -0.04054974 beta^2 (single count: -0.04054974)
+  soliton [3]: M_cl = 33.941125/beta^2, ratio to lightest 1.931852, dM = -1.36051480, dM/M_cl = -0.04008455 beta^2 (single count: -0.04008455)
+  soliton [4]: M_cl = 48.000000/beta^2, ratio to lightest 2.732051, dM = -1.88538334, dM/M_cl = -0.03927882 beta^2 (single count: -0.03927882)
+  soliton [5]: M_cl = 58.787754/beta^2, ratio to lightest 3.346065, dM = -2.23862962, dM/M_cl = -0.03807986 beta^2 (single count: -0.03807986)
+  soliton [6]: M_cl = 65.569219/beta^2, ratio to lightest 3.732051, dM = -2.38648578, dM/M_cl = -0.03639643 beta^2 (single count: -0.03639643)
+  soliton [1, 2]: M_cl = 67.882251/beta^2, ratio to lightest 3.863703, dM = -2.31278131, dM/M_cl = -0.03407049 beta^2 (single count: -0.07294602)
+      zero of order 2 in channel [0] (m=0.73205) at x=5: lambda=0.500000, isolated (below all thresholds)
+      zero of order 2 in channel [3] (m=1.41421) at x=4: lambda=1.500000, embedded
+      zero of order 2 in channel [4] (m=2.00000) at x=3: lambda=2.000000, AT THRESHOLD
+      zero of order 2 in channel [5] (m=2.44949) at x=2: lambda=1.500000, embedded
+      zero of order 2 in channel [6] (m=2.73205) at x=1: lambda=0.500000, isolated (below all thresholds)
+  [Lie-dual real coupling, beta_r^2 = +beta^2] particle dlog(m_a/m_1) per beta^2: [0.         0.00046519 0.00127092 0.00246988 0.00415331 0.00647925]
+      soliton  dlog(M_a/M_1) counting rule : [0.         0.00046519 0.00127092 0.00246988 0.00415331 0.00647925]  -> max dev 1.5e-16
+      soliton  dlog(M_a/M_1) single count  : [ 0.          0.00046519  0.00127092  0.00246988  0.00415331 -0.03239627]  -> max dev 3.9e-02
+      M_a^qu/m_a^qu - classical, per beta^2 (should be a-independent): [-0.01463272 -0.01463272 -0.01463272 -0.01463272 -0.01463272 -0.01463272]
+  [same theory continued, beta_r^2 = -beta^2] classical ratios do not match: solitons [1.      1.93185 2.73205 3.34607 3.73205 3.8637 ], particles [1.      1.93185 1.93185 2.73205 3.34607 3.73205]
+
+##### b_7^(1) from d_8^(1)  (beta_parent^2 = 1.0 beta^2)
+  folded channel masses^2 (thresholds): [0.396125 1.506041 2.       3.109916 4.890084 6.493959 7.603875]
+  soliton [0]: M_cl = 17.622759/beta^2, ratio to lightest 1.000000, dM = -0.71130943, dM/M_cl = -0.04036311 beta^2 (single count: -0.04036311)
+  soliton [1]: M_cl = 34.361839/beta^2, ratio to lightest 1.949856, dM = -1.37694718, dM/M_cl = -0.04007199 beta^2 (single count: -0.04007199)
+  soliton [4]: M_cl = 49.377873/beta^2, ratio to lightest 2.801938, dM = -1.95403337, dM/M_cl = -0.03957306 beta^2 (single count: -0.03957306)
+  soliton [5]: M_cl = 61.917894/beta^2, ratio to lightest 3.513519, dM = -2.40510654, dM/M_cl = -0.03884348 beta^2 (single count: -0.03884348)
+  soliton [6]: M_cl = 71.353094/beta^2, ratio to lightest 4.048917, dM = -2.70042960, dM/M_cl = -0.03784601 beta^2 (single count: -0.03784601)
+  soliton [7]: M_cl = 77.210351/beta^2, ratio to lightest 4.381286, dM = -2.81983788, dM/M_cl = -0.03652150 beta^2 (single count: -0.03652150)
+  soliton [2, 3]: M_cl = 79.195959/beta^2, ratio to lightest 4.493959, dM = -2.75401882, dM/M_cl = -0.03477474 beta^2 (single count: -0.07389337)
+      zero of order 2 in channel [0] (m=0.62938) at x=6: lambda=0.376510, isolated (below all thresholds)
+      zero of order 2 in channel [1] (m=1.22721) at x=5: lambda=1.222521, embedded
+      zero of order 2 in channel [4] (m=1.76350) at x=4: lambda=1.900969, embedded
+      zero of order 2 in channel [5] (m=2.21135) at x=3: lambda=1.900969, embedded
+      zero of order 2 in channel [6] (m=2.54832) at x=2: lambda=1.222521, embedded
+      zero of order 2 in channel [7] (m=2.75751) at x=1: lambda=0.376510, isolated (below all thresholds)
+  [Lie-dual real coupling, beta_r^2 = +beta^2] particle dlog(m_a/m_1) per beta^2: [0.         0.00029113 0.00079006 0.00151963 0.00251711 0.00384161
+ 0.00558838]
+      soliton  dlog(M_a/M_1) counting rule : [0.         0.00029113 0.00079006 0.00151963 0.00251711 0.00384161
+ 0.00558838]  -> max dev 1.1e-16
+      soliton  dlog(M_a/M_1) single count  : [ 0.          0.00029113  0.00079006  0.00151963  0.00251711  0.00384161
+ -0.03353025]  -> max dev 3.9e-02
+      M_a^qu/m_a^qu - classical, per beta^2 (should be a-independent): [-0.01521543 -0.01521543 -0.01521543 -0.01521543 -0.01521543 -0.01521543
+ -0.01521543]
+  [same theory continued, beta_r^2 = -beta^2] classical ratios do not match: solitons [1.      1.94986 2.80194 3.51352 4.04892 4.38129 4.49396], particles [1.      1.94986 2.24698 2.80194 3.51352 4.04892 4.38129]
+
+##### g_2^(1) from d_4^(1)  (beta_parent^2 = 1.0 beta^2)
+  folded channel masses^2 (thresholds): [2. 6.]
+  soliton [3]: M_cl = 29.393877/beta^2, ratio to lightest 1.000000, dM = -0.97013795, dM/M_cl = -0.03300476 beta^2 (single count: -0.03300476)
+  soliton [0, 1, 2]: M_cl = 50.911688/beta^2, ratio to lightest 1.732051, dM = -1.27207993, dM/M_cl = -0.02498601 beta^2 (single count: -0.04904227)
+      zero of order 3 in channel [3] (m=2.44949) at x=1: lambda=1.500000, isolated (below all thresholds)
+  [Lie-dual real coupling, beta_r^2 = +beta^2] particle dlog(m_a/m_1) per beta^2: [0.         0.00801875]
+      soliton  dlog(M_a/M_1) counting rule : [0.         0.00801875]  -> max dev 1.4e-17
+      soliton  dlog(M_a/M_1) single count  : [ 0.         -0.01603751]  -> max dev 2.4e-02
+      M_a^qu/m_a^qu - classical, per beta^2 (should be a-independent): [-0.00493913 -0.00493913]
+  [same theory continued, beta_r^2 = -beta^2] particle dlog(m_a/m_1) per beta^2: [-0.         -0.00801875]
+      soliton  dlog(M_a/M_1) counting rule : [0.         0.00801875]  -> max dev 1.6e-02
+      soliton  dlog(M_a/M_1) single count  : [ 0.         -0.01603751]  -> max dev 8.0e-03
+      M_a^qu/m_a^qu - classical, per beta^2 (should be a-independent): [-0.0610704  -0.04503289]
+
+##### f_4^(1) from e_6^(1)  (beta_parent^2 = 1.0 beta^2)
+  folded channel masses^2 (thresholds): [1.267949 2.535898 4.732051 9.464102]
+  soliton [2]: M_cl = 38.218810/beta^2, ratio to lightest 1.000000, dM = -1.26621301, dM/M_cl = -0.03313062 beta^2 (single count: -0.03313062)
+  soliton [0, 1]: M_cl = 54.049560/beta^2, ratio to lightest 1.414214, dM = -1.50918749, dM/M_cl = -0.02792229 beta^2 (single count: -0.05256839)
+      zero of order 2 in channel [2] (m=1.59245) at x=3: lambda=1.267949, AT THRESHOLD
+      zero of order 2 in channel [5] (m=3.07638) at x=2: lambda=2.366025, embedded
+  soliton [5]: M_cl = 73.833072/beta^2, ratio to lightest 1.931852, dM = -2.34309658, dM/M_cl = -0.03173505 beta^2 (single count: -0.03173505)
+  soliton [3, 4]: M_cl = 104.415732/beta^2, ratio to lightest 2.732051, dM = -3.06124568, dM/M_cl = -0.02931786 beta^2 (single count: -0.04736005)
+      zero of order 2 in channel [2] (m=1.59245) at x=2: lambda=0.633975, isolated (below all thresholds)
+      zero of order 2 in channel [5] (m=3.07638) at x=1: lambda=0.633975, isolated (below all thresholds)
+      zero of order 2 in channel [5] (m=3.07638) at x=3: lambda=4.732051, AT THRESHOLD
+  [Lie-dual real coupling, beta_r^2 = +beta^2] particle dlog(m_a/m_1) per beta^2: [0.         0.00520833 0.00139557 0.00381276]
+      soliton  dlog(M_a/M_1) counting rule : [0.         0.00520833 0.00139557 0.00381276]  -> max dev 4.5e-17
+      soliton  dlog(M_a/M_1) single count  : [ 0.         -0.01943776  0.00139557 -0.01422943]  -> max dev 2.5e-02
+      M_a^qu/m_a^qu - classical, per beta^2 (should be a-independent): [-0.00136981 -0.00136981 -0.00136981 -0.00136981]
+  [same theory continued, beta_r^2 = -beta^2] particle dlog(m_a/m_1) per beta^2: [-0.         -0.00520833 -0.00139557 -0.00381276]
+      soliton  dlog(M_a/M_1) counting rule : [0.         0.00520833 0.00139557 0.00381276]  -> max dev 1.0e-02
+      soliton  dlog(M_a/M_1) single count  : [ 0.         -0.01943776  0.00139557 -0.01422943]  -> max dev 1.4e-02
+      M_a^qu/m_a^qu - classical, per beta^2 (should be a-independent): [-0.06489144 -0.05447477 -0.0621003  -0.05726591]

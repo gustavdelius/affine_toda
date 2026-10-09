@@ -1,0 +1,35 @@
+### b3(1)<d4 soliton 3: mu=1.41421; thresholds m^2 = {1: 2.0, 2: 6.0, 3: 2.0}
+  X_1 zero q=2 order 2: lambda0=1.500000 (isolated); kappa0=0.70711, kappa0/mu=0.5000 -> chain of length 2 in L^2 (all tails decay)
+  X_2 zero q=1 order 2: lambda0=1.500000 (isolated); kappa0=2.12132, kappa0/mu=1.5000 -> chi_1 NOT in L^2: tail exponent kappa0-1mu=+0.70711 (growing), coeff 4.90e+00; tail along channels {1: 9.99e-16, 3: 3.46e+00} (residual 2.2e-15)
+### b4(1)<d5 soliton 4: mu=1.41421; thresholds m^2 = {1: 1.17157, 2: 4.0, 3: 6.82843, 4: 2.0}
+  X_1 zero q=3 order 2: lambda0=1.000000 (isolated); kappa0=0.41421, kappa0/mu=0.2929 -> chain of length 2 in L^2 (all tails decay)
+  X_2 zero q=2 order 2: lambda0=2.000000 (embedded, AT THRESHOLD of [4]); kappa0=1.41421, kappa0/mu=1.0000 -> chi_1 NOT in L^2: tail exponent kappa0-1mu=+0.00000 (bounded (threshold tail)), coeff 8.00e+00; tail along channels {1: 9.71e-16, 4: 5.66e+00} (residual 1.8e-15)
+  X_3 zero q=1 order 2: lambda0=1.000000 (isolated); kappa0=2.41421, kappa0/mu=1.7071 -> chi_1 NOT in L^2: tail exponent kappa0-1mu=+1.00000 (growing), coeff 6.12e+00; tail along channels {4: 4.33e+00} (residual 8.9e-16)
+### b5(1)<d6 soliton 5: mu=1.41421; thresholds m^2 = {1: 0.76393, 2: 2.76393, 3: 5.23607, 4: 7.23607, 5: 2.0}
+  X_1 zero q=4 order 2: lambda0=0.690983 (isolated); kappa0=0.27009, kappa0/mu=0.1910 -> chain of length 2 in L^2 (all tails decay)
+  X_2 zero q=3 order 2: lambda0=1.809017 (embedded); kappa0=0.97720, kappa0/mu=0.6910 -> chain of length 2 in L^2 (all tails decay)
+  X_3 zero q=2 order 2: lambda0=1.809017 (embedded); kappa0=1.85123, kappa0/mu=1.3090 -> chi_1 NOT in L^2: tail exponent kappa0-1mu=+0.43702 (growing), coeff 8.74e+00; tail along channels {5: 6.18e+00} (residual 1.8e-15)
+  X_4 zero q=1 order 2: lambda0=0.690983 (isolated); kappa0=2.55834, kappa0/mu=1.8090 -> chi_1 NOT in L^2: tail exponent kappa0-1mu=+1.14412 (growing), coeff 7.43e+00; tail along channels {5: 5.26e+00} (residual 8.9e-16)
+### b6(1)<d7 soliton 6: mu=1.41421; thresholds m^2 = {1: 0.5359, 2: 2.0, 3: 4.0, 4: 6.0, 5: 7.4641, 6: 2.0}
+  X_1 zero q=5 order 2: lambda0=0.500000 (isolated); kappa0=0.18947, kappa0/mu=0.1340 -> chain of length 2 in L^2 (all tails decay)
+  X_2 zero q=4 order 2: lambda0=1.500000 (embedded); kappa0=0.70711, kappa0/mu=0.5000 -> chain of length 2 in L^2 (all tails decay)
+  X_3 zero q=3 order 2: lambda0=2.000000 (embedded, AT THRESHOLD of [2, 6]); kappa0=1.41421, kappa0/mu=1.0000 -> chi_1 NOT in L^2: tail exponent kappa0-1mu=+0.00000 (bounded (threshold tail)), coeff 1.20e+01; tail along channels {1: 2.58e-15, 2: 2.78e-16, 6: 8.49e+00} (residual 3.6e-15)
+  X_4 zero q=2 order 2: lambda0=1.500000 (embedded); kappa0=2.12132, kappa0/mu=1.5000 -> chi_1 NOT in L^2: tail exponent kappa0-1mu=+0.70711 (growing), coeff 9.80e+00; tail along channels {2: 1.11e-16, 6: 6.93e+00} (residual 1.8e-15)
+  X_5 zero q=1 order 2: lambda0=0.500000 (isolated); kappa0=2.63896, kappa0/mu=1.8660 -> chi_1 NOT in L^2: tail exponent kappa0-1mu=+1.22474 (growing), coeff 8.78e+00; tail along channels {2: 2.78e-16, 6: 6.21e+00} (residual 1.8e-15)
+### g2(1)<d4 soliton 1: mu=1.41421; thresholds m^2 = {1: 2.0, 2: 6.0}
+  X_2 zero q=1 order 3: lambda0=1.500000 (isolated); kappa0=2.12132, kappa0/mu=1.5000 -> chi_2 NOT in L^2: tail exponent kappa0-1mu=+0.70711 (growing), coeff 2.40e+01; tail along channels {1: 1.80e+01} (residual 1.8e-15)
+### f4(1)<e6 soliton 1: mu=1.12603; thresholds m^2 = {1: 1.26795, 2: 2.5359, 3: 4.73205, 4: 9.4641}
+  X_2 zero q=3 order 2: lambda0=1.267949 (embedded, AT THRESHOLD of [1]); kappa0=1.12603, kappa0/mu=1.0000 -> chi_1 NOT in L^2: tail exponent kappa0-1mu=+0.00000 (bounded (threshold tail)), coeff 8.49e+00; tail along channels {1: 6.53e+00} (residual 1.8e-15)
+  X_4 zero q=2 order 2: lambda0=2.366025 (embedded); kappa0=2.66422, kappa0/mu=2.3660 -> chi_0 NOT in L^2: tail exponent kappa0-2mu=+0.41216 (growing), coeff 4.86e+00; tail along channels {2: 2.14e+00} (residual 8.9e-16)
+### f4(1)<e6 soliton 3: mu=2.17533; thresholds m^2 = {1: 1.26795, 2: 2.5359, 3: 4.73205, 4: 9.4641}
+  X_2 zero q=2 order 2: lambda0=0.633975 (isolated); kappa0=1.37910, kappa0/mu=0.6340 -> chain of length 2 in L^2 (all tails decay)
+  X_4 zero q=1 order 2: lambda0=0.633975 (isolated); kappa0=2.97155, kappa0/mu=1.3660 -> chi_1 NOT in L^2: tail exponent kappa0-1mu=+0.79623 (growing), coeff 6.21e+00; tail along channels {1: 4.78e+00} (residual 8.9e-16)
+  X_4 zero q=3 order 2: lambda0=4.732051 (embedded, AT THRESHOLD of [3]); kappa0=2.17533, kappa0/mu=1.0000 -> chi_1 NOT in L^2: tail exponent kappa0-1mu=-0.00000 (bounded (threshold tail)), coeff 2.99e+01; tail along channels {1: 7.37e-16, 2: 3.44e-16, 3: 6.53e+00} (residual 1.1e-14)
+### c2(1)<a3 soliton 1: mu=1.41421; thresholds m^2 = {1: 2.0, 2: 4.0}
+  X_2 zero q=1 order 2: lambda0=2.000000 (embedded, AT THRESHOLD of [1]); kappa0=1.41421, kappa0/mu=1.0000 -> chi_1 NOT in L^2: tail exponent kappa0-1mu=+0.00000 (bounded (threshold tail)), coeff 4.62e+00; tail along channels {1: 2.83e+00} (residual 9.8e-43)
+### c4(1)<a7 soliton 1: mu=0.76537; thresholds m^2 = {1: 0.58579, 2: 2.0, 3: 3.41421, 4: 4.0}
+  X_4 zero q=3 order 2: lambda0=3.414214 (embedded, AT THRESHOLD of [3]); kappa0=0.76537, kappa0/mu=1.0000 -> chi_1 NOT in L^2: tail exponent kappa0-1mu=-0.00000 (bounded (threshold tail)), coeff 6.04e+00; tail along channels {1: 2.84e-16, 2: 4.44e-16, 3: 3.06e+00} (residual 1.3e-15)
+### c4(1)<a7 soliton 2: mu=1.41421; thresholds m^2 = {1: 0.58579, 2: 2.0, 3: 3.41421, 4: 4.0}
+  X_4 zero q=2 order 2: lambda0=2.000000 (embedded, AT THRESHOLD of [2]); kappa0=1.41421, kappa0/mu=1.0000 -> chi_1 NOT in L^2: tail exponent kappa0-1mu=+0.00000 (bounded (threshold tail)), coeff 4.62e+00; tail along channels {1: 5.21e-16, 2: 2.83e+00} (residual 8.9e-16)
+### c4(1)<a7 soliton 3: mu=1.84776; thresholds m^2 = {1: 0.58579, 2: 2.0, 3: 3.41421, 4: 4.0}
+  X_4 zero q=1 order 2: lambda0=0.585786 (embedded, AT THRESHOLD of [1]); kappa0=1.84776, kappa0/mu=1.0000 -> chi_1 NOT in L^2: tail exponent kappa0-1mu=+0.00000 (bounded (threshold tail)), coeff 7.07e+00; tail along channels {1: 7.39e+00} (residual 8.9e-16)

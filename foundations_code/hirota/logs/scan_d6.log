@@ -1,0 +1,38 @@
+d6 a=1 b=1: zeros/poles q:N = {0:1, 2:-1, 8:1, 10:-1} fit=2.3e-30 mix=3.0e-30
+d6 a=1 b=2: zeros/poles q:N = {1:1, 3:-1, 7:1, 9:-1} fit=2.0e-30 mix=3.5e-30
+d6 a=1 b=3: zeros/poles q:N = {2:1, 4:-1, 6:1, 8:-1} fit=2.9e-30 mix=3.3e-31
+d6 a=1 b=4: zeros/poles q:N = {3:1, 7:-1} fit=2.4e-30 mix=9.4e-31
+d6 a=1 b=5: zeros/poles q:N = {4:1, 6:-1} fit=1.4e-30 mix=1.2e-31
+d6 a=1 b=6: zeros/poles q:N = {4:1, 6:-1} fit=1.4e-30 mix=1.3e-31
+d6 a=2 b=1: zeros/poles q:N = {1:1, 3:-1, 7:1, 9:-1} fit=8.8e-31 mix=6.2e-31
+d6 a=2 b=2: zeros/poles q:N = {0:1, 4:-1, 6:1, 10:-1} fit=2.5e-30 mix=4.3e-31
+d6 a=2 b=3: zeros/poles q:N = {1:1, 9:-1} fit=1.1e-30 mix=1.5e-31
+d6 a=2 b=4: zeros/poles q:N = {2:1, 4:1, 6:-1, 8:-1} fit=1.6e-30 mix=9.1e-31
+d6 a=2 b=5: zeros/poles q:N = {3:1, 7:-1} fit=7.5e-31 mix=4.6e-32
+d6 a=2 b=6: zeros/poles q:N = {3:1, 7:-1} fit=7.5e-31 mix=4.8e-32
+d6 a=3 b=1: zeros/poles q:N = {2:1, 4:-1, 6:1, 8:-1} fit=3.1e-30 mix=1.8e-30
+d6 a=3 b=2: zeros/poles q:N = {1:1, 9:-1} fit=5.1e-31 mix=3.5e-31
+d6 a=3 b=3: zeros/poles q:N = {0:1, 4:1, 6:-1, 10:-1} fit=3.0e-30 mix=6.4e-31
+d6 a=3 b=4: zeros/poles q:N = {1:1, 3:1, 7:-1, 9:-1} fit=1.6e-30 mix=1.4e-30
+d6 a=3 b=5: zeros/poles q:N = {2:1, 8:-1} fit=5.9e-31 mix=1.5e-32
+d6 a=3 b=6: zeros/poles q:N = {2:1, 8:-1} fit=5.9e-31 mix=1.5e-32
+d6 a=4 b=1: zeros/poles q:N = {3:1, 7:-1} fit=1.3e-30 mix=2.0e-30
+d6 a=4 b=2: zeros/poles q:N = {2:1, 4:1, 6:-1, 8:-1} fit=2.9e-30 mix=3.3e-30
+d6 a=4 b=3: zeros/poles q:N = {1:1, 3:1, 7:-1, 9:-1} fit=5.5e-30 mix=1.4e-30
+d6 a=4 b=4: zeros/poles q:N = {0:1, 2:1, 8:-1, 10:-1} fit=6.3e-30 mix=1.7e-30
+d6 a=4 b=5: zeros/poles q:N = {1:1, 9:-1} fit=4.9e-31 mix=1.4e-31
+d6 a=4 b=6: zeros/poles q:N = {1:1, 9:-1} fit=4.9e-31 mix=1.4e-31
+d6 a=5 b=1: zeros/poles q:N = {4:1, 6:-1} fit=8.9e-31 mix=8.6e-31
+d6 a=5 b=2: zeros/poles q:N = {3:1, 7:-1} fit=1.5e-30 mix=1.4e-30
+d6 a=5 b=3: zeros/poles q:N = {2:1, 8:-1} fit=8.9e-31 mix=1.9e-31
+d6 a=5 b=4: zeros/poles q:N = {1:1, 9:-1} fit=6.5e-31 mix=2.4e-31
+d6 a=5 b=5: zeros/poles q:N = {0:1, 2:-1, 4:1, 6:-1, 8:1, 10:-1} fit=9.2e-31 mix=6.8e-32
+d6 a=5 b=6: zeros/poles q:N = {2:1, 4:-1, 6:1, 8:-1} fit=9.0e-31 mix=6.3e-32
+d6 a=6 b=1: zeros/poles q:N = {4:1, 6:-1} fit=8.9e-31 mix=8.6e-31
+d6 a=6 b=2: zeros/poles q:N = {3:1, 7:-1} fit=1.5e-30 mix=1.4e-30
+d6 a=6 b=3: zeros/poles q:N = {2:1, 8:-1} fit=8.9e-31 mix=1.9e-31
+d6 a=6 b=4: zeros/poles q:N = {1:1, 9:-1} fit=6.5e-31 mix=2.4e-31
+d6 a=6 b=5: zeros/poles q:N = {2:1, 4:-1, 6:1, 8:-1} fit=9.0e-31 mix=6.6e-32
+d6 a=6 b=6: zeros/poles q:N = {0:1, 2:-1, 4:1, 6:-1, 8:1, 10:-1} fit=9.2e-31 mix=6.7e-32
+d6 WORST {'dropped': 2.322971780447008e-30, 'resid': 1.2388582748828254e-29, 'eig': 2.271424227292233e-29, 'mix': 3.5085902403188774e-30, 'fit': 6.347527967273417e-30}
+time 41.860230922698975

@@ -1,0 +1,308 @@
+== c2(1)<a3: parent a3, sigma=(0, 3, 2, 1), central=False, folded species (orbit members): {1: [1, 3], 2: [2]}
+  soliton 1 (orbit [1, 3]): deg=[2, 2, 2, 2] dropped=0.0e+00 resid=2.0e-31 sigma-inv err=4.8e-35
+    channel 1: X exps {0: 1, 4: -1} fit=1.4e-30 (H)-mix/resid=4.8e-31 product-formula=OK
+    channel 2: X exps {1: 2, 3: -2} fit=6.7e-31 (H)-mix/resid=9.3e-31 product-formula=OK
+  soliton 2 (orbit [2]): deg=[1, 1, 1, 1] dropped=0.0e+00 resid=0.0e+00 sigma-inv err=0.0e+00
+    channel 1: X exps {1: 1, 3: -1} fit=6.9e-31 (H)-mix/resid=9.4e-31 product-formula=OK
+    channel 2: X exps {0: 1, 4: -1} fit=2.5e-31 (H)-mix/resid=2.0e-31 product-formula=OK
+c2(1)<a3 WORST 1.4123127897782063e-30
+== c3(1)<a5: parent a5, sigma=(0, 5, 4, 3, 2, 1), central=False, folded species (orbit members): {1: [1, 5], 2: [2, 4], 3: [3]}
+  soliton 1 (orbit [1, 5]): deg=[2, 2, 2, 2, 2, 2] dropped=0.0e+00 resid=4.5e-31 sigma-inv err=1.4e-31
+    channel 1: X exps {0: 1, 2: -1, 4: 1, 6: -1} fit=1.6e-30 (H)-mix/resid=1.1e-30 product-formula=OK
+    channel 2: X exps {1: 1, 5: -1} fit=1.7e-30 (H)-mix/resid=1.4e-30 product-formula=OK
+    channel 3: X exps {2: 2, 4: -2} fit=2.7e-30 (H)-mix/resid=2.0e-30 product-formula=OK
+  soliton 2 (orbit [2, 4]): deg=[2, 2, 2, 2, 2, 2] dropped=0.0e+00 resid=1.6e-32 sigma-inv err=3.0e-31
+    channel 1: X exps {1: 1, 5: -1} fit=2.0e-30 (H)-mix/resid=6.9e-31 product-formula=OK
+    channel 2: X exps {0: 1, 2: 1, 4: -1, 6: -1} fit=3.1e-30 (H)-mix/resid=1.8e-30 product-formula=OK
+    channel 3: X exps {1: 2, 5: -2} fit=9.1e-31 (H)-mix/resid=1.5e-30 product-formula=OK
+  soliton 3 (orbit [3]): deg=[1, 1, 1, 1, 1, 1] dropped=0.0e+00 resid=0.0e+00 sigma-inv err=0.0e+00
+    channel 1: X exps {2: 1, 4: -1} fit=5.2e-31 (H)-mix/resid=5.8e-31 product-formula=OK
+    channel 2: X exps {1: 1, 5: -1} fit=5.5e-31 (H)-mix/resid=2.6e-30 product-formula=OK
+    channel 3: X exps {0: 1, 6: -1} fit=3.1e-31 (H)-mix/resid=7.9e-31 product-formula=OK
+c3(1)<a5 WORST 3.094034717852353e-30
+== c4(1)<a7: parent a7, sigma=(0, 7, 6, 5, 4, 3, 2, 1), central=False, folded species (orbit members): {1: [1, 7], 2: [2, 6], 3: [3, 5], 4: [4]}
+  soliton 1 (orbit [1, 7]): deg=[2, 2, 2, 2, 2, 2, 2, 2] dropped=0.0e+00 resid=3.2e-30 sigma-inv err=3.5e-30
+    channel 1: X exps {0: 1, 2: -1, 6: 1, 8: -1} fit=1.4e-30 (H)-mix/resid=2.1e-30 product-formula=OK
+    channel 2: X exps {1: 1, 3: -1, 5: 1, 7: -1} fit=1.6e-30 (H)-mix/resid=1.4e-30 product-formula=OK
+    channel 3: X exps {2: 1, 6: -1} fit=2.4e-30 (H)-mix/resid=3.7e-30 product-formula=OK
+    channel 4: X exps {3: 2, 5: -2} fit=8.8e-31 (H)-mix/resid=2.0e-30 product-formula=OK
+  soliton 2 (orbit [2, 6]): deg=[2, 2, 2, 2, 2, 2, 2, 2] dropped=0.0e+00 resid=2.0e-31 sigma-inv err=4.8e-35
+    channel 1: X exps {1: 1, 3: -1, 5: 1, 7: -1} fit=1.4e-30 (H)-mix/resid=9.0e-31 product-formula=OK
+    channel 2: X exps {0: 1, 8: -1} fit=1.9e-30 (H)-mix/resid=8.8e-31 product-formula=OK
+    channel 3: X exps {1: 1, 3: 1, 5: -1, 7: -1} fit=1.3e-30 (H)-mix/resid=9.7e-31 product-formula=OK
+    channel 4: X exps {2: 2, 6: -2} fit=6.7e-31 (H)-mix/resid=1.7e-30 product-formula=OK
+  soliton 3 (orbit [3, 5]): deg=[2, 2, 2, 2, 2, 2, 2, 2] dropped=0.0e+00 resid=1.7e-31 sigma-inv err=3.9e-31
+    channel 1: X exps {2: 1, 6: -1} fit=1.4e-30 (H)-mix/resid=2.0e-30 product-formula=OK
+    channel 2: X exps {1: 1, 3: 1, 5: -1, 7: -1} fit=2.4e-30 (H)-mix/resid=2.2e-30 product-formula=OK
+    channel 3: X exps {0: 1, 2: 1, 6: -1, 8: -1} fit=3.5e-30 (H)-mix/resid=5.6e-30 product-formula=OK
+    channel 4: X exps {1: 2, 7: -2} fit=1.1e-30 (H)-mix/resid=4.5e-30 product-formula=OK
+  soliton 4 (orbit [4]): deg=[1, 1, 1, 1, 1, 1, 1, 1] dropped=0.0e+00 resid=0.0e+00 sigma-inv err=0.0e+00
+    channel 1: X exps {3: 1, 5: -1} fit=5.9e-31 (H)-mix/resid=3.0e-31 product-formula=OK
+    channel 2: X exps {2: 1, 6: -1} fit=8.0e-31 (H)-mix/resid=1.3e-30 product-formula=OK
+    channel 3: X exps {1: 1, 7: -1} fit=6.4e-31 (H)-mix/resid=2.0e-30 product-formula=OK
+    channel 4: X exps {0: 1, 8: -1} fit=2.5e-31 (H)-mix/resid=7.9e-31 product-formula=OK
+c4(1)<a7 WORST 5.591092332638325e-30
+== a2(2)<a2: parent a2, sigma=(0, 2, 1), central=False, folded species (orbit members): {1: [1, 2]}
+  soliton 1 (orbit [1, 2]): deg=[2, 2, 2] dropped=0.0e+00 resid=0.0e+00 sigma-inv err=2.0e-31
+    channel 1: X exps {0: 1, 1: 1, 2: -1, 3: -1} fit=2.4e-30 (H)-mix/resid=1.7e-30 product-formula=OK
+a2(2)<a2 WORST 2.4428122260784017e-30
+== a4(2)<a4: parent a4, sigma=(0, 4, 3, 2, 1), central=False, folded species (orbit members): {1: [1, 4], 2: [2, 3]}
+  soliton 1 (orbit [1, 4]): deg=[2, 2, 2, 2, 2] dropped=0.0e+00 resid=3.3e-31 sigma-inv err=3.1e-31
+    channel 1: X exps {0: 1, 2: -1, 3: 1, 5: -1} fit=1.6e-30 (H)-mix/resid=1.6e-30 product-formula=OK
+    channel 2: X exps {1: 1, 2: 1, 3: -1, 4: -1} fit=2.7e-30 (H)-mix/resid=8.2e-31 product-formula=OK
+  soliton 2 (orbit [2, 3]): deg=[2, 2, 2, 2, 2] dropped=0.0e+00 resid=1.6e-31 sigma-inv err=2.0e-31
+    channel 1: X exps {1: 1, 2: 1, 3: -1, 4: -1} fit=3.4e-30 (H)-mix/resid=3.4e-30 product-formula=OK
+    channel 2: X exps {0: 1, 1: 1, 4: -1, 5: -1} fit=7.4e-30 (H)-mix/resid=1.1e-29 product-formula=OK
+a4(2)<a4 WORST 1.1257414273316616e-29
+== a6(2)<a6: parent a6, sigma=(0, 6, 5, 4, 3, 2, 1), central=False, folded species (orbit members): {1: [1, 6], 2: [2, 5], 3: [3, 4]}
+  soliton 1 (orbit [1, 6]): deg=[2, 2, 2, 2, 2, 2, 2] dropped=0.0e+00 resid=6.5e-31 sigma-inv err=2.0e-31
+    channel 1: X exps {0: 1, 2: -1, 5: 1, 7: -1} fit=4.6e-30 (H)-mix/resid=1.8e-30 product-formula=OK
+    channel 2: X exps {1: 1, 3: -1, 4: 1, 6: -1} fit=2.1e-30 (H)-mix/resid=1.2e-30 product-formula=OK
+    channel 3: X exps {2: 1, 3: 1, 4: -1, 5: -1} fit=3.2e-30 (H)-mix/resid=1.7e-30 product-formula=OK
+  soliton 2 (orbit [2, 5]): deg=[2, 2, 2, 2, 2, 2, 2] dropped=0.0e+00 resid=4.0e-31 sigma-inv err=2.8e-31
+    channel 1: X exps {1: 1, 3: -1, 4: 1, 6: -1} fit=1.4e-30 (H)-mix/resid=1.2e-30 product-formula=OK
+    channel 2: X exps {0: 1, 3: 1, 4: -1, 7: -1} fit=2.6e-30 (H)-mix/resid=2.3e-30 product-formula=OK
+    channel 3: X exps {1: 1, 2: 1, 5: -1, 6: -1} fit=3.5e-30 (H)-mix/resid=2.2e-30 product-formula=OK
+  soliton 3 (orbit [3, 4]): deg=[2, 2, 2, 2, 2, 2, 2] dropped=0.0e+00 resid=1.7e-31 sigma-inv err=6.9e-31
+    channel 1: X exps {2: 1, 3: 1, 4: -1, 5: -1} fit=3.1e-30 (H)-mix/resid=5.5e-30 product-formula=OK
+    channel 2: X exps {1: 1, 2: 1, 5: -1, 6: -1} fit=8.5e-30 (H)-mix/resid=9.5e-30 product-formula=OK
+    channel 3: X exps {0: 1, 1: 1, 6: -1, 7: -1} fit=8.9e-30 (H)-mix/resid=7.1e-30 product-formula=OK
+a6(2)<a6 WORST 9.548250991833274e-30
+== b3(1)<d4: parent d4, sigma=(0, 1, 2, 4, 3), central=False, folded species (orbit members): {1: [1], 2: [2], 3: [3, 4]}
+  soliton 1 (orbit [1]): deg=[1, 1, 2, 1, 1] dropped=9.9e-32 resid=3.0e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {0: 1, 2: -1, 4: 1, 6: -1} fit=7.1e-31 (H)-mix/resid=1.2e-30 product-formula=OK
+    channel 2: X exps {1: 1, 5: -1} fit=8.6e-31 (H)-mix/resid=4.1e-30 product-formula=OK
+    channel 3: X exps {2: 1, 4: -1} fit=7.9e-31 (H)-mix/resid=1.2e-30 product-formula=OK
+  soliton 2 (orbit [2]): deg=[1, 1, 2, 1, 1] dropped=1.8e-33 resid=1.3e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {1: 1, 5: -1} fit=4.6e-31 (H)-mix/resid=1.6e-30 product-formula=OK
+    channel 2: X exps {0: 1, 2: 1, 4: -1, 6: -1} fit=4.4e-30 (H)-mix/resid=7.7e-30 product-formula=OK
+    channel 3: X exps {1: 1, 5: -1} fit=4.6e-31 (H)-mix/resid=1.3e-30 product-formula=OK
+  soliton 3 (orbit [3, 4]): deg=[2, 2, 4, 2, 2] dropped=7.4e-33 resid=1.5e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {2: 2, 4: -2} fit=1.5e-30 (H)-mix/resid=1.1e-29 product-formula=OK
+    channel 2: X exps {1: 2, 5: -2} fit=1.7e-29 (H)-mix/resid=1.4e-29 product-formula=OK
+    channel 3: X exps {0: 1, 6: -1} fit=2.7e-30 (H)-mix/resid=1.6e-30 product-formula=OK
+b3(1)<d4 WORST 1.662271229707019e-29
+== b4(1)<d5: parent d5, sigma=(0, 1, 2, 3, 5, 4), central=False, folded species (orbit members): {1: [1], 2: [2], 3: [3], 4: [4, 5]}
+  soliton 1 (orbit [1]): deg=[1, 1, 2, 2, 1, 1] dropped=6.5e-63 resid=8.4e-32 sigma-inv err=0.0e+00
+    channel 1: X exps {0: 1, 2: -1, 6: 1, 8: -1} fit=1.2e-30 (H)-mix/resid=1.0e-30 product-formula=OK
+    channel 2: X exps {1: 1, 3: -1, 5: 1, 7: -1} fit=5.3e-31 (H)-mix/resid=9.1e-31 product-formula=OK
+    channel 3: X exps {2: 1, 6: -1} fit=1.6e-30 (H)-mix/resid=4.2e-30 product-formula=OK
+    channel 4: X exps {3: 1, 5: -1} fit=1.1e-30 (H)-mix/resid=1.2e-30 product-formula=OK
+  soliton 2 (orbit [2]): deg=[1, 1, 2, 2, 1, 1] dropped=0.0e+00 resid=0.0e+00 sigma-inv err=0.0e+00
+    channel 1: X exps {1: 1, 3: -1, 5: 1, 7: -1} fit=5.2e-31 (H)-mix/resid=5.3e-31 product-formula=OK
+    channel 2: X exps {0: 1, 8: -1} fit=2.2e-31 (H)-mix/resid=1.3e-30 product-formula=OK
+    channel 3: X exps {1: 1, 3: 1, 5: -1, 7: -1} fit=1.7e-30 (H)-mix/resid=4.7e-30 product-formula=OK
+    channel 4: X exps {2: 1, 6: -1} fit=8.0e-31 (H)-mix/resid=1.3e-30 product-formula=OK
+  soliton 3 (orbit [3]): deg=[1, 1, 2, 2, 1, 1] dropped=1.0e-33 resid=5.7e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {2: 1, 6: -1} fit=9.3e-31 (H)-mix/resid=2.9e-30 product-formula=OK
+    channel 2: X exps {1: 1, 3: 1, 5: -1, 7: -1} fit=9.2e-31 (H)-mix/resid=2.0e-30 product-formula=OK
+    channel 3: X exps {0: 1, 2: 1, 6: -1, 8: -1} fit=5.1e-30 (H)-mix/resid=6.0e-30 product-formula=OK
+    channel 4: X exps {1: 1, 7: -1} fit=5.9e-31 (H)-mix/resid=1.9e-30 product-formula=OK
+  soliton 4 (orbit [4, 5]): deg=[2, 2, 4, 4, 2, 2] dropped=7.3e-33 resid=3.2e-31 sigma-inv err=2.4e-35
+    channel 1: X exps {3: 2, 5: -2} fit=5.8e-30 (H)-mix/resid=2.3e-29 product-formula=OK
+    channel 2: X exps {2: 2, 6: -2} fit=3.2e-30 (H)-mix/resid=2.6e-29 product-formula=OK
+    channel 3: X exps {1: 2, 7: -2} fit=1.6e-29 (H)-mix/resid=5.4e-29 product-formula=OK
+    channel 4: X exps {0: 1, 8: -1} fit=3.4e-30 (H)-mix/resid=1.4e-30 product-formula=OK
+b4(1)<d5 WORST 5.39570264089771e-29
+== b5(1)<d6: parent d6, sigma=(0, 1, 2, 3, 4, 6, 5), central=False, folded species (orbit members): {1: [1], 2: [2], 3: [3], 4: [4], 5: [5, 6]}
+  soliton 1 (orbit [1]): deg=[1, 1, 2, 2, 2, 1, 1] dropped=7.6e-31 resid=2.5e-30 sigma-inv err=0.0e+00
+    channel 1: X exps {0: 1, 2: -1, 8: 1, 10: -1} fit=2.5e-30 (H)-mix/resid=4.6e-30 product-formula=OK
+    channel 2: X exps {1: 1, 3: -1, 7: 1, 9: -1} fit=3.6e-30 (H)-mix/resid=6.9e-30 product-formula=OK
+    channel 3: X exps {2: 1, 4: -1, 6: 1, 8: -1} fit=3.7e-30 (H)-mix/resid=4.1e-30 product-formula=OK
+    channel 4: X exps {3: 1, 7: -1} fit=2.0e-30 (H)-mix/resid=4.6e-30 product-formula=OK
+    channel 5: X exps {4: 1, 6: -1} fit=1.4e-30 (H)-mix/resid=1.8e-30 product-formula=OK
+  soliton 2 (orbit [2]): deg=[1, 1, 2, 2, 2, 1, 1] dropped=1.8e-32 resid=4.3e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {1: 1, 3: -1, 7: 1, 9: -1} fit=4.2e-30 (H)-mix/resid=1.3e-30 product-formula=OK
+    channel 2: X exps {0: 1, 4: -1, 6: 1, 10: -1} fit=1.2e-30 (H)-mix/resid=4.3e-30 product-formula=OK
+    channel 3: X exps {1: 1, 9: -1} fit=1.2e-30 (H)-mix/resid=6.0e-30 product-formula=OK
+    channel 4: X exps {2: 1, 4: 1, 6: -1, 8: -1} fit=1.2e-30 (H)-mix/resid=5.1e-30 product-formula=OK
+    channel 5: X exps {3: 1, 7: -1} fit=8.5e-31 (H)-mix/resid=1.9e-30 product-formula=OK
+  soliton 3 (orbit [3]): deg=[1, 1, 2, 2, 2, 1, 1] dropped=5.6e-33 resid=3.0e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {2: 1, 4: -1, 6: 1, 8: -1} fit=1.6e-30 (H)-mix/resid=1.2e-30 product-formula=OK
+    channel 2: X exps {1: 1, 9: -1} fit=6.3e-31 (H)-mix/resid=1.7e-30 product-formula=OK
+    channel 3: X exps {0: 1, 4: 1, 6: -1, 10: -1} fit=3.4e-30 (H)-mix/resid=2.8e-30 product-formula=OK
+    channel 4: X exps {1: 1, 3: 1, 7: -1, 9: -1} fit=1.9e-30 (H)-mix/resid=9.6e-30 product-formula=OK
+    channel 5: X exps {2: 1, 8: -1} fit=5.9e-31 (H)-mix/resid=2.0e-30 product-formula=OK
+  soliton 4 (orbit [4]): deg=[1, 1, 2, 2, 2, 1, 1] dropped=1.7e-33 resid=1.2e-30 sigma-inv err=0.0e+00
+    channel 1: X exps {3: 1, 7: -1} fit=1.5e-30 (H)-mix/resid=3.2e-30 product-formula=OK
+    channel 2: X exps {2: 1, 4: 1, 6: -1, 8: -1} fit=4.0e-30 (H)-mix/resid=9.2e-30 product-formula=OK
+    channel 3: X exps {1: 1, 3: 1, 7: -1, 9: -1} fit=6.7e-30 (H)-mix/resid=7.8e-30 product-formula=OK
+    channel 4: X exps {0: 1, 2: 1, 8: -1, 10: -1} fit=7.1e-30 (H)-mix/resid=3.1e-29 product-formula=OK
+    channel 5: X exps {1: 1, 9: -1} fit=5.9e-31 (H)-mix/resid=2.0e-30 product-formula=OK
+  soliton 5 (orbit [5, 6]): deg=[2, 2, 4, 4, 4, 2, 2] dropped=7.6e-33 resid=2.8e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {4: 2, 6: -2} fit=1.0e-29 (H)-mix/resid=4.5e-29 product-formula=OK
+    channel 2: X exps {3: 2, 7: -2} fit=7.5e-30 (H)-mix/resid=2.0e-28 product-formula=OK
+    channel 3: X exps {2: 2, 8: -2} fit=3.9e-29 (H)-mix/resid=1.2e-28 product-formula=OK
+    channel 4: X exps {1: 2, 9: -2} fit=2.8e-29 (H)-mix/resid=1.9e-28 product-formula=OK
+    channel 5: X exps {0: 1, 10: -1} fit=4.4e-30 (H)-mix/resid=2.3e-30 product-formula=OK
+b5(1)<d6 WORST 2.0136930568731214e-28
+== b6(1)<d7: parent d7, sigma=(0, 1, 2, 3, 4, 5, 7, 6), central=False, folded species (orbit members): {1: [1], 2: [2], 3: [3], 4: [4], 5: [5], 6: [6, 7]}
+  soliton 1 (orbit [1]): deg=[1, 1, 2, 2, 2, 2, 1, 1] dropped=3.3e-32 resid=5.5e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {0: 1, 2: -1, 10: 1, 12: -1} fit=2.4e-30 (H)-mix/resid=2.0e-29 product-formula=OK
+    channel 2: X exps {1: 1, 3: -1, 9: 1, 11: -1} fit=1.4e-30 (H)-mix/resid=9.7e-30 product-formula=OK
+    channel 3: X exps {2: 1, 4: -1, 8: 1, 10: -1} fit=7.8e-31 (H)-mix/resid=2.7e-30 product-formula=OK
+    channel 4: X exps {3: 1, 5: -1, 7: 1, 9: -1} fit=3.9e-30 (H)-mix/resid=3.7e-30 product-formula=OK
+    channel 5: X exps {4: 1, 8: -1} fit=2.3e-30 (H)-mix/resid=5.5e-30 product-formula=OK
+    channel 6: X exps {5: 1, 7: -1} fit=1.7e-30 (H)-mix/resid=1.8e-30 product-formula=OK
+  soliton 2 (orbit [2]): deg=[1, 1, 2, 2, 2, 2, 1, 1] dropped=3.3e-32 resid=2.7e-31 sigma-inv err=8.8e-47
+    channel 1: X exps {1: 1, 3: -1, 9: 1, 11: -1} fit=1.4e-30 (H)-mix/resid=4.9e-30 product-formula=OK
+    channel 2: X exps {0: 1, 4: -1, 8: 1, 12: -1} fit=1.2e-30 (H)-mix/resid=1.4e-30 product-formula=OK
+    channel 3: X exps {1: 1, 5: -1, 7: 1, 11: -1} fit=2.4e-30 (H)-mix/resid=2.5e-30 product-formula=OK
+    channel 4: X exps {2: 1, 10: -1} fit=1.7e-30 (H)-mix/resid=3.6e-30 product-formula=OK
+    channel 5: X exps {3: 1, 5: 1, 7: -1, 9: -1} fit=1.7e-30 (H)-mix/resid=7.8e-30 product-formula=OK
+    channel 6: X exps {4: 1, 8: -1} fit=1.0e-30 (H)-mix/resid=1.9e-30 product-formula=OK
+  soliton 3 (orbit [3]): deg=[1, 1, 2, 2, 2, 2, 1, 1] dropped=0.0e+00 resid=0.0e+00 sigma-inv err=0.0e+00
+    channel 1: X exps {2: 1, 4: -1, 8: 1, 10: -1} fit=1.0e-30 (H)-mix/resid=9.2e-31 product-formula=OK
+    channel 2: X exps {1: 1, 5: -1, 7: 1, 11: -1} fit=1.4e-30 (H)-mix/resid=1.3e-30 product-formula=OK
+    channel 3: X exps {0: 1, 12: -1} fit=2.5e-31 (H)-mix/resid=1.3e-30 product-formula=OK
+    channel 4: X exps {1: 1, 5: 1, 7: -1, 11: -1} fit=2.4e-30 (H)-mix/resid=3.1e-30 product-formula=OK
+    channel 5: X exps {2: 1, 4: 1, 8: -1, 10: -1} fit=1.5e-30 (H)-mix/resid=4.2e-30 product-formula=OK
+    channel 6: X exps {3: 1, 9: -1} fit=8.0e-31 (H)-mix/resid=1.9e-30 product-formula=OK
+  soliton 4 (orbit [4]): deg=[1, 1, 2, 2, 2, 2, 1, 1] dropped=1.7e-33 resid=1.3e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {3: 1, 5: -1, 7: 1, 9: -1} fit=1.3e-30 (H)-mix/resid=1.5e-30 product-formula=OK
+    channel 2: X exps {2: 1, 10: -1} fit=6.1e-31 (H)-mix/resid=1.4e-30 product-formula=OK
+    channel 3: X exps {1: 1, 5: 1, 7: -1, 11: -1} fit=1.4e-30 (H)-mix/resid=1.2e-30 product-formula=OK
+    channel 4: X exps {0: 1, 4: 1, 8: -1, 12: -1} fit=4.3e-30 (H)-mix/resid=8.9e-30 product-formula=OK
+    channel 5: X exps {1: 1, 3: 1, 9: -1, 11: -1} fit=4.5e-30 (H)-mix/resid=9.4e-30 product-formula=OK
+    channel 6: X exps {2: 1, 10: -1} fit=4.7e-31 (H)-mix/resid=2.0e-30 product-formula=OK
+  soliton 5 (orbit [5]): deg=[1, 1, 2, 2, 2, 2, 1, 1] dropped=6.4e-34 resid=9.1e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {4: 1, 8: -1} fit=1.8e-30 (H)-mix/resid=2.2e-30 product-formula=OK
+    channel 2: X exps {3: 1, 5: 1, 7: -1, 9: -1} fit=4.4e-30 (H)-mix/resid=1.1e-29 product-formula=OK
+    channel 3: X exps {2: 1, 4: 1, 8: -1, 10: -1} fit=2.2e-30 (H)-mix/resid=4.2e-30 product-formula=OK
+    channel 4: X exps {1: 1, 3: 1, 9: -1, 11: -1} fit=8.7e-30 (H)-mix/resid=2.0e-29 product-formula=OK
+    channel 5: X exps {0: 1, 2: 1, 10: -1, 12: -1} fit=9.0e-30 (H)-mix/resid=3.2e-29 product-formula=OK
+    channel 6: X exps {1: 1, 11: -1} fit=4.2e-31 (H)-mix/resid=2.1e-30 product-formula=OK
+  soliton 6 (orbit [6, 7]): deg=[2, 2, 4, 4, 4, 4, 2, 2] dropped=5.5e-33 resid=2.6e-31 sigma-inv err=2.4e-35
+    channel 1: X exps {5: 2, 7: -2} fit=3.1e-29 (H)-mix/resid=1.5e-28 product-formula=OK
+    channel 2: X exps {4: 2, 8: -2} fit=1.1e-29 (H)-mix/resid=1.3e-28 product-formula=OK
+    channel 3: X exps {3: 2, 9: -2} fit=1.6e-29 (H)-mix/resid=1.9e-28 product-formula=OK
+    channel 4: X exps {2: 2, 10: -2} fit=3.9e-29 (H)-mix/resid=1.6e-28 product-formula=OK
+    channel 5: X exps {1: 2, 11: -2} fit=3.0e-29 (H)-mix/resid=2.9e-28 product-formula=OK
+    channel 6: X exps {0: 1, 12: -1} fit=5.3e-30 (H)-mix/resid=2.5e-30 product-formula=OK
+b6(1)<d7 WORST 2.899188650055272e-28
+== g2(1)<d4: parent d4, sigma=(0, 3, 2, 4, 1), central=False, folded species (orbit members): {1: [1, 3, 4], 2: [2]}
+  soliton 1 (orbit [1, 3, 4]): deg=[3, 3, 6, 3, 3] dropped=3.2e-32 resid=3.3e-31 sigma-inv err=9.6e-35
+    channel 1: X exps {0: 1, 2: 1, 4: -1, 6: -1} fit=3.1e-29 (H)-mix/resid=3.9e-27 product-formula=OK
+    channel 2: X exps {1: 3, 5: -3} fit=1.1e-26 (H)-mix/resid=1.1e-26 product-formula=OK
+  soliton 2 (orbit [2]): deg=[1, 1, 2, 1, 1] dropped=1.8e-33 resid=1.3e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {1: 1, 5: -1} fit=4.7e-31 (H)-mix/resid=1.3e-30 product-formula=OK
+    channel 2: X exps {0: 1, 2: 1, 4: -1, 6: -1} fit=4.4e-30 (H)-mix/resid=7.7e-30 product-formula=OK
+g2(1)<d4 WORST 1.1246387059427683e-26
+== f4(1)<e6: parent e6, sigma=(0, 6, 2, 5, 4, 3, 1), central=False, folded species (orbit members): {1: [1, 6], 2: [2], 3: [3, 5], 4: [4]}
+  soliton 1 (orbit [1, 6]): deg=[2, 2, 4, 4, 6, 4, 2] dropped=1.2e-31 resid=5.5e-31 sigma-inv err=4.3e-31
+    channel 1: X exps {0: 1, 2: -1, 4: 1, 8: -1, 10: 1, 12: -1} fit=2.0e-30 (H)-mix/resid=6.5e-30 product-formula=OK
+    channel 2: X exps {3: 2, 5: -2, 7: 2, 9: -2} fit=7.5e-30 (H)-mix/resid=2.2e-29 product-formula=OK
+    channel 3: X exps {1: 1, 5: 1, 7: -1, 11: -1} fit=5.7e-30 (H)-mix/resid=2.9e-29 product-formula=OK
+    channel 4: X exps {2: 2, 10: -2} fit=7.7e-30 (H)-mix/resid=1.9e-28 product-formula=OK
+  soliton 2 (orbit [2]): deg=[1, 1, 2, 2, 3, 2, 1] dropped=3.3e-31 resid=1.0e-30 sigma-inv err=9.6e-35
+    channel 1: X exps {3: 1, 5: -1, 7: 1, 9: -1} fit=2.7e-30 (H)-mix/resid=2.8e-30 product-formula=OK
+    channel 2: X exps {0: 1, 2: -1, 4: 1, 8: -1, 10: 1, 12: -1} fit=4.5e-30 (H)-mix/resid=6.7e-30 product-formula=OK
+    channel 3: X exps {2: 1, 10: -1} fit=8.0e-31 (H)-mix/resid=4.5e-30 product-formula=OK
+    channel 4: X exps {1: 1, 5: 1, 7: -1, 11: -1} fit=1.9e-30 (H)-mix/resid=1.8e-29 product-formula=OK
+  soliton 3 (orbit [3, 5]): deg=[2, 2, 4, 4, 6, 4, 2] dropped=2.7e-31 resid=8.2e-31 sigma-inv err=3.9e-31
+    channel 1: X exps {1: 1, 5: 1, 7: -1, 11: -1} fit=5.1e-27 (H)-mix/resid=1.8e-25 product-formula=OK
+    channel 2: X exps {2: 2, 10: -2} fit=9.0e-26 (H)-mix/resid=2.6e-25 product-formula=OK
+    channel 3: X exps {0: 1, 2: 1, 4: 1, 8: -1, 10: -1, 12: -1} fit=8.5e-26 (H)-mix/resid=2.5e-24 product-formula=OK
+    channel 4: X exps {1: 2, 3: 2, 9: -2, 11: -2} fit=4.3e-24 (H)-mix/resid=3.0e-23 product-formula=OK
+  soliton 4 (orbit [4]): deg=[1, 1, 2, 2, 3, 2, 1] dropped=4.1e-32 resid=2.8e-31 sigma-inv err=1.9e-34
+    channel 1: X exps {2: 1, 10: -1} fit=2.0e-30 (H)-mix/resid=3.0e-28 product-formula=OK
+    channel 2: X exps {1: 1, 5: 1, 7: -1, 11: -1} fit=8.7e-29 (H)-mix/resid=2.5e-28 product-formula=OK
+    channel 3: X exps {1: 1, 3: 1, 9: -1, 11: -1} fit=1.1e-29 (H)-mix/resid=3.1e-28 product-formula=OK
+    channel 4: X exps {0: 1, 2: 1, 4: 1, 8: -1, 10: -1, 12: -1} fit=1.3e-27 (H)-mix/resid=1.2e-26 product-formula=OK
+f4(1)<e6 WORST 2.953232407464737e-23
+== d3(2)<d4: parent d4, sigma=(1, 0, 2, 4, 3), central=True, folded species (orbit members): {1: [1], 2: [2]}
+  soliton 1 (orbit [1]): deg=[1, 1, 2, 1, 1] dropped=9.9e-32 resid=3.0e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {0: 1, 2: -1, 4: 1, 6: -1} fit=7.1e-31 (H)-mix/resid=1.2e-30 product-formula=OK
+    channel 2: X exps {1: 1, 5: -1} fit=8.6e-31 (H)-mix/resid=4.1e-30 product-formula=OK
+  soliton 2 (orbit [2]): deg=[1, 1, 2, 1, 1] dropped=1.8e-33 resid=1.3e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {1: 1, 5: -1} fit=4.6e-31 (H)-mix/resid=1.6e-30 product-formula=OK
+    channel 2: X exps {0: 1, 2: 1, 4: -1, 6: -1} fit=4.4e-30 (H)-mix/resid=7.7e-30 product-formula=OK
+d3(2)<d4 WORST 7.673955005429588e-30
+== d4(2)<d5: parent d5, sigma=(1, 0, 2, 3, 5, 4), central=True, folded species (orbit members): {1: [1], 2: [2], 3: [3]}
+  soliton 1 (orbit [1]): deg=[1, 1, 2, 2, 1, 1] dropped=6.5e-63 resid=8.4e-32 sigma-inv err=0.0e+00
+    channel 1: X exps {0: 1, 2: -1, 6: 1, 8: -1} fit=1.2e-30 (H)-mix/resid=1.0e-30 product-formula=OK
+    channel 2: X exps {1: 1, 3: -1, 5: 1, 7: -1} fit=5.3e-31 (H)-mix/resid=9.1e-31 product-formula=OK
+    channel 3: X exps {2: 1, 6: -1} fit=1.6e-30 (H)-mix/resid=4.2e-30 product-formula=OK
+  soliton 2 (orbit [2]): deg=[1, 1, 2, 2, 1, 1] dropped=0.0e+00 resid=0.0e+00 sigma-inv err=0.0e+00
+    channel 1: X exps {1: 1, 3: -1, 5: 1, 7: -1} fit=5.2e-31 (H)-mix/resid=5.3e-31 product-formula=OK
+    channel 2: X exps {0: 1, 8: -1} fit=2.2e-31 (H)-mix/resid=1.3e-30 product-formula=OK
+    channel 3: X exps {1: 1, 3: 1, 5: -1, 7: -1} fit=1.7e-30 (H)-mix/resid=4.7e-30 product-formula=OK
+  soliton 3 (orbit [3]): deg=[1, 1, 2, 2, 1, 1] dropped=1.0e-33 resid=5.7e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {2: 1, 6: -1} fit=9.3e-31 (H)-mix/resid=2.9e-30 product-formula=OK
+    channel 2: X exps {1: 1, 3: 1, 5: -1, 7: -1} fit=9.2e-31 (H)-mix/resid=2.0e-30 product-formula=OK
+    channel 3: X exps {0: 1, 2: 1, 6: -1, 8: -1} fit=5.1e-30 (H)-mix/resid=6.0e-30 product-formula=OK
+d4(2)<d5 WORST 5.962664530121049e-30
+== d5(2)<d6: parent d6, sigma=(1, 0, 2, 3, 4, 6, 5), central=True, folded species (orbit members): {1: [1], 2: [2], 3: [3], 4: [4]}
+  soliton 1 (orbit [1]): deg=[1, 1, 2, 2, 2, 1, 1] dropped=7.6e-31 resid=2.5e-30 sigma-inv err=0.0e+00
+    channel 1: X exps {0: 1, 2: -1, 8: 1, 10: -1} fit=2.5e-30 (H)-mix/resid=4.6e-30 product-formula=OK
+    channel 2: X exps {1: 1, 3: -1, 7: 1, 9: -1} fit=3.6e-30 (H)-mix/resid=6.9e-30 product-formula=OK
+    channel 3: X exps {2: 1, 4: -1, 6: 1, 8: -1} fit=3.7e-30 (H)-mix/resid=4.1e-30 product-formula=OK
+    channel 4: X exps {3: 1, 7: -1} fit=2.0e-30 (H)-mix/resid=4.6e-30 product-formula=OK
+  soliton 2 (orbit [2]): deg=[1, 1, 2, 2, 2, 1, 1] dropped=1.8e-32 resid=4.3e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {1: 1, 3: -1, 7: 1, 9: -1} fit=4.2e-30 (H)-mix/resid=1.3e-30 product-formula=OK
+    channel 2: X exps {0: 1, 4: -1, 6: 1, 10: -1} fit=1.2e-30 (H)-mix/resid=4.3e-30 product-formula=OK
+    channel 3: X exps {1: 1, 9: -1} fit=1.2e-30 (H)-mix/resid=6.0e-30 product-formula=OK
+    channel 4: X exps {2: 1, 4: 1, 6: -1, 8: -1} fit=1.2e-30 (H)-mix/resid=5.1e-30 product-formula=OK
+  soliton 3 (orbit [3]): deg=[1, 1, 2, 2, 2, 1, 1] dropped=5.6e-33 resid=3.0e-31 sigma-inv err=0.0e+00
+    channel 1: X exps {2: 1, 4: -1, 6: 1, 8: -1} fit=1.6e-30 (H)-mix/resid=1.2e-30 product-formula=OK
+    channel 2: X exps {1: 1, 9: -1} fit=6.3e-31 (H)-mix/resid=1.7e-30 product-formula=OK
+    channel 3: X exps {0: 1, 4: 1, 6: -1, 10: -1} fit=3.4e-30 (H)-mix/resid=2.8e-30 product-formula=OK
+    channel 4: X exps {1: 1, 3: 1, 7: -1, 9: -1} fit=1.9e-30 (H)-mix/resid=9.6e-30 product-formula=OK
+  soliton 4 (orbit [4]): deg=[1, 1, 2, 2, 2, 1, 1] dropped=1.7e-33 resid=1.2e-30 sigma-inv err=0.0e+00
+    channel 1: X exps {3: 1, 7: -1} fit=1.5e-30 (H)-mix/resid=3.2e-30 product-formula=OK
+    channel 2: X exps {2: 1, 4: 1, 6: -1, 8: -1} fit=4.0e-30 (H)-mix/resid=9.2e-30 product-formula=OK
+    channel 3: X exps {1: 1, 3: 1, 7: -1, 9: -1} fit=6.7e-30 (H)-mix/resid=7.8e-30 product-formula=OK
+    channel 4: X exps {0: 1, 2: 1, 8: -1, 10: -1} fit=7.1e-30 (H)-mix/resid=3.1e-29 product-formula=OK
+d5(2)<d6 WORST 3.1050263451093673e-29
+== a3(2)<d4: parent d4, sigma=(4, 3, 2, 1, 0), central=True, folded species (orbit members): {2: [2], 4: [4]}
+  soliton 2 (orbit [2]): deg=[1, 1, 2, 1, 1] dropped=1.8e-33 resid=1.3e-31 sigma-inv err=0.0e+00
+    channel 2: X exps {0: 1, 2: 1, 4: -1, 6: -1} fit=4.4e-30 (H)-mix/resid=7.7e-30 product-formula=OK
+    channel 4: X exps {1: 1, 5: -1} fit=4.6e-31 (H)-mix/resid=1.3e-30 product-formula=OK
+  soliton 4 (orbit [4]): deg=[1, 1, 2, 1, 1] dropped=9.9e-32 resid=3.0e-31 sigma-inv err=0.0e+00
+    channel 2: X exps {1: 1, 5: -1} fit=8.6e-31 (H)-mix/resid=4.1e-30 product-formula=OK
+    channel 4: X exps {0: 1, 2: -1, 4: 1, 6: -1} fit=7.1e-31 (H)-mix/resid=1.2e-30 product-formula=OK
+a3(2)<d4 WORST 7.673955005429588e-30
+== a5(2)<d6: parent d6, sigma=(6, 5, 4, 3, 2, 1, 0), central=True, folded species (orbit members): {2: [2], 4: [4], 5: [5]}
+  soliton 2 (orbit [2]): deg=[1, 1, 2, 2, 2, 1, 1] dropped=1.8e-32 resid=4.3e-31 sigma-inv err=1.9e-34
+    channel 2: X exps {0: 1, 4: -1, 6: 1, 10: -1} fit=1.2e-30 (H)-mix/resid=4.3e-30 product-formula=OK
+    channel 4: X exps {2: 1, 4: 1, 6: -1, 8: -1} fit=1.2e-30 (H)-mix/resid=5.1e-30 product-formula=OK
+    channel 5: X exps {3: 1, 7: -1} fit=8.5e-31 (H)-mix/resid=1.9e-30 product-formula=OK
+  soliton 4 (orbit [4]): deg=[1, 1, 2, 2, 2, 1, 1] dropped=1.7e-33 resid=1.2e-30 sigma-inv err=0.0e+00
+    channel 2: X exps {2: 1, 4: 1, 6: -1, 8: -1} fit=4.0e-30 (H)-mix/resid=9.2e-30 product-formula=OK
+    channel 4: X exps {0: 1, 2: 1, 8: -1, 10: -1} fit=7.1e-30 (H)-mix/resid=3.1e-29 product-formula=OK
+    channel 5: X exps {1: 1, 9: -1} fit=5.9e-31 (H)-mix/resid=2.0e-30 product-formula=OK
+  soliton 5 (orbit [5]): deg=[1, 1, 2, 2, 2, 1, 1] dropped=3.0e-31 resid=5.4e-31 sigma-inv err=8.8e-185
+    channel 2: X exps {3: 1, 7: -1} fit=1.5e-30 (H)-mix/resid=4.8e-30 product-formula=OK
+    channel 4: X exps {1: 1, 9: -1} fit=9.4e-31 (H)-mix/resid=2.5e-30 product-formula=OK
+    channel 5: X exps {0: 1, 2: -1, 4: 1, 6: -1, 8: 1, 10: -1} fit=9.5e-31 (H)-mix/resid=1.9e-30 product-formula=OK
+a5(2)<d6 WORST 3.1050263451093673e-29
+== d4(3)<e6: parent e6, sigma=(1, 6, 3, 5, 4, 2, 0), central=True, folded species (orbit members): {2: [2], 4: [4]}
+  soliton 2 (orbit [2]): deg=[1, 1, 2, 2, 3, 2, 1] dropped=3.3e-31 resid=1.0e-30 sigma-inv err=9.6e-35
+    channel 2: X exps {0: 1, 2: -1, 4: 1, 8: -1, 10: 1, 12: -1} fit=4.5e-30 (H)-mix/resid=6.7e-30 product-formula=OK
+    channel 4: X exps {1: 1, 5: 1, 7: -1, 11: -1} fit=1.9e-30 (H)-mix/resid=1.8e-29 product-formula=OK
+  soliton 4 (orbit [4]): deg=[1, 1, 2, 2, 3, 2, 1] dropped=4.1e-32 resid=2.8e-31 sigma-inv err=1.9e-34
+    channel 2: X exps {1: 1, 5: 1, 7: -1, 11: -1} fit=8.7e-29 (H)-mix/resid=2.5e-28 product-formula=OK
+    channel 4: X exps {0: 1, 2: 1, 4: 1, 8: -1, 10: -1, 12: -1} fit=1.3e-27 (H)-mix/resid=1.2e-26 product-formula=OK
+d4(3)<e6 WORST 1.1615835170310166e-26
+== e6(2)<e7: parent e7, sigma=(7, 6, 2, 5, 4, 3, 1, 0), central=True, folded species (orbit members): {1: [1], 3: [3], 4: [4], 6: [6]}
+  soliton 1 (orbit [1]): deg=[1, 2, 2, 3, 4, 3, 2, 1] dropped=3.7e-31 resid=5.6e-31 sigma-inv err=1.9e-34
+    channel 1: X exps {0: 1, 2: -1, 6: 1, 8: -1, 10: 1, 12: -1, 16: 1, 18: -1} fit=1.7e-30 (H)-mix/resid=2.1e-30 product-formula=OK
+    channel 3: X exps {1: 1, 3: -1, 5: 1, 13: -1, 15: 1, 17: -1} fit=1.5e-30 (H)-mix/resid=7.1e-30 product-formula=OK
+    channel 4: X exps {2: 1, 8: 1, 10: -1, 16: -1} fit=2.3e-30 (H)-mix/resid=6.5e-29 product-formula=OK
+    channel 6: X exps {4: 1, 8: -1, 10: 1, 14: -1} fit=1.6e-30 (H)-mix/resid=1.2e-29 product-formula=OK
+  soliton 3 (orbit [3]): deg=[1, 2, 2, 3, 4, 3, 2, 1] dropped=5.0e-32 resid=4.2e-31 sigma-inv err=9.6e-35
+    channel 1: X exps {1: 1, 3: -1, 5: 1, 13: -1, 15: 1, 17: -1} fit=1.8e-29 (H)-mix/resid=4.9e-29 product-formula=OK
+    channel 3: X exps {0: 1, 6: 1, 12: -1, 18: -1} fit=1.1e-29 (H)-mix/resid=1.4e-28 product-formula=OK
+    channel 4: X exps {1: 1, 3: 1, 7: 1, 11: -1, 15: -1, 17: -1} fit=2.9e-29 (H)-mix/resid=2.9e-27 product-formula=OK
+    channel 6: X exps {3: 1, 5: 1, 7: -1, 11: 1, 13: -1, 15: -1} fit=2.5e-30 (H)-mix/resid=2.3e-28 product-formula=OK
+  soliton 4 (orbit [4]): deg=[1, 2, 2, 3, 4, 3, 2, 1] dropped=1.0e-31 resid=2.6e-28 sigma-inv err=6.2e-33
+    channel 1: X exps {2: 1, 8: 1, 10: -1, 16: -1} fit=1.3e-25 (H)-mix/resid=4.2e-25 product-formula=OK
+    channel 3: X exps {1: 1, 3: 1, 7: 1, 11: -1, 15: -1, 17: -1} fit=5.4e-25 (H)-mix/resid=9.1e-24 product-formula=OK
+    channel 4: X exps {0: 1, 2: 1, 4: 1, 6: 1, 12: -1, 14: -1, 16: -1, 18: -1} fit=1.1e-23 (H)-mix/resid=5.9e-22 product-formula=OK
+    channel 6: X exps {2: 1, 4: 1, 14: -1, 16: -1} fit=2.7e-26 (H)-mix/resid=9.7e-25 product-formula=OK
+  soliton 6 (orbit [6]): deg=[1, 2, 2, 3, 4, 3, 2, 1] dropped=1.3e-32 resid=1.5e-30 sigma-inv err=1.9e-34
+    channel 1: X exps {4: 1, 8: -1, 10: 1, 14: -1} fit=1.9e-30 (H)-mix/resid=6.4e-30 product-formula=OK
+    channel 3: X exps {3: 1, 5: 1, 7: -1, 11: 1, 13: -1, 15: -1} fit=3.4e-30 (H)-mix/resid=3.9e-29 product-formula=OK
+    channel 4: X exps {2: 1, 4: 1, 14: -1, 16: -1} fit=4.7e-30 (H)-mix/resid=2.6e-28 product-formula=OK
+    channel 6: X exps {0: 1, 4: -1, 6: 1, 8: 1, 10: -1, 12: -1, 14: 1, 18: -1} fit=2.1e-30 (H)-mix/resid=1.1e-29 product-formula=OK
+e6(2)<e7 WORST 5.895019116432298e-22

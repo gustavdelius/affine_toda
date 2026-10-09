@@ -1,0 +1,14 @@
+xi=0.30pi |psi|/pi=0.213: 2-body plain 9.3e-13  graded 1.4e-13;  3-body graded 6.5e-14
+xi=0.35pi |psi|/pi=0.102: 2-body plain 3.6e-13  graded 1.9e-13;  3-body graded 4.4e-14
+xi=0.45pi |psi|/pi=0.523: 2-body plain 1.4e-01  graded 1.3e-12;  3-body graded 5.2e-13
+xi=0.55pi |psi|/pi=0.791: 2-body plain 8.4e-01  graded 4.9e-13;  3-body graded 7.0e-01
+xi=0.60pi |psi|/pi=0.891: 2-body plain 3.7e-01  graded 2.8e-13;  3-body graded 3.9e-01
+xi=0.70pi |psi|/pi=0.951: 2-body plain 1.6e-01  graded 2.5e-13;  3-body graded 1.7e-01
+xi=0.80pi |psi|/pi=0.832: 2-body plain 6.3e-01  graded 3.5e-13;  3-body graded 6.0e-01
+xi=0.90pi |psi|/pi=0.740: 2-body plain 1.1e+00  graded 3.8e-13;  3-body graded 6.7e-01
+xi=1.10pi |psi|/pi=0.605: 2-body plain 7.9e-01  graded 3.3e-13;  3-body graded 2.4e-13
+xi=1.30pi |psi|/pi=0.512: 2-body plain 7.8e-02  graded 2.4e-12;  3-body graded 1.7e-12
+xi=1.50pi |psi|/pi=0.444: 2-body plain 9.2e-13  graded 9.2e-13;  3-body graded 1.3e-13
+xi=2.00pi |psi|/pi=0.333: 2-body plain 3.8e-10  graded 1.0e-10;  3-body graded 7.0e-12
+xi=3.00pi |psi|/pi=0.222: 2-body plain 5.8e-13  graded 1.9e-13;  3-body graded 1.6e-13
+xi=6.00pi |psi|/pi=0.111: 2-body plain 3.7e-13  graded 2.2e-13;  3-body graded 8.8e-14

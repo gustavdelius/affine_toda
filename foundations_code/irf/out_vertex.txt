@@ -1,0 +1,12 @@
+n=2 mu=1.983: hermiticity 1.3e-15, colour reversal 0.0e+00, unitarity 3.5e-18
+   N=3: Krein T^dag=C T^-1 C err 1.2e-15; max||s|-1| 0.000; pairing err 6.5e-16
+   N=4: Krein T^dag=C T^-1 C err 1.7e-15; max||s|-1| 0.000; pairing err 4.1e-13
+n=3 mu=1.384: hermiticity 7.8e-16, colour reversal 0.0e+00, unitarity 2.2e-16
+   N=3: Krein T^dag=C T^-1 C err 3.2e-15; max||s|-1| 0.046; pairing err 4.4e-14
+   N=4: Krein T^dag=C T^-1 C err 2.0e-15; max||s|-1| 0.021; pairing err 5.7e-14
+n=4 mu=2.815: hermiticity 9.2e-16, colour reversal 0.0e+00, unitarity 2.3e-16
+   N=3: Krein T^dag=C T^-1 C err 3.7e-16; max||s|-1| 0.001; pairing err 1.2e-11
+vertex U_q(sl3^), q=e^(i pi lam), lam=0.250 [W3(4,5) coupling]: 3 solitons, all-colour sector max||s|-1| = 0.348
+vertex U_q(sl3^), q=e^(i pi lam), lam=0.167 [W3(6,7) coupling]: 3 solitons, all-colour sector max||s|-1| = 0.233
+vertex U_q(sl3^), q=e^(i pi lam), lam=0.286 [W3(7,9) coupling]: 3 solitons, all-colour sector max||s|-1| = 0.400
+vertex U_q(sl3^), q=e^(i pi lam), lam=0.400 [W3(5,7) coupling]: 3 solitons, all-colour sector max||s|-1| = 0.477
