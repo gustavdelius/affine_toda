@@ -1,5 +1,30 @@
 # The classical theory: a selection rule from $\Theta$ {#sec-classical}
 
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- See how the antilinear symmetry $\Theta$ acts on solutions and on Hirota data.
+- Prove that $\Theta$-invariant solutions have real energy, momentum and higher charges.
+- Recognise the solutions excluded by this rule: complex-energy and singular solutions.
+- Understand the missing-charge problem.
+:::
+
+The solitons of @sec-classical-solitons are complex fields, yet their energies are real. The literature established this case by case, and also found complex solutions with complex or negative energies. This chapter shows that a single symmetry decides which solutions have real conserved charges. It is the classical counterpart of the Krein-space structure of the quantum theory (Part VII).
+
+## $\Theta$ on solutions {#sec-theta-classical}
+
+In @sec-real-imaginary we saw that $\overline{V_{\rm imag}(\vec\phi)}=V_{\rm imag}(-\vec\phi)$. On complex fields, define
+
+$$
+\Theta:\vec\phi\mapsto-\bar{\vec\phi} .
+$$
+
+Conjugating the field equation (-@eq-toda-eom) shows that $\Theta$ maps solutions to solutions. On the Hirota form (-@eq-hirota-ansatz), $-\bar{\vec\phi}=\frac i\beta\sum_j\frac{2\vec\alpha_j}{\alpha_j^2}\ln\bar\tau_j$, so $\Theta$ acts by $\tau_j\mapsto\bar\tau_j$. For the $a_n^{(1)}$ solutions (-@eq-n-soliton), $\overline{\omega^{ja}}=\omega^{j(h-a)}$ and $\overline{A_{ab}(\theta)}=A_{h-a,h-b}(\bar\theta)$, so on the data of each constituent soliton
+
+$$
+\Theta:(a,\theta,\xi)\mapsto(\bar a,\bar\theta,\bar\xi),\qquad\bar a=h-a .
+$$ {#eq-theta-data}
+
+A real field is $\Theta$-invariant only if it is odd, $\vec\phi=-\vec\phi$, so the interesting invariant solutions are complex. The sine-Gordon kink, for which $\bar a=a$, is mapped to a solution with the opposite topological charge and conjugate $\xi$.
+
 ## Reality of energy and momentum {#sec-reality-energy-momentum}
 
 ::: {#prp-hirota-energy}
@@ -16,9 +41,16 @@ where $(a_i,\theta_i)$ are the species and (possibly complex) rapidities of the 
 On Hirota data, $\Theta$ acts as $\tau_j\mapsto\bar\tau_j$. That is, $(a,\theta,p)\mapsto(\bar a,\bar\theta,\bar p)$, where $\bar a$ is the conjugate species ($\omega^{ja}\mapsto\omega^{-ja}$). Consequently:
 
 - **Selection rule.** If the asymptotic data $\{(a_i,\theta_i)\}$ are $\Theta$-invariant, meaning the rapidities are real or occur in conjugate pairs with conjugate species, then $E$, $P$ and all conserved charges are real. Solitons and breathers are of this kind.
-- **Complex energies.** The complex-energy solutions of Khastgir and Sasaki have asymptotic data that are not $\Theta$-invariant. They are not in the physical sector, for the same reason that complex eigenvalues of a $\Theta$-symmetric operator are not $\Theta$-invariant states.
+- **Complex energies.** The complex-energy solutions of Khastgir and Sasaki have asymptotic data that are not $\Theta$-invariant. They are not in the physical sector, for the same reason that complex eigenvalues of a $\Theta$-symmetric operator are not $\Theta$-invariant states (@sec-antilinear).
 
-This closes H6, apart from the question of singularities. The restriction to "good" solutions, previously ad hoc, is the classical shadow of @thm-krein-transfer.
+This closes gap H6 of @sec-critique, apart from the question of singularities. The restriction to "good" solutions, previously ad hoc, is the classical shadow of @thm-krein-transfer.
+
+
+**Examples.**
+
+- A single soliton with real rapidity $\theta$ is covered by the rule, and $E=M_a\cosh\theta$ is real. ($\Theta$ maps it to a soliton of the conjugate species, which has the same mass.)
+- A breather (@sec-breathers) has asymptotic data $\{(a,\theta_0+iu),(\bar a,\theta_0-iu)\}$, which $\Theta$ maps to itself. Its energy $2M_a\cosh\theta_0\cos u$ is real, although each constituent has complex rapidity.
+- A single soliton with complex rapidity $\theta_0+iu$ alone has $E=M_a(\cosh\theta_0\cos u+i\sinh\theta_0\sin u)$, complex for $\theta_0u\neq0$. Its data are not $\Theta$-invariant, and it is excluded.
 
 ## Singular solutions {#sec-singular-solutions}
 
@@ -26,10 +58,36 @@ Zeros of $\tau_j$ in the real $(x,t)$ plane are isolated points: one complex con
 
 The genuinely problematic phenomenon is different. In theories with non-self-conjugate species, soliton–breather scattering produces complex time delays and can carry regular data into singular regions [@tw1999]. This is the classical image of a quantum sector in which $\Theta$ is broken (@sec-sector-status). It is not a failure of the formalism.
 
-## Exercises
+## The missing-charge problem {#sec-missing-charges}
 
-*To be written.*
+The quantum solitons of species $a$ form a multiplet of $U_q(\hat g^\vee)$. For $a_n^{(1)}$ this is the $a$-th fundamental representation, whose $\binom ha$ weights are the possible topological charges. The classical single solitons of @sec-topological-charges carry only $h/\gcd(a,h)$ of them [@mcghee1994]. The species-1 solitons of every $a_n^{(1)}$ carry all their charges, but already for the species-2 soliton of $a_3^{(1)}$ four of the six weights are missing.
 
-## Notes and references
+There are three possible responses.
 
-*To be written.*
+- **The classical theory is incomplete.** Other classical solutions, not single Hirota solitons, carry the missing charges. Multi-soliton bound states at complex rapidities are candidates.
+- **Semiclassics is incomplete.** The missing states appear only quantum mechanically, through saddles of the path integral that are not real-time solutions.
+- **Both.** Static complex saddles are not enough. @sec-which-saddles-contribute shows that for $a_3^{(1)}$ no static saddle of the right energy carries the missing weights, and conjectures (@cnj-missing-charge) that complexified two-soliton bound states at the fusing angle carry them.
+
+The problem is gap H11 of @sec-critique, and it is open.
+
+## Exercises {#sec-classical-exercises}
+
+::: {#exr-theta-solutions}
+Show that $\vec\phi\mapsto-\bar{\vec\phi}$ maps solutions of the imaginary-coupling field equation to solutions. Show that it is not a symmetry of the real-coupling field equation, and find the antilinear map that is.
+:::
+
+::: {#exr-theta-interaction}
+Show that $\overline{A_{ab}(\theta)}=A_{h-a,h-b}(\bar\theta)$ for (-@eq-interaction-coefficient), and deduce (-@eq-theta-data) for multi-soliton solutions.
+:::
+
+::: {#exr-breather-real}
+Show that the asymptotic data of a breather are $\Theta$-invariant. If moreover $\xi_2=\bar\xi_1$, show that $\bar\tau_j=\tau_j$ and that the field is purely imaginary. For sine-Gordon, show that the real breather (-@eq-sg-breather) instead has $\xi_2=\bar\xi_1+i\pi$.
+:::
+
+::: {#exr-singular-points}
+Show that a zero of $\tau_j$ in the real $(x,t)$ plane is generically an isolated point, and that near it the energy density has a double pole with zero residue, so that integrated charges are unaffected.
+:::
+
+## Notes and references {#sec-classical-notes}
+
+Reality of soliton energies was shown by Olive, Turok and Underwood [-@olive1993a; -@olive1993b] and Zhu and Caldi [@zhu1995], and of all conserved charges by Freeman [-@freeman1995]. Complex-energy and negative-energy solutions are in Khastgir and Sasaki [-@khastgir1996], and the complex time delays and singular final states of $a_2^{(1)}$ in Takács and Watts [-@tw1999]. The missing charges were found by McGhee [-@mcghee1994]. The formulation as a selection rule from $\Theta$ is new here.

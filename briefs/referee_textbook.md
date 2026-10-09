@@ -1,10 +1,10 @@
-# Brief: referee the textbook chapters of Parts I and II
+# Brief: referee the textbook chapters (Parts I–III)
 
 You are a mathematical-physics referee. The repository is `/home/gustav/Git/affine_toda`, a Quarto book on affine Toda field theory. Do not edit any file in it. Work in your own scratch directory and deliver your full report in your final message: subagents may be unable to write report files.
 
 ## Context
 
-Chapters 1–8 (`part1-background/*.qmd`, `part2-algebra/*.qmd`) were drafted on 2026-10-09 as textbook material for a reader who knows QFT but not affine Toda theory or quantum groups. Most of the content is standard, but many formulas, conventions and bibliographic details were written from memory. Some have been verified, and the rest need an independent check. Experience in this repository is that every adversarial referee pass finds real errors, so look hard.
+Chapters 1–11 (`part1-background/`, `part2-algebra/`, `part3-classical/`) were drafted on 2026-10-09 as textbook material for a reader who knows QFT but not affine Toda theory or quantum groups. Most of the content is standard, but many formulas, conventions and bibliographic details were written from memory. Some have been verified, and the rest need an independent check. Experience in this repository is that every adversarial referee pass finds real errors, so look hard.
 
 Find any object with `grep -rn '{#<id>}' part*/` (prefixes: `sec-`, `eq-`, `prp-`, `exr-`, `tbl-`). Conventions are in `sec-conventions` (chapter 1): long roots have length$^2$ 2, $\beta_{\rm SG}^2=2\beta^2$, and twisted-algebra couplings in the literature satisfy $\beta_{\rm lit}^2=\beta^2/k$.
 
@@ -15,6 +15,7 @@ Find any object with `grep -rn '{#<id>}' part*/` (prefixes: `sec-`, `eq-`, `prp-
 - `sine_gordon.py`: the integral representation `eq-sg-s0` satisfies crossing with `eq-sg-smatrix` (to $10^{-25}$, tested for $\lambda=1.5,1.2$ only); the breather `eq-sg-breather` solves the field equation.
 - `sixvertex.py`: `eq-six-vertex` solves Jimbo's equations; unitarity; the braid Yang–Baxter equation `eq-ybe-braid` in the printed order; `eq-six-vertex-eigenvalue`; the crossing data in `sec-qg-crossing` ($x_c=q^2$, $C=\left(\begin{smallmatrix}0&1\\-q&0\end{smallmatrix}\right)$, $c_u$); the sine-Gordon dictionary in `sec-six-vertex`, including the gauge to the principal gradation.
 - `universal_r.py`: `eq-universal-r-sl2` in the printed ordering, on spin $\frac12$ and spin 1.
+- `toda_classical.py` (Part III): the Lax pair `eq-lax-pair` gives the $a_2^{(1)}$ field equation `eq-toda-eom` (light-cone convention $\partial_\pm=\partial_t\pm\partial_x$); the sinh-Gordon spin-3 current `eq-spin3-current`; masses = Perron–Frobenius vector and $\sum_am_a^2=2hm^2$ for $a_2,a_5,d_4,d_6,e_{6,7,8}$; $\lvert\Phi\rvert=rh$; the Coxeter orbits of $\vec\gamma_a=(1-w^{-1})\vec\lambda_a$ partition the roots, `prp-dorey-rule` and the area rule `eq-area-rule` with constant exactly $4\beta/\sqrt h$, for $e_7$ and $e_8$ only; one- and two-soliton $a_n^{(1)}$ solutions `eq-an-soliton`, `eq-n-soliton`, `eq-interaction-coefficient` solve the time-dependent field equation (to $10^{-29}$); the static soliton energy is real and equals `eq-soliton-mass` for $a_2,a_3$ at complex $\xi$; $\Theta$ acts on data as `eq-theta-data`; the sine-Gordon breather is real for $\xi_2=\bar\xi_1+i\pi$ and imaginary for $\xi_2=\bar\xi_1$.
 - `spin1_tpg.py`: `eq-tpg-rule` for $U_q(\widehat{sl}_2)$ spin $\frac12\otimes\frac12$ and spin $1\otimes1$ (the claims of `exr-tpg-check` and `exr-spin1`), and $q$-Serre for the spin-1 evaluation representation.
 
 **By hand** (worth a second look, but each was derived explicitly):
@@ -26,12 +27,15 @@ Find any object with `grep -rn '{#<id>}' part*/` (prefixes: `sec-`, `eq-`, `prp-
 - Chapter 6: every Kac-label row of `tbl-untwisted` sums to $h$, and the dual labels sum to $h^\vee$; the folding examples $a_3^{(1)}\to c_2^{(1)}$ and $d_4^{(1)}\to g_2^{(1)}$; the twisted $(h,h^\vee)$ in `tbl-foldings` reproduce, through $2T=4\pi h/\beta^2-h^\vee$, every $T$ in the table of `sec-sm-discussion` (with the $\beta_{\rm lit}$ conversion).
 - Chapter 7: the Hopf axioms for `eq-coproduct`/`eq-antipode`; $S^2=\mathrm{Ad}\,K$; the $*$-structure for $\lvert q\rvert=1$ in `sec-qg-hermitian` and $(*\otimes*)\Delta=\Delta^{\rm op}*$; the spin-1 norm $[2]_q$.
 - Chapter 8: $C(2\vec\lambda_1)-C(\vec\lambda_2)=4$ (`exr-tpg-an`); the index ordering of the fusion formula `eq-fusion`.
+- Chapter 9: convexity and unique vacuum of $V_{\rm real}$; vacua of $V_{\rm imag}$ on $\frac{2\pi}\beta\Lambda_W^\vee$; the $d_n^{(1)}$ mass formula against $d_4$, $d_6$ numerics; the $c_n^{(1)}$ masses by folding; $\mathbb Z_3$ selection of $C_{111}$, $C_{222}$ in $a_2^{(1)}$.
+- Chapter 10: the bilinear equations `eq-hirota-bilinear` derived from `eq-hirota-ansatz` (for every $\hat g$; numerically tested only for $a_n^{(1)}$); the static single-soliton computation $m_a=2m\sin\frac{\pi a}h$; the topological-charge formula in `sec-topological-charges` reproduces one sine-Gordon kink at $\operatorname{Im}\xi=\pi/2$; the fusion limit in `sec-multi-solitons` ($\theta_1=\theta+i\pi b/h$, $\theta_2=\theta-i\pi a/h$); the Lie-duality example $c_n^{(1)}$ solitons ↔ $b_n^{(1)}$ particles in `sec-soliton-masses`.
+- Chapter 11: $\Theta$ maps solutions to solutions and acts by $\tau_j\mapsto\bar\tau_j$; $\overline{A_{ab}(\theta)}=A_{h-a,h-b}(\bar\theta)$; the three examples in `sec-reality-energy-momentum`.
 
 ## To be checked
 
 Report on each item: correct / wrong (with the correction) / unclear (with what would settle it). Items are ordered roughly by risk.
 
-1. **Bibliography.** Thirty-four entries were added to `references.bib` from memory (from `parke1980` to `kulish1981`, appended at the end of the file after `ahn2000`). Check authors, title, journal, volume, page and year of each, for example against INSPIRE or the arXiv. Also check that each citation in chapters 1–8 supports the sentence it is attached to.
+1. **Bibliography.** Thirty-six entries were added to `references.bib` from memory (from `parke1980` to `fring1991`, appended at the end of the file after `ahn2000`). Check authors, title, journal, volume, page and year of each, for example against INSPIRE or the arXiv. Also check that each citation in chapters 1–8 supports the sentence it is attached to.
 2. **$q$ conventions across parts.** Chapter 7 (`sec-six-vertex`) finds $q=-e^{i\pi\lambda}=e^{8\pi^2i/\beta_{\rm SG}^2}$ and $z=e^{2\lambda\theta}$. Part VI (`sec-amplitude-and-gradation`) writes $q=e^{-i\pi\omega}$, with $T=\lambda=\omega$ for sine-Gordon. The text says the conventions differ "by $q\leftrightarrow q^{-1}$ and signs" without proof. Determine the exact relation. Check whether it bears on the unexplained crossing sign $(-1)^n$ of `sec-crossing-sign`, which is open problem 4 of `sec-sm-discussion` ("Crossing convention").
 3. **Crossing point in general.** `sec-qg-crossing` states $V(x)^{**}\cong V(xq^{2h^\vee})$ in the homogeneous gradation for every $U_q(\hat g)$, citing Frenkel–Reshetikhin and Chari–Pressley. It was confirmed only for $\widehat{sl}_2$. Check the general statement and its gradation and sign conventions, and test it against the crossing points that Part VI computes numerically (`soliton_rmatrix_code/`).
 4. **Tensor-product-graph rule beyond $\widehat{sl}_2$.** `eq-tpg-rule` is stated in the book's conventions and verified only for $U_q(\widehat{sl}_2)$. Test it on the vector representation of $U_q(\widehat{sl}_3)$ and one non-simply-laced case, such as the vector representation of $U_q(c_n^{(1)})$ or $U_q(b_n^{(1)})$ against Jimbo 1986. Pay attention to $q_i$ versus $q$ for short roots. Also check the claim in `sec-tpg` that the $c_n^{(1)}$ soliton multiplet (the spinor of $U_q(d_{n+1}^{(2)})$) has a tensor square that is not multiplicity-free under the finite subalgebra for $n\ge3$, and name that subalgebra correctly (the text writes $U_q(g_{(0)})$).
@@ -42,7 +46,19 @@ Report on each item: correct / wrong (with the correction) / unclear (with what 
 9. **Chapter 5 statements.** Steinberg's statement in `sec-weyl-coxeter`; the attribution to Freeman of "conserved-charge eigenvalues are eigenvectors of the Cartan matrix" in `sec-perron-frobenius`; the $E_8$/Ising sentence (the Ising S-matrix as the minimal part of the $e_8^{(1)}$ Toda S-matrix).
 10. **Chapter 6 statements.** The folding rows of `tbl-foldings` not checked by hand, in particular $d_{n+1}^{(2)}\leftarrow d_{n+2}^{(1)}$, $a_{2n}^{(2)}\leftarrow d_{2n+2}^{(1)}$, $a_{2n-1}^{(2)}\leftarrow d_{2n}^{(1)}$, $e_6^{(2)}\leftarrow e_7^{(1)}$, $d_4^{(3)}\leftarrow e_6^{(1)}$ (copied from the table in `sec-one-loop-masses-folded`); the ranks of the twisted algebras; "symmetries of the affine diagram that move the extra node correspond to the centre"; the level $n_j^\vee$ of $L(\Lambda_j)$; principal Heisenberg degrees = exponents mod $h$; the schematic vertex-operator formula in `sec-vertex-operators` against Olive–Turok–Underwood.
 11. **Chapter 7 statements.** The Kirillov–Reshetikhin remark in `sec-uqghat`; the claim that $\prod_ik_i^{n_i^\vee}$ is central; the quasitriangularity consequences listed in `sec-universal-r` for the stated coproduct; `exr-hermitian-spin1`.
-12. **Exercises in general.** Every exercise in chapters 2–8 should be true and solvable at the level of the chapter. Flag any that are not.
+12. **Exercises in general.** Every exercise in chapters 2–11 should be true and solvable at the level of the chapter. Flag any that are not.
+
+13. **Part III statements not yet checked.**
+    - `eq-hirota-bilinear` for a non-simply-laced or twisted algebra (e.g. by folding an explicit $a_{2n-1}^{(1)}$ solution to $c_n^{(1)}$ and substituting).
+    - `prp-dorey-rule` and `eq-area-rule` for algebras with degenerate masses ($a_n$, $d_n$, $e_6$), where a charge-eigenvector basis must be used; the statement in `sec-dorey-rule` that the masses are the lengths of the projected roots on the Coxeter plane and the fusing angles are multiples of $\pi/h$.
+    - The spins of conserved charges for twisted algebras ("exponents of $\hat g$ modulo $h$") in `sec-conserved-charges`, and the attribution of the Drinfeld–Sokolov construction.
+    - The $e_8^{(1)}$ mass ratios in the table of `sec-masses-couplings` beyond the first two.
+    - `eq-soliton-mass` for $d_n$, $e_n$ and folded solitons; the general Lie-duality statement in `sec-imaginary-coupling-vacua` (twisted cases: masses of the same theory).
+    - The McGhee count $h/\gcd(a,h)$ of topological charges (checked numerically in `foundations_code/thimbles/charges.py` for $n\le5$; the general argument).
+    - The claim in `sec-multi-solitons` that classical time delays reproduce the leading behaviour of the exact soliton S-matrices [Fring et al. 1994], and the sign conventions of the displacement.
+    - The vertex-operator nilpotency $(F^a)^{n_j+1}=0$ on $L(\Lambda_j)$ asserted in `sec-vertex-solitons` (cf. hypothesis (D) in `sec-hirota-form-dn1-en1`, which is open in general).
+    - `exr-breather-real` and `exr-singular-points`: true as stated?
+14. **Citations added for Part III**: `mikhailov1981`, `fring1991`.
 
 ## Deliverable
 

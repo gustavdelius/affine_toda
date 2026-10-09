@@ -2,35 +2,13 @@
 
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
 - Write down the affine Toda Lagrangian for every affine algebra, at real and at imaginary coupling.
-- Derive the Lax pair and the conserved charges, whose spins are the exponents.
+- Derive the field equations from a Lax pair, and see where the conserved charges and their spins come from.
 - Compute the classical masses and three-point couplings.
 - State Dorey's fusing rule and see it in the root system.
-- Describe the vacua of the imaginary-coupling theory.
+- Describe the vacua and the antilinear symmetry of the imaginary-coupling theory.
 :::
 
-::: {.callout-warning appearance="simple" title="To be written"}
-Sources to draw on: Mikhailov–Olshanetsky–Perelomov 1981; Olive–Turok 1985; Braden–Corrigan–Dorey–Sasaki 1990; Freeman 1991; Dorey 1991.
-:::
-
-## The Lax pair
-
-*To be written.*
-
-## Conserved charges
-
-*To be written.*
-
-## Masses and couplings
-
-*To be written.*
-
-## Dorey's fusing rule
-
-*To be written.*
-
-## Real and imaginary coupling
-
-*To be written.*
+This chapter defines the theories that the rest of the book studies and derives their basic classical properties. Everything here is determined by the root data of @sec-root-systems and @sec-affine-algebras. The particle masses are a Perron–Frobenius vector, the conserved charges have the exponents as spins, and the three-point couplings are areas of triangles. The real-coupling theories have a unique vacuum and only particles. The imaginary-coupling theories have infinitely many vacua, and their solitons are the subject of @sec-classical-solitons.
 
 ## Lagrangians {#sec-lagrangians}
 
@@ -47,16 +25,158 @@ V_{\rm real}=\frac{m^2}{\beta^2}\sum_jn_j\left(e^{\beta\vec\alpha_j\cdot\vec\phi
 V_{\rm imag}=-\frac{m^2}{\beta^2}\sum_jn_j\left(e^{i\beta\vec\alpha_j\cdot\vec\phi}-1\right).
 $$ {#eq-imaginary-potential}
 
-Here $\beta>0$ in both cases. Expanding about $\vec\phi=0$ gives the classical mass matrix $M^2=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$. Its eigenvalues are the classical particle masses, which form the Perron–Frobenius eigenvector of the Cartan matrix [@braden1990; @freeman1991].
+Here $\vec\phi$ takes values in $\mathbb R^r$, the sums run over the $r+1$ simple roots of the affine algebra $\hat g$, the $n_j$ are its Kac labels (@sec-affine-dynkin), and $\beta>0$ in both cases. Expanding about $\vec\phi=0$ gives the classical mass matrix $M^2=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$. The linear term vanishes because $\sum_jn_j\vec\alpha_j=0$.
 
 The sign in $V_{\rm imag}$ matters. It makes $\vec\phi=0$ a minimum ($V\simeq\tfrac12\vec\phi^{\mathsf T}M^2\vec\phi$). In the Euclidean theory it gives positive fugacities (@sec-lattice).
 
 The theories are classically integrable. They have a Lax pair and conserved charges of spins equal to the exponents of $\hat g$ modulo the Coxeter number [@olive1985]. The higher-spin charges survive quantization [@feigin1993; @dgz1992; @niedermaier1994].
 
-## Exercises
+**Field equations.** In light-cone derivatives $\partial_\pm=\partial_t\pm\partial_x$, so that $\partial_+\partial_-=\partial_t^2-\partial_x^2$, the field equations are
 
-*To be written.*
+$$
+\partial_+\partial_-\vec\phi=-\frac{m^2}\beta\sum_jn_j\vec\alpha_je^{\beta\vec\alpha_j\cdot\vec\phi}\quad\text{(real)},\qquad
+\partial_+\partial_-\vec\phi=\frac{im^2}\beta\sum_jn_j\vec\alpha_je^{i\beta\vec\alpha_j\cdot\vec\phi}\quad\text{(imaginary)}.
+$$ {#eq-toda-eom}
 
-## Notes and references
+The second follows from the first by $\beta\to i\beta$. For $a_1^{(1)}$ they are the sinh-Gordon and sine-Gordon equations (@sec-sg-dictionary).
 
-*To be written.*
+**Why "Toda".** Dropping the affine root $\vec\alpha_0$ gives the conformal (non-affine) Toda theory, whose potential $\sum_{j\ge1}e^{\beta\vec\alpha_j\cdot\vec\phi}$ has no minimum. For $g=A_n$ and fields depending only on time, the field equations are those of Toda's chain of particles with exponential nearest-neighbour interactions, and adding $\vec\alpha_0$ closes the chain into a ring. The affine theory is the massive perturbation of the conformal one by the operator $e^{\beta\vec\alpha_0\cdot\vec\phi}$. This is the sense in which the imaginary-coupling theories are perturbations of $W$-algebra minimal models after restriction (@sec-rsos).
+
+## Real and imaginary coupling {#sec-real-imaginary}
+
+**Real coupling.** $V_{\rm real}$ is a positive combination of exponentials of linear functions, hence convex. Because the $\vec\alpha_j$ span $\mathbb R^r$ and $\sum_jn_j\vec\alpha_j=0$, in every direction $\vec v\ne0$ some $\vec\alpha_j\cdot\vec v$ is positive, so $V_{\rm real}\to\infty$ in every direction. The theory has a unique vacuum $\vec\phi=0$, no topologically nontrivial finite-energy configurations, and its spectrum consists of the $r$ particles of the mass matrix and their bound states. The real-coupling theories are ordinary unitary quantum field theories, and Part IV studies them.
+
+**Imaginary coupling.** $V_{\rm imag}$ is complex for real $\vec\phi$, but it has three features that the rest of the book exploits.
+
+- **Vacua.** $V_{\rm imag}$ vanishes, together with its gradient, exactly when $e^{i\beta\vec\alpha_j\cdot\vec\phi}=1$ for all $j$, that is on the lattice $\frac{2\pi}\beta\Lambda_W^\vee$, where $\Lambda_W^\vee$ is the coweight lattice (@sec-weights). These are infinitely many degenerate vacua, and finite-energy solutions interpolate between them. These are the solitons.
+- **Positive fugacities.** In the Euclidean path integral, $e^{-S_E}$ contains $\exp\big(\frac{m^2}{\beta^2}\sum_jn_j\int e^{i\beta\vec\alpha_j\cdot\vec\phi}\big)$. Expanding this exponential gives a gas of charges with positive weights $m^2n_j/\beta^2$, the starting point of Part VII.
+- **An antilinear symmetry.** For real $\vec\phi$, $\overline{V_{\rm imag}(\vec\phi)}=V_{\rm imag}(-\vec\phi)$. So the combination $\Theta$ of field parity $\vec\phi\mapsto-\vec\phi$ with complex conjugation is a symmetry. It plays the role of $PT$ symmetry (@sec-antilinear), and @sec-classical shows what it implies classically.
+
+## The Lax pair {#sec-lax-pair}
+
+Integrability rests on a zero-curvature representation. Let $E_{\pm\vec\alpha_j}$ be the Chevalley generators of the loop algebra of @sec-affine-dynkin, with $[E_{\vec\alpha_j},E_{-\vec\alpha_j}]=\frac{2\vec\alpha_j}{\vec\alpha_j^2}\cdot\vec H$, and introduce a spectral parameter $\lambda$. For real coupling set
+
+$$
+\begin{aligned}
+A_+&=\frac\beta2\,\partial_+\vec\phi\cdot\vec H+m\lambda\sum_jc_j\,e^{\beta\vec\alpha_j\cdot\vec\phi/2}E_{\vec\alpha_j},\\
+A_-&=-\frac\beta2\,\partial_-\vec\phi\cdot\vec H-\frac m\lambda\sum_jc_j\,e^{\beta\vec\alpha_j\cdot\vec\phi/2}E_{-\vec\alpha_j},
+\end{aligned}
+\qquad c_j=\sqrt{n_j\vec\alpha_j^2/2}.
+$$ {#eq-lax-pair}
+
+Then
+
+$$
+[\partial_++A_+,\partial_-+A_-]=0\quad\text{for all }\lambda
+$$ {#eq-zero-curvature}
+
+is equivalent to the field equations (-@eq-toda-eom). The terms proportional to $E_{\pm\vec\alpha_j}$ cancel identically. The terms in the Cartan subalgebra give $-\beta\,\partial_+\partial_-\vec\phi\cdot\vec H$ from the derivatives and $-m^2\sum_jc_j^2e^{\beta\vec\alpha_j\cdot\vec\phi}\frac{2\vec\alpha_j}{\vec\alpha_j^2}\cdot\vec H$ from the commutator, because $[E_{\vec\alpha_i},E_{-\vec\alpha_j}]=0$ for $i\ne j$. With $c_j^2=n_j\vec\alpha_j^2/2$ their sum vanishes exactly when (-@eq-toda-eom) holds (@exr-lax).
+
+Two features of (-@eq-lax-pair) should be noted.
+
+- The spectral parameter multiplies every $E_{\vec\alpha_j}$ equally. This is the principal gradation of @sec-gradations, and it is what makes Lorentz invariance manifest: a boost $x^\pm\mapsto e^{\pm\vartheta}x^\pm$ is compensated by $\lambda\mapsto e^{\vartheta}\lambda$.
+- The combination $\sum_jc_jE_{\vec\alpha_j}$ that multiplies $\lambda$ in $A_+$ is the element $E_1$ of principal degree 1 of @sec-gradations. Its centralizer, the principal Heisenberg subalgebra, generates the conserved charges.
+
+## Conserved charges {#sec-conserved-charges}
+
+Zero curvature means that the parallel transport $\mathcal P\exp\big(-\int A_x\,dx\big)$ along a time slice is conserved up to conjugation, so its conjugation invariants are conserved for every $\lambda$. Expanding in $\lambda$, after a gauge transformation that diagonalizes the leading term into the principal Heisenberg subalgebra (the Drinfeld–Sokolov procedure), produces an infinite set of **local** conserved charges [@olive1985]. A charge produced from the Heisenberg element of principal degree $s$ has Lorentz spin $s$. By @sec-gradations the possible spins are
+
+$$
+s\in\{\text{exponents of }\hat g\}+h\mathbb Z ,
+$$
+
+which for untwisted $\hat g=g^{(1)}$ are the exponents of $g$ (@tbl-simple-lie) repeated modulo $h$. For sinh- and sine-Gordon the spins are the odd integers. For $a_n^{(1)}$ with $n\ge2$ every integer not divisible by $h=n+1$ occurs.
+
+**Example: the spin-3 charge of sinh-Gordon.** With $V=\frac{m^2}{\beta^2}(\cosh\beta\phi-1)$, one checks from the field equation $\partial_+\partial_-\phi=-\frac{m^2}\beta\sinh\beta\phi$ that
+
+$$
+\partial_-\Big[(\partial_+^2\phi)^2+\frac{\beta^2}4(\partial_+\phi)^4\Big]+\partial_+\Big[m^2\cosh(\beta\phi)\,(\partial_+\phi)^2\Big]=0 .
+$$ {#eq-spin3-current}
+
+The charge $Q_3=\int dx\,\big(T_4+\Theta_2\big)$ built from this current has spin 3, and on a one-particle state it takes the value $\chi\,m^3e^{3\theta}$, as in (-@eq-charge-eigenvalue). For sine-Gordon, replace $\beta^2$ by $-\beta^2$.
+
+The higher charges have three consequences used later. They make the classical solitons scatter without changing shape (@sec-classical-solitons), they survive quantization and make the S-matrix factorize (@sec-factorization), and their eigenvalues on the particles are the eigenvectors of the Cartan matrix [@freeman1991], which restricts which particles can couple.
+
+There are also **non-local** charges, built from the dual field. They are invisible in the classical Lax pair but generate the quantum affine algebra $U_q(\hat g^\vee)$ in the quantum imaginary-coupling theory (@sec-qg-symmetry).
+
+## Masses and couplings {#sec-masses-couplings}
+
+**Masses.** The classical masses $m_a$, $a=1,\dots,r$, are the square roots of the eigenvalues of $M^2=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$. Taking the trace gives the sum rule
+
+$$
+\sum_am_a^2=m^2\sum_jn_j\vec\alpha_j^2 ,
+$$
+
+which equals $2hm^2$ for simply-laced $\hat g$. For simply-laced $\hat g$ the masses are proportional to the components of the Perron–Frobenius eigenvector of the Cartan matrix of $g$ [@braden1990; @freeman1991] (@sec-perron-frobenius):
+
+| $\hat g$ | masses |
+|---|---|
+| $a_n^{(1)}$ | $m_a=2m\sin\frac{\pi a}h$, $a=1,\dots,n$, $h=n+1$ |
+| $d_n^{(1)}$ | $m_a=2\sqrt2\,m\sin\frac{\pi a}h$, $a=1,\dots,n-2$; $m_s=m_{s'}=\sqrt2\,m$, $h=2n-2$ |
+| $e_8^{(1)}$ | $m_1:m_2:\dots=1:2\cos\frac\pi5:2\cos\frac\pi{30}:\dots$ |
+
+The degeneracies $m_a=m_{h-a}$ of $a_n^{(1)}$ reflect the $\mathbb Z_h$ symmetry of the affine diagram: particle $h-a$ is the antiparticle of $a$. For non-simply-laced $\hat g$ the masses are obtained by folding (@sec-affine-folding), as the subset of masses of the parent theory whose eigenvectors are invariant under the folding symmetry (@exr-fold-mass). For example $c_n^{(1)}$, folded from $a_{2n-1}^{(1)}$, has $m_a=2m\sin\frac{\pi a}{2n}$, $a=1,\dots,n$.
+
+**Three-point couplings.** Expanding the potential to cubic order and writing $\vec\phi=\sum_a\vec e_a\phi_a$ in an orthonormal eigenbasis of $M^2$ gives the couplings
+
+$$
+C_{abc}=m^2\beta\sum_jn_j(\vec\alpha_j\cdot\vec e_a)(\vec\alpha_j\cdot\vec e_b)(\vec\alpha_j\cdot\vec e_c).
+$$
+
+For simply-laced $\hat g$ these have a striking geometric form [@braden1990]:
+
+$$
+\lvert C_{abc}\rvert=\frac{4\beta}{\sqrt h}\,\Delta_{abc},
+$$ {#eq-area-rule}
+
+where $\Delta_{abc}$ is the area of the triangle with sides $m_a$, $m_b$, $m_c$ (with $m=1$). A coupling can be nonzero only if the triangle exists, and then its interior angles are the fusing angles $\bar u$ of @sec-bootstrap-intro. At tree level, a nonzero $C_{abc}$ produces a pole of the S-matrix at the corresponding fusing angle, and in the exact S-matrices of Part IV these are exactly the bound-state poles. For sinh-Gordon the single cubic coupling vanishes, so there are no bound states (@exr-shg-cubic).
+
+## Dorey's fusing rule {#sec-dorey-rule}
+
+Which couplings are nonzero? Many triangles exist that carry no coupling, so the area rule does not answer this. Dorey [-@dorey1991] found the answer in the Coxeter element of @sec-weyl-coxeter.
+
+Bicolour the Dynkin diagram of $g$ and let $w=s_{\rm black}s_{\rm white}$. For each node $a$ let $\vec\lambda_a$ be the fundamental weight and
+
+$$
+\vec\gamma_a=(1-w^{-1})\vec\lambda_a ,\qquad\Omega_a=\{w^p\vec\gamma_a:p=0,\dots,h-1\}.
+$$
+
+Each $\vec\gamma_a$ is a root, and the $r$ orbits $\Omega_a$, each with $h$ elements, partition the root system. Associate particle $a$ with orbit $\Omega_a$. Then:
+
+::: {#prp-dorey-rule}
+**[Established]** For simply-laced $\hat g$, $C_{abc}\ne0$ if and only if there are roots $\vec\alpha\in\Omega_a$, $\vec\beta\in\Omega_b$, $\vec\gamma\in\Omega_c$ with $\vec\alpha+\vec\beta+\vec\gamma=0$ [@dorey1991].
+:::
+
+The rule also gives the fusing angles: projecting the three roots onto the plane on which $w$ acts as a rotation by $2\pi/h$ gives a triangle whose sides are proportional to $m_a$, $m_b$, $m_c$. The particle masses are the lengths of the projected roots, and the angles between them are multiples of $\pi/h$. This is why all fusing angles of the simply-laced theories are multiples of $\pi/h$, and why the S-matrices of Part IV are built from blocks indexed by integers modulo $2h$.
+
+For $e_7^{(1)}$ and $e_8^{(1)}$, where all masses are distinct, the rule and the area formula (-@eq-area-rule) can be checked directly against the cubic expansion of the potential (`textbook_code/toda_classical.py`).
+
+## Exercises {#sec-theories-exercises}
+
+::: {#exr-lax}
+Verify the zero-curvature equation (-@eq-zero-curvature) for $a_1^{(1)}$ with $2\times2$ matrices: $\vec\alpha_1=\sqrt2$, $E_{\vec\alpha_1}=\left(\begin{smallmatrix}0&1\\0&0\end{smallmatrix}\right)$, $E_{\vec\alpha_0}=\left(\begin{smallmatrix}0&0\\1&0\end{smallmatrix}\right)$, $\vec H=\frac1{\sqrt2}\left(\begin{smallmatrix}1&0\\0&-1\end{smallmatrix}\right)$. Recover the sinh-Gordon equation.
+:::
+
+::: {#exr-spin3}
+Verify (-@eq-spin3-current) from the sinh-Gordon equation. Write down the corresponding current for sine-Gordon and evaluate the conserved charge $Q_3$ on the kink of @sec-sg-classical.
+:::
+
+::: {#exr-dn-masses}
+Check the $d_n^{(1)}$ masses in the table against the sum rule $\sum_am_a^2=2hm^2$, and for $d_4^{(1)}$ against @exr-d4-masses.
+:::
+
+::: {#exr-cn-masses}
+Derive the $c_n^{(1)}$ masses by folding $a_{2n-1}^{(1)}$: show that the eigenvectors of the $a_{2n-1}^{(1)}$ mass matrix invariant under the reflection of the diagram are those of species $n$ and the combinations of species $a$ and $2n-a$.
+:::
+
+::: {#exr-shg-cubic}
+Show that the cubic coupling of sinh-Gordon vanishes. For $a_2^{(1)}$, use a basis of $\mathbb Z_3$-charge eigenvectors, in which particle 2 is the antiparticle of particle 1. Show that the only nonzero cubic couplings are $C_{111}$ and $C_{222}$, so that $1+1\to\bar1=2$ with fusing angle $u_{11}^2=2\pi/3$, and check (-@eq-area-rule).
+:::
+
+::: {#exr-dorey-a2}
+For $A_2$, compute $w$, the roots $\vec\gamma_1,\vec\gamma_2$ and the orbits $\Omega_1,\Omega_2$. Verify @prp-dorey-rule for the couplings of @exr-shg-cubic.
+:::
+
+## Notes and references {#sec-theories-notes}
+
+Affine Toda field theories were introduced by Mikhailov, Olshanetsky and Perelomov [@mikhailov1981], and their Lie-algebraic structure was developed by Olive and Turok [@olive1983; @olive1985]. The classical masses and couplings of all simply-laced theories, the area rule and the first exact S-matrices are in Braden, Corrigan, Dorey and Sasaki [-@braden1990]. Freeman [-@freeman1991] proved the Perron–Frobenius characterization of the masses, and Dorey [-@dorey1991] found the fusing rule in the root system. Fring, Liao and Olive [@fring1991] derived the area rule and the fusing rule from the Lie algebra.
