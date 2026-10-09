@@ -1,0 +1,4 @@
+hbar=0.15 rho_cut=640: residual (Z_exact - n_a Z_a - n_b Z_b)/Z = -6.6061e-08 ; complex-pair 2-loop prediction = -3.0315e-07 ; difference = 2.37e-07  (141s)
+hbar=0.15 rho_cut=2560: residual (Z_exact - n_a Z_a - n_b Z_b)/Z = -3.0976e-07 ; complex-pair 2-loop prediction = -3.0315e-07 ; difference = 6.61e-09  (310s)
+hbar=0.10 rho_cut=640: residual (Z_exact - n_a Z_a - n_b Z_b)/Z = 8.1445e-10 ; complex-pair 2-loop prediction = 2.0053e-10 ; difference = 6.14e-10  (140s)
+hbar=0.10 rho_cut=2560: residual (Z_exact - n_a Z_a - n_b Z_b)/Z = 1.7710e-10 ; complex-pair 2-loop prediction = 2.0053e-10 ; difference = 2.34e-11  (302s)
