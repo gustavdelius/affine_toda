@@ -5,6 +5,8 @@ project:
 book:
   title: "Affine Toda field theory"
   repo-url: https://github.com/gustavdelius/affine_toda
+  output-file: affine-toda
+  downloads: [pdf]
   chapters:
     - index.qmd
     - part: part1-background/part.qmd
@@ -75,3 +77,14 @@ format:
     toc-depth: 3
     number-sections: true
     html-math-method: mathjax
+  pdf:
+    documentclass: scrreprt
+    classoption: [enabledeprecatedfontcommands]  # math uses \rm, \bf
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    include-in-header:
+      text: |
+        % Part titles already read "Part I: ...", so drop LaTeX's own part label
+        \renewcommand*{\partformat}{}
+        \renewcommand*{\addparttocentry}[2]{\addtocentrydefault{part}{}{#2}}
