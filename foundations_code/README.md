@@ -16,3 +16,5 @@ Scripts behind the numerical checks quoted in `atft_foundations.qmd`. Python 3 w
 | `irf/` | Proposition 9.6 | RSOS face weights of $a_2^{(1)}$ kinks; Yang–Baxter, braiding unitarity, Hermitian analyticity, restricted transfer matrices (`checks.py ybe|ha|tm|vertex|signs`) |
 
 Scripts in `sectors/` reuse `rsolve.py` and `dtw.py` from `soliton_rmatrix_code/`, copied alongside.
+
+**Known quirk.** In `oneloop/summary.log` the $c_3^{(1)}$ row reads $[+0.0796,+0.159]$. Solitons 1 and 3 of $c_3^{(1)}$ are classically degenerate, and `summary.py` pairs solitons with particles by sorted mass, so the tie is resolved arbitrarily. The correct values, $-1/4\pi$ for both ratios, are in `oneloop/analysis_untwisted.log` and from `oneloop/calib_an_cn.py`.
