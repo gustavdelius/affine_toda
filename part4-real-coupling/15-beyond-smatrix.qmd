@@ -1,41 +1,74 @@
 # Beyond the S-matrix {#sec-beyond-smatrix}
 
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
-- Compute ground-state energies and central charges with the thermodynamic Bethe ansatz.
-- Understand the form-factor programme.
-- State the exact mass–coupling relation.
+- Compute ground-state energies and the effective central charge with the thermodynamic Bethe ansatz.
+- State the axioms of the form-factor programme.
+- Know what the exact mass–coupling relation and the bulk energy are, and where they are used.
 - Meet the ODE/IM correspondence.
-- Know what has been proved rigorously at real coupling.
+- Know what has been proved rigorously about the real-coupling theories.
 :::
 
-::: {.callout-warning appearance="simple" title="To be written"}
-Sources to draw on: Zamolodchikov 1990; Klassen–Melzer 1990; Fring–Mussardo–Simonetti 1993; Fateev 1994; Lukyanov–Zamolodchikov 2010; Dorey–Faldella–Negro–Tateo 2013; Albeverio–Høegh-Krohn 1974.
+An exact S-matrix determines much more than scattering. Combined with the methods of integrability it gives the finite-volume spectrum, thermodynamics, correlation functions and the relation between Lagrangian parameters and physical masses. This chapter surveys these results for affine Toda theory. It is a map rather than a treatment, and each section points to the literature. Several of these tools are used in Parts V–VII at imaginary coupling, where they test the non-unitary theories.
+
+## The thermodynamic Bethe ansatz {#sec-tba}
+
+Put the theory on a circle of circumference $R$ and regard the Euclidean direction of length $L\to\infty$ as time. The partition function is then dominated by the ground state in volume $R$: $Z\simeq e^{-LE_0(R)}$. Exchanging the roles of space and time, the same partition function is a thermal trace at temperature $1/R$ in infinite volume, which can be evaluated from the Bethe–Yang equations (-@eq-bethe-yang) in the thermodynamic limit. For a diagonal S-matrix this gives Zamolodchikov's **thermodynamic Bethe ansatz** [@zamolodchikov1990]:
+
+$$
+\varepsilon_a(\theta)=m_aR\cosh\theta-\sum_b\int\frac{d\theta'}{2\pi}\,\varphi_{ab}(\theta-\theta')\,\ln\big(1+e^{-\varepsilon_b(\theta')}\big),\qquad\varphi_{ab}(\theta)=-i\frac{d}{d\theta}\ln S_{ab}(\theta),
+$$ {#eq-tba}
+
+$$
+E_0(R)=-\sum_a\int\frac{d\theta}{2\pi}\,m_a\cosh\theta\,\ln\big(1+e^{-\varepsilon_a(\theta)}\big).
+$$
+
+As $R\to0$ the theory approaches its ultraviolet fixed point, and $E_0(R)\simeq-\pi c_{\rm eff}/6R$ gives the **effective central charge**. For the real-coupling affine Toda theories the ultraviolet limit is $r$ free bosons, and the TBA gives $c_{\rm eff}=r$ [@klassen1990]. The approach to it is logarithmic rather than a power law, because the ultraviolet theory is non-compact; the logarithms are controlled by reflection amplitudes of the Toda conformal field theory [@ahn2000].
+
+The same equations with the minimal S-matrices give the central charges of perturbed minimal models, and at imaginary coupling the TBA with the soliton S-matrices gives the effective central charges of the restricted, often non-unitary, theories. @sec-lee-yang used this for the scaling Lee–Yang model.
+
+## Form factors {#sec-form-factors}
+
+The matrix elements of a local operator $\mathcal O$ between the vacuum and asymptotic states,
+
+$$
+F^{\mathcal O}_{a_1\dots a_n}(\theta_1,\dots,\theta_n)=\langle0\rvert\,\mathcal O(0)\,\lvert A_{a_1}(\theta_1)\cdots A_{a_n}(\theta_n)\rangle ,
+$$
+
+satisfy a system of functional equations determined by the S-matrix [@smirnov1992]:
+
+- **Watson's equations:** exchanging two neighbouring rapidities multiplies $F$ by the S-matrix;
+- **cyclicity:** shifting $\theta_n\to\theta_n+2\pi i$ moves it to the front;
+- **kinematic poles** at $\theta_i-\theta_j=i\pi$ for a particle–antiparticle pair, with residue given by the $(n-2)$-particle form factor;
+- **bound-state poles** at the fusing angles, with residues given by the three-point couplings.
+
+Solving these equations gives all form factors, and summing over intermediate states gives correlation functions as rapidly convergent series at large distance. For affine Toda theories the programme was carried out by Fring, Mussardo and Simonetti [@fring1993], starting with sinh-Gordon and the minimal two-particle form factor of each amplitude.
+
+## The mass–coupling relation and the bulk energy {#sec-mass-coupling}
+
+The S-matrix fixes mass ratios, but not the relation between the overall mass scale and the parameter $m$ of the Lagrangian. That relation, and the vacuum energy density in infinite volume (the **bulk energy**), were found exactly by Fateev [-@fateev1994] for all simply-laced theories, with the non-simply-laced cases in [@ahn2000], building on Al. B. Zamolodchikov's result for sine-Gordon [@zamolodchikov1995]. The bulk energy is analytic in the coupling with poles at special values. In @sec-collapse-thresholds its continuation to imaginary coupling has poles exactly at the collapse thresholds of the Coulomb-gas representation, where additional counterterms are needed.
+
+## The ODE/IM correspondence {#sec-ode-im}
+
+The ODE/IM correspondence relates spectral problems of ordinary differential equations to integrable models. In its massive form, the linear problem associated with the Lax pair of affine Toda theory, specialized to particular solutions, has connection coefficients that satisfy the same functional relations as the conserved charges of the quantum theory [@lukyanov2010; @dorey2013; @ito2014]. The ultraviolet limit of the $a_r^{(1)}$ correspondence gives non-unitary $WA_r$ minimal models [@ito_shu2018], and a recent monograph reviews the subject and its applications [@ito_shu2025].
+
+## Rigorous constructions {#sec-rigorous-real}
+
+The real-coupling potentials are real and bounded below, so the theories fall into the class of exponential interactions constructed rigorously by Albeverio and Høegh-Krohn [-@albeverio1974]. For a single field in the super-renormalizable range that construction gives the Wightman axioms and a mass gap. Extending it to several fields is expected to be routine, but to our knowledge it has not been written down. Nothing comparable existed for the imaginary-coupling theories, and Part VII supplies what can be done.
+
+## Exercises {#sec-beyond-smatrix-exercises}
+
+::: {#exr-tba-free}
+For $S=-1$ (free Majorana fermions), solve the TBA (-@eq-tba) exactly and show that $c_{\rm eff}=\frac12$. For $S=1$ (free bosons), set up the corresponding bosonic TBA and show $c_{\rm eff}=1$.
 :::
 
-## The thermodynamic Bethe ansatz
+::: {#exr-tba-uv}
+Assuming $\varepsilon_a$ is constant in the central region $\lvert\theta\rvert\ll\ln(1/R)$, derive the algebraic equations for $x_a=e^{-\varepsilon_a}$ in the ultraviolet limit, and express $c_{\rm eff}$ through dilogarithms.
+:::
 
-*To be written.*
+::: {#exr-watson}
+For a diagonal S-matrix, show that Watson's equations and cyclicity imply that the minimal two-particle form factor $F_{\rm min}(\theta)$ satisfies $F_{\rm min}(\theta)=S(\theta)F_{\rm min}(-\theta)$ and $F_{\rm min}(i\pi-\theta)=F_{\rm min}(i\pi+\theta)$.
+:::
 
-## Form factors
+## Notes and references {#sec-beyond-smatrix-notes}
 
-*To be written.*
-
-## The mass–coupling relation
-
-*To be written.*
-
-## The ODE/IM correspondence
-
-*To be written.*
-
-## Rigorous constructions
-
-*To be written.*
-
-## Exercises
-
-*To be written.*
-
-## Notes and references
-
-*To be written.*
+The thermodynamic Bethe ansatz is due to Al. B. Zamolodchikov [-@zamolodchikov1990], and its application to the affine Toda theories to Klassen and Melzer [-@klassen1990]. Smirnov's book [@smirnov1992] develops the form-factor axioms. Mussardo's textbook [@mussardo2010] covers both in detail.

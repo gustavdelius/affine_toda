@@ -1,35 +1,105 @@
 # Perturbation theory {#sec-perturbation-theory}
 
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
-- Renormalize affine Toda theory in two dimensions: only tadpoles diverge, and Wick ordering removes them.
-- Compute one-loop mass corrections and show the mass ratios are preserved in simply-laced theories.
-- Understand anomalous thresholds and the Coleman–Thun mechanism for higher-order S-matrix poles.
+- Renormalize affine Toda theory in two dimensions: only tadpoles diverge, and normal ordering removes them.
+- Relate Feynman amplitudes to the two-dimensional S-matrix, and check an exact S-matrix at tree level.
+- See how tree-level poles and residues reproduce the bound-state structure of @sec-bootstrap-intro.
+- Understand the one-loop mass corrections, and why their pattern differs between simply-laced and non-simply-laced theories.
+- Explain higher-order poles by anomalous thresholds (Coleman–Thun).
 :::
 
-::: {.callout-warning appearance="simple" title="To be written"}
-Sources to draw on: Braden–Corrigan–Dorey–Sasaki 1990, 1991; Coleman–Thun 1978; Delius–Grisaru–Zanon 1992; Dorey–Polvara 2022; Polvara 2023.
+The exact S-matrices of @sec-simply-laced and @sec-non-simply-laced are conjectures, obtained by solving the bootstrap. Perturbation theory is how they are tested: their expansion in the coupling must agree with Feynman diagrams computed from the Lagrangian. This chapter sets up the perturbative expansion for the real-coupling theories. In two dimensions it is unusually well behaved, and it is also where some of the most interesting structure of these theories first becomes visible: the conspiracy of couplings that prevents particle production, the higher-order poles, and the floating mass ratios of the non-simply-laced theories.
+
+## Feynman rules and renormalization {#sec-feynman-rules}
+
+Expanding the real-coupling potential (-@eq-imaginary-potential) about $\vec\phi=0$ and diagonalizing the mass matrix by $\vec\phi=\sum_a\vec e_a\phi_a$ gives
+
+$$
+V=\frac12\sum_am_a^2\phi_a^2+\frac1{3!}\sum_{abc}C_{abc}\phi_a\phi_b\phi_c+\frac1{4!}\sum_{abcd}C_{abcd}\phi_a\phi_b\phi_c\phi_d+\dots,
+$$
+
+with $n$-point couplings
+
+$$
+C_{a_1\dots a_n}=m^2\beta^{n-2}\sum_jn_j\prod_{k=1}^n(\vec\alpha_j\cdot\vec e_{a_k}) .
+$$ {#eq-n-point-couplings}
+
+The theory has infinitely many interactions, but at each order in $\beta$ only finitely many contribute.
+
+**Ultraviolet divergences.** In two dimensions a scalar propagator has dimension zero, and a loop integral $\int d^2k/(k^2-m^2)^n$ diverges only for $n=1$, logarithmically. So the only divergent diagrams are those containing a propagator that begins and ends at the same vertex: **tadpoles**. They are removed by normal ordering the interaction with respect to the free field of mass matrix $M^2$. For exponentials,
+
+$$
+{:}e^{\beta\vec\alpha\cdot\vec\phi}{:}=e^{\beta\vec\alpha\cdot\vec\phi}\,e^{-\frac{\beta^2}2\langle(\vec\alpha\cdot\vec\phi)^2\rangle},
+$$
+
+which multiplies each term of the potential by a divergent constant that can be absorbed into $m^2$. With normal-ordered exponentials no further divergences occur at any order, so the theory is **super-renormalizable**. The finite part of the renormalization of $m$ is a convention, and with it the relation between the parameters $m$, $\beta$ of the Lagrangian and the physical masses. Part VII treats the same normal ordering non-perturbatively, at imaginary coupling, where it is the site-by-site Wick ordering of @sec-wick-ordering-statement.
+
+## Amplitudes and the two-dimensional S-matrix {#sec-tree-level}
+
+Let $\mathcal M_{ab}(\theta)$ be the Feynman amplitude for $a(\theta_1)+b(\theta_2)\to a(\theta_1)+b(\theta_2)$, with relativistically normalized states $\langle p|p'\rangle=2E\,2\pi\delta(p-p')$. In two dimensions the momentum-conserving delta function of the final state can be traded for the rapidities, and the two-particle S-matrix of @sec-unitarity-crossing-intro is
+
+$$
+S_{ab}(\theta)=1+\frac{i\,\mathcal M_{ab}(\theta)}{4m_am_b\sinh\theta}+\dots ,
+$$ {#eq-s-from-m}
+
+where $4m_am_b\sinh\theta$ is the Jacobian from the two delta functions of energy and momentum to the single delta function of rapidities. The amplitude for $a+b\to b+a$ (transmission and reflection coincide for distinct masses) is included in the same way.
+
+**Example: sinh-Gordon at tree level.** Take $V=\frac{m^2}{b^2}(\cosh b\phi-1)$, so that $m$ is the particle mass and $b=\sqrt2\beta$ in the affine Toda normalization. Expanding, $V=\frac12m^2\phi^2+\frac{m^2b^2}{4!}\phi^4+O(b^4)$, with no cubic term. The tree amplitude is the contact term, $\mathcal M=-m^2b^2$, and (-@eq-s-from-m) gives
+
+$$
+S(\theta)=1-\frac{ib^2}{4\sinh\theta}+O(b^4).
+$$
+
+The exact S-matrix (-@eq-sinh-gordon-smatrix), $S=(\sinh\theta-i\sin\frac{\pi B}2)/(\sinh\theta+i\sin\frac{\pi B}2)$ with $B=\frac{b^2/4\pi}{1+b^2/8\pi}$, expands to $1-i\pi B/\sinh\theta=1-ib^2/(4\sinh\theta)$. The two agree. This fixes the leading behaviour of $B(\beta)$, and a one-loop computation fixes the next order [@arinshtein1979].
+
+**Tree-level poles.** When $C_{abc}\ne0$, the tree amplitude for $a+b\to a+b$ contains the $s$-channel exchange $-C_{abc}^2/(s-m_c^2)$. In terms of $\theta$, near the fusing angle $\theta=iu_{ab}^c$, one has $s-m_c^2\simeq2m_am_b\,i\sinh(iu_{ab}^c)(\theta-iu_{ab}^c)$, and (-@eq-s-from-m) gives
+
+$$
+S_{ab}(\theta)\simeq\frac{i}{\theta-iu_{ab}^c}\cdot\frac{C_{abc}^2}{8m_a^2m_b^2\sin^2u_{ab}^c} .
+$$
+
+By the area rule (-@eq-area-rule), $2m_am_b\sin u_{ab}^c=4\Delta_{abc}$, so the residue is $iC_{abc}^2/(32\Delta_{abc}^2)=i\beta^2/(2h)$ for every fusing of a simply-laced theory. The tree-level residues of all bound-state poles are equal. This is the first test of the exact S-matrices, and @exr-tree-residue asks you to check it.
+
+**Tree-level integrability.** For a $2\to3$ process at tree level, the many diagrams with cubic, quartic and quintic vertices must cancel for the S-matrix to factorize. In affine Toda theory they do, for every algebra, and the cancellation can be derived from properties of root systems [@dorey_polvara2022]. At one loop the corresponding statement for the simply-laced theories is in [@polvara2023], and the one-loop amplitudes agree with the exact S-matrices [@fabri_polvara2024].
+
+## One-loop masses {#sec-one-loop-masses-real}
+
+At one loop, after normal ordering, the mass corrections come from bubble diagrams with two cubic vertices, and from tadpoles of the quartic vertex, which vanish with normal ordering. Braden, Corrigan, Dorey and Sasaki [-@braden1990] found that in every simply-laced theory the correction is proportional to the classical mass:
+
+$$
+\frac{\delta m_a^2}{m_a^2}\ \text{is independent of }a\qquad(\hat g\text{ simply laced}).
+$$
+
+The classical mass ratios, and with them the fusing angles and the Coxeter-number structure of @sec-dorey-rule, survive one loop. This is what makes it possible to write the exact S-matrices of @sec-simply-laced in terms of blocks with fixed positions $x\pi/h$.
+
+For the non-simply-laced theories this fails [@dgz1992]. The one-loop corrections differ between particles, and the mass ratios drift with the coupling. Delius, Grisaru and Zanon found that the drift is captured by replacing the Coxeter number $h$ in the classical masses by a coupling-dependent **floating Coxeter number** $H(\beta)$. @sec-non-simply-laced develops this.
+
+## Anomalous thresholds and higher-order poles {#sec-coleman-thun}
+
+The exact S-matrices of affine Toda theory have double and higher-order poles in the physical strip. A double pole cannot be a bound state, which would give a simple pole with a residue fixed by a coupling. Coleman and Thun [@coleman_thun1978] explained the double poles of the sine-Gordon breather amplitudes by **anomalous thresholds**: Landau singularities of Feynman diagrams in which every internal line is on shell.
+
+In two dimensions such singularities are poles. Power counting near the singular point shows that a diagram with $P$ internal on-shell propagators and $L$ loops has a singularity of order $P-2L$. The tree exchange has $P=1$, $L=0$, a simple pole. A box diagram with four on-shell internal lines and one loop gives $4-2=2$, a double pole. In affine Toda theory, at each double pole of the exact S-matrix there is an on-shell box diagram built from the three-point couplings, whose internal momenta form a closed polygon of mass triangles (a "dual diagram"). This pattern, extended to higher orders, accounts for every higher-order pole of the simply-laced S-matrices [@braden1990; @braden1991].
+
+The analysis matters for the soliton S-matrices of Part VI, where some poles are explained neither by bound states nor by known on-shell diagrams (@sec-sm-discussion, open problem 3).
+
+## Exercises {#sec-perturbation-theory-exercises}
+
+::: {#exr-tadpoles}
+Show that in two dimensions the only superficially divergent one-particle-irreducible diagrams of a theory with non-derivative interactions are those containing a propagator that starts and ends at the same vertex. Show that normal ordering removes them.
 :::
 
-## Wick ordering in two dimensions
+::: {#exr-s-from-m}
+Derive (-@eq-s-from-m): write $\langle p_3p_4|S-1|p_1p_2\rangle=i(2\pi)^2\delta^2(p_1+p_2-p_3-p_4)\mathcal M$ and convert the delta functions to rapidities.
+:::
 
-*To be written.*
+::: {#exr-tree-residue}
+For $a_2^{(1)}$, compute the tree amplitude for $1+1\to1+1$ from the cubic coupling $C_{11\bar1}$ and check that its pole at $\theta=2\pi i/3$ has residue $i\beta^2/(2h)=i\beta^2/6$. Compare with the residue of the exact S-matrix $S_{11}=\{1\}$ of @sec-simply-laced expanded to first order in $B$.
+:::
 
-## One-loop masses
+::: {#exr-landau}
+For the box diagram in two dimensions with four on-shell internal lines, show by power counting near the singular configuration that the singularity is a double pole.
+:::
 
-*To be written.*
+## Notes and references {#sec-perturbation-theory-notes}
 
-## Tree-level and one-loop integrability
-
-*To be written.*
-
-## Anomalous thresholds and Coleman–Thun diagrams
-
-*To be written.*
-
-## Exercises
-
-*To be written.*
-
-## Notes and references
-
-*To be written.*
+The perturbative study of the simply-laced theories, including one-loop masses, the area rule and the Coleman–Thun analysis of higher poles, is in Braden, Corrigan, Dorey and Sasaki [-@braden1990; -@braden1991]. The non-simply-laced one-loop masses and the floating Coxeter number are due to Delius, Grisaru and Zanon [-@dgz1992]. Tree-level and one-loop integrability have been revisited from the root-system point of view by Dorey and Polvara [-@dorey_polvara2022], Polvara [-@polvara2023], and Fabri and Polvara [-@fabri_polvara2024].

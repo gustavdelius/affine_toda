@@ -1,34 +1,88 @@
 # Exact S-matrices of the simply-laced theories {#sec-simply-laced}
 
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
-- Build the minimal S-matrices from the blocks $(x)$ and $\{x\}$.
-- Derive the S-matrices from Dorey's fusing rule and the Coxeter geometry.
+- Build the S-matrices of the simply-laced theories from the blocks $(x)$ and $\{x\}$.
+- Check unitarity, crossing and the bootstrap, and read the bound states off the poles.
+- Derive the S-matrices for every simply-laced algebra from Dorey's root-system formula.
 - Understand strong–weak duality $\beta\to4\pi/\beta$.
 :::
 
-::: {.callout-warning appearance="simple" title="To be written"}
-Sources to draw on: Braden–Corrigan–Dorey–Sasaki 1990; Christe–Mussardo 1990; Klassen–Melzer 1990; Dorey 1991; Fring–Olive 1992.
-:::
+For each simply-laced algebra there is an exact, diagonal S-matrix that satisfies all the axioms of @sec-integrable-qft, agrees with perturbation theory, and depends on the coupling only through a single parameter $B$. It was found in 1990 by three groups [@braden1990; @christe1990; @klassen1990], and Dorey [-@dorey1991] then gave a single formula for all of them in terms of the Coxeter element. This chapter presents these S-matrices.
 
-## Building blocks
+## Building blocks {#sec-blocks}
 
-*To be written.*
+Fix the Coxeter number $h$ and set
 
-## The S-matrices
+$$
+(x)=\frac{\sinh\left(\frac\theta2+\frac{i\pi x}{2h}\right)}{\sinh\left(\frac\theta2-\frac{i\pi x}{2h}\right)},\qquad
+\{x\}=\frac{(x-1)(x+1)}{(x-1+B)(x+1-B)} ,
+$$ {#eq-blocks}
 
-*To be written.*
+with the coupling-dependent parameter
 
-## Dorey's formula
+$$
+B(\beta)=\frac1{2\pi}\frac{\beta^2}{1+\beta^2/4\pi}\in[0,2) .
+$$ {#eq-b-of-beta}
 
-*To be written.*
+The block $(x)$ has a simple pole at $\theta=i\pi x/h$ and a zero at $\theta=-i\pi x/h$. It satisfies $(x)(-\theta)=(x)^{-1}$, $(0)=1$, $(h)=-1$, $(x+2h)=(x)$ and $(x)(i\pi-\theta)=-(h-x)(\theta)$. The combination $\{x\}$ has the following properties (@exr-block-identities).
 
-## Strong–weak duality
+- **Unitarity and real analyticity:** $\{x\}(\theta)\{x\}(-\theta)=1$, and $\{x\}$ is a phase for real $\theta$.
+- **Crossing:** $\{x\}(i\pi-\theta)=\{h-x\}(\theta)$.
+- **Free limit:** at $B=0$, $\{x\}=1$.
+- **Duality:** $\{x\}$ is invariant under $B\to2-B$.
+- **Poles and zeros:** in the physical strip, $\{x\}$ has simple poles at $\theta=i\pi(x\pm1)/h$, independent of the coupling, and zeros at $\theta=i\pi(x-1+B)/h$ and $i\pi(x+1-B)/h$, which move with the coupling.
 
-*To be written.*
+The numerator $(x-1)(x+1)$ is the **minimal** part. It carries the poles and depends only on $h$. The denominator is a CDD factor (@sec-cdd): it adds zeros, not poles, so it does not change the bound-state structure, and it carries all the dependence on the coupling. For $h=2$, $\{1\}=f_{-B/2}$ is the sinh-Gordon S-matrix (-@eq-sinh-gordon-smatrix).
 
-## Literature {#sec-literature}
+## The $a_n^{(1)}$ S-matrices {#sec-an-smatrix}
 
-### Real coupling: the particle S-matrices are known for every algebra {#sec-real-coupling}
+For $a_n^{(1)}$, with $h=n+1$ and the particles labelled by $a=1,\dots,n$ so that $m_a=2m\sin\frac{\pi a}h$,
+
+$$
+S_{ab}(\theta)=\prod_{\substack{p=\lvert a-b\rvert+1\\\text{step }2}}^{a+b-1}\{p\} .
+$$ {#eq-an-smatrix}
+
+**Example: $a_2^{(1)}$.** There are two particles of equal mass, $2$ being the antiparticle of $1$, and
+
+$$
+S_{11}=S_{22}=\{1\},\qquad S_{12}=\{2\}.
+$$
+
+$S_{11}$ has a pole at $\theta=2\pi i/3$ from the block $(2)$: the bound state $1+1\to\bar1=2$ at the fusing angle of an equilateral mass triangle. $S_{12}=\{2\}$ has a pole at $\theta=i\pi/3$, its crossed image. The bootstrap $S_{12}(\theta)=S_{11}(\theta-\frac{i\pi}3)S_{11}(\theta+\frac{i\pi}3)$ holds (@exr-a2-bootstrap).
+
+In general, for $a\ne b$, $S_{ab}$ has simple poles at $\theta=i\pi(a+b)/h$, the fusing $a+b\to a+b$, and at $\theta=i\pi\lvert a-b\rvert/h$, the crossed image of the fusing $a+\bar b$, and double poles at the positions in between where consecutive blocks overlap. The double poles are the anomalous thresholds of @sec-coleman-thun.
+
+## Dorey's formula {#sec-dorey-formula}
+
+For a general simply-laced algebra, Dorey's root-system construction (@sec-dorey-rule) gives the S-matrix directly. With the bicoloured Coxeter element $w=s_{\rm black}s_{\rm white}$, the colours $c(a)=\pm1$ (white $=+1$), the fundamental weights $\vec\lambda_a$ and $\vec\gamma_b=(1-w^{-1})\vec\lambda_b$,
+
+$$
+S_{ab}(\theta)=\prod_{p=1}^h\Big\{2p-1+\tfrac12\big(c(b)-c(a)\big)\Big\}^{-\frac12\vec\lambda_a\cdot w^p\vec\gamma_b} ,
+$$ {#eq-dorey-formula}
+
+where blocks with $x>h$ are reduced using $\{x+2h\}=\{x\}$ and $\{-x\}=\{x\}^{-1}$; the exponents then come out as integers. This reproduces (-@eq-an-smatrix) for $a_n^{(1)}$, and for the lightest particle of $e_8^{(1)}$ it gives
+
+$$
+S_{11}=\{1\}\{11\}\{19\}\{29\},\qquad h=30 .
+$$
+
+Its poles at $\theta=\frac{2\pi i}3$, $\frac{2\pi i}5$ and $\frac{i\pi}{15}$ are the fusings $1+1\to1$, $1+1\to2$ and $1+1\to3$, with $m_2=2m_1\cos\frac\pi5$ and $m_3=2m_1\cos\frac\pi{30}$. The minimal part of the $e_8^{(1)}$ S-matrix is Zamolodchikov's S-matrix of the Ising model in a magnetic field [@zamolodchikov1989].
+
+The signs and the direction of the colour shift in (-@eq-dorey-formula) matter. Products of blocks are easily written that are unitary, crossing symmetric and satisfy the bootstrap at every fusing, yet are not the S-matrices of the theory: the variant with $w^{-p}$ in place of $w^p$ is an example. What singles out the physical S-matrix is agreement with the known cases and with perturbation theory. All three properties, the bootstrap at every fusing of $e_7^{(1)}$ and $e_8^{(1)}$ (112 and 224 fusings respectively), and the reduction to (-@eq-an-smatrix) are checked in `textbook_code/smatrix_simply_laced.py`.
+
+## Strong–weak duality {#sec-strong-weak}
+
+Because every block is invariant under $B\to2-B$, so is every simply-laced S-matrix. In terms of the coupling,
+
+$$
+B\Big(\frac{4\pi}\beta\Big)=2-B(\beta) ,
+$$
+
+so the theory at coupling $\beta$ has the same S-matrix as the theory at $4\pi/\beta$. Perturbation theory in $\beta$ and in $4\pi/\beta$ describe the same physics, and the S-matrix is most strongly coupled at the self-dual point $\beta^2=4\pi$, $B=1$. This weak–strong duality of the simply-laced theories is a simple instance of the more interesting duality of the non-simply-laced theories, where the strong-coupling limit of one theory is the weak-coupling limit of its Lie dual (@sec-non-simply-laced).
+
+At $B\to0$ and $B\to2$ every block tends to 1: the theory becomes free in both limits. In between, the masses (in the normalization of @sec-one-loop-masses-real) keep their classical ratios exactly.
+
+## Summary: the real-coupling S-matrices are known for every algebra {#sec-real-coupling}
 
 **Simply-laced algebras.** The S-matrices are products of building blocks
 
@@ -51,10 +105,29 @@ constructed by Braden, Corrigan, Dorey and Sasaki, Christe and Mussardo, and Kla
 
 **Rigour.** The real-coupling potentials are bounded below and real, so these theories fall into the class of exponential interactions constructed rigorously by Albeverio and Høegh-Krohn [-@albeverio1974]. That construction gives the Wightman axioms and a mass gap for a single field in the super-renormalizable range. Extending it to several fields is expected to be routine, but to our knowledge has not been written down.
 
-## Exercises
+## Exercises {#sec-simply-laced-exercises}
 
-*To be written.*
+::: {#exr-block-identities}
+Prove the properties of $(x)$ and $\{x\}$ listed in @sec-blocks. In particular, show $(x)(i\pi-\theta)=-(h-x)(\theta)$ and deduce $\{x\}(i\pi-\theta)=\{h-x\}(\theta)$.
+:::
 
-## Notes and references
+::: {#exr-a2-bootstrap}
+For $a_2^{(1)}$ the only fusings are $1+1\to2$ and $2+2\to1$. Verify the bootstrap equations $S_{d2}(\theta)=S_{d1}(\theta-\frac{i\pi}3)S_{d1}(\theta+\frac{i\pi}3)$ for $d=1,2$.
+:::
 
-*To be written.*
+::: {#exr-an-poles}
+For $a_n^{(1)}$, find all poles of $S_{ab}$ in the physical strip, their orders, and identify the simple poles with fusings $a+b\to a+b$ and their crossed images.
+:::
+
+::: {#exr-e8-poles}
+For $e_8^{(1)}$, use the masses of @sec-masses-couplings to verify that the poles of $S_{11}=\{1\}\{11\}\{19\}\{29\}$ at $\theta=\frac{2\pi i}3,\frac{2\pi i}5,\frac{i\pi}{15}$ give the bound states $1$, $2$, $3$. Where are the other three poles, and what are they?
+:::
+
+::: {#exr-dual}
+Show that $B(4\pi/\beta)=2-B(\beta)$, and that $B$ is monotonic in $\beta$ with $B(0)=0$, $B(\infty)=2$.
+:::
+
+## Notes and references {#sec-simply-laced-notes}
+
+The simply-laced S-matrices were found by Braden, Corrigan, Dorey and Sasaki [-@braden1990], Christe and Mussardo [-@christe1990] and Klassen and Melzer [-@klassen1990]. Dorey's formula is in [@dorey1991], and Fring and Olive [@fring1992] derived the S-matrices from the Coxeter geometry by a different route. The $e_8$ S-matrix of the Ising model in a magnetic field is due to Zamolodchikov [-@zamolodchikov1989]. Dorey's lectures [-@dorey1998] give a detailed account of all of this.
+

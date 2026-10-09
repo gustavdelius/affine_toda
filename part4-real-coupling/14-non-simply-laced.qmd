@@ -1,31 +1,81 @@
 # Non-simply-laced theories and the floating Coxeter number {#sec-non-simply-laced}
 
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
-- See why the classical mass ratios are not preserved by quantum corrections in non-simply-laced theories.
-- Construct the S-matrices of the dual pairs with a coupling-dependent Coxeter number.
-- Understand how a dual pair is exchanged under $\beta\to4\pi/\beta$.
+- See why quantum corrections change the mass ratios of the non-simply-laced theories.
+- Work with blocks built on a coupling-dependent Coxeter number $H$.
+- Understand how one S-matrix describes both members of a dual pair, as weak and strong coupling limits.
+- Know the status of these S-matrices and how Part VI tests them.
 :::
 
-::: {.callout-warning appearance="simple" title="To be written"}
-Sources to draw on: Delius–Grisaru–Zanon 1992; Corrigan–Dorey–Sasaki 1993; Chari–Pressley 1991.
+The simply-laced S-matrices of @sec-simply-laced have poles at coupling-independent positions, because the one-loop mass ratios equal the classical ones. For the non-simply-laced theories this fails, and for some years it was unclear whether these theories had consistent exact S-matrices at all. Delius, Grisaru and Zanon [-@dgz1992] found the resolution: the classical mass formulas remain valid if the Coxeter number is allowed to depend on the coupling, and the S-matrices are built from blocks with this floating Coxeter number. Corrigan, Dorey and Sasaki [-@corrigan1993] completed the picture for the exceptional cases.
+
+## Quantum mass corrections {#sec-nsl-masses}
+
+At one loop the masses of a non-simply-laced theory are corrected by amounts that are not proportional to the classical masses [@dgz1992]. Take $c_n^{(1)}$, whose classical masses are $m_a=2m\sin\frac{\pi a}{2n}$ (@sec-masses-couplings). The one-loop masses are, to this order,
+
+$$
+m_a\propto\sin\frac{\pi a}{H},\qquad H=2n+B+O(B^2),
+$$
+
+with $B$ the small-coupling parameter of @sec-blocks in the root normalization of [@dgz1992]. The Coxeter number $2n$ of the classical formula has become a coupling-dependent number $H$.
+
+Folding makes this plausible. The parent $a_{2n-1}^{(1)}$ theory has masses $\propto\sin\frac{\pi a}{2n}$ that are stable under quantum corrections. The folded theory keeps only the invariant fields, so only invariant fields run in its loops, and its corrections differ from those of the invariant sector of the parent. Classical solutions fold, but the quantum theory does not.
+
+## The floating Coxeter number {#sec-floating-coxeter}
+
+Replace $h$ in the blocks (-@eq-blocks) by $H$:
+
+$$
+(x)_H=\frac{\sinh\left(\frac\theta2+\frac{i\pi x}{2H}\right)}{\sinh\left(\frac\theta2-\frac{i\pi x}{2H}\right)},\qquad
+\{x\}_H=\frac{(x-1)_H\,(x+1)_H}{(x-1+B)_H\,(x+1-B)_H}.
+$$
+
+Blocks at positions that depend on $H$ give poles that move with the coupling, and with them the masses. For $c_n^{(1)}$ the S-matrix of the heaviest particle is
+
+$$
+S_{nn}=\prod_{p=1}^n\{2p-1\}_H\,\{H-2p+1\}_H,\qquad H=2n+B ,
+$$ {#eq-cn-snn}
+
+and the masses are $m_a\propto\sin\frac{\pi a}H$ exactly. The other amplitudes are built in the same way [@dgz1992].
+
+The floating Coxeter number interpolates linearly in $B$. At $B=0$ it is the Coxeter number $h$ of $\hat g$. At $B=2$ it is $k\,h^\vee$, where $h^\vee$ is the dual Coxeter number of $\hat g$ (equivalently the Coxeter number of the Lie dual $\hat g^\vee$, @tbl-foldings) and $k$ is the ratio of the squared lengths of long and short roots:
+
+$$
+H(B)=h+\frac B2\big(k\,h^\vee-h\big).
+$$ {#eq-floating-h}
+
+For $c_n^{(1)}$, with $h=2n$, $h^\vee=n+1$ and $k=2$, this gives $H=2n+B$. For $f_4^{(1)}$, with $h=12$, $h^\vee=9$ and $k=2$, it gives $H=12+3B$, the relation confirmed by the one-loop computation of @sec-sm-f4. The $(g_2^{(1)},d_4^{(3)})$ and $(b_n^{(1)},a_{2n-1}^{(2)})$ pairs, and the more intricate mass formulas of the exceptional pairs, which involve a second floating parameter, are in [@dgz1992; @corrigan1993].
+
+## Duality between the members of a dual pair {#sec-nsl-duality}
+
+The S-matrix (-@eq-cn-snn) is built from blocks that are invariant under $B\to2-B$ only if $H$ is held fixed. Under $B\to2-B$, $H$ moves from one end of its range to the other. The S-matrix of $\hat g$ at strong coupling, $B\to2$, therefore has the mass ratios and pole structure of a theory with Coxeter number $kh^\vee$: the Lie dual $\hat g^\vee$ at weak coupling, in the normalization in which its longest roots have length$^2$ $2k$. One family of S-matrices describes both members of the dual pair, $\hat g$ near $B=0$ and $\hat g^\vee$ near $B=2$ [@dgz1992; @corrigan1993].
+
+This is a sharper form of strong–weak duality than in the simply-laced case. There a theory is dual to itself. Here it is dual to a different theory, the one obtained by reversing the arrows of its Dynkin diagram, and the classical masses of one theory are the strong-coupling masses of the other. The same Lie duality appears classically in the soliton masses (@sec-soliton-masses) and in the quantum group of the soliton S-matrices (@sec-qg-symmetry).
+
+## Status {#sec-nsl-status}
+
+The non-simply-laced S-matrices are conjectures, supported by three kinds of evidence.
+
+- **One loop.** The floating Coxeter number reproduces the one-loop masses, and the one-loop amplitudes, of every non-simply-laced theory [@dgz1992; @corrigan1993].
+- **The bootstrap.** The S-matrices close under the bootstrap, with the floating fusing angles.
+- **Breather–particle identification.** At imaginary coupling, the lowest breathers of the soliton S-matrices of Part VI scatter exactly as these particle S-matrices continued to imaginary coupling, with no free parameter (@sec-breather-particle-identification). For $c_n^{(1)}$ and $a_{2n-1}^{(2)}$ this fixes $B(\beta)$ completely, and it agrees with the form $B=\frac{\beta^2/2\pi}{1+\beta^2/4\pi}$, in the normalization of [@dgz1992], which had been checked only to one loop.
+
+For $f_4^{(1)}$ the corresponding soliton S-matrix is not known (@sec-sm-f4).
+
+## Exercises {#sec-non-simply-laced-exercises}
+
+::: {#exr-cn-snn}
+Show that (-@eq-cn-snn) satisfies unitarity and crossing for any $H$. Locate its poles in the physical strip for $n=2$ and identify the bound states.
 :::
 
-## Quantum mass corrections
+::: {#exr-floating-endpoints}
+Check (-@eq-floating-h) at both ends for $c_n^{(1)}$: at $B=2$, show that the masses $\sin\frac{\pi a}{2n+2}$ are those of $d_{n+1}^{(2)}$ in a suitable normalization.
+:::
 
-*To be written.*
+::: {#exr-cn-one-loop}
+Expand $\sin\frac{\pi a}H/\sin\frac{\pi n}H$ to first order in $B$ for $H=2n+B$, and compare with the classical ratio $\sin\frac{\pi a}{2n}$.
+:::
 
-## The floating Coxeter number
+## Notes and references {#sec-non-simply-laced-notes}
 
-*To be written.*
-
-## The S-matrices of the dual pairs
-
-*To be written.*
-
-## Exercises
-
-*To be written.*
-
-## Notes and references
-
-*To be written.*
+The floating Coxeter number and the non-simply-laced S-matrices are due to Delius, Grisaru and Zanon [-@dgz1992], with the exceptional pairs completed by Corrigan, Dorey and Sasaki [-@corrigan1993]. The relation to the soliton S-matrices of the dual quantum group, and the exact confirmation of $B(\beta)$ through breather–particle identification, are the subject of Part VI.
