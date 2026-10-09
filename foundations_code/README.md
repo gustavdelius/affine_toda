@@ -1,6 +1,6 @@
 # Verification code for the foundations paper
 
-Scripts behind the numerical checks quoted in `atft_foundations.qmd`. Python 3 with numpy, scipy, sympy and mpmath. Run each script from its own directory.
+Scripts behind the numerical checks quoted in Part I of the book (`foundations/*.qmd`). Python 3 with numpy, scipy, sympy and mpmath. Run each script from its own directory.
 
 | Path | Paper location | What it checks |
 |---|---|---|

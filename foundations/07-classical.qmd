@@ -1,0 +1,27 @@
+# The classical theory: a selection rule from $\Theta$ {#sec-classical}
+
+## Reality of energy and momentum {#sec-reality-energy-momentum}
+
+::: {#prp-hirota-energy}
+**[Established; reformulated]** For a Hirota solution, the energy and momentum densities are total derivatives [@olive1993a; @olive1993b]. They integrate to
+
+$$
+E=\sum_iM_{a_i}\cosh\theta_i,\qquad P=\sum_iM_{a_i}\sinh\theta_i,
+$$
+
+where $(a_i,\theta_i)$ are the species and (possibly complex) rapidities of the constituent solitons [@tw1999, eq. 4.6]. The masses $M_a$ are real and positive. The same holds for all higher conserved charges [@freeman1995].
+
+:::
+
+On Hirota data, $\Theta$ acts as $\tau_j\mapsto\bar\tau_j$. That is, $(a,\theta,p)\mapsto(\bar a,\bar\theta,\bar p)$, where $\bar a$ is the conjugate species ($\omega^{ja}\mapsto\omega^{-ja}$). Consequently:
+
+- **Selection rule.** If the asymptotic data $\{(a_i,\theta_i)\}$ are $\Theta$-invariant, meaning the rapidities are real or occur in conjugate pairs with conjugate species, then $E$, $P$ and all conserved charges are real. Solitons and breathers are of this kind.
+- **Complex energies.** The complex-energy solutions of Khastgir and Sasaki have asymptotic data that are not $\Theta$-invariant. They are not in the physical sector, for the same reason that complex eigenvalues of a $\Theta$-symmetric operator are not $\Theta$-invariant states.
+
+This closes H6, apart from the question of singularities. The restriction to "good" solutions, previously ad hoc, is the classical shadow of @thm-krein-transfer.
+
+## Singular solutions {#sec-singular-solutions}
+
+Zeros of $\tau_j$ in the real $(x,t)$ plane are isolated points: one complex condition, two real conditions. There the energy density has double poles with zero residue, so integrated charges are unaffected, and the Hirota data continue analytically through the singularity.
+
+The genuinely problematic phenomenon is different. In theories with non-self-conjugate species, soliton–breather scattering produces complex time delays and can carry regular data into singular regions [@tw1999]. This is the classical image of a quantum sector in which $\Theta$ is broken (@sec-sector-status). It is not a failure of the formalism.

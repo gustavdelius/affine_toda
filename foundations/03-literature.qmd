@@ -1,0 +1,82 @@
+# Literature overview {#sec-literature}
+
+## Real coupling: the particle S-matrices are known for every algebra {#sec-real-coupling}
+
+**Simply-laced algebras.** The S-matrices are products of building blocks
+
+$$
+\{x\}=\frac{(x-1)(x+1)}{(x-1+B)(x+1-B)},\qquad (x)=\frac{\sinh\left(\frac\theta2+\frac{i\pi x}{2h}\right)}{\sinh\left(\frac\theta2-\frac{i\pi x}{2h}\right)},\qquad B(\beta)=\frac{1}{2\pi}\frac{\beta^2}{1+\beta^2/4\pi},
+$$
+
+constructed by Braden, Corrigan, Dorey and Sasaki, Christe and Mussardo, and Klassen and Melzer (all 1990), with a universal root-system formula due to Dorey [@dorey1991].
+
+**Non-simply-laced algebras.** The S-matrices were found by Delius, Grisaru and Zanon [-@dgz1992] and by Corrigan, Dorey and Sasaki [-@corrigan1993]. Here the Coxeter number "floats" with the coupling and interpolates between $h$ and $h^\vee$ of the dual algebra. The S-matrices of a dual pair are exchanged under $\beta\to4\pi/\beta$.
+
+**Checks.** These S-matrices have been checked at one loop [@braden1990; @dgz1992], by Monte Carlo simulation (hep-th/9206112, hep-th/9508007), and more recently by tree-level and loop integrability arguments [@dorey_polvara2022].
+
+**Further results.** Further [Established] results include:
+
+- thermodynamic Bethe ansatz [@zamolodchikov1990; @klassen1990];
+- form factors [@fring1993];
+- the exact mass–coupling relation [@fateev1994];
+- ODE/IM descriptions [@lukyanov2010; @dorey2013; @ito2014].
+
+**Rigour.** The real-coupling potentials are bounded below and real, so these theories fall into the class of exponential interactions constructed rigorously by Albeverio and Høegh-Krohn [-@albeverio1974]. That construction gives the Wightman axioms and a mass gap for a single field in the super-renormalizable range. Extending it to several fields is expected to be routine, but to our knowledge has not been written down.
+
+## Imaginary coupling: classical theory {#sec-imaginary-coupling-classical-theory}
+
+**Solutions.** Single and multi-soliton solutions are known for all algebras [@hollowood1992; @olive1993a; @olive1993b; @kneipp1996; @mackay1993; @aratyn1993; @zhu1995]. So are breathers [@harder1995] and soliton time delays [@fring1994].
+
+**Reality.** Although the fields are complex, the energy–momentum tensor is a total derivative up to an improvement term, and the energies are real [@olive1993a; @olive1993b; @zhu1995]. So are all the higher conserved charges [@freeman1995].
+
+**Known problems.**
+
+- The topological charges of single solitons do not fill the expected representations [@mcghee1994].
+- Some solutions are singular at isolated spacetime points.
+- There are solutions with complex energy that become singular in finite time, and solutions with negative energy [@khastgir1996].
+- In $a_2^{(1)}$, soliton–breather scattering produces *complex* classical time delays and can drive regular initial data into singular final states [@tw1999].
+
+## Imaginary coupling: quantum theory {#sec-imaginary-coupling-quantum-theory}
+
+**Soliton S-matrices.** Their status is summarized below. They are built from $U_q(\hat g^\vee)$ R-matrices and fixed by crossing, unitarity in the R-matrix sense, and the bootstrap. In every case examined, the lowest breathers reproduce the real-coupling particle S-matrices continued to imaginary coupling (breather–particle identification [@smirnov1991; @gandenberger1995; @gm1995; @gmw1996; @takacs1997a; @takacs1997b; @takacs1997c]).
+
+| $\hat g$ | soliton S-matrix | charge algebra |
+|---|---|---|
+| $a_n^{(1)}$ | Hollowood 1993; bound states Gandenberger 1995 | $U_q(a_n^{(1)})$ |
+| $a_2^{(2)}$ | Smirnov 1991; Efthimiou 1993 | $U_q(a_2^{(2)})$ |
+| $a_{2n}^{(2)}$ | Gandenberger 1997 | $U_q(a_{2n}^{(2)})$ |
+| $d_{n+1}^{(2)}$ | Gandenberger–MacKay 1995; Delius 1995 ($U_q(c_n^{(1)})$-symmetric S-matrices with non-rigid poles) | $U_q(c_n^{(1)})$ |
+| $b_n^{(1)}$ | Gandenberger–MacKay–Watts 1996 | $U_q(a_{2n-1}^{(2)})$ |
+| $g_2^{(1)}$ | Takács 1997 | $U_q(d_4^{(3)})$ |
+| $d_4^{(3)}$ | Takács 1997 | $U_q(g_2^{(1)})$ |
+| $d_n^{(1)},e_n^{(1)}$ | Johnson 1997 (some scalar factors undetermined) | self-dual |
+| $c_2^{(1)}\simeq b_2^{(1)}$ | via GMW 1996 | $U_q(a_3^{(2)})$ |
+| $c_n^{(1)}$, $n\ge3$ | Part II: spinor soliton (verified for $n=3,4$); all six solitons for $c_3^{(1)}$ | $U_q(d_{n+1}^{(2)})$ |
+| $f_4^{(1)}$ | **open**: the $\mathbf{27}$ R-matrix is known [@gmw1996]; Part II's amplitude satisfies all axioms but is excluded by one-loop perturbation theory | $U_q(e_6^{(2)})$ |
+| $e_6^{(2)}$ | Part II: the 26-dimensional soliton | $U_q(f_4^{(1)})$ |
+| $a_{2n-1}^{(2)}$ | Part II: spinor soliton (verified for $n=3,4$) | $U_q(b_n^{(1)})$ |
+
+The entries marked "Part II" are constructed in Part II (@sec-sm-introduction), in each case as a scalar Gamma-function factor times the R-matrix of the dual quantum affine algebra. In every one, the lowest breathers reproduce the conjectured real-coupling particle S-matrices of Delius–Grisaru–Zanon and Corrigan–Dorey–Sasaki [@dgz1992; @corrigan1993] continued to imaginary coupling, and the soliton masses are $M_a=2M_n\sin(a\pi/H)$. For $c_n^{(1)}$ they reproduce the Delius–Grisaru one-loop soliton mass [@delius_grisaru1995]. Only the spinor (respectively 26-dimensional) soliton is treated for $a_{2n-1}^{(2)}$ and $e_6^{(2)}$, and for $c_n^{(1)}$ only $n=3$ has the full set of species. The closed forms for general $n$ are conjectured. The earlier obstacle was constructing R-matrices in representations whose tensor products are not multiplicity-free [@gmw1996; @dgz1996]; Part II solves the intertwining equations directly. Only $f_4^{(1)}$ remains open, as the $\mathbf{27}$ amplitude contradicts the one-loop relation $H=12+3B$. The one-loop soliton masses of @sec-one-loop-masses-folded show moreover that its soliton and breather fusion angles must differ, as they do in Takács's $g_2^{(1)}$ amplitude.
+
+For $a_{2n-1}^{(2)}$ there is lattice information, and it agrees exactly with Part II. Vernier, Jacobsen and Saleur [-@vernier2016] identify the scaling limit of the staggered $U_q(a_{2n-1}^{(2)})$ vertex model, in two of its three regimes, with imaginary-coupling $a_{2n-1}^{(2)}$ Toda theory [Established; computed, not proved]. Their longest root has squared length 4, and their coupling obeys $\beta_{\rm VJS}^2/8\pi=\gamma/2\pi$, where $q=e^{i\gamma}$ is the lattice anisotropy. In the normalization of @sec-lie-algebraic-data this is $\beta^2=8\gamma$. Their regime I, $0<\gamma<\pi/2$, is then exactly $0<\beta^2<\beta^2_{\rm UV}=4\pi$, the range covered by @thm-window. The holes in the $n$ Fermi seas are $n$ soliton types. Their masses follow from the dressed Bethe source terms, which can be inverted in closed form for every $n$:
+
+$$
+\frac{M_a}{M_n}=2\sin\frac{a\pi}{H},\qquad H=2n-1-\frac{\gamma}{\pi-\gamma}=2n-1-\frac{\beta^2}{8\pi-\beta^2},\qquad a=1,\dots,n-1 .
+$$
+
+This is exactly the spectrum of Part II's spinor-soliton S-matrix, with $M_n$ the spinor soliton and $M_1$ the vector. The closed form was checked to $10^{-30}$ for $n\le8$, and the two mass formulas agree identically. Part II follows [@gm1995; @dgz1992] in giving the longest root of a twisted algebra squared length 4, so its coupling is $\beta^2/2$ in the present normalization. For $n=2$ the lattice reproduces the $d_3^{(2)}$ S-matrix of [@gm1995]. To first order $H=2n-1-\beta^2/8\pi$. This is the one-loop particle value computed from (-@eq-imaginary-potential), and it agrees with the one-loop soliton masses of [@mackay_watts1995] and of @sec-one-loop-masses-folded [Numerical]. Vernier, Jacobsen and Saleur noted that no systematic S-matrix study existed for this family beyond $a_3^{(2)}=d_3^{(2)}$; Part II now supplies one. The lattice carries $U_q(a_{2n-1}^{(2)})$ with $q=e^{i\gamma}$, while the soliton S-matrix carries $U_q(b_n^{(1)})$ with $q=-e^{-i\pi^2/2\gamma}$ (table above). Their regime II, $4\pi<\beta^2<4\pi(2n-1)/n$, continues regime I past $\beta^2_{\rm UV}$. In the third regime the same vertex model has a non-compact continuum limit. (Their general formula (98) has $a\pi$ where their cases $n=2,3$, (66) and (92), require $(a-1)\pi$.) Scripts: `foundations_code/vernier/`.
+
+**Semiclassical masses.** One-loop soliton masses were computed by the DHN method for $a_n^{(1)}$ [@hollowood1993a; @hollowood1993b], for $c_2^{(1)}$ [Watts 1994], and for all algebras [@mackay_watts1995], with a competing result for $c_n^{(1)}$ [@delius_grisaru1995]. The exact $b_n^{(1)}$ masses disagree with MacKay and Watts' tabulated semiclassics [@gmw1996], and the issue was left unresolved [@gm1997]. @sec-semiclassics resolves it (@sec-one-loop-masses-folded).
+
+**Restrictions.** At $q$ a root of unity, quantum-group (RSOS) restriction yields perturbed minimal models [@reshetikhin1990; @smirnov1991; @efthimiou1993; @devega1991; @tkw1997; @takacs1997a; @takacs1997b; @takacs1997c]. Some of these are unitary. Others have complex finite-volume spectra, confirmed by the truncated conformal space approach [@tkw1997; @tw2002].
+
+**Non-unitarity.** Takács and Watts [-@tw1999; -@tw2002] showed the following.
+
+- In $a_2^{(1)}$ the fundamental soliton–soliton amplitude has phase eigenvalues, but the three-soliton transfer matrices and the soliton–antisoliton, soliton–excited-soliton and soliton–breather amplitudes do not. The soliton–breather case is mirrored exactly by complex classical time delays, and it survives RSOS restriction because breathers are quantum-group singlets.
+- In $a_2^{(2)}$, the fundamental soliton–soliton amplitudes are well behaved, but soliton–excited-soliton amplitudes are not, so the spectrum is real only in the repulsive regime. (With bosonic exchange of kink labels, their own eigenvalue equation shows the fundamental amplitudes to be well behaved only for part of the coupling range; see @sec-sector-status.)
+- All theories based on $a_1^{(1)}$ have real finite-volume spectra.
+- A formal S-matrix description remains valid, and agrees with numerics, even when the spectrum is complex.
+
+**Two notions of unitarity.** Delius [-@delius1995] showed that S-matrices built from the universal R-matrix of $U_q(\hat g)$ satisfy crossing, the bootstrap and the relation $S_{ba}(-\theta)S_{ab}(\theta)=1$ as consequences of the Hopf-algebra axioms. He also showed that the Lorentz spins of the charges fix the gradation, which makes the pole positions coupling-dependent through a "quantum" dual Coxeter number. He stressed that the relation usually called unitarity is unrelated to whether the field theory is unitary.
+
+Miramontes [-@miramontes1999] identified the missing condition. Braiding unitarity is equivalent to QFT unitarity when the S-matrix is also Hermitian analytic, a basis-dependent property that quantum-group S-matrices generally violate in the particle basis. Hoare, Hollowood and Miramontes [-@hoare2013] later found that, for $q$ a root of unity, the IRF (RSOS) form of the $U_q(su(2)^{(1)})$-based S-matrices they studied (a $q$-deformed world-sheet theory and a generalized sine-Gordon theory) is manifestly Hermitian analytic, and hence unitary.

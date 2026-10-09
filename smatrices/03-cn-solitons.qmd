@@ -1,0 +1,59 @@
+# $c_n^{(1)}$ solitons {#sec-sm-cn}
+
+The spinor soliton of $c_n^{(1)}$ has an S-matrix with a closed-form R-matrix and exact masses for all $n$. Its lowest breather reproduces the DGZ particle amplitude exactly for $n=2,3,4$.
+
+## The spinor representation and its R-matrix {#sec-cn-representation}
+
+The symmetry algebra is the twisted $U_q(d_{n+1}^{(2)})$, with horizontal subalgebra $U_q(b_n)$. On the $2^n$-dimensional spinor we use spin operators on $n$ sites, with long simple roots ($q_i=q^2$) for $i<n$ and short roots ($q_i=q$) for $i=n$ and $i=0$:
+
+$$
+e_i=\sigma_i^+\sigma_{i+1}^-\ (i<n),\qquad e_n=\sigma_n^+,\qquad e_0=x\,\sigma_1^-,\qquad k_i=q^{2(\alpha_i,\,\mathrm{wt})}.
+$$
+
+Under $U_q(b_n)$, spinor $\otimes$ spinor decomposes into the exterior powers $\Lambda^0,\dots,\Lambda^n$ of the vector representation, without multiplicities. Write $\langle l\rangle_s=(x-s\,q^l)/(1-s\,x\,q^l)$, which satisfies $\langle l\rangle_s(x)\,\langle l\rangle_s(1/x)=1$. Then
+
+$$
+\check R_{nn}(x)=\sum_{k=0}^{n}\Big[\prod_{j=1}^{k}\langle 2j\rangle_{(-1)^{j+1}}\Big]P_{\Lambda^{n-k}} .
+$$
+
+We verified this against direct solutions of the intertwining equations for $n=2,3,4$, to $10^{-13}$. The crossing point is $x_c=(-1)^{n+1}q^{-2n}$.
+
+## Parameters and the scalar factor {#sec-cn-parameters}
+
+For $c_n^{(1)}$, $h=2n$ and $h^\vee=n+1$. Crossing then fixes
+
+$$
+q=-e^{-4\pi^2 i/\beta^2},\qquad \omega=\frac{4\pi}{\beta^2}-1,\qquad T=n\omega+\frac{n-1}{2} .
+$$
+
+The zeros of $c$ sit at $a_j=j\omega+(j-1)/2$ for $j=1,\dots,n$, so $a_n=T$. These are the natural lifts of the R-matrix poles at $x=(-1)^{j-1}q^{-2j}$. @sec-breather-particle-identification shows that the lifts matter.
+
+## Bound states and exact masses {#sec-bound-states-exact-masses}
+
+The pole of $S$ at $t=a_j$ is the bound state $n+n\to n-j$. Its residue projects onto the Kirillov–Reshetikhin module formed by the channels that contain $\langle 2j\rangle$. For $n=4$ the residue ranks are $130=84+36+9+1$, $46=36+9+1$ and $10=9+1$. The breathers sit at $t=T-k$, with rank-one residues.
+
+Since $T-a_{n-a}=a(\omega+\tfrac12)$, the fusion angles give the soliton masses in closed form:
+
+$$
+\frac{M_a}{M_n}=2\sin\frac{a\pi}{H},\qquad H=\frac{2T}{\omega+\frac12}=2n+B,\qquad B=-\frac{1}{\omega+\frac12}=-\frac{2\beta^2}{8\pi-\beta^2},\qquad a=1,\dots,n-1 .
+$$
+
+This is the classical $c_n^{(1)}$ soliton spectrum with $h$ replaced by $H$. For $n=3$ it reproduces the Delius–Grisaru one-loop corrections [@delius_grisaru1995], since $H=6-\beta^2/4\pi+O(\beta^4)$. This confirms their value in the dispute with [@mackay_watts1995].
+
+## Breather–particle identification {#sec-breather-particle-identification}
+
+The lowest breathers have mass ratios $m_a/m_n=\sin(a\pi/H)/\sin(n\pi/H)$, exactly the DGZ $c_n^{(1)}$ particle masses [@dgz1992]. The lowest-breather self-amplitude $S[B^n,B^n]$ is identical, block by block and including the sign, to the DGZ amplitude
+
+$$
+S_{nn}=\prod_{p=1}^{n}\{2p-1\}_H\,\{H-2p+1\}_H,\qquad \{x\}_H=\frac{(x-1)_H\,(x+1)_H}{(x-1+B)_H\,(x+1-B)_H},
+$$
+
+continued to imaginary coupling. We checked this for $n=2,3,4$ at two couplings, $\omega=2.37$ and $1.61$. The value of $B$ is DGZ's $B(\beta)=\dfrac{\beta^2/2\pi}{1+\beta^2/4\pi}$ evaluated at $\beta_{\rm DGZ}^2=-\beta^2/2$: the sign is the continuation, and the factor $\tfrac12$ is the relative root normalisation.
+
+The lifts are physical. At $n=4$, an alternating choice with $a_3=3\omega$ also gives a unitary, crossing-symmetric amplitude. Its breather amplitude, however, differs from DGZ's by the CDD-type factor
+
+$$
+\frac{(2-2B)_H\,(2+2B)_H\,(H-2-2B)_H\,(H-2+2B)_H}{(2)_H^2\,(H-2)_H^2}=1+O(B^2),
+$$
+
+so the two choices disagree first at one loop, in the breather masses as well as the amplitude. The rule $a_j=j\omega+(j-1)/2$ removes the discrepancy; for $n\le3$ the two choices coincide.

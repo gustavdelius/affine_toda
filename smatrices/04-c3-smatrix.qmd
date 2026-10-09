@@ -1,0 +1,60 @@
+# The complete $c_3^{(1)}$ S-matrix {#sec-sm-c3}
+
+For $c_3^{(1)}$ we obtain all six soliton–soliton amplitudes by fusion from $S_{33}$. The lowest-breather amplitudes are identical to all six DGZ particle amplitudes. Here $\omega=4\pi/\beta^2-1$, $T=3\omega+1$, and we write $u_1=\pi(2\omega+\tfrac12)/T$ and $u_2=\pi\omega/T$.
+
+## Soliton–soliton amplitudes {#sec-soliton-soliton-amplitudes}
+
+Solitons 1 and 2 are the bound states $3+3\to1$ and $3+3\to2$. Every amplitude takes the form
+
+$$
+S_{ab}(\theta)=k_{ab}(x)\prod_{\alpha}F_{33}(\theta+i\alpha)\;\check R_{ab}(x),
+$$
+
+where $\check R_{ab}$ is the unique intertwiner normalised on the top channel, and $k_{ab}$ is a rational fusion factor, verified exactly with constant $\pm1$.
+
+| $ab$ | shifts $\alpha$ | $k_{ab}(x)$ |
+| --- | --- | --- |
+| 33 | $0$ | $1$ |
+| 31 | $\pm u_1/2$ | $\langle0\rangle_i\,\langle2\rangle_{-i}$ |
+| 32 | $\pm u_2/2$ | $-\langle1\rangle_+$ |
+| 11 | $\pm u_1,\ 0,\ 0$ | $-\langle2\rangle_+\,\langle4\rangle_-/\langle2\rangle_-$ |
+| 22 | $\pm u_2,\ 0,\ 0$ | $-\langle2\rangle_+$ |
+| 12 | $\pm(u_1+u_2)/2,\ \pm(u_1-u_2)/2$ | $\langle1\rangle_i\,\langle3\rangle_{-i}$ |
+
+The reversed amplitudes follow from $k_{ba}(x)=1/k_{ab}(1/x)$. The fused amplitudes close on their multiplets to $10^{-6}$ and are unitary to the truncation accuracy of the infinite product.
+
+## Spectrum {#sec-c3-spectrum}
+
+We tested every candidate pole, taken from the shifted Gamma-function poles of $F_{33}$. Each fundamental fusion is a simple pole with the correct multiplet, and occurs in exactly the channels the fusion rules allow. All were confirmed at $\omega=2.37$ and $\omega=1.61$.
+
+| Fusion | $t$ | Residue |
+| --- | --- | --- |
+| $3+3\to2$ | $\omega$ | 29-plet |
+| $3+3\to1$ | $2\omega+\tfrac12$ | 8-plet |
+| $1+1\to2$ | $\omega+\tfrac12$ | 29-plet |
+| $1+2\to1$ | $\tfrac52\omega+\tfrac34$ | 8-plet |
+| $1+3\to3$ | $2\omega+\tfrac34$ | 8-plet |
+| $2+3\to3$ | $\tfrac52\omega+1$ | 8-plet |
+
+There is no pole for $2+2\to2$. Two excited solitons appear, each classically degenerate with its ground state.
+
+- **$2^*$.** It appears in $1+1$ at $t=\omega$ as a simple pole and in $2+2$ as a triple pole, with $M_{2^*}=2M_1\cos(\pi\omega/2T)$. Its excitation energy is close to $m/2$, the one-loop bound-mode frequency.
+- **$3^*$.** It is a spinor 8-plet in both $3+1$ and $3+2$, of mass $1.1687\,M_3$ at $\omega=2.37$.
+
+The breathers form complete towers: integer $p$ for soliton 3, and half-integer $p$ for solitons 1 and 2. Even-order poles follow the usual affine Toda pattern of anomalous thresholds. Some single-channel tower poles, and three light 29-plet poles in $S_{22}$, still need a Coleman–Thun analysis.
+
+## Breather amplitudes {#sec-breather-amplitudes}
+
+Breather–soliton amplitudes are finite block products, with blocks in the notation of @sec-breather-test. The three amplitudes $S[B^a,3]$ were identified numerically. All the others follow from them by exact bootstrap arithmetic, and five of the derived forms were confirmed against independent fused numerics. Every residual scales exactly as $1/J$ under truncation of the infinite product, extrapolating to about $10^{-5}$.
+
+| Amplitude | Blocks |
+| --- | --- |
+| $S[B^3,3]$ | $(\tfrac{\omega}{2}+\tfrac12)(\tfrac{3\omega}{2})(\tfrac{3\omega}{2}+1)(\tfrac{5\omega}{2}+\tfrac12)(-\tfrac{\omega}{2})(-\tfrac{5\omega}{2}-1)$ |
+| $S[B^1,3]$ | $-(\tfrac{\omega}{2}+\tfrac12)(\tfrac{5\omega}{2}+\tfrac12)$ |
+| $S[B^2,3]$ | $(\tfrac14)(\omega+\tfrac34)(2\omega+\tfrac14)(3\omega+\tfrac34)$ |
+| $S[B^1,2]=S[B^2,1]$ | $(\tfrac12)(\omega+\tfrac12)(2\omega+\tfrac12)(3\omega+\tfrac12)$ |
+| $S[B^1,B^1]$ | $-(\tfrac12)(\omega+\tfrac12)(2\omega+\tfrac12)(3\omega+\tfrac12)(-\omega-1)(-2\omega)$ |
+| $S[B^1,B^3]$ | $(\omega+\tfrac12)(2\omega+\tfrac12)(-\omega+\tfrac12)(-2\omega-\tfrac32)$ |
+| $S[B^3,B^3]$ | $-(1)(\omega)(\omega+\tfrac12)(2\omega+\tfrac12)(2\omega+1)(3\omega)(-\omega+\tfrac12)(-\omega-1)(-2\omega)(-2\omega-\tfrac32)$ |
+
+All six breather–breather amplitudes, including $S[B^1,B^2]$, $S[B^2,B^2]$ and $S[B^2,B^3]$ not listed here, are identical to the DGZ $c_3^{(1)}$ particle amplitudes. The identification is $H=2T/(\omega+\tfrac12)=6+B$ with $B=-1/(\omega+\tfrac12)$, and the comparison is done in exact arithmetic in $\omega$. Among the lowest breathers, which are the particles, we find the fusions $1+1\to2$, $1+2\to1$, $1+2\to3$, $1+3\to2$ and $2+3\to1$. The remaining poles of the breather amplitudes are DGZ's own displaced and split double poles. These are inherited from the particle S-matrix, not artefacts of the soliton construction.

@@ -1,0 +1,27 @@
+# Critique: where the rigorous treatment has holes {#sec-critique}
+
+We list the gaps between what the literature uses and what it establishes. In each case we state precisely what is missing.
+
+**H1. Existence of the regularized theory.** For imaginary coupling the Euclidean weight $e^{-S_E}$ is complex. No paper we know of shows that a regularized imaginary-coupling ATFT defines finite, well-defined correlation functions, still less a probability-like measure.
+
+**H2. Sign problem.** A complex weight usually means cancellations between configurations. If those cancellations were severe, the theory would be ill-defined in practice even on a lattice, and expectation values could be dominated by numerical noise.
+
+**H3. Continuum limit.** The interaction is a sum of complex vertex operators. One must ask in which range of $\beta$ Wick ordering suffices, and whether the infinite-volume limit exists and has a mass gap. For real coupling, Albeverio–Høegh-Krohn methods apply. For imaginary coupling there is no analogous result.
+
+**H4. Hilbert space.** The Hamiltonian is not Hermitian in the Schrödinger representation. The literature uses "non-unitary" without specifying an inner product, an adjoint, or the structure that replaces Hermiticity.
+
+**H5. Vacuum.** With a non-Hermitian Hamiltonian, nothing a priori guarantees a real ground-state energy, or even that the vacuum is the state of lowest real energy.
+
+**H6. Classical reality.** Reality of soliton energies has been shown for specific solution classes. There are also complex-energy and negative-energy solutions [@khastgir1996], and singular ones. No general criterion distinguishes the solutions that should count as physical.
+
+**H7. Complex saddles.** DHN semiclassics expands around complex solitons. The justification usually offered (steepest descent may leave the real contour) does not say *which* complex saddles contribute, nor with what weight [@mackay_watts1995].
+
+**H8. Semiclassical quantization.** The fluctuation operator around a complex soliton is not Hermitian. Mode sums with orthonormal eigenfunctions assume it is diagonalizable, and independent calculations disagree ($c_n^{(1)}$ [@delius_grisaru1995; @mackay_watts1995]; $b_n^{(1)}$ semiclassics versus exact [@gmw1996]).
+
+**H9. Non-unitarity.** Most soliton S-matrices are not unitary. Some amplitudes do not have phase eigenvalues, and finite-volume spectra can be complex [@tw1999; @tw2002]. It is unclear what replaces unitarity and what consistency conditions survive.
+
+**H10. Exact S-matrices.** They are conjectures, built on quantum-group symmetry, R-matrix unitarity, crossing and the bootstrap. They were missing for four families; Part II (@sec-sm-introduction) supplies three of them ($c_n^{(1)}$, $a_{2n-1}^{(2)}$, $e_6^{(2)}$), and $f_4^{(1)}$ remains open (@sec-imaginary-coupling-quantum-theory). Even where they exist, identifying the full spectrum is subtle: a closed bootstrap can contain particles that are neither solitons nor breathers [@tw1999].
+
+**H11. Missing classical solutions.** The topological charges of classical solitons do not fill the quantum multiplets [@mcghee1994]. Classical counterparts of some quantum bound states are not known [@tw1999].
+
+**H12. Unitary subtheories.** RSOS restriction sometimes yields unitary theories and sometimes not, depending on the coupling, the gradation, and whether breathers survive. There is no general criterion.

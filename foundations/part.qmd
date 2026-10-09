@@ -1,0 +1,7 @@
+---
+title: "Foundations"
+---
+
+**Affine Toda field theories as quantum field theories: a review, a critique, and a foundation**
+
+*Draft, October 2026*

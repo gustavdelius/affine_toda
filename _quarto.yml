@@ -1,23 +1,53 @@
 project:
-  type: website
+  type: book
   output-dir: _site
 
-website:
+book:
   title: "Affine Toda field theory"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - href: atft_foundations.qmd
-        text: Foundations
-      - href: toda_soliton_smatrices.qmd
-        text: Soliton S-matrices
   repo-url: https://github.com/gustavdelius/affine_toda
+  chapters:
+    - index.qmd
+    - part: foundations/part.qmd
+      chapters:
+        - foundations/01-introduction.qmd
+        - foundations/02-theories.qmd
+        - foundations/03-literature.qmd
+        - foundations/04-critique.qmd
+        - foundations/05-lattice.qmd
+        - foundations/06-continuum-limit.qmd
+        - foundations/07-classical.qmd
+        - foundations/08-semiclassics.qmd
+        - foundations/09-scattering.qmd
+        - foundations/10-unitarity.qmd
+        - foundations/11-verdict.qmd
+        - foundations/12-open-problems.qmd
+    - part: smatrices/part.qmd
+      chapters:
+        - smatrices/01-introduction.qmd
+        - smatrices/02-construction.qmd
+        - smatrices/03-cn-solitons.qmd
+        - smatrices/04-c3-smatrix.qmd
+        - smatrices/05-a2n-solitons.qmd
+        - smatrices/06-e6-solitons.qmd
+        - smatrices/07-f4-solitons.qmd
+        - smatrices/08-checks.qmd
+        - smatrices/09-discussion.qmd
+  appendices:
+    - foundations/A-zero-mode.qmd
+    - foundations/B-heat-trace.qmd
+    - smatrices/A-numerics.qmd
+    - references.qmd
+
+bibliography: references.bib
+csl: aps.csl
+nocite: |
+  @bender2007 @braden1991 @christe1990 @dorey1992 @dorey1993 @gandenberger1998 @ge2012 @johnson1997 @konno1966 @mostafazadeh2010 @osterwalder1973 @osterwalder1975 @zz1979
 
 format:
   html:
     theme: cosmo
+    css: styles.css
     toc: true
     toc-depth: 3
-    number-sections: false
+    number-sections: true
     html-math-method: mathjax

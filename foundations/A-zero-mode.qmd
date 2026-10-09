@@ -1,0 +1,5 @@
+# The zero-mode model and the sign of the fugacity {#sec-app-zero-mode}
+
+**Model.** The zero-mode model is $H=\tfrac12\lvert\vec p\rvert^2-g\sum_jn_je^{i\vec\alpha_j\cdot\vec x}$ on $\mathbb R^r/(2\pi\Lambda^\vee)$, in a plane-wave basis $\vec p=\sum_ic_i\vec\alpha_i$ with $\lvert c_i\rvert\le P$. For $a_2$ we use roots of squared length 4; for $c_2$, long roots of squared length 4. The reported levels are converged for $P$ from 8 to 20.
+
+**Sign equivalence.** A shift $\vec x\mapsto\vec x+\vec s$ multiplies each term by $e^{i\vec\alpha_j\cdot\vec s}$. One can choose $\vec s$ with $\vec\alpha_j\cdot\vec s\equiv\pi\pmod{2\pi}$ for all $j$ if and only if $\sum_jn_j$ is even. When it is, $g$ and $-g$ give the same spectrum: this holds for $c_2$ ($\sum n_j=4$) but not for $a_2$ ($\sum n_j=3$). For $a_2$, only the physical sign gives a positive $Z(T)$ and a real ground state.

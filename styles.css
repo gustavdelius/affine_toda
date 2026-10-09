@@ -1,0 +1,5 @@
+/* Theorem-like environments hold long statements with lists and displays;
+   keep the text upright and let the bold label carry the emphasis. */
+.theorem, .lemma, .corollary, .proposition, .conjecture {
+  font-style: normal;
+}

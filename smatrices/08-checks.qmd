@@ -1,0 +1,25 @@
+# Check on known cases: $d_4^{(3)}$ and $g_2^{(1)}$ {#sec-sm-checks}
+
+Takács constructed the $d_4^{(3)}$ soliton S-matrix from $U_q(g_2^{(1)})$ [@takacs1997c] and the $g_2^{(1)}$ soliton S-matrix from the 8-dimensional $U_q(d_4^{(3)})$ R-matrix [@takacs1997d]. He found consistency with the real-coupling particle S-matrices through breather–particle correspondence. Applied blind, our method reproduces this, which tests the zero-fixing principle on a pair where the answer is known.
+
+## $d_4^{(3)}$ solitons {#sec-d43-solitons}
+
+We solve $U_q(g_2^{(1)})$ on the $\mathbf7$ (the six short roots of $g_2$ plus a zero weight) from the relations, with residual $10^{-16}$. The R-matrix lives in a 4-dimensional space, since $\mathbf7\otimes\mathbf7=\mathbf1\oplus\mathbf7\oplus\mathbf{14}\oplus\mathbf{27}$. Its poles are at $x=q^{-2}$ (rank 15), $x=q^{-8}$ (rank 7, the self-fusion) and $x=q^{-12}$ (rank 1, the singlet and crossing point).
+
+The self-fusion at exactly $2\pi/3$ forces $T=6\omega+3k$. The mass pattern puts the 15-plet zero at $2T/H$, and the breather pole at $y=1$ gives $H=12T/(T-3)$. The unique solution is
+
+$$
+a\in\{\omega,\ 4\omega+2\},\qquad T=6\omega+3,\qquad H=12+\frac{6}{\omega},
+$$
+
+fixed before any comparison. The lowest-breather amplitude is then identical to the CDS $(g_2^{(1)},d_4^{(3)})$ amplitude $S_{11}=\{1\}_0\,\{H/2\}_{1/2}\,\{H-1\}_0$ at this $H$.
+
+## $g_2^{(1)}$ solitons {#sec-g21-solitons}
+
+On the $\mathbf8=\mathbf7\oplus\mathbf1$ of $U_q(d_4^{(3)})$, the special points carry cube-root-of-unity phases: $x=q^{-2}$ (rank 29), $x=e^{\pm2\pi i/3}q^{-4}$ (rank 8 each), and $x=q^{-6}$ (singlet and crossing point). With $T=3\omega+1$ and zeros at $\omega$, $2\omega+\tfrac13$, $2\omega+\tfrac23$ and $T$, the lowest-breather amplitude is identical to the CDS amplitude
+
+$$
+S_{22}=\{H/3-1\}_1\,\{H/3+1\}_1\,\{2H/3-1\}_1\,\{2H/3+1\}_1,\qquad H=\frac{6T}{T+1} .
+$$
+
+Here the lowest breather is particle 2, not particle 1. For a twisted multiplet the lowest breather can therefore be a heavier particle, which matters for the $f_4^{(1)}$ search.

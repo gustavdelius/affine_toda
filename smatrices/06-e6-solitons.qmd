@@ -1,0 +1,47 @@
+# $e_6^{(2)}$ solitons {#sec-sm-e6}
+
+The 26-dimensional $e_6^{(2)}$ soliton transforms under $U_q(f_4^{(1)})$. Its scalar factor is fixed in advance by the CDS mass pattern, and its lowest breather then reproduces the CDS particle amplitude $S_{11}$ exactly.
+
+## Representation and R-matrix {#sec-sm-e6-representation-r-matrix}
+
+The $\mathbf{26}$ of $f_4$ is quasi-minuscule: its weights are the 24 short roots, together with a 2-dimensional zero-weight space. We solved for the generators $e_i$, $f_i$ from all the defining relations at unimodular $q$, including the $q$-Serre relations and the affine node $\alpha_0=-\theta$ attached to node 1. The residual is $2\times10^{-16}$. No extra singlet is needed, as for the $b_n^{(1)}$ vector.
+
+The full intertwiner system on 676 dimensions exceeds memory. We therefore work with highest-weight vectors: $\check R$ acts on each component of
+
+$$
+\mathbf{26}\otimes\mathbf{26}=\mathbf{324}\oplus\mathbf{273}\oplus\mathbf{52}\oplus\mathbf{26}\oplus\mathbf 1
+$$
+
+as a scalar, and the $e_0$ intertwining relation becomes a linear system for the five eigenvalues, with residual $10^{-15}$. The eigenvalues are exact:
+
+| Channel | $\mathbf{324}$ | $\mathbf{273}$ | $\mathbf{52}$ | $\mathbf{26}$ | $\mathbf 1$ |
+| --- | --- | --- | --- | --- | --- |
+| Eigenvalue | $1$ | $\langle2\rangle$ | $\langle8\rangle$ | $\langle2\rangle\langle12\rangle$ | $\langle8\rangle\langle18\rangle$ |
+
+The crossing point is $x_c=q^{-18}$, where 18 is twice the dual Coxeter number of $f_4$. The bound states $\mathbf{26}+\mathbf{26}\to\mathbf{299}\ (=\mathbf{273}+\mathbf{26})$, $\mathbf{53}\ (=\mathbf{52}+\mathbf1)$ and $\mathbf{26}$ sit at $x=q^{-2}$, $q^{-8}$ and $q^{-12}$, and the breathers sit at $q^{-18}$.
+
+## Fixing the zeros by the mass pattern {#sec-fixing-zeros-mass-pattern}
+
+The CDS masses [@corrigan1993] are $m_1=\sin(\pi/H)\sin(2\pi/H')$, $m_2=\sin(3\pi/H)\sin(\pi/H')$ and $m_3=\sin(2\pi/H)\sin(2\pi/H')$, with $1/H+1/H'=1/6$. Classically the soliton mass ratios $2\cos(\pi/18)$ and $2\cos(4\pi/18)$ equal $m_3/m_1$ and $m_2/m_1$ at $H=18$. The constraint on $H'$ gives the identity
+
+$$
+\frac{m_2}{m_1}=2\cos\Big(\frac{\pi}{H}+\frac{\pi}{6}\Big),\qquad \frac{m_3}{m_1}=2\cos\frac{\pi}{H} .
+$$
+
+Requiring the solitons $\mathbf{26}$, $\mathbf{53}$ and $\mathbf{299}$ to carry the masses of particles 1, 2 and 3 exactly places the fusions at $t=2T/H+T/3$ for $\mathbf{53}$, $t=2T/H$ for $\mathbf{299}$, and $t=2T/3$ for the self-fusion. The last is a coupling-independent angle $2\pi/3$, matching CDS's self-coupling 111. Combined with the gradation ($h=9$, $h^\vee=12$, $\omega=2\pi/\beta^2-1$), this gives
+
+$$
+a\in\{\omega,\ 4\omega+1,\ 6\omega+2\},\qquad T=9\omega+3,\qquad H=\frac{2T}{\omega}=18+\frac{6}{\omega} .
+$$
+
+This $H$ lies beyond the $e_6^{(2)}$ end of the CDS floating range $12\le H\le18$, as an imaginary-coupling continuation should. As for $a_{2n-1}^{(2)}$ (@sec-parameters-bound-states-masses), the longest root of the twisted algebra has squared length 4 here. In the normalization of Part I (@sec-lie-algebraic-data), where the longest roots have squared length 2, $\omega=4\pi/\beta^2-1$, and $H=18+3\beta^2/2\pi+O(\beta^4)$. This agrees with the one-loop soliton masses computed there from the transmission factors (@sec-one-loop-masses-folded).
+
+## Result {#sec-e6-result}
+
+At $\omega=2.37$ the amplitude is unitary, and its residue ranks are 299, 53, 26 and 1 at the predicted positions. The lowest-breather amplitude is identical to the CDS $e_6^{(2)}$ amplitude
+
+$$
+S_{11}=[1]_0\,[H/3+1]_0,\qquad [x]_0=\{x\}_0\{H-x\}_0,\qquad B=\frac{H-12}{3},
+$$
+
+at the predicted $H=18+6/\omega$, with no adjustment. The lowest breather of the $\mathbf{26}$ is therefore CDS particle 1. A one-loop computation from the $e_6^{(2)}$ Lagrangian gives $\delta H/\tilde B_{\rm tree}=-3.000000$, exactly CDS's $H=18-3\tilde B$ at this end of their range (@sec-app-numerics), so this S-matrix is also consistent with perturbation theory. The same holds when the breather amplitude is compared directly with the Lagrangian, without reference to CDS. Its first-order term has exactly the tree-level $\theta$-dependence at eight rapidities, and that term fixes the coupling map $1/\omega=\beta^2/2\pi$, which is the gradation assumed. With that map the amplitude predicts the one-loop shifts of all three mass ratios exactly.
