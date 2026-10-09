@@ -1,5 +1,5 @@
 ---
-title: "Foundations of the non-unitary theory"
+title: "Part VII: Foundations of the non-unitary theory"
 ---
 
 Whether the imaginary-coupling theories exist as quantum field theories. A lattice definition with a positive Coulomb-gas expansion, a continuum limit, a Krein-space Hamiltonian, and scattering without unitarity.

@@ -1,5 +1,5 @@
 ---
-title: "Algebraic background"
+title: "Part II: Algebraic background"
 ---
 
 Root systems, affine Kac–Moody algebras, quantum groups and R-matrices: the algebra that organises the masses, couplings, solitons and S-matrices of affine Toda theory.
