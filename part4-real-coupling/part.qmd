@@ -1,0 +1,5 @@
+---
+title: "The real-coupling quantum theory"
+---
+
+Perturbation theory and the exact particle S-matrices, which are known for every affine algebra, together with the thermodynamic Bethe ansatz, form factors and related exact results.

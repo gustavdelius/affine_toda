@@ -1,0 +1,74 @@
+# RSOS restriction and unitary subtheories {#sec-rsos}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Restrict a $U_q(\hat g)$-symmetric theory at a root of unity to an RSOS theory.
+- Identify the restricted theories with perturbed minimal and $W$-algebra models.
+- Understand Hermitian analyticity, and why IRF bases can restore unitarity.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Reshetikhin–Smirnov 1990; Smirnov 1991; Efthimiou 1993; Takács 1997; Miramontes 1999; Hoare–Hollowood–Miramontes 2013.
+:::
+
+## Quantum-group restriction
+
+*To be written.*
+
+## Perturbed minimal and $W$ models
+
+*To be written.*
+
+## Hermitian analyticity and IRF bases
+
+*To be written.*
+
+## Unitary subtheories {#sec-unitary-subtheories}
+
+At $q$ a root of unity, RSOS restriction replaces the Krein space by the space of states of a perturbed minimal model, which carries a positive inner product when the minimal model is unitary. The transfer-matrix eigenvalues after restriction are a *different* set from those before [@tw1999]. So restriction can cure a broken sector, but it cannot touch quantum-group singlets such as breathers.
+
+::: {#cnj-unitary-rsos}
+**[Conjecture]** An RSOS-restricted ATFT has a unitary S-matrix if and only if its restricted S-matrix, including the breather amplitudes, is Hermitian analytic in some basis of one-particle states [@miramontes1999]. We conjecture that this holds exactly when (i) the underlying minimal CFT is unitary and (ii) every sector surviving the restriction is $\Theta$-unbroken. Unitarity of the field theory requires in addition positive bound-state residues (U5). The scaling Lee–Yang model, whose S-matrix is a pure phase but whose residue has the wrong sign, shows that Hermitian analyticity alone does not suffice for that.
+
+:::
+
+Evidence:
+
+- the de Vega–Fateev unitary $W_3$ series, at couplings where breathers decouple;
+- $M_{6,7}+\Phi_{1,2}$, unitary;
+- $M_{3,14}+\Phi_{1,5}$, where TCSA confirms a complex spectrum [@tkw1997; @tw1999];
+- the $U_q(su(2)^{(1)})$-based S-matrices of Hoare, Hollowood and Miramontes [-@hoare2013], whose IRF form at $q$ a root of unity is manifestly Hermitian analytic and hence unitary. This is the mechanism by which restriction restores unitarity.
+- the RSOS-restricted fundamental kinks of $a_2^{(1)}$ (@prp-rsos-kinks), the first higher-rank case. For $p'=p+1$ (i) and (ii) hold and the S-matrix is unitary. For $p'\equiv\pm1\pmod p$ with $p'\ne p+1$ the kink S-matrix is unitary although (i) fails; these models all contain breathers, whose amplitudes with kinks are not phases [@tw1999, eq. 3.7], so (ii) fails as well and the full S-matrix is not unitary. For the other couplings tested the kink S-matrix is already not unitary.
+
+::: {#prp-rsos-kinks}
+## RSOS kinks of $a_2^{(1)}$
+**[Theorem, given a unitary and real-analytic scalar factor]** Let $\beta^2/4\pi=p/p'$ with $p<p'$ coprime and $p\ge4$. RSOS restriction gives the perturbed $W_3(p,p')$ minimal model, whose vacua are the level-$(p-3)$ weights of $su(3)$; for $W_3(4,5)$ this is the thermal 3-state Potts model. In the symmetric gauge the IRF S-matrix of the fundamental kinks is the Jimbo–Miwa–Okado face weight, whose off-diagonal factor $\sqrt{[A+1][A-1]}/[A]$ we write as $\sqrt{d_b}\sqrt{d_d}/(\sqrt{d_a}\sqrt{d_c})$, with per-height roots, which fixes its branch; $d_h$ is the quantum dimension of the height $h$. The kink–antikink part follows by crossing, and its scalar factor inherits real analyticity. We use $q=e^{i\pi(p'-p)/p}$ and crossing $u\to-\tfrac32-u$, with $u=3i\theta/2\pi$. This reproduces the moduli of the physical soliton–antisoliton amplitude in the conventions of [@tw1999, eqs. 3.1, 3.4], where $q=-e^{i\pi\lambda}$. Then:
+
+1. If $p'\equiv\pm1\pmod p$, every $d_h$ is positive, the S-matrix is Hermitian analytic in all four sectors ($33$, $\bar3\bar3$, $3\bar3$, $\bar33$), and $SS^\dagger=1$ for real $\theta$. Every multi-kink transfer matrix is unitary.
+2. If $p'\not\equiv\pm1\pmod p$, some soliton–soliton block has $d_ad_bd_cd_d<0$. No rescaling of kink states that preserves the vacuum labels, even a rapidity-dependent one, makes the S-matrix Hermitian analytic or unitary.
+
+:::
+
+::: {.proof}
+1. Write $r=p'-p$ and $[x]=\sin(\pi rx/p)/\sin(\pi r/p)$. Then $\operatorname{sgn}[x+2]=\operatorname{sgn}[x]$ for all $1\le x\le p-3$ if and only if $r\equiv\pm1\pmod p$. Indeed, for $r=s+kp$ with $1\le s\le p-1$, $\operatorname{sgn}[x]=\pm(-1)^{\lfloor sx/p\rfloor+kx}$, and the increments of $\lfloor sx/p\rfloor$ lie in $\{0,1\}$, so the condition forces them to be constant on $[1,p-2]$, which gives $s\in\{1,p-1\}$.
+2. If $r\equiv\pm1$, every $d_h>0$, so the gauge factors are real. Every weight is a real constant times $[x\pm u]$ or $[x\pm u\pm\tfrac32]$ with $u=3i\theta/2\pi$ imaginary for real $\theta$, so $\overline{w(\theta)}=w(-\theta)$. The gauge is symmetric under exchanging the in and out middle heights. This is Hermitian analyticity, and with braiding unitarity it gives $SS^\dagger=1$ [@miramontes1999]. Products of unitary kink S-matrices are unitary.
+3. If $r\not\equiv\pm1$, step 1 gives some $A$ with $[A+1][A-1]<0$, and $A$ occurs as a height difference in a $2\times2$ soliton–soliton block. There $d_ad_bd_cd_d<0$, so the off-diagonal constant is imaginary and $\overline{S_{db}(\theta)}=-S'_{bd}(-\theta)$ for the reversed process $S'$. Unitarity in a positive diagonal metric would require $\overline{S_{db}}=(n^{\rm in}_b/n^{\rm out}_d)\,S'_{bd}(-\theta)$, so $n^{\rm in}_b/n^{\rm out}_d=-1$, which is impossible.
+
+:::
+
+*Numerics.* The mixed Yang–Baxter equations hold to $5\times10^{-15}$ and braiding unitarity to $8\times10^{-14}$ in all four sectors. Hermitian analyticity and $SS^\dagger=1$ hold to $10^{-12}$ at the eight couplings tested with $p'\equiv\pm1$, and fail by $O(1)$ at the five others. The sign criterion was checked by brute force for $4\le p\le60$. Scripts: `foundations_code/irf/`.
+
+Three consequences follow.
+
+- **Restriction cures the vertex-form breaking.** For $p'\equiv\pm1$ the three-soliton breaking of @prp-krein-fundamental and the soliton–antisoliton breaking of Takács and Watts both disappear: all restricted transfer matrices are unitary (part 1), and numerically unimodular to $3\times10^{-14}$ for up to six kinks. Breathers are present exactly when $3(p'-p)>2p$ [@tw1999, eq. 3.3]. Together with $p'\equiv\pm1$, their absence leaves only $p'=p+1$, the unitary $W_3$ series. For $p'\equiv\pm1$ with $p'\ne p+1$ the kink S-matrix is unitary, but these models contain breathers, and the kink–breather amplitude [@tw1999, eq. 3.7] is not a phase.
+- **Unbroken does not imply Hermitian analytic.** For $p'=p+2$, for example $W_3(7,9)$, $W_3(9,11)$ and $W_3(11,13)$, every kink transfer matrix computed has unimodular eigenvalues, up to six kinks [Numerical]. These sectors are $\Theta$-unbroken but, by part 2, admit no Hermitian-analytic basis. The obstruction is the sign pattern of the quantum dimensions. Negative quantum dimensions occur only in non-unitary models, but not every non-unitary model has them: for $p'\equiv-1\pmod p$ all $d_h$ are positive. The unbrokenness of the $p'=p+2$ sectors depends on the sign of $q$, which the criterion of part 1 does not.
+- **Krein pairs survive restriction.** For $p'-p\ge3$ with $p'\not\equiv\pm1$, for example $W_3(10,13)$, the restricted soliton–antisoliton transfer matrices already have eigenvalues off the unit circle at two kinks. They come in exact pairs $(s,1/\bar s)$ to $10^{-12}$, as Krein-unitarity requires; the Krein form itself is open (open problem 7).
+
+This reduces H12 to a criterion that can be checked from the S-matrix.
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

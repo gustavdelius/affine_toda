@@ -1,0 +1,104 @@
+# Known soliton S-matrices {#sec-known-smatrices}
+
+## Imaginary coupling: quantum theory {#sec-imaginary-coupling-quantum-theory}
+
+**Soliton S-matrices.** Their status is summarized below. They are built from $U_q(\hat g^\vee)$ R-matrices and fixed by crossing, unitarity in the R-matrix sense, and the bootstrap. In every case examined, the lowest breathers reproduce the real-coupling particle S-matrices continued to imaginary coupling (breather–particle identification [@smirnov1991; @gandenberger1995; @gm1995; @gmw1996; @takacs1997a; @takacs1997b; @takacs1997c]).
+
+| $\hat g$ | soliton S-matrix | charge algebra |
+|---|---|---|
+| $a_n^{(1)}$ | Hollowood 1993; bound states Gandenberger 1995 | $U_q(a_n^{(1)})$ |
+| $a_2^{(2)}$ | Smirnov 1991; Efthimiou 1993 | $U_q(a_2^{(2)})$ |
+| $a_{2n}^{(2)}$ | Gandenberger 1997 | $U_q(a_{2n}^{(2)})$ |
+| $d_{n+1}^{(2)}$ | Gandenberger–MacKay 1995; Delius 1995 ($U_q(c_n^{(1)})$-symmetric S-matrices with non-rigid poles) | $U_q(c_n^{(1)})$ |
+| $b_n^{(1)}$ | Gandenberger–MacKay–Watts 1996 | $U_q(a_{2n-1}^{(2)})$ |
+| $g_2^{(1)}$ | Takács 1997 | $U_q(d_4^{(3)})$ |
+| $d_4^{(3)}$ | Takács 1997 | $U_q(g_2^{(1)})$ |
+| $d_n^{(1)},e_n^{(1)}$ | Johnson 1997 (some scalar factors undetermined) | self-dual |
+| $c_2^{(1)}\simeq b_2^{(1)}$ | via GMW 1996 | $U_q(a_3^{(2)})$ |
+| $c_n^{(1)}$, $n\ge3$ | Part VI: spinor soliton (verified for $n=3,4$); all six solitons for $c_3^{(1)}$ | $U_q(d_{n+1}^{(2)})$ |
+| $f_4^{(1)}$ | **open**: the $\mathbf{27}$ R-matrix is known [@gmw1996]; Part VI's amplitude satisfies all axioms but is excluded by one-loop perturbation theory | $U_q(e_6^{(2)})$ |
+| $e_6^{(2)}$ | Part VI: the 26-dimensional soliton | $U_q(f_4^{(1)})$ |
+| $a_{2n-1}^{(2)}$ | Part VI: spinor soliton (verified for $n=3,4$) | $U_q(b_n^{(1)})$ |
+
+The entries marked "Part VI" are constructed in @sec-sm-introduction, in each case as a scalar Gamma-function factor times the R-matrix of the dual quantum affine algebra. In every one, the lowest breathers reproduce the conjectured real-coupling particle S-matrices of Delius–Grisaru–Zanon and Corrigan–Dorey–Sasaki [@dgz1992; @corrigan1993] continued to imaginary coupling, and the soliton masses are $M_a=2M_n\sin(a\pi/H)$. For $c_n^{(1)}$ they reproduce the Delius–Grisaru one-loop soliton mass [@delius_grisaru1995]. Only the spinor (respectively 26-dimensional) soliton is treated for $a_{2n-1}^{(2)}$ and $e_6^{(2)}$, and for $c_n^{(1)}$ only $n=3$ has the full set of species. The closed forms for general $n$ are conjectured. The earlier obstacle was constructing R-matrices in representations whose tensor products are not multiplicity-free [@gmw1996; @dgz1996]; Part VI solves the intertwining equations directly. Only $f_4^{(1)}$ remains open, as the $\mathbf{27}$ amplitude contradicts the one-loop relation $H=12+3B$. The one-loop soliton masses of @sec-one-loop-masses-folded show moreover that its soliton and breather fusion angles must differ, as they do in Takács's $g_2^{(1)}$ amplitude.
+
+**Semiclassical masses.** One-loop soliton masses were computed by the DHN method for $a_n^{(1)}$ [@hollowood1993a; @hollowood1993b], for $c_2^{(1)}$ [Watts 1994], and for all algebras [@mackay_watts1995], with a competing result for $c_n^{(1)}$ [@delius_grisaru1995]. The exact $b_n^{(1)}$ masses disagree with MacKay and Watts' tabulated semiclassics [@gmw1996], and the issue was left unresolved [@gm1997]. @sec-semiclassics resolves it (@sec-one-loop-masses-folded).
+
+**Restrictions.** At $q$ a root of unity, quantum-group (RSOS) restriction yields perturbed minimal models [@reshetikhin1990; @smirnov1991; @efthimiou1993; @devega1991; @tkw1997; @takacs1997a; @takacs1997b; @takacs1997c]. Some of these are unitary. Others have complex finite-volume spectra, confirmed by the truncated conformal space approach [@tkw1997; @tw2002].
+
+**Non-unitarity.** Takács and Watts [-@tw1999; -@tw2002] showed the following.
+
+- In $a_2^{(1)}$ the fundamental soliton–soliton amplitude has phase eigenvalues, but the three-soliton transfer matrices and the soliton–antisoliton, soliton–excited-soliton and soliton–breather amplitudes do not. The soliton–breather case is mirrored exactly by complex classical time delays, and it survives RSOS restriction because breathers are quantum-group singlets.
+- In $a_2^{(2)}$, the fundamental soliton–soliton amplitudes are well behaved, but soliton–excited-soliton amplitudes are not, so the spectrum is real only in the repulsive regime. (With bosonic exchange of kink labels, their own eigenvalue equation shows the fundamental amplitudes to be well behaved only for part of the coupling range; see @sec-sector-status.)
+- All theories based on $a_1^{(1)}$ have real finite-volume spectra.
+- A formal S-matrix description remains valid, and agrees with numerics, even when the spectrum is complex.
+
+**Two notions of unitarity.** Delius [-@delius1995] showed that S-matrices built from the universal R-matrix of $U_q(\hat g)$ satisfy crossing, the bootstrap and the relation $S_{ba}(-\theta)S_{ab}(\theta)=1$ as consequences of the Hopf-algebra axioms. He also showed that the Lorentz spins of the charges fix the gradation, which makes the pole positions coupling-dependent through a "quantum" dual Coxeter number. He stressed that the relation usually called unitarity is unrelated to whether the field theory is unitary.
+
+Miramontes [-@miramontes1999] identified the missing condition. Braiding unitarity is equivalent to QFT unitarity when the S-matrix is also Hermitian analytic, a basis-dependent property that quantum-group S-matrices generally violate in the particle basis. Hoare, Hollowood and Miramontes [-@hoare2013] later found that, for $q$ a root of unity, the IRF (RSOS) form of the $U_q(su(2)^{(1)})$-based S-matrices they studied (a $q$-deformed world-sheet theory and a generalized sine-Gordon theory) is manifestly Hermitian analytic, and hence unitary.
+
+## Check on known cases: $d_4^{(3)}$ and $g_2^{(1)}$ {#sec-sm-checks}
+
+Takács constructed the $d_4^{(3)}$ soliton S-matrix from $U_q(g_2^{(1)})$ [@takacs1997c] and the $g_2^{(1)}$ soliton S-matrix from the 8-dimensional $U_q(d_4^{(3)})$ R-matrix [@takacs1997d]. He found consistency with the real-coupling particle S-matrices through breather–particle correspondence. Applied blind, our method reproduces this, which tests the zero-fixing principle on a pair where the answer is known.
+
+### $d_4^{(3)}$ solitons {#sec-d43-solitons}
+
+We solve $U_q(g_2^{(1)})$ on the $\mathbf7$ (the six short roots of $g_2$ plus a zero weight) from the relations, with residual $10^{-16}$. The R-matrix lives in a 4-dimensional space, since $\mathbf7\otimes\mathbf7=\mathbf1\oplus\mathbf7\oplus\mathbf{14}\oplus\mathbf{27}$. Its poles are at $x=q^{-2}$ (rank 15), $x=q^{-8}$ (rank 7, the self-fusion) and $x=q^{-12}$ (rank 1, the singlet and crossing point).
+
+The self-fusion at exactly $2\pi/3$ forces $T=6\omega+3k$. The mass pattern puts the 15-plet zero at $2T/H$, and the breather pole at $y=1$ gives $H=12T/(T-3)$. The unique solution is
+
+$$
+a\in\{\omega,\ 4\omega+2\},\qquad T=6\omega+3,\qquad H=12+\frac{6}{\omega},
+$$
+
+fixed before any comparison. The lowest-breather amplitude is then identical to the CDS $(g_2^{(1)},d_4^{(3)})$ amplitude $S_{11}=\{1\}_0\,\{H/2\}_{1/2}\,\{H-1\}_0$ at this $H$.
+
+### $g_2^{(1)}$ solitons {#sec-g21-solitons}
+
+On the $\mathbf8=\mathbf7\oplus\mathbf1$ of $U_q(d_4^{(3)})$, the special points carry cube-root-of-unity phases: $x=q^{-2}$ (rank 29), $x=e^{\pm2\pi i/3}q^{-4}$ (rank 8 each), and $x=q^{-6}$ (singlet and crossing point). With $T=3\omega+1$ and zeros at $\omega$, $2\omega+\tfrac13$, $2\omega+\tfrac23$ and $T$, the lowest-breather amplitude is identical to the CDS amplitude
+
+$$
+S_{22}=\{H/3-1\}_1\,\{H/3+1\}_1\,\{2H/3-1\}_1\,\{2H/3+1\}_1,\qquad H=\frac{6T}{T+1} .
+$$
+
+Here the lowest breather is particle 2, not particle 1. For a twisted multiplet the lowest breather can therefore be a heavier particle, which matters for the $f_4^{(1)}$ search.
+
+## The missing cases {#sec-sm-introduction}
+
+::: {.callout-note appearance="simple" icon=false title="Abstract"}
+We construct exact soliton S-matrices for the imaginary-coupling affine Toda theories based on $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$. Among the non-simply-laced theories, these and $f_4^{(1)}$ were the cases still missing from the literature.
+
+Each amplitude has the form $S=c\,f\,\check R$. Here $\check R$ is the R-matrix of the dual quantum affine algebra, $U_q(d_{n+1}^{(2)})$, $U_q(b_n^{(1)})$ or $U_q(f_4^{(1)})$, in its smallest representation, and $c\,f$ is a Gamma-function scalar factor whose zeros sit at the R-matrix poles. Crossing and unitarity fix those zeros only modulo 1. We fix the remaining integer lifts by requiring the soliton masses to be exactly proportional to the particle masses.
+
+The resulting amplitudes are unitary and crossing symmetric, and every bound-state pole carries the predicted multiplet. In each case the lowest breathers scatter exactly as the conjectured real-coupling particle S-matrices of Delius–Grisaru–Zanon and Corrigan–Dorey–Sasaki, continued to imaginary coupling, with no free parameter. The soliton masses follow in closed form: $M_a=2M_n\sin(a\pi/H)$, with the same floating Coxeter number $H$ as the particles. The construction also reproduces the conjectured coupling dependence $B(\beta)$ of the particle S-matrices exactly, which those authors checked only to one loop.
+
+For $c_3^{(1)}$ we give all six soliton–soliton amplitudes and the lowest-breather amplitudes in closed form. For $f_4^{(1)}$ we construct the $U_q(e_6^{(2)})$ R-matrix and a soliton amplitude on the $\mathbf{27}$ that satisfies every axiom, including its self-fusion bootstrap. A one-loop computation from the Lagrangian rules this amplitude out: perturbation theory confirms the Corrigan–Dorey–Sasaki relation $H=12+3B$, whereas the $\mathbf{27}$ amplitude implies $H=12+\tfrac92 B$. The one-loop soliton masses show moreover that the soliton and breather fusion angles of $f_4^{(1)}$ must differ, as they do for $g_2^{(1)}$ (@sec-soliton-masses-one-loop). The same computation confirms our $e_6^{(2)}$ result. The one-loop data also fix the integer lifts of the $\mathbf{27}$ amplitude and the first-order form of the correction its scalar factor still needs. As a check, the same method reproduces Takács's $d_4^{(3)}$ and $g_2^{(1)}$ results.
+:::
+
+Affine Toda field theory with imaginary coupling has topologically charged solitons with real masses [@hollowood1992]. For a Kac–Moody algebra $\hat{\mathfrak g}$, the theory carries non-local charges that generate the quantum affine algebra $U_q(\hat{\mathfrak g}^\vee)$ of the dual algebra. Solitons therefore come in finite-dimensional $U_q(\hat{\mathfrak g}^\vee)$ multiplets, and their S-matrix is an R-matrix of $U_q(\hat{\mathfrak g}^\vee)$ multiplied by a scalar factor [@bernard1991; @delius1995].
+
+This programme has been carried out for $a_n^{(1)}$ [@hollowood1992], $d_{n+1}^{(2)}$ [@gm1995], $b_n^{(1)}$ [@gmw1996], and for the pair $d_4^{(3)}$, $g_2^{(1)}$ [@takacs1997c; @takacs1997d]. It had not been done for $c_n^{(1)}$, $a_{2n-1}^{(2)}$, $f_4^{(1)}$ and $e_6^{(2)}$. Two obstacles stood in the way.
+
+- **Multiplicities.** The tensor-product-graph method [@dgz1994] needs multiplicity-free tensor products, and the relevant products fail this for $c_n^{(1)}$ with $n\ge3$.
+- **Unusual representations.** The twisted and exceptional algebras need representations that had to be built from scratch.
+
+We construct representations directly from the defining relations. We obtain R-matrices from the intertwining equations, reducing to highest-weight vectors when the space is large, and use exact block arithmetic for everything downstream.
+
+The main results are:
+
+1. **$c_n^{(1)}$.** The spinor-soliton S-matrix for all $n$, built on a closed-form $U_q(d_{n+1}^{(2)})$ spinor R-matrix and verified for $n=2,3,4$. For $c_3^{(1)}$, all six soliton amplitudes are obtained by fusion (Chapters [-@sec-sm-cn]–[-@sec-sm-c3]).
+2. **$a_{2n-1}^{(2)}$.** The spinor-soliton S-matrix from a closed-form $U_q(b_n^{(1)})$ spinor R-matrix, verified for $n=3,4$ (@sec-sm-a2n).
+3. **$e_6^{(2)}$.** The S-matrix of the 26-dimensional soliton, from $U_q(f_4^{(1)})$ (@sec-sm-e6).
+4. **Breather–particle identification.** In every case above, the lowest-breather amplitudes coincide exactly with the conjectured particle S-matrices [@dgz1992; @corrigan1993] continued to imaginary coupling. The soliton masses are $M_a=2M_n\sin(a\pi/H)$, with the particles' floating Coxeter number $H$.
+5. **$f_4^{(1)}$.** The $U_q(e_6^{(2)})$ R-matrix on $\mathbf{27}=\mathbf{26}\oplus\mathbf 1$ and a soliton amplitude that satisfies every axiom, but which one-loop perturbation theory rules out (@sec-sm-f4).
+6. **Check.** The same method independently reproduces Takács's $d_4^{(3)}$ and $g_2^{(1)}$ results (@sec-sm-checks).
+
+Two chapters of Part V and Part VII bear on these results. @sec-resolution-semiclassical-mass-disagreements resolves the one-loop disagreement for $c_n^{(1)}$ soliton masses between Delius–Grisaru [@delius_grisaru1995] and MacKay–Watts [@mackay_watts1995]. It traces the disagreement to a Jordan block in the fluctuation operator, and finds the Delius–Grisaru value correct. Our exact $c_3^{(1)}$ masses reproduce that value. @sec-lattice establishes the existence and Krein-space structure of the lattice theory, the setting in which a non-Hermitian S-matrix of this kind is meaningful.
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

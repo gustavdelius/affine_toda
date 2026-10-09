@@ -1,0 +1,5 @@
+---
+title: "Semiclassics of complex solitons"
+---
+
+The one-loop quantization of complex solitons: which saddles contribute, why eigenvalues of non-Hermitian fluctuation operators must be counted with algebraic multiplicity, and the resulting soliton masses for every algebra.

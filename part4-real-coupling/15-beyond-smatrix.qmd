@@ -1,0 +1,41 @@
+# Beyond the S-matrix {#sec-beyond-smatrix}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Compute ground-state energies and central charges with the thermodynamic Bethe ansatz.
+- Understand the form-factor programme.
+- State the exact mass–coupling relation.
+- Meet the ODE/IM correspondence.
+- Know what has been proved rigorously at real coupling.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Zamolodchikov 1990; Klassen–Melzer 1990; Fring–Mussardo–Simonetti 1993; Fateev 1994; Lukyanov–Zamolodchikov 2010; Dorey–Faldella–Negro–Tateo 2013; Albeverio–Høegh-Krohn 1974.
+:::
+
+## The thermodynamic Bethe ansatz
+
+*To be written.*
+
+## Form factors
+
+*To be written.*
+
+## The mass–coupling relation
+
+*To be written.*
+
+## The ODE/IM correspondence
+
+*To be written.*
+
+## Rigorous constructions
+
+*To be written.*
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

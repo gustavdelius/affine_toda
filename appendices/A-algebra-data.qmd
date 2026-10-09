@@ -1,0 +1,5 @@
+# Data for the affine algebras {#sec-app-algebra-data}
+
+::: {.callout-warning appearance="simple" title="To be written"}
+One table per affine algebra: Dynkin diagram, Kac labels, Coxeter and dual Coxeter numbers, exponents, classical masses, the dual algebra, the soliton symmetry $U_q(\hat g^\vee)$, the relation between $q$ and $\beta$, and the gradation parameter $T$.
+:::

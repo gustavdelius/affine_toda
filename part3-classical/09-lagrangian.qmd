@@ -1,0 +1,62 @@
+# The affine Toda Lagrangian and its integrability {#sec-theories}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Write down the affine Toda Lagrangian for every affine algebra, at real and at imaginary coupling.
+- Derive the Lax pair and the conserved charges, whose spins are the exponents.
+- Compute the classical masses and three-point couplings.
+- State Dorey's fusing rule and see it in the root system.
+- Describe the vacua of the imaginary-coupling theory.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Mikhailov–Olshanetsky–Perelomov 1981; Olive–Turok 1985; Braden–Corrigan–Dorey–Sasaki 1990; Freeman 1991; Dorey 1991.
+:::
+
+## The Lax pair
+
+*To be written.*
+
+## Conserved charges
+
+*To be written.*
+
+## Masses and couplings
+
+*To be written.*
+
+## Dorey's fusing rule
+
+*To be written.*
+
+## Real and imaginary coupling
+
+*To be written.*
+
+## Lagrangians {#sec-lagrangians}
+
+In Minkowski signature,
+
+$$
+\mathcal L=\tfrac12\partial_\mu\vec\phi\cdot\partial^\mu\vec\phi-V(\vec\phi),
+$$
+
+with
+
+$$
+V_{\rm real}=\frac{m^2}{\beta^2}\sum_jn_j\left(e^{\beta\vec\alpha_j\cdot\vec\phi}-1\right),\qquad
+V_{\rm imag}=-\frac{m^2}{\beta^2}\sum_jn_j\left(e^{i\beta\vec\alpha_j\cdot\vec\phi}-1\right).
+$$ {#eq-imaginary-potential}
+
+Here $\beta>0$ in both cases. Expanding about $\vec\phi=0$ gives the classical mass matrix $M^2=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$. Its eigenvalues are the classical particle masses, which form the Perron–Frobenius eigenvector of the Cartan matrix [@braden1990; @freeman1991].
+
+The sign in $V_{\rm imag}$ matters. It makes $\vec\phi=0$ a minimum ($V\simeq\tfrac12\vec\phi^{\mathsf T}M^2\vec\phi$). In the Euclidean theory it gives positive fugacities (@sec-lattice).
+
+The theories are classically integrable. They have a Lax pair and conserved charges of spins equal to the exponents of $\hat g$ modulo the Coxeter number [@olive1985]. The higher-spin charges survive quantization [@feigin1993; @dgz1992; @niedermaier1994].
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

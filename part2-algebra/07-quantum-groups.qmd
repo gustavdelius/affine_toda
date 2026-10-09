@@ -1,0 +1,45 @@
+# Quantum groups and quantum affine algebras {#sec-quantum-groups}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Work with $U_q(sl_2)$ and its representations for generic $q$ and at roots of unity.
+- Use the Hopf-algebra structure: coproduct, antipode and counit.
+- Define the Drinfeld–Jimbo algebras $U_q(\hat g)$ and their evaluation representations.
+- Derive the Yang–Baxter equation, crossing and unitarity from the universal R-matrix.
+- Understand Hermitian forms for $\lvert q\rvert=1$.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Jimbo 1985, 1986; Drinfeld 1987; Chari–Pressley, *A Guide to Quantum Groups*; Gómez–Ruiz-Altaba–Sierra, *Quantum Groups in Two-Dimensional Physics*; Delius 1995.
+:::
+
+## $U_q(sl_2)$
+
+*To be written.*
+
+## Hopf algebras
+
+*To be written.*
+
+## The quantum affine algebras $U_q(\hat g)$
+
+*To be written.*
+
+## The universal R-matrix
+
+*To be written.*
+
+## Crossing from the antipode
+
+*To be written.*
+
+## Roots of unity
+
+*To be written.*
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

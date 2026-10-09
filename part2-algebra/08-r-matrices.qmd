@@ -1,0 +1,41 @@
+# Constructing R-matrices {#sec-r-matrices}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Solve Jimbo's intertwining equations for a trigonometric R-matrix.
+- Use the tensor-product graph and recognise when it fails.
+- Construct R-matrices directly when tensor products are not multiplicity-free.
+- Build new R-matrices by fusion.
+- Pass from the vertex to the IRF (RSOS) form of an R-matrix.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Jimbo 1986; MacKay 1991; Delius–Gould–Zhang 1994, 1996; the construction of @sec-sm-construction and the methods of @sec-app-numerics.
+:::
+
+## Jimbo's equations
+
+*To be written.*
+
+## The tensor-product graph
+
+*To be written.*
+
+## Beyond multiplicity-free tensor products
+
+*To be written.*
+
+## Fusion
+
+*To be written.*
+
+## Vertex and IRF forms
+
+*To be written.*
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

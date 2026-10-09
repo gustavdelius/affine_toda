@@ -1,0 +1,65 @@
+# $a_{2n-1}^{(2)}$ solitons {#sec-sm-a2n}
+
+The spinor soliton of $a_{2n-1}^{(2)}$ is governed by $U_q(b_n^{(1)})$. Its S-matrix has the same structure as for $c_n^{(1)}$, and its lowest breather reproduces the DGZ $a_{2n-1}^{(2)}$ particle amplitude exactly for $n=3,4$.
+
+## Representation and R-matrix {#sec-representation-r-matrix}
+
+The finite part is the $U_q(b_n)$ spinor of @sec-cn-representation. Only node 0 changes: it is now the long root $-(\varepsilon_1+\varepsilon_2)$.
+
+$$
+e_0=x\,\sigma_1^-\sigma_2^-,\qquad f_0=x^{-1}\sigma_1^+\sigma_2^+,\qquad k_0=q^{-2(w_1+w_2)},\qquad q_0=q^2 .
+$$
+
+All relations, including the $q$-Serre relations, hold to $10^{-16}$. The R-matrix is again multiplicity-free, with $\check R=\sum_k\rho_k P_{\Lambda^{n-k}}$ and
+
+$$
+\rho_k(x)=\prod_{i=1}^{\lceil k/2\rceil}\langle 4k-8i+6\rangle_+ ,
+$$
+
+so that for $n=3$ the four eigenvalues are $1$, $\langle2\rangle$, $\langle6\rangle$ and $\langle2\rangle\langle10\rangle$. We found this formula at $n=3$ and confirmed it at $n=4$ against an independent solution, to $10^{-12}$. The crossing point is $x_c=q^{-2(2n-1)}$, where $2n-1$ is the dual Coxeter number of $b_n$.
+
+## Parameters, bound states and masses {#sec-parameters-bound-states-masses}
+
+For $a_{2n-1}^{(2)}$, $h=2n-1$ and $h^\vee=2n$. The scalar factor has zeros at the lifts
+
+$$
+a_j=(2j-1)\,\omega+(j-1),\qquad T=a_n=(2n-1)\,\omega+n-1,\qquad \omega=\frac{2\pi}{\beta^2}-1,\qquad q=-e^{-2\pi^2 i/\beta^2} .
+$$
+
+Here, as in [@gm1995; @dgz1992], the longest root of the twisted algebra has squared length 4. In the normalization of @sec-lie-algebraic-data, where the longest roots have squared length 2, $\beta^2$ is replaced by $\beta^2/2$, so that $\omega=4\pi/\beta^2-1$. This $T$ coincides exactly with the gradation of @sec-amplitude-and-gradation. Again $T-a_j=2(n-j)(\omega+\tfrac12)$, and the other lift choices we tested fail the breather test.
+
+The bound state $n+n\to n-j$ sits at $t=a_j$. At $n=4$ the residue ranks are $93=84+9$ (the Kirillov–Reshetikhin module $W^{(3)}$), $37=36+1$ and $9$ (the vector). The masses are
+
+$$
+\frac{M_a}{M_n}=2\sin\frac{a\pi}{H},\qquad H=\frac{T}{\omega+\frac12}=2n-1+\frac{B}{2},\qquad B=-\frac{2\beta^2}{4\pi-\beta^2} .
+$$
+
+For this family the soliton masses are exactly proportional to the DGZ particle masses, $m_a/m_n=2\sin(a\pi/H)$.
+
+## Breather–particle identification {#sec-sm-a2n-breather-particle-identification}
+
+The lowest-breather amplitude $S[B^n,B^n]$ is identical to the DGZ $a_{2n-1}^{(2)}$ particle amplitude
+
+$$
+S_{nn}=\prod_{a=0}^{n-1}\frac{(2a)_H\,(H-2a)_H}{(2a+B)_H\,(H-2a-B)_H},
+$$
+
+for $n=3$ ($a_5^{(2)}$) and $n=4$ ($a_7^{(2)}$). Here $B$ is DGZ's $B(\beta)$ at $\beta_{\rm DGZ}^2=-\beta^2$, with no normalisation factor for this family. The crossing test gives $-1$ at $n=3$, as for $c_3^{(1)}$; the exact identity confirms that no extra CDD factor is needed.
+
+## Lattice evidence {#sec-a2n-lattice}
+
+For $a_{2n-1}^{(2)}$ there is lattice information, and it agrees exactly with the S-matrix of this chapter. Vernier, Jacobsen and Saleur [-@vernier2016] identify the scaling limit of the staggered $U_q(a_{2n-1}^{(2)})$ vertex model, in two of its three regimes, with imaginary-coupling $a_{2n-1}^{(2)}$ Toda theory [Established; computed, not proved]. Their longest root has squared length 4, and their coupling obeys $\beta_{\rm VJS}^2/8\pi=\gamma/2\pi$, where $q=e^{i\gamma}$ is the lattice anisotropy. In the normalization of @sec-lie-algebraic-data this is $\beta^2=8\gamma$. Their regime I, $0<\gamma<\pi/2$, is then exactly $0<\beta^2<\beta^2_{\rm UV}=4\pi$, the range covered by @thm-window. The holes in the $n$ Fermi seas are $n$ soliton types. Their masses follow from the dressed Bethe source terms, which can be inverted in closed form for every $n$:
+
+$$
+\frac{M_a}{M_n}=2\sin\frac{a\pi}{H},\qquad H=2n-1-\frac{\gamma}{\pi-\gamma}=2n-1-\frac{\beta^2}{8\pi-\beta^2},\qquad a=1,\dots,n-1 .
+$$
+
+This is exactly the spectrum of Part VI's spinor-soliton S-matrix, with $M_n$ the spinor soliton and $M_1$ the vector. The closed form was checked to $10^{-30}$ for $n\le8$, and the two mass formulas agree identically. Part VI follows [@gm1995; @dgz1992] in giving the longest root of a twisted algebra squared length 4, so its coupling is $\beta^2/2$ in the present normalization. For $n=2$ the lattice reproduces the $d_3^{(2)}$ S-matrix of [@gm1995]. To first order $H=2n-1-\beta^2/8\pi$. This is the one-loop particle value computed from (-@eq-imaginary-potential), and it agrees with the one-loop soliton masses of [@mackay_watts1995] and of @sec-one-loop-masses-folded [Numerical]. Vernier, Jacobsen and Saleur noted that no systematic S-matrix study existed for this family beyond $a_3^{(2)}=d_3^{(2)}$; Part VI now supplies one. The lattice carries $U_q(a_{2n-1}^{(2)})$ with $q=e^{i\gamma}$, while the soliton S-matrix carries $U_q(b_n^{(1)})$ with $q=-e^{-i\pi^2/2\gamma}$ (table above). Their regime II, $4\pi<\beta^2<4\pi(2n-1)/n$, continues regime I past $\beta^2_{\rm UV}$. In the third regime the same vertex model has a non-compact continuum limit. (Their general formula (98) has $a\pi$ where their cases $n=2,3$, (66) and (92), require $(a-1)\pi$.) Scripts: `foundations_code/vernier/`.
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

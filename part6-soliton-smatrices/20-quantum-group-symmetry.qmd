@@ -1,0 +1,36 @@
+# Quantum-group symmetry of the imaginary-coupling theories {#sec-qg-symmetry}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Construct the non-local conserved charges of imaginary-coupling affine Toda theory.
+- Show that they generate $U_q(\hat g^\vee)$ and compute $q$ in terms of $\beta$.
+- Fix the gradation from the Lorentz spins of the charges.
+- Conclude that soliton S-matrices are R-matrices times scalar factors.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Bernard–LeClair 1991; Felder–LeClair 1992; Delius 1995; Gandenberger–MacKay–Watts 1996.
+:::
+
+## Non-local charges
+
+*To be written.*
+
+## The algebra of the charges
+
+*To be written.*
+
+## Lorentz spin and the gradation
+
+*To be written.*
+
+## Consequences for the S-matrix
+
+*To be written.*
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

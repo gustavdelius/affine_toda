@@ -1,0 +1,50 @@
+# Sine-Gordon theory: the rank-one template {#sec-sine-gordon}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Find the kink, antikink and breather solutions and their masses.
+- Compute the one-loop soliton mass by the DHN method.
+- Derive and analyse the Zamolodchikov soliton S-matrix and its breather poles.
+- Identify the lowest breather with the elementary particle (breather–particle identification).
+- See the $U_q(\widehat{sl}_2)$ symmetry and its RSOS restriction to perturbed minimal models.
+- Contrast sine-Gordon with sinh-Gordon, the real-coupling $a_1^{(1)}$ theory.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Dashen–Hasslacher–Neveu 1975; Coleman 1975; Zamolodchikov–Zamolodchikov 1979; Bernard–LeClair 1991; Rajaraman, *Solitons and Instantons*.
+:::
+
+## Classical solitons and breathers
+
+*To be written.*
+
+## Semiclassical quantization
+
+*To be written.*
+
+## The exact S-matrix
+
+*To be written.*
+
+## Breathers and the elementary particle
+
+*To be written.*
+
+## The free-fermion point and $\beta^2=8\pi$
+
+*To be written.*
+
+## Sinh-Gordon
+
+*To be written.*
+
+## Quantum-group symmetry and RSOS restriction
+
+*To be written.*
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

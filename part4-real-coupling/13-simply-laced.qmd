@@ -1,0 +1,60 @@
+# Exact S-matrices of the simply-laced theories {#sec-simply-laced}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Build the minimal S-matrices from the blocks $(x)$ and $\{x\}$.
+- Derive the S-matrices from Dorey's fusing rule and the Coxeter geometry.
+- Understand strong–weak duality $\beta\to4\pi/\beta$.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Braden–Corrigan–Dorey–Sasaki 1990; Christe–Mussardo 1990; Klassen–Melzer 1990; Dorey 1991; Fring–Olive 1992.
+:::
+
+## Building blocks
+
+*To be written.*
+
+## The S-matrices
+
+*To be written.*
+
+## Dorey's formula
+
+*To be written.*
+
+## Strong–weak duality
+
+*To be written.*
+
+## Literature {#sec-literature}
+
+### Real coupling: the particle S-matrices are known for every algebra {#sec-real-coupling}
+
+**Simply-laced algebras.** The S-matrices are products of building blocks
+
+$$
+\{x\}=\frac{(x-1)(x+1)}{(x-1+B)(x+1-B)},\qquad (x)=\frac{\sinh\left(\frac\theta2+\frac{i\pi x}{2h}\right)}{\sinh\left(\frac\theta2-\frac{i\pi x}{2h}\right)},\qquad B(\beta)=\frac{1}{2\pi}\frac{\beta^2}{1+\beta^2/4\pi},
+$$
+
+constructed by Braden, Corrigan, Dorey and Sasaki, Christe and Mussardo, and Klassen and Melzer (all 1990), with a universal root-system formula due to Dorey [@dorey1991].
+
+**Non-simply-laced algebras.** The S-matrices were found by Delius, Grisaru and Zanon [-@dgz1992] and by Corrigan, Dorey and Sasaki [-@corrigan1993]. Here the Coxeter number "floats" with the coupling and interpolates between $h$ and $h^\vee$ of the dual algebra. The S-matrices of a dual pair are exchanged under $\beta\to4\pi/\beta$.
+
+**Checks.** These S-matrices have been checked at one loop [@braden1990; @dgz1992], by Monte Carlo simulation (hep-th/9206112, hep-th/9508007), and more recently by tree-level and loop integrability arguments [@dorey_polvara2022].
+
+**Further results.** Further [Established] results include:
+
+- thermodynamic Bethe ansatz [@zamolodchikov1990; @klassen1990];
+- form factors [@fring1993];
+- the exact mass–coupling relation [@fateev1994];
+- ODE/IM descriptions [@lukyanov2010; @dorey2013; @ito2014].
+
+**Rigour.** The real-coupling potentials are bounded below and real, so these theories fall into the class of exponential interactions constructed rigorously by Albeverio and Høegh-Krohn [-@albeverio1974]. That construction gives the Wightman axioms and a mass gap for a single field in the super-renormalizable range. Extending it to several fields is expected to be routine, but to our knowledge has not been written down.
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

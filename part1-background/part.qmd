@@ -1,0 +1,5 @@
+---
+title: "Physical background"
+---
+
+Two-dimensional integrable quantum field theory, sine-Gordon theory as the template for everything that follows, and the non-Hermitian quantum mechanics needed for the imaginary-coupling theories.

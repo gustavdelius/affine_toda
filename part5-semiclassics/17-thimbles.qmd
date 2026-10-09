@@ -1,0 +1,76 @@
+# Complex saddles, Lefschetz thimbles and the counting rule {#sec-semiclassics}
+
+*Introduction to Picard–Lefschetz theory for physicists: to be written.*
+
+## Thimbles {#sec-thimbles}
+
+The lattice integral (-@eq-lattice-action) is a finite-dimensional integral of a holomorphic function of the complexified fields. Picard–Lefschetz theory therefore applies to it directly [@pham1983; @witten2010]. The integral decomposes as
+
+$$
+\int_{\mathbb R^n}=\sum_\sigma n_\sigma\int_{\mathcal J_\sigma},
+$$
+
+a sum over steepest-descent thimbles $\mathcal J_\sigma$ attached to complex critical points, with integer intersection numbers $n_\sigma$. Complex solitons are critical points of the continuum action, and the semiclassical expansion of a given topological sector is the expansion around the contributing thimbles. This answers the "why complex saddles" half of H7.
+
+$\Theta$ maps thimbles to thimbles and conjugates their contributions, so the total is real (consistent with @thm-coulomb-gas). In the continuum the soliton critical points form complexified translation orbits $\{\vec\phi(x;\xi):\xi\in\mathbb C\}$. Removing the values of $\xi$ at which some $\tau_j$ vanishes on the real line cuts these orbits into strips in $\operatorname{Im}\xi$, which are the topological sectors.
+
+## The counting rule {#sec-counting-rule}
+
+::: {#prp-thimble-gaussian}
+**[Theorem]** Let $B$ be a complex symmetric matrix with spectrum off $(-\infty,0]$, and let $\mathcal J$ be the thimble of $\tfrac12q^{\mathsf T}Bq$. Then
+
+$$
+\int_{\mathcal J}e^{-\frac12q^{\mathsf T}Bq}\,d^nq=(2\pi)^{n/2}\prod_\lambda\lambda^{-m_\lambda/2},
+$$
+
+where $m_\lambda$ is the **algebraic** multiplicity, whether or not $B$ is diagonalizable.
+
+:::
+
+::: {.proof}
+Triangularize $B$ (Schur form), deform the contour accordingly, and integrate the triangular quadratic form iteratively.
+
+:::
+
+Applied to the Euclidean fluctuation operator $-\partial_\tau^2+\mathcal A$ about a static saddle, this gives the one-loop energy
+
+$$
+\Delta M=\tfrac12\operatorname{Tr}\big(\sqrt{\mathcal A}-\sqrt{\mathcal A_0}\big)-\tfrac14\operatorname{Tr}\big[(\mathcal A-\mathcal A_0)\mathcal A_0^{-1/2}\big],
+$$ {#eq-one-loop-mass}
+
+which counts eigenvalues by algebraic multiplicity. The second term is the normal-ordering counterterm.
+
+The traditional DHN mode sum expands fluctuations in orthonormal eigenfunctions of $\mathcal A$. That presupposes $\mathcal A$ is diagonalizable with non-self-orthogonal eigenvectors, which can fail for a complex symmetric $\mathcal A$.
+
+**An exactly solvable example [Theorem].** On $L^2(S^1)$, the operator $H_g=-\partial_x^2+g\,e^{ix}$ (with $g\ne0$) is lower triangular in the Fourier basis. Its spectrum is $\{k^2:k\in\mathbb Z\}$, and each $n^2$ with $n\ge1$ is a $2\times2$ Jordan block.
+
+The path integral for $\operatorname{Tr}e^{-TH_g}$ is independent of $g$: every order in $g$ contains a zero-mode integral $\int_0^{2\pi}e^{imx_0}dx_0=0$. So it equals $\sum_ke^{-Tk^2}$, which counts each block twice. Counting eigenvectors would give $1+\sum_{n\ge1}e^{-Tn^2}$, which is wrong.
+
+## Which saddles contribute {#sec-which-saddles-contribute}
+
+The one-loop mass (-@eq-one-loop-mass) is independent of $\operatorname{Im}\xi$. This was checked numerically across topological sectors, including nearly singular ones. Classically the same holds by @prp-hirota-energy. So the intersection numbers $n_\sigma$ determine which topological sectors appear, but not the masses.
+
+::: {#prp-static-saddles}
+## Static saddles cannot fill the multiplets
+**[Proposition, sketch]** A single static soliton of species $a$ of $a_n^{(1)}$ carries $h/\gcd(a,h)$ topological charges [@mcghee1994]; scanning $\operatorname{Im}\xi$ confirms this for $n\le4$. So the species-2 soliton of $a_3^{(1)}$ carries only the weights $13$ and $24$ of the six weights of $\Lambda^2$. In $a_3^{(1)}$ the masses are non-resonant. So every complex static solution leaving the vacuum lies in the unstable manifold of the vacuum, which is parametrized by the coefficients of the $e^{m_ax}$ and is realized by static Hirota multi-solitons of distinct species. Its energy is $\sum_aM_a$ over the species present. The four missing weights are reached statically only with species $\{1,2,3\}$, at energy $(1+\sqrt2)M_2$ [Numerical]. So no static saddle of energy $M_2$ carries them. Bound states of two species-1 solitons at rapidities $\pm iu$, by contrast, have energy $2M_1\cos u$, which tends to $M_2$ at the fusing angle $u=\pi/4$. At $t=0$ their charges cover all of $\Lambda^2$ [Numerical], consistently with [@harder1995].
+
+:::
+
+::: {#cnj-missing-charge}
+**[Conjecture]** In the thimble decomposition of the $(1+1)$-dimensional lattice integral of a topological sector, the static solitons and the complexified two-soliton bound states at the fusing angle have nonzero intersection numbers precisely in the sectors needed to fill the $U_q(\hat g^\vee)$ multiplets. This resolves the missing-topological-charge problem (H11) at the quantum level.
+
+:::
+
+**A reduced model.** Take the static lattice energy on a chain of $L$ sites in the rescaled fields $u=\beta\vec\phi$, with boundary values $0$ and $2\pi\vec\lambda$, fugacity $\kappa=z\beta^2$, and weight $e^{-S/\hbar}$ with $\hbar=g\beta^2$. It is the Euclidean transition amplitude, in winding sector $\vec\lambda$, of the zero-mode model of @sec-solvable-check, with the chain as Euclidean time.
+
+- **[Theorem]** For real $\hbar>0$ the gradient flows of $S/\hbar$ are reparametrized flows of $S$. So the thimbles and the $n_\sigma$ depend on $\kappa$, $L$ and $\arg\hbar$, but not on $\lvert\hbar\rvert$, and no Stokes jump occurs as $\lvert g\rvert$ varies.
+- **[Numerical]** For $a_2^{(1)}$ with $L=1$, $\kappa=1$ and $\vec\lambda$ a weight of $\mathbf3$, 54 complex critical points were found, and exactly four contribute, each with $\lvert n_\sigma\rvert=1$. They are a $\Theta$-pair of real-action kinks centred on the two bonds and a $\Theta$-pair of complex-action kinks centred on the site, the lattice image of the complex translation orbit. $\Theta$ maps these thimbles to each other and conjugates their contributions. The decomposition reproduces the exact integral. After the exactly integrated real pair is subtracted, the residual equals the two-loop contribution of the complex pair to $6.6\times10^{-9}$ of the total at $\hbar=0.15$, which is 2% of that contribution and the size of its two-loop truncation error. The $n_\sigma$ are unchanged at $\arg\hbar=\pm0.02$. For $L=2$ the same pattern appears: real-action kinks on bonds and complex-action kinks on sites.
+- The reduced model validates the method, but it cannot decide @cnj-missing-charge, because it contains only static saddles. Scripts: `foundations_code/thimbles/`.
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

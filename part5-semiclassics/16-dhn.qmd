@@ -1,0 +1,40 @@
+# Semiclassical quantization of solitons {#sec-dhn}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Compute one-loop soliton masses by the DHN method.
+- Express the mass correction through the transmission factors of the fluctuation operator.
+- Work out sine-Gordon and $a_n^{(1)}$ in full.
+- See why complex solitons make the fluctuation operator non-Hermitian.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Dashen–Hasslacher–Neveu 1975; Rajaraman; Hollowood 1993; MacKay–Watts 1995; Delius–Grisaru 1995.
+:::
+
+## The DHN method
+
+*To be written.*
+
+## Phase shifts and transmission factors
+
+*To be written.*
+
+## Sine-Gordon
+
+*To be written.*
+
+## The $a_n^{(1)}$ solitons
+
+*To be written.*
+
+## Complex solitons
+
+*To be written.*
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

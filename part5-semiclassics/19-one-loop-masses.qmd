@@ -1,0 +1,102 @@
+# One-loop soliton masses for every algebra {#sec-one-loop-masses}
+
+## Resolution of the semiclassical mass disagreements {#sec-resolution-semiclassical-mass-disagreements}
+
+In $c_n^{(1)}$, the fluctuation operator around soliton $a<n$ has a Jordan block at frequency $\nu_0=m_{n-a}$. Its eigenvector comes from a double zero of the transmission factor of the perturbing soliton $n$. The eigenvector is self-orthogonal, and its generalized eigenvector sits at the $(n-a)$ threshold. Counting this block once gives the MacKay–Watts result; counting it with its algebraic multiplicity gives Delius–Grisaru's. @prp-cn-threshold-blocks (@sec-example-cn1-jordan-blocks) makes this precise. The eigenvector $\psi_n(\lambda_0)$ is in $L^2$ and self-orthogonal. The generalized eigenvector $\partial_\lambda\psi_n(\lambda_0)$ tends to a nonzero constant in channel $n-a$, so it is a bounded threshold resonance rather than an $L^2$ vector. The one-loop trace nevertheless counts $\lambda_0$ twice.
+
+Three independent checks favour the algebraic-multiplicity count:
+
+- **Lattice.** Evaluating (-@eq-one-loop-mass) on a lattice reproduces the algebraic-multiplicity result to about $10^{-4}$ for all ten cases with $n\le5$. The same method reproduces Hollowood's simply-laced $a_{N-1}^{(1)}$ masses for $N\le6$.
+- **Exact S-matrix.** The exact S-matrix of $c_2^{(1)}\simeq b_2^{(1)}$ agrees with the algebraic-multiplicity result to $O(\beta^4)$.
+- **Fate of the block.** That exact S-matrix resolves the Jordan block into two real bound states, bound below threshold by amounts proportional to $\beta^2$ and $\beta^4$.
+
+The details are in @sec-hirota-form-dn1-en1 and @sec-one-loop-masses-folded. For $b_n^{(1)}$ the spinor soliton is the coincident pair $(s,s')$ of $d_{n+1}^{(1)}$. Every vector channel $b$ has a double zero at $\lambda=2m^2\sin^2(\pi b/n)$. These zeros are isolated, embedded, or (for $b=n/2$) at the spinor threshold. Counted with weight 2 they give $H=2n+\beta^2/4\pi$ from every ratio, which is the exact result of [@gmw1996]. Counted once they give MacKay and Watts' table (@sec-one-loop-masses-folded).
+
+::: {#cnj-counting-rule}
+**[Part 1: Theorem given a degree bound, for the algebraic multiplicity; the trace-weight clause rests on @prp-net-count part 2 (sketch); part 2: Conjecture]**
+
+1. For every $\hat g$ and every soliton obtained by folding Hirota multisolitons, the fluctuation solutions have the Hirota form (H) of @sec-counting-rule-transmission-factors. Then the factorization (-@eq-net-factorization) holds by @thm-hirota-factorization, the algebraic multiplicity of each isolated eigenvalue is the net order (zeros minus poles) of $\prod_bX_{ab}$, and the same net order is the weight in the one-loop trace. Wherever Hypothesis (R) holds, the Jordan blocks have the sizes of the individual zeros (@thm-jordan-chains).
+2. Counting accordingly, the one-loop masses of all solitons obtained by folding multisolitons satisfy
+
+$$
+\frac{M_a^{\rm qu}}{m_a^{\vee,\rm qu}}\ \text{independent of }a\ \text{to }O(\beta^2),
+$$
+
+where, for untwisted $\hat g$, $m^\vee$ are the one-loop particle masses of the Lie-dual theory at real coupling $\beta_r^2=\beta^2$. For twisted $\hat g$ the comparison masses are instead the particle masses of the same theory continued to $\beta_r^2=-\beta^2$.
+
+:::
+
+Part 1 is a theorem given the degree bound (D) of @sec-hirota-form-dn1-en1 (@prp-hirota-form, which covers single solitons and coincident orbits). (D) is verified for $d_n^{(1)}$ with $n\le8$, for all $e_n^{(1)}$, and for the 19 foldings listed there. Evidence for part 2:
+
+- In every family tested, the counting rule makes all one-loop soliton mass ratios follow one floating Coxeter number, and counting each multiple zero once breaks this (@sec-one-loop-masses-folded). The families are $b_n^{(1)}$ ($n\le7$), $c_n^{(1)}$ ($n\le6$), $g_2^{(1)}$, $f_4^{(1)}$, $a_{2n-1}^{(2)}$ ($n\le4$), $d_{n+1}^{(2)}$ ($n\le6$), $a_{2n}^{(2)}$ ($n\le3$), $d_4^{(3)}$ and $e_6^{(2)}$.
+- The resulting floating Coxeter numbers agree at $O(\beta^2)$ with every known result: the exact $b_n^{(1)}$ [@gmw1996], $g_2^{(1)}$ [@takacs1997d], $d_4^{(3)}$ [@takacs1997c], $d_{n+1}^{(2)}$ [@gm1995] and $a_{2n}^{(2)}$ [@gandenberger1998] masses; Part VI's $c_n^{(1)}$ (complete for $n=3$), $a_{2n-1}^{(2)}$ and $e_6^{(2)}$ amplitudes; and the one-loop $c_n^{(1)}$ result of [@delius_grisaru1995].
+- The $c_n^{(1)}$ blocks were constructed explicitly as Jordan chains (@prp-cn-threshold-blocks), and the lattice evaluation of (-@eq-one-loop-mass) agrees with the algebraic-multiplicity count.
+- For $b_3^{(1)}$ and $g_2^{(1)}$ the spectrum and heat trace on a Fourier grid confirm clusters of algebraic multiplicity 4 at $\lambda=\tfrac32$, and @prp-net-count part 2, to $10^{-5}$.
+
+The weight relevant to (-@eq-one-loop-mass) is the net order from (-@eq-net-factorization). It agrees with the dimension of the $L^2$ root space where (R) holds, but not at threshold resonances (@prp-cn-threshold-blocks and @sec-hirota-form-dn1-en1). The simpler statement, that every zero of $X_{ab}$ in the bound-state half-plane is an eigenvalue of multiplicity equal to its order, is false: in $a_4^{(1)}$ a zero of $X_{12}$ is cancelled by a pole of $X_{11}$ (@prp-an-zeros).
+
+This closes H8 for the algebraic multiplicity of isolated eigenvalues, given (D). (D) is verified for $d_n^{(1)}$ with $n\le8$, for all $e_n^{(1)}$, and for the 19 foldings of @sec-hirota-form-dn1-en1. The mass-ratio statement holds numerically in every family tested and remains to be proved.
+
+## One-loop masses of the folded solitons {#sec-one-loop-masses-folded}
+
+The counting rule turns the one-loop masses into a computation with the transmission factors alone. Write $z=\kappa_b/m_b$, so that $X_b$ becomes a rational function of $z$ for Hirota solitons (@prp-hirota-form, which also gives the transmission factors of all the single solitons and foldings used below).
+
+::: {#prp-one-loop-mass}
+## One-loop mass from the transmission factors
+**[Proposition, sketch]** Assume (H), and that $X_b(z)$ is rational with zeros and poles in $[-1,1]$. Then (-@eq-one-loop-mass) equals
+
+$$
+\Delta M=\tfrac12\sum_bm_b\sum_w\operatorname{ord}_w(X_b)\,\psi(\arcsin w),\qquad \psi(t)=\frac{t\cos t-\sin t}{\pi},
+$$
+
+where $w$ runs over all zeros and poles of $X_b$ in both half-planes, with zeros counted positively and poles negatively. Bound states, the continuum phase shift and the counterterm are all contained in $\psi$.
+
+:::
+
+::: {.proof}
+## Sketch
+1. Insert the Mellin representations of $\sqrt\lambda$ and $\lambda^{-1/2}$ into (-@eq-one-loop-mass). The bracket of heat traces is $O(t^{3/2})$, so the $t$-integral converges.
+2. Insert @prp-net-count part 2 and do the $k$-integral first. The counterterm is fixed channel by channel by the Born approximation, $\log X_b(k)=-ic_b/2k+O(k^{-2})$ with $c_b=\int e_{\bar b}^{\mathsf T}(M-M_0)e_b\,dx$. This uses species-diagonality.
+3. Unpaired, a root $w$ of $X_b$ contributes $\tfrac12m_b\big[\psi(\arcsin w)+\tfrac12\sqrt{1-w^2}\big]$. Pair channel $b$ with $\bar b$ by @lem-wronskian, $X_{\bar b}(z)=1/X_b(-z)$. The second term cancels, and the first is odd in $w$.
+
+:::
+
+$\psi$ is continuous at $w=0$, so a zero that crosses a threshold causes no jump. A threshold zero of $X_b$ that is cancelled by a pole of $X_{\bar b}$ contributes nothing once the pair is grouped (@lem-wronskian). A double or triple zero counts two or three times, whether its eigenvalue is isolated, embedded, or at another channel's threshold. A naive energy-weighted phase-shift sum misses a term $c_b/4\pi$ per channel; for the sine-Gordon kink it gives $0$ instead of $-m_1/\pi$.
+
+*Calibration.* The formula reproduces the sine-Gordon kink, $-m_1/\pi=-2m/\pi$ in the units of @sec-lagrangians, and Hollowood's $a_n^{(1)}$ masses, $\Delta M_a=-m_a\big[\tfrac h{2\pi}-\tfrac14\cot\tfrac\pi h\big]$. It also reproduces the Delius–Grisaru $c_n^{(1)}$ masses and the universal twisted rule of [@mackay_watts1995]. The closed form, the unpaired form, the direct phase-shift form and the heat-trace route agree to $10^{-12}$.
+
+**Results.** In every family, the counting rule makes all one-loop soliton mass ratios follow the classical pattern with $h$ replaced by one floating Coxeter number $H_s=h+\delta H\,\beta^2+O(\beta^4)$, the same for every ratio [Numerical, to round-off]. Counting each multiple zero once, that is, subtracting $(o-1)\tfrac12\omega_\zeta$ for each bound-state zero of order $o\ge2$ while keeping the continuum, breaks this wherever multiple zeros occur.
+
+| $\hat g$ | folded from | multiple zeros | $\delta H$, counting rule | counting each zero once | known result |
+|---|---|---|---|---|---|
+| $c_n^{(1)}$, $n\le6$ | $a_{2n-1}^{(1)}$ | double, at a threshold | $-1/4\pi$ | inconsistent between ratios | $-1/4\pi$: Part VI (complete for $n=3$, conjectured for general $n$); the one-loop result of [@delius_grisaru1995] agrees |
+| $b_n^{(1)}$, $n\le7$ | $d_{n+1}^{(1)}$ | double: isolated, embedded or at a threshold | $+1/4\pi$ | spinor ratio $-(n-1)/4\pi$, as tabulated in [@mackay_watts1995] | $+1/4\pi$, exact [@gmw1996] |
+| $g_2^{(1)}$ | $d_4^{(1)}$ | triple plus simple, isolated | $+1/2\pi$ | $-1/\pi$, as tabulated in [@mackay_watts1995] | $+1/2\pi$, exact [@takacs1997d] |
+| $f_4^{(1)}$ | $e_6^{(1)}$ | double: isolated, embedded or at a threshold | $+3/4\pi$ | inconsistent between ratios | open |
+| $a_{2n-1}^{(2)}$, $n\le4$ | $d_{2n}^{(1)}$ | none | $-1/8\pi$ | same | Part VI; lattice (@sec-a2n-lattice) |
+| $d_{n+1}^{(2)}$, $n\le6$ | $d_{n+2}^{(1)}$ | none | $+1/2\pi$ | same | exact [@gm1995] |
+| $a_{2n}^{(2)}$, $2\le n\le3$ | $d_{2n+2}^{(1)}$ | none | $0$ | same | exact [@gandenberger1998] |
+| $d_4^{(3)}$ | $e_6^{(1)}$ | none | $+3/2\pi$ | same | exact [@takacs1997c] |
+| $e_6^{(2)}$ | $e_7^{(1)}$ | none | $+3/2\pi$ | same | Part VI |
+
+The comparisons use the normalization of @sec-lie-algebraic-data, with longest roots of squared length 2 and the same $m$; folding preserves $\beta$. For twisted algebras the cited papers give the longest root squared length $2k$, so their coupling is $\beta^2/k$. In the normalization of @sec-lie-algebraic-data the gradation formula of @sec-amplitude-and-gradation then gives $\omega=4\pi/\beta^2-1$, that is $1/\omega=\beta^2/4\pi+O(\beta^4)$, for every amplitude compared, and the comparisons use this coupling map. With it every known result agrees at $O(\beta^2)$. For the $b_3^{(1)}$ spinor and the $g_2^{(1)}$ triple composite, a Fourier-grid diagonalization finds four eigenvalues clustered at $\lambda=\tfrac32$, as the net count predicts. The heat trace matches @prp-net-count part 2 to $10^{-5}$, and the grid value of (-@eq-one-loop-mass) converges towards the closed form. Scripts: `foundations_code/oneloop/`.
+
+This settles the $b_n^{(1)}$ disagreement noted in @sec-imaginary-coupling-quantum-theory. The exact masses of [@gmw1996] and the tabulated semiclassics of [@mackay_watts1995] differ by $\tfrac12\omega$ for each double zero of the spinor's transmission factors, which the tables count once. The same mechanism accounts for the $g_2^{(1)}$ entries, with a triple zero.
+
+**Untwisted and twisted [Numerical, in all the families of the table].** Here "particle mass ratios" means the one-loop ratios from the bubble diagrams of the Lagrangian (-@eq-imaginary-potential). For untwisted algebras the soliton mass ratios equal the one-loop particle mass ratios of the Lie-dual theory at real coupling $\beta_r^2=\beta^2$. For twisted algebras they equal the particle mass ratios of the same theory continued to $\beta_r^2=-\beta^2$, that is, the breather ratios. For $c_2^{(1)}$, $g_2^{(1)}$ and $f_4^{(1)}$ the Lie dual is the algebra itself, so there the rule says that the soliton ratio shifts are minus those of the breathers, $H_s-h=-(H_b-h)$. Takács's exact $g_2^{(1)}$ amplitude shows this: its solitons have $H_s=6+2/\omega\approx6+\beta^2/2\pi$ and its breathers $H_b=6T/(T+1)\approx6-\beta^2/2\pi$.
+
+**A prediction for $f_4^{(1)}$ [Numerical, one loop].** The four solitons have the Corrigan–Dorey–Sasaki mass pattern with
+
+$$
+H_s=12+\frac{3\beta^2}{4\pi}+O(\beta^4),
+$$
+
+while the breathers have $H_b=12-3\beta^2/4\pi$. So, as in $g_2^{(1)}$ and unlike $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$, $H_s\ne H_b$: the soliton fusion angles are not those of the breathers. Part VI writes the $f_4^{(1)}$ amplitude with a scalar factor of period $T$, and in its $\mathbf{27}$ family the soliton and breather fusion angles are tied to the same $T$. The one-loop result $H_s\ne H_b$ therefore excludes every lift of that family, independently of the comparison with Corrigan–Dorey–Sasaki. Part VI had fixed the lifts by assuming equal fusion angles (@sec-one-loop-data-fix). Using the one-loop soliton masses and the coupling map $1/\omega=\beta^2/4\pi$ instead, the integer solutions are $T=6\omega+\tfrac32+6j$, with zeros at $\omega+j$, $3\omega+\tfrac12+3j$ and $4\omega+1+4j$ [Numerical; @sec-soliton-masses-one-loop]. For $j=0$ this is Part VI's choice with the $\mathbf{378}$ and $\mathbf{79}$ zeros lowered by one, and with these lifts the lowest-breather amplitude still matches no Corrigan–Dorey–Sasaki amplitude [Numerical; @sec-soliton-masses-one-loop]. The tree term of Part VI's breather amplitude implies $1/\omega=\beta^2/8\pi$ rather than $\beta^2/4\pi$, which is a second sign that the $\mathbf{27}$ family is not the right one.
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

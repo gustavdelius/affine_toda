@@ -1,0 +1,50 @@
+# Non-Hermitian quantum mechanics and non-unitary field theory {#sec-non-hermitian}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Define Krein spaces and operators self-adjoint with respect to an indefinite inner product.
+- Use an antilinear (PT-type) symmetry to show that a spectrum is closed under complex conjugation, and distinguish broken from unbroken sectors.
+- Recognise Jordan blocks and exceptional points, and what they do to completeness and time evolution.
+- Understand why the scaling Lee–Yang model is a valid, non-unitary quantum field theory.
+- State the criteria for a valid quantum field theory used in Part VII.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Bender–Boettcher 1998; Mostafazadeh 2002, 2010; Bognár, *Indefinite Inner Product Spaces*; Ashida–Gong–Ueda 2020; Fisher 1978; Cardy 1985, 1989.
+:::
+
+## Krein spaces and pseudo-Hermiticity
+
+*To be written.*
+
+## Antilinear symmetries and $PT$
+
+*To be written.*
+
+## Jordan blocks and exceptional points
+
+*To be written.*
+
+## An example: the scaling Lee–Yang model
+
+*To be written.*
+
+## What we mean by a valid QFT {#sec-valid-qft}
+
+We adopt operational criteria that apply equally to unitary and non-unitary theories, the scaling Lee–Yang model being the standard example of the latter [@fisher1978; @cardy1989].
+
+- **(C1) Definition.** A regularized theory exists, its correlation functions are finite, and there is a continuum limit.
+- **(C2) Euclidean consistency.** The Euclidean correlation functions of a generating set of local observables satisfy the Osterwalder–Schrader axioms. Reflection positivity may be replaced by a twisted reflection positivity that yields a Krein space.
+- **(C3) Hamiltonian structure.** There is a Hamiltonian, self-adjoint with respect to a possibly indefinite inner product, with an antilinear symmetry. Its vacuum energy is real.
+- **(C4) Asymptotic spectrum.** The one-particle states (particles, solitons, breathers, excited solitons) have real masses.
+- **(C5) Scattering.** The S-matrix satisfies factorization, the Yang–Baxter equation, crossing, the bootstrap, and pseudo-unitarity with respect to the Krein structure.
+- **(C6) Predictivity.** Finite-volume spectra, form factors and the mass–coupling relation are computable and agree with independent numerical or nonperturbative checks.
+
+Unitarity (a positive inner product preserved by the S-matrix) is **not** on this list. @sec-scattering shows that it fails in identifiable sectors of most imaginary-coupling ATFTs, and @sec-unitarity lists which of its usual consequences cannot be recovered by any means. That failure is a physical property of these theories, as it is of Lee–Yang, and not an inconsistency.
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

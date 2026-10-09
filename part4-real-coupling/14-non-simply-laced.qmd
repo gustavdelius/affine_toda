@@ -1,0 +1,31 @@
+# Non-simply-laced theories and the floating Coxeter number {#sec-non-simply-laced}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- See why the classical mass ratios are not preserved by quantum corrections in non-simply-laced theories.
+- Construct the S-matrices of the dual pairs with a coupling-dependent Coxeter number.
+- Understand how a dual pair is exchanged under $\beta\to4\pi/\beta$.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Delius–Grisaru–Zanon 1992; Corrigan–Dorey–Sasaki 1993; Chari–Pressley 1991.
+:::
+
+## Quantum mass corrections
+
+*To be written.*
+
+## The floating Coxeter number
+
+*To be written.*
+
+## The S-matrices of the dual pairs
+
+*To be written.*
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

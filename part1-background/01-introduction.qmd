@@ -1,0 +1,52 @@
+# Introduction and reader's guide {#sec-introduction}
+
+Affine Toda field theories are a family of two-dimensional quantum field theories, one for each affine Kac–Moody algebra $\hat g$. They are integrable, so many of their properties can be computed exactly, and they are rich enough to display most of the phenomena of interacting quantum field theory: particles and bound states, solitons and breathers, strong–weak duality, quantum-group symmetry and, at imaginary coupling, non-unitarity. This book introduces them to a reader who knows quantum field theory but has not met affine Toda theory, Kac–Moody algebras or quantum groups, and leads that reader to current research.
+
+## Why affine Toda theory matters {#sec-why-atft-matters}
+
+For each affine Kac–Moody algebra $\hat g$ there is a Lagrangian field theory of $r=\operatorname{rank}g$ scalars with exponential interactions, the affine Toda field theory. These theories have been a laboratory for several central ideas in two-dimensional quantum field theory:
+
+- exact factorized S-matrices and the bootstrap [@zz1979; @braden1990];
+- the geometry of root systems in scattering (Dorey's fusing rule [@dorey1991]);
+- strong–weak coupling duality [@dgz1992];
+- solitons with quantum-group symmetry [@bernard1991; @hollowood1993a; @hollowood1993b];
+- integrable perturbations of conformal field theories [@zamolodchikov1989; @eguchi1989; @hollowood1989];
+- the ODE/IM correspondence [@lukyanov2010; @dorey2013].
+
+The theories come in two regimes.
+
+- **Real coupling.** The theory is an ordinary unitary QFT with a unique vacuum and $r$ massive particles.
+- **Imaginary coupling.** The potential is periodic and complex. There are infinitely many degenerate vacua, solitons interpolating between them, and breathers. These are the theories that describe perturbed (W-algebra) minimal models after quantum-group restriction, and they carry the richest physics.
+
+The theories are not only of historical interest. They are rich enough to show generic phenomena of quantum field theory, yet solvable enough that claims about them can be checked exactly. Five features keep them current.
+
+- **A family, not a single model.** There is one theory for each affine algebra, and results come with Lie-theoretic structure: Dorey's fusing rule, Perron–Frobenius masses, Lie duality. A general claim about integrable or massive two-dimensional QFT can therefore be tested across a whole family, not in one example.
+- **Exact benchmarks.** At real coupling the S-matrices are known for every algebra, together with the thermodynamic Bethe ansatz, form factors and the exact mass–coupling relation (@sec-real-coupling). New methods are calibrated against them. Recent examples are tree-level integrability for every ATFT, derived from properties of root systems [@dorey_polvara2022], one-loop integrability of the simply-laced theories [@polvara2023], and the comparison of one-loop amplitudes with the bootstrap S-matrices for the whole simply-laced class [@fabri_polvara2024].
+- **A non-unitary QFT with structure.** The imaginary-coupling theories are the field-theoretic parents of non-unitary perturbed minimal and W-algebra models. We argue that their non-unitarity is organised by a Krein structure and an antilinear $PT$-type symmetry $\Theta$, and is not a pathology. That is the question non-Hermitian physics now asks of many systems (@sec-connections-current-research).
+- **Unfinished business.** The soliton S-matrix of $f_4^{(1)}$ is still missing, and those of $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$ are constructed in Part VI, though not for every soliton species (@sec-imaginary-coupling-quantum-theory). The disagreements over one-loop soliton masses needed a new counting rule to resolve (@sec-semiclassics). The missing-topological-charge problem is open, and static complex saddles cannot resolve it (@sec-which-saddles-contribute). Open problems in a theory whose surroundings are this well mapped are unusually well posed.
+- **A meeting point of mathematics and physics.** Quantum affine algebras and their R-matrices, Hirota tau-functions, Coulomb gases and Picard–Lefschetz theory all act on the same model. Progress in any one of them tends to have consequences here.
+
+## How this book is organised {#sec-reader-guide}
+
+The book has seven parts.
+
+- **Part I** collects the physical background: factorized scattering in two dimensions, sine-Gordon theory as the rank-one template, and the non-Hermitian quantum mechanics needed for the imaginary-coupling theories.
+- **Part II** collects the algebraic background: root systems, affine Kac–Moody algebras, quantum groups and R-matrices.
+- **Part III** treats the classical field theory: Lagrangians, integrability, solitons and the reality of their energies.
+- **Part IV** treats the quantum theory at real coupling, where the exact particle S-matrices are known for every algebra.
+- **Part V** treats the semiclassical quantization of the complex solitons of the imaginary-coupling theories.
+- **Part VI** treats their exact soliton S-matrices, including the constructions for $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$ and the open case $f_4^{(1)}$.
+- **Part VII** asks whether the imaginary-coupling theories exist as quantum field theories, and answers: yes, as non-unitary ones.
+
+Parts I–IV are textbook material. Parts V–VII present research results, many of them new.
+
+*Dependency chart and suggested reading paths: to be written.*
+
+## Status labels {#sec-status-labels}
+
+From Part V on, claims that go beyond the textbook literature are labelled:
+
+- **[Theorem]**, with a complete proof given here;
+- **[Proposition, sketch]**, with a proof outline that a specialist could complete;
+- **[Established]**, proved or computed in the cited literature;
+- **[Conjecture]**, with the supporting evidence stated.

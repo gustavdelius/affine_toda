@@ -1,0 +1,49 @@
+# Integrable quantum field theory in two dimensions {#sec-integrable-qft}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Describe two-dimensional relativistic kinematics in terms of rapidities.
+- Show how higher-spin conserved charges force scattering to be elastic and factorized.
+- State the analyticity, unitarity and crossing properties of the two-particle S-matrix and locate the physical strip.
+- Read bound states off S-matrix poles and use the bootstrap to close the spectrum.
+- Recognise the CDD ambiguity and the ways it is fixed.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Zamolodchikov–Zamolodchikov 1979; Parke 1980; Dorey's 1996 lecture notes on exact S-matrices; Mussardo's *Statistical Field Theory*, chapters 16–18.
+:::
+
+## Kinematics and rapidities
+
+*To be written.*
+
+## Higher conserved charges and factorization
+
+*To be written.*
+
+## The Yang–Baxter equation
+
+*To be written.*
+
+## Analyticity, unitarity and crossing
+
+*To be written.*
+
+## Bound states and the bootstrap
+
+*To be written.*
+
+## CDD factors and minimality
+
+*To be written.*
+
+## Finite volume: the Bethe–Yang equations
+
+*To be written.*
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

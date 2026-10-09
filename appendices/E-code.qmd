@@ -1,0 +1,5 @@
+# Guide to the supporting code {#sec-app-code}
+
+::: {.callout-warning appearance="simple" title="To be written"}
+A map from chapters to the scripts that verify them, drawn from `foundations_code/README.md` and `soliton_rmatrix_code/README.md`.
+:::

@@ -1,0 +1,74 @@
+# Classical solitons {#sec-classical-solitons}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Construct multi-soliton solutions with Hirota's method.
+- Relate them to the vertex-operator construction of Olive, Turok and Underwood.
+- Compute topological charges and soliton masses, and see Lie duality appear.
+- Construct breathers and excited solitons and compute classical time delays.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Hollowood 1992; Olive–Turok–Underwood 1993; Kneipp–Olive 1996; McGhee 1994; Harder–Iskandar–McGhee 1995; Fring–Johnson–Kneipp–Olive 1994.
+:::
+
+## Hirota's method
+
+*To be written.*
+
+## The vertex-operator construction
+
+*To be written.*
+
+## Topological charges
+
+*To be written.*
+
+## Masses and Lie duality
+
+*To be written.*
+
+## Breathers and excited solitons
+
+*To be written.*
+
+## Soliton scattering and time delays
+
+*To be written.*
+
+## Imaginary coupling: vacua, solitons, symmetry {#sec-imaginary-coupling-vacua}
+
+$V_{\rm imag}$ is periodic under $\vec\phi\to\vec\phi+\tfrac{2\pi}{\beta}\vec\lambda$ for $\vec\lambda$ in the co-weight lattice, and vanishes at every lattice point. Solitons interpolate between these vacua.
+
+Hirota's method gives explicit solutions,
+
+$$
+\vec\phi=\frac i\beta\sum_j\frac{2\vec\alpha_j}{\alpha_j^2}\ln\tau_j,
+$$
+
+with each $\tau_j$ a finite sum of products of exponentials of linear functions of $x$ and $t$ [@hollowood1992; @olive1993a; @olive1993b; @kneipp1996]. The soliton masses are proportional to particle masses:
+
+- in the simply-laced and twisted cases, to the particle masses of the same theory;
+- in the untwisted non-simply-laced cases, to those of the theory based on $(g^\vee)^{(1)}$ ("Lie duality").
+
+The quantum theory has a non-local $U_q(\hat g^\vee)$ symmetry with $q=\pm e^{4\pi^2i/\beta^2}$ [@bernard1991; @felder1992]. Soliton S-matrices are therefore proportional to $U_q(\hat g^\vee)$ R-matrices.
+
+## Literature {#sec-classical-literature}
+
+**Solutions.** Single and multi-soliton solutions are known for all algebras [@hollowood1992; @olive1993a; @olive1993b; @kneipp1996; @mackay1993; @aratyn1993; @zhu1995]. So are breathers [@harder1995] and soliton time delays [@fring1994].
+
+**Reality.** Although the fields are complex, the energy–momentum tensor is a total derivative up to an improvement term, and the energies are real [@olive1993a; @olive1993b; @zhu1995]. So are all the higher conserved charges [@freeman1995].
+
+**Known problems.**
+
+- The topological charges of single solitons do not fill the expected representations [@mcghee1994].
+- Some solutions are singular at isolated spacetime points.
+- There are solutions with complex energy that become singular in finite time, and solutions with negative energy [@khastgir1996].
+- In $a_2^{(1)}$, soliton–breather scattering produces *complex* classical time delays and can drive regular initial data into singular final states [@tw1999].
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

@@ -1,0 +1,5 @@
+---
+title: "Classical affine Toda field theory"
+---
+
+The Lagrangians, their integrability, the particle spectrum, the solitons of the imaginary-coupling theories, and a symmetry criterion for when their energies are real.

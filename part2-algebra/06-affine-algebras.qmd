@@ -1,0 +1,52 @@
+# Affine Kac–Moody algebras {#sec-affine-algebras}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Build untwisted affine algebras from loop algebras and their central extension.
+- Read affine and twisted Dynkin diagrams, Kac labels and the dual Coxeter number.
+- Obtain every non-simply-laced algebra by folding and identify the dual pairs.
+- Understand gradations, the spectral parameter and the principal (Lorentz-spin) gradation.
+- Meet the vertex-operator representations that will build solitons in Part III.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Kac, *Infinite-Dimensional Lie Algebras*; Goddard–Olive 1986; Olive–Turok 1983; Fuchs, *Affine Lie Algebras and Quantum Groups*.
+:::
+
+## Loop algebras and the central extension
+
+*To be written.*
+
+## Twisted affine algebras
+
+*To be written.*
+
+## Folding and duality
+
+*To be written.*
+
+## Gradations
+
+*To be written.*
+
+## Vertex-operator representations
+
+*To be written.*
+
+## Lie-algebraic data {#sec-lie-algebraic-data}
+
+Let $\hat g$ be an affine Kac–Moody algebra with simple roots $\vec\alpha_0,\dots,\vec\alpha_r\in\mathbb R^r$, normalized so that the longest roots have $\lvert\vec\alpha\rvert^2=2$. The positive integers $n_j$ (Kac labels, with the normalization of [@mackay_watts1995]) satisfy $\sum_jn_j\vec\alpha_j=0$.
+
+The algebras fall into three classes:
+
+- the self-dual algebras $a_n^{(1)},d_n^{(1)},e_n^{(1)},a_{2n}^{(2)}$;
+- the dual pairs of non-simply-laced algebras $(b_n^{(1)},a_{2n-1}^{(2)})$, $(c_n^{(1)},d_{n+1}^{(2)})$, $(g_2^{(1)},d_4^{(3)})$ and $(f_4^{(1)},e_6^{(2)})$.
+
+Duality reverses the arrows of the affine Dynkin diagram. Folding a simply-laced diagram by a diagram automorphism gives every non-simply-laced algebra [@olive1983].
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

@@ -1,0 +1,164 @@
+# The lattice theory {#sec-lattice}
+
+## Definition {#sec-definition}
+
+Fix a lattice spacing $a$ and integers $N_t$ and $N_x$. Let
+
+$$
+\Lambda=\{(t,x):t\in a\mathbb Z_{N_t},\ x\in a\{1,\dots,N_x-1\}\},
+$$
+
+periodic in Euclidean time, with Dirichlet conditions $\vec\phi=0$ at $x=0$ and $x=aN_x$. The lattice action is
+
+$$
+S_\Lambda[\vec\phi]=\underbrace{\tfrac12\sum_{\langle uv\rangle}\lvert\vec\phi_u-\vec\phi_v\rvert^2}_{S_0}+a^2\sum_{u\in\Lambda}V(\vec\phi_u),
+\qquad
+V(\vec\phi)=-z\sum_jn_j\left(e^{i\beta\vec\alpha_j\cdot\vec\phi}-1\right),\quad z>0.
+$$ {#eq-lattice-action}
+
+Let $C=C_a$ denote the covariance of the Gaussian measure $d\mu_0\propto e^{-S_0}\prod d\vec\phi_u$, which is positive definite because of the Dirichlet conditions.
+
+The bare fugacity may depend on $a$, on the root and on the site. Wick ordering replaces $z$ by $z_{a,j}(u)=z\,e^{\beta^2\lvert\vec\alpha_j\rvert^2C_a(u,u)/2}$, root by root and site by site. Because of the Dirichlet conditions $C_a(u,u)$ is not constant, and a site-independent Wick constant has no continuum limit for $\beta^2\ge2\pi$ (@prp-necessity). Theorems [-@thm-bounded-weight]–[-@thm-vacuum-energy] below use only that each fugacity is non-negative and independent of Euclidean time. They therefore hold verbatim for fugacities $z_{x,j}\ge0$ that depend on the root and on the spatial coordinate $x$, with $z$ replaced by $z_{x,j}$ in (-@eq-lattice-action)–(-@eq-transfer-matrix); in particular they hold for Wick-ordered fugacities.
+
+## Existence {#sec-existence}
+
+::: {#thm-bounded-weight}
+**[Theorem]** For all $a$, $\Lambda$, $\beta>0$ and $z\ge0$, the weight $e^{-a^2\sum V}$ is bounded by 1 in modulus. Hence
+
+$$
+Z_\Lambda=\int e^{-a^2\sum_uV(\vec\phi_u)}\,d\mu_0
+$$
+
+and $\int F\,e^{-a^2\sum V}d\mu_0$ exist for every $F\in L^1(d\mu_0)$.
+
+:::
+
+::: {.proof}
+$\operatorname{Re}V(\vec\phi)=-z\sum_jn_j(\cos\beta\vec\alpha_j\cdot\vec\phi-1)\ge0$. So $\lvert e^{-a^2\sum V}\rvert=e^{-a^2\sum\operatorname{Re}V}\le1$.
+
+:::
+
+@thm-bounded-weight closes the existence half of H1. The complex weight is bounded, so nothing diverges.
+
+## Positivity: there is no sign problem {#sec-positivity}
+
+::: {#thm-coulomb-gas}
+**[Theorem]** Write $q_j=\beta\vec\alpha_j$. Then
+
+$$
+Z_\Lambda=e^{-a^2\lvert\Lambda\rvert z\sum_jn_j}\sum_{N\ge0}\frac{(a^2z)^N}{N!}\sum_{j_1,\dots,j_N}\Big(\prod_kn_{j_k}\Big)\sum_{u_1,\dots,u_N\in\Lambda}\exp\Big(-\tfrac12\sum_{k,l=1}^Nq_{j_k}\cdot q_{j_l}\,C(u_k,u_l)\Big).
+$$ {#eq-coulomb-gas}
+
+Every term is positive and at most 1, and the series converges absolutely. In particular $Z_\Lambda>0$.
+
+:::
+
+More generally, for any real vectors $\vec w_1,\dots,\vec w_M$ and sites $v_1,\dots,v_M$, the quantity
+
+$$
+Z_\Lambda\Big\langle\prod_me^{i\beta\vec w_m\cdot\vec\phi_{v_m}}\Big\rangle
+$$
+
+is given by the same expansion with the charges $\beta\vec w_m$ added at $v_m$. It is therefore real and non-negative.
+
+::: {.proof}
+Expand $e^{-a^2\sum V}=e^{-a^2\lvert\Lambda\rvert z\sum n_j}\exp\big(a^2z\sum_{u,j}n_je^{iq_j\cdot\phi_u}\big)$ in powers. Use
+
+$$
+\int\prod_ke^{iq_k\cdot\phi_{u_k}}d\mu_0=\exp\Big(-\tfrac12\sum_{k,l}q_k\cdot q_l\,C(u_k,u_l)\Big).
+$$
+
+The exponent is minus a positive-semidefinite quadratic form (the covariance $C\otimes\mathbb 1$ evaluated on the "charge distribution" $\sum_kq_k\delta_{u_k}$), so each term lies in $(0,1]$. Absolute convergence follows by comparison with $\exp(a^2z\lvert\Lambda\rvert\sum n_j)$.
+
+:::
+
+**Interpretation.** Integrating out the free field turns the imaginary-coupling ATFT into the grand-canonical ensemble of a **multi-component lattice Coulomb gas**. The charges are the affine roots $\beta\vec\alpha_j$, the fugacities $a^2zn_j$ are positive, and the Boltzmann weights are real. The "complex action" is a property of the field representation, not of the statistical model: the natural observables (vertex operators) have positive, real correlation sums.
+
+This is the multi-component analogue of the well-known equivalence of sine-Gordon theory with the two-component Coulomb gas. Here, however, it holds without any reality of the potential. It closes H2.
+
+The sign of $V$ in (-@eq-imaginary-potential) is essential: the opposite sign gives fugacities of alternating sign. @sec-app-zero-mode shows that this sign choice decides whether the partition function is positive.
+
+## Hamiltonian structure: a Krein space {#sec-hamiltonian-structure-krein-space}
+
+Let $\mathcal H=L^2(\mathbb R^{r(N_x-1)})$ be the space of wavefunctions of a time slice, $P$ the field parity $(P\psi)(\vec\phi)=\psi(-\vec\phi)$, and $K$ complex conjugation in the field representation. The transfer matrix is
+
+$$
+T=e^{-\frac a2\mathcal V}\,\mathcal K\,e^{-\frac a2\mathcal V},\qquad (\mathcal V\psi)(\vec\phi)=\sum_xa\,V(\vec\phi_x)\psi(\vec\phi),
+$$ {#eq-transfer-matrix}
+
+where $\mathcal K$ is the (real, symmetric, positive) Gaussian kernel of the kinetic and spatial-gradient terms. With this definition, $Z_\Lambda=\operatorname{Tr}T^{N_t}$.
+
+::: {#thm-krein-transfer}
+**[Theorem]**
+
+1. $T$ is trace class.
+2. $T^\dagger=PTP$. That is, $T$ is self-adjoint with respect to the indefinite inner product $[\psi,\chi]=\langle\psi,P\chi\rangle$, so $(\mathcal H,[\cdot,\cdot])$ is a Krein space with fundamental symmetry $P$.
+3. The antilinear operator $\Theta=PK$ commutes with $T$.
+4. The spectrum of $T$, with algebraic multiplicities, is invariant under complex conjugation.
+
+:::
+
+::: {.proof}
+1. $\mathcal K$ is the heat kernel of a harmonic-oscillator Hamiltonian, because the Dirichlet gradient term is a positive-definite quadratic form, so it is trace class. The factors $e^{-\frac a2\mathcal V}$ are bounded by @thm-bounded-weight. Hence $T$ is trace class.
+2. $\mathcal K$ is real and $P$-invariant. Also $\overline{V(\vec\phi)}=V(-\vec\phi)$, so $(e^{-\frac a2\mathcal V})^\dagger=e^{-\frac a2\overline{\mathcal V}}=Pe^{-\frac a2\mathcal V}P$. Therefore $T^\dagger=PTP$.
+3. $KTK=\overline T=P T P$ by the same identity, so $\Theta T\Theta^{-1}=T$.
+4. $\Theta$ maps a Jordan chain for $\lambda$ to a Jordan chain for $\bar\lambda$.
+
+:::
+
+The Euclidean counterpart is a twisted reflection positivity. Write $\vartheta$ for time reflection. Since $\overline{V(-\vec\phi)}=V(\vec\phi)$, the interacting measure satisfies
+
+$$
+\int\overline{(\vartheta PF)}\,F\,e^{-S}=\langle G,PG\rangle_{\rm OS,0},\qquad G=Fe^{-S_+},
+$$
+
+for $F$ supported at positive times, where $\langle\cdot,\cdot\rangle_{\rm OS,0}$ is the (positive) Osterwalder–Schrader form of the free field. The OS reconstruction therefore yields a Krein space with fundamental symmetry $P$, not a Hilbert space. This is the precise form of the statement "the theory is non-unitary", and it closes H4.
+
+## The vacuum energy is real {#sec-vacuum-energy}
+
+::: {#thm-vacuum-energy}
+**[Theorem]** The spectral radius $\rho(T)$ is positive and is an eigenvalue of $T$. Consequently the lattice vacuum energy $E_0=-a^{-1}\ln\rho(T)$ is real, and every energy $E=-a^{-1}\ln\lambda$ with $\lambda\in\sigma(T)\setminus\{0\}$ satisfies $\operatorname{Re}E\ge E_0$.
+
+:::
+
+::: {.proof}
+By Lidskii's theorem,
+
+$$
+\operatorname{Tr}T^N=\sum_\lambda m_\lambda\lambda^N,
+$$
+
+where $m_\lambda$ are the algebraic multiplicities. By @thm-coulomb-gas this equals $Z_\Lambda(N_t=N)>0$ for every $N\ge1$. In particular $T$ is not quasi-nilpotent, so $\rho(T)>0$.
+
+Consider
+
+$$
+f(w)=\sum_{N\ge1}\operatorname{Tr}(T^N)\,w^N=\sum_\lambda m_\lambda\frac{\lambda w}{1-\lambda w}.
+$$
+
+It has simple poles at $w=1/\lambda$ with nonzero residues, and no cancellation is possible because distinct $\lambda$ give distinct poles. So its radius of convergence is exactly $1/\rho(T)$. The coefficients of $f$ are positive, so by Pringsheim's theorem the point $w=1/\rho(T)$ on the circle of convergence is a singularity. The only singularities are at $w=1/\lambda$, hence $\rho(T)\in\sigma(T)$.
+
+:::
+
+@thm-vacuum-energy closes H5 at the lattice level. It is sharp: it says nothing about excited levels, and these can indeed be complex.
+
+## An exactly solvable check {#sec-solvable-check}
+
+The zero-mode reduction of (-@eq-lattice-action) is quantum mechanics on the field-space torus,
+
+$$
+H=\tfrac12\lvert\vec p\rvert^2-g\sum_jn_je^{i\vec\alpha_j\cdot\vec x},\qquad \vec p\in\text{root lattice},\quad g>0.
+$$
+
+This $H$ has the same $\Theta$-symmetry, and its partition function has the same positive Coulomb-gas expansion. Diagonalizing in a momentum basis (cutoff $P=16$, converged) gives:
+
+| algebra | $g$ | lowest level | complex levels among the lowest 40 | $Z(T)$ for $T=0.5,2,8$ |
+|---|---|---|---|---|
+| $a_2$ | 0.5 | $-0.1625$ (real) | 12 | 3.66, 1.48, 3.67 |
+| $a_2$ | 1.0 | $-0.8077$ (real) | 14 | 3.91, 5.12, 640.2 |
+| $c_2$ | 0.5 | $-0.4823$ (real) | 20 | 6.32, 2.88, 47.4 |
+| $c_2$ | 1.0 | $-1.7542$ (real) | 20 | 6.90, 34.3, $1.24\times10^6$ |
+
+As Theorems [-@thm-coulomb-gas] and [-@thm-vacuum-energy] require, $Z(T)>0$ and the lowest level is real. Excited levels include complex-conjugate pairs: $\Theta$ is broken in parts of the finite-volume spectrum, while the vacuum is protected.
+
+With the *opposite* sign of the potential, $Z(T)$ for $a_2$ at $g=1$ is negative at $T=2$ ($-0.72$), and the lowest level is the complex pair $0.410\pm1.327\,i$. For $c_2$ the two signs are equivalent, because a shift of $\vec x$ flips the sign of every $e^{i\vec\alpha_j\cdot\vec x}$ when $\sum_jn_j$ is even. Positivity of the fugacity is the mechanism that protects the vacuum.

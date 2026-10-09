@@ -1,0 +1,28 @@
+# Numerical methods and verification {#sec-app-numerics}
+
+Every closed form in Part VI was identified numerically and then confirmed exactly, by exact rational arithmetic in $\omega$ or by matching at a second coupling.
+
+**Representations.** The generators $e_i$, $f_i$ are unknown complex matrices supported on the allowed weight pairs. We solve the full set of defining relations by Levenberg–Marquardt least squares at unimodular $q=e^{-i\pi\omega}$, with $\omega=2.37$ or $1.61$. These are $[e_i,f_j]=\delta_{ij}[k_i]_{q_i}$ and the $q$-Serre relations. A residual at machine precision ($10^{-16}$) proves that the representation exists.
+
+**R-matrices.** For dimension up to 256 we solve the linear intertwining equations directly. For $\mathbf{26}\otimes\mathbf{26}$ we use highest-weight vectors of $U_q(f_4)$ and the $e_0$ relation, five unknowns per spectral parameter. For $\mathbf{27}\otimes\mathbf{27}$ we use aligned multiplicity copies and the $e_0$ and $f_0$ relations, sixteen unknowns. For the small $(g_2,d_4^{(3)})$ cases we fix a basis of the span of $\check R(x)$ first. Eigenvalues are fitted as rational functions of $x$, and their zeros and poles are identified as $\pm q^l$, $\pm i q^l$, or cube-root phases times $q^l$.
+
+**Scalar factor.** The infinite product $f$ is evaluated as a sum of differences of log-Gamma functions at nearby arguments, which keeps it stable for large truncation $J$. It is normalised by unitarity at a regular point. The truncation error scales exactly as $1/J$: quadrupling $J$ from 4000 to 16000 reduces it by a factor of 3.99–4.00.
+
+**Poles.** Every pole of a fused amplitude is a shifted Gamma-function pole of one factor, so the candidate list is complete. At each candidate we read the pole order from the norm ratio at two distances, and the residue rank from the singular values of the leading coefficient.
+
+**One-loop test.** From the Toda Lagrangian with normal-ordered exponentials we compute the masses and the cubic and quartic couplings. The one-loop mass shifts come from the two-dimensional bubble diagram; tadpoles vanish under normal ordering. The tree-level amplitude $1+1\to1+1$ comes from $s$-, $t$- and $u$-channel exchange plus the contact term. The ratio $\delta H/B_{\rm tree}$ does not depend on how roots or coupling are normalised. It equals $1.000000$ for $c_3^{(1)}$, $3.000000$ for $f_4^{(1)}$, and $-3.000000$ for $e_6^{(2)}$ measured from its own end of the CDS range, in exact agreement with DGZ and CDS. In each case the tree amplitude has exactly the $\theta$-dependence of the exact S-matrix's first-order term.
+
+**Direct comparison.** For the breather amplitudes we also bypass the particle S-matrices entirely. The weak-coupling term $f(\theta)=\lim_{\omega\to\infty}\omega\,\log S/i$ of the amplitude is compared with the Lagrangian tree amplitude at eight rapidities; a constant ratio means identical shape, and that constant fixes the coupling map between $1/\omega$ and $\beta^2$. The amplitude's bound-state poles give the mass ratios as exact functions of $\omega$, so with that map it predicts the one-loop mass shifts, which we compare with the bubble-diagram values. The results are exact agreement for $c_3^{(1)}$ and $e_6^{(2)}$, and a factor $1.5$ for $f_4^{(1)}$.
+
+**Exact checks.**
+
+| Check | Accuracy |
+| --- | --- |
+| Representation relations (all cases) | $10^{-16}$ |
+| Closed-form R-matrices vs direct solution | $10^{-12}$ to $10^{-14}$ |
+| Crossing of $S_{33}$ ($c_3^{(1)}$) | $10^{-9}$ |
+| Unitarity of fused amplitudes | $10^{-4}$ to $10^{-2}$ (truncation) |
+| Breather block forms at a second coupling | $2\times10^{-3}$, extrapolating to $10^{-5}$ |
+| Breather–particle identities | exact (rational arithmetic in $\omega$) |
+
+The Python code for every step accompanies these notes.

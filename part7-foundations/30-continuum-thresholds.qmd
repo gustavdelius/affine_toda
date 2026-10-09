@@ -1,0 +1,234 @@
+# The continuum limit I: thresholds and the theorem below $2\pi$ {#sec-continuum-limit}
+
+## Collapse thresholds {#sec-collapse-thresholds}
+
+In the Coulomb-gas picture, ultraviolet divergences come from clusters of charges collapsing to a point. Consider a cluster $S$ (a finite multiset of affine roots, possibly with repeats) shrinking uniformly by a factor $s\to0$, with continuum covariance $C(x)\simeq-\frac{1}{2\pi}\ln\lvert x\rvert$. Its weight scales as
+
+$$
+s^{\,2(\lvert S\rvert-1)}\cdot s^{-\frac{\beta^2}{4\pi}\left(\sum_{k\in S}\lvert\vec\alpha_k\rvert^2-\lvert\sum_{k\in S}\vec\alpha_k\rvert^2\right)} .
+$$
+
+Define the **first collapse threshold**
+
+$$
+\beta^2_{\rm UV}(\hat g)=\min_S\ \frac{8\pi(\lvert S\rvert-1)}{\sum_{k\in S}\lvert\vec\alpha_k\rvert^2-\lvert\sum_{k\in S}\vec\alpha_k\rvert^2},
+$$
+
+where the minimum runs over clusters with a positive denominator. Some values:
+
+- For a pair $(\vec\alpha_i,\vec\alpha_j)$ with $\vec\alpha_i\cdot\vec\alpha_j<0$ the bound is $4\pi/\lvert\vec\alpha_i\cdot\vec\alpha_j\rvert$.
+- For $a_1^{(1)}$ the pair $(\vec\alpha,-\vec\alpha)$ gives $2\pi$. This is the familiar sine-Gordon bound $\beta_{\rm SG}^2<4\pi$, since $\beta_{\rm SG}^2=2\beta^2$.
+- For simply-laced $\hat g$ the full neutral cluster $\sum_jn_j\vec\alpha_j=0$ gives $4\pi(h-1)/h$, and this is the minimum. A cluster whose net charge is not a multiple of $\sum_jn_j\vec\alpha_j$ has $\lvert\sum_k\vec\alpha_k\rvert^2\ge2$, which gives a bound of at least $4\pi$; a cluster with net charge zero is $k$ copies of the full neutral cluster and gives $4\pi(1-1/kh)$.
+- For $b_n^{(1)}$, $c_n^{(1)}$, $g_2^{(1)}$ and $a_2^{(2)}$ the minimum is $4\pi$, attained by a pair of adjacent roots with $\vec\alpha_i\cdot\vec\alpha_j=-1$.
+- For every $\hat g\ne a_1^{(1)}$, $8\pi/3\le\beta^2_{\rm UV}\le4\pi$. The upper bound comes from a longest root and any neighbour, whose inner product is $-1$. For the lower bound, the denominator is at most $\sum_k\lvert\vec\alpha_k\rvert^2\le2\lvert S\rvert$, so clusters with $\lvert S\rvert\ge3$ give at least $4\pi(1-1/\lvert S\rvert)\ge8\pi/3$. Two distinct simple affine roots have $\lvert\vec\alpha_i\cdot\vec\alpha_j\rvert\le1$ unless $\vec\alpha_i=-\vec\alpha_j$, which happens only for $a_1^{(1)}$; two copies of one root give a negative denominator. In particular $\beta^2_{\rm UV}>2\pi$ for every algebra except $a_1^{(1)}$, where $\beta^2_{\rm UV}=2\pi$.
+
+With pointwise Wick ordering (@sec-wick-ordering-statement), Hepp-sector power counting shows that the continuum integrand of each term of (-@eq-coulomb-gas) is integrable near every *bulk* collapse exactly when $\beta^2<\beta^2_{\rm UV}$. In a Hepp sector the iterated integral at a node $S$ converges if and only if $2(\lvert S\rvert-1)>\frac{\beta^2}{4\pi}\big(\sum_{k\in S}\lvert\vec\alpha_k\rvert^2-\lvert\sum_{k\in S}\vec\alpha_k\rvert^2\big)$. @prp-uv-divergence gives the "only if" direction rigorously. @thm-cluster-bound gives the "if" direction, including the boundary layer for clusters near a Dirichlet wall. With a site-independent Wick constant even the one-charge term diverges for $\beta^2\ge2\pi$ (@prp-necessity).
+
+**The thresholds as resonances.** Let $\hat g$ be simply laced, write $x=\beta^2/2\pi$ for the scaling dimension of $e^{i\beta\vec\alpha_j\cdot\vec\phi}$, and let $g$ be the physical coupling (@sec-wick-ordering-statement). By dimensional analysis the bulk vacuum-energy density is proportional to $g^{2/(2-x)}$, while a cluster of $k$ copies of the neutral cluster first contributes to it at order $g^{kh}$. The two have the same dimension exactly when $x=2-2/(kh)$, that is $\beta^2=4\pi(1-1/kh)$, which are the neutral thresholds above. For sine-Gordon ($h=2$) these are the poles of the exact bulk energy $-\frac{m^2}4\tan\frac{\pi\xi}2$, with $\xi=\beta^2/(4\pi-\beta^2)$, at odd $\xi$ [Established, @zamolodchikov1995]. By @thm-coulomb-gas the coefficient of $g^{kh}$ is positive and cannot vanish accidentally.
+
+The exact bulk energy confirms this for every simply-laced algebra. Fateev's mass–coupling relation and the bulk energy of the real-coupling theory [@fateev1994; @ahn2000] can be continued to imaginary coupling by $b^2\to-\kappa$, with $\kappa=\beta^2/4\pi$. At fixed bare fugacity $z$ this gives
+
+$$
+f\ \propto\ \big(\pi z\,\gamma(1-\kappa)\big)^{\frac1{1-\kappa}}\ \frac{\Gamma\big(1-\frac1{h(1-\kappa)}\big)\,\Gamma\big(1+\frac{\kappa}{h(1-\kappa)}\big)}{B\ \Gamma\big(\frac1{h(1-\kappa)}\big)\,\Gamma\big(1-\frac{\kappa}{h(1-\kappa)}\big)},\qquad B=-\frac{\kappa}{1-\kappa},\quad\gamma(x)=\frac{\Gamma(x)}{\Gamma(1-x)}.
+$$
+
+For $0<\kappa<1$ the only singularities are the poles of the first Gamma function, at $\kappa=1-1/(kh)$ with $k=1,2,\dots$. These are exactly the neutral thresholds $\beta^2=4\pi(1-1/kh)$. In particular the first pole is at $\beta^2_{\rm UV}$, and no resonance falls at $\beta^2=2\pi$ when $h\ge3$. For $h=2$ this reproduces the sine-Gordon poles. The formula is [Established] at real coupling; the continuation to imaginary coupling is an assumption, which holds for sine-Gordon. The poles were also located numerically (`foundations_code/bulk_poles.py`). The integrable lattice regularizations of open problem 8 give an independent test, since there the thresholds of $a_{N-1}^{(1)}$ sit at $q^{kN}=-1$.
+
+## Wick ordering and the statement {#sec-wick-ordering-statement}
+
+Fix $L_t=aN_t$ and $L_x=aN_x$, and let $\Omega=(\mathbb R/L_t\mathbb Z)\times(0,L_x)$ be the continuum cylinder, with distances periodic in $t$. Let $G_\Omega$ be its Dirichlet Green function, $-\Delta G_\Omega=\delta$. Write $q_j=\beta\vec\alpha_j$ and $\kappa=\beta^2/4\pi$.
+
+**Pointwise Wick ordering.** Because of the Dirichlet conditions, $C_a(u,u)$ depends on the distance of $u$ from the boundary. We therefore Wick order site by site,
+
+$$
+:e^{iq\cdot\vec\phi_u}:\;=e^{\frac12\lvert q\rvert^2C_a(u,u)}\,e^{iq\cdot\vec\phi_u},
+$$
+
+which replaces $z$ by $z_{a,j}(u)=z\,e^{\frac12\beta^2\lvert\vec\alpha_j\rvert^2C_a(u,u)}$ in (-@eq-lattice-action). These fugacities depend on the root and on the spatial coordinate of $u$ only, so Theorems [-@thm-bounded-weight]–[-@thm-vacuum-energy] apply to them (@sec-definition). External vertex operators are Wick ordered in the same way.
+
+**What pointwise Wick ordering means.** For fixed interior $u$, $C_a(u,u)=\frac1{2\pi}\ln\frac{R_\Omega(u)}a+c_0+o(1)$ as $a\to0$. Here $R_\Omega(u)$ is the conformal radius of $\Omega$ at $u$, defined by $G_\Omega(u,v)=\frac1{2\pi}\ln\frac{R_\Omega(u)}{\lvert u-v\rvert}+o(1)$ as $v\to u$, and $c_0$ is a lattice constant [Established, @lawler2010]. Normalize vertex operators instead at the lattice scale, by the $u$-independent factor $e^{\frac12\lvert q_j\rvert^2(\frac1{2\pi}\ln\frac1a+c_0)}$. Relative to that normalization, pointwise Wick ordering is the position-dependent coupling
+
+$$
+g_j(u)=z\,R_\Omega(u)^{x_j},\qquad x_j=\kappa\lvert\vec\alpha_j\rvert^2,
+$$
+
+where $x_j$ is the scaling dimension of $e^{i\beta\vec\alpha_j\cdot\vec\phi}$. Near a wall $R_\Omega(u)\simeq2d$, so the coupling vanishes like $(2d)^{x_j}$, consistently with (G3). Three consequences follow.
+
+- The walls are harmless in Theorems [-@thm-below-2pi] and [-@thm-window] because the interaction is switched off there.
+- A site-independent Wick constant keeps the coupling constant up to the wall. Heuristically, the boundary free energy then scales as $g^{1/(2-x)}$, which has the dimension of the first-order term exactly at $x=1$, that is at $\beta^2=2\pi$ for a long root, whatever the algebra. This is the threshold of @prp-necessity.
+- The finite-volume theory of Theorems [-@thm-below-2pi] and [-@thm-window] is the ATFT with this coupling profile, not with a constant coupling. Comparisons with exact S-matrices, TCSA or integrable lattice data must use the profile. In @cnj-correlation-range the infinite-volume limit is taken at fixed physical coupling, that is, with the fugacity of root $j$ scaled like $L^{-x_j}$, or equivalently with Wick ordering at a fixed reference scale.
+
+**Renormalized partition function.** With these fugacities in both terms of (-@eq-lattice-action), $Z_\Lambda=e^{-a^2\sum_u\sum_jn_jz_{a,j}(u)}\,\Xi_a$, where
+
+$$
+\Xi_a=\sum_{N\ge0}\frac{(a^2z)^N}{N!}\sum_{j_1,\dots,j_N}\Big(\prod_kn_{j_k}\Big)\sum_{u_1,\dots,u_N\in\Lambda}W_a(u),\qquad
+W_a(u)=\exp\Big(-\tfrac12\sum_{k\ne l}q_{j_k}\cdot q_{j_l}\,C_a(u_k,u_l)\Big).
+$$ {#eq-wicked-partition}
+
+Pointwise Wick ordering removes exactly the diagonal terms $k=l$; pairs $k\ne l$ at the same site are kept. The prefactor is field-independent (a vacuum-energy counterterm) and cancels from all correlation functions. For external charges $\beta\vec w_m$ at sites $v_m$, let $\Xi_a(w,v)$ be the same expansion with these charges added (not summed over) and with $W_a$ including all pairs. Then $\big\langle\prod_m:e^{i\beta\vec w_m\cdot\vec\phi_{v_m}}:\big\rangle=\Xi_a(w,v)/\Xi_a$. The continuum versions replace $C_a$ by $G_\Omega$ and $a^2\sum_u$ by $\int_\Omega$.
+
+::: {#prp-continuum-limit}
+**[Theorem: @thm-below-2pi for $\beta^2<2\pi$, @thm-window for $2\pi\le\beta^2<\beta^2_{\rm UV}$]** Let $0<\beta^2<\beta^2_{\rm UV}(\hat g)$, fix the finite volume, and use pointwise Wick ordering.
+
+1. $\Xi_a$ converges as $a\to0$ to the continuum version of (-@eq-wicked-partition). Every term is positive and finite, and the series converges.
+2. The same holds for $\Xi_a(w,v)$, with fixed distinct interior points $v_m$ (approximated by lattice sites), provided that for every $m$ and every non-empty multiset $S$ of affine roots
+   $$
+   2\lvert S\rvert>\kappa\Big(\sum_{k\in S}\lvert\vec\alpha_k\rvert^2+\lvert\vec w_m\rvert^2-\big\lvert\vec w_m+\textstyle\sum_{k\in S}\vec\alpha_k\big\rvert^2\Big).
+   $$ {#eq-external-charge-condition}
+   Hence the normalized vertex-operator correlation functions converge.
+
+:::
+
+Condition (-@eq-external-charge-condition) says that no cluster collapsing onto an external charge is divergent. Each ingredient of the proposition is necessary: @prp-necessity shows that part 1 fails for a site-independent Wick constant when $\beta^2\ge2\pi$, that $Z_\Lambda$ itself tends to zero, and that part 2 fails whenever (-@eq-external-charge-condition) is violated with $\lvert S\rvert=1$. @prp-uv-divergence shows that part 1 fails for $\beta^2\ge\beta^2_{\rm UV}$.
+
+::: {#cnj-correlation-range}
+**[Conjecture]** For $0<\beta^2<4\pi$ (in our normalization, the range in which the vertex operators $e^{i\beta\vec\alpha_j\cdot\vec\phi}$ of the long roots are relevant), the infinite-volume Schwinger functions of vertex operators exist and decay exponentially, so there is a mass gap. For $\beta^2_{\rm UV}\le\beta^2<4\pi$ this requires additional counterterms generated by the collapsing clusters (@prp-uv-divergence shows that some are needed). Only finitely many cluster types diverge in this range, since a divergent cluster has $\lvert S\rvert\le1/(1-\kappa)$, and we conjecture that the corresponding counterterms suffice, as in the Benfatto–Gallavotti–Nicolò treatment of sine-Gordon [@benfatto1982]. For simply-laced $\hat g$ the counterterms can be specified. By @sec-collapse-thresholds, a bulk cluster with non-zero net charge diverges only at $\beta^2\ge4\pi$. So in this range every divergent bulk cluster consists of $k$ copies of the neutral cluster, and the bulk counterterms are field-independent: vacuum-energy terms at orders $z^{kh}$, at the resonances described in @sec-collapse-thresholds. Boundary terms near the Dirichlet walls are not covered by this count. For sine-Gordon the same count puts the first non-neutral divergence at $\beta_{\rm SG}^2=8\pi$.
+
+:::
+
+The evidence for this conjecture is the sine-Gordon case ($a_1^{(1)}$), where it is established, together with the existence and internal consistency of the exact S-matrices throughout this range.
+
+**Lattice Green function.** We use five standard estimates. Distances are physical, the constants $D,K$ depend only on $\Omega$, and $m$ denotes a lattice distance.
+
+- **(G1)** $C_a(u,v)\le\frac1{2\pi}\ln\frac{D}{\max(\lvert u-v\rvert,a)}+K$ for all sites $u,v$, including $u=v$.
+- **(G2)** $C_a(u_a,v_a)\to G_\Omega(x,y)$ whenever $u_a\to x$, $v_a\to y$ and $x\ne y$.
+- **(G3)** If $u$ is at lattice distance $m$ from the nearer Dirichlet row, then $C_a(u,u)\le\frac1{2\pi}\ln(2m)+K$. If moreover $m\le\min(N_x,N_t)/4$, then $C_a(u,u)\ge\frac1{2\pi}\ln m-K$.
+- **(G4)** $C_a(u,v)\le\frac1{4\pi}\ln\big(1+4d_ud_v/\max(\lvert u-v\rvert,a)^2\big)+K$, where $d_u$ is the distance from $u$ to the nearer Dirichlet row.
+- **(G5)** For the lattice ball $B$ of radius $\rho$ about $x$, $G_B(x,y)=\frac1{2\pi}\ln\frac{\rho}{\max(\lvert x-y\rvert,a)}+O(1)$ for $\lvert x-y\rvert\le\rho/2$, and $G_B(x,y)\le c$ for $\lvert x-y\rvert\ge\rho/2$.
+
+These follow from domain monotonicity, from the image formula on the half-cylinder (the half-plane Green function $\mathfrak a(u-\bar v)-\mathfrak a(u-v)$, with $\bar v$ the reflection of $v$ in the wall, plus summable periodic images), from comparison with a disc of radius $m$, and from the potential-kernel asymptotics $\mathfrak a(x)=\frac1{2\pi}\ln\lvert x\rvert+O(1)$ [@lawler2010, Thm 4.4.4, rescaled to $-\Delta$]. (G4) is the image bound $G(x,y)=\frac1{4\pi}\ln(1+4d_xd_y/\lvert x-y\rvert^2)$ for the half-plane, and (G5) is the standard asymptotics of Green functions of lattice balls [@lawler2010, Ch. 6].
+
+## The corrections are necessary {#sec-corrections-necessary}
+
+::: {#prp-necessity}
+**[Theorem]**
+
+1. **The constant term.** If the constant term of (-@eq-lattice-action) carries the Wick-ordered fugacities, the prefactor $e^{-a^2\sum_u\sum_jn_jz_{a,j}(u)}$ tends to $0$. So $Z_\Lambda$ has no non-trivial continuum limit; the object with a limit is $\Xi_a$.
+2. **Site-independent Wick ordering diverges at the walls for $\beta^2\ge2\pi$.** Let $z_{a,j}=z\,e^{\frac12\beta^2\lvert\vec\alpha_j\rvert^2c_a}$ with $c_a$ independent of $u$ and $c_a\ge\frac1{2\pi}\ln(L/a)-K$ for some $L,K>0$. Any constant that makes bulk one-point functions converge has this form, for example $c_a=C_a(u_*,u_*)$ at a fixed interior point, by (G3). Then for every affine algebra and every $\beta^2\ge2\pi$, the series (-@eq-coulomb-gas) with these fugacities tends to $+\infty$ as $a\to0$.
+3. **External charges.** Suppose $\beta^2\vec\alpha_j\cdot\vec w\le-4\pi$ for some $j$; this violates (-@eq-external-charge-condition) with $S=\{\vec\alpha_j\}$. Then, in any range where $\Xi_a$ converges, the normalized correlation function containing $:e^{i\beta\vec w\cdot\vec\phi(v)}:$ diverges. For every $\beta>0$ this happens for some $\vec w$, for example $\vec w=-m\vec\alpha_j$ with $m$ large.
+
+:::
+
+::: {.proof}
+1. By (G3), sites with $m\ge\min(N_x,N_t)/4$ have $C_a(u,u)\ge\frac1{2\pi}\ln\frac{\min(N_x,N_t)}4-K$. They occupy a fixed fraction of $\Omega$, so $a^2\sum_uz_{a,j}(u)\ge c\,z\,a^{-\kappa\lvert\vec\alpha_j\rvert^2}\to\infty$.
+2. By @thm-coulomb-gas every term of (-@eq-coulomb-gas) is positive, so the series is at least its $N=1$ term. Keep only a long simple root $\vec\alpha_{j_0}$, which every affine algebra has; then $\lvert q_{j_0}\rvert^2=2\beta^2$. By (G3), a site at lattice distance $m\le N_x/2$ from a wall has $C_a(u,u)\le\frac1{2\pi}\ln(2m)+K$. There are $L_t/a$ such sites for each $m$, so the $N=1$ term is at least
+   $$
+   a^2z\,n_{j_0}\sum_ue^{\beta^2(c_a-C_a(u,u))}\ge z\,n_{j_0}e^{-2K\beta^2}L_t\,a\Big(\frac L{2a}\Big)^{\beta^2/2\pi}\sum_{m\le M}m^{-\beta^2/2\pi}=c\,a^{1-\beta^2/2\pi}\sum_{m\le M}m^{-\beta^2/2\pi},
+   $$
+   with $M\asymp L_x/a$. This tends to $\infty$ for $\beta^2>2\pi$, and grows like $\ln(1/a)$ at $\beta^2=2\pi$.
+3. The $N=1$ term of $\Xi_a(w,v)$ contains $a^2zn_j\sum_ue^{-\beta^2\vec\alpha_j\cdot\vec w\,C_a(u,v)}$. By Fatou and (G2) its limit inferior is at least $zn_j\int_\Omega e^{\beta^2\lvert\vec\alpha_j\cdot\vec w\rvert G_\Omega(x,v)}dx\ge c\int_{\lvert x-v\rvert<r}\lvert x-v\rvert^{-\beta^2\lvert\vec\alpha_j\cdot\vec w\rvert/2\pi}dx=\infty$.
+
+:::
+
+The mechanism in part 2 is the image charge. A single charge $q$ at distance $d$ from the wall carries the weight $(2d)^{-\lvert q\rvert^2/4\pi}$ relative to the bulk. For a cluster collapsing onto the wall, the interior and image pair factors cancel, so a single long root is the worst case. The resulting threshold $2\pi$ is algebra-independent, and by @sec-collapse-thresholds it lies strictly below $\beta^2_{\rm UV}$ for every algebra except $a_1^{(1)}$, where the two coincide.
+
+## Proof below $2\pi$ {#sec-proof-below-2pi}
+
+Write $\gamma_k=\lvert q_k\rvert^2/4\pi=\kappa\lvert\vec\alpha_{j_k}\rvert^2\le2\kappa=\beta^2/2\pi$.
+
+::: {#thm-below-2pi}
+**[Theorem]** Use pointwise Wick ordering, let $0<\beta^2<2\pi$, and let the external charges $\beta\vec w_m$ sit at fixed distinct interior points $v_m$ with $\beta^2\lvert\vec w_m\rvert^2<4\pi$. Set
+$$
+\gamma=\max\Big(\frac{\beta^2}{2\pi},\ \max_m\frac{\beta^2\lvert\vec w_m\rvert^2}{4\pi}\Big)<1.
+$$
+Then parts 1 and 2 of @prp-continuum-limit hold, for every affine algebra. Uniformly in $a$, the $N$-th term of $\Xi_a(w,v)$ is at most $K_0(Kz)^N(N+M)!^{\gamma/2}/N!$.
+
+:::
+
+For sine-Gordon, $\beta^2_{\rm UV}=2\pi$, so @thm-below-2pi covers the whole range of @prp-continuum-limit, consistent with [@frohlich1976].
+
+::: {#lem-newton}
+## Lattice Newton theorem
+**[Theorem]** Let $s_1,\dots,s_n$ be distinct interior sites carrying charges $Q_i\in\mathbb R^r$. Let $d_0=\min(L_t,L_x)/4$, let $\delta_i=\min\big(d_0,\min_{i'\ne i}\lvert s_i-s_{i'}\rvert\big)$, and let $\rho_i=(\delta_i-a)/2-a/8$. Let $B_i$ be the set of interior sites $y$ with $\lvert y-s_i\rvert\le\rho_i$ (empty if $\rho_i<0$), and let $\mu_i$ be the exit law from $B_i$ of simple random walk started at $s_i$ and killed on the Dirichlet rows (so $\mu_i=\delta_{s_i}$ if $B_i$ is empty). Then
+$$
+\sum_{i\ne i'}Q_i\cdot Q_{i'}\,C_a(s_i,s_{i'})\ \ge\ -\sum_i\lvert Q_i\rvert^2\,C_a(\mu_i,\mu_i),\qquad
+C_a(\mu_i,\mu_i)\le\min\Big(C_a(s_i,s_i),\ \max_{y\notin B_i}C_a(s_i,y)\Big).
+$$
+
+:::
+
+::: {.proof}
+1. For $y\notin B_i$, the function $C_a(\cdot,y)$ is discrete harmonic on $B_i$ and vanishes on the Dirichlet rows. By optional stopping, $\sum_{y'}\mu_i(y')C_a(y',y)=C_a(s_i,y)$.
+2. The support of $\mu_i$ lies outside $B_i$, within distance $\rho_i+a$ of $s_i$. Since $\rho_i+\rho_{i'}+a<\lvert s_i-s_{i'}\rvert$, each point of $\operatorname{supp}\mu_{i'}$ lies outside $B_i$. Applying step 1 twice gives $C_a(\mu_i,\mu_{i'})=C_a(s_i,s_{i'})$ for $i\ne i'$.
+3. $C_a$ is positive definite, so $\sum_{i,i'}Q_i\cdot Q_{i'}\,C_a(\mu_i,\mu_{i'})\ge0$. With step 2 this gives the inequality.
+4. By step 1, $C_a(\mu_i,\mu_i)=\sum_y\mu_i(y)\,C_a(s_i,y)$, with $\mu_i$ a sub-probability measure on sites outside $B_i$. This is at most $\max_{y\notin B_i}C_a(s_i,y)$. It is also at most $C_a(s_i,s_i)$, because $C_a(s,y)=P_y(\text{hit }s)\,C_a(s,s)\le C_a(s,s)$.
+
+:::
+
+::: {#lem-multiple-sites}
+## Multiply occupied sites
+**[Theorem]** For a configuration $u$ of all $N+M$ charges, group the charges by occupied site. Then
+$$
+W_a(u)\le K_1^{N+M}\prod_{s\ \text{singly occupied}}\Big(\frac D{\delta_s}\Big)^{\gamma_{k(s)}}\ \prod_{s\ \text{multiply occupied}}\ \prod_{k\ \text{at}\ s}\Big(\frac Da\Big)^{\gamma_k},
+$$
+where $\delta_s$ is as in @lem-newton and $k(s)$ is the charge at a singly occupied site.
+
+:::
+
+::: {.proof}
+1. Let $Q_s$ be the total charge at site $s$. Split the exponent of $W_a$ into on-site pairs and inter-site pairs, and apply @lem-newton to the inter-site part. The contribution of site $s$ is then at most
+   $$
+   \tfrac12\sum_{k\ \text{at}\ s}\lvert q_k\rvert^2C_a(s,s)-\tfrac12\lvert Q_s\rvert^2\big(C_a(s,s)-C_a(\mu_s,\mu_s)\big).
+   $$
+2. At a singly occupied site this equals $\tfrac12\lvert q_k\rvert^2C_a(\mu_s,\mu_s)$. By @lem-newton and (G1) it is at most $\gamma_k\big(\ln\frac D{\max(\rho_s,a)}+2\pi K\big)$. Finally, $\max(\rho_s,a)\ge\delta_s/4$.
+3. At a multiply occupied site, $C_a(\mu_s,\mu_s)\le C_a(s,s)$, so the contribution is at most $\tfrac12\sum_k\lvert q_k\rvert^2C_a(s,s)$. Apply (G1).
+
+:::
+
+**The continuum majorant.** Embed a lattice configuration as $x\in\Omega^N$, with $x_k$ in the cell (square of side $a$) of $u_k$. Let $\delta_k(x)$ be the distance from $x_k$ (or from $v_m$, for an external charge) to the nearest other point among $x_1,\dots,x_N,v_1,\dots,v_M$, capped at $d_0$. Then:
+
+- a lone charge has $\delta_k(x)\le\delta_s+\sqrt2a\le3\delta_s$;
+- a charge at a multiply occupied site, or an internal charge at the site of some $v_m$, has $\delta_k(x)\le2a$.
+
+Since $D/\delta_k(x)\ge1$, every $\gamma_k$ may be replaced by $\gamma$, and @lem-multiple-sites gives
+
+$$
+W_a(u(x))\le K_2^{N+M}\prod_{k=1}^{N+M}\Big(\frac D{\delta_k(x)}\Big)^{\gamma}.
+$$ {#eq-continuum-majorant}
+
+::: {#lem-nn-integral}
+## Nearest-neighbour integral
+**[Theorem]** For $0\le\gamma<1$ and fixed distinct $v_1,\dots,v_M\in\Omega$,
+$$
+\int_{\Omega^N}\prod_{k=1}^{N+M}\delta_k(x)^{-\gamma}\,dx\le c(v)\,C^N(N+M)!^{\gamma/2},
+$$
+with $C$ depending only on $\gamma$ and $\Omega$.
+
+:::
+
+::: {.proof}
+Induct by adding one integrated point $x$ to a set $X'$ of $n$ points (integrated or fixed). Write $\delta'_k$ for the nearest-neighbour distances within $X'$. Adding $x$ changes $\delta_k$ to $\min(\delta'_k,\lvert x-x_k\rvert)$ and adds the factor $\operatorname{dist}(x,X')^{-\gamma}$.
+
+1. Let $A=\{k:\lvert x-x_k\rvert<\delta'_k\}$. For distinct $k,k'\in A$, $\lvert x_k-x_{k'}\rvert\ge\max(\delta'_k,\delta'_{k'})$ is the strictly longest side of the triangle $(x,x_k,x_{k'})$. So the angle at $x$ exceeds $60^\circ$, and $\lvert A\rvert\le5$.
+2. Let $k_1\in A$ be the point of $A$ closest to $x$. For the other $k\in A$, $\delta'_k\le\lvert x_k-x_{k_1}\rvert\le2\lvert x_k-x\rvert$.
+3. Hence $\prod_{k\in X'}\delta_k^{-\gamma}\le2^{4\gamma}\prod_k\delta_k'^{-\gamma}\Big(1+\sum_k\mathbb 1[\lvert x-x_k\rvert<\delta'_k]\big(\delta'_k/\lvert x-x_k\rvert\big)^\gamma\Big)$.
+4. Multiply by $\operatorname{dist}(x,X')^{-\gamma}$ and integrate over $x$. On $\lvert x-x_k\rvert<\delta'_k/2$ the distance to $X'$ is $\lvert x-x_k\rvert$, which gives $c\,\delta_k'^{2-\gamma}$; this uses $2\gamma<2$. On the annulus $\delta'_k/2\le\lvert x-x_k\rvert<\delta'_k$ the ratio factor is at most $2^\gamma$, and each $x$ lies in at most 5 such annuli by step 1.
+5. $\int_\Omega\operatorname{dist}(x,X')^{-\gamma}dx\le c\,n^{\gamma/2}\lvert\Omega\rvert^{1-\gamma/2}$. To see this, split $\Omega$ into Voronoi cells, replace each cell by the centred disc of equal area (rearrangement), and use concavity.
+6. The discs of radius $\delta'_k/2$ are disjoint and lie in the $d_0/2$-neighbourhood of $\Omega$. So $\sum_k\delta_k'^{2-\gamma}\le n^{\gamma/2}\big(\sum_k\delta_k'^2\big)^{1-\gamma/2}\le c\,n^{\gamma/2}$.
+7. Each step therefore costs at most $C\,n^{\gamma/2}$.
+
+:::
+
+::: {.proof}
+## @thm-below-2pi
+1. Write the $N$-th term of $\Xi_a(w,v)$ as $\frac{z^N}{N!}\sum_{j}\prod_kn_{j_k}\int W_a(u(x))\,dx$, integrating over the union of cells.
+2. By (-@eq-continuum-majorant) and @lem-nn-integral, it is at most $K_0(Kz)^N(N+M)!^{\gamma/2}/N!$ uniformly in $a$. Since $\gamma<1$, this is summable in $N$.
+3. For almost every $x\in\Omega^N$ (distinct points, distinct from the $v_m$), $u(x)\to x$ and $W_a(u(x))\to W(x)$ by (G2). The majorant in (-@eq-continuum-majorant) is independent of $a$ and integrable by @lem-nn-integral. Dominated convergence gives convergence of each term, and Tannery's theorem, using step 2, gives convergence of the series.
+4. The limiting terms are positive and finite, and $\lim\Xi_a\ge1$, so the normalized correlation functions converge.
+
+:::
+
+## The threshold is sharp {#sec-threshold-sharp}
+
+::: {#prp-uv-divergence}
+**[Theorem]** With pointwise Wick ordering and $\beta^2\ge\beta^2_{\rm UV}(\hat g)$, $\Xi_a\to\infty$ as $a\to0$. So additional counterterms are necessary at and above the first collapse threshold.
+
+:::
+
+::: {.proof}
+1. Pick a cluster $S=(j_1,\dots,j_n)$ with $\kappa D(S)\ge2(n-1)$, where $D(S)=\sum_k\lvert\vec\alpha_{j_k}\rvert^2-\lvert\sum_k\vec\alpha_{j_k}\rvert^2>0$. Every term of (-@eq-wicked-partition) is positive, so $\Xi_a$ is at least the $n$-th term restricted to the species sequence of $S$ and to configurations in $B^n$, for a small closed disc $B\subset\Omega$.
+2. By Fatou and (G2), the limit inferior of this restricted term is at least $\frac{z^n}{n!}\prod_kn_{j_k}\int_{B^n}W$.
+3. On $B$, $G_\Omega(x,y)=\frac1{2\pi}\ln\frac1{\lvert x-y\rvert}+O(1)$. So $W\ge c\prod_{k<l}\lvert x_k-x_l\rvert^{-\kappa D_{kl}}$, with $D_{kl}=-2\vec\alpha_{j_k}\cdot\vec\alpha_{j_l}$ and $\sum_{k<l}D_{kl}=D(S)$.
+4. Restrict to uniform collapse: $x_k=x_0+s\,y_k$, with $y$ in a small open set of unit-norm relative configurations. The measure is $c\,s^{2n-3}\,ds$ and the integrand is at least $c\,s^{-\kappa D(S)}$. Since $2n-3-\kappa D(S)\le-1$, the integral is infinite.
+
+:::

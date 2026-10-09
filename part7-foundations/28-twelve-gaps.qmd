@@ -1,0 +1,75 @@
+# Twelve gaps: what is assumed and what is proved {#sec-critique}
+
+## Three objections {#sec-three-objections}
+
+Three objections are routinely raised against the imaginary-coupling theories.
+
+1. **Complex action.** For real fields the Euclidean weight $e^{-S_E}$ is complex, so it is unclear what measure is being integrated and whether the theory has a sign problem.
+2. **Complex saddles.** The solitons are complex solutions of the field equations. A path integral over real fields gives no obvious reason to include them, and no criterion for which ones to include [@mackay_watts1995].
+3. **Non-unitarity.** The Hamiltonian is not Hermitian and the S-matrices are not unitary. In some sectors the finite-volume spectrum is complex [@tw1999; @tw2002].
+
+## The gaps {#sec-gaps}
+
+We list the gaps between what the literature uses and what it establishes. In each case we state precisely what is missing.
+
+**H1. Existence of the regularized theory.** For imaginary coupling the Euclidean weight $e^{-S_E}$ is complex. No paper we know of shows that a regularized imaginary-coupling ATFT defines finite, well-defined correlation functions, still less a probability-like measure.
+
+**H2. Sign problem.** A complex weight usually means cancellations between configurations. If those cancellations were severe, the theory would be ill-defined in practice even on a lattice, and expectation values could be dominated by numerical noise.
+
+**H3. Continuum limit.** The interaction is a sum of complex vertex operators. One must ask in which range of $\beta$ Wick ordering suffices, and whether the infinite-volume limit exists and has a mass gap. For real coupling, Albeverio–Høegh-Krohn methods apply. For imaginary coupling there is no analogous result.
+
+**H4. Hilbert space.** The Hamiltonian is not Hermitian in the Schrödinger representation. The literature uses "non-unitary" without specifying an inner product, an adjoint, or the structure that replaces Hermiticity.
+
+**H5. Vacuum.** With a non-Hermitian Hamiltonian, nothing a priori guarantees a real ground-state energy, or even that the vacuum is the state of lowest real energy.
+
+**H6. Classical reality.** Reality of soliton energies has been shown for specific solution classes. There are also complex-energy and negative-energy solutions [@khastgir1996], and singular ones. No general criterion distinguishes the solutions that should count as physical.
+
+**H7. Complex saddles.** DHN semiclassics expands around complex solitons. The justification usually offered (steepest descent may leave the real contour) does not say *which* complex saddles contribute, nor with what weight [@mackay_watts1995].
+
+**H8. Semiclassical quantization.** The fluctuation operator around a complex soliton is not Hermitian. Mode sums with orthonormal eigenfunctions assume it is diagonalizable, and independent calculations disagree ($c_n^{(1)}$ [@delius_grisaru1995; @mackay_watts1995]; $b_n^{(1)}$ semiclassics versus exact [@gmw1996]).
+
+**H9. Non-unitarity.** Most soliton S-matrices are not unitary. Some amplitudes do not have phase eigenvalues, and finite-volume spectra can be complex [@tw1999; @tw2002]. It is unclear what replaces unitarity and what consistency conditions survive.
+
+**H10. Exact S-matrices.** They are conjectures, built on quantum-group symmetry, R-matrix unitarity, crossing and the bootstrap. They were missing for four families; @sec-sm-introduction supplies three of them ($c_n^{(1)}$, $a_{2n-1}^{(2)}$, $e_6^{(2)}$), and $f_4^{(1)}$ remains open (@sec-imaginary-coupling-quantum-theory). Even where they exist, identifying the full spectrum is subtle: a closed bootstrap can contain particles that are neither solitons nor breathers [@tw1999].
+
+**H11. Missing classical solutions.** The topological charges of classical solitons do not fill the quantum multiplets [@mcghee1994]. Classical counterparts of some quantum bound states are not known [@tw1999].
+
+**H12. Unitary subtheories.** RSOS restriction sometimes yields unitary theories and sometimes not, depending on the coupling, the gradation, and whether breathers survive. There is no general criterion.
+
+## What Part VII establishes {#sec-summary-overview}
+
+::: {.callout-note appearance="simple" icon=false title="Abstract"}
+Affine Toda field theories (ATFTs) are a family of two-dimensional integrable quantum field theories, one for each affine Kac–Moody algebra $\hat g$. With real coupling they are unitary theories of $\operatorname{rank}(g)$ scalar particles. Their exact S-matrices are known for every $\hat g$ and have been checked perturbatively and numerically.
+
+With imaginary coupling they have a complex action, solitons that are complex classical saddles, and S-matrices that are generally not unitary. These features have long been taken to cast doubt on whether the imaginary-coupling theories exist as quantum field theories at all.
+
+We review the field and list twelve gaps between what is used in practice and what has been established. We then build a foundation that closes as many as possible. Our results are:
+
+- **Positivity.** On a lattice, every imaginary-coupling ATFT is a well-defined statistical model. After integrating out the free field, its partition function is a convergent sum of *positive* Coulomb-gas weights. The "complex action" therefore never produces a sign problem.
+- **Krein structure.** The lattice transfer matrix is self-adjoint with respect to an indefinite (Krein) inner product whose fundamental symmetry is field parity $\vec\phi\mapsto-\vec\phi$. It commutes with an antilinear PT-type symmetry $\Theta$. So the spectrum is closed under complex conjugation.
+- **Real vacuum energy.** Positivity of $\operatorname{Tr}T^N$ together with Pringsheim's theorem proves that the finite-volume vacuum energy is real and has the smallest real part in the spectrum. Excited levels can be complex, and an exactly solvable reduction shows they are.
+- **Continuum limit.** In finite volume, with Wick ordering done site by site, the lattice theory has a continuum limit for every algebra and every coupling below the first collapse threshold, $\beta^2<\beta^2_{\rm UV}$. Every term of the Coulomb-gas expansion is positive (Theorems [-@thm-below-2pi] and [-@thm-window]). Without further counterterms the limit fails at and above $\beta^2_{\rm UV}$, and with site-independent Wick ordering it already fails at $2\pi$. Below $2\pi$ a nearest-neighbour bound suffices. In the window $2\pi\le\beta^2<\beta^2_{\rm UV}$ the proof keeps the exact interactions inside small clusters of charges, repulsion included, and uses a cluster bound on products of $m$-th-neighbour distances (Theorems [-@thm-nn-distances] and [-@thm-cluster-bound]). The resulting estimate is a stability bound on the free energy at real fugacity, with the exponent set by the bulk free energy (@lem-stability).
+- **Classical reality.** Classical energies are real precisely for $\Theta$-invariant asymptotic data, which turns the old ad hoc restriction to "good" solutions into a symmetry statement.
+- **Semiclassics.** The Picard–Lefschetz form of the semiclassical expansion requires eigenvalues to be counted with algebraic multiplicity. This resolves the long-standing disagreements over one-loop soliton masses. We derive the counting rule from the transmission factors. Jordan blocks have the sizes of their zeros (@thm-jordan-chains), and the multiplicity of an isolated eigenvalue is the net order of the product of all transmission factors whenever the fluctuations have Hirota form (@thm-hirota-factorization). A zero in one channel can be cancelled by a pole in another, and weight can be carried by a bounded threshold resonance rather than an $L^2$ vector (Propositions [-@prp-an-zeros] and [-@prp-cn-threshold-blocks]). The Hirota form holds for every static soliton of $d_n^{(1)}$ and $e_n^{(1)}$ and for their foldings, given a degree bound verified up to rank 8 (@prp-hirota-form). The resulting one-loop masses of all folded solitons agree with every known result, settle the $b_n^{(1)}$ disagreement, and predict the $f_4^{(1)}$ soliton masses (@sec-one-loop-masses-folded).
+- **Scattering.** Braiding (R-matrix) unitarity, crossing and the bootstrap follow from the universal R-matrix [@delius1995], but they are not QFT unitarity, which in addition requires Hermitian analyticity [@miramontes1999]. What the Krein structure does imply is that eigenvalues of S-matrices and multi-particle transfer matrices are pure phases or come in pairs $(s,1/\bar s)$. This turns the Takács–Watts criterion for a real finite-volume spectrum into a criterion for unbroken $\Theta$. For the exact S-matrix of the fundamental solitons of $a_n^{(1)}$ the Krein structure is proved directly from the R-matrix, without asymptotic completeness (@prp-krein-fundamental). It confirms the observation of Takács and Watts that three-soliton states of $a_2^{(1)}$ are $\Theta$-broken, although the fundamental soliton–soliton amplitude has phase eigenvalues, and shows that the breaking is confined to states carrying all three colours. RSOS restriction to the perturbed $W_3(p,p')$ models makes the kink S-matrix Hermitian analytic and unitary exactly when $p'\equiv\pm1\pmod p$ (@prp-rsos-kinks). For $p'=p+2$ the kink sectors are also unbroken, yet no Hermitian-analytic basis exists.
+- **What cannot be rescued.** We list the physical consequences of unitarity that fail in the unrestricted imaginary-coupling theories of rank $r\ge2$ and that no choice of inner product, basis, gradation or quantum-group restriction can restore, because their failure is detected by basis-independent quantities (@sec-unitarity).
+
+The resulting picture is that imaginary-coupling ATFTs are valid **non-unitary** quantum field theories, in the same sense as the scaling Lee–Yang model. They have a positive Euclidean measure, a Krein-space Hamiltonian formulation, a real vacuum energy, real masses for the asymptotic particles in every known exact solution, and a consistent S-matrix theory. Unitarity is not one of their properties: it fails in identifiable sectors, and requiring it was a category error. @sec-unitarity states exactly which of its usual consequences are lost and cannot be recovered. We also correct a premise common in the literature: exact soliton S-matrices were *not* known for every algebra. They were missing for $c_n^{(1)}$ with $n\ge3$, $f_4^{(1)}$, $e_6^{(2)}$ and $a_{2n-1}^{(2)}$. @sec-sm-introduction constructs them for $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$ (the first and second for the spinor soliton, verified for small $n$). For $f_4^{(1)}$ it constructs a candidate amplitude that satisfies all the axioms but is ruled out by a one-loop computation, so that case remains open.
+:::
+
+## Summary of results {#sec-summary-results}
+
+| Gap | Content | Status |
+|---|---|---|
+| H1 | existence of the regularized theory | closed: Theorems [-@thm-bounded-weight] and [-@thm-coulomb-gas] (lattice) |
+| H2 | sign problem from the complex action | closed: @thm-coulomb-gas (positive Coulomb gas) |
+| H3 | continuum limit | closed in finite volume for $\beta^2<\beta^2_{\rm UV}$: @thm-below-2pi for $\beta^2<2\pi$, @thm-window in the window $2\pi\le\beta^2<\beta^2_{\rm UV}$; further counterterms needed at and above $\beta^2_{\rm UV}$ (@prp-uv-divergence); infinite volume open (@cnj-correlation-range) |
+| H4 | Hilbert space and Hamiltonian | closed: @thm-krein-transfer (Krein space, $\Theta$-symmetry) |
+| H5 | reality of the vacuum energy | closed: @thm-vacuum-energy |
+| H6 | reality of classical energies; singular and complex-energy solutions | closed: @prp-hirota-energy and the $\Theta$ selection rule |
+| H7 | which complex saddles contribute | reduced: thimble formulation; masses shown independent of the choice; intersection numbers computed and validated in a reduced model (@sec-which-saddles-contribute) |
+| H8 | semiclassical mass corrections | closed: algebraic-multiplicity rule, with lattice and exact checks; counting rule derived from the transmission factors (Theorems [-@thm-jordan-chains] and [-@thm-hirota-factorization], @prp-net-count) and checked for $a_n^{(1)}$ and $c_n^{(1)}$ (Propositions [-@prp-an-zeros] and [-@prp-cn-threshold-blocks]); Hirota form for $d_n^{(1)}$, $e_n^{(1)}$ and their foldings given a degree bound verified to rank 8 (@prp-hirota-form); one-loop masses of all folded solitons, agreeing with every known exact result (@sec-one-loop-masses-folded) |
+| H9 | non-unitarity of S-matrices and complex finite-volume spectra | reclassified: Krein-unitarity (@prp-krein-unitarity), exact on an integrable lattice regularization (@prp-krein-regularization) and for the exact fundamental-soliton S-matrices of $a_n^{(1)}$ (@prp-krein-fundamental); sector-by-sector classification; consequences of unitarity that cannot be rescued identified (@sec-unitarity) |
+| H10 | completeness and correctness of exact S-matrices | partly open: soliton S-matrices constructed in Part VI for $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$, all three agreeing with the one-loop soliton masses (@sec-one-loop-masses-folded), and $a_{2n-1}^{(2)}$ also with integrable-lattice masses (@sec-a2n-lattice); $f_4^{(1)}$ open, with its one-loop soliton masses predicted (@sec-one-loop-masses-folded) |
+| H11 | missing classical topological charges and solutions | open; reformulated via thimbles; static saddles shown not to suffice for $a_3^{(1)}$, whose missing charges are carried by charged two-soliton bound states (@sec-which-saddles-contribute) |
+| H12 | unitary subtheories and RSOS restriction | established in specific cases; exact criterion for the fundamental kinks of $a_2^{(1)}$ (@prp-rsos-kinks); general criterion conjectured (@cnj-unitary-rsos) |

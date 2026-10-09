@@ -1,8 +1,17 @@
-# Overview {.unnumbered}
+# Preface {.unnumbered}
 
-This book collects two connected pieces of work on affine Toda field theory.
+This book is a graduate introduction to affine Toda field theory that leads into current research. It is written for a mathematical physicist who knows quantum field theory but has not met affine Toda theory, Kac–Moody algebras or quantum groups.
 
-- **Part I, Foundations.** *Affine Toda field theories as quantum field theories: a review, a critique, and a foundation.* It reviews the field, lists twelve gaps between what is used in practice and what has been established, and closes as many as possible ([start here](foundations/01-introduction.qmd)).
-- **Part II, Soliton S-matrices.** *Exact S-matrices for affine Toda solitons: $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$.* It constructs the soliton S-matrices that Part I identifies as missing from the literature ([start here](smatrices/01-introduction.qmd)).
+**Prerequisites.** Quantum field theory at the level of a first graduate course (path integrals, perturbation theory, renormalization, the S-matrix), finite-dimensional Lie algebras at the level of $su(n)$, and complex analysis. Everything else is developed in the text.
 
-Supporting code: [soliton_rmatrix_code](https://github.com/gustavdelius/affine_toda/tree/main/soliton_rmatrix_code).
+**Structure.** Parts I–IV are textbook material: the physical and algebraic background, the classical theory, and the real-coupling quantum theory. Parts V–VII present research results, many of them new: the semiclassics of complex solitons, exact soliton S-matrices, and the foundations of the imaginary-coupling theories as non-unitary quantum field theories. The [introduction](part1-background/01-introduction.qmd) gives a chapter-by-chapter map.
+
+**Reading paths.**
+
+- *Physics first:* Parts I, III, IV and VI.
+- *Mathematics first:* Part II, then Part VII.
+- *For specialists:* Parts V–VII, consulting earlier chapters as needed.
+
+**Status.** Chapters marked "To be written" are planned but not yet drafted. Parts V–VII are complete drafts.
+
+Supporting code: [foundations_code](https://github.com/gustavdelius/affine_toda/tree/main/foundations_code) and [soliton_rmatrix_code](https://github.com/gustavdelius/affine_toda/tree/main/soliton_rmatrix_code).

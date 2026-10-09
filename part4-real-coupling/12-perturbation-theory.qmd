@@ -1,0 +1,35 @@
+# Perturbation theory {#sec-perturbation-theory}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Renormalize affine Toda theory in two dimensions: only tadpoles diverge, and Wick ordering removes them.
+- Compute one-loop mass corrections and show the mass ratios are preserved in simply-laced theories.
+- Understand anomalous thresholds and the Coleman–Thun mechanism for higher-order S-matrix poles.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Braden–Corrigan–Dorey–Sasaki 1990, 1991; Coleman–Thun 1978; Delius–Grisaru–Zanon 1992; Dorey–Polvara 2022; Polvara 2023.
+:::
+
+## Wick ordering in two dimensions
+
+*To be written.*
+
+## One-loop masses
+
+*To be written.*
+
+## Tree-level and one-loop integrability
+
+*To be written.*
+
+## Anomalous thresholds and Coleman–Thun diagrams
+
+*To be written.*
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*

@@ -1,0 +1,44 @@
+# Root systems and simple Lie algebras {#sec-root-systems}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Work with roots, the Cartan matrix and Dynkin diagrams of every simple Lie algebra.
+- Use the Weyl group, the Coxeter element, the Coxeter number and the exponents.
+- Construct weights and the fundamental representations.
+- Compute the Perron–Frobenius eigenvector of a Cartan matrix and see why it will reappear as a mass spectrum.
+:::
+
+::: {.callout-warning appearance="simple" title="To be written"}
+Sources to draw on: Humphreys, *Introduction to Lie Algebras and Representation Theory*; Fuchs–Schweigert, *Symmetries, Lie Algebras and Representations*; Kostant 1959.
+:::
+
+## Roots and the Cartan matrix
+
+*To be written.*
+
+## Classification and Dynkin diagrams
+
+*To be written.*
+
+## The Weyl group and the Coxeter element
+
+*To be written.*
+
+## Exponents and the Coxeter number
+
+*To be written.*
+
+## Weights and representations
+
+*To be written.*
+
+## The Perron–Frobenius eigenvector
+
+*To be written.*
+
+## Exercises
+
+*To be written.*
+
+## Notes and references
+
+*To be written.*
