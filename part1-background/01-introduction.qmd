@@ -40,7 +40,36 @@ The book has seven parts.
 
 Parts I–IV are textbook material. Parts V–VII present research results, many of them new.
 
-*Dependency chart and suggested reading paths: to be written.*
+The dependencies between the parts are shown below. Chapter 4 is needed only for Parts V and VII, and Part II is needed in full only for Part VI.
+
+```{mermaid}
+%%| label: fig-dependencies
+%%| fig-cap: "Dependencies between the parts of the book. An arrow means that the later part uses the earlier one."
+flowchart LR
+  I["I. Physical background<br/>ch. 1–4"] --> III["III. Classical theory<br/>ch. 9–11"]
+  II["II. Algebraic background<br/>ch. 5–8"] --> III
+  I --> IV["IV. Real coupling<br/>ch. 12–15"]
+  III --> IV
+  III --> V["V. Semiclassics<br/>ch. 16–19"]
+  IV --> VI["VI. Soliton S-matrices<br/>ch. 20–27"]
+  II --> VI
+  V --> VI
+  V --> VII["VII. Foundations<br/>ch. 28–33"]
+  VI --> VII
+```
+
+**Reading paths.**
+
+- *A course on integrable field theory:* chapters 2–3, 5–6, 9–10, 12–14, then 20–22. This covers sine-Gordon, the classical theory, the particle S-matrices and the known soliton S-matrices.
+- *A course on quantum groups in field theory:* chapters 2–3 and 5–8, then 20–22 and 27.
+- *Non-unitary quantum field theory:* chapters 2–4, 9–11, then Part VII, consulting Parts V–VI as needed.
+- *For specialists:* Parts V–VII, which can be read on their own by a reader who already knows affine Toda theory.
+
+## Conventions {#sec-conventions}
+
+We use units with $\hbar=c=1$ and the metric signature $(+,-)$. Rapidities are written $\theta$, and two-particle amplitudes depend on the rapidity difference (@sec-rapidities).
+
+Roots are normalized so that the longest roots of the finite algebra have squared length 2, as in @sec-lie-algebraic-data. Some of the literature instead gives the longest root of a twisted algebra $X_n^{(k)}$ squared length $2k$; its coupling is then $\beta_{\rm lit}^2=\beta^2/k$, and we convert whenever we quote such results. The coupling $\beta$ is always real and positive. "Real coupling" and "imaginary coupling" refer to the two potentials of (-@eq-imaginary-potential), not to the sign of $\beta^2$. For $a_1^{(1)}$ our $\beta$ is related to the conventional sine-Gordon coupling by $\beta_{\rm SG}^2=2\beta^2$ (@sec-sine-gordon).
 
 ## Status labels {#sec-status-labels}
 

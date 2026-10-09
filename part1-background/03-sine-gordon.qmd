@@ -3,48 +3,251 @@
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
 - Find the kink, antikink and breather solutions and their masses.
 - Compute the one-loop soliton mass by the DHN method.
-- Derive and analyse the Zamolodchikov soliton S-matrix and its breather poles.
+- Analyse the Zamolodchikov soliton S-matrix and its breather poles.
 - Identify the lowest breather with the elementary particle (breather–particle identification).
 - See the $U_q(\widehat{sl}_2)$ symmetry and its RSOS restriction to perturbed minimal models.
 - Contrast sine-Gordon with sinh-Gordon, the real-coupling $a_1^{(1)}$ theory.
 :::
 
-::: {.callout-warning appearance="simple" title="To be written"}
-Sources to draw on: Dashen–Hasslacher–Neveu 1975; Coleman 1975; Zamolodchikov–Zamolodchikov 1979; Bernard–LeClair 1991; Rajaraman, *Solitons and Instantons*.
+Sine-Gordon theory is affine Toda field theory for the smallest affine algebra, $a_1^{(1)}$, at imaginary coupling. Almost every phenomenon studied in this book appears in it in its simplest form: solitons that interpolate between degenerate vacua, breathers that are bound states of a soliton and an antisoliton, a semiclassical expansion that turns out to be exact, an S-matrix fixed by a quantum-group symmetry, a breather that is the elementary particle of the real-coupling theory continued to imaginary coupling, and restrictions to minimal models, one of which is non-unitary. This chapter develops each of these. Later chapters generalise them to every affine algebra, and much of the difficulty of the general case lies in what does *not* carry over. @sec-sg-lessons lists those differences.
+
+## From affine Toda to sine-Gordon {#sec-sg-dictionary}
+
+The algebra $a_1^{(1)}$ has rank 1 and two simple roots, $\alpha_1=\sqrt2$ and $\alpha_0=-\sqrt2$, with Kac labels $n_0=n_1=1$ (@sec-affine-algebras). The imaginary-coupling potential (-@eq-imaginary-potential) becomes
+
+$$
+V=-\frac{m^2}{\beta^2}\left(e^{i\sqrt2\beta\phi}+e^{-i\sqrt2\beta\phi}-2\right)=\frac{2m^2}{\beta^2}\big(1-\cos\sqrt2\beta\phi\big).
+$$
+
+In this chapter we use the conventional sine-Gordon variables
+
+$$
+\beta_{\rm SG}=\sqrt2\,\beta,\qquad m_0=2m,\qquad
+\mathcal L=\tfrac12\partial_\mu\phi\,\partial^\mu\phi-\frac{m_0^2}{\beta_{\rm SG}^2}\big(1-\cos\beta_{\rm SG}\phi\big).
+$$ {#eq-sg-lagrangian}
+
+Here $m_0$ is the mass of the elementary particle, the quantum of small oscillations about $\phi=0$. The dictionary $\beta_{\rm SG}^2=2\beta^2$ is worth remembering: the free-fermion point $\beta_{\rm SG}^2=4\pi$ is $\beta^2=2\pi$, the threshold that recurs in Part VII, and Coleman's bound $\beta_{\rm SG}^2=8\pi$ is $\beta^2=4\pi$.
+
+Replacing $\beta_{\rm SG}$ by $i\beta_{\rm SG}$ gives **sinh-Gordon** theory, $V=(m_0^2/\beta_{\rm SG}^2)(\cosh\beta_{\rm SG}\phi-1)$, which is the real-coupling $a_1^{(1)}$ affine Toda theory. It has a unique vacuum and a single particle.
+
+## Classical solitons and breathers {#sec-sg-classical}
+
+The field equation is $\partial_\mu\partial^\mu\phi+(m_0^2/\beta_{\rm SG})\sin\beta_{\rm SG}\phi=0$. The potential vanishes at the vacua $\phi=2\pi k/\beta_{\rm SG}$, $k\in\mathbb Z$, and the energy of a finite-energy configuration is finite only if $\phi$ approaches vacua at $x\to\pm\infty$. The **topological charge**
+
+$$
+Q=\frac{\beta_{\rm SG}}{2\pi}\big(\phi(+\infty)-\phi(-\infty)\big)\in\mathbb Z
+$$
+
+is conserved, because the field cannot jump between vacua with finite energy.
+
+**The kink.** The static solutions with $Q=\pm1$ are
+
+$$
+\phi_\pm(x)=\pm\frac4{\beta_{\rm SG}}\arctan e^{m_0(x-x_0)} .
+$$ {#eq-sg-kink}
+
+Their energy follows from the Bogomolny argument. Writing the static energy as $\int dx\,\big(\tfrac12(\phi'\mp\sqrt{2V})^2\pm\phi'\sqrt{2V}\big)$ shows that $E\ge\big\lvert\int d\phi\,\sqrt{2V}\big\rvert$, with equality on solutions of $\phi'=\pm\sqrt{2V}$. Since $\sqrt{2V}=(2m_0/\beta_{\rm SG})\lvert\sin(\beta_{\rm SG}\phi/2)\rvert$,
+
+$$
+M_{\rm cl}=\int_0^{2\pi/\beta_{\rm SG}}\frac{2m_0}{\beta_{\rm SG}}\sin\frac{\beta_{\rm SG}\phi}2\,d\phi=\frac{8m_0}{\beta_{\rm SG}^2} .
+$$ {#eq-sg-classical-mass}
+
+The soliton is heavy at weak coupling, as solitons are. Lorentz boosts give moving kinks with energy $M_{\rm cl}\cosh\theta$ and momentum $M_{\rm cl}\sinh\theta$.
+
+**The $\tau$-function form.** Using $\arctan y=\frac1{2i}\ln\frac{1+iy}{1-iy}$, the kink can be written
+
+$$
+\phi_+=\frac{2i}{\beta_{\rm SG}}\ln\frac{\tau_1}{\tau_0},\qquad\tau_0=1+i\,e^{m_0(x-x_0)},\quad\tau_1=1-i\,e^{m_0(x-x_0)} .
+$$
+
+This is the simplest case of Hirota's construction (@sec-classical-solitons), which writes every affine Toda soliton through $\tau$-functions $\tau_0,\dots,\tau_r$, one for each node of the affine Dynkin diagram, each a finite sum of exponentials. Multi-soliton solutions are obtained by multiplying the exponentials, and the $N$-soliton $\tau$-functions are polynomials of degree $N$ in them.
+
+**Scattering and time delays.** In a two-soliton solution the solitons pass through each other and emerge with the same velocities. The only effect of the collision is a time delay, which is the classical limit of the derivative of the S-matrix phase. That the shape and velocity are preserved is the classical counterpart of elastic, factorized scattering.
+
+**Breathers.** Continuing a soliton–antisoliton solution to the complex-conjugate rapidities $\pm i(\frac\pi2-u)$ gives the **breather**
+
+$$
+\phi_b(x,t)=\frac4{\beta_{\rm SG}}\arctan\left(\frac{\tan u\,\sin(m_0t\cos u)}{\cosh(m_0x\sin u)}\right),\qquad 0<u<\tfrac\pi2,
+$$ {#eq-sg-breather}
+
+a localized solution oscillating with frequency $m_0\cos u$ and energy
+
+$$
+E_b=2M_{\rm cl}\sin u .
+$$ {#eq-sg-breather-energy}
+
+As $u\to0$ the breather becomes a small-amplitude oscillation and its energy tends to zero. As $u\to\pi/2$ it becomes a widely separated soliton–antisoliton pair with energy $2M_{\rm cl}$.
+
+For sine-Gordon all these solutions are real. For every other affine Toda theory at imaginary coupling the soliton solutions are complex, and the question of why such solutions should contribute to a path integral over real fields is one of the main themes of Part V.
+
+## Semiclassical quantization {#sec-sg-semiclassics}
+
+Dashen, Hasslacher and Neveu [-@dhn1975] quantized the kink and breather semiclassically. For the kink one expands $\phi=\phi_+(x)+\eta(x)e^{-i\omega t}$ to first order and finds the fluctuation equation
+
+$$
+\Big(-\partial_x^2+m_0^2\big(1-2\operatorname{sech}^2m_0x\big)\Big)\eta=\omega^2\eta .
+$$ {#eq-sg-fluctuation}
+
+The potential is of Pöschl–Teller type and is **reflectionless**. Its spectrum consists of
+
+- a single bound state at $\omega=0$, the **zero mode** $\eta_0\propto\operatorname{sech}m_0x=\phi_+'(x)$, which arises because the kink can be translated; and
+- a continuum $\omega^2=k^2+m_0^2$ with transmission factor $T(k)=(k+im_0)/(k-im_0)$, so that the modes acquire the phase shift $\delta(k)=2\arctan(m_0/k)$ on passing through the kink.
+
+The one-loop mass correction is half the difference of the zero-point energies of the fluctuations in the kink and vacuum sectors, made finite by the same normal-ordering counterterm that renders the vacuum sector finite. The zero mode is not an oscillator: it is the collective coordinate of the kink's position and is quantized separately, giving the kink its momentum. Expressing the continuum sum through $\delta(k)$ and adding the counterterm gives the classic result
+
+$$
+M=\frac{8m_0}{\beta_{\rm SG}^2}-\frac{m_0}\pi+O(\beta_{\rm SG}^2) .
+$$ {#eq-sg-one-loop-mass}
+
+The same calculation for a general affine Toda soliton replaces $T(k)$ by the transmission factors of the soliton for each of the $r$ particle species. @sec-dhn sets this up, and Part V shows what goes wrong when the soliton is complex and the fluctuation operator is not Hermitian.
+
+**Breathers.** The breathers are periodic in time, and their semiclassical quantization is a Bohr–Sommerfeld condition on the action per period. Dashen, Hasslacher and Neveu found the quantized breather masses
+
+$$
+m_n=2M\sin\frac{n\xi}2,\qquad n=1,2,\dots<\frac\pi\xi,\qquad
+\xi=\frac{\beta_{\rm SG}^2}{8}\,\frac{1}{1-\beta_{\rm SG}^2/8\pi},
+$$ {#eq-sg-breather-masses}
+
+where $M$ is the quantum soliton mass. The renormalized coupling $\xi$ differs from its classical value $\beta_{\rm SG}^2/8$ by a factor that the one-loop calculation produces exactly. As $\beta_{\rm SG}\to0$, the lightest breather has mass $m_1\simeq M\xi\simeq m_0$: **the lightest breather is the elementary particle.** The higher breathers are its bound states, and there are finitely many of them, fewer as the coupling grows. At $\xi=\pi$, that is $\beta_{\rm SG}^2=4\pi$, the last breather disappears.
+
+## The exact S-matrix {#sec-sg-smatrix}
+
+The quantum solitons form a doublet, a soliton $s$ and an antisoliton $\bar s$, both of mass $M$. Charge conservation leaves three independent two-particle amplitudes:
+
+- $S_0(\theta)$ for $s s\to s s$ and $\bar s\bar s\to\bar s\bar s$;
+- the transmission amplitude $S_T(\theta)$ for $s\bar s\to s\bar s$;
+- the reflection amplitude $S_R(\theta)$ for $s\bar s\to\bar s s$.
+
+Zamolodchikov and Zamolodchikov [-@zz1979] solved the Yang–Baxter equation, braiding unitarity and crossing for this system and found, with
+
+$$
+\lambda=\frac{8\pi}{\beta_{\rm SG}^2}-1=\frac\pi\xi ,
+$$
+
+that
+
+$$
+S_T(\theta)=\frac{\sinh\lambda\theta}{\sinh\lambda(i\pi-\theta)}\,S_0(\theta),\qquad
+S_R(\theta)=\frac{\sinh i\pi\lambda}{\sinh\lambda(i\pi-\theta)}\,S_0(\theta),
+$$ {#eq-sg-smatrix}
+
+$$
+S_0(\theta)=-\exp\left(-i\int_0^\infty\frac{dt}t\,\frac{\sinh\frac{(\pi-\xi)t}2\,\sin\theta t}{\sinh\frac{\xi t}2\,\cosh\frac{\pi t}2}\right),
+$$ {#eq-sg-s0}
+
+where the integral converges for $\lvert\operatorname{Im}\theta\rvert<\xi$ and $S_0$ is continued meromorphically beyond. Crossing exchanges $S_0(\theta)$ with $S_T(i\pi-\theta)$ and maps $S_R$ to itself. The ratios $S_T/S_0$ and $S_R/S_0$ are the entries of the trigonometric six-vertex R-matrix, the simplest R-matrix of a quantum affine algebra (@sec-sg-quantum-group). The scalar factor $S_0$ is the minimal solution of the remaining unitarity and crossing conditions. This "R-matrix times scalar factor" structure is the form of every soliton S-matrix in Part VI.
+
+**Breather poles.** The factor $1/\sinh\lambda(i\pi-\theta)$ has poles at
+
+$$
+\theta=i(\pi-n\xi),\qquad n=1,2,\dots<\frac\pi\xi .
+$$
+
+These lie in the physical strip, in the soliton–antisoliton channel. By (-@eq-bound-state-mass) they are bound states of mass $2M\cos\frac{\pi-n\xi}{2}=2M\sin\frac{n\xi}2$, exactly the semiclassical breather masses (-@eq-sg-breather-masses). The semiclassical spectrum is exact.
+
+**Reflectionless points.** When $\lambda$ is a positive integer, $S_R$ vanishes and soliton scattering is reflectionless. At $\lambda=1$, that is $\beta_{\rm SG}^2=4\pi$, the amplitudes reduce to $S_0=S_T=-1$, $S_R=0$: the solitons are free fermions. This is Coleman's equivalence of sine-Gordon with the massive Thirring model [@coleman1975; @mandelstam1975], at the point where the Thirring coupling vanishes. For $\lambda<1$, the **repulsive regime**, there are no breathers. For $\lambda>1$, the **attractive regime**, the breathers exist.
+
+**Breather amplitudes.** The bootstrap (-@eq-bootstrap) determines the breather amplitudes from (-@eq-sg-smatrix). The lightest breather scatters with itself diagonally, with
+
+$$
+S_{11}(\theta)=f_{\xi/\pi}(\theta)=\frac{\sinh\theta+i\sin\xi}{\sinh\theta-i\sin\xi} .
+$$ {#eq-sg-s11}
+
+## Breathers and the elementary particle {#sec-sg-breather-particle}
+
+The sinh-Gordon S-matrix is (-@eq-sinh-gordon-smatrix),
+
+$$
+S_{\rm shG}(\theta)=f_{-B/2}(\theta),\qquad B=\frac{\beta_{\rm SG}^2/4\pi}{1+\beta_{\rm SG}^2/8\pi},
+$$
+
+where the coupling is now the sinh-Gordon one. In the normalization of affine Toda theory, $\beta_{\rm SG}^2=2\beta^2$, this is the formula $B(\beta)=\frac1{2\pi}\frac{\beta^2}{1+\beta^2/4\pi}$ that Part IV uses for every simply-laced theory. Now continue to imaginary coupling, $\beta_{\rm SG}^2\to-\beta_{\rm SG}^2$. Then $B\to-2\xi/\pi$ and
+
+$$
+S_{\rm shG}\ \longrightarrow\ f_{\xi/\pi}=S_{11}.
+$$
+
+The S-matrix of the elementary particle of sinh-Gordon, continued to imaginary coupling, is the S-matrix of the lightest sine-Gordon breather. This **breather–particle identification** holds with no free parameters, and the same pattern recurs in every affine Toda theory where the soliton S-matrix is known. In Part VI it serves as the central test of new soliton S-matrices.
+
+Two remarks:
+
+- The sinh-Gordon S-matrix is invariant under $B\to2-B$, which is the strong–weak duality $\beta_{\rm SG}\to8\pi/\beta_{\rm SG}$. For the non-simply-laced affine Toda theories the duality exchanges a theory with its Lie dual (@sec-non-simply-laced).
+- Sinh-Gordon has no bound states, so the bootstrap does not test its S-matrix. The breather–particle identification does: an S-matrix guessed from perturbation theory in one regime reproduces the bootstrap results of another regime.
+
+## Coleman's bound and the free-fermion point {#sec-sg-coleman}
+
+The operator $\cos\beta_{\rm SG}\phi$ has scaling dimension $\beta_{\rm SG}^2/4\pi$ at the free-boson fixed point. The perturbation is relevant for $\beta_{\rm SG}^2<8\pi$. Beyond this bound, found by Coleman, the theory flows to a massless free boson and has no mass gap. At $\beta_{\rm SG}^2\to8\pi$ one has $\xi\to\infty$ and $\lambda\to0$.
+
+Below $8\pi$ the ultraviolet divergences are mild but not absent. Normal ordering of $\cos\beta_{\rm SG}\phi$ removes all divergences of the correlation functions for $\beta_{\rm SG}^2<4\pi$. For $4\pi\le\beta_{\rm SG}^2<8\pi$ the vacuum energy needs further additive counterterms, at the thresholds $\beta_{\rm SG}^2=8\pi(1-\frac1{2k})$, $k=1,2,\dots$. In the language of @sec-collapse-thresholds these are the collapse thresholds of a two-dimensional Coulomb gas of positive and negative charges. Part VII shows that the same picture, with $r$ species of charges, governs every imaginary-coupling affine Toda theory.
+
+## Quantum-group symmetry and RSOS restriction {#sec-sg-quantum-group}
+
+Bernard and LeClair [-@bernard1991] found non-local conserved charges in sine-Gordon theory. They are built from vertex operators of the field and its dual and carry Lorentz spin. Together with the topological charge they generate the quantum affine algebra $U_q(\widehat{sl}_2)$, with
+
+$$
+q=\pm e^{8\pi^2i/\beta_{\rm SG}^2}=\pm e^{4\pi^2i/\beta^2} .
+$$
+
+The soliton and antisoliton form its two-dimensional evaluation representation, the S-matrix commutes with the charges, and so the S-matrix is a $U_q(\widehat{sl}_2)$ R-matrix times a scalar. This is how (-@eq-sg-smatrix) is understood today. @sec-quantum-groups develops the algebra and @sec-qg-symmetry the general case.
+
+When $q$ is a root of unity, the representation theory of $U_q(sl_2)$ admits a consistent truncation. In the S-matrix it amounts to replacing the soliton labels by kink labels in the IRF (RSOS) basis, keeping only the finitely many vacua allowed at that root of unity [@leclair1989; @smirnov1991; @reshetikhin1990]. The result is an S-matrix of kinks and breathers.
+
+::: {#prp-sg-rsos}
+**[Established]** At $\beta_{\rm SG}^2/8\pi=p/p'$, with coprime $p<p'$, the RSOS restriction of sine-Gordon theory is the minimal model $\mathcal M(p,p')$ perturbed by its primary field $\phi_{1,3}$ [@leclair1989; @smirnov1991; @reshetikhin1990]. The coupling is $\xi=\pi p/(p'-p)$.
 :::
 
-## Classical solitons and breathers
+Two examples show both sides of what restriction can do.
 
-*To be written.*
+- **Unitary models.** For $p'=p+1$ the minimal model is unitary. Then $\xi=\pi p\ge\pi$, so the theory is in the repulsive regime, there are no breathers, and the restricted theory consists of kinks with a unitary S-matrix.
+- **The scaling Lee–Yang model.** For $(p,p')=(2,5)$, $\xi=2\pi/3$. There is one breather, of mass $\sqrt3M$, and for $p=2$ the kinks are trivial and drop out. The remaining breather has S-matrix $f_{\xi/\pi}=f_{2/3}$, which is the S-matrix (-@eq-lee-yang-smatrix) of @sec-bootstrap-intro. The model $\mathcal M(2,5)$ is non-unitary, and @sec-lee-yang explains how this shows up in the S-matrix.
 
-## Semiclassical quantization
+The question of which restrictions of which affine Toda theories are unitary is open in general. Part VI answers it for the fundamental kinks of $a_2^{(1)}$ (@sec-rsos).
 
-*To be written.*
+## What carries over, and what does not {#sec-sg-lessons}
 
-## The exact S-matrix
+| Sine-Gordon | General affine Toda theory |
+|---|---|
+| one scalar field | $r=\operatorname{rank}g$ scalar fields |
+| one elementary particle | $r$ particles, masses given by a Perron–Frobenius eigenvector (@sec-theories) |
+| real kink solutions | complex soliton solutions, except for $a_1^{(1)}$ |
+| soliton doublet of $U_q(\widehat{sl}_2)$ | soliton multiplets of $U_q(\hat g^\vee)$, the quantum group of the *dual* algebra |
+| S-matrix unitary in the QFT sense | S-matrices generally not unitary; finite-volume spectra can be complex |
+| DHN fluctuation operator Hermitian | non-Hermitian fluctuation operators with Jordan blocks (Part V) |
+| topological charges fill the multiplets | some charges of the quantum multiplets have no classical soliton |
+| soliton S-matrix known since 1979 | some soliton S-matrices still unknown (@sec-sm-f4) |
 
-*To be written.*
+The first three rows are developed in Part III. The remaining rows are what Parts V–VII are about.
 
-## Breathers and the elementary particle
+## Exercises {#sec-sine-gordon-exercises}
 
-*To be written.*
+::: {#exr-sg-bogomolny}
+Verify that (-@eq-sg-kink) solves $\phi'=\sqrt{2V}$, and that its energy density is $\frac{4m_0^2}{\beta_{\rm SG}^2}\operatorname{sech}^2m_0x$. Integrate to recover (-@eq-sg-classical-mass).
+:::
 
-## The free-fermion point and $\beta^2=8\pi$
+::: {#exr-sg-breather}
+Show that (-@eq-sg-breather) solves the sine-Gordon equation, and compute its energy (-@eq-sg-breather-energy). *Hint:* the energy is conserved, so compute it at $t=0$.
+:::
 
-*To be written.*
+::: {#exr-sg-zero-mode}
+Show that the zero mode of (-@eq-sg-fluctuation) is $\phi_+'(x)$, and that differentiating the field equation with respect to $x_0$ gives this result for any static solution of any scalar field theory.
+:::
 
-## Sinh-Gordon
+::: {#exr-sg-expansion}
+The exact relation between the soliton mass and the lightest breather mass is $m_1=2M\sin\frac\xi2$. Expand it to show that it reproduces the one-loop result (-@eq-sg-one-loop-mass) if $m_1=m_0+O(\beta_{\rm SG}^4)$.
+:::
 
-*To be written.*
+::: {#exr-sg-reflectionless}
+Show that $S_R$ vanishes exactly when $\lambda$ is a positive integer. How many breathers are there at $\lambda=N$?
+:::
 
-## Quantum-group symmetry and RSOS restriction
+::: {#exr-sg-continuation}
+Show that the substitution $\beta_{\rm SG}^2\to-\beta_{\rm SG}^2$ maps $B$ to $-2\xi/\pi$, and hence $f_{-B/2}$ to $f_{\xi/\pi}$.
+:::
 
-*To be written.*
+::: {#exr-sg-lee-yang}
+Show that at $\beta_{\rm SG}^2/8\pi=2/5$ there is exactly one breather, that its mass is $\sqrt3M$, and that its S-matrix is $f_{2/3}$. Locate its self-coupling pole.
+:::
 
-## Exercises
+## Notes and references {#sec-sine-gordon-notes}
 
-*To be written.*
-
-## Notes and references
-
-*To be written.*
+The classical theory, including the breather and multi-soliton solutions, is covered in Rajaraman's book [@rajaraman1982]. The semiclassical quantization is due to Dashen, Hasslacher and Neveu [-@dhn1975], and Faddeev and Korepin [-@faddeev1978] review it together with the quantum inverse scattering method. The exact S-matrix is in Zamolodchikov and Zamolodchikov [-@zz1979], and the explanation of the double poles of the breather amplitudes in Coleman and Thun [-@coleman_thun1978]. The sinh-Gordon S-matrix is due to Arinshtein, Fateev and Zamolodchikov [-@arinshtein1979]. For the quantum-group symmetry see Bernard and LeClair [-@bernard1991], and for RSOS restriction LeClair [-@leclair1989], Smirnov [-@smirnov1991] and Reshetikhin and Smirnov [-@reshetikhin1990]. The exact relation between the soliton mass and the coupling constant is in Al. B. Zamolodchikov [-@zamolodchikov1995].

@@ -3,37 +3,148 @@
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
 - Define Krein spaces and operators self-adjoint with respect to an indefinite inner product.
 - Use an antilinear (PT-type) symmetry to show that a spectrum is closed under complex conjugation, and distinguish broken from unbroken sectors.
-- Recognise Jordan blocks and exceptional points, and what they do to completeness and time evolution.
+- Recognise Jordan blocks and exceptional points, and what they do to completeness, to time evolution and to determinants.
 - Understand why the scaling Lee–Yang model is a valid, non-unitary quantum field theory.
 - State the criteria for a valid quantum field theory used in Part VII.
 :::
 
-::: {.callout-warning appearance="simple" title="To be written"}
-Sources to draw on: Bender–Boettcher 1998; Mostafazadeh 2002, 2010; Bognár, *Indefinite Inner Product Spaces*; Ashida–Gong–Ueda 2020; Fisher 1978; Cardy 1985, 1989.
+The imaginary-coupling affine Toda theories have a complex potential. Their Hamiltonian is not Hermitian in the usual inner product, and in some sectors their finite-volume energies are complex. A reader trained in unitary quantum field theory may conclude that such a theory is sick. This chapter supplies the concepts needed to see why that conclusion is too quick.
+
+The concepts are not exotic. Indefinite inner products are familiar from the Gupta–Bleuler quantization of electrodynamics [@gupta1950; @bleuler1950], where the space of photon states carries an indefinite metric and the physical subspace is singled out by a condition. Non-Hermitian Hamiltonians with real spectra and antilinear symmetries are the subject of $PT$-symmetric quantum mechanics [@bender1998; @bender2007; @mostafazadeh2010] and, more broadly, of non-Hermitian physics [@ashida2020]. And the scaling Lee–Yang model, the field theory of the Yang–Lee edge singularity, is a non-unitary quantum field theory that no one regards as inconsistent [@fisher1978; @cardy1985; @cardy1989].
+
+We work in finite dimensions wherever possible, where every statement is elementary, and indicate what changes in infinite dimensions.
+
+## Krein spaces and pseudo-Hermiticity {#sec-krein-spaces}
+
+Let $\mathcal H$ be a Hilbert space with inner product $\langle\cdot,\cdot\rangle$, and let $J$ be an operator with $J=J^\dagger=J^{-1}$. Then
+
+$$
+[x,y]=\langle x,Jy\rangle
+$$ {#eq-krein-form}
+
+is a non-degenerate Hermitian form that is in general indefinite. The pair $(\mathcal H,[\cdot,\cdot])$ is a **Krein space**, and $J$ is its **fundamental symmetry**. The eigenspaces $\mathcal H_\pm$ of $J$ with eigenvalues $\pm1$ are positive and negative definite for $[\cdot,\cdot]$. A vector $x\ne0$ with $[x,x]=0$ is **neutral**. When $\mathcal H_-$ is finite-dimensional the space is a **Pontryagin space** [@bognar1974].
+
+The adjoint of an operator $A$ with respect to the Krein form is
+
+$$
+A^\sharp=JA^\dagger J ,
+$$
+
+defined so that $[Ax,y]=[x,A^\sharp y]$. An operator with $A^\sharp=A$, equivalently $A^\dagger=JAJ$, is **$J$-self-adjoint**. More generally, an operator is **pseudo-Hermitian** if $A^\dagger=\eta A\eta^{-1}$ for some invertible Hermitian $\eta$ [@mostafazadeh2002]. A $J$-self-adjoint operator need not be Hermitian, and its spectrum need not be real. But it is constrained.
+
+::: {#prp-krein-spectrum}
+**[Established]** Let $H$ be $J$-self-adjoint on a finite-dimensional Krein space.
+
+1. The spectrum of $H$ is closed under complex conjugation, and $\lambda$ and $\bar\lambda$ have the same algebraic multiplicity.
+2. If $Hx=\lambda x$ and $Hy=\mu y$ with $\lambda\ne\bar\mu$, then $[x,y]=0$.
+3. Every eigenvector with a non-real eigenvalue is neutral.
+4. The evolution $U(t)=e^{-iHt}$ preserves the Krein form: $[U(t)x,U(t)y]=[x,y]$.
 :::
 
-## Krein spaces and pseudo-Hermiticity
+::: {.proof}
+1. $H^\dagger=JHJ$ is similar to $H$, and the spectrum of $H^\dagger$ is the complex conjugate of that of $H$, with the same multiplicities.
+2. $\lambda[x,y]=[Hx,y]=[x,Hy]=\mu[x,y]$ shows $(\bar\lambda-\mu)[x,y]=0$, taking the form antilinear in its first argument.
+3. Take $y=x$ in 2.
+4. $U(t)^\sharp=e^{iH^\sharp t}=e^{iHt}=U(t)^{-1}$.
+:::
 
-*To be written.*
+Part 4 says that time evolution is **Krein-unitary**. The total "Krein norm" $[x,x]$ is conserved, but the Hilbert norm $\langle x,x\rangle$ need not be, and it can grow without bound. The S-matrices of Part VII have the same property (@sec-krein-unitarity).
 
-## Antilinear symmetries and $PT$
+## Antilinear symmetries and $PT$ {#sec-antilinear}
 
-*To be written.*
+Let $\Theta$ be an antilinear operator with $\Theta^2=1$ that commutes with $H$. If $Hx=\lambda x$ then
 
-## Jordan blocks and exceptional points
+$$
+H\,\Theta x=\Theta Hx=\Theta\lambda x=\bar\lambda\,\Theta x ,
+$$
 
-*To be written.*
+so again the spectrum is closed under complex conjugation. There are now two cases for each eigenvalue.
 
-## An example: the scaling Lee–Yang model
+- **Unbroken.** If $\Theta x$ is proportional to $x$, then $\lambda$ is real.
+- **Broken.** If $\Theta x$ is not proportional to $x$, then either $\lambda$ is real and degenerate, or $\lambda$ and $\bar\lambda$ form a complex-conjugate pair.
 
-*To be written.*
+The name comes from $PT$-symmetric quantum mechanics, where $\Theta$ is the product of parity and time reversal. The standard example is $H=p^2+x^2(ix)^\varepsilon$, whose spectrum is real for $\varepsilon\geq0$ [@bender1998]. In affine Toda theory the analogous symmetry is $\Theta=PK$, the field parity $P:\vec\phi\mapsto-\vec\phi$ combined with complex conjugation $K$ of wave functions in the field representation. It plays this role throughout Parts III, V and VII. Since the potential $V_{\rm imag}(\vec\phi)$ satisfies $\overline{V_{\rm imag}(\vec\phi)}=V_{\rm imag}(-\vec\phi)$ for real $\vec\phi$, the Hamiltonian commutes with $\Theta$.
+
+The two structures are closely related. A diagonalizable operator whose spectrum is closed under complex conjugation is pseudo-Hermitian, and it has an antilinear symmetry [@mostafazadeh2002]. In the theories of this book both structures arise naturally, and from the same source: on a lattice the transfer matrix is self-adjoint for a Krein form whose fundamental symmetry is field parity, and it commutes with $\Theta$ (@thm-krein-transfer).
+
+## Jordan blocks and exceptional points {#sec-jordan-blocks}
+
+A non-Hermitian operator need not be diagonalizable. Its eigenvalue $\lambda$ has an **algebraic multiplicity**, the order of the zero of $\det(H-z)$ at $z=\lambda$, and a **geometric multiplicity**, the dimension of the eigenspace. They differ when $H$ has a **Jordan block**: a chain $x_0,x_1,\dots,x_{k-1}$ with
+
+$$
+(H-\lambda)x_0=0,\qquad(H-\lambda)x_j=x_{j-1}\quad(j\geq1).
+$$
+
+When a Jordan block appears as a parameter is varied, the point in parameter space is called an **exceptional point** [@kato1966; @heiss2012]. Three consequences matter for this book.
+
+- **Completeness fails.** The eigenvectors do not span the space, and no basis of eigenvectors exists. A mode expansion over eigenvectors alone misses states.
+- **Time evolution is not bounded.** On a Jordan block $e^{-iHt}=e^{-i\lambda t}\sum_j(-it)^j(H-\lambda)^j/j!$, which grows polynomially in $t$ even when $\lambda$ is real.
+- **Determinants count algebraic multiplicity.** The determinant is the product of eigenvalues counted with algebraic multiplicity. Since a Gaussian integral produces a determinant,
+$$
+\int_{\mathbb R^n}e^{-\frac12x^{\mathsf T}Ax}\,d^nx=\frac{(2\pi)^{n/2}}{\sqrt{\det A}}
+$$
+for any complex symmetric $A$ with positive definite real part, a one-loop computation automatically counts eigenvalues by algebraic multiplicity, whether or not $A$ is diagonalizable.
+
+The last point is the origin of the counting rule of Part V. The fluctuation operator about a complex soliton is a Schrödinger operator $-\partial_x^2+U(x)$ with a complex potential. It is complex symmetric rather than Hermitian: it is symmetric with respect to the bilinear form $(f,g)=\int f\,g\,dx$, without complex conjugation. Such operators can have Jordan blocks, and a mode sum over eigenfunctions normalized with this bilinear form breaks down exactly there, because the eigenvector of a Jordan block is self-orthogonal, $(x_0,x_0)=0$ (@exr-self-orthogonal). @sec-counting-rule shows that resolving this resolves a long-standing disagreement over one-loop soliton masses.
+
+## The $PT$-symmetric dimer {#sec-dimer}
+
+All of the above can be seen in a single $2\times2$ example. Let $a,g,s$ be real with $s>0$, and
+
+$$
+H=\begin{pmatrix}a+ig&s\\ s&a-ig\end{pmatrix},\qquad J=\sigma_x=\begin{pmatrix}0&1\\1&0\end{pmatrix},\qquad\Theta=\sigma_xK ,
+$$ {#eq-dimer}
+
+where $K$ is complex conjugation. One checks directly that $JH^\dagger J=H$ and $\Theta H\Theta=H$. The model describes, for instance, two coupled optical waveguides, one with gain and one with loss [@ashida2020].
+
+The eigenvalues are
+
+$$
+\lambda_\pm=a\pm\sqrt{s^2-g^2} ,
+$$
+
+with eigenvectors $x_\pm=(s,\ \lambda_\pm-a-ig)^{\mathsf T}$. Three regimes appear as $g$ increases.
+
+- **Unbroken, $\lvert g\rvert<s$.** Both eigenvalues are real, and $\Theta x_\pm\propto x_\pm$. The Krein norms are $[x_\pm,x_\pm]=\pm2s\sqrt{s^2-g^2}$, of opposite signs.
+- **Exceptional point, $\lvert g\rvert=s$.** The eigenvalues meet at $a$, the two eigenvectors coincide and become neutral, and $H-a$ is a nonzero nilpotent matrix: a Jordan block of size 2. The evolution $e^{-iHt}=e^{-iat}\big(1-it(H-a)\big)$ grows linearly.
+- **Broken, $\lvert g\rvert>s$.** The eigenvalues form a complex-conjugate pair, both eigenvectors are neutral, and $\Theta$ exchanges them.
+
+The pattern is general. Real eigenvalues can leave the real axis only by colliding, and in a Krein space only eigenvalues whose eigenvectors have *opposite* Krein signature can collide. Krein signature therefore protects reality. In Part VII the finite-volume levels of the imaginary-coupling theories are shown to behave exactly this way: some sectors are $\Theta$-unbroken with real levels, while in others levels have collided and form complex-conjugate pairs (@sec-sector-status).
+
+## An example: the scaling Lee–Yang model {#sec-lee-yang}
+
+Lee and Yang showed that the zeros of the partition function of the Ising model in a magnetic field lie on the imaginary axis of the field [@leeyang1952]. Above the critical temperature they end at a point, the **Yang–Lee edge singularity**, which is a critical point at imaginary magnetic field. Fisher [-@fisher1978] showed that its scaling theory is a scalar field with an imaginary cubic interaction,
+
+$$
+\mathcal L=\tfrac12(\partial\phi)^2+i(h-h_c)\phi+ig\,\phi^3 ,
+$$
+
+with real $g$. The Lagrangian is complex, the Hamiltonian is not Hermitian, and the theory has the antilinear symmetry $\phi\mapsto-\phi$ combined with complex conjugation.
+
+In two dimensions the critical point is a conformal field theory, the minimal model $\mathcal M(2,5)$, with central charge $c=-22/5$ and a single nontrivial primary field of dimension $h=-1/5$ [@cardy1985]. Negative dimensions and negative central charge are impossible in a unitary theory. The natural Hermitian form on the space of states is indefinite.
+
+Moving away from criticality gives the **scaling Lee–Yang model**, a massive integrable field theory with a single particle. Its S-matrix is (-@eq-lee-yang-smatrix) [@cardy1989]:
+
+$$
+S(\theta)=f_{2/3}(\theta)=\frac{\sinh\theta+i\sin\frac{2\pi}3}{\sinh\theta-i\sin\frac{2\pi}3}.
+$$
+
+It satisfies braiding unitarity, crossing and real analyticity, so it is a phase for real $\theta$. But by @exr-fx the residue at the $s$-channel pole $\theta=2\pi i/3$ is $i$ times a *negative* number. By (-@eq-residue) the three-point coupling $\Gamma$ is imaginary, as the $ig\phi^3$ Lagrangian says it should be. Equivalently, the particle appears in its own two-particle scattering as a bound state of negative norm.
+
+Despite this, the scaling Lee–Yang model is a well-defined quantum field theory by every operational test.
+
+- Its finite-volume spectrum, computed independently by the truncated conformal space approach, is real in the massive direction and agrees with the predictions of the S-matrix [@yurov1990].
+- Its ground-state energy, computed by the thermodynamic Bethe ansatz from the S-matrix, is real, and its small-volume behaviour $E_0(L)\simeq-\pi c_{\rm eff}/6L$ gives the **effective central charge** $c_{\rm eff}=c-24h_{\rm min}=2/5$ rather than $c=-22/5$ [@zamolodchikov1990].
+- It describes a real physical phenomenon, the edge singularity, and its critical exponents agree with numerical studies of the Ising model.
+
+Non-unitarity here is a property of the theory, with measurable consequences, and not an inconsistency. @sec-sine-gordon showed that the scaling Lee–Yang model is also an RSOS restriction of sine-Gordon theory (@prp-sg-rsos), and it is a restriction of $a_2^{(2)}$ affine Toda theory too [@smirnov1991]. The imaginary-coupling affine Toda theories are its parents.
 
 ## What we mean by a valid QFT {#sec-valid-qft}
 
-We adopt operational criteria that apply equally to unitary and non-unitary theories, the scaling Lee–Yang model being the standard example of the latter [@fisher1978; @cardy1989].
+Guided by the Lee–Yang example, we adopt operational criteria that apply equally to unitary and non-unitary theories.
 
 - **(C1) Definition.** A regularized theory exists, its correlation functions are finite, and there is a continuum limit.
-- **(C2) Euclidean consistency.** The Euclidean correlation functions of a generating set of local observables satisfy the Osterwalder–Schrader axioms. Reflection positivity may be replaced by a twisted reflection positivity that yields a Krein space.
+- **(C2) Euclidean consistency.** The Euclidean correlation functions of a generating set of local observables satisfy the Osterwalder–Schrader axioms [@osterwalder1973; @osterwalder1975]. Reflection positivity may be replaced by a twisted reflection positivity that yields a Krein space.
 - **(C3) Hamiltonian structure.** There is a Hamiltonian, self-adjoint with respect to a possibly indefinite inner product, with an antilinear symmetry. Its vacuum energy is real.
 - **(C4) Asymptotic spectrum.** The one-particle states (particles, solitons, breathers, excited solitons) have real masses.
 - **(C5) Scattering.** The S-matrix satisfies factorization, the Yang–Baxter equation, crossing, the bootstrap, and pseudo-unitarity with respect to the Krein structure.
@@ -41,10 +152,32 @@ We adopt operational criteria that apply equally to unitary and non-unitary theo
 
 Unitarity (a positive inner product preserved by the S-matrix) is **not** on this list. @sec-scattering shows that it fails in identifiable sectors of most imaginary-coupling ATFTs, and @sec-unitarity lists which of its usual consequences cannot be recovered by any means. That failure is a physical property of these theories, as it is of Lee–Yang, and not an inconsistency.
 
-## Exercises
+## Infinite dimensions {#sec-krein-infinite}
 
-*To be written.*
+In infinite dimensions the statements of @prp-krein-spectrum need qualification. The spectrum of a $J$-self-adjoint operator is still symmetric under complex conjugation, but it need not consist of eigenvalues. Non-real spectrum can accumulate, eigenvector expansions can fail to converge, and a non-Hermitian Schrödinger operator can have **spectral singularities** in its continuous spectrum, points where the resolvent blows up without an eigenvalue. Pontryagin spaces, where the negative part is finite-dimensional, behave much like finite-dimensional spaces [@bognar1974]. In this book the infinite-dimensional statements are needed in two places, and each time they are handled by working on a lattice, where the dimension is finite, or by explicit control of the operators concerned: the transfer matrix in @sec-hamiltonian-structure-krein-space, and the fluctuation operators about static solitons in Part V, which have no spectral singularities (@prp-hirota-form).
 
-## Notes and references
+## Exercises {#sec-non-hermitian-exercises}
 
-*To be written.*
+::: {#exr-dimer}
+For the dimer (-@eq-dimer), verify $JH^\dagger J=H$ and $\Theta H\Theta=H$. Compute $[x_\pm,x_\pm]$ in the unbroken regime and show that $\Theta x_\pm\propto x_\pm$ there. Show that both eigenvectors are neutral in the broken regime.
+:::
+
+::: {#exr-krein-collision}
+Let $H$ be $J$-self-adjoint and let $\lambda$ be a real eigenvalue with an eigenvector $x$ that has $[x,x]>0$. Show that a small $J$-self-adjoint perturbation cannot move $\lambda$ off the real axis. (*Hint:* a non-real eigenvalue requires a neutral eigenvector.)
+:::
+
+::: {#exr-self-orthogonal}
+Let $A$ be a complex symmetric matrix, $A^{\mathsf T}=A$, with a Jordan chain $Ax_0=\lambda x_0$, $Ax_1=\lambda x_1+x_0$. Show that $x_0^{\mathsf T}x_0=0$.
+:::
+
+::: {#exr-jordan-determinant}
+The complex symmetric matrix $A=\begin{pmatrix}2+i&1\\1&2-i\end{pmatrix}$ has a single eigenvalue. Find it, its algebraic and geometric multiplicities, and $\det A$. Compute $\int_{\mathbb R^2}e^{-\frac12x^{\mathsf T}Ax}\,d^2x$ and check that it equals $2\pi/\sqrt{\det A}$.
+:::
+
+::: {#exr-ceff}
+For the minimal model $\mathcal M(p,p')$ the central charge is $c=1-6(p-p')^2/pp'$ and the smallest conformal dimension is $h_{\rm min}=\big(1-(p-p')^2\big)/4pp'$. Show that $c_{\rm eff}=c-24h_{\rm min}=1-6/pp'$, and evaluate it for $\mathcal M(2,5)$.
+:::
+
+## Notes and references {#sec-non-hermitian-notes}
+
+Bognár's book [@bognar1974] is the standard reference on Krein and Pontryagin spaces. Bender's review [@bender2007] introduces $PT$-symmetric quantum mechanics, and Mostafazadeh's review [@mostafazadeh2010] develops pseudo-Hermiticity and its relation to antilinear symmetries. Kato [@kato1966] treats exceptional points in perturbation theory, and Heiss [@heiss2012] surveys their physics. Ashida, Gong and Ueda [@ashida2020] review non-Hermitian physics broadly, including photonic realizations of the dimer. For the Yang–Lee edge singularity see Fisher [-@fisher1978] and Cardy [-@cardy1985], for its S-matrix Cardy and Mussardo [-@cardy1989], and for its TBA and finite-volume spectrum Al. B. Zamolodchikov [-@zamolodchikov1990] and Yurov and Zamolodchikov [-@yurov1990].

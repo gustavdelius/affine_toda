@@ -8,42 +8,216 @@
 - Recognise the CDD ambiguity and the ways it is fixed.
 :::
 
-::: {.callout-warning appearance="simple" title="To be written"}
-Sources to draw on: Zamolodchikov–Zamolodchikov 1979; Parke 1980; Dorey's 1996 lecture notes on exact S-matrices; Mussardo's *Statistical Field Theory*, chapters 16–18.
+In four dimensions an interacting S-matrix is a complicated object. Particle production is allowed, amplitudes depend on several kinematic invariants, and no interacting S-matrix of a realistic theory is known exactly. In two dimensions there is a large class of theories for which the opposite is true. They have infinitely many local conserved charges, and these charges are so restrictive that the whole S-matrix is fixed by the two-particle amplitudes, and these in turn by a short list of consistency conditions. Affine Toda field theories are a large family of such theories, one for each affine Lie algebra.
+
+This chapter sets out the general framework. It is independent of affine Toda theory, and the examples are kept to the simplest cases. @sec-sine-gordon applies it to sine-Gordon theory, and Part IV applies it to every affine Toda theory at real coupling.
+
+## Kinematics and rapidities {#sec-rapidities}
+
+A particle of mass $m$ in $1+1$ dimensions has on-shell two-momentum
+
+$$
+p^0=m\cosh\theta,\qquad p^1=m\sinh\theta ,
+$$ {#eq-rapidity}
+
+where $\theta\in\mathbb R$ is its **rapidity**. A Lorentz boost with rapidity $\lambda$ shifts every rapidity by $\lambda$, so Lorentz-invariant quantities depend only on rapidity differences. For two particles $a$, $b$ with $\theta_{ab}=\theta_a-\theta_b$,
+
+$$
+s=(p_a+p_b)^2=m_a^2+m_b^2+2m_am_b\cosh\theta_{ab}.
+$$ {#eq-mandelstam-s}
+
+In two dimensions the two-particle scattering amplitude depends on a single invariant, which we take to be $\theta=\theta_{ab}$ rather than $s$. The advantage is that the map $\theta\mapsto s$ unfolds the cuts of the $s$-plane.
+
+- Real $\theta>0$ gives the physical region $s\ge(m_a+m_b)^2$, approached from above the cut.
+- $\theta=iu$ with $0<u<\pi$ gives $(m_a-m_b)^2<s<(m_a+m_b)^2$, the segment between the thresholds, where bound-state poles lie.
+- $\theta=i\pi-\vartheta$ with real $\vartheta$ gives $s\le(m_a-m_b)^2$, the region of the crossed channel.
+
+The **physical strip** $0\le\operatorname{Im}\theta\le\pi$ maps one-to-one onto the physical sheet of the $s$-plane, with both the $s$-channel and the crossed-channel cuts opened up (@exr-strip). An amplitude that is meromorphic in $s$ on the physical sheet with two square-root branch points becomes a meromorphic function of $\theta$ in the strip. In integrable theories it is in fact meromorphic in the whole $\theta$-plane.
+
+**Asymptotic states.** An $n$-particle in-state is written $|A_{a_1}(\theta_1)\cdots A_{a_n}(\theta_n)\rangle_{\rm in}$ with $\theta_1>\dots>\theta_n$: in the far past the fastest particle is on the left. Out-states are written with the opposite ordering. A convenient bookkeeping device is the **Zamolodchikov–Faddeev algebra** [@zz1979; @faddeev1978]. Its generators $A_a(\theta)$ create particles in the order written, and they obey the exchange relation
+
+$$
+A_a(\theta_1)A_b(\theta_2)=S_{ab}^{cd}(\theta_1-\theta_2)\,A_d(\theta_2)A_c(\theta_1),
+$$ {#eq-zf-algebra}
+
+with summation over repeated indices. Reading the relation as a reordering of creation operators, the in-state on the left is expressed in terms of out-states on the right, and $S_{ab}^{cd}(\theta)$ is the two-particle S-matrix.
+
+## Higher conserved charges and factorization {#sec-factorization}
+
+Suppose the theory has local conserved currents of Lorentz spin $s$. In light-cone coordinates $x^\pm=x^0\pm x^1$ such a current is a pair $(T_{s+1},\Theta_{s-1})$ with $\partial_-T_{s+1}=\partial_+\Theta_{s-1}$, and
+
+$$
+Q_s=\int dx^1\,\big(T_{s+1}+\Theta_{s-1}\big)
+$$
+
+is conserved. The energy and momentum are the combinations $Q_{\pm1}$ of spin $\pm1$. Because $Q_s$ is the integral of a local density, it acts on asymptotic states additively. Because it has spin $s$, it acts on a one-particle state as
+
+$$
+Q_s\,|A_a(\theta)\rangle=\chi_a^{(s)}\,e^{s\theta}\,|A_a(\theta)\rangle .
+$$ {#eq-charge-eigenvalue}
+
+In affine Toda theory the spins of the conserved charges are the exponents of the affine algebra repeated modulo the Coxeter number, and the eigenvalues $\chi^{(s)}_a$ form eigenvectors of the Cartan matrix (@sec-root-systems, @sec-theories). For now we only need that there are infinitely many charges with nonzero eigenvalues.
+
+**No particle production.** Conservation of $Q_s$ in a scattering process says
+
+$$
+\sum_{\text{in}}\chi^{(s)}_{a_i}e^{s\theta_i}=\sum_{\text{out}}\chi^{(s)}_{b_j}e^{s\theta'_j}
+$$
+
+for infinitely many $s$. A finite set of exponentials with distinct exponents is linearly independent, so this forces the set of outgoing rapidities and charges to equal the incoming set. Particle number is conserved, the set of momenta is conserved, and particles can only exchange labels within a multiplet of equal mass. Scattering is **elastic**.
+
+**Factorization.** The charges do more. On a wave packet that is sharply peaked in momentum, the operator $e^{i\alpha Q_s}$ multiplies the momentum-space wave function by $e^{i\alpha\chi^{(s)}p^s}$ (schematically, with $p$ a light-cone momentum). This shifts the position of the packet by an amount proportional to $\alpha\,s\,p^{s-1}$. For $s>1$ the shift depends on the momentum, so packets with different momenta move by different amounts. Since $Q_s$ commutes with the S-matrix, the amplitude cannot depend on these shifts. But by shifting appropriately one can arrange the three particles of a $3\to3$ process to collide in any order of pairwise collisions, or to meet at a single point. Hence:
+
+- An $n$-particle amplitude is a product of $n(n-1)/2$ two-particle amplitudes, one for each pair of trajectories.
+- The result is independent of the order in which the pairwise collisions take place.
+
+The argument goes back to Shankar and Witten [-@shankar1978] and to Parke [-@parke1980], who showed that a small number of higher-spin charges already suffices. Integrable quantum field theory is the study of theories in which these conclusions hold.
+
+## The Yang–Baxter equation {#sec-yang-baxter}
+
+Independence of the order of collisions in a three-particle process is a nontrivial condition when particles in a multiplet can exchange labels. Writing $S_{ij}$ for the two-particle S-matrix acting on particles $i$ and $j$, with rapidity argument $\theta_i-\theta_j$, it reads
+
+$$
+S_{12}\,S_{13}\,S_{23}=S_{23}\,S_{13}\,S_{12}.
+$$ {#eq-yang-baxter}
+
+This is the **Yang–Baxter equation**. In components it is a system of cubic functional equations for the amplitudes. It is trivially satisfied by a **diagonal** S-matrix, $S_{ab}^{cd}(\theta)=\delta_a^c\delta_b^d\,S_{ab}(\theta)$, which is what one finds when no two particles share a mass and quantum numbers, as for the particles of real-coupling affine Toda theory. For solitons, which come in degenerate multiplets, the Yang–Baxter equation is very restrictive. Its solutions are R-matrices, and the systematic way to find them is through quantum groups (@sec-quantum-groups, @sec-r-matrices).
+
+## Analyticity, unitarity and crossing {#sec-unitarity-crossing-intro}
+
+The two-particle S-matrix satisfies three further sets of conditions.
+
+**Unitarity.** Applying the exchange relation (-@eq-zf-algebra) twice returns the original ordering, so
+
+$$
+S_{ab}^{cd}(\theta)\,S_{cd}^{ef}(-\theta)=\delta_a^e\delta_b^f .
+$$ {#eq-braiding-unitarity}
+
+This is often simply called unitarity. In this book we call it **braiding unitarity**, because it is a consistency condition of the exchange algebra and not a statement about an inner product. QFT unitarity is the condition $S(\theta)S(\theta)^\dagger=1$ for real $\theta$, with $\dagger$ the Hermitian conjugate with respect to the Hilbert-space inner product. The two agree when the S-matrix is also **Hermitian analytic**,
+
+$$
+S(\theta)^\dagger=S(-\theta^*) ,
+$$ {#eq-hermitian-analyticity}
+
+which is what one expects in a unitary theory, where it follows from the reality properties of the underlying amplitudes. For a diagonal S-matrix Hermitian analyticity reduces to real analyticity, $S_{ab}(\theta)^*=S_{ab}(-\theta^*)$, and together with (-@eq-braiding-unitarity) it gives $\lvert S_{ab}(\theta)\rvert=1$ for real $\theta$.
+
+The distinction matters in this book. The S-matrices of the imaginary-coupling theories satisfy braiding unitarity but are not Hermitian analytic, so they are not unitary in the QFT sense. @sec-scattering explains what replaces unitarity there.
+
+**Crossing.** Turning an incoming particle into an outgoing antiparticle continues $\theta\mapsto i\pi-\theta$. For a diagonal S-matrix,
+
+$$
+S_{ab}(\theta)=S_{\bar a b}(i\pi-\theta),
+$$ {#eq-crossing}
+
+where $\bar a$ is the antiparticle of $a$. For non-diagonal S-matrices the same relation holds with a partial transpose and charge conjugation matrices, which @sec-quantum-groups derives from the Hopf algebra structure.
+
+**Periodicity.** For self-conjugate particles, (-@eq-braiding-unitarity) and (-@eq-crossing) together give $S_{ab}(\theta+2\pi i)=S_{ab}(\theta)$ (@exr-periodicity). The amplitude is a function of $e^\theta$, and the natural building blocks are trigonometric.
+
+## The minimal solutions and the CDD ambiguity {#sec-cdd}
+
+The simplest function that satisfies unitarity, crossing and real analyticity for self-conjugate particles is
+
+$$
+f_x(\theta)=\frac{\sinh\theta+i\sin\pi x}{\sinh\theta-i\sin\pi x}
+=\frac{\tanh\frac12(\theta+i\pi x)}{\tanh\frac12(\theta-i\pi x)} .
+$$ {#eq-fx-block}
+
+It has a simple pole at $\theta=i\pi x$ and one at $\theta=i\pi(1-x)$, its crossing image, and zeros at the negatives of these points. The following statement is standard [@mussardo2010].
+
+::: {#prp-cdd}
+**[Established]** Let $S(\theta)$ be meromorphic, $2\pi i$-periodic, and bounded by a polynomial in $e^{\lvert\theta\rvert}$. If $S(\theta)S(-\theta)=1$, $S(i\pi-\theta)=S(\theta)$ and $S(\theta)^*=S(-\theta^*)$, then
+$$
+S(\theta)=\pm\prod_{k=1}^{N}f_{x_k}(\theta)
+$$
+for finitely many $x_k$, each real or of the form $\tfrac12+i\,y$ with real $y$.
 :::
 
-## Kinematics and rapidities
+The product in @prp-cdd is not fixed by the axioms: multiplying a solution by any $f_x$ gives another solution. The factors $f_x$ are called **CDD factors**, after Castillejo, Dalitz and Dyson. The axioms constrain the S-matrix, but they do not determine it. What determines it in practice is the **bootstrap**, together with a principle of minimality: one looks for the S-matrix with the fewest poles and zeros consistent with the bootstrap and with any known perturbative information. The sinh-Gordon S-matrix,
 
-*To be written.*
+$$
+S(\theta)=f_{-B/2}(\theta)=\frac{\sinh\theta-i\sin\frac{\pi B}2}{\sinh\theta+i\sin\frac{\pi B}2},\qquad 0<B<2,
+$$ {#eq-sinh-gordon-smatrix}
 
-## Higher conserved charges and factorization
+is a single CDD factor with zeros in the physical strip and no poles there [@arinshtein1979]. The parameter $B$ depends on the coupling, and @sec-sine-gordon gives its relation to $\beta$. Since sinh-Gordon theory has one particle and no bound states, its S-matrix contains no information the bootstrap can test. It was fixed by matching perturbation theory, and its correctness has since been confirmed in many independent ways.
 
-*To be written.*
+## Bound states and the bootstrap {#sec-bootstrap-intro}
 
-## The Yang–Baxter equation
+A simple pole of $S_{ab}(\theta)$ in the physical strip, at $\theta=iu_{ab}^c$ with $0<u_{ab}^c<\pi$, corresponds to a bound state $c$ in the $s$-channel or to the exchange of $c$ in the crossed channel. In the $s$-channel interpretation, (-@eq-mandelstam-s) gives the mass
 
-*To be written.*
+$$
+m_c^2=m_a^2+m_b^2+2m_am_b\cos u_{ab}^c .
+$$ {#eq-bound-state-mass}
 
-## Analyticity, unitarity and crossing
+Writing $\bar u=\pi-u$, this says that $m_a$, $m_b$, $m_c$ are the sides of a triangle, the **mass triangle**, whose interior angle opposite $m_c$ is $\bar u_{ab}^c$. The angles $u_{ab}^c$ are called **fusing angles**. Since the interior angles sum to $\pi$,
 
-*To be written.*
+$$
+u_{ab}^c+u_{bc}^{\bar a}+u_{ca}^{\bar b}=2\pi .
+$$
 
-## Bound states and the bootstrap
+**Residues.** Near an $s$-channel bound-state pole,
 
-*To be written.*
+$$
+S_{ab}(\theta)\simeq\frac{i\,\big(\Gamma_{ab}^c\big)^2}{\theta-iu_{ab}^c},
+$$ {#eq-residue}
 
-## CDD factors and minimality
+where $\Gamma_{ab}^c$ is the on-shell three-point coupling. In a unitary theory $\Gamma_{ab}^c$ is real, so the residue is $i$ times a *positive* number. A crossed-channel pole has the opposite sign. In a unitary theory this sign tells the two interpretations apart. In a non-unitary theory such as the scaling Lee–Yang model it need not, and @sec-lee-yang shows what happens.
 
-*To be written.*
+**The bootstrap.** If $c$ is a bound state of $a$ and $b$, it must scatter with any other particle $d$ as $a$ and $b$ would, with rapidities set by the mass triangle. In the bound state, $a$ and $b$ carry the complex rapidities $\theta_c+i\bar u_{ac}^b$ and $\theta_c-i\bar u_{bc}^a$, which conserve energy and momentum by the geometry of the triangle. Factorization then gives the **bootstrap equation**
 
-## Finite volume: the Bethe–Yang equations
+$$
+S_{dc}(\theta)=S_{da}\big(\theta-i\bar u_{ac}^{b}\big)\,S_{db}\big(\theta+i\bar u_{bc}^{a}\big),
+$$ {#eq-bootstrap}
 
-*To be written.*
+written here for self-conjugate particles. The bootstrap is a strong constraint. Every pole of every amplitude must be accounted for, either by a bound state (whose amplitudes must then satisfy (-@eq-bootstrap) in turn) or by some other mechanism, and the set of particles must close.
 
-## Exercises
+**Example: a particle that is its own bound state.** Take a single self-conjugate particle with
 
-*To be written.*
+$$
+S(\theta)=f_{2/3}(\theta)=\frac{\sinh\theta+i\sin\frac{2\pi}3}{\sinh\theta-i\sin\frac{2\pi}3}.
+$$ {#eq-lee-yang-smatrix}
 
-## Notes and references
+It has poles at $\theta=2\pi i/3$ and $\theta=i\pi/3$. Interpreting the first as an $s$-channel bound state, (-@eq-bound-state-mass) gives $m_c^2=2m^2(1+\cos\frac{2\pi}3)=m^2$: the bound state is the particle itself, with $u_{aa}^a=2\pi/3$ and a mass triangle that is equilateral. The pole at $i\pi/3$ is its crossing image. The bootstrap (-@eq-bootstrap) with $\bar u=\pi/3$ requires $S(\theta)=S(\theta-i\pi/3)\,S(\theta+i\pi/3)$, which holds (@exr-lee-yang-bootstrap). This is the S-matrix of the scaling Lee–Yang model [@cardy1989], and @sec-lee-yang takes it up again.
 
-*To be written.*
+**Higher-order poles.** Integrable S-matrices often have double and higher poles in the physical strip. These are not bound states. They come from anomalous thresholds, that is from Landau singularities of on-shell diagrams in which several particles propagate on shell, as Coleman and Thun showed for sine-Gordon theory [@coleman_thun1978]. In affine Toda theory the pattern of higher-order poles is intricate and fully consistent with this explanation [@braden1990]. @sec-perturbation-theory treats it.
+
+## Finite volume: the Bethe–Yang equations {#sec-bethe-yang}
+
+Put $n$ particles of a diagonal theory on a circle of circumference $L$, much larger than the inverse mass. Moving particle $j$ once around the circle, it acquires the phase $e^{im_jL\sinh\theta_j}$ from free propagation and the factor $S(\theta_j-\theta_k)$ from crossing each other particle. Periodicity of the wave function gives the **Bethe–Yang equations**
+
+$$
+e^{im_jL\sinh\theta_j}\prod_{k\ne j}S_{a_ja_k}(\theta_j-\theta_k)=1,\qquad j=1,\dots,n,
+$$ {#eq-bethe-yang}
+
+which quantize the rapidities. The energy is then $E=\sum_jm_j\cosh\theta_j$, up to corrections that vanish as $e^{-mL}$. For non-diagonal theories the product of S-matrices is replaced by a **transfer matrix** acting on the internal labels, and its eigenvalues take the place of the product.
+
+The equations have a simple consequence that drives much of Part VII. If the transfer-matrix eigenvalues are pure phases, as they are in a unitary theory, then (-@eq-bethe-yang) has real solutions $\theta_j$ and the finite-volume energies are real. If an eigenvalue has modulus different from 1, the solutions are complex, and so is the energy. Complex finite-volume energies in non-unitary integrable theories were first predicted in exactly this way [@tw1999; @tw2002].
+
+## Exercises {#sec-integrable-qft-exercises}
+
+::: {#exr-strip}
+Show that $\theta\mapsto s(\theta)$ of (-@eq-mandelstam-s) maps the strip $0<\operatorname{Im}\theta<\pi$ bijectively onto $\mathbb C\setminus\big((-\infty,(m_a-m_b)^2]\cup[(m_a+m_b)^2,\infty)\big)$. Which edges of the cuts do the lines $\operatorname{Im}\theta=0$ and $\operatorname{Im}\theta=\pi$ map to?
+:::
+
+::: {#exr-periodicity}
+Show that braiding unitarity and crossing imply $S_{ab}(\theta+2\pi i)=S_{ab}(\theta)$ for self-conjugate particles. What is the corresponding statement when $a\ne\bar a$?
+:::
+
+::: {#exr-fx}
+Verify that $f_x$ of (-@eq-fx-block) satisfies unitarity, crossing and real analyticity. Compute its residue at $\theta=i\pi x$ for $0<x<\frac12$, and show that it has the sign of an $s$-channel bound state in the sense of (-@eq-residue), while the residue at $i\pi(1-x)$ has the opposite sign.
+:::
+
+::: {#exr-lee-yang-bootstrap}
+Verify the bootstrap equation $f_{2/3}(\theta)=f_{2/3}(\theta-i\pi/3)\,f_{2/3}(\theta+i\pi/3)$. *Hint:* write $f_x$ as a ratio of $\tanh$s and use $\tanh(z+i\pi/2)=\coth z$.
+:::
+
+::: {#exr-free-fermion}
+The S-matrix $S=-1$ describes free Majorana fermions. Show that the Bethe–Yang equations then reproduce the momentum quantization of $n$ free fermions on a circle: half-integer modes $p_jL\in2\pi(\mathbb Z+\frac12)$ for even $n$ and integer modes for odd $n$.
+:::
+
+::: {#exr-no-production}
+Consider a single species and suppose $\sum_{i=1}^n e^{s\theta_i}=\sum_{j=1}^{n'}e^{s\theta'_j}$ for every odd integer $s$, as in sinh-Gordon theory. Show that $n=n'$ and that the multisets $\{\theta_i\}$ and $\{\theta'_j\}$ coincide. *Hint:* consider the behaviour of both sides as $s\to+\infty$ and as $s\to-\infty$.
+:::
+
+## Notes and references {#sec-integrable-qft-notes}
+
+The classic paper is Zamolodchikov and Zamolodchikov [-@zz1979], which introduced the exchange algebra, solved the sine-Gordon S-matrix and set out the bootstrap. The factorization argument is due to Shankar and Witten [-@shankar1978] and Parke [-@parke1980]. Dorey's lectures [-@dorey1998] are the best short introduction to exact S-matrices and treat the affine Toda examples in detail. Mussardo's textbook [-@mussardo2010] covers the same ground at greater length, together with the thermodynamic Bethe ansatz and form factors. The distinction between braiding unitarity and QFT unitarity, and the role of Hermitian analyticity, is discussed by Miramontes [-@miramontes1999].
