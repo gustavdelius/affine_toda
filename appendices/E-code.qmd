@@ -1,5 +1,11 @@
 # Guide to the supporting code {#sec-app-code}
 
-::: {.callout-warning appearance="simple" title="To be written"}
-A map from chapters to the scripts that verify them, drawn from `foundations_code/README.md` and `soliton_rmatrix_code/README.md`.
-:::
+Every numerical or symbolic claim in this book that is not a textbook result is backed by a script in the repository [github.com/gustavdelius/affine_toda](https://github.com/gustavdelius/affine_toda). The scripts are Python 3 with numpy, scipy, sympy and mpmath. Each directory has a README with a file-by-file description, and this appendix says which directory serves which part of the book.
+
+| Directory | Parts | What it contains |
+|---|---|---|
+| `textbook_code/` | I–VI (textbook chapters), appendix A | Checks of the formulas presented as textbook material: the sine-Gordon S-matrix and breather, the six-vertex R-matrix and its crossing data, the universal R-matrix, the tensor-product graph, the classical Toda theory (Lax pair, masses, Dorey's rule, Hirota solitons), the simply-laced S-matrices, the semiclassical mass formulas, quantum dimensions, and the data of appendix A. Each script prints `PASS`/`FAIL` lines. |
+| `foundations_code/` | V, VII | Research computations behind Parts V and VII: Hirota fluctuations, transmission factors and Jordan types (`hirota/`), one-loop masses of all folded solitons (`oneloop/`), the thimble decomposition of the reduced model and topological charges (`thimbles/`), Krein-unitarity and sector classification (`krein_bethe.py`, `sectors/`), RSOS face weights of $a_2^{(1)}$ (`irf/`), the continuum-limit lemmas (`nested_check.py`, `review614/`), the bulk-energy poles (`bulk_poles.py`), and the comparison with the lattice model of Vernier, Jacobsen and Saleur (`vernier/`). |
+| `soliton_rmatrix_code/` | VI, appendix D | Construction of representations and R-matrices of quantum affine algebras from their defining relations, scalar factors, fusion, pole scans and breather tests for $c_n^{(1)}$, $a_{2n-1}^{(2)}$, $e_6^{(2)}$, $f_4^{(1)}$, $g_2^{(1)}$ and $d_4^{(3)}$, and the one-loop comparisons with the Toda Lagrangian. |
+
+The status of every claim checked only by hand, and of every claim not yet checked, is recorded for the textbook chapters in `briefs/referee_textbook.md`, and the other files in `briefs/` describe open research tasks.

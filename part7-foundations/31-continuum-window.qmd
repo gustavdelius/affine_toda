@@ -1,5 +1,13 @@
 # The continuum limit II: the window {#sec-continuum-window}
 
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- See why the method of @sec-continuum-limit fails between $2\pi$ and $\beta^2_{\rm UV}$.
+- Follow the strategy of keeping exact interactions inside small clusters of charges.
+- Understand the stability bound on the free energy, and why its exponent is sharp.
+:::
+
+For every algebra except $a_1^{(1)}$ there is a window $2\pi\le\beta^2<\beta^2_{\rm UV}$ in which no neutral cluster collapses, yet the nearest-neighbour bound of @sec-continuum-limit is too weak. This chapter proves the continuum limit in the window. It is the most technical chapter of the book, and most readers will want only the statements: @thm-window, @thm-cluster-bound and @lem-stability.
+
 ## The window $2\pi\le\beta^2<\beta^2_{\rm UV}$ {#sec-window}
 
 By @sec-collapse-thresholds this window is non-empty for every algebra except $a_1^{(1)}$. The natural extension of Fröhlich's method does not reach it.
@@ -326,3 +334,17 @@ So (S1) holds for some $\theta<1$ if and only if the renormalized free energy at
 :::
 
 **Status of H1–H5.** With Theorems [-@thm-bounded-weight]–[-@thm-vacuum-energy], Theorems [-@thm-below-2pi] and [-@thm-window] close H1–H5 in finite volume for $0<\beta^2<\beta^2_{\rm UV}(\hat g)$, for every affine algebra. @thm-below-2pi gives the simpler proof, with an explicit bound, for $\beta^2<2\pi$; for sine-Gordon this is already the whole range. At and above $\beta^2_{\rm UV}$ further counterterms are needed (@prp-uv-divergence). The infinite-volume limit remains @cnj-correlation-range.
+
+## Exercises {#sec-continuum-window-exercises}
+
+::: {#exr-window-nonempty}
+Show that $2\pi<\beta^2_{\rm UV}\le4\pi$ for every $\hat g\ne a_1^{(1)}$, using the argument of @sec-collapse-thresholds.
+:::
+
+::: {#exr-stability}
+Show that a bound $\log\Xi(z)\le A(1+z^{1/(1-\kappa)})$ is consistent with dimensional analysis when the fugacity has dimension $2-2\kappa$ (in units of inverse length) and $\Xi$ is computed in a fixed volume.
+:::
+
+## Notes and references {#sec-continuum-window-notes}
+
+The cluster expansions used here are in the tradition of constructive field theory for Coulomb gases [@benfatto1982]. The window results are new here and have not yet been independently refereed (open problem 1 of @sec-open-problems).

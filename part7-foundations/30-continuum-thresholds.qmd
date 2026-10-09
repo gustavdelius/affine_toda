@@ -1,5 +1,13 @@
 # The continuum limit I: thresholds and the theorem below $2\pi$ {#sec-continuum-limit}
 
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Locate the ultraviolet collapse thresholds of the Coulomb gas for every algebra.
+- Understand why Wick ordering must be done site by site with Dirichlet boundary conditions.
+- Follow the proof that the continuum limit exists in finite volume for $\beta^2<2\pi$, and why the threshold is sharp.
+:::
+
+The lattice theory of @sec-lattice exists for every lattice spacing. This chapter and the next ask whether it has a continuum limit. In the Coulomb-gas picture the danger is clear: charges of opposite sign can collapse onto each other, and their Boltzmann weight can then diverge. This chapter finds where that happens and proves the continuum limit below the first, simplest threshold. A reader interested only in the result can read @sec-collapse-thresholds and the statements of @thm-below-2pi and @prp-uv-divergence.
+
 ## Collapse thresholds {#sec-collapse-thresholds}
 
 In the Coulomb-gas picture, ultraviolet divergences come from clusters of charges collapsing to a point. Consider a cluster $S$ (a finite multiset of affine roots, possibly with repeats) shrinking uniformly by a factor $s\to0$, with continuum covariance $C(x)\simeq-\frac{1}{2\pi}\ln\lvert x\rvert$. Its weight scales as
@@ -232,3 +240,17 @@ Induct by adding one integrated point $x$ to a set $X'$ of $n$ points (integrate
 4. Restrict to uniform collapse: $x_k=x_0+s\,y_k$, with $y$ in a small open set of unit-norm relative configurations. The measure is $c\,s^{2n-3}\,ds$ and the integrand is at least $c\,s^{-\kappa D(S)}$. Since $2n-3-\kappa D(S)\le-1$, the integral is infinite.
 
 :::
+
+## Exercises {#sec-continuum-limit-exercises}
+
+::: {#exr-thresholds}
+Use the definition of $\beta^2_{\rm UV}$ in @sec-collapse-thresholds to compute it for $a_1^{(1)}$, $a_2^{(1)}$, $c_2^{(1)}$ and $e_8^{(1)}$, and identify the cluster that attains the minimum in each case.
+:::
+
+::: {#exr-pair-collapse}
+For a neutral pair of charges $\pm q$ in two dimensions with covariance $C(x)\simeq-\frac1{2\pi}\ln\lvert x\rvert$, show that $\int_{\lvert x\rvert<1}d^2x\,e^{q^2C(x)}$ converges if and only if $q^2<4\pi$. Relate this to the sine-Gordon bound $\beta_{\rm SG}^2<4\pi$.
+:::
+
+## Notes and references {#sec-continuum-limit-notes}
+
+The continuum limit of the two-component Coulomb gas, that is of sine-Gordon below the first threshold, is due to Fröhlich [@frohlich1976] and Benfatto, Gallavotti and Nicolò [@benfatto1982]. The relation with imaginary multiplicative chaos is discussed in [@junnila2020; @lacoin2015]. The multi-component statements are new here.

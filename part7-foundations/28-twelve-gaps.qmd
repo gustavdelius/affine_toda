@@ -1,5 +1,13 @@
 # Twelve gaps: what is assumed and what is proved {#sec-critique}
 
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Know the three standard objections to the imaginary-coupling theories.
+- Know the twelve gaps between what the literature uses and what it establishes.
+- Know which chapter of Part VII (or Parts V and VI) addresses each gap, and with what status.
+:::
+
+Part VII asks whether the imaginary-coupling affine Toda theories exist as quantum field theories, in the operational sense of @sec-valid-qft. This chapter states the problem: the objections usually raised, the twelve specific gaps in the literature, and a summary of what the rest of the part establishes.
+
 ## Three objections {#sec-three-objections}
 
 Three objections are routinely raised against the imaginary-coupling theories.
@@ -73,3 +81,17 @@ The resulting picture is that imaginary-coupling ATFTs are valid **non-unitary**
 | H10 | completeness and correctness of exact S-matrices | partly open: soliton S-matrices constructed in Part VI for $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$, all three agreeing with the one-loop soliton masses (@sec-one-loop-masses-folded), and $a_{2n-1}^{(2)}$ also with integrable-lattice masses (@sec-a2n-lattice); $f_4^{(1)}$ open, with its one-loop soliton masses predicted (@sec-one-loop-masses-folded) |
 | H11 | missing classical topological charges and solutions | open; reformulated via thimbles; static saddles shown not to suffice for $a_3^{(1)}$, whose missing charges are carried by charged two-soliton bound states (@sec-which-saddles-contribute) |
 | H12 | unitary subtheories and RSOS restriction | established in specific cases; exact criterion for the fundamental kinks of $a_2^{(1)}$ (@prp-rsos-kinks); general criterion conjectured (@cnj-unitary-rsos) |
+
+## Exercises {#sec-critique-exercises}
+
+::: {#exr-gap-map}
+For each gap H1–H12, name the chapter of this book that addresses it and summarize in one sentence what is established and what is still open.
+:::
+
+::: {#exr-lee-yang-criteria}
+Go through the criteria (C1)–(C6) of @sec-valid-qft for the scaling Lee–Yang model of @sec-lee-yang. Which are established, and by what methods?
+:::
+
+## Notes and references {#sec-critique-notes}
+
+The objections are standard; see MacKay and Watts [-@mackay_watts1995] for the semiclassical ones and Takács and Watts [-@tw1999; -@tw2002] for non-unitarity. The list of gaps and the operational criteria are new here.

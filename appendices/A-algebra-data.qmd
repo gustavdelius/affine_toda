@@ -1,5 +1,60 @@
 # Data for the affine algebras {#sec-app-algebra-data}
 
-::: {.callout-warning appearance="simple" title="To be written"}
-One table per affine algebra: Dynkin diagram, Kac labels, Coxeter and dual Coxeter numbers, exponents, classical masses, the dual algebra, the soliton symmetry $U_q(\hat g^\vee)$, the relation between $q$ and $\beta$, and the gradation parameter $T$.
-:::
+This appendix collects the Lie-algebraic data used throughout the book. Normalizations are those of @sec-lie-algebraic-data: long roots have squared length 2, the potential is (-@eq-imaginary-potential), and masses are in units of the parameter $m$. The masses of the simply-laced and untwisted non-simply-laced theories are computed in `textbook_code/algebra_data.py`, which also checks the closed forms below.
+
+## Untwisted algebras {#sec-app-untwisted}
+
+| $\hat g$ | rank | $h$ | $h^\vee$ | exponents of $g$ | Kac labels | dual $\hat g^\vee$ |
+|---|---|---|---|---|---|---|
+| $a_n^{(1)}$ | $n$ | $n+1$ | $n+1$ | $1,\dots,n$ | all 1 | $a_n^{(1)}$ |
+| $b_n^{(1)}$ | $n$ | $2n$ | $2n-1$ | $1,3,\dots,2n-1$ | $1,1,2,\dots,2$ | $a_{2n-1}^{(2)}$ |
+| $c_n^{(1)}$ | $n$ | $2n$ | $n+1$ | $1,3,\dots,2n-1$ | $1,2,\dots,2,1$ | $d_{n+1}^{(2)}$ |
+| $d_n^{(1)}$ | $n$ | $2n-2$ | $2n-2$ | $1,3,\dots,2n-3;\ n-1$ | 1 on the four ends, 2 elsewhere | $d_n^{(1)}$ |
+| $e_6^{(1)}$ | 6 | 12 | 12 | $1,4,5,7,8,11$ | $1,1,1;2,2,2;3$ | $e_6^{(1)}$ |
+| $e_7^{(1)}$ | 7 | 18 | 18 | $1,5,7,9,11,13,17$ | $1,2,3,4,3,2,1;2$ | $e_7^{(1)}$ |
+| $e_8^{(1)}$ | 8 | 30 | 30 | $1,7,11,13,17,19,23,29$ | $1,2,3,4,5,6,4,2;3$ | $e_8^{(1)}$ |
+| $f_4^{(1)}$ | 4 | 12 | 9 | $1,5,7,11$ | $1,2,3,4,2$ | $e_6^{(2)}$ |
+| $g_2^{(1)}$ | 2 | 6 | 4 | $1,5$ | $1,2,3$ | $d_4^{(3)}$ |
+
+: Untwisted affine algebras. The Kac labels are listed in the order of @tbl-untwisted; the conserved charges have spins equal to the exponents modulo $h$ (@sec-conserved-charges). {#tbl-app-untwisted}
+
+## Twisted algebras {#sec-app-twisted}
+
+| $\hat g$ | rank | $h$ | $h^\vee$ | folded from | dual $\hat g^\vee$ |
+|---|---|---|---|---|---|
+| $a_{2n}^{(2)}$ | $n$ | $2n+1$ | $2n+1$ | $d_{2n+2}^{(1)}$ | $a_{2n}^{(2)}$ |
+| $a_{2n-1}^{(2)}$ | $n$ | $2n-1$ | $2n$ | $d_{2n}^{(1)}$ | $b_n^{(1)}$ |
+| $d_{n+1}^{(2)}$ | $n$ | $n+1$ | $2n$ | $d_{n+2}^{(1)}$ | $c_n^{(1)}$ |
+| $e_6^{(2)}$ | 4 | 9 | 12 | $e_7^{(1)}$ | $f_4^{(1)}$ |
+| $d_4^{(3)}$ | 2 | 4 | 6 | $e_6^{(1)}$ | $g_2^{(1)}$ |
+
+: Twisted affine algebras. The literature usually gives the longest root of a twisted algebra $X^{(k)}$ squared length $2k$; its coupling is then $\beta_{\rm lit}^2=\beta^2/k$ (@sec-conventions). {#tbl-app-twisted}
+
+## Classical particle masses {#sec-app-masses}
+
+| $\hat g$ | masses $m_a/m$ |
+|---|---|
+| $a_n^{(1)}$ | $2\sin\frac{\pi a}h$, $a=1,\dots,n$ |
+| $d_n^{(1)}$ | $2\sqrt2\sin\frac{\pi a}h$, $a=1,\dots,n-2$; $\sqrt2$, $\sqrt2$ |
+| $e_6^{(1)}$ | $1.126033\ (\times2)$, $1.592450$, $2.175328\ (\times2)$, $3.076378$ |
+| $e_7^{(1)}$ | $0.967379$, $1.243639$, $1.818078$, $1.905365$, $2.449490$, $2.785457$, $3.580914$ |
+| $e_8^{(1)}$ | $0.922682$, $1.492930$, $1.835254$, $2.218927$, $2.727720$, $2.969504$, $3.590299$, $4.413543$ |
+| $b_n^{(1)}$ | $2\sqrt2\sin\frac{\pi a}{2n}$, $a=1,\dots,n-1$; $\sqrt2$ |
+| $c_n^{(1)}$ | $2\sin\frac{\pi a}{2n}$, $a=1,\dots,n$ |
+| $f_4^{(1)}$ | $1.126033$, $1.592450$, $2.175328$, $3.076378$; ratios $1,\ 2\cos\frac\pi4,\ 2\cos\frac\pi{12},\ 1+\sqrt3$ |
+| $g_2^{(1)}$ | $\sqrt2$, $\sqrt6$ |
+
+: Classical masses. For simply-laced algebras they are the Perron–Frobenius vector of the Cartan matrix and satisfy $\sum_am_a^2=2hm^2$ (@sec-masses-couplings). The non-simply-laced masses are the masses of the parent theory whose eigenvectors are invariant under the folding (@sec-affine-folding). {#tbl-app-masses}
+
+For the twisted algebras the masses are likewise those of the invariant eigenvectors of the parent theory of @tbl-app-twisted, with the normalization of the twisted roots taken into account. The quantum masses of the non-simply-laced theories float with the coupling (@sec-non-simply-laced).
+
+## Soliton data {#sec-app-soliton-data}
+
+In the normalization of this book the imaginary-coupling theory based on $\hat g$ has:
+
+- **vacua** on $\frac{2\pi}\beta$ times the coweight lattice (@sec-real-imaginary);
+- **soliton masses** $M_a=2hm_a/\beta^2$ classically for simply-laced $\hat g$ (@sec-soliton-masses), and proportional to the particle masses of $(g^\vee)^{(1)}$ for untwisted non-simply-laced $\hat g$;
+- **soliton symmetry** $U_q(\hat g^\vee)$ with $q=\pm e^{4\pi^2i/\beta^2}$ (@sec-qg-symmetry);
+- **gradation** $x(\theta)=e^{2T\theta}$ with $2T=\frac{4\pi h}{\beta^2}-h^\vee$, where for twisted $\hat g$ the coupling is $\beta_{\rm lit}$ (@sec-amplitude-and-gradation);
+- **coupling variable** $\omega=\frac{4\pi}{\beta^2}-1$ in Part VI, so that $q=e^{-i\pi\omega}$ up to the conventions discussed in @sec-six-vertex;
+- **first collapse threshold** $\beta^2_{\rm UV}$ of @sec-collapse-thresholds: $2\pi$ for $a_1^{(1)}$, $4\pi(h-1)/h$ for the other simply-laced algebras, $4\pi$ for $b_n^{(1)}$, $c_n^{(1)}$, $g_2^{(1)}$ and $a_2^{(2)}$.

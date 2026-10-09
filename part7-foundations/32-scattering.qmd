@@ -1,5 +1,13 @@
 # Scattering without unitarity {#sec-scattering}
 
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Separate the properties of the S-matrix that follow from the quantum-group symmetry from QFT unitarity.
+- Define Krein-unitarity and derive its consequences for S-matrix and transfer-matrix eigenvalues.
+- Classify sectors of the imaginary-coupling theories as $\Theta$-broken or unbroken.
+:::
+
+The soliton S-matrices of Part VI satisfy every axiom of @sec-integrable-qft except one: they are not unitary in the QFT sense. This chapter asks what replaces unitarity. The answer is Krein-unitarity, the scattering counterpart of the Krein-space structure of @sec-hamiltonian-structure-krein-space, and its consequences can be checked sector by sector.
+
 ## What survives, and why {#sec-what-survives}
 
 Every known imaginary-coupling soliton S-matrix satisfies:
@@ -174,3 +182,17 @@ Part 2 proves the soliton–breather row of the table for self-conjugate theorie
 *Caveat: exchange statistics.* These statements use the ordinary flip of soliton labels in the Bethe–Yang equations. A $\mathbb Z_2$ grading of the multiplet changes the eigenvalue moduli; a change of gradation does not. With the charged $a_2^{(2)}$ kinks treated as fermions, the two-kink amplitude has phase eigenvalues at every coupling, as Takács and Watts state, and the $N$-kink sector is unbroken if and only if $\lvert\psi\rvert\le2\pi/N$. The $c_2^{(1)}$ spinor behaves the same way up to three solitons. No $\mathbb Z_2$ grading restores the $c_3^{(1)}$ spinor amplitude. In either convention, sectors with enough fundamental solitons are broken at every coupling tested. So self-conjugacy does not protect multi-soliton sectors. Which convention the field theory selects is part of open problem 6.
 
 In every spectrum computed, the eigenvalues satisfy $\{s\}=\{1/\bar s\}$ to $10^{-9}$ or better, as @prp-krein-unitarity requires. Scripts: `foundations_code/sectors/`.
+
+## Exercises {#sec-scattering-exercises}
+
+::: {#exr-krein-eigs}
+Let $S$ be a matrix with $PS^\dagger PS=1$ for a Hermitian involution $P$. Show that its eigenvalues are either phases or come in pairs $(s,1/\bar s)$.
+:::
+
+::: {#exr-bethe-complex}
+For a single particle on a circle with a transfer-matrix eigenvalue $\Lambda(\theta)$ in the Bethe–Yang equation $e^{imL\sinh\theta}\Lambda(\theta)=1$, show that $\lvert\Lambda\rvert\ne1$ on the real axis forces $\theta$, and hence the energy, to be complex.
+:::
+
+## Notes and references {#sec-scattering-notes}
+
+That braiding unitarity, crossing and the bootstrap follow from the universal R-matrix is in Delius [-@delius1995], and the role of Hermitian analyticity in Miramontes [-@miramontes1999]. The complex finite-volume spectra and the $a_2^{(1)}$ and $a_2^{(2)}$ sector analysis go back to Takács and Watts [-@tw1999; -@tw2002]. Light-cone lattice regularizations are due to Destri and de Vega [@destri1987]. Krein-unitarity and the sector classification are new here.

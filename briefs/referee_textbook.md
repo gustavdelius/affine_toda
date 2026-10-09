@@ -1,10 +1,10 @@
-# Brief: referee the textbook chapters (Parts I–IV and the textbook parts of Parts V–VI)
+# Brief: referee the textbook material of the book
 
 You are a mathematical-physics referee. The repository is `/home/gustav/Git/affine_toda`, a Quarto book on affine Toda field theory. Do not edit any file in it. Work in your own scratch directory and deliver your full report in your final message: subagents may be unable to write report files.
 
 ## Context
 
-Chapters 1–15 (`part1-background/`, `part2-algebra/`, `part3-classical/`, `part4-real-coupling/`) were drafted on 2026-10-09, together with chapter 16 and the textbook framing of chapters 17–19 (introductions, `sec-picard-lefschetz`, exercises, notes), chapter 20, the worked example `sec-an-example` of chapter 21, the first three sections of chapter 27, and the framing of chapters 21–27 (learning goals, introductions, exercises, notes). The research content of chapters 17–19 and 21–27 is not in scope here as textbook material for a reader who knows QFT but not affine Toda theory or quantum groups. Most of the content is standard, but many formulas, conventions and bibliographic details were written from memory. Some have been verified, and the rest need an independent check. Experience in this repository is that every adversarial referee pass finds real errors, so look hard.
+Chapters 1–15 (`part1-background/`, `part2-algebra/`, `part3-classical/`, `part4-real-coupling/`) were drafted on 2026-10-09, together with chapter 16 and the textbook framing of chapters 17–19 (introductions, `sec-picard-lefschetz`, exercises, notes), chapter 20, the worked example `sec-an-example` of chapter 21, the first three sections of chapter 27, and the framing of chapters 21–27 (learning goals, introductions, exercises, notes). The framing of chapters 28–33 (learning goals, introductions, exercises, notes) and appendices A and E were added the same day. The research content of chapters 17–19, 21–33 and appendices B–D is not in scope here as textbook material for a reader who knows QFT but not affine Toda theory or quantum groups. Most of the content is standard, but many formulas, conventions and bibliographic details were written from memory. Some have been verified, and the rest need an independent check. Experience in this repository is that every adversarial referee pass finds real errors, so look hard.
 
 Find any object with `grep -rn '{#<id>}' part*/` (prefixes: `sec-`, `eq-`, `prp-`, `exr-`, `tbl-`). Conventions are in `sec-conventions` (chapter 1): long roots have length$^2$ 2, $\beta_{\rm SG}^2=2\beta^2$, and twisted-algebra couplings in the literature satisfy $\beta_{\rm lit}^2=\beta^2/k$.
 
@@ -19,6 +19,7 @@ Find any object with `grep -rn '{#<id>}' part*/` (prefixes: `sec-`, `eq-`, `prp-
 - `smatrix_simply_laced.py` (Part IV): Dorey's formula `eq-dorey-formula` in the printed convention ($w^p$, exponent $-\frac12$, colour shift $\frac12(c(b)-c(a))$) gives unitary, crossing-symmetric, $B\to2-B$ invariant S-matrices for $a_4,d_4,d_6,e_7,e_8$; reproduces $e_8$ $S_{11}=\{1\}\{11\}\{19\}\{29\}$ and the $a_n$ closed form `eq-an-smatrix` ($n\le5$); satisfies the bootstrap at all 112 ($e_7$) and 224 ($e_8$) fusings given by `prp-dorey-rule`; the sinh-Gordon tree amplitude agrees with the exact S-matrix (`sec-tree-level`). Note: the variant with $w^{-p}$ (variant 0 of `foundations_code/hirota/dorey.py`) is also unitary, crossing-symmetric and bootstrap-consistent but is not the physical S-matrix; the research code uses variant 1, which is correct.
 - `semiclassics.py` (Part V): `eq-dhn-psi` and `eq-ccg` give $-m/\pi$ for the sine-Gordon kink and $m(\frac1{4\sqrt3}-\frac3{2\pi})$ for the $\phi^4$ kink; summing `eq-dhn-psi` over channels with `eq-an-transmission` reproduces `eq-hollowood-mass` for $n\le7$; the zero-dimensional $i\phi^3$ integral of `sec-picard-lefschetz` is bounded by the Gaussian and matches $1-\frac5{6\lambda}$ (so $n_i=0$); `prp-thimble-gaussian` on a $2\times2$ Jordan block; the Jordan blocks of $H_g=-\partial^2+ge^{ix}$.
 - `rsos_qdims.py` (Part VI): the sign criteria of `exr-quantum-dims` for $5\le p<60$ (note $q=e^{i\pi r/p}$ depends on $r$ mod $2p$); the parameter identities used in the exercises of chapters 22–25.
+- `algebra_data.py` (appendix A): the classical masses of `tbl-app-masses` for all untwisted algebras, the closed forms for $a_n,d_n,b_n,c_n,g_2$ and the $f_4$ ratios (non-simply-laced by folding with automorphisms fixing $\vec\alpha_0$).
 - `spin1_tpg.py`: `eq-tpg-rule` for $U_q(\widehat{sl}_2)$ spin $\frac12\otimes\frac12$ and spin $1\otimes1$ (the claims of `exr-tpg-check` and `exr-spin1`), and $q$-Serre for the spin-1 evaluation representation.
 
 **By hand** (worth a second look, but each was derived explicitly):
@@ -56,7 +57,7 @@ Report on each item: correct / wrong (with the correction) / unclear (with what 
 9. **Chapter 5 statements.** Steinberg's statement in `sec-weyl-coxeter`; the attribution to Freeman of "conserved-charge eigenvalues are eigenvectors of the Cartan matrix" in `sec-perron-frobenius`; the $E_8$/Ising sentence (the Ising S-matrix as the minimal part of the $e_8^{(1)}$ Toda S-matrix).
 10. **Chapter 6 statements.** The folding rows of `tbl-foldings` not checked by hand, in particular $d_{n+1}^{(2)}\leftarrow d_{n+2}^{(1)}$, $a_{2n}^{(2)}\leftarrow d_{2n+2}^{(1)}$, $a_{2n-1}^{(2)}\leftarrow d_{2n}^{(1)}$, $e_6^{(2)}\leftarrow e_7^{(1)}$, $d_4^{(3)}\leftarrow e_6^{(1)}$ (copied from the table in `sec-one-loop-masses-folded`); the ranks of the twisted algebras; "symmetries of the affine diagram that move the extra node correspond to the centre"; the level $n_j^\vee$ of $L(\Lambda_j)$; principal Heisenberg degrees = exponents mod $h$; the schematic vertex-operator formula in `sec-vertex-operators` against Olive–Turok–Underwood.
 11. **Chapter 7 statements.** The Kirillov–Reshetikhin remark in `sec-uqghat`; the claim that $\prod_ik_i^{n_i^\vee}$ is central; the quasitriangularity consequences listed in `sec-universal-r` for the stated coproduct; `exr-hermitian-spin1`.
-12. **Exercises in general.** Every exercise in chapters 2–27 should be true and solvable at the level of the chapter. Flag any that are not.
+12. **Exercises in general.** Every exercise in chapters 2–33 should be true and solvable at the level of the chapter. Flag any that are not.
 
 13. **Part III statements not yet checked.**
     - `eq-hirota-bilinear` for a non-simply-laced or twisted algebra (e.g. by folding an explicit $a_{2n-1}^{(1)}$ solution to $c_n^{(1)}$ and substituting).
@@ -95,6 +96,10 @@ Report on each item: correct / wrong (with the correction) / unclear (with what 
     - `sec-qg-restriction`: the allowed heights for $a_n^{(1)}$ at $\beta^2/4\pi=p/p'$ ("level $p-n-1$", interpolated between the $n=1$ and $n=2$ cases); `sec-perturbed-minimal`: the table of restricted theories, in particular "$W_{n+1}(p,p')$ perturbed by the field of the adjoint representation" and the $a_2^{(2)}$ row.
     - `sec-hermitian-analyticity-irf`: the description of the Hoare–Hollowood–Miramontes mechanism.
     - Exercises of chapters 20–27.
+20. **Appendices and Part VII framing not yet checked.**
+    - `tbl-app-twisted`: rank, $h$, $h^\vee$ and folding parent of each twisted algebra; the twisted masses are not tabulated (the label normalization for twisted foldings needs care).
+    - `sec-app-soliton-data`: the summary statements, each of which repeats a statement of the main text.
+    - Exercises of chapters 28–33, in particular `exr-pair-collapse`, `exr-stability`, `exr-krein-transfer`.
 
 ## Deliverable
 

@@ -1,5 +1,13 @@
 # Unitarity, verdict and outlook {#sec-unitarity}
 
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- List the consequences of unitarity that fail in the imaginary-coupling theories and cannot be restored.
+- State the verdict on the criteria (C1)–(C6).
+- Place the results in current research, and know the open problems.
+:::
+
+This final chapter collects the conclusions of Part VII and of the book. It lists precisely which consequences of unitarity are lost, gives the verdict on whether the imaginary-coupling theories are valid quantum field theories, and ends with their connections to current research and the open problems.
+
 ## What unitarity would give, and what cannot be rescued {#sec-unitarity-loss}
 
 In a unitary quantum field theory, unitarity is the source of a list of physical properties. This section sorts those properties, for imaginary-coupling ATFTs, into three groups:
@@ -167,3 +175,17 @@ These connections suggest where the results can be used. First, Theorems [-@thm-
    Three questions precede any use as a definition. (i) Which algebra and which regime. [@vernier2016] obtain imaginary $a_{2n-1}^{(2)}$ Toda from the $U_q(a_{2n-1}^{(2)})$ chain. This suggests that the lattice carries $U_q(\hat g)$ and that $\hat g^\vee$ appears only in the continuum S-matrix, with a renormalized $q$ (@sec-a2n-lattice). For $a_{2n-1}^{(2)}$ the renormalization is explicit: the lattice has $q=e^{i\gamma}$ and the soliton S-matrix $q=-e^{-i\pi^2/2\gamma}$. The same R-matrix also has non-Toda continuum limits in other regimes. (ii) The ground-state structure, which [@zinnjustin1998; @doikou1999] assume and which is subtle for twisted algebras. Rigorous Bethe-ansatz tools exist so far only for six-vertex models [@duminil2022], that is for $a_1^{(1)}$, where the window is empty. The Euclidean weights carry phases, so Theorems [-@thm-coulomb-gas] and [-@thm-vacuum-energy] have no evident counterpart (@prp-krein-regularization, checks). (iii) The comparison with @sec-continuum-limit. The lattice has periodic boundary conditions and constant coupling, while @thm-below-2pi's theory has the coupling profile of @sec-wick-ordering-statement. The natural target is a bridge theorem: for $0<\beta^2<2\pi$, the vacuum energy given by the non-linear integral equations on a circle of length $L_t$ equals $-\lim_{L_x\to\infty}L_x^{-1}\log\Xi$, where far from the walls the coupling is constant. This needs a crossed-channel version of @sec-hamiltonian-structure-krein-space, with the spatial zero mode compactified as in @sec-app-zero-mode.
 
    In finite volume this route is no longer needed for existence below $\beta^2_{\rm UV}$ (@thm-window). What it can supply is the bulk energy and its singularities across the window (@sec-collapse-thresholds), finite-volume form factors through the quantum inverse problem [@hegedus2017], and the data missing in problem 2.
+
+## Exercises {#sec-outlook-exercises}
+
+::: {#exr-u5-lee-yang}
+Show from @sec-lee-yang that the scaling Lee–Yang model violates positivity of bound-state residues (U5) although its S-matrix is a pure phase. Which other items of @sec-properties-cannot-be-rescued does it satisfy?
+:::
+
+::: {#exr-open-problem}
+Choose one of the open problems of @sec-open-problems and write a one-page research plan: what would be computed or proved, which chapters of this book provide the tools, and what would count as a solution.
+:::
+
+## Notes and references {#sec-outlook-notes}
+
+The connections to current research are surveyed with representative references in @sec-connections-current-research. The open problems are also the subject of the task briefs in the repository's `briefs/` directory.

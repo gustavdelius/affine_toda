@@ -1,5 +1,14 @@
 # The lattice theory {#sec-lattice}
 
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Define the imaginary-coupling theory on a lattice and show that its weight is bounded.
+- Integrate out the free field to obtain a positive multi-component Coulomb gas, so that there is no sign problem.
+- Show that the transfer matrix is self-adjoint for a Krein form and commutes with $\Theta$.
+- Prove that the finite-volume vacuum energy is real, and see in an exact model that excited levels need not be.
+:::
+
+This chapter gives the imaginary-coupling theories a non-perturbative definition on a lattice and proves four structural theorems about it. The proofs are short and use only the positivity of the fugacities and the symmetry $\Theta$ of @sec-real-imaginary. They are the field-theoretic versions of the finite-dimensional statements of @sec-non-hermitian.
+
 ## Definition {#sec-definition}
 
 Fix a lattice spacing $a$ and integers $N_t$ and $N_x$. Let
@@ -162,3 +171,25 @@ This $H$ has the same $\Theta$-symmetry, and its partition function has the same
 As Theorems [-@thm-coulomb-gas] and [-@thm-vacuum-energy] require, $Z(T)>0$ and the lowest level is real. Excited levels include complex-conjugate pairs: $\Theta$ is broken in parts of the finite-volume spectrum, while the vacuum is protected.
 
 With the *opposite* sign of the potential, $Z(T)$ for $a_2$ at $g=1$ is negative at $T=2$ ($-0.72$), and the lowest level is the complex pair $0.410\pm1.327\,i$. For $c_2$ the two signs are equivalent, because a shift of $\vec x$ flips the sign of every $e^{i\vec\alpha_j\cdot\vec x}$ when $\sum_jn_j$ is even. Positivity of the fugacity is the mechanism that protects the vacuum.
+
+## Exercises {#sec-lattice-exercises}
+
+::: {#exr-single-site}
+For sine-Gordon on a single site with Gaussian variance $C$, write $Z=\int e^{2a^2z(\cos\beta\phi-1)}d\mu_0$ as the series (-@eq-coulomb-gas) and check directly that every term is positive.
+:::
+
+::: {#exr-krein-transfer}
+Show that $T^\dagger=PTP$ for (-@eq-transfer-matrix), using $\overline{V(\vec\phi)}=V(-\vec\phi)$ for real $\vec\phi$ and the symmetry $\mathcal K(\vec\phi,\vec\phi')=\mathcal K(-\vec\phi,-\vec\phi')$ of the Gaussian kernel.
+:::
+
+::: {#exr-trace-positivity}
+A matrix with eigenvalues $\pm i$ has $\operatorname{Tr}T^2=-2$. Explain why such a matrix cannot be the transfer matrix of a positive Coulomb gas, and how this is used in the proof of @thm-vacuum-energy.
+:::
+
+::: {#exr-zero-mode-sign}
+Show that a shift $\vec x\mapsto\vec x+\vec s$ with $\vec\alpha_j\cdot\vec s\equiv\pi\pmod{2\pi}$ for all $j$ exists if and only if $\sum_jn_j$ is even, and deduce the sign equivalence of @sec-app-zero-mode.
+:::
+
+## Notes and references {#sec-lattice-notes}
+
+The equivalence of sine-Gordon theory with a two-component Coulomb gas is classical [@frohlich1976; @benfatto1982]. Lidskii's theorem and Pringsheim's theorem are standard; see [@gohberg1971] for the former. Osterwalder–Schrader reconstruction, of which the Krein-space version here is a twisted form, is in [@osterwalder1973; @osterwalder1975]. The theorems of this chapter are new here.

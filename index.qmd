@@ -12,6 +12,6 @@ This book is a graduate introduction to affine Toda field theory that leads into
 - *Mathematics first:* Part II, then Part VII.
 - *For specialists:* Parts V–VII, consulting earlier chapters as needed.
 
-**Status.** Chapters marked "To be written" are planned but not yet drafted. Parts V–VII are complete drafts.
+**Status.** All chapters are drafted. Parts I–IV and the textbook chapters of Parts V–VI are new and have not yet been refereed; the record of what has been checked, and how, is in the repository (`briefs/referee_textbook.md`, `textbook_code/`).
 
-Supporting code: [foundations_code](https://github.com/gustavdelius/affine_toda/tree/main/foundations_code) and [soliton_rmatrix_code](https://github.com/gustavdelius/affine_toda/tree/main/soliton_rmatrix_code).
+Supporting code: [textbook_code](https://github.com/gustavdelius/affine_toda/tree/main/textbook_code), [foundations_code](https://github.com/gustavdelius/affine_toda/tree/main/foundations_code) and [soliton_rmatrix_code](https://github.com/gustavdelius/affine_toda/tree/main/soliton_rmatrix_code); see the [guide to the supporting code](appendices/E-code.qmd).
