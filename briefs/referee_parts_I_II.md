@@ -1,0 +1,49 @@
+# Brief: referee the textbook chapters of Parts I and II
+
+You are a mathematical-physics referee. The repository is `/home/gustav/Git/affine_toda`, a Quarto book on affine Toda field theory. Do not edit any file in it. Work in your own scratch directory and deliver your full report in your final message: subagents may be unable to write report files.
+
+## Context
+
+Chapters 1–8 (`part1-background/*.qmd`, `part2-algebra/*.qmd`) were drafted on 2026-10-09 as textbook material for a reader who knows QFT but not affine Toda theory or quantum groups. Most of the content is standard, but many formulas, conventions and bibliographic details were written from memory. Some have been verified, and the rest need an independent check. Experience in this repository is that every adversarial referee pass finds real errors, so look hard.
+
+Find any object with `grep -rn '{#<id>}' part*/` (prefixes: `sec-`, `eq-`, `prp-`, `exr-`, `tbl-`). Conventions are in `sec-conventions` (chapter 1): long roots have length$^2$ 2, $\beta_{\rm SG}^2=2\beta^2$, and twisted-algebra couplings in the literature satisfy $\beta_{\rm lit}^2=\beta^2/k$.
+
+## Already verified (do not redo unless you find a reason)
+
+**By script** (`textbook_code/`, see its README; every script prints PASS lines):
+
+- `sine_gordon.py`: the integral representation `eq-sg-s0` satisfies crossing with `eq-sg-smatrix` (to $10^{-25}$, tested for $\lambda=1.5,1.2$ only); the breather `eq-sg-breather` solves the field equation.
+- `sixvertex.py`: `eq-six-vertex` solves Jimbo's equations; unitarity; the braid Yang–Baxter equation `eq-ybe-braid` in the printed order; `eq-six-vertex-eigenvalue`; the crossing data in `sec-qg-crossing` ($x_c=q^2$, $C=\left(\begin{smallmatrix}0&1\\-q&0\end{smallmatrix}\right)$, $c_u$); the sine-Gordon dictionary in `sec-six-vertex`, including the gauge to the principal gradation.
+- `universal_r.py`: `eq-universal-r-sl2` in the printed ordering, on spin $\frac12$ and spin 1.
+- `spin1_tpg.py`: `eq-tpg-rule` for $U_q(\widehat{sl}_2)$ spin $\frac12\otimes\frac12$ and spin $1\otimes1$ (the claims of `exr-tpg-check` and `exr-spin1`), and $q$-Serre for the spin-1 evaluation representation.
+
+**By hand** (worth a second look, but each was derived explicitly):
+
+- Chapter 2: unitarity, crossing and residue signs of $f_x$ (`eq-fx-block`, `exr-fx`); the Lee–Yang bootstrap `exr-lee-yang-bootstrap`; the identity $(x)(h-x)=-f_{x/h}$ relating $f_x$ to the blocks of `sec-real-coupling`; sinh-Gordon $S=f_{-B/2}$ agrees with the book's $\{1\}$ block for $h=2$.
+- Chapter 3: Bogomolny mass `eq-sg-classical-mass`; the kink energy density; breather energy `eq-sg-breather-energy`; breather pole positions and masses; $\xi=\pi/\lambda$; RSOS coupling $\xi=\pi p/(p'-p)$, giving one breather of mass $\sqrt3M$ and $S=f_{2/3}$ at $(p,p')=(2,5)$; the continuation $B\to-2\xi/\pi$ (`exr-sg-continuation`); strong–weak duality $B\to2-B$ ↔ $\beta\to4\pi/\beta$; $\beta_{\rm SG}^2=2\beta^2$ and the thresholds agree with `sec-collapse-thresholds`. The one-loop mass `eq-sg-one-loop-mass` agrees with the calibration line "the sine-Gordon kink, $-m_1/\pi$" in `sec-one-loop-masses-folded`.
+- Chapter 4: `prp-krein-spectrum` and its proof; the dimer `eq-dimer` (eigenvectors, Krein norms, $\Theta$-invariance, nilpotency at the exceptional point); `exr-jordan-determinant` ($\det A=4$, positive-definite real part); `exr-ceff`; $\Theta=PK$ matches `thm-krein-transfer`.
+- Chapter 5: `tbl-simple-lie` ($d=r(h+1)$ in every row; $h,h^\vee$ from the marks); `eq-cartan-eigenvalues` and the $A_n$ Perron–Frobenius vector; the $D_4$ mass ratio $\sqrt3$.
+- Chapter 6: every Kac-label row of `tbl-untwisted` sums to $h$, and the dual labels sum to $h^\vee$; the folding examples $a_3^{(1)}\to c_2^{(1)}$ and $d_4^{(1)}\to g_2^{(1)}$; the twisted $(h,h^\vee)$ in `tbl-foldings` reproduce, through $2T=4\pi h/\beta^2-h^\vee$, every $T$ in the table of `sec-sm-discussion` (with the $\beta_{\rm lit}$ conversion).
+- Chapter 7: the Hopf axioms for `eq-coproduct`/`eq-antipode`; $S^2=\mathrm{Ad}\,K$; the $*$-structure for $\lvert q\rvert=1$ in `sec-qg-hermitian` and $(*\otimes*)\Delta=\Delta^{\rm op}*$; the spin-1 norm $[2]_q$.
+- Chapter 8: $C(2\vec\lambda_1)-C(\vec\lambda_2)=4$ (`exr-tpg-an`); the index ordering of the fusion formula `eq-fusion`.
+
+## To be checked
+
+Report on each item: correct / wrong (with the correction) / unclear (with what would settle it). Items are ordered roughly by risk.
+
+1. **Bibliography.** Thirty-four entries were added to `references.bib` from memory (from `parke1980` to `kulish1981`, appended at the end of the file after `ahn2000`). Check authors, title, journal, volume, page and year of each, for example against INSPIRE or the arXiv. Also check that each citation in chapters 1–8 supports the sentence it is attached to.
+2. **$q$ conventions across parts.** Chapter 7 (`sec-six-vertex`) finds $q=-e^{i\pi\lambda}=e^{8\pi^2i/\beta_{\rm SG}^2}$ and $z=e^{2\lambda\theta}$. Part VI (`sec-amplitude-and-gradation`) writes $q=e^{-i\pi\omega}$, with $T=\lambda=\omega$ for sine-Gordon. The text says the conventions differ "by $q\leftrightarrow q^{-1}$ and signs" without proof. Determine the exact relation. Check whether it bears on the unexplained crossing sign $(-1)^n$ of `sec-crossing-sign`, which is open problem 4 of `sec-sm-discussion` ("Crossing convention").
+3. **Crossing point in general.** `sec-qg-crossing` states $V(x)^{**}\cong V(xq^{2h^\vee})$ in the homogeneous gradation for every $U_q(\hat g)$, citing Frenkel–Reshetikhin and Chari–Pressley. It was confirmed only for $\widehat{sl}_2$. Check the general statement and its gradation and sign conventions, and test it against the crossing points that Part VI computes numerically (`soliton_rmatrix_code/`).
+4. **Tensor-product-graph rule beyond $\widehat{sl}_2$.** `eq-tpg-rule` is stated in the book's conventions and verified only for $U_q(\widehat{sl}_2)$. Test it on the vector representation of $U_q(\widehat{sl}_3)$ and one non-simply-laced case, such as the vector representation of $U_q(c_n^{(1)})$ or $U_q(b_n^{(1)})$ against Jimbo 1986. Pay attention to $q_i$ versus $q$ for short roots. Also check the claim in `sec-tpg` that the $c_n^{(1)}$ soliton multiplet (the spinor of $U_q(d_{n+1}^{(2)})$) has a tensor square that is not multiplicity-free under the finite subalgebra for $n\ge3$, and name that subalgebra correctly (the text writes $U_q(g_{(0)})$).
+5. **Sine-Gordon results quoted but not derived.** `eq-sg-breather-masses` (the DHN renormalization of $\xi$ is exact at one loop); `eq-sg-s11` ($S_{11}=f_{\xi/\pi}$; derive it by the bootstrap from the residues of $S_T$ and $S_R$); the residue signs of the breather poles; the statement in `sec-sg-coleman` that normal ordering removes all divergences of correlation functions for $\beta_{\rm SG}^2<4\pi$ (compare with what Part VII actually proves, in finite volume).
+6. **RSOS and Lee–Yang.** `prp-sg-rsos` (restriction at $\beta_{\rm SG}^2/8\pi=p/p'$ gives $\mathcal M(p,p')+\phi_{1,3}$); the claim in `sec-lee-yang` that Lee–Yang is also a restriction of $a_2^{(2)}$ [Smirnov 1991]; that the TCSA spectrum is real "in the massive direction" [Yurov–Zamolodchikov 1990]; and the reading of the negative residue as an imaginary three-point coupling.
+7. **Chapter 2 statements.** `prp-cdd`: are the hypotheses enough, and is the list of allowed $x$ complete? `eq-bootstrap`: is the assignment of $\bar u_{ac}^b$ and $\bar u_{bc}^a$ to the constituents consistent with Part IV and with Dorey's conventions? `exr-no-production` and `exr-free-fermion`: are they true as stated and solvable with the hints?
+8. **Chapter 4 statements.** The claim attributed to Mostafazadeh (a diagonalizable operator with spectrum closed under conjugation is pseudo-Hermitian and has an antilinear symmetry); `exr-krein-collision` (true as stated in finite dimensions?); the infinite-dimensional remarks in `sec-krein-infinite`.
+9. **Chapter 5 statements.** Steinberg's statement in `sec-weyl-coxeter`; the attribution to Freeman of "conserved-charge eigenvalues are eigenvectors of the Cartan matrix" in `sec-perron-frobenius`; the $E_8$/Ising sentence (the Ising S-matrix as the minimal part of the $e_8^{(1)}$ Toda S-matrix).
+10. **Chapter 6 statements.** The folding rows of `tbl-foldings` not checked by hand, in particular $d_{n+1}^{(2)}\leftarrow d_{n+2}^{(1)}$, $a_{2n}^{(2)}\leftarrow d_{2n+2}^{(1)}$, $a_{2n-1}^{(2)}\leftarrow d_{2n}^{(1)}$, $e_6^{(2)}\leftarrow e_7^{(1)}$, $d_4^{(3)}\leftarrow e_6^{(1)}$ (copied from the table in `sec-one-loop-masses-folded`); the ranks of the twisted algebras; "symmetries of the affine diagram that move the extra node correspond to the centre"; the level $n_j^\vee$ of $L(\Lambda_j)$; principal Heisenberg degrees = exponents mod $h$; the schematic vertex-operator formula in `sec-vertex-operators` against Olive–Turok–Underwood.
+11. **Chapter 7 statements.** The Kirillov–Reshetikhin remark in `sec-uqghat`; the claim that $\prod_ik_i^{n_i^\vee}$ is central; the quasitriangularity consequences listed in `sec-universal-r` for the stated coproduct; `exr-hermitian-spin1`.
+12. **Exercises in general.** Every exercise in chapters 2–8 should be true and solvable at the level of the chapter. Flag any that are not.
+
+## Deliverable
+
+A report with one entry per item above (and per sub-claim where they differ), each with a verdict, a short justification and, for errors, the corrected text. Include any scripts you wrote and their output. Do not mark anything verified on the strength of a citation alone.
