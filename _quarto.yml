@@ -83,6 +83,9 @@ format:
     toc: true
     toc-depth: 2
     number-sections: true
+    filters:
+      - path: part-preamble.lua
+        at: post-render
     include-in-header:
       text: |
         % Part titles already read "Part I: ...", so drop LaTeX's own part label
