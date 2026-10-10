@@ -50,7 +50,7 @@ $$
 
 $S_{11}$ has a pole at $\theta=2\pi i/3$ from the block $(2)$: the bound state $1+1\to\bar1=2$ at the fusing angle of an equilateral mass triangle. $S_{12}=\{2\}$ has a pole at $\theta=i\pi/3$, its crossed image. The bootstrap $S_{12}(\theta)=S_{11}(\theta-\frac{i\pi}3)S_{11}(\theta+\frac{i\pi}3)$ holds (@exr-a2-bootstrap).
 
-In general, for $a\ne b$, $S_{ab}$ has simple poles at $\theta=i\pi(a+b)/h$, the fusing $a+b\to a+b$, and at $\theta=i\pi\lvert a-b\rvert/h$, the crossed image of the fusing $a+\bar b$, and double poles at the positions in between where consecutive blocks overlap. The double poles are the anomalous thresholds of @sec-coleman-thun.
+For $a\ne b$ and $a+b<h$, $S_{ab}$ has simple poles at $\theta=i\pi(a+b)/h$, the fusing $a+b\to a+b$, and at $\theta=i\pi\lvert a-b\rvert/h$, the crossed image of the fusing $a+\bar b$, and double poles at the positions in between where consecutive blocks overlap. The double poles are the anomalous thresholds of @sec-coleman-thun. For $a+b>h$ use $S_{ab}=S_{h-a,h-b}$, so that the $s$-channel pole is at $i\pi(2h-a-b)/h$.
 
 ## Dorey's formula {#sec-dorey-formula}
 
@@ -92,9 +92,9 @@ $$
 
 constructed by Braden, Corrigan, Dorey and Sasaki, Christe and Mussardo, and Klassen and Melzer (all 1990), with a universal root-system formula due to Dorey [@dorey1991].
 
-**Non-simply-laced algebras.** The S-matrices were found by Delius, Grisaru and Zanon [-@dgz1992] and by Corrigan, Dorey and Sasaki [-@corrigan1993]. Here the Coxeter number "floats" with the coupling and interpolates between $h$ and $h^\vee$ of the dual algebra. The S-matrices of a dual pair are exchanged under $\beta\to4\pi/\beta$.
+**Non-simply-laced algebras.** The S-matrices were found by Delius, Grisaru and Zanon [-@dgz1992] and by Corrigan, Dorey and Sasaki [-@corrigan1993]. Here the Coxeter number "floats" with the coupling and interpolates between $h$ and $h^\vee$ of the dual algebra. The S-matrices of a dual pair are exchanged under $\beta\to4\pi/\beta$ (in the normalization in which $B(\beta)$ has the form (-@eq-b-of-beta); for $c_n^{(1)}$ the short roots then have squared length 2).
 
-**Checks.** These S-matrices have been checked at one loop [@braden1990; @dgz1992], by Monte Carlo simulation (hep-th/9206112, hep-th/9508007), and more recently by tree-level and loop integrability arguments [@dorey_polvara2022].
+**Checks.** These S-matrices have been checked at one loop [@braden1990; @dgz1992] and more recently by tree-level and loop integrability arguments [@dorey_polvara2022], and the coupling dependence of the mass ratio predicted for the dual pair $g_2^{(1)}/d_4^{(3)}$ has been confirmed by Monte Carlo simulation [@watts_weston1992; @beccaria1996].
 
 **Further results.** Further [Established] results include:
 
@@ -129,5 +129,5 @@ Show that $B(4\pi/\beta)=2-B(\beta)$, and that $B$ is monotonic in $\beta$ with 
 
 ## Notes and references {#sec-simply-laced-notes}
 
-The simply-laced S-matrices were found by Braden, Corrigan, Dorey and Sasaki [-@braden1990], Christe and Mussardo [-@christe1990] and Klassen and Melzer [-@klassen1990]. Dorey's formula is in [@dorey1991], and Fring and Olive [@fring1992] derived the S-matrices from the Coxeter geometry by a different route. The $e_8$ S-matrix of the Ising model in a magnetic field is due to Zamolodchikov [-@zamolodchikov1989]. Dorey's lectures [-@dorey1998] give a detailed account of all of this.
+The simply-laced S-matrices were found by Braden, Corrigan, Dorey and Sasaki [-@braden1990], Christe and Mussardo [-@christe1990] and Klassen and Melzer [-@klassen1990]. Dorey's formula is in [@dorey1991], and Fring and Olive [@fring1992] proved uniformly, from Coxeter-element identities, that Dorey's formula satisfies crossing and the bootstrap. The $e_8$ S-matrix of the Ising model in a magnetic field is due to Zamolodchikov [-@zamolodchikov1989]. Dorey's lectures [-@dorey1998] give a detailed account of all of this.
 
