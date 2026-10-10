@@ -1,0 +1,22 @@
+N=5, 25 random rapidity sets, columns alpha/pi = [0.0, 1.0]
+xi=3.7013pi psi/pi=+0.1801 (|psi|N/pi=0.90)
+   Q=0 (dim 51): 8.0e-15 1.2e-13   Krein<= 2e-13
+   Q=1 (dim 45): 2.3e-13 6.9e-15   Krein<= 5e-13
+   Q=2 (dim 30): 5.8e-15 7.3e-15   Krein<= 1e-14
+   Q=3 (dim 15): 4.6e-15 4.9e-15   Krein<= 1e-14
+   Q=4 (dim  5): 2.9e-15 2.7e-15   Krein<= 6e-15
+   Q=5 (dim  1): 0.0e+00 0.0e+00   Krein<= 0e+00
+xi=3.0313pi psi/pi=+0.2199 (|psi|N/pi=1.10)
+   Q=0 (dim 51): 9.1e-03 1.6e-12   Krein<= 3e-12
+   Q=1 (dim 45): 2.1e-13 1.0e-14   Krein<= 4e-13
+   Q=2 (dim 30): 8.5e-15 1.1e-14   Krein<= 2e-14
+   Q=3 (dim 15): 9.7e-15 9.9e-15   Krein<= 2e-14
+   Q=4 (dim  5): 2.8e-15 4.0e-15   Krein<= 8e-15
+   Q=5 (dim  1): 0.0e+00 0.0e+00   Krein<= 0e+00
+xi=2.2213pi psi/pi=+0.3001 (|psi|N/pi=1.50)
+   Q=0 (dim 51): 7.0e-02 3.3e-12   Krein<= 7e-12
+   Q=1 (dim 45): 1.8e-13 2.6e-14   Krein<= 4e-13
+   Q=2 (dim 30): 2.0e-14 2.2e-14   Krein<= 4e-14
+   Q=3 (dim 15): 1.5e-14 1.8e-14   Krein<= 4e-14
+   Q=4 (dim  5): 4.7e-15 2.7e-15   Krein<= 9e-15
+   Q=5 (dim  1): 0.0e+00 0.0e+00   Krein<= 0e+00

@@ -1,0 +1,12 @@
+c_2 spinor, omega=2.37: residuals  Rcheck: 0e+00;  N=2: 5e-34;  N=3: 5e-34;  N=4: 1e-33
+c_2 spinor, omega=1.61: residuals  Rcheck: 0e+00;  N=2: 4e-34;  N=3: 4e-34;  N=4: 1e-33
+c_2 spinor, omega=0.3013: residuals  Rcheck: 0e+00;  N=2: 2e-33;  N=3: 2e-33;  N=4: 4e-33
+c_3 spinor, omega=2.37: residuals  Rcheck: 1e-15;  N=2: 2e-15;  N=3: 5e-15
+c_3 spinor, omega=1.61: residuals  Rcheck: 2e-14;  N=2: 2e-15;  N=3: 6e-15
+c_3 spinor, omega=0.3013: residuals  Rcheck: 3e-14;  N=2: 2e-14;  N=3: 7e-14
+a_2 spinor, omega=2.37: residuals  Rcheck: 0e+00;  N=2: 5e-34;  N=3: 5e-34;  N=4: 1e-33
+a_2 spinor, omega=1.61: residuals  Rcheck: 0e+00;  N=2: 4e-34;  N=3: 4e-34;  N=4: 1e-33
+a_2 spinor, omega=0.3013: residuals  Rcheck: 0e+00;  N=2: 2e-33;  N=3: 2e-33;  N=4: 5e-33
+a_3 spinor, omega=2.37: residuals  Rcheck: 1e-15;  N=2: 2e-15;  N=3: 6e-15
+a_3 spinor, omega=1.61: residuals  Rcheck: 8e-15;  N=2: 2e-15;  N=3: 7e-15
+a_3 spinor, omega=0.3013: residuals  Rcheck: 2e-14;  N=2: 2e-14;  N=3: 5e-14

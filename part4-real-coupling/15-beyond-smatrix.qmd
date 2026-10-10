@@ -22,7 +22,7 @@ $$
 E_0(R)=-\sum_a\int\frac{d\theta}{2\pi}\,m_a\cosh\theta\,\ln\big(1+e^{-\varepsilon_a(\theta)}\big).
 $$
 
-As $R\to0$ the theory approaches its ultraviolet fixed point, and $E_0(R)\simeq-\pi c_{\rm eff}/6R$ gives the **effective central charge**. For the real-coupling affine Toda theories the ultraviolet limit is $r$ free bosons, and the TBA gives $c_{\rm eff}=r$ [@klassen1990]. The approach to it is logarithmic rather than a power law, because the ultraviolet theory is non-compact; the logarithms are controlled by reflection amplitudes of the Toda conformal field theory [@ahn2000].
+As $R\to0$ the theory approaches its ultraviolet fixed point, and $E_0(R)\simeq-\pi c_{\rm eff}/6R$ gives the **effective central charge**. For the real-coupling affine Toda theories the ultraviolet limit is $r$ free bosons, and the TBA gives $c_{\rm eff}=r$ [@klassen1990]. The approach to it is logarithmic rather than a power law, because the ultraviolet theory is non-compact; the logarithms are controlled by reflection amplitudes of the Toda conformal field theory [@afkry2000; @ahn2000].
 
 The same equations with the minimal S-matrices give the central charges of perturbed minimal models, and at imaginary coupling the TBA with the soliton S-matrices gives the effective central charges of the restricted, often non-unitary, theories. @sec-lee-yang used this for the scaling Lee–Yang model.
 
@@ -41,11 +41,11 @@ satisfy a system of functional equations determined by the S-matrix [@smirnov199
 - **kinematic poles** at $\theta_i-\theta_j=i\pi$ for a particle–antiparticle pair, with residue given by the $(n-2)$-particle form factor;
 - **bound-state poles** at the fusing angles, with residues given by the three-point couplings.
 
-Solving these equations gives all form factors, and summing over intermediate states gives correlation functions as rapidly convergent series at large distance. For affine Toda theories the programme was carried out by Fring, Mussardo and Simonetti [@fring1993], starting with sinh-Gordon and the minimal two-particle form factor of each amplitude.
+Solving these equations gives all form factors, and summing over intermediate states gives correlation functions as rapidly convergent series at large distance. For affine Toda theories the programme was begun by Fring, Mussardo and Simonetti [@fring1993], starting with sinh-Gordon and the minimal two-particle form factor of each amplitude.
 
 ## The mass–coupling relation and the bulk energy {#sec-mass-coupling}
 
-The S-matrix fixes mass ratios, but not the relation between the overall mass scale and the parameter $m$ of the Lagrangian. That relation, and the vacuum energy density in infinite volume (the **bulk energy**), were found exactly by Fateev [-@fateev1994] for all simply-laced theories, with the non-simply-laced cases in [@ahn2000], building on Al. B. Zamolodchikov's result for sine-Gordon [@zamolodchikov1995]. The bulk energy is analytic in the coupling with poles at special values. In @sec-collapse-thresholds its continuation to imaginary coupling has poles exactly at the collapse thresholds of the Coulomb-gas representation, where additional counterterms are needed.
+The S-matrix fixes mass ratios, but not the relation between the overall mass scale and the parameter $m$ of the Lagrangian. That relation, and the vacuum energy density in infinite volume (the **bulk energy**), follow exactly for all simply-laced theories from Fateev's results [@fateev1994], as derived by Ahn, Fateev, Kim, Rim and Yang [@afkry2000], with the non-simply-laced cases in [@ahn2000], building on Al. B. Zamolodchikov's result for sine-Gordon [@zamolodchikov1995]. The bulk energy is analytic in the coupling with poles at special values. In @sec-collapse-thresholds its continuation to imaginary coupling has poles exactly at the collapse thresholds of the Coulomb-gas representation, where additional counterterms are needed.
 
 ## The ODE/IM correspondence {#sec-ode-im}
 
@@ -62,7 +62,7 @@ For $S=-1$ (free Majorana fermions), solve the TBA (-@eq-tba) exactly and show t
 :::
 
 ::: {#exr-tba-uv}
-Assuming $\varepsilon_a$ is constant in the central region $\lvert\theta\rvert\ll\ln(1/R)$, derive the algebraic equations for $x_a=e^{-\varepsilon_a}$ in the ultraviolet limit, and express $c_{\rm eff}$ through dilogarithms.
+Assuming $\varepsilon_a$ is constant in the central region $\lvert\theta\rvert\ll\ln(1/R)$, derive the algebraic equations for $x_a=e^{-\varepsilon_a}$ in the ultraviolet limit, and express $c_{\rm eff}$ through dilogarithms. (*Hint:* for the affine Toda S-matrices $N_{ab}=\frac1{2\pi}\int\varphi_{ab}=\delta_{ab}$, so the plateau equations $x_a=1+x_a$ have no finite solution; the limit $x_a\to\infty$ gives $c_{\rm eff}=r$.)
 :::
 
 ::: {#exr-watson}

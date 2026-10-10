@@ -106,9 +106,9 @@ $$
 \sum_{s=0}^{1-a_{ij}}(-1)^s\begin{bmatrix}1-a_{ij}\\ s\end{bmatrix}_{q_i}e_i^{1-a_{ij}-s}e_je_i^s=0 ,
 $$
 
-and the same with $f$ in place of $e$. Here $\left[\begin{smallmatrix}n\\s\end{smallmatrix}\right]_q=[n]_q!/([s]_q![n-s]_q!)$. These deform the Chevalley–Serre relations (-@eq-chevalley-serre). The coproduct, counit and antipode are given on each triple $(e_i,f_i,k_i)$ by (-@eq-coproduct)–(-@eq-antipode). The element $\prod_ik_i^{n_i^\vee}$ is central, and on the finite-dimensional representations used in this book it equals 1 (level zero).
+and the same with $f$ in place of $e$. Here $\left[\begin{smallmatrix}n\\s\end{smallmatrix}\right]_q=[n]_q!/([s]_q![n-s]_q!)$. These deform the Chevalley–Serre relations (-@eq-chevalley-serre). The coproduct, counit and antipode are given on each triple $(e_i,f_i,k_i)$ by (-@eq-coproduct)–(-@eq-antipode). The element $\prod_ik_i^{n_i}$, with the Kac labels $n_i$ of (-@eq-kac-labels), is central: conjugation by it multiplies $e_j$ by $q^{(\sum_in_i\vec\alpha_i)\cdot\vec\alpha_j}=1$. Since $k_i=q_i^{h_i}$ and $n_i^\vee=n_i\vec\alpha_i^2/2$, it equals $q^{\sum_in_i^\vee h_i}$, $q$ to the power of the central element. On the finite-dimensional representations used in this book it equals 1 (level zero).
 
-The algebra $U_q(\hat g)$ is quasitriangular too. Its universal R-matrix is an infinite product over the affine roots and is rarely written explicitly; what we use are its consequences.
+The algebra $U_q(\hat g)$ is quasitriangular too, after adjoining the derivation $d$ and completing. Its universal R-matrix is an infinite product over the affine roots and is rarely written explicitly; what we use are its consequences.
 
 **Evaluation representations and the spectral parameter.** A gradation $s$ of $\hat g$ (@sec-gradations) defines an automorphism of $U_q(\hat g)$, $e_i\mapsto x^{s_i}e_i$, $f_i\mapsto x^{-s_i}f_i$. Composing a representation $V$ with it gives the representation $V(x)$. For $U_q(\widehat{sl}_2)$ in the homogeneous gradation, the spin-$j$ representation of $U_q(sl_2)$ extends to a representation of $U_q(\widehat{sl}_2)$ by
 
@@ -116,7 +116,7 @@ $$
 e_1=E,\quad f_1=F,\quad k_1=K,\qquad e_0=x\,F,\quad f_0=x^{-1}E,\quad k_0=K^{-1}.
 $$ {#eq-evaluation-rep}
 
-This is an **evaluation representation**. For other algebras, not every representation of $U_q(g)$ extends, and the minimal extensions (the **Kirillov–Reshetikhin modules**) can be larger than the representation of $U_q(g)$ one starts from. Part VI meets examples: the $\mathbf{27}=\mathbf{26}\oplus\mathbf1$ of $U_q(e_6^{(2)})$ in @sec-sm-f4.
+This is an **evaluation representation**. For other algebras, not every representation of $U_q(g)$ extends, and the smallest representations of $U_q(\hat g)$ that contain a given one (its **minimal affinizations**; for a multiple of a fundamental weight, the **Kirillov–Reshetikhin modules**) can be larger than the representation of $U_q(g)$ one starts from. Part VI meets examples: the $\mathbf{27}=\mathbf{26}\oplus\mathbf1$ of $U_q(e_6^{(2)})$ in @sec-sm-f4.
 
 ## R-matrices with spectral parameter {#sec-trigonometric-r}
 
@@ -165,11 +165,13 @@ $$
 z=e^{2\lambda\theta},\qquad q=-e^{i\pi\lambda},\qquad\lambda=\frac{8\pi}{\beta_{\rm SG}^2}-1 .
 $$
 
-Then $b=\sinh\lambda\theta/\sinh\lambda(i\pi-\theta)$, which is $S_T/S_0$ of (-@eq-sg-smatrix), and the off-diagonal entries are $e^{\mp\lambda\theta}\sinh(i\pi\lambda)/\sinh\lambda(i\pi-\theta)$. The factors $e^{\mp\lambda\theta}$ are removed by a rapidity-dependent change of basis, which is the passage from the homogeneous to the principal gradation, and the result is $S_R/S_0$. So the sine-Gordon S-matrix is the six-vertex R-matrix times the scalar $S_0$, with $q=-e^{i\pi\lambda}=e^{8\pi^2i/\beta_{\rm SG}^2}$, in agreement with @sec-sg-quantum-group. Part VI writes $q=e^{-i\pi\omega}$; conventions for $q$ differ between references by $q\leftrightarrow q^{-1}$ and by signs, and we convert when needed.
+Then $b=\sinh\lambda\theta/\sinh\lambda(i\pi-\theta)$, which is $S_T/S_0$ of (-@eq-sg-smatrix), and the off-diagonal entries are $e^{\mp\lambda\theta}\sinh(i\pi\lambda)/\sinh\lambda(i\pi-\theta)$. The factors $e^{\mp\lambda\theta}$ are removed by a rapidity-dependent change of basis, which is the passage from the homogeneous to the principal gradation, and the result is $S_R/S_0$. So the sine-Gordon S-matrix is the six-vertex R-matrix times the scalar $S_0$, with $q=-e^{i\pi\lambda}=e^{8\pi^2i/\beta_{\rm SG}^2}$, in agreement with @sec-sg-quantum-group.
+
+Part VI uses the opposite coproduct, $\Delta(e_i)=e_i\otimes1+k_i\otimes e_i$, $\Delta(f_i)=f_i\otimes k_i^{-1}+1\otimes f_i$, the form in which the non-local charges act (@sec-qg-coproduct). Since $P\check R(1/z)P$ intertwines the opposite coproduct, its six-vertex matrix is (-@eq-six-vertex) with $q\to q^{-1}$, at the same $z$, gradation and normalization, and the sine-Gordon value becomes $q=-e^{-i\pi\lambda}=e^{-8\pi^2i/\beta_{\rm SG}^2}$, that of Bernard and LeClair [@bernard1991]. The sign of $q$ cannot be absorbed in a change of basis. The substitution $q\to-q$ leaves the off-diagonal entries $c,c'$ of $P\check R$ and the crossing point $x_c=q^2$ of @sec-qg-crossing unchanged, but it reverses $b$. With it, it reverses the basis-independent combination $(1+b^2-cc')/2b=(q+q^{-1})/2$ and the factor $c_u$ of @sec-qg-crossing. It is conjugation of $\check R$ by $\mathrm{diag}(1,1,-1,1)$, which is not of the form $A\otimes A$. It changes the relative exchange sign of soliton and antisoliton, and it is what the crossing test of @sec-crossing-sign detects.
 
 ## Crossing from the antipode {#sec-qg-crossing}
 
-The dual representation $V^*$ of an evaluation representation is again an evaluation representation, with a shifted spectral parameter: $V(x)^*\cong V(x\,x_c)$ for some **crossing point** $x_c$, via a charge-conjugation matrix $C$. Applying $\pi_V^*\otimes\pi_W$ to $(S\otimes1)\mathcal R=\mathcal R^{-1}$ gives
+The dual representation $V^*$ of an evaluation representation is again an evaluation representation, with a shifted spectral parameter: $V(x)^*\cong\bar V(x\,x_c)$ for some **crossing point** $x_c$, via a charge-conjugation matrix $C$, with $\bar V$ the conjugate (antiparticle) representation ($\bar V=V$ for $U_q(\widehat{sl}_2)$). For self-conjugate $V$, applying $\pi_V^*\otimes\pi_W$ to $(S\otimes1)\mathcal R=\mathcal R^{-1}$ gives
 
 $$
 \big(R(z)^{-1}\big)^{t_1}=c_u(z)\,(C^{-1}\otimes1)\,R(z\,x_c)\,(C\otimes1),
@@ -179,7 +181,7 @@ with $R=P\check R$, $t_1$ the transpose in the first factor, and a scalar functi
 
 **Example.** For the six-vertex R-matrix (-@eq-six-vertex), a direct computation gives $x_c=q^2$, $C=\left(\begin{smallmatrix}0&1\\-q&0\end{smallmatrix}\right)$ and $c_u(z)=q(z-1)/(q^2z-1)$. With $z=e^{2\lambda\theta}$, crossing requires $e^{2\pi i\lambda}=q^2$, which is the relation found above.
 
-The crossing point is a shadow of $S^2\ne1$. In $U_q(\hat g)$, $S^2$ is conjugation by an element that includes $q^{h^\vee d}$, with $d$ the derivation, and so $V(x)^{**}\cong V(x\,q^{2h^\vee})$ in the homogeneous gradation [@frenkel1992; @chari1994]. Crossing twice must give this shift, and for $U_q(\widehat{sl}_2)$ indeed $x_c^2=q^4=q^{2h^\vee}$. This is why the dual Coxeter number appears in the gradation parameter $T$ (@sec-amplitude-and-gradation). In practice, Part VI computes $x_c$ numerically for each representation.
+The crossing point is a shadow of $S^2\ne1$. In $U_q(\hat g)$, $S^2(e_i)=q_i^2e_i$ and $S^2(f_i)=q_i^{-2}f_i$, so $S^2$ is conjugation by $q^{2\hat\rho}$, $\hat\rho=\bar\rho+h^\vee\Lambda_0$. Its $\Lambda_0$ part multiplies $e_0$ by $q^{2h^\vee}$, which in the homogeneous gradation is a rescaling of $x$, so $V(x)^{**}\cong V(x\,q^{2h^\vee})$ [@frenkel1992; @chari1994]. Here $q_i=q^{(\alpha_i,\alpha_i)/2}$ with $(\alpha_0,\alpha_0)=2$. For untwisted algebras this is the normalization of @sec-lie-algebraic-data; for twisted ones the short roots then have squared length 2. And $h^\vee$ is the dual Coxeter number of the algebra whose quantum group acts, which for the solitons of the Toda theory of $\hat g$ is $\hat g^\vee$. With the opposite coproduct of Part VI the shift is $q^{-2h^\vee}$. If $V(x)^*\cong V(x\,x_c)$, crossing twice gives $x_c^2=q^{2h^\vee}$, which fixes $x_c$ only up to a sign; for $U_q(\widehat{sl}_2)$, $x_c=q^2$ and $x_c^2=q^4=q^{2h^\vee}$. In the gradation of @sec-amplitude-and-gradation the crossing point is $x(i\pi)=e^{2\pi iT}$. The power of $q$ in it is the $S^2$ shift, and the dual Coxeter number of the Toda algebra in $T$ supplies only the sign that $S^2$ leaves open. In practice, Part VI computes $x_c$ numerically for each representation.
 
 ## Hermitian forms for $\lvert q\rvert=1$ {#sec-qg-hermitian}
 
@@ -198,7 +200,7 @@ The second point is why the S-matrices of the imaginary-coupling theories are ge
 
 ## Roots of unity {#sec-roots-of-unity}
 
-If $q^{2p}=1$ for some integer $p$, then $[p]_q=0$ and the representation theory changes. In (-@eq-spin-j) with $2j+1>p$, the vector $v_p$ satisfies $Ev_p=[p]_q[2j+1-p]_qv_{p-1}=0$, so it generates a proper subrepresentation, and the spin-$j$ representation is no longer irreducible. The well-behaved representations are those with $2j+1<p$, and in tensor products of these, the summands of spin $j\ge(p-1)/2$ have **quantum dimension** zero, $[2j+1]_q=0$ for $2j+1=p$. They can be consistently discarded, leaving a truncated tensor product with finitely many representations. This truncation is the algebraic basis of **RSOS restriction**: in the S-matrix it keeps only kink states whose vacua are labelled by the allowed spins (@sec-sg-quantum-group, @sec-rsos).
+If $q^{2p}=1$ for some integer $p$, then $[p]_q=0$ and the representation theory changes. In (-@eq-spin-j) with $2j+1>p$, the vector $v_p$ satisfies $Ev_p=[p]_q[2j+1-p]_qv_{p-1}=0$, so it generates a proper subrepresentation, and the spin-$j$ representation is no longer irreducible. The well-behaved representations are those with $2j+1<p$, and in tensor products of these, the summands with highest weight $j\ge(p-1)/2$ (irreducible for $2j+1=p$, where $[p]_q=0$, indecomposable but reducible for $2j+1>p$) have **quantum dimension** zero. They can be consistently discarded, leaving a truncated tensor product with finitely many representations. This truncation is the algebraic basis of **RSOS restriction**: in the S-matrix it keeps only kink states whose vacua are labelled by the allowed spins (@sec-sg-quantum-group, @sec-rsos).
 
 ## Exercises {#sec-quantum-groups-exercises}
 
@@ -207,7 +209,7 @@ Check that $\Delta$ of (-@eq-coproduct) respects the relations (-@eq-uqsl2): in 
 :::
 
 ::: {#exr-antipode}
-Verify the antipode axiom $m\circ(S\otimes1)\circ\Delta=\epsilon$ on $E$, $F$ and $K$, and show $S^2(a)=KaK^{-1}$.
+Verify the antipode axiom $m\circ(S\otimes1)\circ\Delta=\eta\circ\epsilon$ on $E$, $F$ and $K$, and show $S^2(a)=KaK^{-1}$.
 :::
 
 ::: {#exr-spin-j}
@@ -215,7 +217,7 @@ Check that (-@eq-spin-j) defines a representation, and that it reduces to the us
 :::
 
 ::: {#exr-six-vertex}
-Show that (-@eq-six-vertex) satisfies $\check R(z)\check R(1/z)=1$, and that its eigenvalues are $1$ (three times) and $\rho_0(z)$. At which value of $z$ is $\check R$ proportional to the projector onto the spin-1 part, and at which does it have a pole whose residue is the projector onto spin 0?
+Show that (-@eq-six-vertex) satisfies $\check R(z)\check R(1/z)=1$, and that its eigenvalues are $1$ (three times) and $\rho_0(z)$. At which value of $z$ is $\check R$ proportional to the projector onto the spin-1 part, and at which does it have a pole whose residue is proportional to the projector onto spin 0?
 :::
 
 ::: {#exr-sg-match}

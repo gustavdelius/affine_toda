@@ -1,3 +1,4 @@
+import qsign_patch
 from irf_a2 import *
 rng=np.random.default_rng(3)
 for (p,pp) in [(10,13),(9,11),(11,13),(11,14),(8,11),(13,17)]:

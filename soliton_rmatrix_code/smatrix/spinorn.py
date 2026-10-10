@@ -2,7 +2,7 @@ import numpy as np, itertools, os, time
 from scipy.special import loggamma
 from rsolve import intertwiner
 N = int(os.environ.get('NSPIN', '4')); omega = float(os.environ.get('OMEGA', '2.37')); J = int(os.environ.get('JTRUNC', '2000'))
-q = np.exp(-1j*np.pi*omega); T = N*omega + (N - 1)/2; mu = 2*T; D = 2**N
+q = float(__import__("os").environ.get("QSIGN", "1"))*np.exp(-1j*np.pi*omega); T = N*omega + (N - 1)/2; mu = 2*T; D = 2**N
 sp, sm, I2 = np.array([[0,1],[0,0]],complex), np.array([[0,0],[1,0]],complex), np.eye(2)
 def site(op, i):
     mats = [I2]*N; mats[i] = op; out = mats[0]
@@ -21,7 +21,7 @@ def rho(x):
     out = [1.0]
     for j in range(1, N+1): out.append(out[-1]*br(x, 2*j, (-1)**(j+1)))
     return out
-cache = f"Pk_n{N}_w{omega}.npy"
+cache = f"Pk_n{N}_w{omega}_q{__import__("os").environ.get("QSIGN", "1")}.npy"
 if os.path.exists(cache): Pk = list(np.load(cache))
 else:
     x0 = 1.37+0.41j; Rc = intertwiner(rep(x0), rep(1.0), range(N+1), Wn, Wn)[0]; Rc = Rc/Rc[0, 0]; lam = rho(x0); Pk = []

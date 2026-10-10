@@ -1,9 +1,10 @@
+QS = float(__import__("os").environ.get("QSIGN", "1"))   # QSIGN=-1: the physical q = -e^{-i pi omega}
 """c_3^(1): fused amplitudes from S_33 = F33 R33.  R-only products give exact eigenvalue moduli for symmetric fusions;
 F33 (with Richardson-extrapolated truncation) is included where needed (asymmetric fusions, 3*)."""
 import numpy as np, os
 from scipy.special import loggamma
 from common import Spinor33, Ws, n
-omega = float(os.environ.get('OMEGA', '2.37')); q = np.exp(-1j*np.pi*omega); T = 3*omega + 1; mu = 2*T
+omega = float(os.environ.get('OMEGA', '2.37')); q = QS*np.exp(-1j*np.pi*omega); T = 3*omega + 1; mu = 2*T
 S = Spinor33(q)
 A = [omega, 2*omega + 0.5, 3*omega]
 def c_of(t): return np.prod([np.sin(np.pi*(t - a)) for a in A], axis=0)

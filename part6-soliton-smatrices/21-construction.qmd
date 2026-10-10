@@ -25,7 +25,7 @@ $$
 2T=\frac{4\pi h}{\beta^2}-h^\vee .
 $$
 
-In this formula $h$ and $h^\vee$ are the Coxeter and dual Coxeter numbers of $\hat{\mathfrak g}$. We write $q=e^{-i\pi\omega}$ and use the rapidity variable $t=T\theta/(i\pi)$, so that $x=e^{2\pi i t}$ and the physical strip is $0<t<T$. A pole of $\check R$ at $x=\varepsilon q^{-l}$ then corresponds to positions $t\equiv l\omega/2+\arg(\varepsilon)/2\pi \pmod 1$.
+In this formula $h$ and $h^\vee$ are the Coxeter and dual Coxeter numbers of $\hat{\mathfrak g}$. For twisted $\hat{\mathfrak g}=X^{(k)}$ the formula holds with $\beta^2$ replaced by $\beta_{\rm lit}^2=\beta^2/k$ (@sec-conventions) and with Kac's dual Coxeter number $h^\vee$ (@sec-qg-gradation). With $\omega=4\pi/\beta^2-1$ in the normalization of @sec-lie-algebraic-data, we write $q=-e^{-i\pi\omega}=e^{-4\pi^2i/\beta^2}$, the value (-@eq-q-physical) of Bernard and LeClair for the coproduct of the non-local charges, and use the rapidity variable $t=T\theta/(i\pi)$, so that $x=e^{2\pi i t}$ and the physical strip is $0<t<T$. A pole of $\check R$ at $x=\varepsilon q^{-l}$ then corresponds to positions $t\equiv l(\omega+1)/2+\arg(\varepsilon)/2\pi \pmod 1$. All the poles tabulated in this part have even $l$, where this is $t\equiv l\omega/2+\arg(\varepsilon)/2\pi$.
 
 ## Unitarity and crossing {#sec-unitarity-crossing}
 
@@ -49,7 +49,7 @@ $$
 f(t)=\prod_{k\ge1}\frac{f^{(1)}\big(t+2T(k-1)\big)\,f^{(1)}\big(-t+2T(k-\tfrac12)\big)}{f^{(1)}\big(t+2T(k-\tfrac12)\big)\,f^{(1)}\big(-t+2Tk\big)} .
 $$
 
-The product makes $f(T-t)=f(t)$ and $f(t)f(-t)=1/\big(c(t)c(-t)\big)$, so $F$ is unitary and carries the crossing factor. Then $c\,\check R$ has no poles at all. The only physical-strip poles of $S$ come from the Gamma functions, at $t=a_j-k$ with $k=0,1,2,\dots$, and their crossed images. At $t=a_j$ the residue is $\check R$'s residue at the corresponding R-matrix pole, so it projects onto the bound-state multiplet.
+The product, with each factor normalized by a $t$-independent constant so that it converges, makes $f(T-t)=f(t)$ and $f(t)f(-t)=1/\big(c(t)c(-t)\big)$, so $F$ is unitary and carries the crossing factor. Then $c\,\check R$ has no poles at all. The only physical-strip poles of $S$ come from the Gamma functions, at $t=a_j-k$ with $k=0,1,2,\dots$, and their crossed images. At $t=a_j$ the residue is $\check R$'s residue at the corresponding R-matrix pole, so it projects onto the bound-state multiplet.
 
 ## The integer lifts {#sec-integer-lifts}
 
@@ -69,7 +69,9 @@ We compare these products, in exact arithmetic in $\omega$, with the Delius–Gr
 
 ## The crossing sign {#sec-crossing-sign}
 
-Our numerical crossing test compares $S(i\pi-\theta)$ with $(C\otimes 1)\,S_{21}(\theta)^{t_1}\,(C^{-1}\otimes 1)$. For the $c_n^{(1)}$ spinor it returns $(-1)^n$. For $n=1$ (sine-Gordon, whose S-matrix is known exactly) and for $n=2$ (where the S-matrix of [@gmw1996] is known), the physical relation holds with the same $c\,f$. So the test form differs from physical crossing by the convention factor $(-1)^n$, and no extra CDD factor is needed. The exact breather identities below confirm this for $n=3$ and $n=4$. A derivation of the convention factor from the charge-conjugation structure is still owed.
+Our numerical crossing test compares $S(i\pi-\theta)$ with $(C\otimes 1)\,S_{21}(\theta)^{t_1}\,(C^{-1}\otimes 1)$, and returns the ratio of the two as a number $\kappa$. With $q=-e^{-i\pi\omega}$ it returns $\kappa=+1$ for the $c_n^{(1)}$ spinor, $n=1,2,3,4$, and for the $a_5^{(2)}$ spinor, so these amplitudes are crossing symmetric with the scalar factor $c\,f$ and no extra CDD factor. For $n=1$ the amplitude is Zamolodchikov's (-@eq-sg-smatrix).
+
+The test detects the sign of $q$. The crossing point, $T$, the eigenvalues of $\check R$, the zeros $a_j$ and $c\,f$ depend on $q$ only through $q^2$. But $q\to-q$ conjugates $\check R$ by $\Pi\otimes1$, where $\Pi=\pm1$ is a $\mathbb Z_2$ grading of the multiplet, acting on the first soliton only: for sine-Gordon, $+1$ on the soliton and $-1$ on the antisoliton; for the spinors, the parity of the number of minus signs in the weight [Numerical]. Since it acts on one soliton only, it is not a change of basis. For sine-Gordon it reverses $S_T$ relative to $S_R$ (@sec-six-vertex). It also multiplies $c_u$, and with it $\kappa$, by $(-1)^n$ for the $c_n^{(1)}$ spinor, and by $-1$ for the $a_5^{(2)}$ spinor. A computation with $q=e^{-i\pi\omega}$, minus the physical value, therefore gives $\kappa=(-1)^n$ for the $c_n^{(1)}$ spinor. That amplitude describes the same particles with the opposite relative exchange sign of solitons and antisolitons; for $n=1$ it is Zamolodchikov's with $S_T\to-S_T$. For all the representations computed, the change of $\kappa$ under $q\to-q$ is $(-1)^{2(\lambda,\rho)}$, with $\lambda$ the highest weight of the horizontal representation in the normalization in which the short roots have squared length 2 [Conjecture]. For the $b_n$ spinors $2(\lambda,\rho)=n^2$. On the Bethe–Yang equations the conjugation acts as a Bloch twist (@prp-bloch-sectors): in every charge sector, $N$ spinor solitons at $-q$ have the spectrum that they have at $q$ in the Bloch sector $\alpha=\pi N(1,\dots,1)$, up to a phase common to the sector [Numerical]. The twist is trivial for even $N$, in particular in the sector $Q=0$.
 
 ## Worked example: the $a_n^{(1)}$ solitons {#sec-an-example}
 
@@ -83,7 +85,7 @@ $$
 \check R_{11}(x)=P_{\rm sym}+\rho(x)\,P_{\rm antisym},
 $$
 
-with $\rho$ the six-vertex eigenvalue (-@eq-six-vertex-eigenvalue) for every $n$. In the conventions of this chapter ($q=e^{-i\pi\omega}$, which corresponds to $q\to q^{-1}$ relative to @sec-six-vertex), $\rho$ has its pole at $x=q^{-2}$ and its zero at $x=q^{2}$. The residue at the pole projects onto the antisymmetric tensors, which are $V_2=\Lambda^2\mathbb C^{n+1}$.
+with $\rho$ the six-vertex eigenvalue (-@eq-six-vertex-eigenvalue) for every $n$. With the coproduct of this part, which replaces $q$ by $q^{-1}$ relative to @sec-six-vertex, $\rho$ has its pole at $x=q^{-2}$ and its zero at $x=q^{2}$. Both depend only on $q^2$. The residue at the pole projects onto the antisymmetric tensors, which are $V_2=\Lambda^2\mathbb C^{n+1}$.
 
 **Bound states.** The pole $x=q^{-2}$ lies at $t\equiv\omega\pmod1$. With $2T=h\omega$, the value $t=\omega$ corresponds to
 
@@ -101,14 +103,14 @@ the classical ratio, now exact. No integer lift is needed: the scalar factor can
 
 **Crossing.** The dual of $V_1$ is $V_n$, the antisoliton. Crossing therefore relates $S_{11}$ to $S_{1n}$, and the crossing point $x(i\pi)=e^{2\pi iT}=e^{i\pi h\omega}$ is a power of $q$, as @sec-qg-crossing requires. The scalar factor is fixed by unitarity, crossing and minimality as an infinite product of Gamma functions, given explicitly by Hollowood [-@hollowood1993b].
 
-**Breathers.** In the soliton–antisoliton channel $V_a\otimes V_{\bar a}$ the singlet carries towers of breather poles. Gandenberger [@gandenberger1995] showed that the lowest breathers scatter as the particles of $a_n^{(1)}$ with the S-matrix (-@eq-an-smatrix) continued to imaginary coupling, the first instance of the breather–particle identification beyond sine-Gordon.
+**Breathers.** In the soliton–antisoliton channel $V_a\otimes V_{\bar a}$ the singlet carries towers of breather poles. Gandenberger [@gandenberger1995] showed for $a_2^{(1)}$ that the lowest breathers $B_1,\bar B_1$ scatter as the two particles of $a_2^{(1)}$, with the S-matrix (-@eq-an-smatrix) continued to imaginary coupling; Smirnov [@smirnov1991] had found the analogous identification for $a_2^{(2)}$.
 
 **Check: $n=1$.** For sine-Gordon $V_1\otimes V_1$ is spin $\frac12\otimes\frac12$, $T=\lambda$, and the antisymmetric pole at $t=\omega$ corresponds to $\theta=i\pi$, the edge of the physical strip: two solitons do not bind, as they should not. The breather towers of the scalar factor lie at $t=T-k$, $k=1,2,\dots$, which are the poles $\theta=i(\pi-k\xi)$ of the Zamolodchikov S-matrix (@sec-qg-gradation).
 
 ## Exercises {#sec-sm-construction-exercises}
 
 ::: {#exr-scalar-unitarity}
-Show that $f$ as defined in @sec-scalar-factor satisfies $f(T-t)=f(t)$ and $f(t)f(-t)=1/\big(c(t)c(-t)\big)$, using only the functional equation of the Gamma function.
+Show that $f$ as defined in @sec-scalar-factor satisfies $f(T-t)=f(t)$ and, using $\Gamma(z)\Gamma(1-z)=\pi/\sin\pi z$, that $f(t)f(-t)=1/\big(c(t)c(-t)\big)$.
 :::
 
 ::: {#exr-lift-cdd}
@@ -125,4 +127,4 @@ Show that a DGZ/CDS block $(x)_H$ equals the block $(y)$ of @sec-breather-test w
 
 ## Notes and references {#sec-sm-construction-notes}
 
-The general structure $S=\Phi\check R$ goes back to Zamolodchikov and Zamolodchikov's sine-Gordon S-matrix [@zz1979], was developed for affine Toda solitons by Hollowood [@hollowood1993a; @hollowood1993b], and was put on a Hopf-algebraic footing by Delius [-@delius1995]. The form of the scalar factor as $c\,f$ with Gamma functions is that of Gandenberger, MacKay and Watts [@gmw1996]. The use of the soliton masses to fix the integer lifts, and the breather test against the DGZ and CDS amplitudes in exact arithmetic, are new here.
+The general structure $S=\Phi\check R$ goes back to Zamolodchikov and Zamolodchikov's sine-Gordon S-matrix [@zz1979], was developed for affine Toda solitons by Hollowood [@hollowood1993b], and was put on a Hopf-algebraic footing by Delius [-@delius1995]. The form of the scalar factor as $c\,f$ with Gamma functions is that of Gandenberger, MacKay and Watts [@gmw1996]. The use of the soliton masses to fix the integer lifts, and the breather test against the DGZ and CDS amplitudes in exact arithmetic, are new here.

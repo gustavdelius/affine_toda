@@ -1,7 +1,7 @@
 """27-dim representation of U_q(e_6^(2)) (symmetry of imaginary f_4^(1) Toda solitons): f_4 part on 26 + singlet; node 0 = -theta_short"""
 import numpy as np, itertools, os, time
 from scipy.optimize import least_squares
-omega = float(os.environ.get('OMEGA', '2.37')); q = np.exp(-1j*np.pi*omega)
+omega = float(os.environ.get('OMEGA', '2.37')); q = float(__import__("os").environ.get("QSIGN", "1"))*np.exp(-1j*np.pi*omega)
 E26, F26 = np.load(f"f4rep_w{omega}.npy", allow_pickle=True)
 e = np.eye(4)
 simple = {1: e[1]-e[2], 2: e[2]-e[3], 3: e[3], 4: 0.5*(e[0]-e[1]-e[2]-e[3]), 0: -e[0]}

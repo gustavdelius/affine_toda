@@ -1,4 +1,13 @@
 
+## Sign of q
+
+The scripts use q = e^{-i pi omega} by default. This is minus the physical value q = -e^{-i pi omega} = e^{-4 pi^2 i/beta^2} of Bernard and LeClair for the coproduct used here (book: `eq-q-physical`, section `sec-crossing-sign`). Set `QSIGN=-1` to use the physical value; the default reproduces the outputs stored in the repository.
+
+- Independent of the sign (they depend on q^2 only): representations, R-matrix eigenvalues, crossing points, pole positions, residue ranks, breather-breather amplitudes.
+- Dependent on the sign: the crossing factor (`sign_n*.py`: (-1)^n at the default, +1 at `QSIGN=-1`), the c_3^(1) fusion factors k_32 and k_12 (`kcheck.py` picks the closed forms that match `QSIGN`), and the sign of S[B^3,3] (`bootstrap_exact.py`).
+- `spinorn.py` caches its projectors per omega and sign of q.
+- Outputs at the physical q are in `smatrix/qsign_out/`.
+
 ## smatrix/ (scalar factors)
 - `common.py`   : spinor representation at complex q, closed-form R_33 with projectors
 - `crossing.py` : charge conjugation, crossing point and crossing factor c(x) at unimodular q

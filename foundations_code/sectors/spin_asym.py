@@ -1,8 +1,9 @@
+QS = float(__import__("os").environ.get("QSIGN", "1"))   # QSIGN=-1: the physical q = -e^{-i pi omega}
 import numpy as np, sys, math
 sys.argv = ['x', sys.argv[1], sys.argv[2]]
 exec(open('spinor_scan.py').read().split('if __name__ == "__main__":')[0])
 for om in [0.05, 0.15, 0.25, 0.35, 0.45, 0.49, 0.55, 0.75]:
-    q = np.exp(-1j*np.pi*om); Pk = setup(q)
+    q = QS*np.exp(-1j*np.pi*om); Pk = setup(q)
     ds = []
     for lx in (8, 12, 16, 20):
         e = np.linalg.eigvals(P @ Rmat(np.exp(lx), q, Pk)); ds.append(np.abs(np.abs(e) - 1).max())

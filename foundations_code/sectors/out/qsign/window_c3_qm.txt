@@ -1,0 +1,1 @@
+c_3 spinor: omega=2.37: l_c=0.281 (theta_c = l_c/2T = 0.0173); omega=1.61: l_c=0.531 (theta_c = l_c/2T = 0.0455); omega=0.3013: l_c=0.091 (theta_c = l_c/2T = 0.0239)

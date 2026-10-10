@@ -1,0 +1,4 @@
+lowest breather masses (M3=1): {1: 0.20409, 2: 0.34673, 3: 0.38496}
+S[B3, soliton 3] = +0.997 x blocks:  poles [1.685, 3.555, 4.555, 6.425]  zeros [1.185, 6.925]  (orders [-1, 1, 1, 1, 1, -1]; match 1e-02; crossing +1.0000+0.0000i) [1s]
+S[B1, soliton 3] = -0.983 x blocks:  poles [1.685, 6.425]  zeros []  (orders [1, 1]; match 2e-02; crossing +1.0000+0.0000i) [9s]
+S[B2, soliton 3] = +0.990 x blocks:  poles [0.25, 3.12, 4.99, 7.86]  zeros []  (orders [1, 1, 1, 1]; match 2e-02; crossing +1.0000+0.0000i) [9s]

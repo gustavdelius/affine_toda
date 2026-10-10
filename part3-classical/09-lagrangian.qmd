@@ -29,7 +29,7 @@ Here $\vec\phi$ takes values in $\mathbb R^r$, the sums run over the $r+1$ simpl
 
 The sign in $V_{\rm imag}$ matters. It makes $\vec\phi=0$ a minimum ($V\simeq\tfrac12\vec\phi^{\mathsf T}M^2\vec\phi$). In the Euclidean theory it gives positive fugacities (@sec-lattice).
 
-The theories are classically integrable. They have a Lax pair and conserved charges of spins equal to the exponents of $\hat g$ modulo the Coxeter number [@olive1985]. The higher-spin charges survive quantization [@feigin1993; @dgz1992; @niedermaier1994].
+The theories are classically integrable. They have a Lax pair and conserved charges whose spins are the exponents of $\hat g$, repeating with period $kh$ ($h$ the Coxeter number; $k=1$ for untwisted and $k=2,3$ for twisted $\hat g=X^{(k)}$) [@olive1985]. The higher-spin charges survive quantization [@feigin1993; @dgz1992; @niedermaier1994].
 
 **Field equations.** In light-cone derivatives $\partial_\pm=\partial_t\pm\partial_x$, so that $\partial_+\partial_-=\partial_t^2-\partial_x^2$, the field equations are
 
@@ -79,13 +79,13 @@ Two features of (-@eq-lax-pair) should be noted.
 
 ## Conserved charges {#sec-conserved-charges}
 
-Zero curvature means that the parallel transport $\mathcal P\exp\big(-\int A_x\,dx\big)$ along a time slice is conserved up to conjugation, so its conjugation invariants are conserved for every $\lambda$. Expanding in $\lambda$, after a gauge transformation that diagonalizes the leading term into the principal Heisenberg subalgebra (the Drinfeld–Sokolov procedure), produces an infinite set of **local** conserved charges [@olive1985]. A charge produced from the Heisenberg element of principal degree $s$ has Lorentz spin $s$. By @sec-gradations the possible spins are
+Zero curvature means that the parallel transport $\mathcal P\exp\big(-\int A_x\,dx\big)$ along a time slice is conserved up to conjugation, so its conjugation invariants are conserved for every $\lambda$. Expanding in $\lambda$, after a gauge transformation that diagonalizes the leading term into the principal Heisenberg subalgebra (the Drinfeld–Sokolov procedure [@drinfeld_sokolov1985]), produces an infinite set of **local** conserved charges [@olive1985]. A charge produced from the Heisenberg element of principal degree $s$ has Lorentz spin $s$. By @sec-gradations the possible spins are
 
 $$
-s\in\{\text{exponents of }\hat g\}+h\mathbb Z ,
+s\in\{\text{exponents of }\hat g\}+kh\,\mathbb Z ,
 $$
 
-which for untwisted $\hat g=g^{(1)}$ are the exponents of $g$ (@tbl-simple-lie) repeated modulo $h$. For sinh- and sine-Gordon the spins are the odd integers. For $a_n^{(1)}$ with $n\ge2$ every integer not divisible by $h=n+1$ occurs.
+where $h=\sum_jn_j$ and $kh$ is the order of the twisted Coxeter element ([@kac1990] lists the exponents of $X_N^{(k)}$ modulo $kh$). For untwisted $\hat g=g^{(1)}$ these are the exponents of $g$ (@tbl-simple-lie) repeated modulo $h$. For $a_2^{(2)}$ they are $1,5$ mod 6; for $d_4^{(3)}$, $1,5,7,11$ mod 12; for $e_6^{(2)}$, $1,5,7,11,13,17$ mod 18; for $a_{2n}^{(2)}$, the odd integers not divisible by $2n+1$; for $a_{2n-1}^{(2)}$ and $d_{n+1}^{(2)}$ (as for $b_n^{(1)}$, $c_n^{(1)}$), all odd integers. The two members of a dual pair have the same spins. For sinh- and sine-Gordon the spins are the odd integers. For $a_n^{(1)}$ with $n\ge2$ every integer not divisible by $h=n+1$ occurs.
 
 **Example: the spin-3 charge of sinh-Gordon.** With $V=\frac{m^2}{\beta^2}(\cosh\beta\phi-1)$, one checks from the field equation $\partial_+\partial_-\phi=-\frac{m^2}\beta\sinh\beta\phi$ that
 
@@ -95,9 +95,9 @@ $$ {#eq-spin3-current}
 
 The charge $Q_3=\int dx\,\big(T_4+\Theta_2\big)$ built from this current has spin 3, and on a one-particle state it takes the value $\chi\,m^3e^{3\theta}$, as in (-@eq-charge-eigenvalue). For sine-Gordon, replace $\beta^2$ by $-\beta^2$.
 
-The higher charges have three consequences used later. They make the classical solitons scatter without changing shape (@sec-classical-solitons), they survive quantization and make the S-matrix factorize (@sec-factorization), and their eigenvalues on the particles are the eigenvectors of the Cartan matrix [@freeman1991], which restricts which particles can couple.
+The higher charges have three consequences used later. They make the classical solitons scatter without changing shape (@sec-classical-solitons), they survive quantization and make the S-matrix factorize (@sec-factorization), and their eigenvalues on the particles are the eigenvectors of the Cartan matrix [@klassen1990; @dorey1991], which restricts which particles can couple.
 
-There are also **non-local** charges, built from the dual field. They are invisible in the classical Lax pair but generate the quantum affine algebra $U_q(\hat g^\vee)$ in the quantum imaginary-coupling theory (@sec-qg-symmetry).
+There are also **non-local** charges, built from the dual field. They are not among the local charges of the Lax pair but generate the quantum affine algebra $U_q(\hat g^\vee)$ in the quantum imaginary-coupling theory (@sec-qg-symmetry).
 
 ## Masses and couplings {#sec-masses-couplings}
 
@@ -117,11 +117,13 @@ which equals $2hm^2$ for simply-laced $\hat g$. For simply-laced $\hat g$ the ma
 
 The degeneracies $m_a=m_{h-a}$ of $a_n^{(1)}$ reflect the $\mathbb Z_h$ symmetry of the affine diagram: particle $h-a$ is the antiparticle of $a$. For non-simply-laced $\hat g$ the masses are obtained by folding (@sec-affine-folding), as the subset of masses of the parent theory whose eigenvectors are invariant under the folding symmetry (@exr-fold-mass). For example $c_n^{(1)}$, folded from $a_{2n-1}^{(1)}$, has $m_a=2m\sin\frac{\pi a}{2n}$, $a=1,\dots,n$.
 
-**Three-point couplings.** Expanding the potential to cubic order and writing $\vec\phi=\sum_a\vec e_a\phi_a$ in an orthonormal eigenbasis of $M^2$ gives the couplings
+**Three-point couplings.** Expanding the potential to cubic order and writing $\vec\phi=\sum_a\vec e_a\phi_a$ in an eigenbasis of $M^2$ gives the couplings
 
 $$
 C_{abc}=m^2\beta\sum_jn_j(\vec\alpha_j\cdot\vec e_a)(\vec\alpha_j\cdot\vec e_b)(\vec\alpha_j\cdot\vec e_c).
 $$
+
+For degenerate masses ($a_n$, $d_n$, $e_6$) the $\vec e_a$ must be charge eigenvectors, the complex eigenvectors of the centre of the affine diagram (of $\mathbb Z_h$ for $a_n$), normalized by $\vec e_a\cdot\vec e_{\bar a}=1$ so that $\phi_{\bar a}=\bar\phi_a$. Particle $a$ is the eigenvector with the centre character of node $a$. In a real orthonormal basis of a degenerate pair neither (-@eq-area-rule) nor @prp-dorey-rule holds.
 
 For simply-laced $\hat g$ these have a striking geometric form [@braden1990]:
 
@@ -149,7 +151,7 @@ Each $\vec\gamma_a$ is a root, and the $r$ orbits $\Omega_a$, each with $h$ elem
 
 The rule also gives the fusing angles: projecting the three roots onto the plane on which $w$ acts as a rotation by $2\pi/h$ gives a triangle whose sides are proportional to $m_a$, $m_b$, $m_c$. The particle masses are the lengths of the projected roots, and the angles between them are multiples of $\pi/h$. This is why all fusing angles of the simply-laced theories are multiples of $\pi/h$, and why the S-matrices of Part IV are built from blocks indexed by integers modulo $2h$.
 
-For $e_7^{(1)}$ and $e_8^{(1)}$, where all masses are distinct, the rule and the area formula (-@eq-area-rule) can be checked directly against the cubic expansion of the potential (`textbook_code/toda_classical.py`).
+The rule and the area formula (-@eq-area-rule) can be checked directly against the cubic expansion of the potential: for $e_7^{(1)}$, $e_8^{(1)}$ in any eigenbasis, and for $a_n^{(1)}$, $d_n^{(1)}$, $e_6^{(1)}$ in the charge basis (`textbook_code/toda_classical.py`).
 
 ## Exercises {#sec-theories-exercises}
 

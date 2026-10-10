@@ -1,7 +1,8 @@
+QS = float(__import__("os").environ.get("QSIGN", "1"))   # QSIGN=-1: the physical q = -e^{-i pi omega}
 import numpy as np, sys
 sys.argv = ['x', '2', 'c']
 exec(open('spinor_scan.py').read().split('if __name__ == "__main__":')[0])
-om = 2.37; q = np.exp(-1j*np.pi*om); Pk = setup(q); Rpl = lambda x: P @ Rmat(x, q, Pk)
+om = 2.37; q = QS*np.exp(-1j*np.pi*om); Pk = setup(q); Rpl = lambda x: P @ Rmat(x, q, Pk)
 for l in (1.0, 2.0, 3.0, 5.0):
     print("2-body logx", l, "maxdev", np.abs(np.abs(np.linalg.eigvals(Rpl(np.exp(l)))) - 1).max())
 for ls in ([3.0, 1.0], [3.0, 5.0], [3.0, 3.1], [3.0, 0.0001], [-3, 2], [4, -4], [2.5, 6]):

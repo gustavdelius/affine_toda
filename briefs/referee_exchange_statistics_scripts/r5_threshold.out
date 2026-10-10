@@ -1,0 +1,14 @@
+xi/pi=1.5977 psi/pi=+0.4173: dev(alpha=0)=5.0e-08, alpha_c/pi=0.00000, formula 0.00000, diff 0.0e+00; broken at f-0.01: None, unbroken at f+0.01: True
+xi/pi=0.4314 psi/pi=-0.4547: dev(alpha=0)=6.2e-08, alpha_c/pi=0.00000, formula 0.00000, diff 0.0e+00; broken at f-0.01: None, unbroken at f+0.01: True
+xi/pi=1.2134 psi/pi=+0.5494: dev(alpha=0)=3.2e-01, alpha_c/pi=0.09882, formula 0.09882, diff 1.3e-07; broken at f-0.01: True, unbroken at f+0.01: True
+xi/pi=0.4611 psi/pi=-0.5541: dev(alpha=0)=3.6e-01, alpha_c/pi=0.10818, formula 0.10818, diff 7.8e-08; broken at f-0.01: True, unbroken at f+0.01: True
+xi/pi=1.0766 psi/pi=+0.6193: dev(alpha=0)=9.3e-01, alpha_c/pi=0.23850, formula 0.23850, diff 6.2e-07; broken at f-0.01: True, unbroken at f+0.01: True
+xi/pi=0.4844 psi/pi=-0.6237: dev(alpha=0)=9.8e-01, alpha_c/pi=0.24741, formula 0.24741, diff 2.9e-08; broken at f-0.01: True, unbroken at f+0.01: True
+xi/pi=0.9537 psi/pi=+0.6990: dev(alpha=0)=1.4e+00, alpha_c/pi=0.30095, formula 0.30095, diff 5.7e-07; broken at f-0.01: True, unbroken at f+0.01: True
+xi/pi=0.5141 psi/pi=-0.7033: dev(alpha=0)=1.4e+00, alpha_c/pi=0.29671, formula 0.29671, diff 4.2e-08; broken at f-0.01: True, unbroken at f+0.01: True
+xi/pi=0.8560 psi/pi=+0.7788: dev(alpha=0)=9.0e-01, alpha_c/pi=0.22118, formula 0.22118, diff 3.2e-07; broken at f-0.01: True, unbroken at f+0.01: True
+xi/pi=0.5477 psi/pi=-0.7829: dev(alpha=0)=8.8e-01, alpha_c/pi=0.21710, formula 0.21710, diff 7.3e-08; broken at f-0.01: True, unbroken at f+0.01: True
+xi/pi=0.7589 psi/pi=+0.8785: dev(alpha=0)=4.3e-01, alpha_c/pi=0.12151, formula 0.12151, diff 1.5e-07; broken at f-0.01: True, unbroken at f+0.01: True
+xi/pi=0.5965 psi/pi=-0.8824: dev(alpha=0)=4.1e-01, alpha_c/pi=0.11756, formula 0.11756, diff 5.3e-07; broken at f-0.01: True, unbroken at f+0.01: True
+xi/pi=0.6886 psi/pi=+0.9682: dev(alpha=0)=9.8e-02, alpha_c/pi=0.03183, formula 0.03183, diff 2.1e-07; broken at f-0.01: True, unbroken at f+0.01: True
+xi/pi=0.6485 psi/pi=-0.9721: dev(alpha=0)=8.5e-02, alpha_c/pi=0.02794, formula 0.02794, diff 1.1e-07; broken at f-0.01: True, unbroken at f+0.01: True

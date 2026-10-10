@@ -1,0 +1,2 @@
+c_3 spinor, omega=2.37: 2-body unimodular for |log x| < 0.2810; 3-body (all pairs inside window) max dev 6.2e-02 at [-0.207 -0.208] (Krein 3e-13); 3-body unrestricted max dev 2.6e-01 (Krein 1e-12)  [1923s]
+c_3 spinor, omega=1.61: 2-body unimodular for |log x| < 0.5285; 3-body (all pairs inside window) max dev 7.7e-02 at [-0.388 -0.391] (Krein 6e-14); 3-body unrestricted max dev 2.2e-01 (Krein 2e-13)  [3439s]
