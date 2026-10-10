@@ -78,7 +78,7 @@ Each item below gives the property as it holds in a unitary theory, then how it 
 **U5. Positive residues of bound-state poles (real on-shell three-point couplings, positive norm of bound states).**
 
 - *In a unitary theory:* each forward-channel bound-state pole has a residue of definite sign, set by the square of a real coupling.
-- *In imaginary-coupling ATFT:* continuing $\beta\to i\beta$ makes the cubic couplings of the real-coupling theory imaginary. Some physical-strip poles of the breather amplitudes then change sign, which Hollowood called the hallmark of non-unitarity [@hollowood1991]. The scaling Lee–Yang model, itself an RSOS restriction of sine-Gordon, is the classic example [@cardy1989].
+- *In imaginary-coupling ATFT:* continuing $\beta\to i\beta$ makes the cubic couplings of the real-coupling theory imaginary. Some physical-strip poles of the breather amplitudes then change sign. Hollowood used the same residue-sign test to show that the $a_n^{(1)}$ soliton S-matrix is non-unitary: in soliton–soliton scattering the pole of the $p$-th excited soliton has a residue of sign $(-1)^p$ [@hollowood1993b]. The scaling Lee–Yang model, itself an RSOS restriction of sine-Gordon, is the classic example [@cardy1989].
 - *Why it cannot be rescued:* the residue of a scalar (singlet) amplitude is basis-independent and unchanged by restriction.
 - *Scope:* [Established] for $a_n^{(1)}$; [Conjecture] for every $\hat g$ whose real-coupling theory has cubic couplings, which is all except $a_1^{(1)}$. That exception is consistent with the unitarity of sine-Gordon theory.
 
