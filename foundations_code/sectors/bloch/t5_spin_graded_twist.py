@@ -28,7 +28,7 @@ for n, alg in ((2, 'c'), (3, 'c'), (3, 'a')):
     tot, first = weights_multi(Wn, 2)
     keys = sorted({tuple(t) for t in tot}, key=lambda t: (sum(abs(a) for a in t), t))
     lx = np.concatenate([np.linspace(0.005, 6, 300), np.linspace(6, 30, 60)])
-    for om in (2.37, 1.61, 0.3):
+    for om in (2.37, 1.61, 0.3013):   # 0.3 is a root of unity (q^20 = 1): rank-3 projectors degenerate
         q = np.exp(-1j*np.pi*om); Rp = setup(q); Rs = [Rp(np.exp(l)) for l in lx]; res = []
         for kk in keys:
             idx = np.where(np.all(np.isclose(tot, kk), axis=1))[0]

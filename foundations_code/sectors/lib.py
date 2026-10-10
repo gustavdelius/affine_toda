@@ -25,6 +25,18 @@ def flip(Da, Db):
     for i in range(Da):
         for j in range(Db): P[j*Da + i, i*Db + j] = 1
     return P
+def check_projectors(Pk, W, tol=1e-8):
+    """Guard against degenerate decompositions (e.g. q a root of unity, where the rank-3 spinor projectors are corrupt):
+    the projectors must sum to 1, be idempotent and conserve the total weight on V (x) V."""
+    n = W.shape[0]; tot = (W[:, None, :] + W[None, :, :]).reshape(n*n, -1)
+    same = np.all(np.isclose(tot[:, None, :], tot[None, :, :]), axis=2)
+    S = sum(Pk)
+    errs = (np.abs(S - np.eye(n*n)).max(), max(np.abs(Pm @ Pm - Pm).max() for Pm in Pk),
+            max(np.abs(Pm[~same]).max() for Pm in Pk))
+    if max(errs) > tol:
+        raise ValueError(f"degenerate projectors (sum {errs[0]:.1e}, idempotency {errs[1]:.1e}, weight {errs[2]:.1e}); "
+                         "move the coupling off roots of unity")
+    return Pk
 def components(E, F, K, W, nodes, simple):
     """multiplicity-free decomposition of V (x) V under the finite algebra; returns list of (dim, projector, hw weight)"""
     n = W.shape[0]; I = np.eye(n)

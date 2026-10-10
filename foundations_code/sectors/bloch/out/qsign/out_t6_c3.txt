@@ -4,5 +4,5 @@ c_3 omega=1.61 Q=0 (dim 8): alpha=0 dev 1.74e+00; best alpha/pi=[0.333 1.    1.3
 c_3 omega=1.61 Q=e1 (dim 4): alpha=0 dev 5.35e-01; best alpha/pi=[0.333 0.667 1.167] dev 2.11e-15; unbroken grid points 1572/1728
 c_3 omega=0.73 Q=0 (dim 8): alpha=0 dev 6.34e+00; best alpha/pi=[1.    1.667 0.667] dev 3.11e-15; unbroken grid points 330/1728
 c_3 omega=0.73 Q=e1 (dim 4): alpha=0 dev 2.08e+00; best alpha/pi=[0.167 0.333 1.   ] dev 2.00e-15; unbroken grid points 996/1728
-c_3 omega=0.3 Q=0 (dim 8): alpha=0 dev 8.50e+00; best alpha/pi=[1.167 0.333 1.333] dev 2.29e+00; unbroken grid points 0/1728
-c_3 omega=0.3 Q=e1 (dim 4): alpha=0 dev 1.45e+00; best alpha/pi=[1.167 1.833 1.   ] dev 1.89e-15; unbroken grid points 1236/1728
+c_3 omega=0.3013 Q=0 (dim 8): alpha=0 dev 6.42e+00; best alpha/pi=[0.833 1.667 1.   ] dev 1.73e-14; unbroken grid points 342/1728
+c_3 omega=0.3013 Q=e1 (dim 4): alpha=0 dev 1.43e+00; best alpha/pi=[0.167 1.5   0.667] dev 1.89e-15; unbroken grid points 1236/1728

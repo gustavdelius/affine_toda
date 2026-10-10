@@ -6,7 +6,7 @@ times a phase c_Q common to the sector. The twist is trivial for even N, in part
 """
 from spin_common import *
 for n, alg, Nn, om in ((2, 'c', 2, 0.3), (2, 'c', 3, 0.3), (2, 'c', 3, 2.37), (2, 'c', 4, 0.7),
-                       (3, 'c', 2, 1.61), (3, 'c', 3, 0.3), (2, 'a', 3, 1.61), (3, 'a', 2, 0.3)):
+                       (3, 'c', 2, 1.61), (3, 'c', 3, 0.3013), (2, 'a', 3, 1.61), (3, 'a', 2, 0.3013)):
     D, Wn, setup = make(n, alg)
     tot, first = weights_multi(Wn, Nn)
     q = np.exp(-1j*np.pi*om); Rp, Rm = setup(q), setup(-q)

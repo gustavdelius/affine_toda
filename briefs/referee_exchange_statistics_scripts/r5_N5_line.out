@@ -1,0 +1,5 @@
+psi/pi=+0.4147: max dev 1.64e-02 at t=-0.726, offset [0. 0. 0. 0.]
+psi/pi=+0.4122: max dev 7.06e-03 at t=-0.464, offset [0. 0. 0. 0.]
+psi/pi=+0.4097: max dev 9.22e-13 at t=-0.280, offset [ 0.15  0.   -0.15  0.  ]
+psi/pi=+0.4047: max dev 9.30e-13 at t=-0.422, offset [ 0.05 -0.05  0.02 -0.02]
+psi/pi=+0.4007: max dev 6.16e-12 at t=-2.462, offset [ 0.05 -0.05  0.02 -0.02]

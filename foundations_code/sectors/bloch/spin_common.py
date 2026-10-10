@@ -23,7 +23,7 @@ def make(N, alg):
         e, f, k, qi = spinor_rep(N, q, 1.0, alg)
         comps = components(e, f, k, Wn, range(1, N+1), roots)
         byd = {d: Pm for d, Pm, _ in comps}
-        Pk = [byd[math.comb(2*N+1, N-kk)] for kk in range(N+1)]
+        Pk = check_projectors([byd[math.comb(2*N+1, N-kk)] for kk in range(N+1)], Wn)
         return lambda x: P @ sum(r*Pm for r, Pm in zip(rhos(x, q), Pk))   # particle-labelled R = P Rcheck
     return D, Wn, setup
 def weights_multi(Wn, Nn):

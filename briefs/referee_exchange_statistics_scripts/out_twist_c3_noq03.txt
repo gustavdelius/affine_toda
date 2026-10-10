@@ -1,0 +1,1 @@
+c_3: 0 of 512 Z2 bicharacter twists give unimodular 2-body spectra at sampled points:

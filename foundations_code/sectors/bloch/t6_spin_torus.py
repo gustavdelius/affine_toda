@@ -6,7 +6,7 @@ D, Wn, setup = make(n, alg)
 tot, first = weights_multi(Wn, 2)
 lx = np.concatenate([np.linspace(0.01, 5, 120), np.linspace(5, 25, 30)])
 grid = [np.array(a)*2*np.pi/steps for a in itertools.product(range(steps), repeat=n)]
-for om in (2.37, 1.61, 0.73, 0.3):
+for om in (2.37, 1.61, 0.73, 0.3013):   # 0.3 is a root of unity (q^20 = 1): rank-3 projectors degenerate
     q = np.exp(-1j*np.pi*om); Rp = setup(q); Rs = [Rp(np.exp(l)) for l in lx]
     for name, Qv in (("Q=0", np.zeros(n)), ("Q=e1", np.eye(n)[0])):
         idx = np.where(np.all(np.isclose(tot, Qv), axis=1))[0]

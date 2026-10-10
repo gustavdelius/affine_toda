@@ -1,5 +1,7 @@
 # Brief: referee the exchange-statistics results
 
+**Status:** run on 2026-10-10. The report is `referee_exchange_statistics_report.md` and its findings are integrated in PR #2; the items it did not do are listed there.
+
 You are an adversarial mathematical-physics referee. Your job is to find errors, gaps, overclaimed status labels and uncredited prior art. Do not confirm what you have not checked.
 
 The material is the branch `worktree-exchange-statistics` (PR #2), checked out in the git worktree `/home/gustav/Git/affine_toda/.claude/worktrees/exchange-statistics`. It has been merged with `main` after PR #4, which changed the sign of $q$ in Part VI (see "The sign of $q$" below). The main checkout at `/home/gustav/Git/affine_toda` does **not** contain this branch's material, so read every file in the worktree. Do not edit any file there. Work in your own scratch directory, copy scripts there before running them, and deliver your full report in your final message: subagents may be unable to write report files.
