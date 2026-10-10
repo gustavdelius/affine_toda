@@ -23,7 +23,7 @@ $$
 \Theta:(a,\theta,\xi)\mapsto(\bar a,\bar\theta,\bar\xi),\qquad\bar a=h-a .
 $$ {#eq-theta-data}
 
-A $\Theta$-invariant field satisfies $\vec\phi=-\bar{\vec\phi}$ (up to a vacuum shift), i.e. it is purely imaginary, and $-i\vec\phi$ solves the real-coupling equation; it carries no topological charge. So no soliton is $\Theta$-invariant as a field, and for solitons $\Theta$-invariance is a property of the asymptotic data. The sine-Gordon kink, for which $\bar a=a$, is mapped to a solution with the opposite topological charge and conjugate $\xi$.
+A $\Theta$-invariant field satisfies $\vec\phi=-\bar{\vec\phi}$ (up to a vacuum shift), i.e. it is purely imaginary, and $i\vec\phi$ solves the real-coupling equation; it carries no topological charge. So no soliton is $\Theta$-invariant as a field, and for solitons $\Theta$-invariance is a property of the asymptotic data. The sine-Gordon kink, for which $\bar a=a$, is mapped to a solution with the opposite topological charge and conjugate $\xi$.
 
 ## Reality of energy and momentum {#sec-reality-energy-momentum}
 
@@ -40,10 +40,11 @@ where $(a_i,\theta_i)$ are the species and (possibly complex) rapidities of the 
 
 On Hirota data, $\Theta$ acts as $\tau_j\mapsto\bar\tau_j$. That is, $(a,\theta,\xi)\mapsto(\bar a,\bar\theta,\bar\xi)$, where $\bar a$ is the conjugate species ($\omega^{ja}\mapsto\omega^{-ja}$). Consequently:
 
-- **Selection rule.** If the asymptotic data are $\Theta$-invariant, i.e. the multiset $\{(a_i,\theta_i)\}$ is mapped to itself by $(a,\theta)\mapsto(\bar a,\bar\theta)$, then every conserved charge satisfies $Q=\epsilon_Q\bar Q$, where $J_Q(-\bar{\vec\phi})=\epsilon_Q\overline{J_Q(\vec\phi)}$ defines $\epsilon_Q=\pm1$; in particular $E$ and $P$ are real. Breathers are of this kind. A single soliton with real rapidity is $\Theta$-invariant only if $\bar a=a$; for $\bar a\ne a$ its $E$ and $P$ are real because $M_{\bar a}=M_a$, but charge-conjugation-odd charges behave differently: in $a_2^{(1)}$ the spin-2 charge, normalized to be real on single solitons, is imaginary on breathers.
+- **Selection rule.** If the asymptotic data are $\Theta$-invariant, i.e. the multiset $\{(a_i,\theta_i)\}$ is mapped to itself by $(a,\theta)\mapsto(\bar a,\bar\theta)$, then every conserved charge satisfies $Q=\epsilon_Q\bar Q$, where $J_Q(-\bar{\vec\phi})=\epsilon_Q\overline{J_Q(\vec\phi)}$ defines $\epsilon_Q=\pm1$; in particular $E$ and $P$ are real. Breathers are of this kind.
+- **A weaker condition for $E$ and $P$.** By @prp-hirota-energy, $E$ and $P$ depend on the data only through the multiset $\{(M_{a_i},\theta_i)\}$. Since $M_{\bar a}=M_a$, they are real whenever this multiset is mapped to itself by $\theta\mapsto\bar\theta$, whether or not the species are conjugated as well. This covers every solution with real rapidities, for instance a single soliton with $\bar a\ne a$, which is not $\Theta$-invariant. Charges that are odd under charge conjugation $a\leftrightarrow\bar a$ need full $\Theta$-invariance. In $a_2^{(1)}$ the spin-2 charge of a single soliton is $q_ae^{2\theta}$, where by Freeman's computation [@freeman1995] the $q_a$ form the eigenvector of the $A_2$ Cartan matrix with eigenvalue $3$, so $q_2=-q_1$, and they can be normalized to be real. If the charge is additive over the constituents, as $E$ and $P$ are, a breather $\{(1,\theta_0+iu),(2,\theta_0-iu)\}$ has spin-2 charge $q_1\big(e^{2(\theta_0+iu)}-e^{2(\theta_0-iu)}\big)=2iq_1e^{2\theta_0}\sin2u$, which is imaginary. This agrees with the selection rule with $\epsilon_Q=-1$. Freeman treats single solitons only, so additivity at complex rapidities is assumed here.
 - **Complex energies.** The complex-energy solutions of Khastgir and Sasaki have asymptotic data that are not $\Theta$-invariant. They are not in the physical sector, for the same reason that complex eigenvalues of a $\Theta$-symmetric operator are not $\Theta$-invariant states (@sec-antilinear).
 
-This closes gap H6 of @sec-critique, apart from the question of singularities. The restriction to "good" solutions, previously ad hoc, is the classical shadow of @thm-krein-transfer.
+This closes gap H6 of @sec-critique, apart from the question of singularities. The restriction to "good" solutions, previously ad hoc, is the classical shadow of @thm-krein-transfer, which is proved in Part VII for the lattice transfer matrix; Part III uses it only as motivation.
 
 
 **Examples.**
@@ -68,12 +69,12 @@ There are three possible responses.
 - **Semiclassics is incomplete.** The missing states appear only quantum mechanically, through saddles of the path integral that are not real-time solutions.
 - **Both.** Static complex saddles are not enough. @sec-which-saddles-contribute shows that for $a_3^{(1)}$ no static saddle of the right energy carries the missing weights, and conjectures (@cnj-missing-charge) that complexified two-soliton bound states at the fusing angle carry them.
 
-The problem is gap H11 of @sec-critique, and it is open.
+The book adopts the third response as a working hypothesis. @sec-which-saddles-contribute makes the choice, and @cnj-missing-charge states it. The problem is gap H11 of @sec-critique, and it is open.
 
 ## Exercises {#sec-classical-exercises}
 
 ::: {#exr-theta-solutions}
-Show that $\vec\phi\mapsto-\bar{\vec\phi}$ maps solutions of the imaginary-coupling field equation to solutions. Show that it is not a symmetry of the real-coupling field equation (unless $\hat g=a_1^{(1)}$, where $\vec\phi\mapsto-\vec\phi$ is itself a symmetry), and find the antilinear map that is.
+Show that $\vec\phi\mapsto-\bar{\vec\phi}$ maps solutions of the imaginary-coupling field equation to solutions. Show that it is not a symmetry of the real-coupling field equation (unless $\hat g=a_1^{(1)}$, where $\vec\phi\mapsto-\vec\phi$ is itself a symmetry), and find the antilinear map that is. (*Answer:* plain complex conjugation $\vec\phi\mapsto\bar{\vec\phi}$, possibly composed with a symmetry of the affine diagram, because the real-coupling equation has real coefficients. Under $\vec\phi\mapsto i\vec\phi$, which maps imaginary-coupling solutions to real-coupling ones (@sec-theta-classical), $\Theta$ becomes exactly this map. For $a_2^{(1)}$, check that $\sum_jn_je^{-\beta\vec\alpha_j\cdot\vec\phi}\ne\sum_jn_je^{\beta\vec\alpha_j\cdot\vec\phi}$, because $-\vec\alpha_j$ is not an affine simple root.)
 :::
 
 ::: {#exr-theta-interaction}

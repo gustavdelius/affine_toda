@@ -2,4 +2,4 @@
 title: "Part IV: The real-coupling quantum theory"
 ---
 
-Perturbation theory and the exact particle S-matrices, which are known for every affine algebra, together with the thermodynamic Bethe ansatz, form factors and related exact results.
+Perturbation theory and the exact particle S-matrices, which have been proposed for every affine algebra (for the non-simply-laced algebras as conjectures), together with the thermodynamic Bethe ansatz, form factors and related exact results.

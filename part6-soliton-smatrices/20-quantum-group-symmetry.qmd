@@ -22,13 +22,13 @@ $$
 At the conformal point $\partial_-J_\pm=0$, and $\int dx\,J_\pm$ is conserved. When the perturbation $\frac{m_0^2}{\beta_{\rm SG}^2}\cos\beta_{\rm SG}\phi$ is switched on, conformal perturbation theory shows that conservation survives to first order, and in fact exactly, in the form
 
 $$
-\partial_-J_\pm=\partial_+H_\pm ,
+\partial_-J_\pm=\partial_+\mathcal H_\pm ,
 $$
 
-where $H_\pm$ is proportional to $m_0^2$ times a vertex operator containing both chiralities. The conserved charges
+where $\mathcal H_\pm$ is proportional to $m_0^2$ times a vertex operator containing both chiralities. The conserved charges
 
 $$
-Q_\pm=\int dx\,\big(J_\pm+H_\pm\big),\qquad\bar Q_\pm=\int dx\,\big(\bar J_\pm+\bar H_\pm\big)
+Q_\pm=\int dx\,\big(J_\pm+\mathcal H_\pm\big),\qquad\bar Q_\pm=\int dx\,\big(\bar J_\pm+\bar{\mathcal H}_\pm\big)
 $$
 
 are built from right-movers in the second case. They are **non-local**, because $\phi_L$ is a non-local functional of $\phi$ and its conjugate momentum: $\phi_L(x)$ involves $\int^x\pi\,dy$. Their Lorentz spins are $\pm(h_J-1)$:
@@ -61,7 +61,7 @@ which for sine-Gordon is $q=-e^{-i\pi\lambda}$. For a general $\hat g$, $q_j=q^{
 
 ## Lorentz spin and the gradation {#sec-qg-gradation}
 
-The solitons of a multiplet form a representation of $U_q(\hat g^\vee)$ in which the charges act on one-soliton states of rapidity $\theta$. A Lorentz boost by $\vartheta$ multiplies a charge of spin $s$ by $e^{s\vartheta}$ and shifts the rapidity of the soliton. So the representation on solitons of rapidity $\theta$ is an evaluation representation $V(x)$ whose spectral parameter depends on $\theta$. If $e_j$ has spin $s_j$, it acts with a factor $e^{s_j\theta}=x^{s_j/2T}$, where $x=e^{2T\theta}$. Gradations that redistribute the spins among the generators are related by rapidity-dependent changes of basis (@sec-gradations), so only the total spin $\sum_jn_j^\vee s_j$ of the null root $\sum_jn_j^\vee\vec\alpha_j^\vee$ of $\hat g^\vee$ (normalized by $n_0^\vee=1$, since $x$ multiplies $e_0$ once) is fixed, and it determines $T$. The charge of node $j$ is built from $\exp(-i\frac{4\pi}\beta\vec\alpha_j^\vee\cdot\vec\phi_L)$, of weight $8\pi/(\beta^2\vec\alpha_j^2)$, so its spin is
+The solitons of a multiplet form a representation of $U_q(\hat g^\vee)$ in which the charges act on one-soliton states of rapidity $\theta$. A Lorentz boost by $\vartheta$ multiplies a charge of spin $s$ by $e^{s\vartheta}$ and shifts the rapidity of the soliton. So the representation on solitons of rapidity $\theta$ is an evaluation representation $V(x)$ whose spectral parameter depends on $\theta$. If $e_j$ has spin $s_j$, it acts with a factor $e^{s_j\theta}=x^{s_j/2T}$, where $x=e^{2T\theta}$. From here on $x$ always denotes this spectral parameter; the spatial coordinate $x$ of @sec-nonlocal-charges and of Parts I–V does not appear again in Part VI. Gradations that redistribute the spins among the generators are related by rapidity-dependent changes of basis (@sec-gradations), so only the total spin $\sum_jn_j^\vee s_j$ of the null root $\sum_jn_j^\vee\vec\alpha_j^\vee$ of $\hat g^\vee$ (normalized by $n_0^\vee=1$, since $x$ multiplies $e_0$ once) is fixed, and it determines $T$. The charge of node $j$ is built from $\exp(-i\frac{4\pi}\beta\vec\alpha_j^\vee\cdot\vec\phi_L)$, of weight $8\pi/(\beta^2\vec\alpha_j^2)$, so its spin is
 
 $$
 s_j=\frac{8\pi}{\beta^2\vec\alpha_j^2}-1 :
@@ -74,6 +74,23 @@ x(\theta)=e^{2T\theta},\qquad2T=\sum_jn_j^\vee s_j ,
 $$
 
 [@delius1995; @gmw1996]. For untwisted $\hat g$, $n_j^\vee=n_j\vec\alpha_j^2/2$ and the sum is exactly $2T=\frac{4\pi h}{\beta^2}-h^\vee$. For twisted $\hat g=X^{(k)}$, $n_j^\vee=k\,n_j\vec\alpha_j^2/2$, and the same formula holds with $\beta^2$ replaced by $\beta_{\rm lit}^2=\beta^2/k$ (@sec-conventions) and $h^\vee=\sum_jn_j^\vee$. For simply-laced $\hat g$, $2T=\sum_jn_j\big(\frac{4\pi}{\beta^2}-1\big)$. For sine-Gordon, $T=\lambda$.
+
+**Couplings in Part VI.** The chapters that follow quote $\beta$ in more than one normalization, because they follow the papers they compare with. In the normalization of @sec-lie-algebraic-data (longest roots of squared length 2), every family has the same gradation parameter
+$$
+\omega=\frac{4\pi}{\beta^2}-1,\qquad \frac1\omega=\frac{\beta^2}{4\pi}+O(\beta^4),
+$$
+and $q=-e^{-i\pi\omega}=e^{-4\pi^2i/\beta^2}$ is (-@eq-q-physical). The symbol $\omega$ is not the root of unity $e^{2\pi i/h}$ of Part III or a mode frequency of Part V. The table lists the other couplings that appear.
+
+| Family | Coupling used in the chapter | $\omega$ in that coupling | Coupling of the particle S-matrix |
+|---|---|---|---|
+| $c_n^{(1)}$ (@sec-sm-cn) | $\beta$ of this book | $4\pi/\beta^2-1$ | DGZ's $B(\beta)$ at $\beta_{\rm DGZ}^2=-\beta^2/2$ |
+| $a_{2n-1}^{(2)}$ (@sec-sm-a2n) | $\beta_{\rm lit}^2=\beta^2/2$ (longest root of squared length 4) | $2\pi/\beta_{\rm lit}^2-1$ | DGZ's $B(\beta)$ at $\beta_{\rm DGZ}^2=-\beta_{\rm lit}^2=-\beta^2/2$ |
+| $a_{2n-1}^{(2)}$ lattice (@sec-a2n-lattice) | anisotropy $\gamma$, $\beta^2=8\gamma$ | $\pi/2\gamma-1$ | — |
+| $e_6^{(2)}$ (@sec-sm-e6) | $\beta_{\rm lit}^2=\beta^2/2$ | $2\pi/\beta_{\rm lit}^2-1$ | CDS's $H$, here $18+6/\omega$ |
+| $d_4^{(3)}$, $g_2^{(1)}$ (@sec-sm-checks) | $\beta$ of this book ($\beta_{\rm lit}^2=\beta^2/3$ in $T$ for $d_4^{(3)}$) | $4\pi/\beta^2-1$ | CDS's $H$, here $12+6/\omega$ ($d_4^{(3)}$) and $6T/(T+1)$ ($g_2^{(1)}$) |
+| $f_4^{(1)}$ (@sec-sm-f4) | $\beta$ of this book | $4\pi/\beta^2-1$ | CDS's $H=12+3B$ |
+
+So $1/\omega=\beta^2/4\pi$ in this book's coupling is the same statement as $1/\omega=\beta_{\rm lit}^2/2\pi$ in the literature coupling of the twisted algebras. The value $1/\omega=\beta^2/8\pi$ that appears in @sec-sm-f4 is not a normalization: it is the coupling map implied by the tree term of the $\mathbf{27}$ amplitude, and its disagreement with the gradation is part of the obstruction found there.
 
 Two checks show that this is right.
 
@@ -92,7 +109,7 @@ the form used throughout Part VI. The R-matrix is fixed by the quantum group, an
 
 - **Multiplets.** The solitons of species $a$ form a finite-dimensional representation of $U_q(\hat g^\vee)$ whose weights are the topological charges. For $a_n^{(1)}$ these are the fundamental representations $\Lambda^a\mathbb C^{n+1}$. The classical solitons of @sec-topological-charges realize only some of these weights. This is the missing-charge problem (@sec-missing-charges).
 - **Bound states and fusion.** Poles of $\check R$ project onto submodules (@sec-fusion), so bound-state multiplets are representations obtained by fusion, and the bootstrap is fusion of R-matrices.
-- **Breathers.** Breathers are quantum-group singlets, so their scattering with solitons is a scalar times the identity, and among themselves they scatter diagonally. This is why they can be compared with the particle S-matrices of Part IV.
+- **Breathers.** The breathers used in Part VI are the bound states in the singlet channel of a soliton and its antisoliton, so they are quantum-group singlets: one-dimensional representations. Their scattering with solitons is then a scalar times the identity, and among themselves they scatter diagonally. This is why they can be compared with the particle S-matrices of Part IV. Bound states in other channels, if present, form multiplets and need not have this property.
 - **No unitarity for free.** For $\lvert q\rvert=1$ the invariant Hermitian forms on tensor products are indefinite, and the $*$-structure reverses tensor factors (@sec-qg-hermitian). The quantum group therefore does not make the S-matrix unitary. It makes it **Krein-unitary** (@sec-krein-unitarity), and whether it is unitary in the QFT sense depends on the basis (@sec-rsos).
 
 What the symmetry does not fix is the scalar factor, and in particular the positions of its zeros modulo integers (@sec-integer-lifts). Those must be fixed by physics: the soliton masses, the breather–particle identification, and perturbation theory. Chapters [-@sec-sm-construction]–[-@sec-sm-f4] show how far this goes.
@@ -100,7 +117,7 @@ What the symmetry does not fix is the scalar factor, and in particular the posit
 ## Exercises {#sec-qg-symmetry-exercises}
 
 ::: {#exr-nonlocal-spin}
-A density of conformal weights $(h,\bar h)$ has Lorentz spin $h-\bar h$, and $\int dx$ lowers the spin by one. Use this to show that $\int dx\,J_\pm$ has spin $h_J-1$, and check that $H_\pm=m_0^2V_\pm$ with $V_\pm$ of weights $(h_J-2+\beta_{\rm SG}^2/8\pi,\ \beta_{\rm SG}^2/8\pi)$, so that, counting the weights of $m_0^2$, $H_\pm$ has weights $(h_J-1,1)$ as $\partial_-J_\pm=\partial_+H_\pm$ requires.
+A density of conformal weights $(h,\bar h)$ has Lorentz spin $h-\bar h$, and $\int dx$ lowers the spin by one. Use this to show that $\int dx\,J_\pm$ has spin $h_J-1$, and check that $\mathcal H_\pm=m_0^2V_\pm$ with $V_\pm$ of weights $(h_J-2+\beta_{\rm SG}^2/8\pi,\ \beta_{\rm SG}^2/8\pi)$, so that, counting the weights of $m_0^2$, $\mathcal H_\pm$ has weights $(h_J-1,1)$ as $\partial_-J_\pm=\partial_+\mathcal H_\pm$ requires.
 :::
 
 ::: {#exr-coproduct-q}

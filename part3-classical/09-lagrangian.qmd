@@ -25,9 +25,9 @@ V_{\rm real}=\frac{m^2}{\beta^2}\sum_jn_j\left(e^{\beta\vec\alpha_j\cdot\vec\phi
 V_{\rm imag}=-\frac{m^2}{\beta^2}\sum_jn_j\left(e^{i\beta\vec\alpha_j\cdot\vec\phi}-1\right).
 $$ {#eq-imaginary-potential}
 
-Here $\vec\phi$ takes values in $\mathbb R^r$, the sums run over the $r+1$ simple roots of the affine algebra $\hat g$, the $n_j$ are its Kac labels (@sec-affine-dynkin), and $\beta>0$ in both cases. Expanding about $\vec\phi=0$ gives the classical mass matrix $M^2=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$. The linear term vanishes because $\sum_jn_j\vec\alpha_j=0$.
+Here $\vec\phi$ takes values in $\mathbb R^r$, the sums run over the $r+1$ simple roots of the affine algebra $\hat g$, the $n_j$ are its Kac labels (@sec-affine-dynkin), and $\beta>0$ in both cases. Expanding about $\vec\phi=0$ gives the classical mass matrix $\mathsf M^2=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$ (sans-serif, to keep $M$ for soliton masses). The linear term vanishes because $\sum_jn_j\vec\alpha_j=0$.
 
-The sign in $V_{\rm imag}$ matters. It makes $\vec\phi=0$ a minimum ($V\simeq\tfrac12\vec\phi^{\mathsf T}M^2\vec\phi$). In the Euclidean theory it gives positive fugacities (@sec-lattice).
+The sign in $V_{\rm imag}$ matters. It makes $\vec\phi=0$ a minimum ($V\simeq\tfrac12\vec\phi^{\mathsf T}\mathsf M^2\vec\phi$). In the Euclidean theory it gives positive fugacities (@sec-lattice).
 
 The theories are classically integrable. They have a Lax pair and conserved charges whose spins are the exponents of $\hat g$, repeating with period $kh$ ($h$ the Coxeter number; $k=1$ for untwisted and $k=2,3$ for twisted $\hat g=X^{(k)}$) [@olive1985]. The higher-spin charges survive quantization [@feigin1993; @dgz1992; @niedermaier1994].
 
@@ -38,7 +38,7 @@ $$
 \partial_+\partial_-\vec\phi=\frac{im^2}\beta\sum_jn_j\vec\alpha_je^{i\beta\vec\alpha_j\cdot\vec\phi}\quad\text{(imaginary)}.
 $$ {#eq-toda-eom}
 
-The second follows from the first by $\beta\to i\beta$. For $a_1^{(1)}$ they are the sinh-Gordon and sine-Gordon equations (@sec-sg-dictionary).
+The second follows from the first by $\beta\to i\beta$. These $\partial_\pm$ are twice the derivatives $\partial/\partial x^\pm$ in the light-cone coordinates $x^\pm=t\pm x$ of @sec-factorization. The factor 2 drops out of homogeneous conservation laws such as $\partial_-T_{s+1}=\partial_+\mathcal X_{s-1}$. For $a_1^{(1)}$ they are the sinh-Gordon and sine-Gordon equations (@sec-sg-dictionary).
 
 **Why "Toda".** Dropping the affine root $\vec\alpha_0$ gives the conformal (non-affine) Toda theory, whose potential $\sum_{j\ge1}e^{\beta\vec\alpha_j\cdot\vec\phi}$ has no minimum. For $g=A_n$ and fields depending only on time, the field equations are those of Toda's chain of particles with exponential nearest-neighbour interactions, and adding $\vec\alpha_0$ closes the chain into a ring. The affine theory is the massive perturbation of the conformal one by the operator $e^{\beta\vec\alpha_0\cdot\vec\phi}$. This is the sense in which the imaginary-coupling theories are perturbations of $W$-algebra minimal models after restriction (@sec-rsos).
 
@@ -54,12 +54,12 @@ The second follows from the first by $\beta\to i\beta$. For $a_1^{(1)}$ they are
 
 ## The Lax pair {#sec-lax-pair}
 
-Integrability rests on a zero-curvature representation. Let $E_{\pm\vec\alpha_j}$ be the Chevalley generators of the loop algebra of @sec-affine-dynkin, with $[E_{\vec\alpha_j},E_{-\vec\alpha_j}]=\frac{2\vec\alpha_j}{\vec\alpha_j^2}\cdot\vec H$, and introduce a spectral parameter $\lambda$. For real coupling set
+Integrability rests on a zero-curvature representation. Let $E_{\vec\alpha_j}=e_j$ and $E_{-\vec\alpha_j}=f_j$, $j=0,\dots,r$, be the Chevalley generators of the loop algebra of @sec-affine-dynkin, with $[E_{\vec\alpha_j},E_{-\vec\alpha_j}]=\frac{2\vec\alpha_j}{\vec\alpha_j^2}\cdot\vec H$. For $j\ge1$ they are the Chevalley generators of $g$. For $j=0$ they are $e_0$ and $f_0$, the root vectors $E^{-\vec\theta}$ and $E^{\vec\theta}$ multiplied by the first power of the loop variable and its inverse. Introduce a spectral parameter $\lambda$. It multiplies every $e_j$ equally, so it is the spectral parameter of the principal gradation (@sec-gradations). In a matrix representation the loop variable can be set to 1, as in @exr-lax, and $\lambda$ takes over its role. It is unrelated to the sine-Gordon parameter $\lambda$ of @sec-sg-smatrix. For real coupling set
 
 $$
 \begin{aligned}
-A_+&=\frac\beta2\,\partial_+\vec\phi\cdot\vec H+m\lambda\sum_jc_j\,e^{\beta\vec\alpha_j\cdot\vec\phi/2}E_{\vec\alpha_j},\\
-A_-&=-\frac\beta2\,\partial_-\vec\phi\cdot\vec H-\frac m\lambda\sum_jc_j\,e^{\beta\vec\alpha_j\cdot\vec\phi/2}E_{-\vec\alpha_j},
+\mathcal A_+&=\frac\beta2\,\partial_+\vec\phi\cdot\vec H+m\lambda\sum_jc_j\,e^{\beta\vec\alpha_j\cdot\vec\phi/2}E_{\vec\alpha_j},\\
+\mathcal A_-&=-\frac\beta2\,\partial_-\vec\phi\cdot\vec H-\frac m\lambda\sum_jc_j\,e^{\beta\vec\alpha_j\cdot\vec\phi/2}E_{-\vec\alpha_j},
 \end{aligned}
 \qquad c_j=\sqrt{n_j\vec\alpha_j^2/2}.
 $$ {#eq-lax-pair}
@@ -67,19 +67,19 @@ $$ {#eq-lax-pair}
 Then
 
 $$
-[\partial_++A_+,\partial_-+A_-]=0\quad\text{for all }\lambda
+[\partial_++\mathcal A_+,\partial_-+\mathcal A_-]=0\quad\text{for all }\lambda
 $$ {#eq-zero-curvature}
 
 is equivalent to the field equations (-@eq-toda-eom). The terms proportional to $E_{\pm\vec\alpha_j}$ cancel identically. The terms in the Cartan subalgebra give $-\beta\,\partial_+\partial_-\vec\phi\cdot\vec H$ from the derivatives and $-m^2\sum_jc_j^2e^{\beta\vec\alpha_j\cdot\vec\phi}\frac{2\vec\alpha_j}{\vec\alpha_j^2}\cdot\vec H$ from the commutator, because $[E_{\vec\alpha_i},E_{-\vec\alpha_j}]=0$ for $i\ne j$. With $c_j^2=n_j\vec\alpha_j^2/2$ their sum vanishes exactly when (-@eq-toda-eom) holds (@exr-lax).
 
 Two features of (-@eq-lax-pair) should be noted.
 
-- The spectral parameter multiplies every $E_{\vec\alpha_j}$ equally. This is the principal gradation of @sec-gradations, and it is what makes Lorentz invariance manifest: a boost $x^\pm\mapsto e^{\pm\vartheta}x^\pm$ is compensated by $\lambda\mapsto e^{\vartheta}\lambda$.
-- The combination $\sum_jc_jE_{\vec\alpha_j}$ that multiplies $\lambda$ in $A_+$ is the element $E_1$ of principal degree 1 of @sec-gradations. Its centralizer, the principal Heisenberg subalgebra, generates the conserved charges.
+- The spectral parameter multiplies every $E_{\vec\alpha_j}$ equally. This is the principal gradation of @sec-gradations, and it is what makes Lorentz invariance manifest. If $\vec\phi$ is a solution, so is the boosted field $\vec\phi_\vartheta(x^+,x^-)=\vec\phi(e^{-\vartheta}x^+,e^{\vartheta}x^-)$, and (-@eq-lax-pair) gives $\mathcal A_\pm[\vec\phi_\vartheta](x;\lambda)=e^{\mp\vartheta}\mathcal A_\pm[\vec\phi](x';e^{\vartheta}\lambda)$ at the boosted point $x'$. So a boost $x^\pm\mapsto e^{\pm\vartheta}x^\pm$ is compensated by $\lambda\mapsto e^{\vartheta}\lambda$ alone, with no gauge transformation. In another gradation the rescaling of $\lambda$ would have to be accompanied by a constant gauge transformation, the grading automorphism. (The sign of $\vartheta$ refers to the boost acting on fields. For a passive change of coordinates it is reversed.)
+- The combination $\sum_jc_jE_{\vec\alpha_j}$ that multiplies $\lambda$ in $\mathcal A_+$ is the element $E_1$ of principal degree 1 of @sec-gradations. Its centralizer, the principal Heisenberg subalgebra, generates the conserved charges.
 
 ## Conserved charges {#sec-conserved-charges}
 
-Zero curvature means that the parallel transport $\mathcal P\exp\big(-\int A_x\,dx\big)$ along a time slice is conserved up to conjugation, so its conjugation invariants are conserved for every $\lambda$. Expanding in $\lambda$, after a gauge transformation that diagonalizes the leading term into the principal Heisenberg subalgebra (the Drinfeld–Sokolov procedure [@drinfeld_sokolov1985]), produces an infinite set of **local** conserved charges [@olive1985]. A charge produced from the Heisenberg element of principal degree $s$ has Lorentz spin $s$. By @sec-gradations the possible spins are
+Zero curvature means that the parallel transport $\mathcal P\exp\big(-\int\mathcal A_x\,dx\big)$ along a time slice is conserved up to conjugation, so its conjugation invariants are conserved for every $\lambda$. To expand them in $\lambda$, one first applies the Drinfeld–Sokolov procedure [@drinfeld_sokolov1985]. This is a gauge transformation, built order by order in $1/\lambda$, that brings the Lax operator $\partial_x+\mathcal A_x$ into the principal Heisenberg subalgebra, with coefficients that are local functions of $\vec\phi$. Up to total derivatives, these coefficients are the conserved densities. The powers of $\lambda$ then become principal degrees. The expansion then produces an infinite set of **local** conserved charges [@olive1985]. A charge produced from the Heisenberg element of principal degree $s$ has Lorentz spin $s$. By @sec-gradations the possible spins are
 
 $$
 s\in\{\text{exponents of }\hat g\}+kh\,\mathbb Z ,
@@ -93,7 +93,7 @@ $$
 \partial_-\Big[(\partial_+^2\phi)^2+\frac{\beta^2}4(\partial_+\phi)^4\Big]+\partial_+\Big[m^2\cosh(\beta\phi)\,(\partial_+\phi)^2\Big]=0 .
 $$ {#eq-spin3-current}
 
-The charge $Q_3=\int dx\,\big(T_4+\Theta_2\big)$ built from this current has spin 3, and on a one-particle state it takes the value $\chi\,m^3e^{3\theta}$, as in (-@eq-charge-eigenvalue). For sine-Gordon, replace $\beta^2$ by $-\beta^2$.
+The charge $Q_3=\int dx\,\big(T_4+\mathcal X_2\big)$ built from this current has spin 3, and on a one-particle state it takes the value $\chi\,m^3e^{3\theta}$, as in (-@eq-charge-eigenvalue). For sine-Gordon, replace $\beta^2$ by $-\beta^2$.
 
 The higher charges have three consequences used later. They make the classical solitons scatter without changing shape (@sec-classical-solitons), they survive quantization and make the S-matrix factorize (@sec-factorization), and their eigenvalues on the particles are the eigenvectors of the Cartan matrix [@klassen1990; @dorey1991], which restricts which particles can couple.
 
@@ -101,7 +101,7 @@ There are also **non-local** charges, built from the dual field. They are not am
 
 ## Masses and couplings {#sec-masses-couplings}
 
-**Masses.** The classical masses $m_a$, $a=1,\dots,r$, are the square roots of the eigenvalues of $M^2=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$. Taking the trace gives the sum rule
+**Masses.** The classical masses $m_a$, $a=1,\dots,r$, are the square roots of the eigenvalues of $\mathsf M^2=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$. Taking the trace gives the sum rule
 
 $$
 \sum_am_a^2=m^2\sum_jn_j\vec\alpha_j^2 ,
@@ -113,15 +113,17 @@ which equals $2hm^2$ for simply-laced $\hat g$. For simply-laced $\hat g$ the ma
 |---|---|
 | $a_n^{(1)}$ | $m_a=2m\sin\frac{\pi a}h$, $a=1,\dots,n$, $h=n+1$ |
 | $d_n^{(1)}$ | $m_a=2\sqrt2\,m\sin\frac{\pi a}h$, $a=1,\dots,n-2$; $m_s=m_{s'}=\sqrt2\,m$, $h=2n-2$ |
-| $e_8^{(1)}$ | $m_1:m_2:\dots=1:2\cos\frac\pi5:2\cos\frac\pi{30}:\dots$ |
+| $e_8^{(1)}$ | $m_1$, $m_2=2m_1\cos\frac\pi5$, $m_3=2m_1\cos\frac\pi{30}$, $m_4=2m_2\cos\frac{7\pi}{30}$, $m_5=2m_2\cos\frac{2\pi}{15}$, $m_6=2m_2\cos\frac\pi{30}$, $m_7=4m_2\cos\frac\pi5\cos\frac{7\pi}{30}$, $m_8=4m_2\cos\frac\pi5\cos\frac{2\pi}{15}$ |
 
 The degeneracies $m_a=m_{h-a}$ of $a_n^{(1)}$ reflect the $\mathbb Z_h$ symmetry of the affine diagram: particle $h-a$ is the antiparticle of $a$. For non-simply-laced $\hat g$ the masses are obtained by folding (@sec-affine-folding), as the subset of masses of the parent theory whose eigenvectors are invariant under the folding symmetry (@exr-fold-mass). For example $c_n^{(1)}$, folded from $a_{2n-1}^{(1)}$, has $m_a=2m\sin\frac{\pi a}{2n}$, $a=1,\dots,n$.
 
-**Three-point couplings.** Expanding the potential to cubic order and writing $\vec\phi=\sum_a\vec e_a\phi_a$ in an eigenbasis of $M^2$ gives the couplings
+**Three-point couplings.** Expanding $V_{\rm real}$ to cubic order, $V\supset\frac16\sum_{abc}C_{abc}\phi_a\phi_b\phi_c$, and writing $\vec\phi=\sum_a\vec e_a\phi_a$ in an eigenbasis of $\mathsf M^2$ gives the real-coupling couplings
 
 $$
 C_{abc}=m^2\beta\sum_jn_j(\vec\alpha_j\cdot\vec e_a)(\vec\alpha_j\cdot\vec e_b)(\vec\alpha_j\cdot\vec e_c).
 $$
+
+For $V_{\rm imag}$ the cubic term is $-\frac{m^2}{\beta^2}\frac{(i\beta)^3}{6}\sum_jn_j(\vec\alpha_j\cdot\vec\phi)^3$, so every cubic coupling is multiplied by $i$.
 
 For degenerate masses ($a_n$, $d_n$, $e_6$) the $\vec e_a$ must be charge eigenvectors, the complex eigenvectors of the centre of the affine diagram (of $\mathbb Z_h$ for $a_n$), normalized by $\vec e_a\cdot\vec e_{\bar a}=1$ so that $\phi_{\bar a}=\bar\phi_a$. Particle $a$ is the eigenvector with the centre character of node $a$. In a real orthonormal basis of a degenerate pair neither (-@eq-area-rule) nor @prp-dorey-rule holds.
 
@@ -143,13 +145,13 @@ $$
 \vec\gamma_a=(1-w^{-1})\vec\lambda_a ,\qquad\Omega_a=\{w^p\vec\gamma_a:p=0,\dots,h-1\}.
 $$
 
-Each $\vec\gamma_a$ is a root, and the $r$ orbits $\Omega_a$, each with $h$ elements, partition the root system. Associate particle $a$ with orbit $\Omega_a$. Then:
+Each $\vec\gamma_a$ is a root. If $a$ is white, the black reflections fix $\vec\lambda_a$ and $s_{\rm white}\vec\lambda_a=\vec\lambda_a-\vec\alpha_a$, so $\vec\gamma_a=\vec\alpha_a$. If $a$ is black, the same argument gives $\vec\gamma_a=s_{\rm white}\vec\alpha_a$. For simply-laced $g$, the case used here, the $r$ orbits $\Omega_a$, each with $h$ elements, partition the root system. Associate particle $a$ with orbit $\Omega_a$. Then:
 
 ::: {#prp-dorey-rule}
 **[Established]** For simply-laced $\hat g$, $C_{abc}\ne0$ if and only if there are roots $\vec\alpha\in\Omega_a$, $\vec\beta\in\Omega_b$, $\vec\gamma\in\Omega_c$ with $\vec\alpha+\vec\beta+\vec\gamma=0$ [@dorey1991].
 :::
 
-The rule also gives the fusing angles: projecting the three roots onto the plane on which $w$ acts as a rotation by $2\pi/h$ gives a triangle whose sides are proportional to $m_a$, $m_b$, $m_c$. The particle masses are the lengths of the projected roots, and the angles between them are multiples of $\pi/h$. This is why all fusing angles of the simply-laced theories are multiples of $\pi/h$, and why the S-matrices of Part IV are built from blocks indexed by integers modulo $2h$.
+Part III quotes this rule without proof. The rule also gives the fusing angles: projecting the three roots onto the plane on which $w$ acts as a rotation by $2\pi/h$ gives a closed triangle, because the roots sum to zero, and its sides are proportional to $m_a$, $m_b$, $m_c$ [@dorey1991; @dorey1992]. The particle masses are the lengths of the projected roots, and the angles between them are multiples of $\pi/h$. This is why all fusing angles of the simply-laced theories are multiples of $\pi/h$, and why the S-matrices of Part IV are built from blocks indexed by integers modulo $2h$.
 
 The rule and the area formula (-@eq-area-rule) can be checked directly against the cubic expansion of the potential: for $e_7^{(1)}$, $e_8^{(1)}$ in any eigenbasis, and for $a_n^{(1)}$, $d_n^{(1)}$, $e_6^{(1)}$ in the charge basis (`textbook_code/toda_classical.py`).
 

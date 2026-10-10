@@ -14,10 +14,10 @@ The simply-laced S-matrices of @sec-simply-laced have poles at coupling-independ
 At one loop the masses of a non-simply-laced theory are corrected by amounts that are not proportional to the classical masses [@dgz1992]. Take $c_n^{(1)}$, whose classical masses are $m_a=2m\sin\frac{\pi a}{2n}$ (@sec-masses-couplings). The one-loop masses are, to this order,
 
 $$
-m_a\propto\sin\frac{\pi a}{H},\qquad H=2n+B+O(B^2),
+m_a\propto\sin\frac{\pi a}{H},\qquad H=2n+B,\qquad B=\frac{\beta^2}{4\pi}+O(\beta^4),
 $$
 
-with $B$ the small-coupling parameter of @sec-blocks in the root normalization of [@dgz1992]. The Coxeter number $2n$ of the classical formula has become a coupling-dependent number $H$.
+with $B$ the parameter of the exact S-matrix, normalized as in @sec-floating-coxeter. The Coxeter number $2n$ of the classical formula has become a coupling-dependent number $H$.
 
 Folding makes this plausible. The parent $a_{2n-1}^{(1)}$ theory has masses $\propto\sin\frac{\pi a}{2n}$ that are stable under quantum corrections. The folded theory keeps only the invariant fields, so only invariant fields run in its loops, and its corrections differ from those of the invariant sector of the parent. Classical solutions fold, but the quantum theory does not.
 
@@ -36,26 +36,34 @@ $$
 S_{nn}=\prod_{p=1}^n\{2p-1\}_H\,\{H-2p+1\}_H,\qquad H=2n+B ,
 $$ {#eq-cn-snn}
 
-and the masses are $m_a\propto\sin\frac{\pi a}H$ exactly. The other amplitudes are built in the same way [@dgz1992].
+and the masses are $m_a\propto\sin\frac{\pi a}H$ exactly. The other amplitudes are built in the same way [@dgz1992]. Here $B\in[0,2]$ is the parameter of the blocks, as in @sec-blocks.
 
-The floating Coxeter number interpolates between the Coxeter number of $\hat g$, as it appears in the classical mass formula, and that of the dual theory $\hat g^\vee$. To one loop, with $B=\beta^2/2\pi+O(\beta^4)$ in the normalization of @sec-conventions (long roots of length$^2$ 2), the one-loop masses of the Lagrangian give @tbl-floating-h.
+The floating Coxeter number interpolates between the Coxeter number $h$ of $\hat g$, as it appears in the classical mass formula, and the number $h_\vee$ that plays the same role in the classical masses of the dual theory $\hat g^\vee$. In every case
+$$
+H=h+\tfrac12\,(h_\vee-h)\,B ,
+$$ {#eq-floating-h}
+so that $H=h$ at $B=0$ and $H=h_\vee$ at $B=2$. The values are in @tbl-floating-h. The endpoint $h_\vee$ is not the dual Coxeter number of @tbl-foldings. With $h$ as in that table, it is $kh$ for $d_{n+1}^{(2)}$, $d_4^{(3)}$ and $e_6^{(2)}$, and $h$ for $a_{2n-1}^{(2)}$.
 
-| $\hat g$ | $H$ | range | dual endpoint |
-|---|---|---|---|
-| $c_n^{(1)}$ | $2n+\tfrac12B$ | $2n\le H\le 2n+2$ | $d_{n+1}^{(2)}$, masses $\sin\frac{\pi a}{2n+2}$ |
-| $b_n^{(1)}$ | $2n-\tfrac12B$ | $2n-1\le H\le 2n$ | $a_{2n-1}^{(2)}$, masses $2\sin\frac{\pi a}{2n-1}$, spinor 1 |
-| $g_2^{(1)}$ | $6+B$ | $6\le H\le12$ | $d_4^{(3)}$ |
-| $f_4^{(1)}$ | $12+\tfrac32B$ | $12\le H\le18$ | $e_6^{(2)}$ |
+The linear dependence of $H$ on $B$ is fixed by the bootstrap: for $c_n^{(1)}$, for example, the amplitudes have too many higher-order poles unless $H=h\pm B$, and the one-loop masses select the sign [@dgz1992]. The bootstrap does not fix how $B$ depends on the coupling. The conjecture is that $B$ has the form (-@eq-b-of-beta) in a coupling $\beta_*$ adapted to the dual pair. In terms of the coupling $\beta$ of @sec-conventions (longest roots of squared length 2), $\beta_*^2=\beta^2/k$ for $c_n^{(1)}$, $g_2^{(1)}$ and $f_4^{(1)}$, which amounts to rescaling the short roots to squared length 2, and $\beta_*=\beta$ for $b_n^{(1)}$. Here $k$ is the twist order of the dual algebra. This choice makes strong–weak duality in the coroot form of @sec-affine-folding act exactly as $B\to2-B$ (@sec-nsl-duality).
 
-: One-loop floating Coxeter numbers in the normalization of @sec-conventions. {#tbl-floating-h}
+| $\hat g$ | $H$ | $B$ | $H$ to one loop | dual endpoint, $B=2$ |
+|---|---|---|---|---|
+| $c_n^{(1)}$ | $2n+B$ | $B(\beta/\sqrt2)$ | $2n+\beta^2/4\pi$ | $d_{n+1}^{(2)}$: $H=2n+2$, masses $\sin\frac{\pi a}{2n+2}$ |
+| $b_n^{(1)}$ | $2n-\tfrac12B$ | $B(\beta)$ | $2n-\beta^2/4\pi$ | $a_{2n-1}^{(2)}$: $H=2n-1$, masses $2\sin\frac{\pi a}{2n-1}$, spinor 1 |
+| $g_2^{(1)}$ | $6+3B$ | $B(\beta/\sqrt3)$ | $6+\beta^2/2\pi$ | $d_4^{(3)}$: $H=12$ |
+| $f_4^{(1)}$ | $12+3B$ | $B(\beta/\sqrt2)$ | $12+3\beta^2/4\pi$ | $e_6^{(2)}$: $H=18$ |
 
-In the normalization in which the *short* roots have length$^2$ 2 (coupling $\beta^2/k$), the entries for $c_n^{(1)}$, $g_2^{(1)}$ and $f_4^{(1)}$ become $2n+B$, $6+3B$ and $12+3B$, which is how Delius, Grisaru and Zanon write $c_n^{(1)}$ and Corrigan, Dorey and Sasaki write the exceptional pairs. $b_n^{(1)}$ does not fit this pattern: its $H$ decreases, from $h=2n$ to $h^\vee=2n-1$. For $f_4^{(1)}$ the masses also involve $H'$ with $1/H+1/H'=1/6$ [@corrigan1993]. The relation $H-12=3B_{\rm tree}$ confirmed in @sec-sm-f4 refers to the parameter of the CDS blocks, which is $\beta^2/4\pi$ in our normalization.
+: Floating Coxeter numbers. $B(\cdot)$ is the function (-@eq-b-of-beta) and $\beta$ is the coupling of @sec-conventions. The fourth column is the one-loop content of the table. These are the floating Coxeter numbers of the particles at real coupling; for the solitons at imaginary coupling the one-loop shift has the opposite sign in $b_n^{(1)}$ and $c_n^{(1)}$, and the same sign in $g_2^{(1)}$ and $f_4^{(1)}$ (@sec-one-loop-masses-folded). {#tbl-floating-h}
+
+Delius, Grisaru and Zanon write $c_n^{(1)}$ with short roots of squared length 2 and $b_n^{(1)}$ with long roots of squared length 2, as in the table. They also treat $g_2^{(1)}$, with long roots of squared length 2, and write $H=6+B'$ with $B'=\beta^2/2\pi+O(\beta^4)$ [@dgz1992], so that $B'=3B$ to this order. Corrigan, Dorey and Sasaki introduce $H=6+3B$ and $H=12+3B$ only as a parametrization of the floating range, and say explicitly that they do not relate $B$ to the coupling [@corrigan1993]. For $g_2^{(1)}$ and $f_4^{(1)}$ the third column is therefore the form that duality requires, and only its first order has been checked: for $g_2^{(1)}$ against the one-loop masses of [@dgz1992], for $f_4^{(1)}$ in @sec-sm-f4. That chapter writes $B_{\rm tree}$ for the value of $B$ fixed by the tree-level amplitude. It equals $B=\beta^2/4\pi$ to leading order, and the relation $H-12=3B_{\rm tree}$ confirmed there is the one-loop content of the $f_4^{(1)}$ row. $b_n^{(1)}$ differs from the other three: its $H$ decreases, from $h=2n$ to $h_\vee=2n-1$. For $f_4^{(1)}$ the masses also involve $H'$ with $1/H+1/H'=1/6$ [@corrigan1993].
+
+Beyond one loop, this book does not derive $H(\beta)$ from the Lagrangian. The form (-@eq-floating-h) comes from the bootstrap, and the form of $B(\beta)$ is conjectural. For $c_n^{(1)}$ and $a_{2n-1}^{(2)}$, Part VI confirms it at imaginary coupling by breather–particle identification (@sec-nsl-status).
 
 ## Duality between the members of a dual pair {#sec-nsl-duality}
 
-The S-matrix (-@eq-cn-snn) is built from blocks that are invariant under $B\to2-B$ only if $H$ is held fixed. Under $B\to2-B$, $H$ moves from one end of its range to the other. The S-matrix of $\hat g$ at strong coupling, $B\to2$, therefore has the mass ratios and pole structure of a theory whose classical masses are those of the dual theory $\hat g^\vee$ (the dual endpoints of @tbl-floating-h). One family of S-matrices describes both members of the dual pair, $\hat g$ near $B=0$ and $\hat g^\vee$ near $B=2$ [@dgz1992; @corrigan1993].
+The S-matrix (-@eq-cn-snn) is built from blocks that are invariant under $B\to2-B$ only if $H$ is held fixed. Under $B\to2-B$, $H$ moves from one end of its range to the other. With the couplings of @tbl-floating-h, the theory of the dual algebra $\hat g^\vee$ at coupling $\beta^\vee$ (normalization of @sec-conventions, $\beta^{\vee2}=16\pi^2k/\beta^2$ as in @sec-affine-folding) has $2-B=B(\beta^\vee_*)$, with $\beta^\vee_*=\beta^\vee$ for $d_{n+1}^{(2)}$, $d_4^{(3)}$ and $e_6^{(2)}$, and $\beta^{\vee2}_*=\beta^{\vee2}/2$ for $a_{2n-1}^{(2)}$, which is the normalization of @sec-sm-a2n. For example, $d_{n+1}^{(2)}$ has $H=2n+2-\beta^{\vee2}/2\pi+O(\beta^{\vee4})$. The S-matrix of $\hat g$ at strong coupling, $B\to2$, therefore has the mass ratios and pole structure of a theory whose classical masses are those of the dual theory $\hat g^\vee$ (the dual endpoints of @tbl-floating-h). One family of S-matrices describes both members of the dual pair, $\hat g$ near $B=0$ and $\hat g^\vee$ near $B=2$ [@dgz1992; @corrigan1993].
 
-This is a sharper form of strong–weak duality than in the simply-laced case. There a theory is dual to itself. Here it is dual to a different theory, the one obtained by reversing the arrows of its Dynkin diagram, and the classical masses of one theory are the strong-coupling masses of the other. The same duality $\hat g\to\hat g^\vee$ appears in the quantum group of the soliton S-matrices (@sec-qg-symmetry). A related but different Lie duality appears in the soliton masses: the solitons of $X^{(1)}$ have the particle mass ratios of $(X^\vee)^{(1)}$ (@sec-soliton-masses).
+This is a sharper form of strong–weak duality than in the simply-laced case. There a theory is dual to itself. Here it is dual to a different theory, the one obtained by reversing the arrows of its Dynkin diagram, and the classical masses of one theory are the strong-coupling masses of the other. The same duality $\hat g\to\hat g^\vee$ appears in the quantum group of the soliton S-matrices (@sec-qg-symmetry). A related but different Lie duality appears in the soliton masses: the solitons of $X^{(1)}$ have the particle mass ratios of $(X^\vee)^{(1)}$ (@sec-soliton-masses). For $c_n^{(1)}$, the S-matrix duality leads to $d_{n+1}^{(2)}$, while Lie duality leads to $b_n^{(1)}$.
 
 ## Status {#sec-nsl-status}
 
@@ -63,7 +71,7 @@ The non-simply-laced S-matrices are conjectures, supported by three kinds of evi
 
 - **One loop.** The floating Coxeter number reproduces the one-loop masses of $a_{2n-1}^{(2)}$, $b_n^{(1)}$, $c_n^{(1)}$, $d_{n+1}^{(2)}$ and $g_2^{(1)}$, and their tree amplitudes, and a one-loop residue fixes $B(\beta)$ to $O(\beta^4)$ [@dgz1992]. For $f_4^{(1)}$ the one-loop masses are checked in @sec-sm-f4.
 - **The bootstrap.** The S-matrices close under the bootstrap, with the floating fusing angles.
-- **Breather–particle identification.** At imaginary coupling, the lowest breathers of the soliton S-matrices of Part VI scatter exactly as these particle S-matrices continued to imaginary coupling, with no free parameter (@sec-breather-particle-identification). For $c_n^{(1)}$ and $a_{2n-1}^{(2)}$ this fixes $B(\beta)$ completely, and it agrees with the form $B=\frac{\beta^2/2\pi}{1+\beta^2/4\pi}$, in the normalization of [@dgz1992], which had been checked only to one loop.
+- **Breather–particle identification.** At imaginary coupling, the lowest breathers of the soliton S-matrices of Part VI scatter exactly as these particle S-matrices continued to imaginary coupling, with no free parameter (@sec-breather-particle-identification). For $c_n^{(1)}$ and $a_{2n-1}^{(2)}$ this fixes $B(\beta)$ completely, and it agrees with the form of $B$ in @tbl-floating-h, the normalization of [@dgz1992], which had been checked only to one loop.
 
 For $f_4^{(1)}$ the corresponding soliton S-matrix is not known (@sec-sm-f4).
 
@@ -74,7 +82,7 @@ Show that (-@eq-cn-snn) satisfies unitarity and crossing for any $H$. For $n=2$,
 :::
 
 ::: {#exr-floating-endpoints}
-Check the $c_n^{(1)}$ entry of @tbl-floating-h at both ends: at $B=2$, show that the masses $\sin\frac{\pi a}{2n+2}$ are those of $d_{n+1}^{(2)}$ in a suitable normalization.
+Check the $c_n^{(1)}$ entry of @tbl-floating-h at both ends: at $B=2$, where $H=2n+2$, show that the masses $\sin\frac{\pi a}{2n+2}$ are those of $d_{n+1}^{(2)}$ in a suitable normalization. Compare $2n+2$ with $h$ and $h^\vee$ of $d_{n+1}^{(2)}$ in @tbl-foldings.
 :::
 
 ::: {#exr-cn-one-loop}

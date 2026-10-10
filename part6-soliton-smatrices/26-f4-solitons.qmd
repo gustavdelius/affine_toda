@@ -10,7 +10,7 @@ For $f_4^{(1)}$ we construct the $U_q(e_6^{(2)})$ R-matrix on $\mathbf{27}=\math
 
 ## Representation and R-matrix {#sec-sm-f4-representation-r-matrix}
 
-The twisted algebra $U_q(e_6^{(2)})$ has horizontal subalgebra $U_q(f_4)$. Its affine node is $\alpha_0=-\theta_s=-\varepsilon_1$, the highest short root, attached to the short end of the diagram. We extend the $f_4$ generators on the $\mathbf{26}$ by a singlet and solve for $e_0$ and $f_0$ from all relations. The residual is $4\times10^{-16}$, and $e_0$ genuinely couples the singlet, so the $\mathbf{27}$ is indecomposable. Gandenberger, MacKay and Watts constructed this R-matrix earlier [@gmw1996]; our construction is independent.
+The twisted algebra $U_q(e_6^{(2)})$ has horizontal subalgebra $U_q(f_4)$. Its affine node is $\alpha_0=-\theta_s=-\varepsilon_1$, the highest short root, attached to the short end of the diagram. We extend the $f_4$ generators on the $\mathbf{26}$ by a singlet and solve for $e_0$ and $f_0$ from all relations. The residual is $4\times10^{-16}$, and $e_0$ genuinely couples the singlet, so the $\mathbf{27}$ is indecomposable. Gandenberger, MacKay and Watts constructed this R-matrix earlier [@gmw1996, Sec. 4.4], with the tensor-product graph for the other horizontal subalgebra $U_q(c_4)$, under which the $\mathbf{27}$ is irreducible and $\mathbf{27}\otimes\mathbf{27}$ is multiplicity-free. Our construction uses $U_q(f_4)$ and the direct method of @sec-direct-method, and is independent; we have not compared the two pole by pole.
 
 The product $\mathbf{27}\otimes\mathbf{27}$ contains the $\mathbf{26}$ three times and the singlet twice. $\check R$ therefore acts on those isotypic blocks as a $3\times3$ and a $2\times2$ matrix, sixteen unknown functions in all. We align the copies of each component by building them from the same words in the lowering operators $\Delta(f_i)$, and impose the $e_0$ and $f_0$ intertwining relations on the highest-weight vectors. The resulting linear system closes to $10^{-15}$, and the full R-matrix commutes with $U_q(f_4)$ and intertwines $e_0$ to $10^{-13}$.
 
@@ -35,7 +35,7 @@ The lowest-breather amplitude matches no CDS amplitude $S_{aa}$. We searched:
 - with and without a sign-fixing CDD factor at $\theta=i\pi/2$;
 - four values of $T$: $6\omega+\tfrac12$, $6\omega+\tfrac32$, $6\omega+\tfrac52$ and $6\omega-\tfrac32$.
 
-The best near-miss shares 6 of 14 blocks. The obstruction is specific. Our amplitude has the pole of $B_1+B_1\to B_2$ at $y=1$, fixed by the breather tower. CDS's $S_{11}$ has its coupling-dependent counterpart at $y=-BT/H=\tfrac32$. Moving our pole there requires a value of $T$ incompatible with the self-fusion $\mathbf{27}+\mathbf{27}\to\mathbf{27}$ at exactly $2\pi/3$, which equal masses enforce.
+The best near-miss shares 6 of 14 blocks. The obstruction is specific. Our amplitude has the pole of $\mathcal B_1+\mathcal B_1\to\mathcal B_2$ at $y=1$, fixed by the breather tower. CDS's $S_{11}$ has its coupling-dependent counterpart at $y=-BT/H=\tfrac32$. Moving our pole there requires a value of $T$ incompatible with the self-fusion $\mathbf{27}+\mathbf{27}\to\mathbf{27}$ at exactly $2\pi/3$, which equal masses enforce.
 
 ## Diagnosis: ruled out at one loop {#sec-ruled-out-at-one-loop}
 
@@ -64,7 +64,7 @@ No $T$ compatible with all four yields $H-12=3B_{\rm tree}$.
 
 **Topology fixes the multiplet.** The vacua sit at $\vec\phi=\tfrac{2\pi}{\beta}\vec\lambda$, with $\vec\lambda$ in the co-weight lattice of $f_4$. The charges of the species attached to the affine node therefore form the Weyl orbit of the fundamental co-weight $\omega_1^\vee$, 24 vectors, which are exactly the nonzero weights of the $\mathbf{27}$. Folding $f_4^{(1)}$ from $e_6^{(1)}$, under which the $\mathbf{27}$ of $e_6$ branches as $\mathbf{26}\oplus\mathbf1$, gives the three zero weights as well, and closure under $U_q(e_6^{(2)})$ forces the singlet. The $\mathbf{27}$ is therefore the multiplet of the lightest $f_4^{(1)}$ soliton, and the obstruction must lie in the scalar factor. Topology alone fixes only weights: it cannot count zero-charge states or separate modules with the same weights, which is why closure and folding are needed.
 
-**No finite CDD factor removes the obstruction.** A CDD factor $Z$ multiplies the $\mathbf{27}$ amplitude by a product of factors $\sinh(\theta/2+i\pi c/2T)$ with integer exponents $n_c$, at positions $c=a\omega+b$. Converting the breather sector into CDS's, and preserving the self-fusion bootstrap, require
+**No finite CDD factor removes the obstruction.** A CDD factor $Z$ multiplies the $\mathbf{27}$ amplitude by a product of factors $\sinh(\theta/2+i\pi y/2T)$ with integer exponents $n_y$, at positions $y=a\omega+b$. (A CDD factor, @sec-cdd, is a crossing-symmetric, unitary factor that adds zeros and poles without changing the bound-state structure; here it is a finite product of blocks $(y)$.) Converting the breather sector into CDS's, and preserving the self-fusion bootstrap, require
 
 $$
 Z(\theta+i\sigma)\,Z(\theta)^2\,Z(\theta-i\sigma)=\frac{S_{11}^{\rm CDS}}{S_{11}},\qquad \sigma=T-1,\qquad Z(\theta)=Z\big(\theta+\tfrac{i\pi}{3}\big)\,Z\big(\theta-\tfrac{i\pi}{3}\big).
@@ -79,11 +79,11 @@ Both conditions are linear in the exponents. We solved them exactly over the pos
 The one-loop data, meaning the tree amplitude and the bubble-diagram mass shifts computed from the $f_4^{(1)}$ Lagrangian, fix the lifts and the first-order form of the missing correction. They do not fix the scalar factor to all orders.
 
 1. **The tree strength does not depend on the lifts.** In every case tested (the choice of @sec-f4-amplitude and candidates (a) and (b) below), the breather amplitude's first-order term has exactly the Lagrangian's shape and implies $1/\omega=\beta^2/8\pi$.
-2. **The masses select the lifts.** This item assumes, as for every other algebra in this part, that the particle mass ratios equal soliton fusion ratios; @sec-soliton-masses-one-loop shows that the one-loop soliton masses contradict this for $f_4^{(1)}$. In these amplitudes the particle mass ratios equal soliton fusion ratios, for example $m_3/m_1=2\cos(\pi a_{378}/2T)$, so they depend only on $T$ and the lifts. Write $T=6\omega+d$, $a_{378}=\omega+c$ and $a_{79}=3\omega+c'$, and use the gradation's coupling map $1/\omega=\beta^2/4\pi$, which is correct for $c_3^{(1)}$ and $e_6^{(2)}$. The one-loop shifts then require
+2. **The masses select the lifts.** This item assumes, as for every other algebra in this part, that the particle mass ratios equal soliton fusion ratios; @sec-soliton-masses-one-loop shows that the one-loop soliton masses contradict this for $f_4^{(1)}$. In these amplitudes the particle mass ratios equal soliton fusion ratios, for example $m_3/m_1=2\cos(\pi a_{378}/2T)$, so they depend only on $T$ and the lifts. Write $T=6\omega+d$, $a_{378}=\omega+\gamma$ and $a_{79}=3\omega+\gamma'$, and use the gradation's coupling map $1/\omega=\beta^2/4\pi$, which is correct for $c_3^{(1)}$ and $e_6^{(2)}$. The one-loop shifts then require
 $$
-c-\frac d6=\frac14,\qquad \frac{c'}{3}-\frac d6=\frac1{12},
+\gamma-\frac d6=\frac14,\qquad \frac{\gamma'}{3}-\frac d6=\frac1{12},
 $$
-and the self-fusion at $2\pi/3$ requires $d=\tfrac32+3k$. With integer lifts there are exactly two solutions, listed in the table below. Both reproduce the one-loop shifts of $(m_2/m_1)^2$ and $(m_3/m_1)^2$ exactly, whereas the choice $T=6\omega+\tfrac32$ of @sec-f4-amplitude gives three times the Lagrangian value. Under the amplitude's own tree map no integer lifts work: that would need quarter-integer offsets.
+and the self-fusion at $2\pi/3$ requires $d=\tfrac32+3k$. The R-matrix fixes each offset modulo 1: $\gamma\in\mathbb Z$ (pole at $q^{-2}$), $\gamma'\in\tfrac12+\mathbb Z$ (pole at $-q^{-6}$) and $d\in\tfrac12+\mathbb Z$ (crossing point $-q^{-12}$). The integer lifts of @sec-integer-lifts are the integer shifts within these classes, so $\gamma'$ is a half-integer. The solutions are $d=\tfrac92+6m$, $\gamma=1+m$, $\gamma'=\tfrac52+3m$, with the self-fusion zero at $2T/3=4\omega+3+4m$, for every integer $m$. Since only $\gamma-d/6$ and $\gamma'/3-d/6$ enter at one loop, they all give the same one-loop shifts. Within the window of shifts $\{-2,\dots,2\}$ of @sec-f4-obstruction there are exactly two, $m=0$ and $m=-1$, listed in the table below. Both reproduce the one-loop shifts of $(m_2/m_1)^2$ and $(m_3/m_1)^2$ exactly, whereas the choice $T=6\omega+\tfrac32$ of @sec-f4-amplitude gives three times the Lagrangian value. Under the amplitude's own tree map no integer lifts work: that would need quarter-integer offsets.
 3. **What remains is a factor of 2 in $B$.** For (a) and (b), every particle fusion pole coincides exactly with CDS's $S_{11}$, at $H=2T/(\omega+1)$ and $H=2T/\omega$ respectively. The only difference is the coupling-dependent blocks: ours are displaced from the particle poles by 1, CDS's by $\tfrac12$. In DGZ/CDS terms our breather amplitude is CDS's $S_{11}$ with $B$ doubled at the same $H$, which is exactly the factor 2 in the tree strength.
 4. **The first-order correction is fixed.** A correction $Z$ to the soliton scalar factor must satisfy
 $$
@@ -98,7 +98,7 @@ In words, the coupling-dependent shifts must be halved.
 
 Two simple explanations fail. A missing half-integer breather tower is impossible, because the $\mathbf{27}$'s R-matrix has no singlet point where it could sit. Nor is our breather the bound state of two CDS particle-1's at their coupling-dependent pole: the bootstrap amplitude of that bound state differs from ours.
 
-**The half-integer conjecture is false.** A natural guess was that halving the coupling-dependent shifts needs Gamma-function towers of half-integer spacing. By the duplication formula $\Gamma(2z)\propto 2^{2z}\,\Gamma(z)\,\Gamma(z+\tfrac12)$, that is the construction of @sec-scalar-factor with extra zeros at half-shifted positions. Crossing requires them in pairs $\{e,T-e\}$, and each pair multiplies the scalar factor by an infinite-product factor that adds zeros but no poles. Its effect on the breather amplitude has a closed form. Crossing and unitarity turn the breather shifts $\pm(T-1)$ into steps of $\mp1$, and each zero $a\in\{e,T-e\}$ contributes
+**The half-integer conjecture is false.** A natural guess was that halving the coupling-dependent shifts needs Gamma-function towers of half-integer spacing. (A Gamma-function tower is the sequence of poles of a factor such as $\Gamma(t-a)$, at $t=a,a-1,a-2,\dots$; the towers of @sec-scalar-factor have unit spacing.) By the duplication formula $\Gamma(2z)\propto 2^{2z}\,\Gamma(z)\,\Gamma(z+\tfrac12)$, that is the construction of @sec-scalar-factor with extra zeros at half-shifted positions. Crossing requires them in pairs $\{e,T-e\}$, and each pair multiplies the scalar factor by an infinite-product factor that adds zeros but no poles. Its effect on the breather amplitude has a closed form. Crossing and unitarity turn the breather shifts $\pm(T-1)$ into steps of $\mp1$, and each zero $a\in\{e,T-e\}$ contributes
 
 $$
 W_a(t)=\tan\frac{\pi(t-1-a)}{2T}\,\tan\frac{\pi(t+a)}{2T}\,\cot\frac{\pi(t-a)}{2T}\,\cot\frac{\pi(t+1+a)}{2T},
@@ -112,7 +112,7 @@ $$
 \frac{Y(t)^2}{Y(t+1)\,Y(t-1)} .
 $$
 
-In the exponents of the factors $\sinh(\theta/2+i\pi c/2T)$ this is a second difference along lines of unit step. On each line, a finite CDD factor requires the zeroth and first moments of the target exponents to vanish, and a Gamma-type tower requires only the zeroth. For the CDS target the zeroth moment is nonzero on 16 of the 24 lines, for both candidates. Any correction reproducing CDS would therefore need exponents growing linearly along those towers, a Barnes double-Gamma structure in the step direction. No known soliton scalar factor has that structure.
+In the exponents of the factors $\sinh(\theta/2+i\pi y/2T)$ this is a second difference along lines of unit step. On each line, a finite CDD factor requires the zeroth and first moments of the target exponents to vanish, and a Gamma-type tower requires only the zeroth. For the CDS target the zeroth moment is nonzero on 16 of the 24 lines, for both candidates. Any correction reproducing CDS would therefore need exponents growing linearly along those towers, a Barnes double-Gamma structure in the step direction. (Barnes' double Gamma function $\Gamma_2(z\vert\omega_1,\omega_2)$ is the analogue of $\Gamma(z)$ for the two-dimensional lattice of poles $z=-j\omega_1-k\omega_2$, $j,k\ge0$. When the two periods coincide, the lattice collapses onto a single tower and the $n$-th pole has order $n+1$: exponents that grow linearly along a tower are its signature, whereas $\Gamma(z)$ has a single tower of simple poles.) No known soliton scalar factor has that structure.
 
 Two possibilities remain. Either the $f_4^{(1)}$ soliton amplitude really carries such a factor, or CDS's $S_{11}$ differs from the true breather sector beyond one loop, which our one-loop data cannot test. A second-order check from the Lagrangian, for instance the one-loop residue of $S_{11}$ at a bound-state pole, would decide between them.
 
@@ -129,7 +129,7 @@ while the particles, and hence the breathers, have $H_b=12-3\beta^2/4\pi$. The s
 With the soliton masses and the gradation's coupling map $1/\omega=\beta^2/4\pi$, the lift conditions of @sec-one-loop-data-fix become
 
 $$
-c-\frac d6=-\frac14,\qquad \frac{c'}{3}-\frac d6=-\frac1{12}.
+\gamma-\frac d6=-\frac14,\qquad \frac{\gamma'}{3}-\frac d6=-\frac1{12}.
 $$
 
 Together with $d=\tfrac32+3k$, the integer solutions are $T=6\omega+\tfrac32+6j$, with zeros at $\omega+j$, $3\omega+\tfrac12+3j$ and $4\omega+1+4j$. For $j=0$ this is the amplitude of @sec-f4-amplitude with the $\mathbf{378}$ and $\mathbf{79}$ zeros lowered by one. Its lowest-breather amplitude still matches no CDS amplitude: rerunning the breather test of @sec-f4-obstruction with these lifts, it agrees with none of $S_{11},\dots,S_{44}$ at $H=2T/\omega$.
@@ -137,6 +137,18 @@ Together with $d=\tfrac32+3k$, the integer solutions are $T=6\omega+\tfrac32+6j$
 So the one-loop soliton masses relocate the obstruction but do not remove it. In the $\mathbf{27}$ family the soliton and breather fusion angles are tied to the same $T$, while one loop requires them to differ. Takács's $g_2^{(1)}$ amplitude separates them through its special points with cube-root-of-unity phases. A construction for $f_4^{(1)}$ that does the same is the natural next attempt.
 
 ## Discussion and open problems {#sec-sm-discussion}
+
+The status of the results of Part VI is as follows. "Exact arithmetic" means that blocks first identified numerically are then compared symbolically in $\omega$. Scripts are in `soliton_rmatrix_code/` and `foundations_code/` (@sec-app-numerics).
+
+| Theory | S-matrix | Soliton masses | Breather identification |
+|---|---|---|---|
+| $c_n^{(1)}$, spinor | R-matrix proved for all $n$ [@dgz1996]; amplitude checked numerically for $n=2,3,4$, conjectured for $n\ge5$ | follow from the amplitude, given the lift principle (an assumption); agree with one loop (@sec-one-loop-masses-folded) | exact arithmetic, $n=2,3,4$, at two couplings |
+| $c_3^{(1)}$, all species | fusion checked numerically ($10^{-6}$); fusion table numerical at two couplings | as above | three amplitudes numerical, the rest by exact bootstrap arithmetic |
+| $a_{2n-1}^{(2)}$, spinor | R-matrix proved for all $n$ [@dgz1994]; amplitude numerical for $n=3,4$, conjectured for $n\ge5$ | as for $c_n^{(1)}$; agree with the lattice closed form (computed, not proved) | exact arithmetic, $n=3,4$ |
+| $e_6^{(2)}$, $\mathbf{26}$ | numerical at $\omega=2.37$ | as for $c_n^{(1)}$; one-loop check numerical | exact arithmetic |
+| $d_4^{(3)}$, $g_2^{(1)}$ | Takács's amplitudes, reproduced numerically | — | exact arithmetic |
+| $f_4^{(1)}$, $\mathbf{27}$ | amplitude numerical; excluded by a numerical one-loop computation | conflict with one loop (@sec-soliton-masses-one-loop) | fails; the CDD no-go is exact linear algebra on finite windows |
+| $a_2^{(1)}$ RSOS kinks | @prp-rsos-kinks: theorem, given a unitary and real-analytic scalar factor | — | — |
 
 A single construction covers every case treated here. The amplitude is $S=c\,f\,\check R$, where $c$ vanishes at the R-matrix poles, and the integer lifts make the soliton–particle mass relations exact. The breathers then reproduce the conjectured particle S-matrices exactly, with $H$ continued past the end of the floating range belonging to the theory.
 
@@ -174,4 +186,4 @@ Using @sec-one-loop-masses-folded, explain why $H_s\ne H_b$ for $f_4^{(1)}$ excl
 
 ## Notes and references {#sec-sm-f4-notes}
 
-The $\mathbf{27}$ R-matrix of $U_q(e_6^{(2)})$ was considered by Gandenberger, MacKay and Watts [@gmw1996], and the particle S-matrix is that of Corrigan, Dorey and Sasaki [-@corrigan1993]. The construction, the one-loop exclusion and the open problems listed in @sec-sm-discussion are new here.
+The $\mathbf{27}$ R-matrix of $U_q(e_6^{(2)})$ was constructed by Gandenberger, MacKay and Watts [@gmw1996], and the particle S-matrix is that of Corrigan, Dorey and Sasaki [-@corrigan1993]. The soliton amplitude, the one-loop exclusion and the open problems listed in @sec-sm-discussion are new here.

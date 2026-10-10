@@ -7,7 +7,7 @@
 - Construct breathers, describe soliton fusion, and compute classical time delays.
 :::
 
-The imaginary-coupling theories have infinitely many vacua, and their finite-energy solutions interpolate between them. Unlike the sine-Gordon kink, these solitons are in general complex: a field that tends to vacua at both ends and solves the field equations typically takes complex values in between. (Exceptions are embedded sine-Gordon kinks, e.g. the species-$n$ soliton of $a_{2n-1}^{(1)}$ at $\operatorname{Im}\xi=\pi/2$, which has $\tau_{2k+1}=\bar\tau_{2k}$ and is real.) This chapter constructs the solutions and computes their charges and masses. @sec-classical asks why their energies are nevertheless real.
+The imaginary-coupling theories have infinitely many vacua, and their finite-energy solutions interpolate between them. Unlike the sine-Gordon kink, these solitons are in general complex: a field that tends to vacua at both ends and solves the field equations typically takes complex values in between. (Exceptions are embedded sine-Gordon kinks, real solutions of the form $\vec\phi=\vec v\,\varphi(x,t)$ with a fixed vector $\vec v$ and $\varphi$ a sine-Gordon kink. An example is the species-$n$ soliton of $a_{2n-1}^{(1)}$ at $\operatorname{Im}\xi=\pi/2$, which has $\tau_{2k+1}=\bar\tau_{2k}$.) This chapter constructs the solutions and computes their charges and masses. @sec-classical asks why their energies are nevertheless real.
 
 ## Imaginary coupling: vacua, solitons, symmetry {#sec-imaginary-coupling-vacua}
 
@@ -42,7 +42,7 @@ $$
 \partial_+\partial_-\ln\tau_j=m^2n_j\frac{\vec\alpha_j^2}2\Big(\prod_l\tau_l^{-a_{lj}}-1\Big).
 $$
 
-The constant $-1$ may be added because $\sum_jn_j\vec\alpha_j=0$, and it is needed for $\tau_j\to1$ to be a solution (the vacuum). With Hirota's bilinear derivative, $D_x^2\,f\cdot g=f''g-2f'g'+fg''$, one has $\partial_+\partial_-\ln\tau=-\frac12(D_x^2-D_t^2)\tau\cdot\tau/\tau^2$, and the equations become
+The constant $-1$ may be added because $\sum_jn_j\vec\alpha_j=0$, and it is needed for $\tau_j\to1$ to be a solution (the vacuum). With Hirota's bilinear derivative, $D_x^2\,f\cdot g=f''g-2f'g'+fg''$, one has $\partial_+\partial_-\ln\tau=-\frac12(D_x^2-D_t^2)\tau\cdot\tau/\tau^2$ (with the convention $\partial_\pm=\partial_t\pm\partial_x$ of @sec-lagrangians, so that $\partial_+\partial_-=\partial_t^2-\partial_x^2$), and the equations become
 
 $$
 \tfrac12\big(D_x^2-D_t^2\big)\,\tau_j\cdot\tau_j=m^2n_j\frac{\vec\alpha_j^2}2\Big(\tau_j^2-\prod_{l\ne j}\tau_l^{-a_{lj}}\Big).
@@ -58,9 +58,11 @@ $$ {#eq-an-soliton}
 
 For a static soliton ($\theta=0$), $\frac12D_x^2\tau_j\cdot\tau_j=m_a^2\omega^{ja}E$, while $\tau_j^2-\tau_{j-1}\tau_{j+1}=(2-2\cos\frac{2\pi a}h)\,\omega^{ja}E=4\sin^2\frac{\pi a}h\,\omega^{ja}E$. So (-@eq-hirota-bilinear) holds exactly when $m_a=2m\sin\frac{\pi a}h$: **the soliton of species $a$ decays with the mass of particle $a$.** Lorentz invariance supplies the rapidity $\theta$, and the soliton moves with velocity $\tanh\theta$. The complex constant $\xi$ fixes the position, $-\operatorname{Re}\xi/m_a$, and, through $\operatorname{Im}\xi$, the topological charge (@sec-topological-charges).
 
+*Notation.* In this chapter and the next, $\xi$ is this position constant, not the renormalized sine-Gordon coupling $\xi$ of @sec-sg-semiclassics. $E$ is the exponential in (-@eq-an-soliton), not an energy and not a generator $E_{\pm\vec\alpha_j}$. $\omega$ is a root of unity, not a frequency.
+
 For sine-Gordon ($h=2$, $\vec\alpha_1=-\vec\alpha_0=\sqrt2$) and $\operatorname{Im}\xi=\pi/2$, this is the kink of @sec-sg-classical: $\tau_0=1+iE$, $\tau_1=1-iE$. Shifting $\operatorname{Im}\xi$ by $\pi$ gives the antikink, which in this language is the same species with a different topological charge.
 
-**Other algebras.** For $d_n^{(1)}$ and $e_n^{(1)}$, $\tau_j$ for a single soliton is a polynomial in $E$ of degree $n_j$ with constant term 1, whose coefficients are fixed by solving (-@eq-hirota-bilinear) order by order [@hollowood1992]. Non-simply-laced solitons are obtained by folding: a solution of a simply-laced theory that is invariant under the folding symmetry is a solution of the folded theory (@sec-affine-folding). A single folded soliton is either a single parent soliton of an invariant species or a coincident orbit of parent solitons.
+**Other algebras.** For $d_n^{(1)}$ and $e_n^{(1)}$, $\tau_j$ for a single soliton is a polynomial in $E$ with constant term 1, of degree $n_j$ in every case checked (@sec-vertex-solitons), whose coefficients are fixed by solving (-@eq-hirota-bilinear) order by order [@hollowood1992]. Non-simply-laced solitons are obtained by folding: a solution of a simply-laced theory that is invariant under the folding symmetry is a solution of the folded theory (@sec-affine-folding). A single folded soliton is either a single parent soliton of an invariant species or a coincident orbit of parent solitons.
 
 ## The vertex-operator construction {#sec-vertex-solitons}
 
@@ -72,7 +74,7 @@ $$
 
 where the $F^a(z)$ are the eigenvectors of the principal Heisenberg subalgebra introduced in @sec-vertex-operators. The species $a$ determines the mass, $z$ the rapidity, and $Q$ combines position and internal phase. Two facts make this useful.
 
-- **Polynomial structure.** For simply-laced $\hat g$, $(F^a)^{n_j+1}=0$ on $L(\Lambda_j)$, which has level $n_j$ [@olive1993b], so a single-soliton $\tau_j$ has degree at most $n_j$ in $E$. That the degree is exactly $n_j$ is explicit for $a_n^{(1)}$ and checked numerically for $d_{4..8}^{(1)}$, $e_{6,7,8}^{(1)}$ (@sec-hirota-form-dn1-en1). For folded theories the relevant label is $n_j^\vee$ (the level), and a coincident orbit $O$ has degree $\lvert O\rvert n_j^\vee$, e.g. 2 at the long end nodes of $c_n^{(1)}$. Bounds on products of different $F$'s are hypothesis (D) of @sec-hirota-form-dn1-en1, which is verified only numerically.
+- **Polynomial structure.** For simply-laced $\hat g$, $(F^a)^{n_j+1}=0$ on $L(\Lambda_j)$, which has level $n_j$ [@olive1993b], so a single-soliton $\tau_j$ has degree at most $n_j$ in $E$. That the degree is exactly $n_j$ is explicit for $a_n^{(1)}$ and checked numerically for $d_{4..8}^{(1)}$, $e_{6,7,8}^{(1)}$ (@sec-hirota-form-dn1-en1). For folded theories the relevant label is $n_j^\vee$, the level of $L(\Lambda_j)$. A coincident orbit $O$ of $\lvert O\rvert$ parent solitons has degree $\lvert O\rvert n_j^\vee$. In $c_n^{(1)}$ every $n_j^\vee$ is 1, so a coincident pair of species $a$ and $2n-a$ has degree 2 at every node, including the long end nodes, whose Kac label is 1, and the species-$n$ soliton has degree 1 at every node, including the short nodes, whose Kac label is 2. For $c_2^{(1)}$, folded from $a_3^{(1)}$, the static pair of species 1 and 3 has $\tau_0=1+2E+\frac12E^2$, $\tau_1=\tau_3=1+\frac12E^2$ and $\tau_2=1-2E+\frac12E^2$. The exact degrees, including those of coincident orbits, and the corresponding bounds on products of different $F$'s form hypothesis (D) of @sec-hirota-form-dn1-en1, which is verified only numerically. In Part III only the degree statements of this paragraph and of "Other algebras" in @sec-hirota depend on (D). The $a_n^{(1)}$ formulas are explicit, and the multi-soliton solutions of the other algebras are taken from the literature cited in @sec-classical-literature.
 - **Multi-solitons.** Products of the exponentials give multi-solitons, and the normal-ordering factors between vertex operators give the interaction coefficients below.
 
 ## Topological charges {#sec-topological-charges}
@@ -97,7 +99,7 @@ $$ {#eq-soliton-mass}
 
 real and positive, although the field is complex (@exr-soliton-mass). For sine-Gordon this is $M=4m_0/\beta^2=8m_0/\beta_{\rm SG}^2$, as in (-@eq-sg-classical-mass). The soliton masses are proportional to the particle masses, with the factor $2h/\beta^2$, large at weak coupling.
 
-**Lie duality.** Folding makes the non-simply-laced case explicit. Take $c_n^{(1)}$, folded from $a_{2n-1}^{(1)}$ ($h=2n$) by the reflection that exchanges species $a$ and $2n-a$. Its solitons are the invariant parent solitons: a single soliton of species $n$, and coincident pairs of species $a$ and $2n-a$, $a=1,\dots,n-1$. Their masses are proportional to $\sin\frac{\pi n}{2n}=1$ and to $2\sin\frac{\pi a}{2n}$. The ratios $2\sin\frac{\pi a}{2n}$ are not the particle mass ratios of $c_n^{(1)}$, which are $m_a/m_n=\sin\frac{\pi a}{2n}$. They are the particle mass ratios of $b_n^{(1)}$, the untwisted algebra built on the dual root system $B_n=C_n^\vee$ (@exr-lie-duality). This is the general pattern stated in @sec-imaginary-coupling-vacua [@kneipp1996]. In the quantum theory it is upgraded: the soliton S-matrices of $c_n^{(1)}$ are built from R-matrices of $U_q(d_{n+1}^{(2)})$, and their lowest breathers reproduce the particles of $c_n^{(1)}$ (@sec-sm-cn).
+**Lie duality.** Folding makes the non-simply-laced case explicit. Take $c_n^{(1)}$, folded from $a_{2n-1}^{(1)}$ ($h=2n$) by the reflection that exchanges species $a$ and $2n-a$. Its solitons are the invariant parent solitons: a single soliton of species $n$, and coincident pairs of species $a$ and $2n-a$, $a=1,\dots,n-1$. Their masses are proportional to $\sin\frac{\pi n}{2n}=1$ and to $2\sin\frac{\pi a}{2n}$. The ratios $2\sin\frac{\pi a}{2n}$ are not the particle mass ratios of $c_n^{(1)}$, which are $m_a/m_n=\sin\frac{\pi a}{2n}$. They are the particle mass ratios of $b_n^{(1)}$, the untwisted algebra built on the dual root system $B_n=C_n^\vee$ (@exr-lie-duality). This is the general pattern stated in @sec-imaginary-coupling-vacua. Part III checks it only for $c_n^{(1)}$, by this folding argument. For the other untwisted non-simply-laced algebras it is quoted from [@kneipp1996]. In the quantum theory it is upgraded: the soliton S-matrices of $c_n^{(1)}$ are built from R-matrices of $U_q(d_{n+1}^{(2)})$, and their lowest breathers reproduce the particles of $c_n^{(1)}$ (@sec-sm-cn).
 
 ## Multi-solitons and time delays {#sec-multi-solitons}
 
@@ -115,21 +117,21 @@ $$ {#eq-interaction-coefficient}
 
 For two solitons this can be checked directly against the field equation.
 
-**Time delays.** Near soliton 1, far from soliton 2, either $E_2\to0$, and $\tau_j\simeq1+\omega^{ja_1}E_1$, or $E_2\to\infty$, and $\tau_j\simeq\omega^{ja_2}E_2\big(1+\omega^{ja_1}A_{a_1a_2}E_1\big)$. So, for $\theta_1>\theta_2$, soliton 1 emerges from the collision with $\xi_1$ shifted by $\ln A_{a_1a_2}(\theta_1-\theta_2)$, which is a displacement $-\ln A_{a_1a_2}/(m_{a_1}\cosh\theta_1)$ of its trajectory, with shape and velocity unchanged. This is the classical counterpart of factorized elastic scattering. For real rapidities $0<A_{ab}<1$, so the displacement is real and positive, a time advance. Semiclassically, the time delay is the derivative of the phase of the S-matrix [@fring1994]: $d\delta_{ab}/d\theta=(2h/\beta^2)\ln A_{ab}(\theta)$ at leading order. For sine-Gordon this is the leading term of $-i\ln S_0$ in (-@eq-sg-s0).
+**Time delays.** Near soliton 1, far from soliton 2, either $E_2\to0$, and $\tau_j\simeq1+\omega^{ja_1}E_1$, or $E_2\to\infty$, and $\tau_j\simeq\omega^{ja_2}E_2\big(1+\omega^{ja_1}A_{a_1a_2}E_1\big)$. So, for $\theta_1>\theta_2$, soliton 1 emerges from the collision with $\xi_1$ shifted by $\ln A_{a_1a_2}(\theta_1-\theta_2)$, which is a displacement $-\ln A_{a_1a_2}/(m_{a_1}\cosh\theta_1)$ of its trajectory, with shape and velocity unchanged. This is the classical counterpart of factorized elastic scattering. For real rapidities $0<A_{ab}<1$, so the displacement $\Delta x$ is real and positive: soliton 1 is shifted forward. We call $\Delta t=t_{\rm out}-t_{\rm in}$ the time delay, the shift of the time at which the trajectory passes a given point. Here $\Delta t=-\Delta x/v_1<0$, a time advance, as for sine-Gordon solitons. Since $M_{a_1}=2hm_{a_1}/\beta^2$ (-@eq-soliton-mass), the shift is $E_1\Delta x=-p_1\Delta t=-(2h/\beta^2)\ln A_{a_1a_2}$, with $E_1,p_1$ the energy and momentum of soliton 1 [@fring1994]. Semiclassically, write the S-matrix as $e^{i\delta_{ab}(\theta)}$. Wigner's relation $\Delta t=d\delta/dE_1$, in the rest frame of soliton 2, gives $d\delta_{ab}/d\theta=p_1\Delta t=(2h/\beta^2)\ln A_{ab}(\theta)$ at leading order. It is negative, as for an advance. For sine-Gordon this is the leading term of $-i\,d\ln S_0/d\theta$ from (-@eq-sg-s0), namely $(16/\beta_{\rm SG}^2)\ln\tanh\frac\theta2$.
 
 **Fusion.** At $\theta_1-\theta_2=i\pi(a+b)/h$, the denominator of $A_{ab}$ vanishes. Take $\theta_1=\theta+i\pi b/h$ and $\theta_2=\theta-i\pi a/h$. Then $E_1E_2$ has the exponent of a single soliton of species $a+b$ with rapidity $\theta$, because $m_ae^{i\pi b/h}+m_be^{-i\pi a/h}=m_{a+b}$, and the phases combine to $\omega^{j(a+b)}$. Letting $\xi_1,\xi_2\to-\infty$ while keeping $A_{ab}e^{\xi_1+\xi_2}$ fixed reduces (-@eq-n-soliton) to the single soliton of species $a+b$. Classically, two solitons fuse into a third at the same fusing angle as the corresponding particles: the soliton masses obey the same mass triangles as the particles. This is the classical shadow of the bootstrap.
 
 ## Breathers {#sec-breathers}
 
-A soliton of species $a$ and one of the conjugate species $\bar a=h-a$, with complex-conjugate rapidities $\theta_0\pm iu$ (so $u$ here is $\frac\pi2$ minus the $u$ of @sec-sg-classical) and suitably related $\xi$'s, form a **breather**: a localized, time-periodic solution of zero topological charge. Its energy is
+A soliton of species $a$ and one of the conjugate species $\bar a=h-a$, with complex-conjugate rapidities $\theta_0\pm iu$ (so $u$ here is $\frac\pi2$ minus the $u$ of @sec-sg-classical) and suitably related $\xi$'s, form a **breather**: a localized, time-periodic solution of zero topological charge. By @prp-hirota-energy its energy is
 
 $$
-E=M_a\cosh(\theta_0+iu)+M_{\bar a}\cosh(\theta_0-iu)=2M_a\cosh\theta_0\cos u ,
+M_a\cosh(\theta_0+iu)+M_{\bar a}\cosh(\theta_0-iu)=2M_a\cosh\theta_0\cos u ,
 $$
 
-real, because $M_{\bar a}=M_a$. Classically $u$ is a continuous parameter, so the breather masses $2M_a\cos u$ fill a band. In the quantum theory they are quantized, and the lowest breathers are the elementary particles (@sec-sg-breather-particle). Breathers of affine Toda theories were constructed by Harder, Iskandar and McGhee [@harder1995].
+real, because $M_{\bar a}=M_a$. Classically $u$ is a continuous parameter, so the breather masses $2M_a\cos u$ fill a band. In the quantum theory they are quantized, and the lowest breathers are the elementary particles (@sec-sg-breather-particle). Breathers of affine Toda theories were constructed by Harder, Iskandar and McGhee [@harder1995]. Part III quotes their existence and does not construct them, except for sine-Gordon (@exr-breather-sg). Their quantization is deferred to Parts V and VI.
 
-The quantum theory also contains **excited solitons**, which appear as further bound-state poles of the soliton S-matrices. Classical counterparts of some of these are not known [@tw1999] (gap H11 of @sec-critique).
+The quantum theory also contains **excited solitons**, which appear as further bound-state poles of the soliton S-matrices. Classical counterparts of some of these are not known [@tw1999] (gap H11 of @sec-critique). Part III does not treat them.
 
 ## Exercises {#sec-classical-solitons-exercises}
 
@@ -142,7 +144,7 @@ Show that (-@eq-an-soliton) with $\theta\ne0$ solves (-@eq-hirota-bilinear), and
 :::
 
 ::: {#exr-soliton-mass}
-Compute the energy of the static soliton of $a_2^{(1)}$, $\int dx\,\big(\frac12\vec\phi'\cdot\vec\phi'+V_{\rm imag}\big)$ without complex conjugation, for $\operatorname{Im}\xi$ chosen so that no $\tau_j$ vanishes on the real line. Show that it equals $2hm_a/\beta^2$ and is independent of $\xi$. (*Hint:* for a static soliton $E=2\int V\,dx=\frac2{\beta^2}\sum_j\frac2{\vec\alpha_j^2}\big[\partial_x\ln\tau_j\big]_{-\infty}^{\infty}$.) (A numerical check is in `textbook_code/toda_classical.py`.)
+Compute the energy of the static soliton of $a_2^{(1)}$, $\int dx\,\big(\frac12\vec\phi'\cdot\vec\phi'+V_{\rm imag}\big)$ without complex conjugation, for $\operatorname{Im}\xi$ chosen so that no $\tau_j$ vanishes on the real line. Show that it equals $2hm_a/\beta^2$ and is independent of $\xi$. (*Hint:* the static field equation $\vec\phi''=\nabla V$ has the first integral $\frac12\vec\phi'\cdot\vec\phi'=V$, the constant being 0 because both sides vanish in the vacuum. So the energy is $2\int V\,dx$. By the bilinear equations, $V=\frac1{\beta^2}\sum_j\frac2{\vec\alpha_j^2}\partial_x^2\ln\tau_j$ for a static solution, so the energy is $\frac2{\beta^2}\sum_j\frac2{\vec\alpha_j^2}\big[\partial_x\ln\tau_j\big]_{-\infty}^{\infty}$.) (A numerical check is in `textbook_code/toda_classical.py`.)
 :::
 
 ::: {#exr-charges-a3}
@@ -165,7 +167,7 @@ For sine-Gordon, write down the breather $\tau$-functions using (-@eq-n-soliton)
 
 **Solutions.** Single and multi-soliton solutions are known for all algebras [@hollowood1992; @olive1993a; @olive1993b; @kneipp1996; @mackay1993; @aratyn1993; @zhu1995]. So are breathers [@harder1995] and soliton time delays [@fring1994].
 
-**Reality.** Although the fields are complex, the energy–momentum tensor is a total derivative up to an improvement term, and the energies are real [@olive1993a; @olive1993b; @zhu1995]. So are all the higher conserved charges [@freeman1995].
+**Reality.** Although the fields are complex, on Hirota solutions the energy–momentum tensor is a total derivative, $T_{\mu\nu}=(\eta_{\mu\nu}\partial^2-\partial_\mu\partial_\nu)C$ with $C=-\frac2{\beta^2}\sum_j\frac2{\vec\alpha_j^2}\ln\tau_j$, and the energies are real [@olive1993a; @olive1993b; @zhu1995]. The function $C$ involves $\ln\tau_0$, which is not a local function of $\vec\phi$. Olive, Turok and Underwood derive the formula with arguments from conformal Toda theory. For the trace, $T^\mu{}_\mu\propto V$, it follows directly from the bilinear equations (-@eq-hirota-bilinear). So are all the higher conserved charges [@freeman1995].
 
 **Known problems.**
 
