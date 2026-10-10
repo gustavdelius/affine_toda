@@ -1,0 +1,43 @@
+# Integrable scattering with a boundary {#sec-boundary-scattering}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is being drafted.*
+
+## Kinematics on the half-line {#sec-half-line-kinematics}
+
+<!-- planned: Which charges survive; boundary Zamolodchikov–Faddeev algebra; the reflection matrix. -->
+
+## The reflection equation {#sec-reflection-equation}
+
+<!-- planned: S/K form from factorization; braid (Ř) form; soliton-conjugating (twisted) form with four Ř's. -->
+
+## Boundary unitarity and crossing-unitarity {#sec-boundary-unitarity-crossing}
+
+<!-- planned: Boundary unitarity; GZ boundary state; crossing-unitarity; minimal solutions and CDD factors. -->
+
+## Boundary bound states and the boundary bootstrap {#sec-boundary-bound-states}
+
+<!-- planned: Physical strip 0<Im θ<π/2; residues; one-point coupling at iπ/2; boundary bootstrap (Fring–Köberle). -->
+
+## Boundary Coleman–Thun diagrams {#sec-boundary-coleman-thun}
+
+<!-- planned: Pole order P−2L; examples. -->
+
+## Boundary Bethe–Yang equations {#sec-boundary-bethe-yang}
+
+<!-- planned: Quantization on an interval with two boundaries. -->
+
+## Finite size: g-function, boundary TBA and TCSA {#sec-boundary-finite-size}
+
+<!-- planned: A map, with references. -->
+
+## Worked example: boundary Lee–Yang {#sec-boundary-lee-yang}
+
+<!-- planned: The two reflection factors of Dorey–Pocklington–Tateo–Watts. -->
+
+## Exercises {#sec-boundary-scattering-exercises}
+
+## Notes and references {#sec-boundary-scattering-notes}

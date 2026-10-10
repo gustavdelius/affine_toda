@@ -1,0 +1,39 @@
+# Classically integrable boundary conditions {#sec-boundary-conditions}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is being drafted.*
+
+## Boundary potentials and boundary conditions {#sec-boundary-potential}
+
+<!-- planned: The book's boundary convention, real and imaginary coupling, energy. -->
+
+## Sklyanin's formalism {#sec-sklyanin}
+
+<!-- planned: Double-row transfer matrix, classical reflection equation, compatibility, generalization by an anti-automorphism σ. -->
+
+## The integrable boundary conditions {#sec-durham-classification}
+
+<!-- planned: σ = transposition; the classification by algebra (Corrigan, Dorey, Rietdijk, Sasaki; Bowcock et al.). -->
+
+## Background-field boundary conditions {#sec-background-field}
+
+<!-- planned: Brief. -->
+
+## A soliton-preserving boundary condition {#sec-soliton-preserving}
+
+<!-- planned: σ = Hermitian conjugation; Dirichlet on Re φ, Neumann on Im φ. -->
+
+## Dynamical boundaries {#sec-dynamical-boundary}
+
+<!-- planned: Sklyanin's formalism with a dynamical K-matrix. -->
+
+## The antilinear symmetry Θ on the half-line {#sec-boundary-theta}
+
+<!-- planned: When boundary terms are Θ-invariant; soliton-preserving as ΘP-invariance. -->
+
+## Exercises {#sec-boundary-conditions-exercises}
+
+## Notes and references {#sec-boundary-conditions-notes}

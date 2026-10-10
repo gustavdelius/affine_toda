@@ -1,0 +1,37 @@
+# Breather and particle reflection amplitudes {#sec-particle-reflection}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is being drafted.*
+
+## Breather reflection amplitudes {#sec-breather-reflection}
+
+<!-- planned: Bootstrap from the soliton K. -->
+
+## From breathers to particles {#sec-continuation-assumptions}
+
+<!-- planned: Analytic continuation in the coupling and its assumptions. -->
+
+## The uniform boundary condition {#sec-uniform-boundary}
+
+<!-- planned: The a_n particle reflection amplitudes; checks. -->
+
+## The Neumann boundary and duality {#sec-neumann-duality}
+
+<!-- planned: Weak–strong duality on the half-line. -->
+
+## Solitonic boundary conditions {#sec-solitonic-boundaries}
+
+<!-- planned: Equivalence classes and their amplitudes. -->
+
+## The boundary spectrum of a_2 {#sec-boundary-spectrum-a2}
+
+<!-- planned: Excited boundary states and the generalized Coleman–Thun mechanism. -->
+
+## Open problems on the half-line {#sec-boundary-open-problems}
+
+## Exercises {#sec-particle-reflection-exercises}
+
+## Notes and references {#sec-particle-reflection-notes}

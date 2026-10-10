@@ -1,0 +1,39 @@
+# Boundary sine-Gordon and sinh-Gordon {#sec-boundary-sine-gordon}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is being drafted.*
+
+## The boundary sine-Gordon model {#sec-bsg-classical}
+
+<!-- planned: GZ action, integrability from the spin-3 charge, Dirichlet and Neumann limits, images. -->
+
+## A dynamical boundary {#sec-bsg-dynamical}
+
+<!-- planned: The boundary oscillator of Baseilhac–Delius–George. -->
+
+## The soliton reflection matrix {#sec-bsg-k-matrix}
+
+<!-- planned: GZ K-matrix in book conventions at the physical q; scalar factor. -->
+
+## Boundary parameters and reflection parameters {#sec-bsg-parameters}
+
+<!-- planned: Dirichlet relation; Al. B. Zamolodchikov's relation for the general case. -->
+
+## Breather reflection factors {#sec-bsg-breathers}
+
+<!-- planned: Ghoshal's breather K; continuation to sinh-Gordon. -->
+
+## The spectrum of boundary bound states {#sec-bsg-spectrum}
+
+<!-- planned: Mattsson–Dorey (Dirichlet); Bajnok–Palla–Takács–Tóth (general). -->
+
+## Sinh-Gordon boundary breathers {#sec-shg-boundary-breathers}
+
+<!-- planned: Classical boundary breathers, WKB versus bootstrap, the relation E(ε,β) (Corrigan–Delius). -->
+
+## Exercises {#sec-boundary-sine-gordon-exercises}
+
+## Notes and references {#sec-boundary-sine-gordon-notes}

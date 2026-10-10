@@ -1,0 +1,43 @@
+# Solitons, breathers and vacua on the half-line {#sec-half-line-solitons}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is being drafted.*
+
+## Mirror images: the Neumann boundary {#sec-images-neumann}
+
+<!-- planned: Parity images; solitons return as antisolitons; time delays. -->
+
+## Mirror images for the other boundary conditions {#sec-images-boundary}
+
+<!-- planned: Mirror in front of or behind the boundary; d(v); Δt; attractive and repulsive boundaries. -->
+
+## Images for the soliton-preserving boundary {#sec-images-preserving}
+
+<!-- planned: ΘP mirror solitons. -->
+
+## Boundary breathers {#sec-boundary-breathers-classical}
+
+<!-- planned: Solitons bound to the boundary; regularity. -->
+
+## Folding: c_n solitons on the half-line {#sec-images-cn}
+
+<!-- planned: Via the a_{2n-1} images. -->
+
+## Vacua at real coupling {#sec-real-coupling-vacua}
+
+<!-- planned: Continued stationary solitons; solitonic boundary conditions; vacuum modulus. -->
+
+## Vacua and the missing topological charges {#sec-boundary-missing-charges}
+
+<!-- planned: Link to the missing-charge problem. -->
+
+## Classical reflection factors {#sec-classical-reflection-factors}
+
+<!-- planned: Linearized reflection factors about the vacuum. -->
+
+## Exercises {#sec-half-line-solitons-exercises}
+
+## Notes and references {#sec-half-line-solitons-notes}

@@ -1,0 +1,43 @@
+# Soliton reflection matrices {#sec-soliton-reflection}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is being drafted.*
+
+## The procedure {#sec-k-procedure}
+
+<!-- planned: Coideal, intertwiner, reflection equation, scalar factor, breather test. -->
+
+## XXZ reflection matrices of any spin {#sec-xxz-spin-j}
+
+<!-- planned: The recursion of Delius–Nepomechie. -->
+
+## Boundary fusion {#sec-boundary-fusion}
+
+<!-- planned: Mezincescu–Nepomechie fusion. -->
+
+## Diagonal a_n reflection matrices {#sec-an-diagonal-k}
+
+<!-- planned: Delius–Gandenberger; scalar factor; CDD factors. -->
+
+## Non-diagonal a_n reflection matrices {#sec-an-nondiagonal-k}
+
+<!-- planned: From the coideal; relation to the diagonal solutions. -->
+
+## d_n vector solitons {#sec-dn-vector-k}
+
+<!-- planned: The vector R-matrix and the Delius–George families. -->
+
+## Soliton-preserving and soliton-conjugating reflections {#sec-preserving-conjugating}
+
+<!-- planned: Which reflection equation for which boundary. -->
+
+## Semiclassical check {#sec-boundary-semiclassics}
+
+<!-- planned: Time delays against the a_2 reflection matrices. -->
+
+## Exercises {#sec-soliton-reflection-exercises}
+
+## Notes and references {#sec-soliton-reflection-notes}

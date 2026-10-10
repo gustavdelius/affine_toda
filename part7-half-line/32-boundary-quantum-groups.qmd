@@ -1,0 +1,39 @@
+# Quantum-group symmetry on the half-line {#sec-boundary-qg}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is being drafted.*
+
+## Boundary conformal perturbation theory {#sec-boundary-cpt}
+
+<!-- planned: Just enough for the charges. -->
+
+## Non-local charges on the half-line {#sec-boundary-charges}
+
+<!-- planned: The conserved combinations Q_j + Q̄_j + ε̂_j q^{T_j}. -->
+
+## Coideal subalgebras {#sec-coideal}
+
+<!-- planned: The boundary symmetry algebra in Part VI conventions; coproduct. -->
+
+## Reflection matrices as intertwiners {#sec-k-intertwiner}
+
+<!-- planned: A linear equation; why it implies the reflection equation; boundary bound states. -->
+
+## Worked example: sine-Gordon {#sec-sg-k-from-symmetry}
+
+<!-- planned: Eight linear equations give the Ghoshal–Zamolodchikov K-matrix. -->
+
+## The reflection-equation algebra {#sec-reflection-algebra}
+
+<!-- planned: B = L̄KL and the embedding into U_q(ĝ). -->
+
+## Quantum and classical boundary parameters {#sec-epsilon-constraint}
+
+<!-- planned: |ε̂_j| = 1 and the classical classification. -->
+
+## Exercises {#sec-boundary-qg-exercises}
+
+## Notes and references {#sec-boundary-qg-notes}
