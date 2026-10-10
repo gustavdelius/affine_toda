@@ -1,39 +1,298 @@
 # Boundary sine-Gordon and sinh-Gordon {#sec-boundary-sine-gordon}
 
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
-- To be written.
+- Write down the integrable boundary sine-Gordon action and its Dirichlet and Neumann limits, and relate its parameters to the boundary parameters $C_0,C_1$ of affine Toda theory.
+- Know the Ghoshal–Zamolodchikov soliton reflection matrix in the conventions of Part VI, its scalar factor, and why crossing-unitarity, but not the reflection equation, fixes the sign of $q$.
+- Relate the parameters of the reflection matrix to those of the Lagrangian, and state honestly what is proved and what is conjectured.
+- Derive breather reflection factors by the boundary bootstrap and continue them to sinh-Gordon theory.
+- Describe the spectrum of boundary bound states of sine-Gordon theory.
+- Quantize the sinh-Gordon boundary breathers semiclassically and compare with the bootstrap.
 :::
 
-*This chapter is being drafted.*
+Sine-Gordon theory is the rank-one template for the bulk theory (@sec-sine-gordon), and it plays the same role on the half-line. It is the only affine Toda theory whose integrable boundary conditions form a continuous two-parameter family (@sec-durham-classification), its soliton reflection matrix is known in closed form, and its spectrum of boundary bound states has been completely determined. This chapter develops these results in the book's conventions and uses them to test the general machinery of @sec-boundary-scattering. Along the way we meet the question that will recur throughout Part VII: how are the parameters that appear in a reflection matrix related to those in the Lagrangian? Even for sine-Gordon theory the answer rests partly on conjecture.
+
+Sinh-Gordon theory, the real-coupling $a_1^{(1)}$ theory, is treated alongside. Its particle reflection factor is the continuation of the lowest-breather reflection factor of sine-Gordon theory, just as in the bulk (@sec-sg-breather-particle), and its boundary breathers give a semiclassical test of that continuation.
 
 ## The boundary sine-Gordon model {#sec-bsg-classical}
 
-<!-- planned: GZ action, integrability from the spin-3 charge, Dirichlet and Neumann limits, images. -->
+Place the sine-Gordon Lagrangian (-@eq-sg-lagrangian) on $x\le0$ and add a boundary potential. In the book's convention, $S=\int dt\,[\int_{-\infty}^0\mathcal L\,dx-\mathcal B(\phi(0,t))]$ (@sec-boundary-potential), Ghoshal and Zamolodchikov's boundary term is
+
+$$
+\mathcal B(\phi)=-M_0\cos\frac{\beta_{\rm SG}(\phi-\phi_0)}2,\qquad \partial_x\phi\big|_{x=0}=-\frac{\beta_{\rm SG}M_0}2\sin\frac{\beta_{\rm SG}(\phi(0,t)-\phi_0)}2 ,
+$$ {#eq-bsg-boundary}
+
+with two real parameters, the boundary mass scale $M_0$ and the boundary field $\phi_0$ [@gz1994].
+
+**Integrability.** Ghoshal and Zamolodchikov computed the spin-3 conserved charge of the bulk theory on the half-line. Its time derivative is a boundary term at $x=0$, which is a total time derivative only if $\mathcal B$ is a linear combination of $e^{\pm i\beta_{\rm SG}\phi/2}$ (and a constant). This is (-@eq-bsg-boundary) [@gz1994]. In the affine Toda language of @sec-boundary-potential it is the imaginary-coupling boundary potential of $a_1^{(1)}$, with roots $\alpha_1=\sqrt2$, $\alpha_0=-\sqrt2$ and
+
+$$
+C_0=\frac{\beta_{\rm SG}^2M_0}{4m_0}\,e^{i\beta_{\rm SG}\phi_0/2},\qquad C_1=\frac{\beta_{\rm SG}^2M_0}{4m_0}\,e^{-i\beta_{\rm SG}\phi_0/2},
+$$ {#eq-bsg-c-dictionary}
+
+up to an additive constant (checked in `textbook_code/boundary_classical.py`). Unlike the other untwisted algebras, $a_1^{(1)}$ allows arbitrary $C_0$ and $C_1$ (@tbl-durham); real $M_0,\phi_0$ correspond to $C_1=\bar C_0$. MacIntyre [-@macintyre1995] showed directly that (-@eq-bsg-boundary) is the most general local boundary condition compatible with classical integrability.
+
+**Special cases.**
+
+- **Neumann**, $M_0=0$: $\partial_x\phi(0,t)=0$, i.e. $C_0=C_1=0$.
+- **Dirichlet**, $M_0\to\infty$ at fixed $\phi_0$: the boundary term forces $\phi(0,t)=\phi_0$.
+- **The uniform boundary** $C_0=C_1=1$: $M_0=4m_0/\beta_{\rm SG}^2$ and $\phi_0=0$. This is the boundary condition that the other affine Toda theories share with sine-Gordon (@sec-durham-classification). Classically $\phi=0$ satisfies it, so the vacuum is undisturbed.
+
+**Classical solutions.** Saleur, Skorik and Warner [-@ssw1995] computed the classical soliton reflection for general $M_0$, $\beta_{\rm SG}$ and $\phi_0$ with $\tau$-functions. They found that the method of images still works despite the non-linear boundary condition: the reflected soliton is part of a multi-soliton solution on the full line whose additional solitons lie at $x>0$. Their semiclassical analysis agrees with the reflection matrix of @sec-bsg-k-matrix. The affine Toda generalization of the images, with the virtual collision point and the distinction between attractive and repulsive boundaries, is the subject of @sec-images-boundary.
 
 ## A dynamical boundary {#sec-bsg-dynamical}
 
-<!-- planned: The boundary oscillator of Baseilhac–Delius–George. -->
+The two parameters $C_0,C_1$ in (-@eq-bsg-c-dictionary) need not be constants. Baseilhac, Delius and George [-@bdg2002] replaced them by functions of a canonical pair $(\hat p,\hat q)$ living at the boundary:
+
+$$
+H_{\rm osc}=-\frac{2m_0}{\beta_{\rm SG}^2}\Big(e^{-i\beta_{\rm SG}\phi(0)/2}\cos\hat p+e^{i\beta_{\rm SG}\phi(0)/2}\cos\hat q\Big),\qquad \{\hat p,\hat q\}=\frac{\beta_{\rm SG}^2}4 ,
+$$ {#eq-bsg-oscillator}
+
+that is, $C_0=\cos\hat p$ and $C_1=\cos\hat q$ in the normalization of @sec-boundary-potential. The boundary condition is that of the static boundary with $C_j$ replaced by these functions, and $(\hat p,\hat q)$ evolve with the Hamiltonian $H_{\rm sG}+H_{\rm osc}$. The total energy is conserved (checked in `textbook_code/boundary_classical.py`), and Baseilhac, Delius and George constructed the higher conserved charges from a dynamical classical reflection matrix. When $(\hat p,\hat q)$ are frozen the model reduces to the two-parameter family above. Baseilhac and Koizumi [-@baseilhac_koizumi2003] quantized such boundary degrees of freedom and found the corresponding reflection matrices. The general framework of dynamical reflection matrices is the subject of @sec-dynamical-boundary.
 
 ## The soliton reflection matrix {#sec-bsg-k-matrix}
 
-<!-- planned: GZ K-matrix in book conventions at the physical q; scalar factor. -->
+Solitons and antisolitons form the spin-$\frac12$ evaluation representation of $U_q(\widehat{sl}_2)$, and the bulk S-matrix is $S=S_0\check R$ with the six-vertex $\check R$ of the Part VI conventions at the physical value $q=-e^{-i\pi\lambda}$ (@eq-q-physical, @sec-six-vertex). The boundary breaks the topological charge: the field at $x=0$ is not fixed (except for Dirichlet conditions), so a soliton can come back as an antisoliton. The reflection matrix is a $2\times2$ matrix $K(\theta):V(\theta)\to V(-\theta)$ in the basis $(s,\bar s)$.
+
+**The matrix part.** In @sec-sg-k-from-symmetry we will see that $K$ commutes with two conserved non-local charges, the coideal generators $b_j=e_j+q^{-1}f_jk_j+\hat\epsilon_jk_j$, $j=0,1$, and that this linear condition determines $K$ up to a scalar. With $y=e^{\lambda\theta}$ and $q-q^{-1}=2i\sin\pi\lambda$,
+
+$$
+K(\theta)\propto\begin{pmatrix}(q-q^{-1})(\hat\epsilon_1y+\hat\epsilon_0y^{-1})&y^2-y^{-2}\\ y^2-y^{-2}&(q-q^{-1})(\hat\epsilon_0y+\hat\epsilon_1y^{-1})\end{pmatrix}.
+$$ {#eq-bsg-k-matrix}
+
+It satisfies the reflection equation (-@eq-reflection-braid) for all $\hat\epsilon_0,\hat\epsilon_1$, and it is the general solution found by de Vega and González-Ruiz [-@devega1994] and Ghoshal and Zamolodchikov [-@gz1994] (`textbook_code/boundary_sine_gordon.py`). Following Bajnok, Palla, Takács and Tóth we parametrize the two boundary parameters by $(\eta,\vartheta)$,
+
+$$
+\hat\epsilon_1=-\frac{\cos(\eta-i\vartheta)}{\sin\pi\lambda},\qquad\hat\epsilon_0=-\frac{\cos(\eta+i\vartheta)}{\sin\pi\lambda},
+$$ {#eq-bsg-eta-theta}
+
+which brings (-@eq-bsg-k-matrix) to their form [@bptt2002, eq. (3.2)]
+
+$$
+K(\theta)=\frac{R_0(u)\,\sigma(\eta,u)\,\sigma(i\vartheta,u)}{\cos\eta\cosh\vartheta}\begin{pmatrix}P_0^+(u)&Q_0(u)\\Q_0(u)&P_0^-(u)\end{pmatrix},\qquad u=-i\theta,
+$$ {#eq-bsg-k-full}
+
+$$
+P_0^\pm=\cos\lambda u\cos\eta\cosh\vartheta\mp\sin\lambda u\sin\eta\sinh\vartheta,\qquad Q_0=-\sin\lambda u\cos\lambda u .
+$$
+
+Ghoshal and Zamolodchikov used parameters $(\xi_B,k)$, $\hat\epsilon_1=\epsilon e^{i\xi_B}$, $\hat\epsilon_0=\epsilon e^{-i\xi_B}$, $k=1/(\epsilon\sin\pi\lambda)$, in which the matrix is $\begin{pmatrix}\cos(\xi_B+\lambda u)&\frac k2\sin2\lambda u\\\frac k2\sin2\lambda u&\cos(\xi_B-\lambda u)\end{pmatrix}$ [@gz1994, eq. (5.12)]. Their boundary parameter is called $\xi$ in [@gz1994]; we write $\xi_B$ to avoid a clash with $\xi=\pi/\lambda$ of @sec-sine-gordon. The two parametrizations are related by $\cos\eta\cosh\vartheta=-\cos\xi_B/k$ and $\cos^2\eta+\cosh^2\vartheta=1+1/k^2$ [@gz1994, eq. (5.25)] (checked).
+
+**The scalar factor.** The boundary-independent factor and the boundary-dependent factors are
+
+$$
+R_0(u)=\prod_{l\ge1}\frac{\Gamma\big(4l\lambda-\frac{2\lambda u}\pi\big)\,\Gamma\big(4\lambda(l-1)+1-\frac{2\lambda u}\pi\big)}{\Gamma\big((4l-3)\lambda-\frac{2\lambda u}\pi\big)\,\Gamma\big((4l-1)\lambda+1-\frac{2\lambda u}\pi\big)}\Big/(u\to-u),
+$$
+
+$$
+\sigma(x,u)=\frac{\cos x}{\cos(x+\lambda u)}\prod_{l\ge1}\frac{\Gamma\big(\frac12+\frac x\pi+(2l-1)\lambda-\frac{\lambda u}\pi\big)\,\Gamma\big(\frac12-\frac x\pi+(2l-1)\lambda-\frac{\lambda u}\pi\big)}{\Gamma\big(\frac12-\frac x\pi+(2l-2)\lambda-\frac{\lambda u}\pi\big)\,\Gamma\big(\frac12+\frac x\pi+2l\lambda-\frac{\lambda u}\pi\big)}\Big/(u\to-u),
+$$
+
+where "$/(u\to-u)$" means division by the same expression at $-u$ [@bptt2002]. They satisfy $\sigma(x,u)\sigma(x,-u)=\cos^2x/(\cos(x+\lambda u)\cos(x-\lambda u))$ and $\sigma(x,\frac\pi2-u)=\sigma(x,\frac\pi2+u)$.
+
+::: {#prp-bsg-k}
+**[Numerical]** The reflection matrix (-@eq-bsg-k-full) satisfies the reflection equation (-@eq-reflection-braid), boundary unitarity (-@eq-boundary-unitarity), and boundary crossing-unitarity (-@eq-boundary-crossing-unitarity) with the bulk S-matrix $S_0\check R$ of (-@eq-sg-s0) and (-@eq-six-vertex) at the physical $q=-e^{-i\pi\lambda}$, with the plain conjugation $s\leftrightarrow\bar s$. The checks were done at generic $(\eta,\vartheta)$ and at the Neumann point (`textbook_code/boundary_sine_gordon.py`).
+:::
+
+**The sign of $q$.** The substitution $q\to-q$ conjugates $\check R$ by $\Pi\otimes1$ with $\Pi=\operatorname{diag}(1,-1)$, reversing $S_T$ relative to $S_R$ (@sec-six-vertex). In the reflection equation $\Pi$ can be absorbed: the same $K$ solves (-@eq-reflection-braid) at $q$ and at $-q$, and $K(\hat\epsilon;-q)=K(-\hat\epsilon;q)$. *The reflection equation cannot see the sign of $q$.* Boundary crossing-unitarity can. At $-q$ the matrix part of (-@eq-boundary-crossing-unitarity) fails with the conjugation $\bar s=s$ swapped with $s$, and is restored only with $C=\left(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\right)$, the conjugation of the bulk amplitude with crossing sign $\kappa=-1$ of @sec-crossing-sign (`textbook_code/boundary_sine_gordon.py`). So, just as for bulk crossing, the physical sign of $q$ is the one for which the boundary amplitudes are crossing-unitary with the ordinary charge conjugation.
+
+**Poles.** $R_0$ has the poles at $u=\frac\pi2-\frac{n\pi}{2\lambda}$ of a breather $B_n$ absorbed at zero momentum, and $\sigma(\eta,u)$ the boundary-dependent poles discussed in @sec-bsg-spectrum. At the Neumann point both $P$ and $Q$ have poles at $\theta=i(\frac\pi2-\frac{n\pi}\lambda)$, boundary bound states with energies $M\sin\frac{n\pi}\lambda$ [@ghoshal1994].
 
 ## Boundary parameters and reflection parameters {#sec-bsg-parameters}
 
-<!-- planned: Dirichlet relation; Al. B. Zamolodchikov's relation for the general case. -->
+The reflection matrix depends on $(\eta,\vartheta)$, the Lagrangian on $(M_0,\phi_0)$. The axioms of @sec-boundary-scattering cannot relate them: the relation is dynamical.
+
+**Dirichlet.** For $\phi(0,t)=\phi_0$ the topological charge is conserved, so the off-diagonal amplitudes vanish, which requires $\vartheta\to\infty$ (in GZ's parameters $k=0$). Ghoshal and Zamolodchikov fixed the remaining parameter by two observations: at $\phi_0=0$ charge conjugation forces $P^+=P^-$, so $\xi_B=0$; and at $\phi_0=\pi/\beta_{\rm SG}$ the two classical ground states are degenerate, so $P^+$ must have the pole of a zero-momentum soliton at $\theta=i\pi/2$. Assuming a linear relation they obtained
+
+$$
+\eta=\xi_B=\frac{4\pi}{\beta_{\rm SG}}\,\phi_0=\frac{(\lambda+1)\beta_{\rm SG}\phi_0}2
+$$ {#eq-bsg-dirichlet}
+
+and stressed that the linearity was a conjecture [@gz1994, eq. (5.27)]. It is supported by the semiclassical analysis of Saleur, Skorik and Warner [@ssw1995], by the consistency of Mattsson and Dorey's Dirichlet spectrum (@sec-bsg-spectrum), and it is the Dirichlet limit of the general relation below.
+
+**General boundaries.** Al. B. Zamolodchikov proposed the relation for general $(M_0,\phi_0)$ in seminars; it was first printed by Bajnok, Palla and Takács [@bpt2002, eq. (3.2)]. In their normalization the boundary term is $\tilde\mu\cos\frac{\beta_{\rm SG}}2(\phi(0)-\phi_0)$, with the bulk and boundary operators normal-ordered as in perturbed conformal field theory, and the bulk term is $\mu\cos\beta_{\rm SG}\phi$.
+
+::: {#cnj-bsg-uv-ir}
+## Zamolodchikov's UV–IR relation
+**[Conjecture]** With $\tilde\mu_{\rm crit}=\sqrt{2\mu/\sin(\beta_{\rm SG}^2/8)}$ and $\beta_{\rm SG}^2/8\pi=1/(\lambda+1)$,
+$$
+\cos\frac\eta{\lambda+1}\cosh\frac\vartheta{\lambda+1}=\frac{\tilde\mu}{\tilde\mu_{\rm crit}}\cos\frac{\beta_{\rm SG}\phi_0}2,\qquad
+\sin\frac\eta{\lambda+1}\sinh\frac\vartheta{\lambda+1}=\frac{\tilde\mu}{\tilde\mu_{\rm crit}}\sin\frac{\beta_{\rm SG}\phi_0}2 .
+$$
+:::
+
+Status: Bajnok, Palla and Takács derived the boundary energy that accompanies this relation from the boundary TBA of sinh-Gordon theory continued to sine-Gordon theory, and compared the resulting finite-volume spectra with the truncated conformal space approach, finding agreement to numerical accuracy [@bpt2002]. That derivation assumes the continuation and the identification of the reflection factors; it is strong evidence, not a proof. We have checked its limits (`textbook_code/boundary_sine_gordon.py`):
+
+- $\tilde\mu\to0$ gives $(\eta,\vartheta)=(\frac\pi2(\lambda+1),0)$, the Neumann point of Ghoshal and Zamolodchikov;
+- $\tilde\mu\to\infty$ at fixed $\phi_0$ gives $\vartheta\to\infty$ and (-@eq-bsg-dirichlet);
+- at $\phi_0=0$, the point $(\eta,\vartheta)=(\frac\pi2,0)$, where $\hat\epsilon_0=\hat\epsilon_1=0$, is $\tilde\mu/\tilde\mu_{\rm crit}=\cos\frac\pi{2(\lambda+1)}$;
+- classically, $\mu=m_0^2/\beta_{\rm SG}^2$ and $\tilde\mu_{\rm crit}\to4m_0/\beta_{\rm SG}^2$, which by (-@eq-bsg-c-dictionary) is the uniform boundary $C_0=C_1=1$.
+
+The last two points connect with Part VII's main thread. The coideal parameters $\hat\epsilon_j$ of @sec-coideal vanish at $\tilde\mu/\tilde\mu_{\rm crit}=\cos\frac\pi{2(\lambda+1)}$, which tends to the uniform boundary $C\equiv1$ as $\beta_{\rm SG}\to0$, and the Neumann boundary has $\hat\epsilon_0=\hat\epsilon_1=1/(2\cos\frac{\pi\lambda}2)\ne0$. This is the sine-Gordon case of the assignment of @sec-epsilon-constraint: the diagonal $a_n^{(1)}$ reflection matrices with $\hat\epsilon=0$ belong to the uniform boundary, not to Neumann.
 
 ## Breather reflection factors {#sec-bsg-breathers}
 
-<!-- planned: Ghoshal's breather K; continuation to sinh-Gordon. -->
+The breather $B_n$ is a bound state of a soliton and an antisoliton at rapidity difference $iu_n$, $u_n=\pi-n\pi/\lambda$. Its reflection factor follows from the bulk bootstrap (-@eq-boundary-bootstrap-bulk): let the two constituents reflect, scattering once in between, and project onto the bound state. Ghoshal did this calculation [@ghoshal1994]. The result has the form $K_{B_n}(\theta)=R_0^{(n)}(u)\,S^{(n)}(\eta,u)\,S^{(n)}(i\vartheta,u)$; for the lowest breather,
+
+$$
+K_{B_1}(\theta)=\frac{\cos(\frac u2+\frac\pi{4\lambda})\cos(\frac u2-\frac\pi4-\frac\pi{4\lambda})\sin(\frac u2+\frac\pi4)}{\cos(\frac u2-\frac\pi{4\lambda})\cos(\frac u2+\frac\pi4+\frac\pi{4\lambda})\sin(\frac u2-\frac\pi4)}\;\frac{\cos\frac\eta\lambda-\sin u}{\cos\frac\eta\lambda+\sin u}\;\frac{\cosh\frac\vartheta\lambda-\sin u}{\cosh\frac\vartheta\lambda+\sin u},\qquad u=-i\theta .
+$$ {#eq-bsg-b1-reflection}
+
+::: {#prp-bsg-breather-k}
+**[Numerical]** In the book's conventions the breather $B_n$ sits in $V(\theta-\frac{iu_n}2)\otimes V(\theta+\frac{iu_n}2)$ as the vector annihilated by the coproducts of $e_j,f_j$; in the other ordering there is no such vector. Reflecting the two constituents with the full reflection matrix (-@eq-bsg-k-full) and the full bulk S-matrix maps this vector to a multiple of itself, and the multiple is Ghoshal's $K_{B_n}$, (-@eq-bsg-b1-reflection) for $n=1$ and [@ghoshal1994, eqs. (3.5)–(3.10)] for $n=2$, to machine precision. $K_{B_1}$ satisfies boundary unitarity and crossing-unitarity (-@eq-boundary-crossing-diagonal) with $S_{11}=f_{\xi/\pi}$ (-@eq-sg-s11). (`textbook_code/boundary_sine_gordon.py`)
+:::
+
+The factor in front is boundary-independent. Its poles in the physical strip are at $u=\frac\pi2-\frac\pi{2\lambda}$, where $B_1$ and its image fuse into $B_2$, which is absorbed at zero momentum (the one-point pole of (-@eq-one-point-residue)), and at $u=\frac\pi2$, required by crossing-unitarity because $S_{11}(0)=-1$ [@ghoshal1994].
+
+**Continuation to sinh-Gordon.** Under $\beta_{\rm SG}^2\to-\beta_{\rm SG}^2$, $\lambda\to-2/B$ with $B$ of (-@eq-b-of-beta) (@exr-sg-continuation). Substituting into (-@eq-bsg-b1-reflection) and writing the result in the blocks (-@eq-blocks) with $h=2$ gives
+
+$$
+K_{\rm shG}(\theta)=\frac{(1)\,(2-\frac B2)\,(1+\frac B2)}{(1-E)(1+E)(1-F)(1+F)},\qquad E=\frac{B\eta}\pi,\quad F=\frac{iB\vartheta}\pi ,
+$$ {#eq-shg-reflection}
+
+the sinh-Gordon reflection factor of Corrigan and Delius [@corrigan_delius1999, eq. (2.5)] (checked numerically in `textbook_code/boundary_sine_gordon.py`). The factor $(1-E)(1+E)$ equals $\big(\cos\frac{\pi E}2-i\sinh\theta\big)/\big(\cos\frac{\pi E}2+i\sinh\theta\big)$, so (-@eq-shg-reflection) depends on $E$ and $F$ only through $E^2$ and $F^2$. Two values are known:
+
+- **Dirichlet** $\phi(0)=0$: $\eta=0$, $\vartheta\to\infty$ gives $K_D=(2-\frac B2)(1+\frac B2)/(1)$.
+- **Neumann**: $\eta=\frac\pi2(\lambda+1)$, $\vartheta=0$ gives $E=\frac B2-1$, i.e. $E^2=(1-\frac B2)^2$, $F=0$ [@gz1994].
+
+For other boundaries, $E$ and $F$ as functions of the sinh-Gordon boundary parameters $C_0,C_1$ (Corrigan and Delius's $\epsilon_0,\epsilon_1$, which are exactly the book's $C_0,C_1$) are the subject of @sec-shg-boundary-breathers.
 
 ## The spectrum of boundary bound states {#sec-bsg-spectrum}
 
-<!-- planned: Mattsson–Dorey (Dirichlet); Bajnok–Palla–Takács–Tóth (general). -->
+The boundary-dependent poles of (-@eq-bsg-k-full) come from $\sigma(\eta,u)$. It suffices to consider $\eta,\vartheta\ge0$, and in the **fundamental range** $0<\eta\le\frac\pi2(\lambda+1)$ the poles of $\sigma(\eta,u)$ in the physical strip $0<u<\frac\pi2$ are at
+
+$$
+\nu_n=\frac\eta\lambda-\frac{(2n+1)\pi}{2\lambda},\qquad n=0,1,2,\dots,
+$$
+
+[@bptt2002]. Outside the fundamental range $\sigma$ has further poles in the strip, which would require CDD factors. The parameter $\vartheta$ does not affect the poles: $\sigma(i\vartheta,u)$ has none in the physical strip.
+
+**Which poles are bound states.** A pole at $\nu_n$ is a boundary bound state $|n\rangle$ unless a boundary Coleman–Thun diagram explains it. Bajnok, Palla, Takács and Tóth showed, following the Dirichlet analysis of Mattsson and Dorey [@mattsson_dorey2000], that in the ground state no such diagram exists: the incoming soliton would have to decay into a soliton and a breather with rapidity difference larger than $\frac\pi2$, both moving towards the wall. Each $\nu_n$ in the strip is therefore a boundary bound state with energy $e_{|n\rangle}-e_{|\,\rangle}=M\cos\nu_n$, $M$ the soliton mass. The bootstrap (-@eq-boundary-bootstrap) gives its reflection matrix: the soliton and antisoliton amplitudes are interchanged and $\eta$ is replaced by $\bar\eta=\pi(\lambda+1)-\eta$,
+
+$$
+P^\pm_{|n\rangle}(\eta,\vartheta,u)=P^\mp(\bar\eta,\vartheta,u)\,a_n(\eta,u),\qquad Q_{|n\rangle}(\eta,\vartheta,u)=Q(\bar\eta,\vartheta,u)\,a_n(\eta,u),
+$$ {#eq-bsg-excited-k}
+
+with a boundary CDD factor $a_n$, $a_0=1$ [@bptt2002, eqs. (3.5), (3.6)]. Bajnok et al. conjecture that the exchange $\eta\leftrightarrow\bar\eta$, $s\leftrightarrow\bar s$, which interchanges the ground state and $|0\rangle$, is the quantum version of the classical symmetry $\phi\to\frac{2\pi}{\beta_{\rm SG}}-\phi$ (with $\phi_0$ reflected accordingly).
+
+::: {#prp-bsg-excited}
+**[Numerical]** For $n=0$, (-@eq-bsg-excited-k) is the boundary bootstrap: $a(u-\nu_0)\,Q(\eta,\vartheta,u)\,b(u+\nu_0)=Q(\bar\eta,\vartheta,u)$, with $a=S_0$ and $b=S_T$. The reflection matrix on $|0\rangle$ satisfies boundary unitarity and crossing-unitarity, and $\sigma(\eta,u)$ has simple poles at $\nu_0,\nu_1$ (`textbook_code/boundary_sine_gordon.py`). The general $a_n$ and the higher states are quoted from [@bptt2002] and were not checked here.
+:::
+
+**The general spectrum.** The excited reflection factors have poles at $\nu_k$ and at
+
+$$
+w_k=\pi-\frac\eta\lambda-\frac{(2k-1)\pi}{2\lambda},
+$$
+
+some explained by Coleman–Thun diagrams on the excited boundary and the rest new bound states. The outcome is the following.
+
+::: {#prp-bsg-spectrum}
+**[Established]** The boundary bound states of sine-Gordon theory with $0<\eta\le\frac\pi2(\lambda+1)$ are labelled by finite sequences $|n_1,n_2,\dots,n_k\rangle$ of non-negative integers satisfying
+$$
+\frac\pi2\ge\nu_{n_1}>w_{n_2}>\nu_{n_3}>w_{n_4}>\dots\ge0 ,
+$$
+with energies above the ground state
+$$
+e_{|n_1,\dots,n_k\rangle}-e_{|\,\rangle}=M\sum_{i\ \rm odd}\cos\nu_{n_i}+M\sum_{i\ \rm even}\cos w_{n_i}
+$$
+[@bptt2002; @bpt2002]. For Dirichlet boundary conditions, $\eta=\frac{4\pi}{\beta_{\rm SG}}\phi_0$, this is the spectrum found by Mattsson and Dorey [@mattsson_dorey2000].
+:::
+
+This spectrum was confirmed against truncated conformal space data [@bpt2002]. Every pole of every reflection factor on every state is accounted for, by a bound state or by a boundary Coleman–Thun diagram. The breather reflection factors on the excited states follow from the same bootstrap and have the same structure, $K_{B_m}^{|k\rangle}(\eta,\vartheta,u)=K_{B_m}(\bar\eta,\vartheta,u)\,b_{mk}(\eta,u)$ [@bptt2002, eq. (3.9)].
 
 ## Sinh-Gordon boundary breathers {#sec-shg-boundary-breathers}
 
-<!-- planned: Classical boundary breathers, WKB versus bootstrap, the relation E(ε,β) (Corrigan–Delius). -->
+Sinh-Gordon theory on the full line has no non-trivial real regular solutions. On the half-line it does: Corrigan and Delius [-@corrigan_delius1999] found **boundary breathers**, time-periodic solutions bound to the boundary, by choosing singular full-line breathers whose singularities stay at $x>0$. Their semiclassical quantization gives a spectrum that can be compared with the bootstrap, and the comparison determines the relation between the Lagrangian boundary parameter and $E$ in (-@eq-shg-reflection). Here we take the symmetric case $C_0=C_1=\epsilon$, in which the boundary preserves $\phi\to-\phi$ and $F=0$.
+
+**The classical solutions.** In the book's normalization, with $m=1$ (particle mass $2m=2$), the field equation is $\partial_t^2\phi-\partial_x^2\phi+\frac{\sqrt8}\beta\sinh\sqrt2\beta\phi=0$ and the boundary condition (@sec-boundary-potential) is $\partial_x\phi|_0=\frac{\sqrt2}\beta\epsilon\big(e^{-\beta\phi/\sqrt2}-e^{\beta\phi/\sqrt2}\big)$. Corrigan and Delius's solution is $\phi=\frac{\sqrt2}\beta\ln(\tau_0/\tau_1)$ with
+
+$$
+\tau_j=1+(-1)^j\frac{2\cos(2t\sin\rho)}{\tan\rho}\sqrt{\frac{\epsilon+\cos\rho}{\epsilon-\cos\rho}}\;e^{2x\cos\rho}-\frac{\epsilon+\cos\rho}{\epsilon-\cos\rho}\,e^{4x\cos\rho},
+$$ {#eq-shg-boundary-breather}
+
+with frequency $2\sin\rho$ [@corrigan_delius1999, eq. (3.2)].
+
+::: {#prp-shg-breather}
+**[Numerical]** (-@eq-shg-boundary-breather) solves the field equation and the boundary condition. It is regular on $x\le0$ if $-1<\epsilon<0$ and $\cos\rho<-\epsilon$, and singular at the tested points outside this region. Its energy, including the boundary term, is
+$$
+E_{\rm breather}=\frac8{\beta^2}\big(-\cos\rho-\epsilon\big),
+$$
+and with $\epsilon=\cos\pi a$, $\frac12<a<1$, its action $\int_0^Tdt\int_{-\infty}^0dx\,\dot\phi^2$ over one period $T=\pi/\sin\rho$ is $\frac{8\pi}{\beta^2}\big(\rho-\pi(1-a)\big)$ (`textbook_code/shg_boundary_breathers.py`; [@corrigan_delius1999, eqs. (3.4), (3.7), (3.9)]).
+:::
+
+At $\cos\rho=-\epsilon$ the breather collapses to the vacuum by losing amplitude, not frequency, so the frequencies are bounded below by $2\sin\pi a$. In the book's conventions $-1<C<0$ is the regime where the boundary attracts the particle; compare @sec-boundary-breathers-classical.
+
+**Two spectra.** On the bootstrap side, $K_0=K_{\rm shG}$ with $F=0$ has a pole at $\theta=i\psi$, $\psi=\frac\pi2(E-1)$, in the physical strip when $1<E<2$. The bootstrap (-@eq-boundary-bootstrap) gives a tower of excited boundary states with reflection factors
+
+$$
+K_n=K_D\,\frac{1}{(1-E+(n-1)B)(1+E-(n-1)B)}\,\frac{(1+E+B)(1-E-B)}{(1-E+nB)(1+E-nB)},
+$$
+
+and energies $e_{n+1}=e_n+m(\beta)\cos\frac\pi2(nB-E+1)$ [@corrigan_delius1999, eqs. (4.6), (4.7)] (the first two $K_n$ checked against (-@eq-boundary-bootstrap) in `textbook_code/shg_boundary_breathers.py`). On the semiclassical side, Corrigan and Delius computed the stability angles of the boundary breather and the one-loop quantum action, with bulk and boundary counterterms, and imposed $W_{\rm qu}=2\pi(n+N_0)$. This gives the levels [@corrigan_delius1999, eq. (5.27)]
+
+$$
+e_{n+1}-e_n=\frac8{\pi B}\sin\frac{\pi B}4\,\cos\Big(\frac\pi2\Big(\frac{2\pi B}{\beta^2}(2a-1)-(n+N_0)B\Big)\Big).
+$$
+
+The two agree for every $n$ if and only if
+
+$$
+m(\beta)=\frac8{\pi B}\sin\frac{\pi B}4,\qquad E(\epsilon,\beta)=2a\Big(1-\frac B2\Big)+(1-2N_0)\frac B2,\qquad\epsilon=\cos\pi a .
+$$ {#eq-shg-e-relation}
+
+(`textbook_code/shg_boundary_breathers.py`). The mass formula is the continuation of the sine-Gordon relation $m_1=2M\sin\frac\xi2$ with $M=m_0/\xi$, so it is a consistency check rather than new information.
+
+::: {#cnj-shg-e}
+## The sinh-Gordon boundary relation
+**[Conjecture]** For $C_0=C_1=\epsilon=\cos\pi a$ with $\frac12<a<1$, the sinh-Gordon reflection factor (-@eq-shg-reflection) has $F=0$ and $E=2a\big(1-\frac B2\big)$.
+:::
+
+Status, stated carefully:
+
+- The WKB matching fixes $E$ only up to the constant $N_0$, which the semiclassical argument does not determine. Corrigan and Delius chose $N_0=\frac12$ so that the limit $a\to\frac12$ (Neumann, $\epsilon=0$) reproduces the Neumann value $E^2=(1-\frac B2)^2$ of Ghoshal and Zamolodchikov; any other $N_0$ fails this test (`textbook_code/shg_boundary_breathers.py`). The choice also gives the harmonic-oscillator limit $e_n\to(n+\frac12)\,2\sin\pi a$ as $\beta\to0$. The value $N_0=\frac12$ is thus fitted, not derived.
+- At $\beta\to0$, $E\to2a$ agrees with the classical reflection factor $(ik+2\epsilon)/(ik-2\epsilon)$ of the vacuum [@corrigan_delius1999, eq. (5.7)], and one-loop perturbative calculations agree with @cnj-shg-e to order $\beta^2$, as reported in [@chenaghlou_corrigan2000].
+- Chenaghlou and Corrigan computed the reflection factor to one loop and to first order in $C_0-C_1$, and found agreement with the natural generalization $E=(a_0+a_1)(1-\frac B2)$, $F=(a_0-a_1)(1-\frac B2)$, $C_j=\cos\pi a_j$ [@chenaghlou_corrigan2000, eq. (6.1)], which they put forward as a conjecture.
+- The relation is of the same type as Zamolodchikov's (@cnj-bsg-uv-ir), continued to sinh-Gordon theory; Bajnok, Palla and Takács note that a similar relation for sinh-Gordon was derived by Corrigan and Taormina in a different normalization [@bpt2002]. We have not compared the two.
+
+**A puzzle about critical couplings.** The $n$th excited state leaves the WKB spectrum at $\beta^2/4\pi=(2a-1)/2n$, when $\rho_n$ reaches $\pi/2$, but its bootstrap pole leaves the physical strip only at $\beta^2/4\pi=(2a-1)/(2n-1)$ [@corrigan_delius1999, eqs. (6.2), (6.4)]. Between the two, the pole persists although the state is gone. Corrigan and Delius attribute this, following a suggestion of Dorey, to a Coleman–Thun mechanism (@sec-boundary-coleman-thun), as for the sine-Gordon breathers in the bulk.
+
+**Self-duality.** With @cnj-shg-e, $E\to0$ as $B\to2$ at fixed $a$, so every reflection factor with $\epsilon<0$ tends to $-1/(1)^2$, the classical reflection factor of the uniform boundary $\epsilon=1$ [@corrigan_delius1999]. The Dirichlet factor $K_D$ is self-dual under $B\to2-B$.
 
 ## Exercises {#sec-boundary-sine-gordon-exercises}
 
+::: {#exr-bsg-dictionary}
+Derive (-@eq-bsg-c-dictionary) from the imaginary-coupling boundary potential of @sec-boundary-potential with $\alpha_1=-\alpha_0=\sqrt2$, $\beta_{\rm SG}=\sqrt2\beta$, $m_0=2m$. Which $(M_0,\phi_0)$ give $C_0=C_1=-1$?
+:::
+
+::: {#exr-bsg-gz-form}
+Show that (-@eq-bsg-k-matrix) with $\hat\epsilon_1=\epsilon e^{i\xi_B}$, $\hat\epsilon_0=\epsilon e^{-i\xi_B}$ and $k=1/(\epsilon\sin\pi\lambda)$ is proportional to the matrix of Ghoshal and Zamolodchikov quoted after (-@eq-bsg-k-full). *Hint:* $y=e^{\lambda\theta}=e^{i\lambda u}$ and $q-q^{-1}=2i\sin\pi\lambda$.
+:::
+
+::: {#exr-bsg-sign-q}
+Show that $\Pi\otimes1$ conjugation, $\Pi=\operatorname{diag}(1,-1)$, maps solutions of the reflection equation at $q$ to solutions at $-q$, and that it maps (-@eq-bsg-k-matrix) with parameters $\hat\epsilon_j$ to the same matrix with $-\hat\epsilon_j$ up to a factor. Why does this argument not apply to crossing-unitarity?
+:::
+
+::: {#exr-bsg-neumann}
+At the Neumann point, compute $\hat\epsilon_0=\hat\epsilon_1$ from (-@eq-bsg-eta-theta) and show that it equals $(2-q-q^{-1})^{-1/2}$. Show that the off-diagonal entries of (-@eq-bsg-k-full) have poles at $\theta=i(\frac\pi2-\frac{n\pi}\lambda)$, and that the corresponding boundary bound states have energies $M\sin\frac{n\pi}\lambda=m_n\cos\frac{n\pi}{2\lambda}$. Interpret the second form.
+:::
+
+::: {#exr-shg-continuation}
+Show that $(1-E)(1+E)=\big(\cos\frac{\pi E}2-i\sinh\theta\big)/\big(\cos\frac{\pi E}2+i\sinh\theta\big)$ for the blocks with $h=2$, and use it to derive the $\eta$-dependent factor of (-@eq-shg-reflection) from (-@eq-bsg-b1-reflection) with $\lambda=-2/B$.
+:::
+
+::: {#exr-shg-energy}
+Compute the energy of (-@eq-shg-boundary-breather) as a boundary term, using the $\tau$-function form of the energy density, and recover $E_{\rm breather}=\frac8{\beta^2}(-\cos\rho-\epsilon)$. Show that the breather tends to $\phi=0$ as $\cos\rho\to-\epsilon$.
+:::
+
+::: {#exr-shg-levels}
+Show that the bootstrap and WKB level spacings agree for all $n$ if and only if (-@eq-shg-e-relation) holds, and that the Neumann limit then requires $N_0=\frac12$. *Hint:* $2\pi B/\beta^2=1-B/2$.
+:::
+
 ## Notes and references {#sec-boundary-sine-gordon-notes}
+
+The boundary sine-Gordon model, its classical integrability, the soliton reflection matrix and the Dirichlet and Neumann cases are due to Ghoshal and Zamolodchikov [-@gz1994]; the matrix part was found independently by de Vega and González-Ruiz [-@devega1994]. Ghoshal [-@ghoshal1994] derived the breather reflection factors. Saleur, Skorik and Warner [-@ssw1995] studied the classical and semiclassical theory, and MacIntyre [-@macintyre1995] the Dirichlet boundary breathers. The complete boundary spectrum is due to Mattsson and Dorey [-@mattsson_dorey2000] for Dirichlet conditions and to Bajnok, Palla, Takács and Tóth [-@bptt2002] in general, with the finite-volume tests and Zamolodchikov's UV–IR relation in Bajnok, Palla and Takács [-@bpt2002]. The sinh-Gordon boundary breathers and the relation $E(\epsilon,\beta)$ are from Corrigan and Delius [-@corrigan_delius1999], and the first-order test from Chenaghlou and Corrigan [-@chenaghlou_corrigan2000]. The boundary oscillator is due to Baseilhac, Delius and George [-@bdg2002], and its quantization to Baseilhac and Koizumi [-@baseilhac_koizumi2003].
+
+Corrections to the sources:
+
+- The normalizing factor $\Pi^2(x,\frac\pi2)\Pi^2(-x,\frac\pi2)$ in [@gz1994, eq. (5.23)] (and in Ghoshal's (2.19)) diverges: $\log\Pi(x,\frac\pi2)$ grows like $\frac\lambda4\log l_{\max}$ with the cutoff of the product. The convergent form is that of [@bptt2002] used above, with $\sigma(x,u)\sigma(x,-u)=\cos^2x/(\cos(x+\lambda u)\cos(x-\lambda u))$; the extra $\cos^2x$ relative to [@gz1994, eq. (5.24)] is compensated by the prefactor $1/(\cos\eta\cosh\vartheta)$ (`textbook_code/boundary_sine_gordon.py`).
+- The value of $N_0=\frac12$ in [@corrigan_delius1999] is a fit to the Neumann limit, as that paper says, and the resulting relation (@cnj-shg-e) remains a conjecture.

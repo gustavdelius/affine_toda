@@ -20,7 +20,15 @@ Checks:
  4. Scalar factor: GZ's a(u) = sin(lambda(pi-u)) rho(u) equals the book S_0; GZ/BPT R_0 and sigma
     satisfy their functional equations; the full BPT K satisfies boundary unitarity and boundary
     crossing-unitarity with the book S_0 (numerically, two parameter points).
-Runtime: about 15 seconds.
+ 5. Breather reflection factors: the B_1, B_2 amplitudes obtained from the soliton K by the boundary
+    bootstrap equal Ghoshal (3.5)-(3.10); B_1 factor unitary and crossing-unitary with S_11 (eq-sg-s11).
+ 6. Continuation lambda -> -2/B: Ghoshal B_1 factor = Corrigan-Delius (2.5) with E = B eta/pi, F = i B vt/pi;
+    Dirichlet and Neumann values.
+ 7. Excited boundary states (Bajnok-Palla-Takacs-Toth): bootstrap identity for Q on |0> (eta -> etabar),
+    poles nu_0, nu_1 of sigma(eta,u), K on |0> (s <-> sbar, eta -> etabar) unitary and crossing-unitary.
+ 8. Limits of Al. B. Zamolodchikov's UV-IR relation (BPT hep-th/0108157 (3.2)): Neumann, Dirichlet, the eps-hat = 0
+    point, and the classical value of M_crit (the C = 1 boundary).
+Runtime: about 40 seconds.
 """
 import numpy as np
 import mpmath as mp
@@ -217,3 +225,133 @@ report(f'boundary unitarity K(theta)K(-theta) = 1 with R_0 sigma(eta) sigma(i vt
        devU < 1e-9)
 report(f'boundary crossing-unitarity k(theta) = S_0(2theta) R(2theta) k(-theta) with the book S_0 [{devC:.0e}] '
        '(generic point and Neumann)', devC < 1e-9)
+
+# ---------------------------------------------------------------- 5. breather reflection factors by the bootstrap (ch. 29)
+# The breather B_n sits in V(theta - i u_n/2) (x) V(theta + i u_n/2) (u_n = pi - n pi/lambda) as the U_q-invariant
+# vector w (in Part VI conventions the singlet exists in this ordering only).  Reflecting the two constituents,
+# (1 (x) K(theta_a)) S(theta_a + theta_b) (1 (x) K(theta_b)) w = R_B(theta) w, with the full scalar factors.
+from boundary_common import cop
+
+
+def inv_vec(ya, yb):
+    A, B = sl2_spin(1, q, ya), sl2_spin(1, q, yb)
+    M = np.vstack([cop(A, B, kd, j) - (np.eye(4) if kd == 'k' else 0) for j in (0, 1) for kd in 'efk'])
+    _, s, Vh = np.linalg.svd(M)
+    w = Vh[-1].conj()
+    return s[-1]/s[0], w/w[1]                       # normalize the s(x)sbar component to 1
+
+
+def ghoshal_breather(n, u, eta, vt, lam=None):
+    """Ghoshal hep-th/9310188 (3.5)-(3.10) for n = 1, 2."""
+    lam = L if lam is None else lam
+    pre = ((-1)**(n+1)*mp.cos(u/2 + n*mp.pi/(4*lam))*mp.cos(u/2 - mp.pi/4 - n*mp.pi/(4*lam))*mp.sin(u/2 + mp.pi/4)
+           / (mp.cos(u/2 - n*mp.pi/(4*lam))*mp.cos(u/2 + mp.pi/4 + n*mp.pi/(4*lam))*mp.sin(u/2 - mp.pi/4)))
+    for l in range(1, n):
+        pre *= (mp.sin(u + l*mp.pi/(2*lam))*mp.cos(u/2 - mp.pi/4 - l*mp.pi/(4*lam))**2
+                / (mp.sin(u - l*mp.pi/(2*lam))*mp.cos(u/2 + mp.pi/4 + l*mp.pi/(4*lam))**2))
+
+    def Sx(x):
+        if n == 1:
+            return (mp.cos(x/lam) - mp.sin(u))/(mp.cos(x/lam) + mp.sin(u))
+        c1, c2 = mp.cos(x/lam - mp.pi/(2*lam)), mp.cos(x/lam + mp.pi/(2*lam))
+        return (mp.sin(u) - c1)*(mp.sin(u) - c2)/((mp.sin(u) + c1)*(mp.sin(u) + c2))
+    return pre*Sx(eta)*Sx(1j*vt)
+
+
+eta, vt = mp.mpf('0.6'), mp.mpf('0.3')
+devs, ok_order = [], True
+for n in (1, 2):
+    un = np.pi - n*np.pi/LAM
+    for th in (0.3, -0.55):
+        ta, tb = th - 1j*un/2, th + 1j*un/2
+        r_in, w = inv_vec(np.exp(LAM*ta), np.exp(LAM*tb))
+        ok_order &= r_in < 1e-12 and inv_vec(np.exp(LAM*tb), np.exp(LAM*ta))[0] > 1e-3
+        S2 = complex(a_gz(ta + tb))*Rsg(np.exp(LAM*(ta + tb)))
+        v = np.kron(np.eye(2), K_full(ta, eta, vt)) @ S2 @ np.kron(np.eye(2), K_full(tb, eta, vt)) @ w
+        RB = v[1]
+        devs.append(np.linalg.norm(v - RB*w)/np.linalg.norm(v))
+        devs.append(abs(RB/complex(ghoshal_breather(n, -1j*mp.mpf(th), eta, vt)) - 1))
+report(f'breather bootstrap from the BPT soliton K: B_1, B_2 reflect diagonally with exactly Ghoshal (3.5)-(3.10) '
+       f'[{max(devs):.0e}]; singlet in V(theta - i u_n/2) (x) V(theta + i u_n/2) only', max(devs) < 1e-10 and ok_order)
+S11 = lambda th: (mp.sinh(th) + 1j*mp.sin(mp.pi/L))/(mp.sinh(th) - 1j*mp.sin(mp.pi/L))     # eq-sg-s11, xi = pi/lambda
+R1B = lambda th: ghoshal_breather(1, -1j*th, eta, vt)
+pts = [mp.mpc('0.31', '0.07'), mp.mpc('-0.6', '0.2')]
+dev = max(max(abs(R1B(t)*R1B(-t) - 1), abs(R1B(1j*mp.pi/2 - t) - S11(2*t)*R1B(1j*mp.pi/2 + t))) for t in pts)
+report(f'B_1 reflection factor: unitarity and crossing-unitarity with S_11 = f_(xi/pi) [{float(dev):.0e}]', dev < 1e-20)
+
+# ---------------------------------------------------------------- 6. continuation to sinh-Gordon (Corrigan-Delius (2.5))
+Bs = mp.mpf('0.71')
+lam_shg = -2/Bs                                         # lambda -> -2/B under beta_SG^2 -> -beta_SG^2
+cdb = lambda x, th: mp.sinh(th/2 + 1j*mp.pi*x/4)/mp.sinh(th/2 - 1j*mp.pi*x/4)        # CD (2.3) = eq-blocks, h = 2
+dev = 0
+for eta_, vt_ in ((mp.mpf('0.9'), mp.mpf('0.4')), (mp.mpf('2.3'), mp.mpf('0'))):
+    E, F = Bs*eta_/mp.pi, 1j*Bs*vt_/mp.pi
+    for th in (mp.mpc('0.4', '0.1'), mp.mpc('-1.1', '0.3')):
+        cd = (cdb(1, th)*cdb(2 - Bs/2, th)*cdb(1 + Bs/2, th)
+              / (cdb(1 - E, th)*cdb(1 + E, th)*cdb(1 - F, th)*cdb(1 + F, th)))
+        dev = max(dev, abs(ghoshal_breather(1, -1j*th, eta_, vt_, lam_shg)/cd - 1))
+report(f'Ghoshal B_1 factor at lambda = -2/B equals Corrigan-Delius (2.5) with E = B eta/pi, F = i B vt/pi [{float(dev):.0e}]',
+       dev < 1e-20)
+th = mp.mpc('0.4', '0.1')
+KD_shg = cdb(2 - Bs/2, th)*cdb(1 + Bs/2, th)/cdb(1, th)
+lim = ghoshal_breather(1, -1j*th, mp.mpf(0), mp.mpf(60), lam_shg)
+EN = Bs*(mp.pi*(lam_shg + 1)/2)/mp.pi
+report(f'Dirichlet phi_0 = 0 (eta = 0, vt -> infinity) gives K_D = (2-B/2)(1+B/2)/(1) [{float(abs(lim/KD_shg - 1)):.0e}]; '
+       f'Neumann eta = pi(lambda+1)/2 gives E = B/2 - 1, i.e. |E| = 1 - B/2', abs(lim/KD_shg - 1) < 1e-8 and
+       abs(EN - (Bs/2 - 1)) < 1e-25)
+
+# ---------------------------------------------------------------- 7. excited boundary states (BPTT hep-th/0106070)
+L = mp.mpf('3.3')                                       # lambda large enough for two boundary states nu_0, nu_1
+
+
+eta = mp.mpf('5.5'); etab = mp.pi*(L + 1) - eta
+nu = lambda n: eta/L - (2*n + 1)*mp.pi/(2*L)
+a_u = lambda u: a_gz(1j*u)
+b_u = lambda u: mp.sin(L*u)/mp.sin(L*(mp.pi - u))*a_gz(1j*u)
+dev = 0
+for u in (mp.mpc('0.3', '0.2'), mp.mpc('-0.5', '0.1')):
+    lhs = a_u(u - nu(0))*b_u(u + nu(0))
+    rhs = mp.exp(log_sigma(etab, u) - log_sigma(eta, u))*mp.cos(eta)/mp.cos(etab)
+    dev = max(dev, abs(lhs/rhs - 1))
+ok_ph = 0 < nu(1) < nu(0) < mp.pi/2 and nu(2) < 0 and eta <= mp.pi*(L + 1)/2
+report(f'BPTT bootstrap on the first excited state: a(u - nu_0) Q(eta, vt, u) b(u + nu_0) = Q(etabar, vt, u), '
+       f'etabar = pi(lambda+1) - eta [{float(dev):.0e}]; nu_n = eta/lambda - (2n+1)pi/(2lambda)', dev < 1e-15 and ok_ph)
+# pole of the ground-state P^+ at u = nu_n (from sigma(eta, u)); simple pole: (u - nu) sigma finite and nonzero
+for n in (0, 1):
+    d = mp.mpf('1e-8')
+    r1 = abs(mp.exp(log_sigma(eta, nu(n) + d))*d); r2 = abs(mp.exp(log_sigma(eta, nu(n) + 2*d))*2*d)
+    ok_ph &= abs(r1/r2 - 1) < 1e-5 and r1 > 1e-12
+report('sigma(eta, u) has simple poles at u = nu_0, nu_1 in the physical strip (boundary bound states |0>, |1>)', ok_ph)
+L = mp.mpf(LAM)
+Kx = np.array([[0, 1], [1, 0]])
+eta0, vt0 = mp.mpf('2.9'), mp.mpf('0.3')
+etab0 = mp.pi*(L + 1) - eta0
+K0 = lambda th: Kx @ K_full(th, etab0, vt0) @ Kx       # K on |0>: s <-> sbar and eta -> etabar (BPTT (3.6))
+th = 0.29
+devU = np.abs(K0(th) @ K0(-th) - np.eye(2)).max()
+km = kvec(K0(1j*np.pi/2 - th)); kp = kvec(K0(1j*np.pi/2 + th))
+devC = np.abs(km - complex(S0_book(2*th))*Rsg(np.exp(2*LAM*th)) @ kp).max()/np.abs(km).max()
+report(f'K on the first excited boundary |0> satisfies unitarity [{devU:.0e}] and crossing-unitarity [{devC:.0e}]',
+       devU < 1e-9 and devC < 1e-9)
+
+# ---------------------------------------------------------------- 8. limits of Al. B. Zamolodchikov's UV-IR relation (BPT hep-th/0108157 (3.2))
+# cos(eta/(lambda+1)) cosh(vt/(lambda+1)) = r cos(b phi0/2),  sin(eta/(lambda+1)) sinh(vt/(lambda+1)) = r sin(b phi0/2),
+# r = M_0/M_crit, beta_SG^2/8pi = 1/(lambda+1), M_crit = sqrt(2 mu/sin(beta_SG^2/8)).
+def uvir_lhs(eta, vt, lam=LAM):
+    return mp.cos(eta/(lam+1))*mp.cosh(vt/(lam+1)), mp.sin(eta/(lam+1))*mp.sinh(vt/(lam+1))
+
+
+ok = True
+c, s_ = uvir_lhs(mp.pi*(LAM + 1)/2, mp.mpf(0))
+ok &= abs(c) < 1e-20 and abs(s_) < 1e-20                                               # Neumann <-> M_0 = 0
+bphi = mp.mpf('0.4'); V = mp.mpf(40)
+c, s_ = uvir_lhs((LAM + 1)*bphi, (LAM + 1)*V)
+ok &= abs(s_/c - mp.tan(bphi)) < 1e-20 and c > 1e15                                     # Dirichlet: r -> oo, eta = 4pi phi_0/beta
+c, s_ = uvir_lhs(mp.pi/2, mp.mpf(0))
+ok &= abs(c - mp.cos(mp.pi/(2*(LAM + 1)))) < 1e-20 and abs(s_) < 1e-20                  # eps-hat = 0 point, phi_0 = 0
+bs2 = mp.mpf('1e-4'); m0 = mp.mpf(1); mu = m0**2/bs2                                     # classical limit: mu = m_0^2/beta^2
+Mcrit = mp.sqrt(2*mu/mp.sin(bs2/8))
+ok &= abs(Mcrit/(4*m0/bs2) - 1) < 1e-8                                                  # = M_0 of the C = 1 boundary
+report('Zamolodchikov UV-IR relation: M_0 -> 0 gives Neumann (eta, vt) = (pi(lambda+1)/2, 0); M_0 -> infinity gives '
+       'the Dirichlet eta = 4 pi phi_0/beta_SG; (pi/2, 0) <-> M_0/M_crit = cos(pi/(2(lambda+1))); classically '
+       'M_crit -> 4 m_0/beta_SG^2, the C_0 = C_1 = 1 boundary', ok)
