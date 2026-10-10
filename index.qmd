@@ -2,6 +2,10 @@
 
 This book is a graduate introduction to affine Toda field theory that leads into current research. It is written for a mathematical physicist who knows quantum field theory but has not met affine Toda theory, Kac–Moody algebras or quantum groups.
 
+::: {.content-visible when-format="html"}
+The whole book is also available as a [PDF](affine-toda.pdf).
+:::
+
 **Prerequisites.** Quantum field theory at the level of a first graduate course (path integrals, perturbation theory, renormalization, the S-matrix), finite-dimensional Lie algebras at the level of $su(n)$, and complex analysis. Everything else is developed in the text.
 
 **Structure.** Parts I–IV are textbook material: the physical and algebraic background, the classical theory, and the real-coupling quantum theory. Parts V–VII present research results, many of them new: the semiclassics of complex solitons, exact soliton S-matrices, and the foundations of the imaginary-coupling theories as non-unitary quantum field theories. The [introduction](part1-background/01-introduction.qmd) gives a chapter-by-chapter map.

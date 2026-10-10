@@ -1,0 +1,5 @@
+S[B2,2] = + (1/4) (w-1/4) (w+3/4) (2w+1/4)   (match 5.0e-03; 42 candidates, 0s)
+S[B2,B2] (bootstrap) = - (-w-1) (-w+1/2) (1) (w) (w+1/2) (2w-1/2)
+   -> IDENTICAL to the DGZ c_2^(1) particle amplitude S_22
+   DGZ S_11 = - (-w-1) (-w+1/2) (1/2) (w) (w+1/2) (2w)
+   DGZ S_22 = - (-w-1) (-w+1/2) (1) (w) (w+1/2) (2w-1/2)

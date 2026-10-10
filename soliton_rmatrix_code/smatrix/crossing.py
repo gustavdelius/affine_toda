@@ -1,6 +1,6 @@
 import numpy as np
 from common import *
-omega = 2.37; q = np.exp(-1j*np.pi*omega)          # physical regime: q a pure phase
+omega = 2.37; q = float(__import__("os").environ.get("QSIGN", "1"))*np.exp(-1j*np.pi*omega)          # physical regime: q a pure phase
 S = Spinor33(q)
 print(f"q = exp(-i pi {omega}); projector ranks {S.ranks}; closed form reproduces direct solve to {S.check:.1e}")
 # antipode for Delta(e)=e(x)1+k(x)e, Delta(f)=f(x)k^-1+1(x)f :  S(e)=-k^-1 e, S(f)=-f k, S(k)=k^-1

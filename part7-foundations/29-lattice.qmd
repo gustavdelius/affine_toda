@@ -179,7 +179,7 @@ For sine-Gordon on a single site with Gaussian variance $C$, write $Z=\int e^{2a
 :::
 
 ::: {#exr-krein-transfer}
-Show that $T^\dagger=PTP$ for (-@eq-transfer-matrix), using $\overline{V(\vec\phi)}=V(-\vec\phi)$ for real $\vec\phi$ and the symmetry $\mathcal K(\vec\phi,\vec\phi')=\mathcal K(-\vec\phi,-\vec\phi')$ of the Gaussian kernel.
+Show that $T^\dagger=PTP$ for (-@eq-transfer-matrix), using $\overline{V(\vec\phi)}=V(-\vec\phi)$ for real $\vec\phi$ and that the Gaussian kernel is real, symmetric and satisfies $\mathcal K(\vec\phi,\vec\phi')=\mathcal K(-\vec\phi,-\vec\phi')$.
 :::
 
 ::: {#exr-trace-positivity}

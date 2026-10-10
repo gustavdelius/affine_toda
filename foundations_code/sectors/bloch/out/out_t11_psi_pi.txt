@@ -1,0 +1,4 @@
+xi = (2/3 + 0) pi: max offdiag of R 1.0e-15; 2-kink maxdev 2.2e-15; 3-kink maxdev 1.8e-15
+xi = (2/3 + 0.0001) pi: max offdiag of R 3.6e-03; 2-kink maxdev 4.4e-04; 3-kink maxdev 6.1e-04
+xi = (2/3 + 0.001) pi: max offdiag of R 3.6e-02; 2-kink maxdev 4.4e-03; 3-kink maxdev 6.1e-03
+xi = (2/3 + 0.01) pi: max offdiag of R 3.4e-01; 2-kink maxdev 4.4e-02; 3-kink maxdev 6.2e-02

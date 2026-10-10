@@ -34,7 +34,7 @@ In two dimensions the two-particle scattering amplitude depends on a single inva
 
 The **physical strip** $0\le\operatorname{Im}\theta\le\pi$ maps one-to-one onto the physical sheet of the $s$-plane, with both the $s$-channel and the crossed-channel cuts opened up (@exr-strip). An amplitude that is meromorphic in $s$ on the physical sheet with two square-root branch points becomes a meromorphic function of $\theta$ in the strip. In integrable theories it is in fact meromorphic in the whole $\theta$-plane.
 
-**Asymptotic states.** An $n$-particle in-state is written $|A_{a_1}(\theta_1)\cdots A_{a_n}(\theta_n)\rangle_{\rm in}$ with $\theta_1>\dots>\theta_n$: in the far past the fastest particle is on the left. Out-states are written with the opposite ordering. A convenient bookkeeping device is the **Zamolodchikov–Faddeev algebra** [@zz1979; @faddeev1978]. Its generators $A_a(\theta)$ create particles in the order written, and they obey the exchange relation
+**Asymptotic states.** An $n$-particle in-state is written $|A_{a_1}(\theta_1)\cdots A_{a_n}(\theta_n)\rangle_{\rm in}$ with $\theta_1>\dots>\theta_n$: in the far past the fastest particle is on the left. Out-states are written with the opposite ordering. A convenient bookkeeping device is the **Zamolodchikov–Faddeev algebra** [@zz1979; @faddeev1980]. Its generators $A_a(\theta)$ create particles in the order written, and they obey the exchange relation
 
 $$
 A_a(\theta_1)A_b(\theta_2)=S_{ab}^{cd}(\theta_1-\theta_2)\,A_d(\theta_2)A_c(\theta_1),
@@ -47,7 +47,7 @@ with summation over repeated indices. Reading the relation as a reordering of cr
 Suppose the theory has local conserved currents of Lorentz spin $s$. In light-cone coordinates $x^\pm=x^0\pm x^1$ such a current is a pair $(T_{s+1},\Theta_{s-1})$ with $\partial_-T_{s+1}=\partial_+\Theta_{s-1}$, and
 
 $$
-Q_s=\int dx^1\,\big(T_{s+1}+\Theta_{s-1}\big)
+Q_s=\int dx^1\,\big(T_{s+1}-\Theta_{s-1}\big)
 $$
 
 is conserved. The energy and momentum are the combinations $Q_{\pm1}$ of spin $\pm1$. Because $Q_s$ is the integral of a local density, it acts on asymptotic states additively. Because it has spin $s$, it acts on a one-particle state as
@@ -56,7 +56,7 @@ $$
 Q_s\,|A_a(\theta)\rangle=\chi_a^{(s)}\,e^{s\theta}\,|A_a(\theta)\rangle .
 $$ {#eq-charge-eigenvalue}
 
-In affine Toda theory the spins of the conserved charges are the exponents of the affine algebra repeated modulo the Coxeter number, and the eigenvalues $\chi^{(s)}_a$ form eigenvectors of the Cartan matrix (@sec-root-systems, @sec-theories). For now we only need that there are infinitely many charges with nonzero eigenvalues.
+In affine Toda theory the spins of the conserved charges are the exponents of the affine algebra, repeated with period $h$ for untwisted and $kh$ for twisted algebras, and the eigenvalues $\chi^{(s)}_a$ form eigenvectors of the Cartan matrix (@sec-root-systems, @sec-theories). For now we only need that there are infinitely many charges with nonzero eigenvalues.
 
 **No particle production.** Conservation of $Q_s$ in a scattering process says
 
@@ -90,7 +90,7 @@ The two-particle S-matrix satisfies three further sets of conditions.
 **Unitarity.** Applying the exchange relation (-@eq-zf-algebra) twice returns the original ordering, so
 
 $$
-S_{ab}^{cd}(\theta)\,S_{cd}^{ef}(-\theta)=\delta_a^e\delta_b^f .
+S_{ab}^{cd}(\theta)\,S_{dc}^{fe}(-\theta)=\delta_a^e\delta_b^f .
 $$ {#eq-braiding-unitarity}
 
 This is often simply called unitarity. In this book we call it **braiding unitarity**, because it is a consistency condition of the exchange algebra and not a statement about an inner product. QFT unitarity is the condition $S(\theta)S(\theta)^\dagger=1$ for real $\theta$, with $\dagger$ the Hermitian conjugate with respect to the Hilbert-space inner product. The two agree when the S-matrix is also **Hermitian analytic**,
@@ -101,7 +101,7 @@ $$ {#eq-hermitian-analyticity}
 
 which is what one expects in a unitary theory, where it follows from the reality properties of the underlying amplitudes. For a diagonal S-matrix Hermitian analyticity reduces to real analyticity, $S_{ab}(\theta)^*=S_{ab}(-\theta^*)$, and together with (-@eq-braiding-unitarity) it gives $\lvert S_{ab}(\theta)\rvert=1$ for real $\theta$.
 
-The distinction matters in this book. The S-matrices of the imaginary-coupling theories satisfy braiding unitarity but are not Hermitian analytic, so they are not unitary in the QFT sense. @sec-scattering explains what replaces unitarity there.
+The distinction matters in this book. Apart from sine-Gordon, the S-matrices of the imaginary-coupling theories satisfy braiding unitarity but are in general not Hermitian analytic, so they are not unitary in the QFT sense. @sec-scattering explains what replaces unitarity there.
 
 **Crossing.** Turning an incoming particle into an outgoing antiparticle continues $\theta\mapsto i\pi-\theta$. For a diagonal S-matrix,
 
@@ -125,14 +125,14 @@ $$ {#eq-fx-block}
 It has a simple pole at $\theta=i\pi x$ and one at $\theta=i\pi(1-x)$, its crossing image, and zeros at the negatives of these points. The following statement is standard [@mussardo2010].
 
 ::: {#prp-cdd}
-**[Established]** Let $S(\theta)$ be meromorphic, $2\pi i$-periodic, and bounded by a polynomial in $e^{\lvert\theta\rvert}$. If $S(\theta)S(-\theta)=1$, $S(i\pi-\theta)=S(\theta)$ and $S(\theta)^*=S(-\theta^*)$, then
+**[Established]** Let $S(\theta)$ be meromorphic, with $\lvert S(\theta)\rvert\le C\,e^{N\lvert\operatorname{Re}\theta\rvert}$ for all sufficiently large $\lvert\operatorname{Re}\theta\rvert$, uniformly in $\operatorname{Im}\theta$. If $S(\theta)S(-\theta)=1$, $S(i\pi-\theta)=S(\theta)$ and $S(\theta)^*=S(-\theta^*)$, then
 $$
 S(\theta)=\pm\prod_{k=1}^{N}f_{x_k}(\theta)
 $$
-for finitely many $x_k$, each real or of the form $\tfrac12+i\,y$ with real $y$.
+for finitely many complex $x_k$ such that the numbers $\sin\pi x_k$, counted with multiplicity, are permuted by complex conjugation: each $x_k$ is real, or has real part $\pm\tfrac12$, or occurs together with $\bar x_k$.
 :::
 
-The product in @prp-cdd is not fixed by the axioms: multiplying a solution by any $f_x$ gives another solution. The factors $f_x$ are called **CDD factors**, after Castillejo, Dalitz and Dyson. The axioms constrain the S-matrix, but they do not determine it. What determines it in practice is the **bootstrap**, together with a principle of minimality: one looks for the S-matrix with the fewest poles and zeros consistent with the bootstrap and with any known perturbative information. The sinh-Gordon S-matrix,
+The product in @prp-cdd is not fixed by the axioms: multiplying a solution by any $f_x$ with $\sin\pi x$ real, or by a pair $f_xf_{\bar x}$, gives another solution. The growth condition cannot be dropped: $e^{ia\sinh\theta}$ satisfies all three conditions. The factors $f_x$ are called **CDD factors**, after Castillejo, Dalitz and Dyson. The axioms constrain the S-matrix, but they do not determine it. What determines it in practice is the **bootstrap**, together with a principle of minimality: one looks for the S-matrix with the fewest poles and zeros consistent with the bootstrap and with any known perturbative information. The sinh-Gordon S-matrix,
 
 $$
 S(\theta)=f_{-B/2}(\theta)=\frac{\sinh\theta-i\sin\frac{\pi B}2}{\sinh\theta+i\sin\frac{\pi B}2},\qquad 0<B<2,
@@ -151,7 +151,7 @@ $$ {#eq-bound-state-mass}
 Writing $\bar u=\pi-u$, this says that $m_a$, $m_b$, $m_c$ are the sides of a triangle, the **mass triangle**, whose interior angle opposite $m_c$ is $\bar u_{ab}^c$. The angles $u_{ab}^c$ are called **fusing angles**. Since the interior angles sum to $\pi$,
 
 $$
-u_{ab}^c+u_{bc}^{\bar a}+u_{ca}^{\bar b}=2\pi .
+u_{ab}^{c}+u_{b\bar c}^{\bar a}+u_{\bar c a}^{\bar b}=2\pi .
 $$
 
 **Residues.** Near an $s$-channel bound-state pole,
@@ -160,7 +160,7 @@ $$
 S_{ab}(\theta)\simeq\frac{i\,\big(\Gamma_{ab}^c\big)^2}{\theta-iu_{ab}^c},
 $$ {#eq-residue}
 
-where $\Gamma_{ab}^c$ is the on-shell three-point coupling. In a unitary theory $\Gamma_{ab}^c$ is real, so the residue is $i$ times a *positive* number. A crossed-channel pole has the opposite sign. In a unitary theory this sign tells the two interpretations apart. In a non-unitary theory such as the scaling Lee–Yang model it need not, and @sec-lee-yang shows what happens.
+where $\Gamma_{ab}^c$ is the on-shell three-point coupling. In a unitary theory $\Gamma_{ab}^c$ is real, so the residue is $i$ times a *positive* number. A crossed-channel pole has the opposite sign. In a unitary theory this sign tells the two interpretations apart for a pole that is known to be a bound-state pole of a diagonal amplitude. Not every simple pole is a bound state: in sine-Gordon theory at $1<\lambda<2$ the breather amplitude $f_{\xi/\pi}$ has simple poles at $i\xi$ and $i(\pi-\xi)$ with no particle at either mass. In a non-unitary theory such as the scaling Lee–Yang model it need not, and @sec-lee-yang shows what happens.
 
 **The bootstrap.** If $c$ is a bound state of $a$ and $b$, it must scatter with any other particle $d$ as $a$ and $b$ would, with rapidities set by the mass triangle. In the bound state, $a$ and $b$ carry the complex rapidities $\theta_c+i\bar u_{ac}^b$ and $\theta_c-i\bar u_{bc}^a$, which conserve energy and momentum by the geometry of the triangle. Factorization then gives the **bootstrap equation**
 
@@ -190,7 +190,7 @@ $$ {#eq-bethe-yang}
 
 which quantize the rapidities. The energy is then $E=\sum_jm_j\cosh\theta_j$, up to corrections that vanish as $e^{-mL}$. For non-diagonal theories the product of S-matrices is replaced by a **transfer matrix** acting on the internal labels, and its eigenvalues take the place of the product.
 
-The equations have a simple consequence that drives much of Part VII. If the transfer-matrix eigenvalues are pure phases, as they are in a unitary theory, then (-@eq-bethe-yang) has real solutions $\theta_j$ and the finite-volume energies are real. If an eigenvalue has modulus different from 1, the solutions are complex, and so is the energy. Complex finite-volume energies in non-unitary integrable theories were first predicted in exactly this way [@tw1999; @tw2002].
+The equations have a simple consequence that drives much of Part VII. If the transfer-matrix eigenvalues are pure phases, as they are in a unitary theory, then (-@eq-bethe-yang) has real solutions $\theta_j$ and the finite-volume energies are real. If an eigenvalue has modulus different from 1, the solutions are complex, and the energy can be complex. Complex finite-volume energies in non-unitary integrable theories were first predicted in exactly this way [@tw1999; @tw2002].
 
 ## Exercises {#sec-integrable-qft-exercises}
 

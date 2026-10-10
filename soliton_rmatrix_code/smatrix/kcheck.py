@@ -3,11 +3,14 @@ from allS import *
 import allS as AS
 AS.S0 = lambda theta: S.R(np.exp(mu*theta))
 def br(x, l, s): return (x - s*q**l)/(1 - s*x*q**l)
+# QSIGN=1: q = e^{-i pi omega}; QSIGN=-1: the physical q = -e^{-i pi omega}. Odd powers of q flip the subscripts:
+# k_32 = -<1>_+ becomes +<1>_- (the overall sign of S_32 changes), k_12 = <1>_i <3>_-i becomes <1>_-i <3>_i.
+s_ = 1 if float(__import__("os").environ.get("QSIGN", "1")) > 0 else -1
 forms = {(3, 3): lambda x: 1.0,
-         (3, 2): lambda x: br(x, 1, 1),
+         (3, 2): lambda x: br(x, 1, s_),
          (2, 2): lambda x: br(x, 2, 1),
          (3, 1): lambda x: br(x, 0, 1j)*br(x, 2, -1j),
-         (1, 2): lambda x: br(x, 1, 1j)*br(x, 3, -1j),
+         (1, 2): lambda x: br(x, 1, s_*1j)*br(x, 3, -s_*1j),
          (1, 1): lambda x: br(x, 2, 1)*br(x, 4, -1)/br(x, 2, -1)}
 for (a, b), fm in forms.items():
     vals = []

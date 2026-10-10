@@ -30,7 +30,8 @@ def show(y):
     a, b = y; s = (f"{a}w" if a not in (0, 1, -1) else ("w" if a == 1 else ("-w" if a == -1 else ""))) 
     return (s + (f"{'+' if b >= 0 and s else ''}{b}" if b != 0 or not s else "")).replace("+-", "-")
 # numerically identified S[B^a, soliton 3] (block positions in t units, omega = 2.37):
-SB3 = {3: ([(Fr(-5, 2), -1), (Fr(-1, 2), 0), (Fr(1, 2), Fr(1, 2)), (Fr(3, 2), 0), (Fr(3, 2), 1), (Fr(5, 2), Fr(1, 2))], 1),
+# the sign of S[B^3,3] is + at q = e^{-i pi omega} and - at the physical q = -e^{-i pi omega} (QSIGN=-1); all derived amplitudes contain it squared
+SB3 = {3: ([(Fr(-5, 2), -1), (Fr(-1, 2), 0), (Fr(1, 2), Fr(1, 2)), (Fr(3, 2), 0), (Fr(3, 2), 1), (Fr(5, 2), Fr(1, 2))], 1 if float(__import__('os').environ.get('QSIGN', '1')) > 0 else -1),
        1: ([(Fr(1, 2), Fr(1, 2)), (Fr(5, 2), Fr(1, 2))], -1),
        2: ([(0, Fr(1, 4)), (1, Fr(3, 4)), (2, Fr(1, 4)), (3, Fr(3, 4))], 1)}
 for a, (bl, sg) in SB3.items():

@@ -35,7 +35,7 @@ Three points need care.
 
 ## Transmission factors {#sec-transmission-factors}
 
-Consider first a single field of mass $m$, so that $\mathcal A=-\partial_x^2+m^2+U(x)$ with $U\to0$ at both ends. Solutions of $\mathcal A\eta=\lambda\eta$ with $\lambda=k^2+m^2$ behave as $e^{ikx}$ at $x\to-\infty$. For the solitons in this book the potential is **reflectionless**, so the solution at $x\to+\infty$ is $X(k)\,e^{ikx}$, with a **transmission factor** $X$. Write $\kappa=\sqrt{m^2-\lambda}=-ik$ and $z=\kappa/m$. For the Pöschl–Teller potentials that arise from Hirota solitons, $X$ is a rational function of $z$:
+Consider first a single field of mass $m$, so that $\mathcal A=-\partial_x^2+m^2+U(x)$ with $U\to0$ at both ends. Solutions of $\mathcal A\eta=\lambda\eta$ with $\lambda=k^2+m^2$ behave as $e^{ikx}$ at $x\to-\infty$. For the solitons in this book the potential is **reflectionless**, so the solution at $x\to+\infty$ is $X(k)\,e^{ikx}$, with a **transmission factor** $X$. Write $\kappa=\sqrt{m^2-\lambda}=ik$ and $z=\kappa/m$. For the Pöschl–Teller potentials that arise from Hirota solitons, $X$ is a rational function of $z$:
 
 $$
 X(z)=\prod_j\frac{z-z_j}{z+z_j},\qquad0<z_j\le1 .
@@ -43,7 +43,7 @@ $$
 
 Each zero $z_j$ is a bound state with $\omega_j^2=m^2(1-z_j^2)$, so $\omega_j=m\cos t_j$ with $z_j=\sin t_j$. The zero mode is $z_j=1$.
 
-The mode sum (-@eq-dhn-mode-sum) can be evaluated entirely in terms of $X$. In a box, the continuum modes are quantized by the phase $\delta(k)=-i\ln X$, so the density of states differs from the vacuum by $\delta'(k)/2\pi$. Adding the bound states, using Levinson's theorem to account for the modes that have moved into bound states, and fixing the counterterm by the Born approximation to $\delta$ at large $k$, one finds the formula of Cahill, Comtet and Glauber [@cahill1976],
+The mode sum (-@eq-dhn-mode-sum) can be evaluated entirely in terms of $X$. In a box, the continuum modes are quantized by the phase $\delta(k)=-i\ln X$, so the density of states differs from the vacuum by $\delta'(k)/2\pi$. Adding the bound states, using Levinson's theorem to account for the modes that have moved into bound states (for a reflectionless potential $\delta(0)-\delta(\infty)=\pi n_b$, with $n_b$ counting the zero mode; the threshold solution is a half-bound state), and fixing the counterterm by the Born approximation to $\delta$ at large $k$, one finds the formula of Cahill, Comtet and Glauber [@cahill1976],
 
 $$
 \Delta M=-\frac m\pi\sum_j\big(\sin t_j-t_j\cos t_j\big).
@@ -75,19 +75,23 @@ $$
 
 ## The $a_n^{(1)}$ solitons {#sec-dhn-an}
 
-For a theory with several fields the fluctuations split into **channels**, one for each particle species $b$ of mass $m_b$. A fluctuation that is a wave of species $b$ far to the left of the soliton emerges far to the right as a wave of the same species, multiplied by a transmission factor $X_{ab}$. That the waves neither reflect nor change species is a special property of integrable solitons. Hollowood [@hollowood1993a] showed that for the soliton of species $a$ of $a_n^{(1)}$, with $A=\pi a/h$ and $B=\pi b/h$,
+For a theory with several fields the fluctuations split into **channels**, one for each particle species $b$ of mass $m_b$. A fluctuation that is a wave of species $b$ far to the left of the soliton emerges far to the right as a wave of the same species, multiplied by a transmission factor $X_{ab}$. That the waves neither reflect nor change species is a special property of integrable solitons (for the Hirota solitons used here, @sec-counting-rule-transmission-factors; near special eigenvalues this structure needs care, @thm-jordan-chains). Hollowood [@hollowood1993a] showed that for the soliton of species $a$ of $a_n^{(1)}$, with $A=\pi a/h$ and $C=\pi b/h$,
 
 $$
-X_{ab}(z)=\frac{z-\cos(A-B)}{z-\cos(A+B)},\qquad z=\kappa_b/m_b .
+X_{ab}(z)=\frac{z-\cos(A-C)}{z-\cos(A+C)},\qquad z=\kappa_b/m_b .
 $$ {#eq-an-transmission}
 
-This is the classical two-soliton interaction coefficient (-@eq-interaction-coefficient), continued to the rapidity at which the second soliton becomes a linear wave (@sec-example-an1-zeros-alone). Applying (-@eq-dhn-psi) channel by channel and summing over $b$ gives Hollowood's result
+This is the classical two-soliton interaction coefficient (-@eq-interaction-coefficient), continued to the rapidity at which the second soliton becomes a linear wave (@sec-example-an1-zeros-alone). Applying (-@eq-dhn-psi) channel by channel and summing over $b$ gives
 
 $$
 \Delta M_a=-m_a\Big[\frac h{2\pi}-\frac14\cot\frac\pi h\Big].
 $$ {#eq-hollowood-mass}
 
+Here $m_a=2m\sin\frac{\pi a}h$, with $m$ the mass parameter of the normal-ordered Lagrangian (@sec-feynman-rules). The calculation is Hollowood's [@hollowood1993a]; his paper prints $\frac12\cot\frac\pi h$, because its bound-state sum and continuum integral (his (3.2) and (3.26)) are evaluated as twice their actual values. Evaluated correctly they give $\frac14\cot\frac\pi h$, as found by MacKay and Watts [@mackay_watts1995].
+
 Since $\Delta M_a$ is proportional to $m_a$, the soliton mass ratios are unchanged at one loop, just as the particle mass ratios are (@sec-one-loop-masses-real). With the classical mass (-@eq-soliton-mass), $M_a=m_a\big(\frac{2h}{\beta^2}-\frac h{2\pi}+\frac14\cot\frac\pi h\big)+O(\beta^2)$. For $h=2$ this is $M=\frac{8m_0}{\beta_{\rm SG}^2}-\frac{m_0}\pi$, the sine-Gordon result.
+
+In the same scheme the one-loop particle masses are $\hat m_a=m_a\big(1+\frac{\beta^2}{8h}\cot\frac\pi h\big)$, the continuation of $\delta m_a^2/m_a^2=-\frac{\beta_r^2}{4h}\cot\frac\pi h$ (@sec-one-loop-masses-real). So $M_a/\hat m_a=\frac{2h}{\beta^2}-\frac h{2\pi}+O(\beta^2)$, independent of $a$: the $\cot$ terms cancel.
 
 ## Complex solitons {#sec-dhn-complex}
 
@@ -116,7 +120,7 @@ Use (-@eq-ccg) to compute the one-loop $\phi^4$ kink mass, and compare with the 
 :::
 
 ::: {#exr-hollowood}
-For $a_2^{(1)}$, write down $X_{1b}$ for $b=1,2$, locate their zeros and poles, and sum (-@eq-dhn-psi) over the two channels to verify (-@eq-hollowood-mass). Note that $X_{11}$ has a pole in the bound-state half-plane $0<z\le1$. What does that mean physically? (Compare @prp-an-zeros.)
+For $a_2^{(1)}$, write down $X_{1b}$ for $b=1,2$, locate their zeros and poles, and sum (-@eq-dhn-psi) over the two channels to verify (-@eq-hollowood-mass). Note that $X_{11}$ has its pole at $z=-\frac12$, outside the bound-state half-plane. In $a_4^{(1)}$, by contrast, $X_{11}$ has a pole at $z=\cos\frac{2\pi}5\in(0,1]$. What does that mean physically? (Compare @prp-an-zeros and @exr-a4-cancellation.)
 :::
 
 ::: {#exr-mass-ratio-oneloop}
@@ -125,4 +129,4 @@ Show from (-@eq-hollowood-mass) that the $a_n^{(1)}$ soliton masses keep the rat
 
 ## Notes and references {#sec-dhn-notes}
 
-The semiclassical method is due to Dashen, Hasslacher and Neveu [-@dhn1975], and the formula (-@eq-ccg) to Cahill, Comtet and Glauber [@cahill1976]. Rajaraman's book [@rajaraman1982] gives a careful account, including the zero mode and the counterterm. The affine Toda soliton masses were computed by Hollowood [@hollowood1993a; @hollowood1993b] for $a_n^{(1)}$, and for all algebras by MacKay and Watts [-@mackay_watts1995]; Delius and Grisaru [-@delius_grisaru1995] gave a competing result for $c_n^{(1)}$.
+The semiclassical method is due to Dashen, Hasslacher and Neveu [-@dhn1975], and the formula (-@eq-ccg) to Cahill, Comtet and Glauber [@cahill1976]. Rajaraman's book [@rajaraman1982] gives a careful account, including the zero mode and the counterterm. The affine Toda soliton masses were computed by Hollowood [@hollowood1993a] for $a_n^{(1)}$, and for all algebras by MacKay and Watts [-@mackay_watts1995]; Delius and Grisaru [-@delius_grisaru1995] gave a competing result for $c_n^{(1)}$.

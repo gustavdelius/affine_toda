@@ -1,9 +1,10 @@
+QS = float(__import__("os").environ.get("QSIGN", "1"))   # QSIGN=-1: the physical q = -e^{-i pi omega}
 import numpy as np, sys, math, time
 args = sys.argv[1:]; sys.argv = ['x', args[0], args[1]]
 exec(open('spinor_scan.py').read().split('if __name__ == "__main__":')[0])
 t0 = time.time()
 for om in [float(v) for v in args[2].split(',')]:
-    q = np.exp(-1j*np.pi*om); Pk = setup(q); Rpl = lambda x: P @ Rmat(x, q, Pk)
+    q = QS*np.exp(-1j*np.pi*om); Pk = setup(q); Rpl = lambda x: P @ Rmat(x, q, Pk)
     lc = None
     for lx in np.linspace(0.001, 12, 4801):
         if np.abs(np.abs(np.linalg.eigvals(Rpl(np.exp(lx)))) - 1).max() > 1e-7: lc = lx; break

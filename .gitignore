@@ -2,5 +2,10 @@ __pycache__/
 *.pyc
 _site/
 /.quarto/
-
 **/*.quarto_ipynb
+# Quarto intermediates from PDF renders (e.g. Mermaid PNGs)
+/part*/*_files/
+/appendices/*_files/
+.Rproj.user
+.Rhistory
+affine_toda.Rproj

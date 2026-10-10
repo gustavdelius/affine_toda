@@ -64,4 +64,4 @@ From $T=9\omega+3$ derive $H=2T/\omega=18+6/\omega$, and expand it to first orde
 
 ## Notes and references {#sec-sm-e6-notes}
 
-The particle S-matrices compared with are those of Corrigan, Dorey and Sasaki [-@corrigan1993]. The 26-dimensional representation of $U_q(f_4^{(1)})$ and its R-matrix are constructed here directly from the defining relations (@sec-app-numerics).
+The particle S-matrices compared with are those of Corrigan, Dorey and Sasaki [-@corrigan1993]. The $\mathbf{26}\otimes\mathbf{26}$ R-matrix was obtained by Delius, Gould and Zhang with the tensor-product graph [@dgz1994, eq. (4.64)]; normalised to 1 on the $\mathbf{324}$ it is the table of this chapter. Here the 26-dimensional representation of $U_q(f_4^{(1)})$ is constructed, and the R-matrix re-derived, directly from the defining relations (@sec-app-numerics).
