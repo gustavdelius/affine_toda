@@ -1,0 +1,8 @@
+c_2 spinor, N=2, omega=0.3: spec(-q, alpha=0) = c_Q spec(q, alpha=pi N gamma) in all 9 charge sectors, max difference 0.0e+00
+c_2 spinor, N=3, omega=0.3: spec(-q, alpha=0) = c_Q spec(q, alpha=pi N gamma) in all 16 charge sectors, max difference 0.0e+00
+c_2 spinor, N=3, omega=2.37: spec(-q, alpha=0) = c_Q spec(q, alpha=pi N gamma) in all 16 charge sectors, max difference 0.0e+00
+c_2 spinor, N=4, omega=0.7: spec(-q, alpha=0) = c_Q spec(q, alpha=pi N gamma) in all 25 charge sectors, max difference 0.0e+00
+c_3 spinor, N=2, omega=1.61: spec(-q, alpha=0) = c_Q spec(q, alpha=pi N gamma) in all 27 charge sectors, max difference 0.0e+00
+c_3 spinor, N=3, omega=0.3: spec(-q, alpha=0) = c_Q spec(q, alpha=pi N gamma) in all 64 charge sectors, max difference 0.0e+00
+a_2 spinor, N=3, omega=1.61: spec(-q, alpha=0) = c_Q spec(q, alpha=pi N gamma) in all 16 charge sectors, max difference 0.0e+00
+a_3 spinor, N=2, omega=0.3: spec(-q, alpha=0) = c_Q spec(q, alpha=pi N gamma) in all 27 charge sectors, max difference 0.0e+00

@@ -185,10 +185,10 @@ Below $8\pi$ the ultraviolet divergences are mild but not absent. Normal orderin
 Bernard and LeClair [-@bernard1991] found non-local conserved charges in sine-Gordon theory. They are built from vertex operators of the field and its dual and carry Lorentz spin. Together with the topological charge they generate the quantum affine algebra $U_q(\widehat{sl}_2)$, with
 
 $$
-q=\pm e^{8\pi^2i/\beta_{\rm SG}^2}=\pm e^{4\pi^2i/\beta^2} .
+q=e^{8\pi^2i/\beta_{\rm SG}^2}=e^{4\pi^2i/\beta^2}
 $$
 
-The soliton and antisoliton form its two-dimensional evaluation representation, the S-matrix commutes with the charges, and so the S-matrix is a $U_q(\widehat{sl}_2)$ R-matrix times a scalar. This is how (-@eq-sg-smatrix) is understood today. @sec-quantum-groups develops the algebra and @sec-qg-symmetry the general case.
+for the coproduct of @sec-quantum-groups. The opposite coproduct, used in Part VI, gives $q^{-1}$. The sign of $q$ is not a convention: changing it reverses the sign of the transmission amplitude relative to the reflection amplitude (@sec-six-vertex). The soliton and antisoliton form its two-dimensional evaluation representation, the S-matrix commutes with the charges, and so the S-matrix is a $U_q(\widehat{sl}_2)$ R-matrix times a scalar. This is how (-@eq-sg-smatrix) is understood today. @sec-quantum-groups develops the algebra and @sec-qg-symmetry the general case.
 
 When $q$ is a root of unity, the representation theory of $U_q(sl_2)$ admits a consistent truncation. In the S-matrix it amounts to replacing the soliton labels by kink labels in the IRF (RSOS) basis, keeping only the finitely many vacua allowed at that root of unity [@leclair1989; @smirnov1991; @reshetikhin1990]. The result is an S-matrix of kinks and breathers.
 

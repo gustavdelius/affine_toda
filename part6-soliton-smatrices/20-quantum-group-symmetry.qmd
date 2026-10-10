@@ -13,7 +13,7 @@ The local charges of @sec-conserved-charges make the S-matrix factorize, but the
 
 Consider first sine-Gordon theory in the variables of @sec-sg-dictionary. At the conformal point $m_0=0$ the field splits into left- and right-moving parts, $\phi=\phi_L(x^+)+\phi_R(x^-)$, with $x^\pm=t\pm x$. Chiral vertex operators $e^{ia\phi_L}$ are holomorphic currents of conformal weight $h=a^2/8\pi$ in the normalization in which $e^{i\beta_{\rm SG}\phi}$ has weights $h=\bar h=\beta_{\rm SG}^2/8\pi$.
 
-Bernard and LeClair choose the exponent so that the current carries topological charge $\pm1$:
+Bernard and LeClair choose the exponent $a=8\pi/\beta_{\rm SG}$, for which $J_\pm$ has a double pole with $e^{\mp i\beta_{\rm SG}\phi}$, so that it remains conserved when the perturbation is switched on. The current carries topological charge $\pm2$, since it shifts $\phi$ by $\pm4\pi/\beta_{\rm SG}$: $[T,Q_\pm]=\pm2Q_\pm$ with $T=\pm1$ on the soliton and antisoliton.
 
 $$
 J_\pm=e^{\pm ia\phi_L},\qquad h_J=\frac{8\pi}{\beta_{\rm SG}^2}.
@@ -49,29 +49,35 @@ $$
 \Delta(Q_j)=Q_j\otimes1+q^{T_j}\otimes Q_j ,
 $$
 
-where $T_j$ is the component of the topological charge along the corresponding root, and $q$ is the braiding phase of the chiral vertex operators,
+where $T_j$ is the component of the topological charge along the corresponding coroot, and $q$ is the braiding phase of the chiral vertex operators. With this coproduct Bernard and LeClair find [@bernard1991]
 
 $$
-q=\pm e^{i\pi h_J}=\pm e^{8\pi^2i/\beta_{\rm SG}^2}=\pm e^{4\pi^2i/\beta^2}.
-$$
+q=e^{-i\pi h_J}=e^{-8\pi^2i/\beta_{\rm SG}^2}=e^{-4\pi^2i/\beta^2},
+$$ {#eq-q-physical}
 
-This is the structure of @sec-hopf: the coproduct is not cocommutative, and the order of the solitons matters. Computing the commutation relations of the charges and the topological charges gives the Drinfeld–Jimbo relations of @sec-uqghat for $U_q(\hat g^\vee)$ at zero centre, with the $Q_j$ as the $e_j$, the $\bar Q_j$ as the $f_j$ (up to normalization), and $q^{T_j}$ as the $k_j$ [@bernard1991; @felder1992]. For sine-Gordon this is $U_q(\widehat{sl}_2)$: $(Q_+,\bar Q_-,T)$ give $(e_1,f_1,k_1)$ and $(Q_-,\bar Q_+,-T)$ give $(e_0,f_0,k_0)$.
+which for sine-Gordon is $q=-e^{-i\pi\lambda}$. For a general $\hat g$, $q_j=q^{\vec\alpha_j^{\vee2}/2}$. This is the structure of @sec-hopf: the coproduct is not cocommutative, and the order of the solitons matters. It is the opposite of the coproduct (-@eq-coproduct), and with (-@eq-coproduct) the same charges give $q^{-1}$, the value of @sec-six-vertex. The sign of $q$ is not a convention: it changes the relative sign of the transmission and reflection amplitudes (@sec-six-vertex), and only (-@eq-q-physical) reproduces Zamolodchikov's S-matrix and passes the crossing test of @sec-crossing-sign. Computing the commutation relations of the charges and the topological charges gives the Drinfeld–Jimbo relations of @sec-uqghat for $U_q(\hat g^\vee)$ at zero centre, with the $Q_j$ as the $e_j$, the $\bar Q_j\,q^{-T_j}$ as the $f_j$ (up to a constant), and $q^{T_j}$ as the $k_j$, for the coproduct $\Delta(e_j)=e_j\otimes1+k_j\otimes e_j$, $\Delta(f_j)=f_j\otimes k_j^{-1}+1\otimes f_j$ [@bernard1991; @felder1992]. For sine-Gordon this is $U_q(\widehat{sl}_2)$: $(Q_+,\bar Q_-,T)$ give $(e_1,f_1,k_1)$ and $(Q_-,\bar Q_+,-T)$ give $(e_0,f_0,k_0)$.
 
 **Why the dual algebra.** The vertex operators that define the charges are exponentials of $\phi_L$ in directions $\vec\alpha_j^\vee$, and their mutual braiding is governed by the inner products $\vec\alpha_i^\vee\cdot\vec\alpha_j^\vee$, which form the Cartan matrix of the dual root system (@sec-dynkin). For simply-laced and self-dual algebras the distinction disappears. For $c_n^{(1)}$, for example, the soliton symmetry is $U_q(d_{n+1}^{(2)})$, which is why Part VI needs R-matrices of twisted algebras.
 
 ## Lorentz spin and the gradation {#sec-qg-gradation}
 
-The solitons of a multiplet form a representation of $U_q(\hat g^\vee)$ in which the charges act on one-soliton states of rapidity $\theta$. A Lorentz boost by $\vartheta$ multiplies a charge of spin $s$ by $e^{s\vartheta}$ and shifts the rapidity of the soliton. So the representation on solitons of rapidity $\theta$ is an evaluation representation $V(x)$ whose spectral parameter depends on $\theta$. If $e_j$ has spin $s_j$, it acts with a factor $e^{s_j\theta}=x^{s_j/2T}$, where $x=e^{2T\theta}$. Gradations that redistribute the spins among the generators are related by rapidity-dependent changes of basis (@sec-gradations), so only the total spin of the null root, $\sum_jn_js_j$, is fixed, and it determines $T$. With the normalization of @sec-amplitude-and-gradation,
+The solitons of a multiplet form a representation of $U_q(\hat g^\vee)$ in which the charges act on one-soliton states of rapidity $\theta$. A Lorentz boost by $\vartheta$ multiplies a charge of spin $s$ by $e^{s\vartheta}$ and shifts the rapidity of the soliton. So the representation on solitons of rapidity $\theta$ is an evaluation representation $V(x)$ whose spectral parameter depends on $\theta$. If $e_j$ has spin $s_j$, it acts with a factor $e^{s_j\theta}=x^{s_j/2T}$, where $x=e^{2T\theta}$. Gradations that redistribute the spins among the generators are related by rapidity-dependent changes of basis (@sec-gradations), so only the total spin $\sum_jn_j^\vee s_j$ of the null root $\sum_jn_j^\vee\vec\alpha_j^\vee$ of $\hat g^\vee$ (normalized by $n_0^\vee=1$, since $x$ multiplies $e_0$ once) is fixed, and it determines $T$. The charge of node $j$ is built from $\exp(-i\frac{4\pi}\beta\vec\alpha_j^\vee\cdot\vec\phi_L)$, of weight $8\pi/(\beta^2\vec\alpha_j^2)$, so its spin is
 
 $$
-x(\theta)=e^{2T\theta},\qquad2T=\frac{4\pi h}{\beta^2}-h^\vee ,
+s_j=\frac{8\pi}{\beta^2\vec\alpha_j^2}-1 :
 $$
 
-where $2T$ is the total spin of the null root $\sum_jn_j\vec\alpha_j$ [@delius1995; @gmw1996]. For simply-laced $\hat g$ this is $2T=\sum_jn_j\big(\frac{4\pi}{\beta^2}-1\big)$. For sine-Gordon, $T=\lambda$.
+$\frac{4\pi}{\beta^2}-1$ for long roots, $\frac{8\pi}{\beta^2}-1$ for roots of squared length 1, $\frac{12\pi}{\beta^2}-1$ for roots of squared length $\frac23$. With the normalization of @sec-amplitude-and-gradation,
+
+$$
+x(\theta)=e^{2T\theta},\qquad2T=\sum_jn_j^\vee s_j ,
+$$
+
+[@delius1995; @gmw1996]. For untwisted $\hat g$, $n_j^\vee=n_j\vec\alpha_j^2/2$ and the sum is exactly $2T=\frac{4\pi h}{\beta^2}-h^\vee$. For twisted $\hat g=X^{(k)}$, $n_j^\vee=k\,n_j\vec\alpha_j^2/2$, and the same formula holds with $\beta^2$ replaced by $\beta_{\rm lit}^2=\beta^2/k$ (@sec-conventions) and $h^\vee=\sum_jn_j^\vee$. For simply-laced $\hat g$, $2T=\sum_jn_j\big(\frac{4\pi}{\beta^2}-1\big)$. For sine-Gordon, $T=\lambda$.
 
 Two checks show that this is right.
 
-- **Crossing.** Crossing requires $x(i\pi)=x_c$, the crossing point of @sec-qg-crossing. For sine-Gordon in the homogeneous gradation $x_c=q^2$, and $e^{2\pi i\lambda}=q^2$ is exactly the relation between $q$ and $\lambda$ found from the S-matrix in @sec-six-vertex.
+- **Crossing.** Crossing requires $x(i\pi)=x_c$, the crossing point of @sec-qg-crossing. For sine-Gordon in the homogeneous gradation, with the coproduct of @sec-qg-coproduct, $x_c=q^{-2}$ ($q^2$ for that of @sec-hopf), and $e^{2\pi i\lambda}=q^{-2}$ holds exactly for $q=-e^{-i\pi\lambda}$.
 - **Breathers.** In the rapidity variable $t=T\theta/(i\pi)$ of @sec-amplitude-and-gradation, the sine-Gordon breather poles $\theta=i(\pi-n\xi)$ lie at $t=T-nT\xi/\pi=T-n$, because $T\xi=\pi$. These are the breather towers that Part VI uses for every algebra (@sec-breather-test).
 
 ## Consequences for the S-matrix {#sec-qg-consequences}

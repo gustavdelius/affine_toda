@@ -2,7 +2,7 @@
 
 You are an adversarial mathematical-physics referee. Your job is to find errors, gaps, overclaimed status labels and uncredited prior art. Do not confirm what you have not checked.
 
-The material is uncommitted work in the git worktree `/home/gustav/Git/affine_toda/.claude/worktrees/exchange-statistics` (branch `worktree-exchange-statistics`). The main checkout at `/home/gustav/Git/affine_toda` does **not** contain it, so read every file in the worktree. Do not edit any file there. Work in your own scratch directory, copy scripts there before running them, and deliver your full report in your final message: subagents may be unable to write report files.
+The material is the branch `worktree-exchange-statistics` (PR #2), checked out in the git worktree `/home/gustav/Git/affine_toda/.claude/worktrees/exchange-statistics`. It has been merged with `main` after PR #4, which changed the sign of $q$ in Part VI (see "The sign of $q$" below). The main checkout at `/home/gustav/Git/affine_toda` does **not** contain this branch's material, so read every file in the worktree. Do not edit any file there. Work in your own scratch directory, copy scripts there before running them, and deliver your full report in your final message: subagents may be unable to write report files.
 
 ## Context
 
@@ -12,19 +12,19 @@ The brief `briefs/exchange_statistics.md` asked whether the Bethe–Yang equatio
 2. on a circle, the vacuum shifts $\vec\phi\mapsto\vec\phi+\frac{2\pi}\beta\vec\lambda$ split the states into Bloch sectors $\alpha$, the Bethe–Yang equations in sector $\alpha$ carry the twist $e^{-i\alpha\cdot\mu_j}$, and the global form of the theory decides which $\alpha$ occur (`prp-bloch-sectors`);
 3. the sector $Q=0$, $\alpha=0$ exists in every global form, and the bosonic breaking found earlier sits there, so the bosonic statements hold in every form.
 
-See all changes with `git -C /home/gustav/Git/affine_toda/.claude/worktrees/exchange-statistics diff` plus the new folder `foundations_code/sectors/bloch/`. Locations (line numbers as of 2026-10-10):
+See all changes with `git -C /home/gustav/Git/affine_toda/.claude/worktrees/exchange-statistics diff origin/main...HEAD`, which includes the new folder `foundations_code/sectors/bloch/`. Locations (line numbers after the merge with `main`, 2026-10-10):
 
 | Location | What |
 |---|---|
-| `part7-foundations/32-scattering.qmd:185–240` | paragraph "Exchange statistics and Bloch sectors": `prp-exchange-twist` [Theorem] with proof, `prp-bloch-sectors` [Proposition, sketch] with sketch, three paragraphs of consequences, results at general $\alpha$, Krein pairing |
+| `part7-foundations/32-scattering.qmd:185–242` | paragraph "Exchange statistics and Bloch sectors": `prp-exchange-twist` [Theorem] with proof, `prp-bloch-sectors` [Proposition, sketch] with sketch, three paragraphs of consequences (the sign of $q$ in the one at line 230), results at general $\alpha$, the paragraph "The sign of $q$" (240), Krein pairing |
 | `32-scattering.qmd:143–145, 153–155` | revised and new rows of the sector table |
 | `32-scattering.qmd:118, 179, 181, 183` | one-sentence additions ($a_n^{(1)}$ colour sector, excited solitons, $\psi=\pi$ exception, spinor sectors) |
 | `part7-foundations/33-outlook.qmd:55, 69, 115, 168–169` | "with bosonic exchange" replaced by "in the Bloch sector $\alpha=0$"; open problem 6 sub-item "Bloch sectors" |
-| `part6-soliton-smatrices/21-construction.qmd:72`, `26-f4-solitons.qmd:161` | the crossing sign $(-1)^n$ is neither a grading nor the symmetry type of $C$ |
+| `part6-soliton-smatrices/21-construction.qmd:74` (last two sentences), `33-outlook.qmd:169` | the sign of $q$ acts on the Bethe–Yang equations as the Bloch twist $\alpha\to\alpha+\pi N(1,\dots,1)$ for $N$ spinor solitons |
 | `references.bib` | new key `bajnok2000` |
-| `foundations_code/sectors/bloch/` | scripts `t1`–`t13`, outputs in `out/`, `README.md` with arguments and conventions |
+| `foundations_code/sectors/bloch/` | scripts `t1`–`t9`, `t11`–`t14`, outputs in `out/` and, at the physical $q$, `out/qsign/`; `README.md` with arguments and conventions |
 
-Conventions: $q^2=-e^{i\psi}$, $\psi=2\pi^2/3\xi$ reduced to $(-\pi,\pi]$, in the conventions of Takács–Watts (hep-th/9810006); the code uses $q_{\rm code}=\bar q_{\rm TW}$. The Bethe–Yang operator is the particle-labelled $R=P\check R$, $T_1=R_{1N}\cdots R_{12}$. Spinor amplitudes use $q=e^{-i\pi\omega}$. $Q$ is the total topological charge, $\mu_j$ that of soliton $j$, and $\Omega_\alpha=e^{i\alpha\cdot\mu_1}$. "Unbroken" means $\max\lvert\lvert s\rvert-1\rvert<10^{-6}$ over the rapidities sampled.
+Conventions: $q^2=-e^{i\psi}$, $\psi=2\pi^2/3\xi$ reduced to $(-\pi,\pi]$, in the conventions of Takács–Watts (hep-th/9810006); the code uses $q_{\rm code}=\bar q_{\rm TW}$. The Bethe–Yang operator is the particle-labelled $R=P\check R$, $T_1=R_{1N}\cdots R_{12}$. Spinor scripts use $q=e^{-i\pi\omega}$ by default, minus the physical value; `QSIGN=-1` gives the physical $q$ (PR #4). $Q$ is the total topological charge, $\mu_j$ that of soliton $j$, and $\Omega_\alpha=e^{i\alpha\cdot\mu_1}$. "Unbroken" means $\max\lvert\lvert s\rvert-1\rvert<10^{-6}$ over the rapidities sampled.
 
 ## Already checked by the author (redo only if you find a reason)
 
@@ -35,6 +35,8 @@ Conventions: $q^2=-e^{i\psi}$, $\psi=2\pi^2/3\xi$ reduced to $(-\pi,\pi]$, in th
 - `t6`: Bloch-torus counts for the spinor sector $Q=0$, reproduced identically on a re-run.
 - `t7`, `t8`: $R_{12}(x)^\dagger=R_{12}(1/x)$, $\mathcal CR_{12}\mathcal C=R_{21}$ for Izergin–Korepin and spinors; $R_{12}^{\mathsf T}=R_{21}$ for spinors only.
 - `t12`, `t13`: excited-soliton breaking at $\alpha=0$ lies in $Q=0$; two-kink $Q=\pm1$ unbroken for all $\alpha\in[-\pi,\pi]$.
+- `t14`: for $N$ spinor solitons, in every charge sector, the spectrum at $-q$ equals the spectrum at $q$ with $\alpha=\pi N(1,\dots,1)$, up to a phase per sector, to rounding, for $c_2^{(1)}$, $c_3^{(1)}$, $a_3^{(2)}$, $a_5^{(2)}$ and $N\le4$.
+- `t5`–`t8` re-run at the physical $q$ (`out/qsign/`).
 - The book renders with no unresolved cross-references.
 
 ## To be checked, in priority order
@@ -54,6 +56,7 @@ Conventions: $q^2=-e^{i\psi}$, $\psi=2\pi^2/3\xi$ reduced to $(-\pi,\pi]$, in th
    - (f) Check the Ramond/Neveu–Schwarz remark.
 3. **The convention argument in `32-scattering.qmd:230`.** A change of coproduct by a bicharacter $F$ is said to conjugate $\check R$ by $F$, with the symmetric part acting by a similarity on $T_1$ and the antisymmetric part shifting $\alpha$ linearly in $Q$.
    - Derive this, for example with $G=\prod_{i<j}F(\mu_i,\mu_j)$ and the cyclic shift.
+   - The sign of $q$ is claimed to be such a change, with shift $\pi N\gamma\equiv2\pi Q_1\gamma$ for spinors (`t14`). Derive this from $\check R(-q)=L\check R(q)L$, $L$ diagonal (`../qsign_checks.py`), or find a counterexample.
    - Are there other convention changes that move the $Q=0$, $\alpha=0$ sector, such as a different coproduct ordering, $q\to q^{-1}$, or parity?
 4. **The scope of "in every global form" and "in every case computed".**
    - Is there a natural global form without the sector $Q=0$, $\alpha=0$, for example a fermionic form with only the Ramond sector, or boundary conditions twisted by charge conjugation or the diagram automorphism?
@@ -71,10 +74,9 @@ Conventions: $q^2=-e^{i\psi}$, $\psi=2\pi^2/3\xi$ reduced to $(-\pi,\pi]$, in th
    - Check that the three identities plus Yang–Baxter give pairing within $(Q,\alpha)$. In particular, check the reordering similarity $R_{12}\cdots R_{1N}\sim R_{1N}\cdots R_{12}$: it must commute with $\Omega_1$ and preserve $Q$.
    - Can the identities be proved rather than checked numerically?
    - For Izergin–Korepin, find a basis or gradation in which $R^{\mathsf T}=R_{21}$, or another proof (`t9` tried diagonal $x^{am}$ gauges only).
-7. **The crossing-sign remarks.**
-   - Check that $C^{-1}C^{\mathsf T}$ is diagonal and that $\epsilon_n=-1,-1,+1,+1$.
-   - Check that the finite part of the $c_n^{(1)}$ spinor's quantum group is $b_n$, and that these are its Frobenius–Schur indicators.
-   - Check that "the factor is a scalar, so it is not a grading" is not misleading.
+7. **The sign of $q$ as a Bloch twist.** PR #4 traced the crossing sign $(-1)^n$ to the sign of $q$, and this branch no longer claims anything about the symmetry type of $C$.
+   - Check `t14` independently, including other couplings, $N=5$ for $c_2^{(1)}$, and whether the phase $c_Q$ is really constant within each charge sector.
+   - Check that the statements of the paragraph "The sign of $q$" (line 240) follow, in particular that the two-soliton Bloch tori are unchanged.
 8. **The quantum-trace coincidence (`32-scattering.qmd:238`).** Is $q^{\pm2m}$, in these conventions, the twist implementing the quantum trace of the $U_q(a_1)$ subalgebra of the $(1,2)$ restriction? Check $q$ versus $q_{\rm TW}$ and the power. If not, say what the boundary $\lvert\alpha\rvert=\lvert\arg q^2\rvert$ is. The other branch of the two-kink threshold, $\lvert\alpha\rvert=2\lvert\psi\rvert-\pi$ for $\pi/2\le\lvert\psi\rvert\le2\pi/3$, equals $\lvert\arg(-q^4)\rvert$. Is it the quantum-trace twist of the $U_{q^4}(a_1)$ subalgebra of the $(1,5)$ restriction, up to a sign $(-1)^m$? The book does not state this; propose text only if you can confirm an interpretation.
 9. **Labels and wording of every edit.**
    - Check the status labels against the evidence.
@@ -100,7 +102,7 @@ Conventions: $q^2=-e^{i\psi}$, $\psi=2\pi^2/3\xi$ reduced to $(-\pi,\pi]$, in th
 
 In your final message:
 
-- a verdict for each of `prp-exchange-twist`, `prp-bloch-sectors`, the convention argument, the scope claim, each new or revised table row, the Krein-pairing argument and the crossing-sign remark: keep, downgrade (to which label) or fix;
+- a verdict for each of `prp-exchange-twist`, `prp-bloch-sectors`, the convention argument, the scope claim, each new or revised table row, the Krein-pairing argument and the sign-of-$q$ twist: keep, downgrade (to which label) or fix;
 - findings ranked most severe first, each with its location (file and line, or id), a concrete failure scenario, and proposed replacement text in the book's style (short declarative sentences, LaTeX in `$...$`, no hype, labels as **[Theorem]**, [Proposition, sketch], [Established], [Numerical], [Conjecture]);
 - the numbers you re-ran, with precision and the scripts used;
 - prior art found, with exact citations and what each establishes;

@@ -25,7 +25,7 @@ $$
 2T=\frac{4\pi h}{\beta^2}-h^\vee .
 $$
 
-In this formula $h$ and $h^\vee$ are the Coxeter and dual Coxeter numbers of $\hat{\mathfrak g}$. We write $q=e^{-i\pi\omega}$ and use the rapidity variable $t=T\theta/(i\pi)$, so that $x=e^{2\pi i t}$ and the physical strip is $0<t<T$. A pole of $\check R$ at $x=\varepsilon q^{-l}$ then corresponds to positions $t\equiv l\omega/2+\arg(\varepsilon)/2\pi \pmod 1$.
+In this formula $h$ and $h^\vee$ are the Coxeter and dual Coxeter numbers of $\hat{\mathfrak g}$. For twisted $\hat{\mathfrak g}=X^{(k)}$ the formula holds with $\beta^2$ replaced by $\beta_{\rm lit}^2=\beta^2/k$ (@sec-conventions) and with Kac's dual Coxeter number $h^\vee$ (@sec-qg-gradation). With $\omega=4\pi/\beta^2-1$ in the normalization of @sec-lie-algebraic-data, we write $q=-e^{-i\pi\omega}=e^{-4\pi^2i/\beta^2}$, the value (-@eq-q-physical) of Bernard and LeClair for the coproduct of the non-local charges, and use the rapidity variable $t=T\theta/(i\pi)$, so that $x=e^{2\pi i t}$ and the physical strip is $0<t<T$. A pole of $\check R$ at $x=\varepsilon q^{-l}$ then corresponds to positions $t\equiv l(\omega+1)/2+\arg(\varepsilon)/2\pi \pmod 1$. All the poles tabulated in this part have even $l$, where this is $t\equiv l\omega/2+\arg(\varepsilon)/2\pi$.
 
 ## Unitarity and crossing {#sec-unitarity-crossing}
 
@@ -69,7 +69,9 @@ We compare these products, in exact arithmetic in $\omega$, with the Delius–Gr
 
 ## The crossing sign {#sec-crossing-sign}
 
-Our numerical crossing test compares $S(i\pi-\theta)$ with $(C\otimes 1)\,S_{21}(\theta)^{t_1}\,(C^{-1}\otimes 1)$. For the $c_n^{(1)}$ spinor it returns $(-1)^n$. For $n=1$ (sine-Gordon, whose S-matrix is known exactly) and for $n=2$ (where the S-matrix of [@gmw1996] is known), the physical relation holds with the same $c\,f$. So the test form differs from physical crossing by the convention factor $(-1)^n$, and no extra CDD factor is needed. The exact breather identities below confirm this for $n=3$ and $n=4$. The factor is a scalar, so it is not a grading of the exchange of soliton labels, which acts by signs that depend on the labels (@prp-exchange-twist). It is not the symmetry type of $C$ either: $C^{-1}C^{\mathsf T}$ is diagonal, and as $q\to1$, $C^{\mathsf T}=\epsilon_nC$ with $\epsilon_n=-1,-1,+1,+1$ for $n=1,\dots,4$, the reality type of the $b_n$ spinor [Numerical]. A derivation of the convention factor from the charge-conjugation structure is still owed.
+Our numerical crossing test compares $S(i\pi-\theta)$ with $(C\otimes 1)\,S_{21}(\theta)^{t_1}\,(C^{-1}\otimes 1)$, and returns the ratio of the two as a number $\kappa$. With $q=-e^{-i\pi\omega}$ it returns $\kappa=+1$ for the $c_n^{(1)}$ spinor, $n=1,2,3,4$, and for the $a_5^{(2)}$ spinor, so these amplitudes are crossing symmetric with the scalar factor $c\,f$ and no extra CDD factor. For $n=1$ the amplitude is Zamolodchikov's (-@eq-sg-smatrix).
+
+The test detects the sign of $q$. The crossing point, $T$, the eigenvalues of $\check R$, the zeros $a_j$ and $c\,f$ depend on $q$ only through $q^2$. But $q\to-q$ conjugates $\check R$ by a diagonal sign matrix on $V\otimes V$ that is not a product of one-soliton basis changes. For sine-Gordon it reverses $S_T$ relative to $S_R$ (@sec-six-vertex). It also multiplies $c_u$, and with it $\kappa$, by $(-1)^n$ for the $c_n^{(1)}$ spinor, and by $-1$ for the $a_5^{(2)}$ spinor. A computation with $q=e^{-i\pi\omega}$, minus the physical value, therefore gives $\kappa=(-1)^n$ for the $c_n^{(1)}$ spinor. That amplitude describes the same particles with the opposite relative exchange sign of solitons and antisolitons; for $n=1$ it is Zamolodchikov's with $S_T\to-S_T$. For all the representations computed, the change of $\kappa$ under $q\to-q$ is $(-1)^{2(\lambda,\rho)}$, with $\lambda$ the highest weight of the horizontal representation in the normalization in which the short roots have squared length 2 [Conjecture]. For the $b_n$ spinors $2(\lambda,\rho)=n^2$. On the Bethe–Yang equations the conjugation acts as a Bloch twist (@prp-bloch-sectors): in every charge sector, $N$ spinor solitons at $-q$ have the spectrum that they have at $q$ in the Bloch sector $\alpha=\pi N(1,\dots,1)$, up to a phase common to the sector [Numerical]. The twist is trivial for even $N$, in particular in the sector $Q=0$.
 
 ## Worked example: the $a_n^{(1)}$ solitons {#sec-an-example}
 
@@ -83,7 +85,7 @@ $$
 \check R_{11}(x)=P_{\rm sym}+\rho(x)\,P_{\rm antisym},
 $$
 
-with $\rho$ the six-vertex eigenvalue (-@eq-six-vertex-eigenvalue) for every $n$. In the conventions of this chapter ($q=e^{-i\pi\omega}$, which corresponds to $q\to q^{-1}$ relative to @sec-six-vertex), $\rho$ has its pole at $x=q^{-2}$ and its zero at $x=q^{2}$. The residue at the pole projects onto the antisymmetric tensors, which are $V_2=\Lambda^2\mathbb C^{n+1}$.
+with $\rho$ the six-vertex eigenvalue (-@eq-six-vertex-eigenvalue) for every $n$. With the coproduct of this part, which replaces $q$ by $q^{-1}$ relative to @sec-six-vertex, $\rho$ has its pole at $x=q^{-2}$ and its zero at $x=q^{2}$. Both depend only on $q^2$. The residue at the pole projects onto the antisymmetric tensors, which are $V_2=\Lambda^2\mathbb C^{n+1}$.
 
 **Bound states.** The pole $x=q^{-2}$ lies at $t\equiv\omega\pmod1$. With $2T=h\omega$, the value $t=\omega$ corresponds to
 

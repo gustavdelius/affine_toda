@@ -1,7 +1,7 @@
 """26-dim representation of U_q(f_4^(1)) (symmetry of imaginary e_6^(2) Toda solitons), solved numerically from the relations"""
 import numpy as np, itertools, os, time
 from scipy.optimize import least_squares
-omega = float(os.environ.get('OMEGA', '2.37')); q = np.exp(-1j*np.pi*omega)
+omega = float(os.environ.get('OMEGA', '2.37')); q = float(__import__("os").environ.get("QSIGN", "1"))*np.exp(-1j*np.pi*omega)
 e = np.eye(4)
 simple = {1: e[1]-e[2], 2: e[2]-e[3], 3: e[3], 4: 0.5*(e[0]-e[1]-e[2]-e[3])}     # Bourbaki F4: 1-2=>3-4, alpha1,2 long
 theta = e[0] + e[1]; simple[0] = -theta

@@ -1,7 +1,7 @@
 """U_q(d_4^(2)) on the 8 = 7 + 1 (c_3^(1) soliton 1), built from the relations; R-matrix poles and crossing point"""
 import numpy as np, os, time
 from scipy.optimize import least_squares
-omega = float(os.environ.get('OMEGA', '2.37')); q = np.exp(-1j*np.pi*omega)
+omega = float(os.environ.get('OMEGA', '2.37')); q = float(__import__("os").environ.get("QSIGN", "1"))*np.exp(-1j*np.pi*omega)
 e3 = np.eye(3)
 simple = {1: e3[0]-e3[1], 2: e3[1]-e3[2], 3: e3[2], 0: -e3[0]}
 W = np.array([s*e3[i] for i in range(3) for s in (1, -1)] + [np.zeros(3), np.zeros(3)]); n = 8

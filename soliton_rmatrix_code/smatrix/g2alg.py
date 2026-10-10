@@ -1,7 +1,7 @@
 """U_q(g_2^(1)) on 7 (ALG=g2: d_4^(3) solitons) and U_q(d_4^(3)) on 8 = 7+1 (ALG=d43: g_2^(1) solitons)"""
 import numpy as np, os, time
 from scipy.optimize import least_squares
-ALG = os.environ.get('ALG', 'g2'); omega = float(os.environ.get('OMEGA', '2.37')); q = np.exp(-1j*np.pi*omega)
+ALG = os.environ.get('ALG', 'g2'); omega = float(os.environ.get('OMEGA', '2.37')); q = float(__import__("os").environ.get("QSIGN", "1"))*np.exp(-1j*np.pi*omega)
 a1 = np.array([1.0, 0.0]); a2 = np.array([-1.5, np.sqrt(3)/2])                     # alpha1 short (norm 1), alpha2 long (norm 3)
 shorts = [s*v for v in (a1, a1 + a2, 2*a1 + a2) for s in (1, -1)]
 theta, theta_s = 3*a1 + 2*a2, 2*a1 + a2

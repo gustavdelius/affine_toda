@@ -2,7 +2,7 @@
 
 Checks behind Propositions `prp-exchange-twist` and `prp-bloch-sectors` and the Bloch-sector rows of the table in Section `sec-sector-status` (`part7-foundations/32-scattering.qmd`). The scripts import `lib.py`, `a22three.py`, `a22.py`, `rsolve.py` and `dtw.py` from the parent directory `sectors/`. Run them from this directory; outputs are in `out/`.
 
-Conventions: $q^2=-e^{i\psi}$, $\psi=2\pi^2/3\xi$ reduced to $(-\pi,\pi]$, $q_{\rm code}=\bar q_{\rm TW}$, as in `../a22three.py`. Couplings are offset by $0.0013\pi$ in $\xi$ to avoid roots of unity. Spinor amplitudes use $q=e^{-i\pi\omega}$, as in `../spinor_scan.py`. The twist in the Bloch sector $\alpha$ is $e^{i\alpha\cdot\mu_1}$ on soliton 1; its sign is immaterial. "Unbroken" means $\max\lvert\lvert s\rvert-1\rvert<10^{-6}$ over the rapidities sampled.
+Conventions: $q^2=-e^{i\psi}$, $\psi=2\pi^2/3\xi$ reduced to $(-\pi,\pi]$, $q_{\rm code}=\bar q_{\rm TW}$, as in `../a22three.py`. Couplings are offset by $0.0013\pi$ in $\xi$ to avoid roots of unity. Spinor amplitudes use $q=e^{-i\pi\omega}$ by default, as in `../spinor_scan.py`; this is minus the physical value (book: `eq-q-physical`). With `QSIGN=-1`, `spin_common.py` uses the physical $q$; the reruns of `t5`–`t8` at the physical $q$ are in `out/qsign/`. The Izergin–Korepin ($a_2^{(2)}$) spectra depend on $q^2$ only. The twist in the Bloch sector $\alpha$ is $e^{i\alpha\cdot\mu_1}$ on soliton 1; its sign is immaterial. "Unbroken" means $\max\lvert\lvert s\rvert-1\rvert<10^{-6}$ over the rapidities sampled.
 
 | Script (arguments) | Output | What it checks |
 |---|---|---|
@@ -16,7 +16,7 @@ Conventions: $q^2=-e^{i\psi}$, $\psi=2\pi^2/3\xi$ reduced to $(-\pi,\pi]$, $q_{\
 | `t7_krein_ops.py` | `out_t7_krein_ops.txt` | $R_{12}(x)^\dagger=R_{12}(1/x)$ and $\mathcal CR_{12}\mathcal C=R_{21}$ for the Izergin–Korepin and spinor R-matrices |
 | `t8_transpose.py` | `out_t8_transpose.txt` | $R_{12}^{\mathsf T}=R_{21}$ (holds for the spinors, fails for Izergin–Korepin in this gradation) |
 | `t9_ik_gauge.py` | `out_t9_ik_gauge.txt` | no diagonal regauging $x^{am}$ restores $R^{\mathsf T}=R_{21}$ for Izergin–Korepin |
-| `t10_crossC.py omega` | `out_t10_crossC_w2.37.txt`, `out_t10_crossC_w0.002.txt` | $c_n^{(1)}$ spinor charge conjugation: $C^{-1}C^{\mathsf T}$ is diagonal; as $q\to1$, $C^{\mathsf T}=\epsilon_nC$ with $\epsilon_n=-1,-1,+1,+1$ |
 | `t11_psi_pi.py` | `out_t11_psi_pi.txt` | at $\psi=\pi$ ($\xi=2\pi/3$, $q^2=1$) the kink amplitude is diagonal and unbroken |
 | `t12_excited_sectors.py` | `out_t12_excited_sectors.txt` | soliton–excited soliton ($\check R(-z)$) by $Q$ at $\alpha=0,\pi$ |
 | `t13_Qpm1_all_alpha.py` | `out_t13_Qpm1_all_alpha.txt` | two kinks, $Q=\pm1$: unimodular for every $\alpha\in[-\pi,\pi]$ |
+| `t14_qsign_twist.py` | `out_t14_qsign_twist.txt` | the sign of $q$ as a Bloch twist: $N$ spinor solitons at $-q$ have, in every charge sector, the spectrum at $q$ with $\alpha=\pi N(1,\dots,1)$, up to a phase per sector ($c_2^{(1)}$, $c_3^{(1)}$, $a_3^{(2)}$, $a_5^{(2)}$, $N\le4$) |

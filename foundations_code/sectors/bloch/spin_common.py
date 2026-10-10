@@ -3,6 +3,7 @@ import sys, os, math, itertools, numpy as np
 SECTORS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 sys.path.insert(0, SECTORS)
 from lib import *
+QS = float(os.environ.get('QSIGN', '1'))
 def make(N, alg):
     D = 2**N; Wn = spin_weights(N); P = flip(D, D)
     roots = {i: np.eye(N)[i-1] - np.eye(N)[i] for i in range(1, N)}; roots[N] = np.eye(N)[N-1]
@@ -18,6 +19,7 @@ def make(N, alg):
                 out.append(v)
         return out
     def setup(q):
+        q = QS*q                                  # QSIGN=-1: the physical q = -e^{-i pi omega} (book: eq-q-physical)
         e, f, k, qi = spinor_rep(N, q, 1.0, alg)
         comps = components(e, f, k, Wn, range(1, N+1), roots)
         byd = {d: Pm for d, Pm, _ in comps}

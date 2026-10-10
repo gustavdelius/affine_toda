@@ -1,7 +1,7 @@
 import numpy as np, itertools
 from rsolve import intertwiner
 # --- n = 2 spinor representation of U_q(d_3^(2)) at unimodular q, with the same conventions
-n2 = 2; omega = 2.37; q = np.exp(-1j*np.pi*omega)
+n2 = 2; omega = 2.37; q = float(__import__("os").environ.get("QSIGN", "1"))*np.exp(-1j*np.pi*omega)
 sp, sm, I2 = np.array([[0,1],[0,0]],complex), np.array([[0,0],[1,0]],complex), np.eye(2)
 def site(op, i):
     mats = [I2]*n2; mats[i] = op; out = mats[0]
