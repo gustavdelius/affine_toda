@@ -84,7 +84,9 @@ $$
 \Delta M=-\frac1{4\sqrt\pi}\int_0^\infty t^{-3/2}\Big[\operatorname{Tr}\big(e^{-t\mathcal A}-e^{-t\mathcal A_0}\big)+t\operatorname{Tr}\big((\mathcal A-\mathcal A_0)e^{-t\mathcal A_0}\big)\Big]dt .
 $$ {#eq-one-loop-mellin}
 
-The second trace is $\frac1{\sqrt{4\pi t}}\sum_bc_be^{-tm_b^2}$, with $c_b=\int e_{\bar b}^{\mathsf T}(M-M_0)e_b\,dx$ in the channel basis of @sec-counting-rule-transmission-factors. @prp-one-loop-mass shows that the integral converges for the solitons of this book.
+The second trace is $\frac1{\sqrt{4\pi t}}\sum_bc_be^{-tm_b^2}$, with $c_b=\int e_{\bar b}^{\mathsf T}(M-M_0)e_b\,dx$ in the channel basis of @sec-counting-rule-transmission-factors. @prp-one-loop-mass shows that the integral converges for the solitons of this book. For the sine-Gordon and $\phi^4$ kinks it gives the DHN values. Heat-kernel and zeta-function treatments of kink masses are in [@alonso2002; @bordag2002].
+
+(-@eq-one-loop-mellin) is a definition. That it is the continuum limit of the lattice Gaussian of @prp-thimble-gaussian, with the lattice counterterm, is not proved here. Two kinds of evidence support it: lattice evaluations of (-@eq-one-loop-mass) agree with it to about $10^{-4}$ (@sec-resolution-semiclassical-mass-disagreements), and the masses it gives agree with every known exact result (@sec-one-loop-masses-folded). The theorems of @sec-jordan-chains and @sec-one-loop-masses are about (-@eq-one-loop-mellin).
 
 The traditional DHN mode sum expands fluctuations in orthonormal eigenfunctions of $\mathcal A$. That presupposes $\mathcal A$ is diagonalizable with non-self-orthogonal eigenvectors, which can fail for a complex symmetric $\mathcal A$.
 
@@ -94,7 +96,7 @@ The path integral for $\operatorname{Tr}e^{-TH_g}$ is independent of $g$: every 
 
 ## Which saddles contribute {#sec-which-saddles-contribute}
 
-The one-loop mass (-@eq-one-loop-mass) is independent of $\operatorname{Im}\xi$. This was checked numerically across topological sectors, including nearly singular ones. For the solitons covered by @prp-one-loop-mass it is a theorem, because the transmission factors do not depend on $\xi$. Classically the same holds by @prp-hirota-energy. So the intersection numbers $n_\sigma$ determine which topological sectors appear, but not the masses.
+The one-loop mass (-@eq-one-loop-mass) is independent of $\operatorname{Im}\xi$. This was checked numerically across topological sectors, including nearly singular ones. For the solitons covered by @prp-one-loop-mass it is a theorem in every regular sector, that is, wherever no $\tau_j$ vanishes on the real line, because the transmission factors do not depend on $\xi$. Classically the same holds by @prp-hirota-energy. So the intersection numbers $n_\sigma$ determine which topological sectors appear, but not the masses.
 
 ::: {#prp-static-saddles}
 ## Static saddles cannot fill the multiplets
