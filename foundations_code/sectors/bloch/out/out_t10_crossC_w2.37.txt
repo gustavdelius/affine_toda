@@ -1,0 +1,5 @@
+n=1: t=+q^-2; C^-1 C^T diagonal (offdiag 0e+00); diag/q-powers: [-0.397 -0.397]
+n=2: t=-q^-4; C^-1 C^T diagonal (offdiag 2e-16); diag/q-powers: [0.063 0.685 0.685 0.063]
+n=3: t=+q^-6; C^-1 C^T diagonal (offdiag 1e-15); diag/q-powers: [-0.509 -0.279 -0.941  0.397  0.397 -0.941 -0.279 -0.509]
+n=4: t=-q^-8; C^-1 C^T diagonal (offdiag 1e-15); diag/q-powers: [ 0.969 -0.844  0.588 -0.992  0.771 -0.063  1.    -0.685 -0.685  1.
+ -0.063  0.771 -0.992  0.588 -0.844  0.969]

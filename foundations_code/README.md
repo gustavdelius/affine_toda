@@ -13,6 +13,7 @@ Scripts behind the numerical checks quoted in Part I of the book (`foundations/*
 | `thimbles/` | Section 8.4 | reduced static model: critical points, intersection numbers, exact thimble integrals and the decomposition check (`check_th4.py`, output `out_check_th4.txt`); classical topological charges of Hirota solitons (`charges.py`, `charges_multi.py`) |
 | `krein_bethe.py`, `scan_n4.py` | Proposition 9.3 | Krein-unitarity of fundamental-soliton Bethe–Yang transfer matrices; breaking by colour content |
 | `sectors/` | Section 9.3, Proposition 9.4 | eigenvalue moduli of soliton, excited-soliton and breather amplitudes of the self-conjugate theories; $a_2^{(2)}$ kinks; exchange-statistics tests |
+| `sectors/bloch/` | Section `sec-sector-status`, Propositions `prp-exchange-twist` and `prp-bloch-sectors` | graded exchange as a Bloch twist; breaking by charge sector and Bloch angle for $a_2^{(2)}$ kinks and spinor solitons; Krein pairing within sectors; see its `README.md` |
 | `irf/` | Proposition 9.6 | RSOS face weights of $a_2^{(1)}$ kinks; Yang–Baxter, braiding unitarity, Hermitian analyticity, restricted transfer matrices (`checks.py ybe|ha|tm|vertex|signs`) |
 
 Scripts in `sectors/` reuse `rsolve.py` and `dtw.py` from `soliton_rmatrix_code/`, copied alongside.

@@ -4,7 +4,8 @@ Self-contained task briefs for follow-up work on the book. The first two were wr
 
 | Brief | Task | Paper location |
 |---|---|---|
-| `exchange_statistics.md` | Decide which exchange of soliton labels the Bethe–Yang equations require, and hence which multi-soliton sectors are $\Theta$-broken | Section `sec-sector-status` (caveat on exchange statistics), open problem 6 (see below) |
+| `exchange_statistics.md` | Decide which exchange of soliton labels the Bethe–Yang equations require, and hence which multi-soliton sectors are $\Theta$-broken. **Answered 2026-10-10:** a graded exchange is a Bloch twist, and the global form selects the twists; integrated as Propositions `prp-exchange-twist` and `prp-bloch-sectors` (scripts in `foundations_code/sectors/bloch/`). Still needs a referee pass. | Section `sec-sector-status` (paragraph "Exchange statistics and Bloch sectors"), open problem 6 (see below) |
+| `referee_exchange_statistics.md` | Adversarial referee pass on the answer to `exchange_statistics.md`: the proofs of `prp-exchange-twist` and `prp-bloch-sectors`, the scope claim "in every global form", the numerics in `foundations_code/sectors/bloch/`, and prior art | Section `sec-sector-status`, open problem 6, `sec-crossing-sign` |
 | `referee_textbook.md` | Referee the textbook chapters 1–16 and 20, and the textbook framing of 17–27: what was verified, and a prioritized list of unverified formulas, conventions, claims and references | `part1-background/`, `part2-algebra/`, `part3-classical/`, `part4-real-coupling/`, `part5-semiclassics/`, `part6-soliton-smatrices/`, `textbook_code/` |
 | `rigorous_heat_trace.md` | Turn Proposition `prp-net-count` part 2 and Proposition `prp-one-loop-mass` from sketches into theorems | Sections `sec-counting-rule-transmission-factors` and `sec-one-loop-masses-folded`, open problem 3 (see below) |
 
@@ -39,11 +40,13 @@ The papers are chapters of a Quarto book, and Quarto renumbers sections and theo
 | `prp-krein-unitarity` | `part7-foundations/32-scattering.qmd` | Proposition 9.1 | Proposition 9.1 |
 | `prp-krein-fundamental` | `part7-foundations/32-scattering.qmd` | Proposition 9.3 | Proposition 9.3 |
 | `prp-scalar-breathers` | `part7-foundations/32-scattering.qmd` | Proposition 9.4 | Proposition 9.4 |
+| `prp-exchange-twist` | `part7-foundations/32-scattering.qmd` | (new, 2026-10-10) | — |
+| `prp-bloch-sectors` | `part7-foundations/32-scattering.qmd` | (new, 2026-10-10) | — |
 | `sec-crossing-sign` | `part6-soliton-smatrices/21-construction.qmd` | 14.6 | Section 2.6 of the S-matrix note |
 
 The numbers in the third column may drift as chapters change; the ids will not.
 
 Open problems are items of numbered lists, not labelled objects. Use the first words of the item:
 
-- Former Part I open problems, now in `part7-foundations/33-outlook.qmd`: item 3 is the one that begins with a reference to `cnj-counting-rule` ("… in general"); item 6 is "The sector classification for self-conjugate theories".
+- Former Part I open problems, now in `part7-foundations/33-outlook.qmd`: item 3 is the one that begins with a reference to `cnj-counting-rule` ("… in general"); item 6 is "The sector classification for self-conjugate theories" (its former sub-item "Exchange statistics" is now "Bloch sectors").
 - Former Part II open problems, now in `part6-soliton-smatrices/26-f4-solitons.qmd` (section `sec-sm-discussion`): item 4 is "Crossing convention".
