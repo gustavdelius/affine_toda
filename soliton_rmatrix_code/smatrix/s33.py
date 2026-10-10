@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.special import loggamma
 from common import *
-import os; omega = float(os.environ.get('OMEGA', '2.37')); q = np.exp(-1j*np.pi*omega); T = 3*omega + 1; mu = 2*T
+import os; omega = float(os.environ.get('OMEGA', '2.37')); q = float(__import__("os").environ.get("QSIGN", "1"))*np.exp(-1j*np.pi*omega); T = 3*omega + 1; mu = 2*T
 S = Spinor33(q); C = np.load('C.npy'); Ci = np.linalg.inv(C); tc = np.load('t.npy')[0]
 A = [omega, 2*omega + 0.5, 3*omega]                         # zeros of the crossing factor c
 def c_of(t): return np.prod([np.sin(np.pi*(t - a)) for a in A], axis=0)

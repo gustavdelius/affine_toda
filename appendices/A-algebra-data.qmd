@@ -54,7 +54,7 @@ In the normalization of this book the imaginary-coupling theory based on $\hat g
 
 - **vacua** on $\frac{2\pi}\beta$ times the coweight lattice (@sec-real-imaginary);
 - **soliton masses** $M_a=2hm_a/\beta^2$ classically for simply-laced $\hat g$ (@sec-soliton-masses), and proportional to the particle masses of $(g^\vee)^{(1)}$ for untwisted non-simply-laced $\hat g$;
-- **soliton symmetry** $U_q(\hat g^\vee)$ with $q=\pm e^{4\pi^2i/\beta^2}$ (@sec-qg-symmetry);
+- **soliton symmetry** $U_q(\hat g^\vee)$ with $q=e^{-4\pi^2i/\beta^2}$ for the coproduct of Part VI, $e^{4\pi^2i/\beta^2}$ for that of @sec-hopf (@sec-qg-coproduct);
 - **gradation** $x(\theta)=e^{2T\theta}$ with $2T=\frac{4\pi h}{\beta^2}-h^\vee$, where for twisted $\hat g$ the coupling is $\beta_{\rm lit}$ (@sec-amplitude-and-gradation);
-- **coupling variable** $\omega=\frac{4\pi}{\beta^2}-1$ in Part VI, so that $q=e^{-i\pi\omega}$ up to the conventions discussed in @sec-six-vertex;
+- **coupling variable** $\omega=\frac{4\pi}{\beta^2}-1$ in Part VI, so that $q=-e^{-i\pi\omega}$ (@sec-amplitude-and-gradation);
 - **first collapse threshold** $\beta^2_{\rm UV}$ of @sec-collapse-thresholds: $2\pi$ for $a_1^{(1)}$, $4\pi(h-1)/h$ for the other simply-laced algebras, $4\pi$ for $b_n^{(1)}$, $c_n^{(1)}$, $g_2^{(1)}$ and $a_2^{(2)}$.

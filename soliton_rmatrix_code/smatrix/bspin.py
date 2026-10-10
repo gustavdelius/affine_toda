@@ -2,7 +2,7 @@
 import numpy as np, itertools, os, math
 from rsolve import intertwiner
 N = int(os.environ.get('NSPIN', '3')); omega = float(os.environ.get('OMEGA', '2.37'))
-q = np.exp(-1j*np.pi*omega); D = 2**N
+q = float(__import__("os").environ.get("QSIGN", "1"))*np.exp(-1j*np.pi*omega); D = 2**N
 sp, sm, I2 = np.array([[0,1],[0,0]],complex), np.array([[0,0],[1,0]],complex), np.eye(2)
 def site(op, i):
     mats = [I2]*N; mats[i] = op; out = mats[0]

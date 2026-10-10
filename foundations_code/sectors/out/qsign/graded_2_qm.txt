@@ -1,0 +1,6 @@
+n=2 omega=2.37: 2-body with plain flip: maxdev 6.77e-01
+n=2 omega=2.37: 2-body with graded flip: maxdev 1.46e-10
+n=2 omega=1.61: 2-body with plain flip: maxdev 5.34e-01
+n=2 omega=1.61: 2-body with graded flip: maxdev 4.76e-10
+n=2 omega=0.3: 2-body with plain flip: maxdev 1.45e+00
+n=2 omega=0.3: 2-body with graded flip: maxdev 1.24e-10
