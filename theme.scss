@@ -1,0 +1,149 @@
+/*-- scss:defaults --*/
+
+// Serif running text to match the TeX math; sans-serif headings and chrome.
+// Both cosmo and darkly import $web-font-path, so this replaces their fonts.
+$web-font-path: "https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap";
+$font-family-sans-serif: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+$font-family-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+$font-family-base: $font-family-serif;
+$headings-font-family: $font-family-sans-serif;
+$line-height-base: 1.6;
+
+
+/*-- scss:rules --*/
+
+// Colours are mixed from each theme's own background and text, so the same
+// rules serve the light (cosmo) and dark (darkly) themes.
+$atf-rule: mix($body-color, $body-bg, 18%);
+$atf-muted: mix($body-color, $body-bg, 55%);
+$atf-theorem: $primary;
+$atf-conjecture: #7b4fc9;
+$atf-proved: #2f8f46;
+$atf-partial: #c27c0e;
+
+@function atf-tint($colour, $amount) {
+  @return mix($colour, $body-bg, $amount);
+}
+
+// Links from other pages land at the very top, under the fixed title bar.
+// Quarto corrects only in-page jumps, which then sit a little lower.
+html {
+  scroll-padding-top: 5.5rem;
+}
+
+@media (max-width: 991.98px) {
+  // The mobile header adds a breadcrumb bar.
+  html {
+    scroll-padding-top: 8.5rem;
+  }
+
+  // Keep the title, tools and search icon on one row; the title shrinks.
+  .navbar .navbar-container {
+    flex-wrap: nowrap;
+  }
+
+  .navbar-brand-container {
+    min-width: 0;
+  }
+
+  .navbar .quarto-navbar-tools {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+
+// Navigation, labels and tables in sans-serif.
+.sidebar, #TOC, .navbar, .nav-page, .breadcrumb, .quarto-title-meta,
+.theorem-title, .proof-title, .callout-header, figcaption, table, .status-tag {
+  font-family: $font-family-sans-serif;
+}
+
+code:not(.sourceCode) {
+  color: mix($body-color, $body-bg, 85%);
+}
+
+// Theorem-like environments hold long statements with lists and displays;
+// keep the text upright and let the label carry the emphasis.
+.theorem {
+  font-style: normal;
+}
+
+.theorem:not(.exercise) {
+  background-color: atf-tint($atf-theorem, 6%);
+  border-left: 3px solid $atf-theorem;
+  border-radius: 0 $border-radius $border-radius 0;
+  padding: 0.75rem 1rem;
+  margin: 1.5rem 0;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.theorem.conjecture {
+  background-color: atf-tint($atf-conjecture, 6%);
+  border-left-color: $atf-conjecture;
+}
+
+.theorem.exercise {
+  border-left: 2px solid $atf-rule;
+  padding-left: 0.9rem;
+  margin: 1.1rem 0;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+.proof {
+  position: relative;
+  border-left: 1px solid $atf-rule;
+  padding: 0 1.75rem 0.1rem 1rem;
+  margin: 1rem 0 1.5rem;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+
+  &::after {
+    content: "∎";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    color: $atf-muted;
+  }
+}
+
+// Status labels such as [Theorem] or [Conjecture]; status-tags.lua sets the kind.
+.status-tag {
+  font-size: 0.8em;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.1em 0.55em;
+  margin-right: 0.25em;
+  border-radius: 1em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+@each $kind, $colour in (proved: $atf-proved, partial: $atf-partial,
+                         conjecture: $atf-conjecture, mixed: $atf-muted) {
+  .status-#{$kind} {
+    color: mix($colour, $body-color, 75%);
+    background-color: atf-tint($colour, 16%);
+  }
+}
+
+// On phones, let wide equations and tables scroll instead of overflowing.
+@media (max-width: 767.98px) {
+  mjx-container[display="true"] {
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+  }
+
+  main table {
+    display: block;
+    overflow-x: auto;
+  }
+}

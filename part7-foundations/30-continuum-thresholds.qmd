@@ -76,7 +76,7 @@ $$ {#eq-wicked-partition}
 Pointwise Wick ordering removes exactly the diagonal terms $k=l$; pairs $k\ne l$ at the same site are kept. The prefactor is field-independent (a vacuum-energy counterterm) and cancels from all correlation functions. For external charges $\beta\vec w_m$ at sites $v_m$, let $\Xi_a(w,v)$ be the same expansion with these charges added (not summed over) and with $W_a$ including all pairs. Then $\big\langle\prod_m:e^{i\beta\vec w_m\cdot\vec\phi_{v_m}}:\big\rangle=\Xi_a(w,v)/\Xi_a$. The continuum versions replace $C_a$ by $G_\Omega$ and $a^2\sum_u$ by $\int_\Omega$.
 
 ::: {#prp-continuum-limit}
-**[Theorem: @thm-below-2pi for $\beta^2<2\pi$, @thm-window for $2\pi\le\beta^2<\beta^2_{\rm UV}$]** Let $0<\beta^2<\beta^2_{\rm UV}(\hat g)$, fix the finite volume, and use pointwise Wick ordering.
+**[Theorem]** (@thm-below-2pi for $\beta^2<2\pi$, @thm-window for $2\pi\le\beta^2<\beta^2_{\rm UV}$) Let $0<\beta^2<\beta^2_{\rm UV}(\hat g)$, fix the finite volume, and use pointwise Wick ordering.
 
 1. $\Xi_a$ converges as $a\to0$ to the continuum version of (-@eq-wicked-partition). Every term is positive and finite, and the series converges.
 2. The same holds for $\Xi_a(w,v)$, with fixed distinct interior points $v_m$ (approximated by lattice sites), provided that for every $m$ and every non-empty multiset $S$ of affine roots

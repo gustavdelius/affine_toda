@@ -1,5 +1,5 @@
 ---
-title: "Exact soliton S-matrices"
+title: "Part VI: Exact soliton S-matrices"
 ---
 
 Soliton S-matrices built from R-matrices of quantum affine algebras: the general construction, the known cases, new constructions for $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$, the open case $f_4^{(1)}$, and RSOS restriction.

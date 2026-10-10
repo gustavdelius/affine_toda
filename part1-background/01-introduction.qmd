@@ -45,6 +45,7 @@ The dependencies between the parts are shown below. Chapter 4 is needed only for
 ```{mermaid}
 %%| label: fig-dependencies
 %%| fig-cap: "Dependencies between the parts of the book. An arrow means that the later part uses the earlier one."
+%%| fig-width: 6
 flowchart LR
   I["I. Physical background<br/>ch. 1–4"] --> III["III. Classical theory<br/>ch. 9–11"]
   II["II. Algebraic background<br/>ch. 5–8"] --> III

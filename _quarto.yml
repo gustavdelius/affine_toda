@@ -4,7 +4,20 @@ project:
 
 book:
   title: "Affine Toda field theory"
+  subtitle: "A graduate introduction, leading into current research"
+  author: "Gustav Delius"
   repo-url: https://github.com/gustavdelius/affine_toda
+  output-file: affine-toda
+  downloads: [pdf]
+  reader-mode: true
+  navbar:
+    background: primary
+  search:
+    location: navbar
+    type: textbox
+  sidebar:
+    style: docked
+    collapse-level: 1
   chapters:
     - index.qmd
     - part: part1-background/part.qmd
@@ -69,9 +82,27 @@ nocite: |
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme:
+      light: [cosmo, theme.scss]
+      dark: [darkly, theme.scss, theme-dark.scss]
     toc: true
     toc-depth: 3
     number-sections: true
     html-math-method: mathjax
+    filters:
+      - path: status-tags.lua
+        at: pre-ast
+  pdf:
+    documentclass: scrreprt
+    classoption: [enabledeprecatedfontcommands]  # math uses \rm, \bf
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    filters:
+      - path: part-preamble.lua
+        at: post-render
+    include-in-header:
+      text: |
+        % Part titles already read "Part I: ...", so drop LaTeX's own part label
+        \renewcommand*{\partformat}{}
+        \renewcommand*{\addparttocentry}[2]{\addtocentrydefault{part}{}{#2}}
