@@ -7,7 +7,7 @@
 - Construct breathers, describe soliton fusion, and compute classical time delays.
 :::
 
-The imaginary-coupling theories have infinitely many vacua, and their finite-energy solutions interpolate between them. Unlike the sine-Gordon kink, these solitons are complex: for every algebra other than $a_1^{(1)}$, a field that tends to vacua at both ends and solves the field equations takes complex values in between. This chapter constructs the solutions and computes their charges and masses. @sec-classical asks why their energies are nevertheless real.
+The imaginary-coupling theories have infinitely many vacua, and their finite-energy solutions interpolate between them. Unlike the sine-Gordon kink, these solitons are in general complex: a field that tends to vacua at both ends and solves the field equations typically takes complex values in between. (Exceptions are embedded sine-Gordon kinks, e.g. the species-$n$ soliton of $a_{2n-1}^{(1)}$ at $\operatorname{Im}\xi=\pi/2$, which has $\tau_{2k+1}=\bar\tau_{2k}$ and is real.) This chapter constructs the solutions and computes their charges and masses. @sec-classical asks why their energies are nevertheless real.
 
 ## Imaginary coupling: vacua, solitons, symmetry {#sec-imaginary-coupling-vacua}
 
@@ -48,7 +48,7 @@ $$
 \tfrac12\big(D_x^2-D_t^2\big)\,\tau_j\cdot\tau_j=m^2n_j\frac{\vec\alpha_j^2}2\Big(\tau_j^2-\prod_{l\ne j}\tau_l^{-a_{lj}}\Big).
 $$ {#eq-hirota-bilinear}
 
-For simply-laced $\hat g$ the product runs over the neighbours of $j$ in the affine Dynkin diagram. These are the equations used in @sec-hirota-form-dn1-en1 (with $m=1$).
+For simply-laced $\hat g$ the product runs over the neighbours of $j$ in the affine Dynkin diagram, counted with multiplicity $-a_{lj}$ (for $a_1^{(1)}$ it is $\tau_{1-j}^2$). These are the equations used in @sec-hirota-form-dn1-en1 (with $m=1$).
 
 **The single soliton of $a_n^{(1)}$.** Let $h=n+1$, $\omega=e^{2\pi i/h}$, and for a species $a\in\{1,\dots,n\}$
 
@@ -72,7 +72,7 @@ $$
 
 where the $F^a(z)$ are the eigenvectors of the principal Heisenberg subalgebra introduced in @sec-vertex-operators. The species $a$ determines the mass, $z$ the rapidity, and $Q$ combines position and internal phase. Two facts make this useful.
 
-- **Polynomial structure.** On $L(\Lambda_j)$, $F^a$ is nilpotent, $(F^a)^{n_j+1}=0$, which is why a single-soliton $\tau_j$ is a polynomial of degree $n_j$ in $E$. The nilpotency of products of different $F$'s controls the degree of the fluctuation solutions in Part V (hypothesis (D) of @sec-hirota-form-dn1-en1).
+- **Polynomial structure.** For simply-laced $\hat g$, $(F^a)^{n_j+1}=0$ on $L(\Lambda_j)$, which has level $n_j$ [@olive1993b], so a single-soliton $\tau_j$ has degree at most $n_j$ in $E$. That the degree is exactly $n_j$ is explicit for $a_n^{(1)}$ and checked numerically for $d_{4..8}^{(1)}$, $e_{6,7,8}^{(1)}$ (@sec-hirota-form-dn1-en1). For folded theories the relevant label is $n_j^\vee$ (the level), and a coincident orbit $O$ has degree $\lvert O\rvert n_j^\vee$, e.g. 2 at the long end nodes of $c_n^{(1)}$. Bounds on products of different $F$'s are hypothesis (D) of @sec-hirota-form-dn1-en1, which is verified only numerically.
 - **Multi-solitons.** Products of the exponentials give multi-solitons, and the normal-ordering factors between vertex operators give the interaction coefficients below.
 
 ## Topological charges {#sec-topological-charges}
@@ -83,7 +83,7 @@ $$
 \vec\phi(+\infty)=-\frac1\beta\sum_j\vec\alpha_j\,\big[\vartheta_j\big]_{(-\pi,\pi)} .
 $$
 
-This lies in $\frac{2\pi}\beta\Lambda_W^\vee$. The **topological charge** $\frac\beta{2\pi}\vec\phi(+\infty)$ is a weight of the $a$-th fundamental representation $\Lambda^a\mathbb C^h$ of $su(h)$ [@mcghee1994]. Which weight depends on $\operatorname{Im}\xi$: as $\operatorname{Im}\xi$ increases, the reduced phases jump one at a time, and the charge moves through a sequence of weights.
+This lies in $\frac{2\pi}\beta\Lambda_W^\vee$. The **topological charge** $\frac\beta{2\pi}\vec\phi(+\infty)$ is a weight of the $a$-th fundamental representation $\Lambda^a\mathbb C^h$ of $su(h)$ [@mcghee1994]. Which weight depends on $\operatorname{Im}\xi$: as $\operatorname{Im}\xi$ increases through $2\pi$, the reduced phases jump at $h/\gcd(a,h)$ values, $\gcd(a,h)$ of them at once (those with $j$ in one residue class mod $h/\gcd(a,h)$), and the charge runs through a cycle of $h/\gcd(a,h)$ weights.
 
 But it does not visit them all. A single soliton of species $a$ realizes only $h/\gcd(a,h)$ distinct charges, while $\Lambda^a\mathbb C^h$ has $\binom ha$ weights [@mcghee1994]. For $a_2^{(1)}$ all three weights of the fundamental representation occur. For the species-2 soliton of $a_3^{(1)}$ only 2 of the 6 weights of $\Lambda^2\mathbb C^4$ occur. In the quantum theory the solitons form complete multiplets of $U_q(\hat g^\vee)$. Which classical solutions carry the missing charges is the **missing-charge problem**, taken up in @sec-missing-charges and @sec-which-saddles-contribute.
 
@@ -115,13 +115,13 @@ $$ {#eq-interaction-coefficient}
 
 For two solitons this can be checked directly against the field equation.
 
-**Time delays.** Near soliton 1, far from soliton 2, either $E_2\to0$, and $\tau_j\simeq1+\omega^{ja_1}E_1$, or $E_2\to\infty$, and $\tau_j\simeq\omega^{ja_2}E_2\big(1+\omega^{ja_1}A_{a_1a_2}E_1\big)$. So soliton 1 emerges from the collision with $\xi_1$ shifted by $\ln A_{a_1a_2}(\theta_1-\theta_2)$, which is a displacement $-\ln A_{a_1a_2}/(m_{a_1}\cosh\theta_1)$ of its trajectory, with shape and velocity unchanged. This is the classical counterpart of factorized elastic scattering. For real rapidities $A_{ab}$ is real and positive, so the displacement is real. Semiclassically, the time delay is the derivative of the phase of the S-matrix, and the classical time delays reproduce the leading behaviour of the exact soliton S-matrices [@fring1994].
+**Time delays.** Near soliton 1, far from soliton 2, either $E_2\to0$, and $\tau_j\simeq1+\omega^{ja_1}E_1$, or $E_2\to\infty$, and $\tau_j\simeq\omega^{ja_2}E_2\big(1+\omega^{ja_1}A_{a_1a_2}E_1\big)$. So, for $\theta_1>\theta_2$, soliton 1 emerges from the collision with $\xi_1$ shifted by $\ln A_{a_1a_2}(\theta_1-\theta_2)$, which is a displacement $-\ln A_{a_1a_2}/(m_{a_1}\cosh\theta_1)$ of its trajectory, with shape and velocity unchanged. This is the classical counterpart of factorized elastic scattering. For real rapidities $0<A_{ab}<1$, so the displacement is real and positive, a time advance. Semiclassically, the time delay is the derivative of the phase of the S-matrix [@fring1994]: $d\delta_{ab}/d\theta=(2h/\beta^2)\ln A_{ab}(\theta)$ at leading order. For sine-Gordon this is the leading term of $-i\ln S_0$ in (-@eq-sg-s0).
 
 **Fusion.** At $\theta_1-\theta_2=i\pi(a+b)/h$, the denominator of $A_{ab}$ vanishes. Take $\theta_1=\theta+i\pi b/h$ and $\theta_2=\theta-i\pi a/h$. Then $E_1E_2$ has the exponent of a single soliton of species $a+b$ with rapidity $\theta$, because $m_ae^{i\pi b/h}+m_be^{-i\pi a/h}=m_{a+b}$, and the phases combine to $\omega^{j(a+b)}$. Letting $\xi_1,\xi_2\to-\infty$ while keeping $A_{ab}e^{\xi_1+\xi_2}$ fixed reduces (-@eq-n-soliton) to the single soliton of species $a+b$. Classically, two solitons fuse into a third at the same fusing angle as the corresponding particles: the soliton masses obey the same mass triangles as the particles. This is the classical shadow of the bootstrap.
 
 ## Breathers {#sec-breathers}
 
-A soliton of species $a$ and one of the conjugate species $\bar a=h-a$, with complex-conjugate rapidities $\theta_0\pm iu$ and suitably related $\xi$'s, form a **breather**: a localized, time-periodic solution of zero topological charge. Its energy is
+A soliton of species $a$ and one of the conjugate species $\bar a=h-a$, with complex-conjugate rapidities $\theta_0\pm iu$ (so $u$ here is $\frac\pi2$ minus the $u$ of @sec-sg-classical) and suitably related $\xi$'s, form a **breather**: a localized, time-periodic solution of zero topological charge. Its energy is
 
 $$
 E=M_a\cosh(\theta_0+iu)+M_{\bar a}\cosh(\theta_0-iu)=2M_a\cosh\theta_0\cos u ,
@@ -138,11 +138,11 @@ Derive (-@eq-hirota-bilinear) from (-@eq-toda-eom) and (-@eq-hirota-ansatz). Whe
 :::
 
 ::: {#exr-moving-soliton}
-Show that (-@eq-an-soliton) with $\theta\ne0$ solves (-@eq-hirota-bilinear), and that $D_x^2-D_t^2$ acting on it produces $m_a^2(\cosh^2\theta-\sinh^2\theta)$.
+Show that (-@eq-an-soliton) with $\theta\ne0$ solves (-@eq-hirota-bilinear), and that $\frac12(D_x^2-D_t^2)\tau_j\cdot\tau_j=m_a^2(\cosh^2\theta-\sinh^2\theta)\,\omega^{ja}E$.
 :::
 
 ::: {#exr-soliton-mass}
-Compute the energy of the static soliton of $a_2^{(1)}$, $\int dx\,\big(\frac12\vec\phi'\cdot\vec\phi'+V_{\rm imag}\big)$ without complex conjugation, for $\operatorname{Im}\xi$ chosen so that no $\tau_j$ vanishes on the real line. Show that it equals $2hm_a/\beta^2$ and is independent of $\xi$. (A numerical check is in `textbook_code/toda_classical.py`.)
+Compute the energy of the static soliton of $a_2^{(1)}$, $\int dx\,\big(\frac12\vec\phi'\cdot\vec\phi'+V_{\rm imag}\big)$ without complex conjugation, for $\operatorname{Im}\xi$ chosen so that no $\tau_j$ vanishes on the real line. Show that it equals $2hm_a/\beta^2$ and is independent of $\xi$. (*Hint:* for a static soliton $E=2\int V\,dx=\frac2{\beta^2}\sum_j\frac2{\vec\alpha_j^2}\big[\partial_x\ln\tau_j\big]_{-\infty}^{\infty}$.) (A numerical check is in `textbook_code/toda_classical.py`.)
 :::
 
 ::: {#exr-charges-a3}

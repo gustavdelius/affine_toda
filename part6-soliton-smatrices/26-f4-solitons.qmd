@@ -146,7 +146,7 @@ A single construction covers every case treated here. The amplitude is $S=c\,f\,
 | $a_{2n-1}^{(2)}$ | $U_q(b_n^{(1)})$, spinor | $(2n-1)\omega+n-1$ | $2n-1-\frac{1/2}{\omega+1/2}$ | particle $n$ |
 | $e_6^{(2)}$ | $U_q(f_4^{(1)})$, $\mathbf{26}$ | $9\omega+3$ | $18+\frac{6}{\omega}$ | particle 1 |
 | $d_4^{(3)}$ [@takacs1997c] | $U_q(g_2^{(1)})$, $\mathbf7$ | $6\omega+3$ | $12+\frac{6}{\omega}$ | particle 1 |
-| $g_2^{(1)}$ [@takacs1997d] | $U_q(d_4^{(3)})$, $\mathbf8$ | $3\omega+1$ | $\frac{6T}{T+1}$ | particle 2 |
+| $g_2^{(1)}$ [@takacs1997b] | $U_q(d_4^{(3)})$, $\mathbf8$ | $3\omega+1$ | $\frac{6T}{T+1}$ | particle 2 |
 | $f_4^{(1)}$ | $U_q(e_6^{(2)})$, $\mathbf{27}$ | $6\omega+\frac32$ from the one-loop soliton masses (@sec-soliton-masses-one-loop) | solitons $12+3\beta^2/4\pi$, breathers $12-3\beta^2/4\pi$ at one loop; minimal $\mathbf{27}$ amplitude fails; no finite CDD fix | open |
 
 The identifications fix the particle S-matrices' coupling dependence completely. For $c_n^{(1)}$ and $a_{2n-1}^{(2)}$ they give exactly DGZ's $B(\beta)=\dfrac{\beta^2/2\pi}{1+\beta^2/4\pi}$, continued to imaginary coupling. DGZ had checked this form only to $O(\beta^4)$. For $e_6^{(2)}$ they give a definite $H(\beta)$, which CDS left unspecified.
@@ -159,7 +159,7 @@ Open problems:
 2. **Other species.** Each theory has several fundamental soliton species, obtainable by fusion; we carried this out only for $c_3^{(1)}$. The S-matrices of the vector and Kirillov–Reshetikhin solitons of $a_{2n-1}^{(2)}$ and $e_6^{(2)}$ follow mechanically but are not written down here.
 3. **Coleman–Thun analysis.** Explain the soliton poles not accounted for here: single-channel tower poles, and three light 29-plet poles in the $c_3^{(1)}$ amplitude $S_{22}$.
 4. **Crossing and the sign of $q$.** The factor $(-1)^n$ that our crossing test once returned for the $c_n^{(1)}$ spinor came from computing with $q=e^{-i\pi\omega}$, minus the physical value (-@eq-q-physical). At the physical $q$ the test returns $+1$ (@sec-crossing-sign). What remains open is a proof that $q\to-q$ changes the crossing factor by $(-1)^{2(\lambda,\rho)}$ for every representation, presumably from the Cartan part of the universal R-matrix.
-5. **Larger $n$.** Checks for $n\ge5$ need spinor R-matrix projectors of dimension $2^{2n}$, at increasing cost. The closed forms of @sec-sm-cn and @sec-sm-a2n are conjectured for all $n$.
+5. **Larger $n$.** The spinor R-matrices are known for all $n$ [@dgz1994; @dgz1996]. The S-matrices built on them are conjectured for $n\ge5$; checking them needs spinor projectors of dimension $2^{2n}$, at increasing cost.
 6. **Unitarity.** These S-matrices are not unitary in the Hilbert-space sense. @sec-scattering shows they are unitary with respect to an indefinite (Krein) inner product. A unitary theory requires a restriction of RSOS type, which remains to be carried out for these algebras.
 
 ## Exercises {#sec-sm-f4-exercises}

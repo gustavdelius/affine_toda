@@ -135,7 +135,7 @@ $$
 S_0(\theta)=-\exp\left(-i\int_0^\infty\frac{dt}t\,\frac{\sinh\frac{(\pi-\xi)t}2\,\sin\theta t}{\sinh\frac{\xi t}2\,\cosh\frac{\pi t}2}\right),
 $$ {#eq-sg-s0}
 
-where the integral converges for $\lvert\operatorname{Im}\theta\rvert<\xi$ and $S_0$ is continued meromorphically beyond. Crossing exchanges $S_0(\theta)$ with $S_T(i\pi-\theta)$ and maps $S_R$ to itself. The ratios $S_T/S_0$ and $S_R/S_0$ are the entries of the trigonometric six-vertex R-matrix, the simplest R-matrix of a quantum affine algebra (@sec-sg-quantum-group). The scalar factor $S_0$ is the minimal solution of the remaining unitarity and crossing conditions. This "R-matrix times scalar factor" structure is the form of every soliton S-matrix in Part VI.
+where the integral converges for $\lvert\operatorname{Im}\theta\rvert<\min(\xi,\pi)$ and $S_0$ is continued meromorphically beyond. Crossing exchanges $S_0(\theta)$ with $S_T(i\pi-\theta)$ and maps $S_R$ to itself. The ratios $S_T/S_0$ and $S_R/S_0$ are the entries of the trigonometric six-vertex R-matrix, the simplest R-matrix of a quantum affine algebra (@sec-sg-quantum-group). The scalar factor $S_0$ is the minimal solution of the remaining unitarity and crossing conditions. This "R-matrix times scalar factor" structure is the form of every soliton S-matrix in Part VI.
 
 **Breather poles.** The factor $1/\sinh\lambda(i\pi-\theta)$ has poles at
 
@@ -176,9 +176,9 @@ Two remarks:
 
 ## Coleman's bound and the free-fermion point {#sec-sg-coleman}
 
-The operator $\cos\beta_{\rm SG}\phi$ has scaling dimension $\beta_{\rm SG}^2/4\pi$ at the free-boson fixed point. The perturbation is relevant for $\beta_{\rm SG}^2<8\pi$. Beyond this bound, found by Coleman, the theory flows to a massless free boson and has no mass gap. At $\beta_{\rm SG}^2\to8\pi$ one has $\xi\to\infty$ and $\lambda\to0$.
+The operator $\cos\beta_{\rm SG}\phi$ has scaling dimension $\beta_{\rm SG}^2/4\pi$ at the free-boson fixed point. The perturbation is relevant for $\beta_{\rm SG}^2<8\pi$. Beyond this bound, found by Coleman [@coleman1975], the theory flows to a massless free boson and has no mass gap. At $\beta_{\rm SG}^2\to8\pi$ one has $\xi\to\infty$ and $\lambda\to0$.
 
-Below $8\pi$ the ultraviolet divergences are mild but not absent. Normal ordering of $\cos\beta_{\rm SG}\phi$ removes all divergences of the correlation functions for $\beta_{\rm SG}^2<4\pi$. For $4\pi\le\beta_{\rm SG}^2<8\pi$ the vacuum energy needs further additive counterterms, at the thresholds $\beta_{\rm SG}^2=8\pi(1-\frac1{2k})$, $k=1,2,\dots$. In the language of @sec-collapse-thresholds these are the collapse thresholds of a two-dimensional Coulomb gas of positive and negative charges. Part VII shows that the same picture, with $r$ species of charges, governs every imaginary-coupling affine Toda theory.
+Below $8\pi$ the ultraviolet divergences are mild but not absent. Normal ordering of $\cos\beta_{\rm SG}\phi$ removes all divergences of the correlation functions for $\beta_{\rm SG}^2<4\pi$ [@frohlich1976]. A neutral cluster of $2k$ charges collapsing to a point diverges for $\beta_{\rm SG}^2\ge8\pi(1-\frac1{2k})$, $k=1,2,\dots$; the first case is a pair, $\int d^2y\,\lvert x-y\rvert^{-\beta_{\rm SG}^2/2\pi}$. In the vacuum energy these divergences require additive counterterms; in correlation functions of $\cos\beta_{\rm SG}\phi$ they also occur when integrated charges collapse onto an inserted one, and are removed by an additive renormalization of that operator. Clusters with nonzero net charge diverge only from $8\pi$ on, so below $8\pi$ finitely many field-independent counterterms suffice [@benfatto1982; @nicolo1986]. In the language of @sec-collapse-thresholds these are the collapse thresholds of a two-dimensional Coulomb gas of positive and negative charges. Part VII proves, for every imaginary-coupling affine Toda theory in finite volume, that normal ordering suffices exactly below the first collapse threshold, and locates the higher thresholds by power counting.
 
 ## Quantum-group symmetry and RSOS restriction {#sec-sg-quantum-group}
 
@@ -190,10 +190,10 @@ $$
 
 for the coproduct of @sec-quantum-groups. The opposite coproduct, used in Part VI, gives $q^{-1}$. The sign of $q$ is not a convention: changing it reverses the sign of the transmission amplitude relative to the reflection amplitude (@sec-six-vertex). The soliton and antisoliton form its two-dimensional evaluation representation, the S-matrix commutes with the charges, and so the S-matrix is a $U_q(\widehat{sl}_2)$ R-matrix times a scalar. This is how (-@eq-sg-smatrix) is understood today. @sec-quantum-groups develops the algebra and @sec-qg-symmetry the general case.
 
-When $q$ is a root of unity, the representation theory of $U_q(sl_2)$ admits a consistent truncation. In the S-matrix it amounts to replacing the soliton labels by kink labels in the IRF (RSOS) basis, keeping only the finitely many vacua allowed at that root of unity [@leclair1989; @smirnov1991; @reshetikhin1990]. The result is an S-matrix of kinks and breathers.
+When $q$ is a root of unity, the representation theory of $U_q(sl_2)$ admits a consistent truncation. In the S-matrix it amounts to replacing the soliton labels by kink labels in the IRF (RSOS) basis, keeping only the finitely many vacua allowed at that root of unity [@leclair1989; @smirnov1990; @reshetikhin1990]. The result is an S-matrix of kinks and breathers.
 
 ::: {#prp-sg-rsos}
-**[Established]** At $\beta_{\rm SG}^2/8\pi=p/p'$, with coprime $p<p'$, the RSOS restriction of sine-Gordon theory is the minimal model $\mathcal M(p,p')$ perturbed by its primary field $\phi_{1,3}$ [@leclair1989; @smirnov1991; @reshetikhin1990]. The coupling is $\xi=\pi p/(p'-p)$.
+**[Established]** At $\beta_{\rm SG}^2/8\pi=p/p'$, with coprime $p<p'$, the RSOS restriction of sine-Gordon theory is the minimal model $\mathcal M(p,p')$ perturbed by its primary field $\phi_{1,3}$ [@leclair1989; @smirnov1990; @reshetikhin1990]. The coupling is $\xi=\pi p/(p'-p)$.
 :::
 
 Two examples show both sides of what restriction can do.
@@ -245,9 +245,9 @@ Show that the substitution $\beta_{\rm SG}^2\to-\beta_{\rm SG}^2$ maps $B$ to $-
 :::
 
 ::: {#exr-sg-lee-yang}
-Show that at $\beta_{\rm SG}^2/8\pi=2/5$ there is exactly one breather, that its mass is $\sqrt3M$, and that its S-matrix is $f_{2/3}$. Locate its self-coupling pole.
+Show that at $\beta_{\rm SG}^2/8\pi=2/5$ there is exactly one breather, that its mass is $\sqrt3M$, and that its S-matrix is $f_{2/3}$. Locate the poles of $f_{2/3}$ in the physical strip. Why can the pole at $\theta=2\pi i/3$ not be a $B_1B_1\to B_1$ bound state in sine-Gordon theory (consider $\phi\to-\phi$), and what does it become after the restriction of @prp-sg-rsos?
 :::
 
 ## Notes and references {#sec-sine-gordon-notes}
 
-The classical theory, including the breather and multi-soliton solutions, is covered in Rajaraman's book [@rajaraman1982]. The semiclassical quantization is due to Dashen, Hasslacher and Neveu [-@dhn1975], and Faddeev and Korepin [-@faddeev1978] review it together with the quantum inverse scattering method. The exact S-matrix is in Zamolodchikov and Zamolodchikov [-@zz1979], and the explanation of the double poles of the breather amplitudes in Coleman and Thun [-@coleman_thun1978]. The sinh-Gordon S-matrix is due to Arinshtein, Fateev and Zamolodchikov [-@arinshtein1979]. For the quantum-group symmetry see Bernard and LeClair [-@bernard1991], and for RSOS restriction LeClair [-@leclair1989], Smirnov [-@smirnov1991] and Reshetikhin and Smirnov [-@reshetikhin1990]. The exact relation between the soliton mass and the coupling constant is in Al. B. Zamolodchikov [-@zamolodchikov1995].
+The classical theory, including the breather and multi-soliton solutions, is covered in Rajaraman's book [@rajaraman1982]. The semiclassical quantization is due to Dashen, Hasslacher and Neveu [-@dhn1975], and Faddeev and Korepin [-@faddeev1978] review it together with its relation to the classical inverse scattering method. The exact S-matrix is in Zamolodchikov and Zamolodchikov [-@zz1979], and the explanation of the double poles of the breather amplitudes in Coleman and Thun [-@coleman_thun1978]. The sinh-Gordon S-matrix is due to Arinshtein, Fateev and Zamolodchikov [-@arinshtein1979]. For the quantum-group symmetry see Bernard and LeClair [-@bernard1991], and for RSOS restriction LeClair [-@leclair1989], Smirnov [-@smirnov1990] and Reshetikhin and Smirnov [-@reshetikhin1990]. The exact relation between the soliton mass and the coupling constant is in Al. B. Zamolodchikov [-@zamolodchikov1995].

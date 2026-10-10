@@ -100,7 +100,7 @@ What the symmetry does not fix is the scalar factor, and in particular the posit
 ## Exercises {#sec-qg-symmetry-exercises}
 
 ::: {#exr-nonlocal-spin}
-A density of conformal weights $(h,\bar h)$ has Lorentz spin $h-\bar h$, and $\int dx$ lowers the spin by one. Use this to show that $\int dx\,J_\pm$ has spin $h_J-1$, and check that $H_\pm$ must then have weights $(h_J-1,1)$ up to $O(m_0^2)$ corrections.
+A density of conformal weights $(h,\bar h)$ has Lorentz spin $h-\bar h$, and $\int dx$ lowers the spin by one. Use this to show that $\int dx\,J_\pm$ has spin $h_J-1$, and check that $H_\pm=m_0^2V_\pm$ with $V_\pm$ of weights $(h_J-2+\beta_{\rm SG}^2/8\pi,\ \beta_{\rm SG}^2/8\pi)$, so that, counting the weights of $m_0^2$, $H_\pm$ has weights $(h_J-1,1)$ as $\partial_-J_\pm=\partial_+H_\pm$ requires.
 :::
 
 ::: {#exr-coproduct-q}

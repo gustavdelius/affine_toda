@@ -2,6 +2,16 @@
 
 Brief: `briefs/referee_textbook.md`. Date: 2026-10-10. No repository file was edited.
 
+**Integration status (2026-10-10).** Item 2 (sign of $q$) was integrated in PR #4 and item 19's sector follow-up in PR #2. All other items with replacement text were integrated on branch `textbook-referee-fixes`. One correction was made on the way: the Dorey–Dunning–Tateo reality proof is J. Phys. A 34 (2001) 5679, not L391. Not integrated, because the report marks them unclear or optional:
+- 06:79/166 (the source of the twisted labels);
+- 10:63 (`hollowood1992` for $d_n$/$e_n$ solitons);
+- 13:106 and 15:56 (the Albeverio–Høegh-Krohn range);
+- 14:61 (whether the breather identification fixes $B(\beta)$ exactly);
+- 22:28 (whether the $\mathbf{27}$ R-matrix is in [@gmw1996]);
+- the optional clarifications at 03:111, 04:136 and 16:70;
+- the suggested additions to `textbook_code/`;
+- the open question of the time-delay claim for $a_n$, $n\ge2$ (item 13).
+
 **How it was done.**
 - Eight independent referee agents covered disjoint item sets: bibliography; q conventions and crossing; tensor-product graph and ch. 7–8; Part I; ch. 5–6 and appendix A; Part III; Parts IV–V; Parts VI–VII framing.
 - Every verdict rests on a derivation or a computation. Literature was used only to confirm, never as the sole basis.

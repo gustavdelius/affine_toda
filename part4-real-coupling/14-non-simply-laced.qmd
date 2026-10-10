@@ -38,25 +38,30 @@ $$ {#eq-cn-snn}
 
 and the masses are $m_a\propto\sin\frac{\pi a}H$ exactly. The other amplitudes are built in the same way [@dgz1992].
 
-The floating Coxeter number interpolates linearly in $B$. At $B=0$ it is the Coxeter number $h$ of $\hat g$. At $B=2$ it is $k\,h^\vee$, where $h^\vee$ is the dual Coxeter number of $\hat g$ (equivalently the Coxeter number of the Lie dual $\hat g^\vee$, @tbl-foldings) and $k$ is the ratio of the squared lengths of long and short roots:
+The floating Coxeter number interpolates between the Coxeter number of $\hat g$, as it appears in the classical mass formula, and that of the dual theory $\hat g^\vee$. To one loop, with $B=\beta^2/2\pi+O(\beta^4)$ in the normalization of @sec-conventions (long roots of length$^2$ 2), the one-loop masses of the Lagrangian give @tbl-floating-h.
 
-$$
-H(B)=h+\frac B2\big(k\,h^\vee-h\big).
-$$ {#eq-floating-h}
+| $\hat g$ | $H$ | range | dual endpoint |
+|---|---|---|---|
+| $c_n^{(1)}$ | $2n+\tfrac12B$ | $2n\le H\le 2n+2$ | $d_{n+1}^{(2)}$, masses $\sin\frac{\pi a}{2n+2}$ |
+| $b_n^{(1)}$ | $2n-\tfrac12B$ | $2n-1\le H\le 2n$ | $a_{2n-1}^{(2)}$, masses $2\sin\frac{\pi a}{2n-1}$, spinor 1 |
+| $g_2^{(1)}$ | $6+B$ | $6\le H\le12$ | $d_4^{(3)}$ |
+| $f_4^{(1)}$ | $12+\tfrac32B$ | $12\le H\le18$ | $e_6^{(2)}$ |
 
-For $c_n^{(1)}$, with $h=2n$, $h^\vee=n+1$ and $k=2$, this gives $H=2n+B$. For $f_4^{(1)}$, with $h=12$, $h^\vee=9$ and $k=2$, it gives $H=12+3B$, the relation confirmed by the one-loop computation of @sec-sm-f4. The $(g_2^{(1)},d_4^{(3)})$ and $(b_n^{(1)},a_{2n-1}^{(2)})$ pairs, and the more intricate mass formulas of the exceptional pairs, which involve a second floating parameter, are in [@dgz1992; @corrigan1993].
+: One-loop floating Coxeter numbers in the normalization of @sec-conventions. {#tbl-floating-h}
+
+In the normalization in which the *short* roots have length$^2$ 2 (coupling $\beta^2/k$), the entries for $c_n^{(1)}$, $g_2^{(1)}$ and $f_4^{(1)}$ become $2n+B$, $6+3B$ and $12+3B$, which is how Delius, Grisaru and Zanon write $c_n^{(1)}$ and Corrigan, Dorey and Sasaki write the exceptional pairs. $b_n^{(1)}$ does not fit this pattern: its $H$ decreases, from $h=2n$ to $h^\vee=2n-1$. For $f_4^{(1)}$ the masses also involve $H'$ with $1/H+1/H'=1/6$ [@corrigan1993]. The relation $H-12=3B_{\rm tree}$ confirmed in @sec-sm-f4 refers to the parameter of the CDS blocks, which is $\beta^2/4\pi$ in our normalization.
 
 ## Duality between the members of a dual pair {#sec-nsl-duality}
 
-The S-matrix (-@eq-cn-snn) is built from blocks that are invariant under $B\to2-B$ only if $H$ is held fixed. Under $B\to2-B$, $H$ moves from one end of its range to the other. The S-matrix of $\hat g$ at strong coupling, $B\to2$, therefore has the mass ratios and pole structure of a theory with Coxeter number $kh^\vee$: the Lie dual $\hat g^\vee$ at weak coupling, in the normalization in which its longest roots have length$^2$ $2k$. One family of S-matrices describes both members of the dual pair, $\hat g$ near $B=0$ and $\hat g^\vee$ near $B=2$ [@dgz1992; @corrigan1993].
+The S-matrix (-@eq-cn-snn) is built from blocks that are invariant under $B\to2-B$ only if $H$ is held fixed. Under $B\to2-B$, $H$ moves from one end of its range to the other. The S-matrix of $\hat g$ at strong coupling, $B\to2$, therefore has the mass ratios and pole structure of a theory whose classical masses are those of the dual theory $\hat g^\vee$ (the dual endpoints of @tbl-floating-h). One family of S-matrices describes both members of the dual pair, $\hat g$ near $B=0$ and $\hat g^\vee$ near $B=2$ [@dgz1992; @corrigan1993].
 
-This is a sharper form of strong–weak duality than in the simply-laced case. There a theory is dual to itself. Here it is dual to a different theory, the one obtained by reversing the arrows of its Dynkin diagram, and the classical masses of one theory are the strong-coupling masses of the other. The same Lie duality appears classically in the soliton masses (@sec-soliton-masses) and in the quantum group of the soliton S-matrices (@sec-qg-symmetry).
+This is a sharper form of strong–weak duality than in the simply-laced case. There a theory is dual to itself. Here it is dual to a different theory, the one obtained by reversing the arrows of its Dynkin diagram, and the classical masses of one theory are the strong-coupling masses of the other. The same duality $\hat g\to\hat g^\vee$ appears in the quantum group of the soliton S-matrices (@sec-qg-symmetry). A related but different Lie duality appears in the soliton masses: the solitons of $X^{(1)}$ have the particle mass ratios of $(X^\vee)^{(1)}$ (@sec-soliton-masses).
 
 ## Status {#sec-nsl-status}
 
 The non-simply-laced S-matrices are conjectures, supported by three kinds of evidence.
 
-- **One loop.** The floating Coxeter number reproduces the one-loop masses, and the one-loop amplitudes, of every non-simply-laced theory [@dgz1992; @corrigan1993].
+- **One loop.** The floating Coxeter number reproduces the one-loop masses of $a_{2n-1}^{(2)}$, $b_n^{(1)}$, $c_n^{(1)}$, $d_{n+1}^{(2)}$ and $g_2^{(1)}$, and their tree amplitudes, and a one-loop residue fixes $B(\beta)$ to $O(\beta^4)$ [@dgz1992]. For $f_4^{(1)}$ the one-loop masses are checked in @sec-sm-f4.
 - **The bootstrap.** The S-matrices close under the bootstrap, with the floating fusing angles.
 - **Breather–particle identification.** At imaginary coupling, the lowest breathers of the soliton S-matrices of Part VI scatter exactly as these particle S-matrices continued to imaginary coupling, with no free parameter (@sec-breather-particle-identification). For $c_n^{(1)}$ and $a_{2n-1}^{(2)}$ this fixes $B(\beta)$ completely, and it agrees with the form $B=\frac{\beta^2/2\pi}{1+\beta^2/4\pi}$, in the normalization of [@dgz1992], which had been checked only to one loop.
 
@@ -65,11 +70,11 @@ For $f_4^{(1)}$ the corresponding soliton S-matrix is not known (@sec-sm-f4).
 ## Exercises {#sec-non-simply-laced-exercises}
 
 ::: {#exr-cn-snn}
-Show that (-@eq-cn-snn) satisfies unitarity and crossing for any $H$. Locate its poles in the physical strip for $n=2$ and identify the bound states.
+Show that (-@eq-cn-snn) satisfies unitarity and crossing for any $H$. For $n=2$, show that the only poles in the physical strip are simple poles at $\theta=2\pi i/H$ and $i\pi(1-2/H)$, remnants of double poles partly cancelled by CDD zeros, that their residues change sign at $B=1$, and that they are therefore not bound states [@corrigan1993].
 :::
 
 ::: {#exr-floating-endpoints}
-Check (-@eq-floating-h) at both ends for $c_n^{(1)}$: at $B=2$, show that the masses $\sin\frac{\pi a}{2n+2}$ are those of $d_{n+1}^{(2)}$ in a suitable normalization.
+Check the $c_n^{(1)}$ entry of @tbl-floating-h at both ends: at $B=2$, show that the masses $\sin\frac{\pi a}{2n+2}$ are those of $d_{n+1}^{(2)}$ in a suitable normalization.
 :::
 
 ::: {#exr-cn-one-loop}

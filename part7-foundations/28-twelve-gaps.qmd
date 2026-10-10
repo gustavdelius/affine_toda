@@ -71,7 +71,7 @@ The resulting picture is that imaginary-coupling ATFTs are valid **non-unitary**
 |---|---|---|
 | H1 | existence of the regularized theory | closed: Theorems [-@thm-bounded-weight] and [-@thm-coulomb-gas] (lattice) |
 | H2 | sign problem from the complex action | closed: @thm-coulomb-gas (positive Coulomb gas) |
-| H3 | continuum limit | closed in finite volume for $\beta^2<\beta^2_{\rm UV}$: @thm-below-2pi for $\beta^2<2\pi$, @thm-window in the window $2\pi\le\beta^2<\beta^2_{\rm UV}$; further counterterms needed at and above $\beta^2_{\rm UV}$ (@prp-uv-divergence); infinite volume open (@cnj-correlation-range) |
+| H3 | continuum limit | proved here (awaiting independent check) in finite volume for $\beta^2<\beta^2_{\rm UV}$: @thm-below-2pi for $\beta^2<2\pi$, @thm-window in the window $2\pi\le\beta^2<\beta^2_{\rm UV}$; further counterterms needed at and above $\beta^2_{\rm UV}$ (@prp-uv-divergence); infinite volume open (@cnj-correlation-range) |
 | H4 | Hilbert space and Hamiltonian | closed: @thm-krein-transfer (Krein space, $\Theta$-symmetry) |
 | H5 | reality of the vacuum energy | closed: @thm-vacuum-energy |
 | H6 | reality of classical energies; singular and complex-energy solutions | closed: @prp-hirota-energy and the $\Theta$ selection rule |

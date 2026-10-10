@@ -23,7 +23,7 @@ $$
 \Theta:(a,\theta,\xi)\mapsto(\bar a,\bar\theta,\bar\xi),\qquad\bar a=h-a .
 $$ {#eq-theta-data}
 
-A real field is $\Theta$-invariant only if it is odd, $\vec\phi=-\vec\phi$, so the interesting invariant solutions are complex. The sine-Gordon kink, for which $\bar a=a$, is mapped to a solution with the opposite topological charge and conjugate $\xi$.
+A $\Theta$-invariant field satisfies $\vec\phi=-\bar{\vec\phi}$ (up to a vacuum shift), i.e. it is purely imaginary, and $-i\vec\phi$ solves the real-coupling equation; it carries no topological charge. So no soliton is $\Theta$-invariant as a field, and for solitons $\Theta$-invariance is a property of the asymptotic data. The sine-Gordon kink, for which $\bar a=a$, is mapped to a solution with the opposite topological charge and conjugate $\xi$.
 
 ## Reality of energy and momentum {#sec-reality-energy-momentum}
 
@@ -38,9 +38,9 @@ where $(a_i,\theta_i)$ are the species and (possibly complex) rapidities of the 
 
 :::
 
-On Hirota data, $\Theta$ acts as $\tau_j\mapsto\bar\tau_j$. That is, $(a,\theta,p)\mapsto(\bar a,\bar\theta,\bar p)$, where $\bar a$ is the conjugate species ($\omega^{ja}\mapsto\omega^{-ja}$). Consequently:
+On Hirota data, $\Theta$ acts as $\tau_j\mapsto\bar\tau_j$. That is, $(a,\theta,\xi)\mapsto(\bar a,\bar\theta,\bar\xi)$, where $\bar a$ is the conjugate species ($\omega^{ja}\mapsto\omega^{-ja}$). Consequently:
 
-- **Selection rule.** If the asymptotic data $\{(a_i,\theta_i)\}$ are $\Theta$-invariant, meaning the rapidities are real or occur in conjugate pairs with conjugate species, then $E$, $P$ and all conserved charges are real. Solitons and breathers are of this kind.
+- **Selection rule.** If the asymptotic data are $\Theta$-invariant, i.e. the multiset $\{(a_i,\theta_i)\}$ is mapped to itself by $(a,\theta)\mapsto(\bar a,\bar\theta)$, then every conserved charge satisfies $Q=\epsilon_Q\bar Q$, where $J_Q(-\bar{\vec\phi})=\epsilon_Q\overline{J_Q(\vec\phi)}$ defines $\epsilon_Q=\pm1$; in particular $E$ and $P$ are real. Breathers are of this kind. A single soliton with real rapidity is $\Theta$-invariant only if $\bar a=a$; for $\bar a\ne a$ its $E$ and $P$ are real because $M_{\bar a}=M_a$, but charge-conjugation-odd charges behave differently: in $a_2^{(1)}$ the spin-2 charge, normalized to be real on single solitons, is imaginary on breathers.
 - **Complex energies.** The complex-energy solutions of Khastgir and Sasaki have asymptotic data that are not $\Theta$-invariant. They are not in the physical sector, for the same reason that complex eigenvalues of a $\Theta$-symmetric operator are not $\Theta$-invariant states (@sec-antilinear).
 
 This closes gap H6 of @sec-critique, apart from the question of singularities. The restriction to "good" solutions, previously ad hoc, is the classical shadow of @thm-krein-transfer.
@@ -48,13 +48,13 @@ This closes gap H6 of @sec-critique, apart from the question of singularities. T
 
 **Examples.**
 
-- A single soliton with real rapidity $\theta$ is covered by the rule, and $E=M_a\cosh\theta$ is real. ($\Theta$ maps it to a soliton of the conjugate species, which has the same mass.)
+- A single soliton with real rapidity $\theta$ has $E=M_a\cosh\theta$ real. It is $\Theta$-invariant only if $\bar a=a$; otherwise $\Theta$ maps it to a soliton of the conjugate species, which has the same mass.
 - A breather (@sec-breathers) has asymptotic data $\{(a,\theta_0+iu),(\bar a,\theta_0-iu)\}$, which $\Theta$ maps to itself. Its energy $2M_a\cosh\theta_0\cos u$ is real, although each constituent has complex rapidity.
 - A single soliton with complex rapidity $\theta_0+iu$ alone has $E=M_a(\cosh\theta_0\cos u+i\sinh\theta_0\sin u)$, complex for $\theta_0u\neq0$. Its data are not $\Theta$-invariant, and it is excluded.
 
 ## Singular solutions {#sec-singular-solutions}
 
-Zeros of $\tau_j$ in the real $(x,t)$ plane are isolated points: one complex condition, two real conditions. There the energy density has double poles with zero residue, so integrated charges are unaffected, and the Hirota data continue analytically through the singularity.
+Zeros of $\tau_j$ in the real $(x,t)$ plane are generically isolated points: one complex condition, two real conditions. Non-generic data, such as a single soliton with tuned $\operatorname{Im}\xi$ or a breather with $\xi_2=\bar\xi_1$, give curves of zeros. There the energy density has double poles with zero residue, so integrated charges are unaffected, and the Hirota data continue analytically through the singularity.
 
 The genuinely problematic phenomenon is different. In theories with non-self-conjugate species, soliton–breather scattering produces complex time delays and can carry regular data into singular regions [@tw1999]. This is the classical image of a quantum sector in which $\Theta$ is broken (@sec-sector-status). It is not a failure of the formalism.
 
@@ -73,7 +73,7 @@ The problem is gap H11 of @sec-critique, and it is open.
 ## Exercises {#sec-classical-exercises}
 
 ::: {#exr-theta-solutions}
-Show that $\vec\phi\mapsto-\bar{\vec\phi}$ maps solutions of the imaginary-coupling field equation to solutions. Show that it is not a symmetry of the real-coupling field equation, and find the antilinear map that is.
+Show that $\vec\phi\mapsto-\bar{\vec\phi}$ maps solutions of the imaginary-coupling field equation to solutions. Show that it is not a symmetry of the real-coupling field equation (unless $\hat g=a_1^{(1)}$, where $\vec\phi\mapsto-\vec\phi$ is itself a symmetry), and find the antilinear map that is.
 :::
 
 ::: {#exr-theta-interaction}
@@ -81,7 +81,7 @@ Show that $\overline{A_{ab}(\theta)}=A_{h-a,h-b}(\bar\theta)$ for (-@eq-interact
 :::
 
 ::: {#exr-breather-real}
-Show that the asymptotic data of a breather are $\Theta$-invariant. If moreover $\xi_2=\bar\xi_1$, show that $\bar\tau_j=\tau_j$ and that the field is purely imaginary. For sine-Gordon, show that the real breather (-@eq-sg-breather) instead has $\xi_2=\bar\xi_1+i\pi$.
+Show that the asymptotic data of a breather are $\Theta$-invariant. If moreover $\xi_2=\bar\xi_1$, show that $\bar\tau_j=\tau_j$, so that the field is purely imaginary where all $\tau_j>0$, and that the $\tau_j$ change sign, so this solution is singular along curves in the $(x,t)$ plane. For sine-Gordon, show that the real breather (-@eq-sg-breather) instead has $\xi_2=\bar\xi_1+i\pi$.
 :::
 
 ::: {#exr-singular-points}

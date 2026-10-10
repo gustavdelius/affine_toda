@@ -22,7 +22,7 @@ $$
 \rho_k(x)=\prod_{i=1}^{\lceil k/2\rceil}\langle 4k-8i+6\rangle_+ ,
 $$
 
-so that for $n=3$ the four eigenvalues are $1$, $\langle2\rangle$, $\langle6\rangle$ and $\langle2\rangle\langle10\rangle$. We found this formula at $n=3$ and confirmed it at $n=4$ against an independent solution, to $10^{-12}$. The crossing point is $x_c=q^{-2(2n-1)}$, where $2n-1$ is the dual Coxeter number of $b_n$.
+so that for $n=3$ the four eigenvalues are $1$, $\langle2\rangle$, $\langle6\rangle$ and $\langle2\rangle\langle10\rangle$. This is the $U_q(b_n^{(1)})$ spinor R-matrix derived for all $n$ by Delius, Gould and Zhang [@dgz1994, eqs. (4.21)–(4.25), with their $q$ equal to our $q^{-2}$]; we confirmed it at $n=3,4$ against direct solutions, to $10^{-12}$. The crossing point is $x_c=q^{-2(2n-1)}$, where $2n-1$ is the dual Coxeter number of $b_n$.
 
 ## Parameters, bound states and masses {#sec-parameters-bound-states-masses}
 
@@ -74,4 +74,4 @@ Expand the lattice formula $H=2n-1-\beta^2/(8\pi-\beta^2)$ of @sec-a2n-lattice t
 
 ## Notes and references {#sec-sm-a2n-notes}
 
-The $n=2$ case, $a_3^{(2)}\simeq d_3^{(2)}$, is the S-matrix of Gandenberger and MacKay [@gm1995]. The lattice model is the staggered $U_q(a_{2n-1}^{(2)})$ vertex model of Vernier, Jacobsen and Saleur [-@vernier2016]. The construction for $n\ge3$ is new here.
+The $n=2$ case, $a_3^{(2)}\simeq d_3^{(2)}$, is the S-matrix of Gandenberger and MacKay [@gm1995]. The lattice model is the staggered $U_q(a_{2n-1}^{(2)})$ vertex model of Vernier, Jacobsen and Saleur [-@vernier2016]. The R-matrix is that of [@dgz1994]; the S-matrix construction for $n\ge3$ is new here.

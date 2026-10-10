@@ -8,7 +8,7 @@
 - Pass from the vertex to the IRF (RSOS) form of an R-matrix.
 :::
 
-@sec-quantum-groups showed that an R-matrix is the unique intertwiner between two tensor products of representations of a quantum affine algebra. This chapter is about computing it. For small representations of $U_q(\widehat{sl}_n)$ the answers have been known since the 1980s. For the representations needed for the solitons of the non-simply-laced affine Toda theories they were not, and constructing them was the main obstacle to finding those S-matrices (@sec-sm-introduction). The methods below are the ones Part VI uses.
+@sec-quantum-groups showed that an R-matrix is the unique intertwiner between two tensor products of representations of a quantum affine algebra. This chapter is about computing it. For small representations of $U_q(\widehat{sl}_n)$ the answers have been known since the 1980s. For many of the representations needed for the non-simply-laced solitons they were found in the 1990s by the tensor-product graph of this chapter: Delius, Gould and Zhang derived the spinor R-matrices of $U_q(b_n^{(1)})$ and $U_q(d_{n+1}^{(2)})$ for all $n$, and the $\mathbf{26}$ R-matrix of $U_q(f_4^{(1)})$ [@dgz1994; @dgz1996]. What remained hard were representations that are reducible under $U_q(g)$, such as the Kirillov–Reshetikhin modules of higher solitons and the $\mathbf{27}$ of $U_q(e_6^{(2)})$ (@sec-sm-introduction). The methods below are the ones Part VI uses.
 
 ## Jimbo's equations {#sec-jimbo-equations}
 
@@ -49,7 +49,7 @@ where the $P_\mu$ are the $U_q(g)$-invariant projectors. The remaining task is t
 
 ## The tensor-product graph {#sec-tpg}
 
-The $e_0$ equation connects the eigenvalues $\rho_\mu$. For multiplicity-free tensor products, MacKay [@mackay1991] and Delius, Gould and Zhang [@dgz1994] showed that its content is captured by a graph.
+The $e_0$ equation connects the eigenvalues $\rho_\mu$. For multiplicity-free tensor products its content is captured by a graph, introduced by MacKay [@mackay1991] for rational R-matrices and by Zhang, Gould and Bracken [@zgb1991] for trigonometric ones, and developed by Delius, Gould and Zhang [@dgz1994; @dgz1996].
 
 - **Nodes:** the components $L(\mu)$ of $V\otimes V$. Each has a parity, $+$ if it lies in the $q\to1$ limit of the symmetric part of $V\otimes V$ and $-$ if it lies in the antisymmetric part.
 - **Edges:** $\mu$ and $\nu$ are joined if they have opposite parity and $L(\nu)$ occurs in $L(\mu)\otimes\mathrm{ad}$, with $\mathrm{ad}$ the adjoint representation.
@@ -70,7 +70,9 @@ $$
 
 which is Jimbo's R-matrix for the vector representation of $U_q(\widehat{sl}_{n+1})$, and for $n=1$ the six-vertex R-matrix.
 
-**When it fails.** The method needs three things: a multiplicity-free decomposition, a connected graph, and a gradation in which the finite algebra $U_q(g)$ acts independently of $x$. The extended tensor-product graph of Delius, Gould and Zhang handles some cases where the graph is disconnected [@dgz1996]. But for the representations relevant to several affine Toda theories the first condition fails. The soliton multiplets of $c_n^{(1)}$, which form the spinor representation of $U_q(d_{n+1}^{(2)})$, have tensor squares in which the same $U_q(g_{(0)})$-representation occurs more than once when $n\ge3$. Then $\check R$ restricted to each isotypic component is a matrix, not a number, and (-@eq-tpg-rule) does not apply.
+**Twisted algebras.** The rule as stated is for untwisted $\hat g$, in the homogeneous gradation (other gradations are related to it by an $x$-dependent change of basis). For a twisted algebra $g^{(2)}$, $e_0$ transforms under $U_q(g_{(0)})$ not in the adjoint representation but in $g_{(1)}$ (@sec-twisted), and the graph changes accordingly [@dgz1996]: $\mu$ and $\nu$ are joined if $L(\nu)\subset L(\mu)\otimes g_{(1)}$, an edge may join two components of equal parity, and along such an edge $\langle a\rangle$ in (-@eq-tpg-rule) is replaced by $\langle a\rangle_+=(1+z\,q^{2a})/(z+q^{2a})$. The example that matters here is the spinor representation of $U_q(d_{n+1}^{(2)})$, which carries the spinor soliton of $c_n^{(1)}$. Under the horizontal subalgebra $U_q(b_n)$ its tensor square is $\bigoplus_{k=0}^n\Lambda^k\mathbb C^{2n+1}$, without multiplicities, the graph is the chain $\Lambda^n-\Lambda^{n-1}-\dots-\Lambda^0$, and $\rho_{\Lambda^{n-j}}=\prod_{i=1}^{j}\langle i/2\rangle_{(-1)^i}$ with $\langle a\rangle_-=\langle a\rangle$ [@dgz1996].
+
+**When it fails.** The graph defined above is what Delius, Gould and Zhang call the extended graph. The pairs of components that $e_0$ actually links form a connected subgraph of it whenever $V(x)\otimes V(y)$ is irreducible for generic $x/y$ [@dgz1994], so imposing the rule on every edge gives the R-matrix provided the relations are consistent around loops. What the method cannot do without is a multiplicity-free decomposition, and for several affine Toda theories this fails. The soliton multiplets of $c_n^{(1)}$ other than the spinor are Kirillov–Reshetikhin modules of $U_q(d_{n+1}^{(2)})$ that are reducible under $U_q(b_n)$, for example $\Lambda^1\oplus\Lambda^0$ and, for $c_3^{(1)}$, the 29-plet $\Lambda^2\oplus\Lambda^1\oplus\Lambda^0$ (@sec-sm-c3). Their tensor products contain the same $U_q(b_n)$-representation more than once. Then $\check R$ restricted to each isotypic component is a matrix, not a number, and no graph rule applies.
 
 ## Beyond multiplicity-free tensor products {#sec-direct-method}
 
@@ -79,7 +81,7 @@ When the graph method fails, one returns to Jimbo's equations (-@eq-jimbo) and s
 1. **Reduction to highest-weight vectors.** Because $\check R$ commutes with $U_q(g)$, it is determined by its action on the highest-weight vectors of each component, and on each isotypic component it is a matrix of the size of the multiplicity. The number of unknowns is $\sum_\mu(\text{mult}_\mu)^2$, which is far smaller than $(\dim V)^4$.
 2. **The $e_0$ equation is linear.** Applied to highest-weight vectors and projected onto highest-weight vectors, it gives a linear system for these unknowns, with coefficients that are rational in $x$, $y$ and $q$.
 
-Two further difficulties arise in practice. The representations themselves may not be known explicitly, in particular for twisted algebras and for representations of $U_q(\hat g)$ that are reducible under $U_q(g)$. And the coefficients of the linear system grow rapidly with the dimension. Part VI deals with both numerically: the generators are found by solving the defining relations of $U_q(\hat g)$ at a fixed unimodular $q$, the linear system is solved at many values of $z$, and the eigenvalues are fitted as rational functions of $z$ whose zeros and poles are then identified exactly as powers of $q$ (@sec-app-numerics). For the $\mathbf{26}\otimes\mathbf{26}$ of $U_q(f_4^{(1)})$ this reduces the problem to five unknowns per value of the spectral parameter.
+Two further difficulties arise in practice. The representations themselves may not be known explicitly, in particular for twisted algebras and for representations of $U_q(\hat g)$ that are reducible under $U_q(g)$. And the coefficients of the linear system grow rapidly with the dimension. Part VI deals with both numerically: the generators are found by solving the defining relations of $U_q(\hat g)$ at a fixed unimodular $q$, the linear system is solved at many values of $z$, and the eigenvalues are fitted as rational functions of $z$ whose zeros and poles are then identified exactly as powers of $q$ (@sec-app-numerics). For the $\mathbf{27}\otimes\mathbf{27}$ of $U_q(e_6^{(2)})$, where $\mathbf{27}=\mathbf{26}\oplus\mathbf1$ under $U_q(f_4)$ and the components $\mathbf1$ and $\mathbf{26}$ occur twice and three times, this reduces the problem to $2^2+3^2+1+1+1=16$ unknowns per value of the spectral parameter.
 
 ## Poles, bound states and fusion {#sec-fusion}
 
@@ -130,13 +132,13 @@ For $sl_{n+1}$, show that $C(2\vec\lambda_1)-C(\vec\lambda_2)=4$. *Hint:* write 
 :::
 
 ::: {#exr-spin1}
-Use the tensor-product graph to find the R-matrix of $U_q(\widehat{sl}_2)$ on spin $1\otimes1$: show that $\rho_2=1$, $\rho_1=\langle2\rangle$, $\rho_0=\langle2\rangle\langle1\rangle$. Then obtain the same result by fusion from the six-vertex R-matrix.
+Use the tensor-product graph to find the R-matrix of $U_q(\widehat{sl}_2)$ on spin $1\otimes1$: show that $\rho_2=1$, $\rho_1=\langle2\rangle$, $\rho_0=\langle2\rangle\langle1\rangle$. Then obtain the same result by fusion from the six-vertex R-matrix. (*Hint:* $V_1(x)$ is the $q$-symmetric part of $V_{1/2}(xq)\otimes V_{1/2}(xq^{-1})$, the image of $\check R(q^{-2})$; fuse first in the left and then in the right factor.)
 :::
 
 ::: {#exr-faces}
-For $U_q(sl_2)$ with spin-$\frac12$ particles, write down all paths $a\to b\to d$ for $a=\frac12$ and $d=\frac12$, and compute the $2\times2$ matrix of face weights from (-@eq-six-vertex) using the $q$-Clebsch–Gordan coefficients of $\frac12\otimes\frac12$.
+For $U_q(sl_2)$ with spin-$\frac12$ particles, write down all paths $a\to b\to d$ for $a=\frac12$ and $d=\frac12$, and compute the $2\times2$ matrix of face weights from (-@eq-six-vertex) using the $q$-Clebsch–Gordan coefficients of $\frac12\otimes\frac12$ and of $1\otimes\frac12$.
 :::
 
 ## Notes and references {#sec-r-matrices-notes}
 
-Jimbo's equations and the R-matrices of the vector representations of the classical quantum affine algebras are in [@jimbo1986]. The tensor-product graph was introduced by MacKay [@mackay1991] for rational R-matrices and extended to trigonometric ones by Delius, Gould and Zhang [@dgz1994; @dgz1996]. The fusion procedure goes back to Kulish, Reshetikhin and Sklyanin [@kulish1981]. The vertex–IRF correspondence and RSOS restriction are reviewed in [@gomez1996]. The direct method for non-multiplicity-free tensor products used in Part VI is described in @sec-sm-construction and @sec-app-numerics.
+Jimbo's equations and the R-matrices of the vector representations of the classical quantum affine algebras are in [@jimbo1986]. The tensor-product graph was introduced by MacKay [@mackay1991] for rational R-matrices, extended to trigonometric ones by Zhang, Gould and Bracken [@zgb1991] and generalised by Delius, Gould and Zhang to pairs of different representations [@dgz1994] and to twisted algebras [@dgz1996]. The fusion procedure goes back to Kulish, Reshetikhin and Sklyanin [@kulish1981]. The vertex–IRF correspondence and RSOS restriction are reviewed in [@gomez1996]. The direct method for non-multiplicity-free tensor products used in Part VI is described in @sec-sm-construction and @sec-app-numerics.

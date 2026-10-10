@@ -8,8 +8,8 @@ For each affine Kac–Moody algebra $\hat g$ there is a Lagrangian field theory 
 
 - exact factorized S-matrices and the bootstrap [@zz1979; @braden1990];
 - the geometry of root systems in scattering (Dorey's fusing rule [@dorey1991]);
-- strong–weak coupling duality [@dgz1992];
-- solitons with quantum-group symmetry [@bernard1991; @hollowood1993a; @hollowood1993b];
+- strong–weak coupling duality [@braden1990; @dgz1992];
+- solitons with quantum-group symmetry [@bernard1991; @hollowood1993b];
 - integrable perturbations of conformal field theories [@zamolodchikov1989; @eguchi1989; @hollowood1989];
 - the ODE/IM correspondence [@lukyanov2010; @dorey2013].
 

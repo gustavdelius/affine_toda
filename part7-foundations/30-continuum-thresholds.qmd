@@ -3,10 +3,10 @@
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
 - Locate the ultraviolet collapse thresholds of the Coulomb gas for every algebra.
 - Understand why Wick ordering must be done site by site with Dirichlet boundary conditions.
-- Follow the proof that the continuum limit exists in finite volume for $\beta^2<2\pi$, and why the threshold is sharp.
+- Follow the proof that the continuum limit exists in finite volume for $\beta^2<2\pi$, and why no continuum limit exists at or above the first collapse threshold $\beta^2_{\rm UV}$ without further counterterms.
 :::
 
-The lattice theory of @sec-lattice exists for every lattice spacing. This chapter and the next ask whether it has a continuum limit. In the Coulomb-gas picture the danger is clear: charges of opposite sign can collapse onto each other, and their Boltzmann weight can then diverge. This chapter finds where that happens and proves the continuum limit below the first, simplest threshold. A reader interested only in the result can read @sec-collapse-thresholds and the statements of @thm-below-2pi and @prp-uv-divergence.
+The lattice theory of @sec-lattice exists for every lattice spacing. This chapter and the next ask whether it has a continuum limit. In the Coulomb-gas picture the danger is clear: charges of opposite sign can collapse onto each other, and their Boltzmann weight can then diverge. This chapter finds where that happens and proves the continuum limit for $\beta^2<2\pi$, where a nearest-neighbour bound suffices; for sine-Gordon this is already the whole range below the first collapse threshold. A reader interested only in the result can read @sec-collapse-thresholds and the statements of @thm-below-2pi and @prp-uv-divergence.
 
 ## Collapse thresholds {#sec-collapse-thresholds}
 
@@ -34,7 +34,7 @@ With pointwise Wick ordering (@sec-wick-ordering-statement), Hepp-sector power c
 
 **The thresholds as resonances.** Let $\hat g$ be simply laced, write $x=\beta^2/2\pi$ for the scaling dimension of $e^{i\beta\vec\alpha_j\cdot\vec\phi}$, and let $g$ be the physical coupling (@sec-wick-ordering-statement). By dimensional analysis the bulk vacuum-energy density is proportional to $g^{2/(2-x)}$, while a cluster of $k$ copies of the neutral cluster first contributes to it at order $g^{kh}$. The two have the same dimension exactly when $x=2-2/(kh)$, that is $\beta^2=4\pi(1-1/kh)$, which are the neutral thresholds above. For sine-Gordon ($h=2$) these are the poles of the exact bulk energy $-\frac{m^2}4\tan\frac{\pi\xi}2$, with $\xi=\beta^2/(4\pi-\beta^2)$, at odd $\xi$ [Established, @zamolodchikov1995]. By @thm-coulomb-gas the coefficient of $g^{kh}$ is positive and cannot vanish accidentally.
 
-The exact bulk energy confirms this for every simply-laced algebra. Fateev's mass–coupling relation and the bulk energy of the real-coupling theory [@fateev1994; @ahn2000] can be continued to imaginary coupling by $b^2\to-\kappa$, with $\kappa=\beta^2/4\pi$. At fixed bare fugacity $z$ this gives
+The exact bulk energy confirms this for every simply-laced algebra. Fateev's mass–coupling relation and the bulk energy of the real-coupling theory [@fateev1994; @afkry2000; @ahn2000] can be continued to imaginary coupling by $b^2\to-\kappa$, with $\kappa=\beta^2/4\pi$. At fixed bare fugacity $z$ this gives
 
 $$
 f\ \propto\ \big(\pi z\,\gamma(1-\kappa)\big)^{\frac1{1-\kappa}}\ \frac{\Gamma\big(1-\frac1{h(1-\kappa)}\big)\,\Gamma\big(1+\frac{\kappa}{h(1-\kappa)}\big)}{B\ \Gamma\big(\frac1{h(1-\kappa)}\big)\,\Gamma\big(1-\frac{\kappa}{h(1-\kappa)}\big)},\qquad B=-\frac{\kappa}{1-\kappa},\quad\gamma(x)=\frac{\Gamma(x)}{\Gamma(1-x)}.
@@ -244,7 +244,7 @@ Induct by adding one integrated point $x$ to a set $X'$ of $n$ points (integrate
 ## Exercises {#sec-continuum-limit-exercises}
 
 ::: {#exr-thresholds}
-Use the definition of $\beta^2_{\rm UV}$ in @sec-collapse-thresholds to compute it for $a_1^{(1)}$, $a_2^{(1)}$, $c_2^{(1)}$ and $e_8^{(1)}$, and identify the cluster that attains the minimum in each case.
+Use the definition of $\beta^2_{\rm UV}$ in @sec-collapse-thresholds to compute it for $a_1^{(1)}$, $a_2^{(1)}$, $c_2^{(1)}$ and $e_8^{(1)}$, and identify a cluster that attains the minimum in each case. (For $c_2^{(1)}$ two different clusters attain it.)
 :::
 
 ::: {#exr-pair-collapse}

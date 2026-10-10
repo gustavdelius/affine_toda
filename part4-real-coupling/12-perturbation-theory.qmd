@@ -32,7 +32,7 @@ $$
 {:}e^{\beta\vec\alpha\cdot\vec\phi}{:}=e^{\beta\vec\alpha\cdot\vec\phi}\,e^{-\frac{\beta^2}2\langle(\vec\alpha\cdot\vec\phi)^2\rangle},
 $$
 
-which multiplies each term of the potential by a divergent constant that can be absorbed into $m^2$. With normal-ordered exponentials no further divergences occur at any order, so the theory is **super-renormalizable**. The finite part of the renormalization of $m$ is a convention, and with it the relation between the parameters $m$, $\beta$ of the Lagrangian and the physical masses. Part VII treats the same normal ordering non-perturbatively, at imaginary coupling, where it is the site-by-site Wick ordering of @sec-wick-ordering-statement.
+which multiplies each term of the potential by a divergent constant that can be absorbed into $m^2$, together with a constant shift of $\vec\phi$ (for $a_n^{(1)}$ the $\mathbb Z_h$ symmetry makes the shift unnecessary). With normal-ordered exponentials no further divergences occur at any order, so the theory is **super-renormalizable**. The finite part of the renormalization of $m$ is a convention, and with it the relation between the parameters $m$, $\beta$ of the Lagrangian and the physical masses. Part VII treats the same normal ordering non-perturbatively, at imaginary coupling, where it is the site-by-site Wick ordering of @sec-wick-ordering-statement.
 
 ## Amplitudes and the two-dimensional S-matrix {#sec-tree-level}
 
@@ -42,7 +42,7 @@ $$
 S_{ab}(\theta)=1+\frac{i\,\mathcal M_{ab}(\theta)}{4m_am_b\sinh\theta}+\dots ,
 $$ {#eq-s-from-m}
 
-where $4m_am_b\sinh\theta$ is the Jacobian from the two delta functions of energy and momentum to the single delta function of rapidities. The amplitude for $a+b\to b+a$ (transmission and reflection coincide for distinct masses) is included in the same way.
+where $4m_am_b\sinh\theta$ is the Jacobian from the two delta functions of energy and momentum to the single delta function of rapidities. For $m_a=m_b$ the reflection $a+b\to b+a$ is also kinematically allowed. For identical particles it coincides with transmission, and otherwise its amplitude vanishes in affine Toda theory, whose S-matrix is diagonal.
 
 **Example: sinh-Gordon at tree level.** Take $V=\frac{m^2}{b^2}(\cosh b\phi-1)$, so that $m$ is the particle mass and $b=\sqrt2\beta$ in the affine Toda normalization. Expanding, $V=\frac12m^2\phi^2+\frac{m^2b^2}{4!}\phi^4+O(b^4)$, with no cubic term. The tree amplitude is the contact term, $\mathcal M=-m^2b^2$, and (-@eq-s-from-m) gives
 
@@ -52,7 +52,7 @@ $$
 
 The exact S-matrix (-@eq-sinh-gordon-smatrix), $S=(\sinh\theta-i\sin\frac{\pi B}2)/(\sinh\theta+i\sin\frac{\pi B}2)$ with $B=\frac{b^2/4\pi}{1+b^2/8\pi}$, expands to $1-i\pi B/\sinh\theta=1-ib^2/(4\sinh\theta)$. The two agree. This fixes the leading behaviour of $B(\beta)$, and a one-loop computation fixes the next order [@arinshtein1979].
 
-**Tree-level poles.** When $C_{abc}\ne0$, the tree amplitude for $a+b\to a+b$ contains the $s$-channel exchange $-C_{abc}^2/(s-m_c^2)$. In terms of $\theta$, near the fusing angle $\theta=iu_{ab}^c$, one has $s-m_c^2\simeq2m_am_b\,i\sinh(iu_{ab}^c)(\theta-iu_{ab}^c)$, and (-@eq-s-from-m) gives
+**Tree-level poles.** When $C_{abc}\ne0$, the tree amplitude for $a+b\to a+b$ contains the $s$-channel exchange $-C_{abc}^2/(s-m_c^2)$. In terms of $\theta$, near the fusing angle $\theta=iu_{ab}^c$, one has $s-m_c^2\simeq2m_am_b\sinh(iu_{ab}^c)(\theta-iu_{ab}^c)=2i\,m_am_b\sin u_{ab}^c\,(\theta-iu_{ab}^c)$, and (-@eq-s-from-m) gives
 
 $$
 S_{ab}(\theta)\simeq\frac{i}{\theta-iu_{ab}^c}\cdot\frac{C_{abc}^2}{8m_a^2m_b^2\sin^2u_{ab}^c} .
@@ -64,11 +64,13 @@ By the area rule (-@eq-area-rule), $2m_am_b\sin u_{ab}^c=4\Delta_{abc}$, so the 
 
 ## One-loop masses {#sec-one-loop-masses-real}
 
-At one loop, after normal ordering, the mass corrections come from bubble diagrams with two cubic vertices, and from tadpoles of the quartic vertex, which vanish with normal ordering. Braden, Corrigan, Dorey and Sasaki [-@braden1990] found that in every simply-laced theory the correction is proportional to the classical mass:
+At one loop, after normal ordering, the mass corrections come from bubble diagrams with two cubic vertices, and from tadpoles of the quartic vertex, which vanish with normal ordering. Braden, Corrigan, Dorey and Sasaki [-@braden1990] found that in every simply-laced theory the correction is proportional to the classical mass. In the normal-ordered scheme
 
 $$
-\frac{\delta m_a^2}{m_a^2}\ \text{is independent of }a\qquad(\hat g\text{ simply laced}).
+\frac{\delta m_a^2}{m_a^2}=-\frac{\beta^2}{4h}\cot\frac\pi h\qquad(\hat g\text{ simply laced}),
 $$
+
+independent of $a$.
 
 The classical mass ratios, and with them the fusing angles and the Coxeter-number structure of @sec-dorey-rule, survive one loop. This is what makes it possible to write the exact S-matrices of @sec-simply-laced in terms of blocks with fixed positions $x\pi/h$.
 
@@ -78,7 +80,7 @@ For the non-simply-laced theories this fails [@dgz1992]. The one-loop correction
 
 The exact S-matrices of affine Toda theory have double and higher-order poles in the physical strip. A double pole cannot be a bound state, which would give a simple pole with a residue fixed by a coupling. Coleman and Thun [@coleman_thun1978] explained the double poles of the sine-Gordon breather amplitudes by **anomalous thresholds**: Landau singularities of Feynman diagrams in which every internal line is on shell.
 
-In two dimensions such singularities are poles. Power counting near the singular point shows that a diagram with $P$ internal on-shell propagators and $L$ loops has a singularity of order $P-2L$. The tree exchange has $P=1$, $L=0$, a simple pole. A box diagram with four on-shell internal lines and one loop gives $4-2=2$, a double pole. In affine Toda theory, at each double pole of the exact S-matrix there is an on-shell box diagram built from the three-point couplings, whose internal momenta form a closed polygon of mass triangles (a "dual diagram"). This pattern, extended to higher orders, accounts for every higher-order pole of the simply-laced S-matrices [@braden1990; @braden1991].
+In two dimensions such singularities are poles. Power counting near the singular point shows that a diagram with $P$ internal on-shell propagators and $L$ loops has a singularity of order $P-2L$. The tree exchange has $P=1$, $L=0$, a simple pole. A box diagram with four on-shell internal lines and one loop gives $4-2=2$, a double pole. In affine Toda theory, at each double pole of the exact S-matrix there is an on-shell box diagram built from the three-point couplings, whose internal momenta form a closed polygon of mass triangles (a "dual diagram"). Double and triple poles have been explained in detail by such on-shell diagrams [@braden1991]; for the higher-order poles, up to order 12 in $e_8^{(1)}$, contributing diagrams have been identified, but the full residues have not been checked [@corrigan1993].
 
 The analysis matters for the soliton S-matrices of Part VI, where some poles are explained neither by bound states nor by known on-shell diagrams (@sec-sm-discussion, open problem 3).
 
