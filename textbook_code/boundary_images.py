@@ -17,6 +17,8 @@ Checks:
 5. Boundary breathers (th = i eta, u = tan eta): Neumann regular on x<=0 iff A < 0 (u^2 > cot^2(pi a/h)) and
    |rho_-| < arcsinh sqrt|A|; C = +1 with rho_- = 0 regular on x<0 with zeros of tau exactly at x = 0; C = -1 singular.
 6. Two pairs (4 solitons): xi_r + xi_rbar = [pair value] - sum_{p != r} (ln A_{rp} + ln A_{r pbar}) (hep-th/9807189 (3.26)).
+7. c_2^(1) by folding a_3^(1) (sec-images-cn): the coincident (1,3) pair and its mirror (3,1) pair stay folding-invariant
+   (tau_1 = tau_3) and satisfy the BC for C = 0, +-1.
 """
 import itertools
 import numpy as np
@@ -338,3 +340,19 @@ for C in (0, 1, -1):
     ok &= bc_residual(bad, [C] * 3, np.linspace(-5, 5, 11), -60.0) > 1e-3
 report(f'two soliton-antisoliton pairs (a_2: species 1 and 2, th = 0.6, 1.1) satisfy the BC for C = 0, +1, -1 with the '
        f'shifts of (3.26)  [res {worst:.1e}]; detuned mirror fails', ok and worst < 1e-8)
+
+# ---------------------------------------------------------------- 7. c_2^(1) by folding a_3^(1) (ch. 31, sec-images-cn)
+# The c_2 field is an a_3 field with alpha_1.phi = alpha_3.phi (tau_1 = tau_3); the c_2 boundary potential with C_j(c_2) is the
+# a_3 one with C_1 = C_3 = C_short (boundary_classical.py, c2(1)). A c_2 soliton of the long type is the a_3 species-2 soliton
+# (covered by check 1 with n = 3, a = 2); one of the short type is a coincident (1, 3) pair at the same rapidity and xi.
+# Its image is the coincident (3, 1) pair at -theta, with the two-pair shifts of (3.26).
+ok = True; worst = 0; inv = 0
+for C in (0, 1, -1):
+    sol = two_pairs(3, [(1, 0.6, 0.4 + 0.3j), (3, 0.6, 0.4 + 0.3j)], C)
+    worst = max(worst, bc_residual(sol, [C] * 4, np.linspace(-5, 5, 11), -40.0))
+    for t in (-3.0, 0.0, 2.0):
+        T, _ = sol.taus(np.linspace(-10, 0, 201), t)
+        inv = max(inv, np.max(np.abs(T[1] - T[3])))
+    ok &= abs(sol.xi[2] - sol.xi[3]) < 1e-12
+report(f'c_2 by folding: the coincident (1,3) pair of a_3 and its mirror (3,1) pair at -theta stay folding-invariant (tau_1 = tau_3) '
+       f'and satisfy the BC for C = 0, +1, -1  [res {worst:.1e}, |tau_1 - tau_3| {inv:.1e}]', ok and worst < 1e-8 and inv < 1e-10)

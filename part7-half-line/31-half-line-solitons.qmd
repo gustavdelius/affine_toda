@@ -1,43 +1,261 @@
 # Solitons, breathers and vacua on the half-line {#sec-half-line-solitons}
 
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
-- To be written.
+- Construct solitons reflecting off a Neumann or $C=\pm1$ boundary as whole-line Hirota solutions with a mirror antisoliton, and compute time delays and virtual collision points.
+- Understand why these boundaries return a soliton as its antisoliton, and why the soliton-preserving boundary returns the same species.
+- Find the boundary breathers and the conditions for their regularity.
+- Construct the vacua of real-coupling $a_n^{(1)}$ theory on the half-line from stationary solitons, and see the missing-charge problem reappear as a problem of missing vacua.
+- Compute the classical reflection factors of the particles about the vacuum, the classical limits of the quantum amplitudes of @sec-particle-reflection.
 :::
 
-*This chapter is being drafted.*
+The integrable boundary conditions of @sec-boundary-conditions were found by asking which conditions preserve infinitely many charges. This chapter asks what the solutions look like. At imaginary coupling the answer is strikingly simple, at least for $a_n^{(1)}$: a soliton reflecting off the boundary is a whole-line two-soliton solution, the soliton and a mirror image moving in the opposite direction, with the relative position fixed by the boundary condition. This is the method of images of Delius [-@delius1998a]. It gives the classical time delays, the boundary breathers, and, after continuation to real coupling, the vacua of the real-coupling theory on the half-line [@bowcock1998; @delius1998a; @delius_gandenberger1999].
+
+Throughout, $\vec\phi=\frac i\beta\sum_j\vec\alpha_j\ln\tau_j$ is the Hirota form (-@eq-hirota-ansatz) for $a_n^{(1)}$, the $\tau_j$ are the $N$-soliton functions (-@eq-n-soliton), and the boundary condition is (-@eq-boundary-condition) with all $C_j$ equal to $C\in\{0,+1,-1\}$ unless stated otherwise. The checks are in `textbook_code/boundary_images.py` (imaginary coupling) and `textbook_code/boundary_vacua.py` (real coupling).
 
 ## Mirror images: the Neumann boundary {#sec-images-neumann}
 
-<!-- planned: Parity images; solitons return as antisolitons; time delays. -->
+For the Neumann condition $\partial_x\vec\phi|_0=0$ the classical method of images applies directly: a whole-line solution that is even under $x\to-x$ (up to a constant vacuum shift) satisfies $\partial_x\vec\phi(0)=0$. So we need the parity image of a soliton.
+
+**Parity conjugates the species.** Take the soliton $\tau_j=1+\omega^{ja}E$ of (-@eq-an-soliton) and reflect $x\to-x$. The exponential $E$ becomes $E'^{-1}$, where $E'$ is the exponential of a soliton of rapidity $-\theta$ and parameter $-\xi$. Then
+
+$$
+\tau_j(-x)=1+\omega^{ja}E'^{-1}=\omega^{ja}E'^{-1}\big(1+\omega^{-ja}E'\big).
+$$
+
+The prefactor $\omega^{ja}E'^{-1}$ adds a constant to $\vec\phi$ (since $\sum_j\vec\alpha_j=0$, the $\ln E'$ terms cancel and only a vacuum shift remains), and the bracket is a soliton with phase $\omega^{-ja}=\omega^{j(h-a)}$, i.e. of the conjugate species $\bar a=h-a$. Parity exchanges the leading and the trailing term of $\tau_j$, and that conjugates the phase. Hence $P:(a,\theta,\xi)\mapsto(\bar a,-\theta,-\xi)$ up to a vacuum shift: **the mirror image of a soliton is an antisoliton.**
+
+**The mirror pair.** The whole-line two-soliton solution of a soliton $(a,\theta,\xi_1)$ coming from $x=-\infty$ and its mirror $(\bar a,-\theta,\xi_2)$ coming from $x=+\infty$ has
+
+$$
+\tau_j=1+\omega^{ja}E_1+\omega^{-ja}E_2+A_{a\bar a}(2\theta)E_1E_2,\qquad
+A_{a\bar a}(2\theta)=1-s^2,\qquad s=\frac{\sin(\pi a/h)}{\cosh\theta}=\frac{m_a}{2m}\sqrt{1-v^2},
+$$ {#eq-mirror-pair}
+
+where $v=\tanh\theta$ and the value of the interaction coefficient (-@eq-interaction-coefficient) follows from $\cosh2\theta+\cos\frac{2\pi a}h=2(\cosh^2\theta-\sin^2\frac{\pi a}h)$. It is parity-even up to a vacuum shift, and therefore satisfies the Neumann condition, exactly when $e^{\xi_1+\xi_2}=1/A_{a\bar a}(2\theta)$ (@eq-mirror-shift below).
+
+Viewed on $x\le0$, the soliton arrives, the mirror antisoliton enters through the boundary, and after the collision the antisoliton $(\bar a,-\theta)$ leaves to the left. The incoming soliton has been reflected as its antisoliton.
 
 ## Mirror images for the other boundary conditions {#sec-images-boundary}
 
-<!-- planned: Mirror in front of or behind the boundary; d(v); Δt; attractive and repulsive boundaries. -->
+For $C_j\equiv C=\pm1$ there is no symmetry to exploit, but the same ansatz works with a different shift. Let $\vec v_a=\vec\phi(0,t\to-\infty)\in\frac{2\pi}\beta\Lambda_W^\vee$ be the vacuum that the field takes at the boundary before the soliton arrives. The boundary condition is imposed on $\vec\phi-\vec v_a$, i.e. it is the condition with parameters $C_j$ relative to the vacuum at the boundary (@sec-boundary-potential).
+
+::: {#prp-images}
+**[Numerical]** The mirror pair (-@eq-mirror-pair) satisfies the boundary condition (-@eq-boundary-condition), with $\vec\phi$ replaced by $\vec\phi-\vec v_a$, at all times if and only if
+
+$$
+\xi_1+\xi_2=\begin{cases}-\ln(1-s^2),&\text{Neumann},\\[2pt]-2\ln(1+Cs),&C_j\equiv C=\pm1.\end{cases}
+$$ {#eq-mirror-shift}
+
+Checked for $a_2^{(1)}$ ($a=1,2$) and $a_3^{(1)}$ ($a=1,2$) at 13 times, to $10^{-8}$; the shift for $C=+1$ fails for $C=-1$. The formula is Delius's (3.19) [@delius1998a] with $\epsilon=-C$ and $\xi_D=-\xi$.
+:::
+
+**Time delays.** Long before the collision the soliton is $(a,\theta,\xi_1)$; long after, the outgoing antisoliton is $(\bar a,-\theta,\xi_2)$, by the asymptotic analysis of @sec-multi-solitons. Comparing the outgoing trajectory with that of an antisoliton reflected without delay at $x=0$ gives
+
+$$
+\Delta t=\frac2{m_a\sinh\theta}\ln(1+Cs)\quad(C=\pm1),\qquad
+\Delta t_{\rm N}=\frac1{m_a\sinh\theta}\ln(1-s^2)\quad\text{(Neumann)},
+$$ {#eq-boundary-time-delay}
+
+with $\Delta t>0$ a delay. These values were fitted from the numerical solutions, independently of the formula, and agree with Delius's (1.4) and (1.8) [@delius1998a]. Note that $\Delta t_{\rm N}=\frac12(\Delta t_{+1}+\Delta t_{-1})$. The pair can also be read as two whole-line solitons that collide at a **virtual collision point** $x=d$; extrapolating the incoming soliton and the mirror to their meeting point gives
+
+$$
+d=\frac C{2m_a\cosh\theta}\ln\frac{1+s}{1-s},\qquad d_{\rm N}=0,
+$$ {#eq-virtual-collision}
+
+with $d>0$ behind the boundary (also fitted numerically). For $C=+1$ the collision happens behind the wall, the soliton is delayed, and (@sec-boundary-breathers-classical) there are boundary bound states. For $C=-1$ the collision happens in front of the wall, the soliton is advanced, and there are no regular boundary breathers. It is natural to call the $C=+1$ boundary attractive and the $C=-1$ boundary repulsive, as Delius did. The justification is the time delay, the collision point and the breather spectrum. Delius's additional energy argument (the energy of the soliton relative to the boundary vacuum) does not distinguish the two cases: that energy is $M_a\cosh\theta$ for either sign.
+
+**Coweight shifts.** At imaginary coupling, shifting a solution by $\frac{2\pi}\beta\vec\lambda$, $\vec\lambda\in\Lambda_W^\vee$, maps a solution for the parameters $C_j$ to one for
+
+$$
+C_j\to C\,e^{i\pi\vec\alpha_j\cdot\vec\lambda},\qquad\prod_jC_j=C^h\ \text{invariant}.
+$$ {#eq-coweight-shift-c}
+
+The images therefore cover every sign pattern for $h$ odd, and exactly the patterns with $\prod_jC_j=+1$ for $h$ even (checked for $a_2$ and $a_3$). For $h$ even the uniform patterns $C\equiv+1$ and $C\equiv-1$ are related by a shift [@delius1998a], so the same boundary condition is attractive or repulsive depending on the vacuum at the boundary. For real $\theta$ the shift (-@eq-mirror-shift) is real, so $\operatorname{Im}\xi_2=-\operatorname{Im}\xi_1$ and the outgoing antisoliton carries the opposite topological charge. A reflection therefore changes the boundary vacuum from $\vec v_a$ to $-\vec v_a$, a change in $2\cdot\frac{2\pi}\beta\Lambda_W^\vee$, and the pattern relative to the boundary vacuum is preserved.
+
+::: {#prp-antisoliton-return}
+**[Numerical]** For the boundary conditions $C\in\{0,+1,-1\}$ of $a_2^{(1)}$ and $a_3^{(1)}$ (species 1), no same-species mirror $(a,-\theta,\xi_2)$ satisfies the boundary condition, for any complex $\xi_2$. An incoming soliton returns as its antisoliton.
+:::
+
+The reason was given above for Neumann: the mirror is a parity image, and parity conjugates the species. The $C=\pm1$ images are deformations of the parity image (only the shift changes), and the numerical minimization over $\xi_2$ confirms that no same-species alternative exists (the minimal residual over $\xi_2$ stays between 0.7 and 2.1). In the language of @sec-sklyanin, the anti-automorphism $\sigma$ = transposition selects conserved charges that only an antisoliton can match. The soliton-preserving boundary changes exactly this.
+
+**Many solitons.** Any number of reflecting solitons is described by a whole-line $2N$-soliton solution with the solitons arranged in pairs $\{r,\bar r\}$, $(a_r,\theta_r,\xi_r)$ and $(\bar a_r,-\theta_r,\xi_{\bar r})$, with
+
+$$
+\xi_r+\xi_{\bar r}=S_r-\sum_{p\ne r}\Big[\ln A_{a_ra_p}(\theta_r-\theta_p)+\ln A_{a_r\bar a_p}(\theta_r+\theta_p)\Big],
+$$ {#eq-multi-pair-shift}
+
+where $S_r$ is the single-pair value (-@eq-mirror-shift) for pair $r$. The extra terms compensate the displacement of pair $r$ caused by the other pairs, so that each pair, isolated by sending the others far away, satisfies (-@eq-mirror-shift). This is Delius's (3.26), checked for two pairs of $a_2^{(1)}$ for $C=0,\pm1$.
 
 ## Images for the soliton-preserving boundary {#sec-images-preserving}
 
-<!-- planned: ΘP mirror solitons. -->
+The soliton-preserving boundary condition (-@eq-soliton-preserving) is the image condition (-@eq-theta-p-reflection), $\vec\phi(x)=2\vec v-\overline{\vec\phi(-x)}$. Its mirror is therefore a $\Theta P$ image rather than a $P$ image. By @eq-theta-data, $\Theta$ conjugates the species and the parameters, and $P$ conjugates the species once more. So $\Theta P:(a,\theta,\xi)\mapsto(a,-\theta,-\bar\xi)$ up to a vacuum shift, and the mirror of a soliton is a soliton of the **same** species. Accounting for the interaction coefficient,
+
+$$
+\text{mirror of }(a,\theta,\xi_1):\quad(a,-\theta,\xi_2),\qquad\xi_2=-\bar\xi_1-\ln A_{aa}(2\theta),\qquad A_{aa}(2\theta)=\frac{\cosh2\theta-1}{\cosh2\theta-\cos\frac{2\pi a}h}.
+$$ {#eq-thetap-mirror}
+
+For $a_2^{(1)}$ ($a=1$) and $a_3^{(1)}$ ($a=1,2$), this two-soliton solution satisfies $\vec\phi(x)+\overline{\vec\phi(-x)}=2\vec v$ with $\vec v$ a vacuum, $\operatorname{Re}\vec\phi(0,t)=\vec v$, and $\partial_x\operatorname{Im}\vec\phi(0,t)=0$, to $10^{-8}$ (`textbook_code/boundary_images.py`). The soliton-conjugating Neumann pair violates (-@eq-soliton-preserving). Multi-soliton solutions are again built from pairs, with shifts as in (-@eq-multi-pair-shift).
+
+Since no free parameter enters (-@eq-thetap-mirror), the soliton-preserving boundary has no attractive or repulsive variant. The corresponding quantum reflection matrices solve the soliton-preserving reflection equation (@sec-preserving-conjugating).
 
 ## Boundary breathers {#sec-boundary-breathers-classical}
 
-<!-- planned: Solitons bound to the boundary; regularity. -->
+A boundary breather is a solution localized at the boundary and periodic in time: a soliton bound to its own image. Take the mirror pair at imaginary rapidity, $\theta=i\eta$, with $u=\tan\eta$, and split the parameters as $\xi_{1,2}=\frac12S\pm(\rho_-+i\zeta_-)$, where $S$ is the shift (-@eq-mirror-shift) continued to $s=\sin(\pi a/h)/\cos\eta$:
 
-## Folding: c_n solitons on the half-line {#sec-images-cn}
+$$
+\tau_j=1+\omega^{ja}E_1+\omega^{-ja}E_2+A_{a\bar a}(2i\eta)E_1E_2,\qquad E_{1,2}=\exp\big(m_a(x\cos\eta\mp it\sin\eta)+\xi_{1,2}\big).
+$$ {#eq-boundary-breather}
 
-<!-- planned: Via the a_{2n-1} images. -->
+It is periodic with period $2\pi/(m_a\sin\eta)$. The question is whether some $\tau_j$ vanishes on $x\le0$.
+
+::: {#prp-boundary-breathers}
+**[Numerical]** For $a_2^{(1)}$, $a=1$:
+
+- **Neumann.** The breather (-@eq-boundary-breather) is regular on $x\le0$ if and only if $A=\cos^2\frac{\pi a}h-u^2\sin^2\frac{\pi a}h<0$, i.e. $u^2>\cot^2\frac{\pi a}h$, and $|\sinh\rho_-|<\sqrt{|A|}$.
+- **$C=+1$.** With $\rho_-=0$ the breather has no zero of $\tau_j$ in $x<0$; its zeros lie exactly on the boundary $x=0$. For $\rho_-\ne0$ a zero enters $x<0$.
+- **$C=-1$.** The breather is singular on $x\le0$ for all tested $u$ and $\rho_-$.
+:::
+
+The Neumann conditions correct two slips in Delius's (3.36) and (3.37) [@delius1998a], where $\tan^2$ should be $\cot^2$ and $|\cosh\rho_-|$ should be $|\sinh\rho_-|$. Both corrections were found by scanning $u$ and $\rho_-$ across the thresholds: for $u=1$ (which lies between $\cot^2\frac\pi3$ and $\tan^2\frac\pi3$) the breather is regular for $|\rho_-|$ below $\operatorname{arcsinh}\sqrt{|A|}$ and singular above. The pattern matches the time delays: the attractive $C=+1$ boundary binds, the repulsive $C=-1$ boundary does not. The quantum boundary bound states are discussed in @sec-boundary-bound-states, and their semiclassical counterparts in @sec-boundary-semiclassics.
+
+## Folding: $c_n$ solitons on the half-line {#sec-images-cn}
+
+The theory $c_n^{(1)}$ is obtained from $a_{2n-1}^{(1)}$ by folding with the reflection $j\to2n-j$ of the Dynkin diagram (@sec-affine-folding): its solutions are the $a_{2n-1}^{(1)}$ solutions with $\tau_j=\tau_{2n-j}$. The boundary potential folds too. With the normalization (-@eq-boundary-potential), the $c_n^{(1)}$ boundary parameters are the $a_{2n-1}^{(1)}$ parameters with $C_j=C_{2n-j}$: the two terms $C(e^{\beta\vec\alpha_j\cdot\vec\phi/2}+e^{\beta\vec\alpha_{2n-j}\cdot\vec\phi/2})$ of the parent become the single term $2C\,e^{\beta\vec\alpha_j^{c}\cdot\vec\phi/2}$, and $\sqrt{2n_j/\vec\alpha_j^2}=2$ for the short roots of $c_n$. So every image solution of $a_{2n-1}^{(1)}$ that is folding-invariant is a $c_n^{(1)}$ image solution [@delius1998a].
+
+- The $c_n$ soliton of the long type is the species-$n$ soliton of $a_{2n-1}$, which is self-conjugate. It reflects through the mirror pair (-@eq-mirror-pair) with $\bar a=a=n$.
+- A $c_n$ soliton of the short type is a coincident pair of species $a$ and $2n-a$, with equal rapidity and equal $\xi$. Its mirror is the coincident pair $(2n-a,a)$ at $-\theta$, and the four-soliton solution has the shifts (-@eq-multi-pair-shift).
+
+In both cases the reflected object is a $c_n$ soliton of the same type: every $c_n$ soliton is its own conjugate up to topological charge. For $c_2^{(1)}$ we checked that the four-soliton solution stays folding-invariant ($\tau_1=\tau_3$) and satisfies the boundary condition for $C=0,\pm1$ (`textbook_code/boundary_images.py`). Stationary $c_n$ solitons are the same as stationary $a_{2n-1}$ solitons. According to Delius [-@delius1998a, sec. 6], the real-coupling $c_n$ theory has a continued vacuum when $C_0C_n=1$ (unchecked).
 
 ## Vacua at real coupling {#sec-real-coupling-vacua}
 
-<!-- planned: Continued stationary solitons; solitonic boundary conditions; vacuum modulus. -->
+At real coupling the picture changes completely. There are no solitons: every non-trivial Hirota solution is singular somewhere on the whole line. There is also no shift symmetry, so the sign patterns related by (-@eq-coweight-shift-c) are now different theories. And for most patterns $\vec\phi=0$ violates the boundary condition, so the first task is to find the vacuum, the static solution of lowest energy [@bowcock1998].
+
+Two facts make the imaginary-coupling solutions useful [@bowcock1998; @delius1998a]. First, a real-coupling solution is obtained from an imaginary-coupling one by $\beta\to-i\beta$, which turns the Hirota form into $\vec\phi=-\frac1\beta\sum_j\vec\alpha_j\ln\tau_j$ with the same $\tau_j$; it is real when all $\tau_j$ are real and positive. Second, a solution singular on the whole line may be regular on $x\le0$, with its singularities hidden behind the boundary. A moving soliton cannot hide its singularities forever, so only static solutions qualify.
+
+**The continued stationary pair.** Put a stationary soliton $(a,0,\xi)$ and its mirror $(\bar a,0,\bar\xi)$ at the attractive ($C=+1$) separation, $\operatorname{Re}\xi=-\ln(1+s)$ with $s=\sin\frac{\pi a}h=\frac{m_a}{2m}$, and $\chi=\operatorname{Im}\xi$:
+
+$$
+\tau_j=1+\frac{2\cos\big(\chi+\frac{2\pi ja}h\big)}{1+s}\,e^{m_ax}+\frac{1-s}{1+s}\,e^{2m_ax}.
+$$ {#eq-vacuum-pair}
+
+These $\tau_j$ are real. At the boundary, $\tau_j(0)=4\cos^2\big(\frac\chi2+\frac{\pi ja}h\big)/(1+s)$, which vanishes only at the isolated values $\chi\equiv\pi-\frac{2\pi ja}h$ [@bowcock1998].
+
+::: {#prp-solitonic-vacua}
+**[Numerical]** For $\chi$ in any of the open intervals between the values $\pi-\frac{2\pi ja}h$, the field $\vec\phi=-\frac1\beta\sum_j\vec\alpha_j\ln\tau_j$ with (-@eq-vacuum-pair):
+
+- is real and regular on $x\le0$ and solves the static field equation;
+- satisfies the real-coupling boundary condition (-@eq-boundary-condition) for exactly one sign pattern, $C_j=(-1)^{\vec\alpha_j\cdot\vec\lambda}$, where $\vec\lambda$ is the topological charge of the soliton $(a,0,\xi)$ (@sec-topological-charges); this pattern has $\prod_jC_j=1$;
+- has energy (-@eq-boundary-energy)
+
+$$
+E_{\rm vac}=\frac{2m}{\beta^2}\Big(2k-h\frac{m_a}m\Big),\qquad k=\#\{j:C_j=-1\},
+$$ {#eq-vacuum-energy}
+
+independent of $\chi$ within the interval.
+
+The parity partner, with $\operatorname{Re}\xi=-\ln(1-s)$ (the repulsive separation), is singular on $x<0$ for generic $\chi$. Checked for $a_2^{(1)}$, $a_3^{(1)}$ ($a=1$) and $a_4^{(1)}$ ($a=1,2$) in `textbook_code/boundary_vacua.py`.
+:::
+
+The angle $\chi$ is a **modulus**: within each interval, a continuous family of static solutions with the same energy satisfies the same boundary condition. For $a_2^{(1)}$ the three intervals give the three patterns with two minus signs, each with $E_{\rm vac}=\frac{2m}{\beta^2}(4-3\sqrt3)\approx-2.39\,m/\beta^2$. As $\chi$ crosses an end point, a zero of some $\tau_j$ passes through $x=0$ and the pattern changes. The energy (-@eq-vacuum-energy) refers to the normalization $\mathcal B(0)=0$ of (-@eq-boundary-potential). In Bowcock's normalization, without the constants $-1$, it reads $2hm(1-m_a/m)/\beta^2$, independent of the pattern, which is his $E_-$ [@bowcock1998].
+
+**Which patterns are reached.** Call a sign pattern **solitonic** if $\prod_{j=0}^nC_j=1$ and not all $C_j=+1$ [@delius_gandenberger1999]. For $a_n^{(1)}$ the topological charges of single solitons are weights of the fundamental representations (@sec-topological-charges), and $\vec\lambda$ and $-\vec\lambda$ give the same pattern.
+
+::: {#prp-dg-weights}
+**[Established]** [@delius_gandenberger1999, Thm. 4.1] The map $\vec\lambda\mapsto C_j=(-1)^{\vec\alpha_j\cdot\vec\lambda}$ is two-to-one, $\{\vec\lambda,-\vec\lambda\}\mapsto C$, from the $2^{n+1}-2$ weights of the fundamental representations of $a_n$ onto the $2^n-1$ solitonic patterns. If $k_1<\dots<k_a$ are the indices $k\in\{1,\dots,n\}$ with $C_k=-1$, the positive preimage is $\vec\lambda=\sum_{i=1}^a(-1)^{a-i}\vec\lambda_{k_i}$, a weight of the fundamental representation $\Lambda_b$ with $b=\sum_{i=1}^a(-1)^{a-i}k_i$. The number of $C_j=-1$ is twice the number of cyclic blocks of ones in the $\epsilon$-basis expansion of $\vec\lambda$. (Checked for $n\le7$ in `textbook_code/boundary_vacua.py`.)
+:::
+
+In Delius's variables [@delius1998a, (1.15)-(1.16)] the same statement reads $A_i^{(\vec\lambda)}=-e^{i\pi\vec\alpha_i\cdot\vec\lambda}$ and $\prod_iA_i=(-1)^{n+1}$; with $A_i=-C_i$ this is $\prod_iC_i=1$. The uniform pattern $C\equiv+1$ corresponds to $\vec\lambda=0$ and has the vacuum $\vec\phi=0$.
+
+**The self-conjugate case.** For $h$ even and $a=h/2$ the mirror of a stationary soliton is a stationary soliton of the same species and velocity, and the two merge into one (the interaction coefficient $A_{aa}(0)$ vanishes). The resulting single soliton is a vacuum of its own kind.
+
+::: {#prp-self-conjugate-vacuum}
+**[Theorem]** For $h$ even, the static soliton $\tau_j=1+(-1)^je^{2mx+\xi}$ of species $h/2$ satisfies the $C\equiv-1$ boundary condition for every complex $\xi$, at imaginary and (continued) at real coupling. For real $\xi<0$ the real-coupling field is real and regular on $x\le0$, and its energy is $0$, the energy of $\vec\phi=0$.
+:::
+
+::: {.proof}
+With $u_j=(-1)^je^{2mx+\xi}$, $\partial_x\ln\tau_j=2m\,u_j/(1+u_j)$, and the neighbours of node $j$ have $\tau_{j\pm1}=1-u_j$, so $e^{\beta\vec\alpha_j\cdot\vec\phi/2}=(1-u_j)/(1+u_j)$ at real coupling. The boundary condition with $C\equiv-1$ requires $\sum_j\vec\alpha_j\big[\frac{2u_j}{1+u_j}+\frac{1-u_j}{1+u_j}\big]=0$; each bracket equals 1, and $\sum_j\vec\alpha_j=0$. For $\xi<0$ real, $|u_j|<1$ on $x\le0$, so all $\tau_j>0$. The energy is checked by quadrature for $a_3^{(1)}$, and the boundary condition symbolically for $a_1$, $a_3$, $a_5$ (`textbook_code/boundary_vacua.py`).
+:::
+
+So for $h$ even the real-coupling theory with $C\equiv-1$ has a one-parameter family of degenerate vacua, the position of the soliton, which includes $\vec\phi=0$ in the limit $\xi\to-\infty$. This is the "other real solution with the same energy" mentioned by Delius and Gandenberger [@delius_gandenberger1999, sec. 4]. For sinh-Gordon it is the statement that at $C\equiv-1$ the boundary potential is a superpotential, $-\mathcal B'=\sqrt{2V}$, so that a static kink can sit anywhere. The linearized spectrum about $\vec\phi=0$ shows the corresponding zero mode (@sec-classical-reflection-factors).
+
+**Assumptions.** That these continued solutions are the vacua, the regular static solutions of lowest energy, is believed by Bowcock [-@bowcock1998] and Delius [-@delius1998a] but has not been proved. Bowcock also constructed static configurations with several stationary solitons of different species, which satisfy further boundary conditions [@bowcock1998, sec. 3.2]; we have not checked them. For patterns that are not solitonic, no regular static solution is known, except $\vec\phi=0$ for $C\equiv-1$ (whether it has the lowest energy is not known).
 
 ## Vacua and the missing topological charges {#sec-boundary-missing-charges}
 
-<!-- planned: Link to the missing-charge problem. -->
+@prp-dg-weights makes the vacuum of each solitonic boundary condition depend on the existence of a soliton with charge $\vec\lambda$. But single solitons of species $a$ carry only $h/\gcd(a,h)$ of the $\binom ha$ weights of $\Lambda_a$, which is the missing-charge problem of @sec-missing-charges. On the half-line it becomes a problem of **missing vacua**.
+
+| algebra | $a_1$ | $a_2$ | $a_3$ | $a_4$ | $a_5$ | $a_6$ | $a_7$ |
+|---|---|---|---|---|---|---|---|
+| solitonic patterns | 1 | 3 | 7 | 15 | 31 | 63 | 127 |
+| with a single-soliton vacuum | 1 | 3 | 5 | 10 | 10 | 21 | 21 |
+
+: Solitonic boundary conditions of real-coupling $a_n^{(1)}$ for which a continued single-soliton vacuum exists (`textbook_code/boundary_vacua.py`). {#tbl-missing-vacua}
+
+For $a_3^{(1)}$ the two missing patterns are the alternating ones, $(C_0,C_1,C_2,C_3)=(+,-,+,-)$ and $(-,+,-,+)$. Their weights, such as $\epsilon_1+\epsilon_2\in\Lambda_2$, are among the four weights of $\Lambda_2$ that no single species-2 soliton carries. The species-2 soliton carries $\pm(\epsilon_1+\epsilon_3)$, whose pattern is $C\equiv-1$, and indeed provides the self-conjugate vacua of @prp-self-conjugate-vacuum.
+
+Delius [-@delius1998a] drew the conclusion that the mechanism that supplies the missing soliton states in the quantum imaginary-coupling theory should also supply the missing vacua in the real-coupling theory on the half-line. The quantum reflection amplitudes support this. Delius and Gandenberger found that all solitonic boundary conditions whose $\vec\lambda$ lie in the same pair of conjugate representations $\Lambda_b$, $\Lambda_{h-b}$ have the same particle reflection amplitudes (@sec-solitonic-boundaries), whether or not a classical vacuum is known. Classically, the conjectured complex two-soliton bound states of @cnj-missing-charge are natural candidates for the missing stationary configurations, but continuing them to regular real vacua has not been attempted.
 
 ## Classical reflection factors {#sec-classical-reflection-factors}
 
-<!-- planned: Linearized reflection factors about the vacuum. -->
+Once the vacuum is known, the particles are its small fluctuations, and their classical reflection factor is the relative phase of the incoming and outgoing waves [@cdr1995; @bowcock1998]. Write $\vec\phi=\vec\phi_{\rm vac}+\vec\epsilon$, linearize the field equation and the boundary condition, and look for $\vec\epsilon=\vec\rho_a\,e^{-i\omega t}\big(e^{ipx}+K_a(\theta)\,e^{-ipx}\big)$ far from the boundary, with $\omega=m_a\cosh\theta$ and $p=m_a\sinh\theta$.
+
+For the uniform conditions of $a_n^{(1)}$ the vacuum is $\vec\phi=0$, and the problem is diagonal in the eigenvectors $\vec\rho_a$ of the mass matrix. The linearized boundary condition is $\partial_x\vec\epsilon=-\frac C{2m}M^2\vec\epsilon$, so $ip(1-K_a)=-C\frac{m_a^2}{2m}(1+K_a)$, and with $\frac{m_a^2}{2m}=m_a\sin\frac{\pi a}h$,
+
+$$
+K_a^{\rm cl}(\theta)=\frac{\sinh\theta-iC\sin\frac{\pi a}h}{\sinh\theta+iC\sin\frac{\pi a}h}=-\Big[(a)(h-a)\Big]^{-C},
+$$ {#eq-linear-reflection}
+
+in the blocks (-@eq-blocks) at $B=0$. For Neumann, $K_a^{\rm cl}=1$. This is the reflection factor (4.7) of Corrigan, Dorey and Rietdijk [@cdr1995] with their $A=2C$; for $a_2^{(1)}$ and $C=-1$ it is their (5.3), $-(1)(2)$.
+
+- **$C=-1$.** $K_a^{\rm cl}$ has poles at $\theta=i\pi a/h$, in the physical strip for $a<h/2$, corresponding to classical boundary bound states with $\omega_a=m_a\cos\frac{\pi a}h=m\sin\frac{2\pi a}h$ [@cdr1995]. For $h$ even, $\omega_{h/2}=0$: this is the zero mode of the vacuum family of @prp-self-conjugate-vacuum.
+- **$C=+1$.** No poles in the physical strip. The classical limit $B\to0$ of Delius and Gandenberger's quantum amplitude (3.16) for the $(+\cdots+)$ boundary is exactly $-1/((a)(h-a))$, the $C=+1$ value of (-@eq-linear-reflection) (checked numerically for $a_2,\dots,a_5$). This independently supports their assignment of that amplitude to $C\equiv+1$ (@sec-uniform-boundary), and agrees with the identification of the diagonal soliton reflection matrix with the uniform boundary in @sec-an-diagonal-k. Their Neumann amplitude tends to 1 [@delius_gandenberger1999], as it should.
+
+For the solitonic boundary conditions the vacuum is the continued pair (-@eq-vacuum-pair), the linearized problem is no longer diagonal, and the reflection factors were computed by Bowcock [@bowcock1998, (4.21)]. Delius and Gandenberger [@delius_gandenberger1999, (5.7)] report that the classical limits of their solitonic amplitudes reproduce Bowcock's result; we have not checked either computation. The quantum amplitudes themselves are the subject of @sec-solitonic-boundaries.
 
 ## Exercises {#sec-half-line-solitons-exercises}
 
+::: {#exr-mirror-neumann}
+Show that $A_{a\bar a}(2\theta)=1-s^2$ with $s=\sin(\pi a/h)/\cosh\theta$. Then show directly that for the pair (-@eq-mirror-pair) with $e^{\xi_1+\xi_2}=1/A_{a\bar a}(2\theta)$, $\tau_j(-x,t)$ equals $\tau_j(x,t)$ times a factor whose contribution to $\vec\phi$ is constant, and deduce the Neumann condition.
+:::
+
+::: {#exr-time-delay-boundary}
+Derive (-@eq-boundary-time-delay) from (-@eq-mirror-shift). *Hint:* the outgoing antisoliton is $(\bar a,-\theta,\xi_2)$; compare its trajectory with the reflected trajectory of the incoming soliton. Show that $\Delta t_{\rm N}$ is the average of the $C=+1$ and $C=-1$ delays, and that $\Delta t\to0$ as $\theta\to\infty$.
+:::
+
+::: {#exr-thetap-mirror}
+Show that $\Theta P$ maps the soliton $(a,\theta,\xi)$ to $(a,-\theta,-\bar\xi)$ up to a vacuum shift, and derive the shift in (-@eq-thetap-mirror). Why is there no analogue of the sign $C$ for the soliton-preserving boundary?
+:::
+
+::: {#exr-breather-threshold}
+For the Neumann boundary breather of $a_2^{(1)}$, show that $A_{a\bar a}(2i\eta)=1-s^2$ becomes negative for $\tan^2\eta>\cot^2(\pi a/h)$. Explain why a negative interaction coefficient is necessary for a regular breather.
+:::
+
+::: {#exr-vacuum-boundary-value}
+Show that the $\tau_j$ of (-@eq-vacuum-pair) satisfy $\tau_j(0)=4\cos^2(\frac\chi2+\frac{\pi ja}h)/(1+s)$, and that the boundary value of $e^{\beta\vec\alpha_j\cdot\vec\phi/2}$ is $|\cos(\frac\chi2+\frac{\pi(j-1)a}h)\cos(\frac\chi2+\frac{\pi(j+1)a}h)|/\cos^2(\frac\chi2+\frac{\pi ja}h)$. For $a_2^{(1)}$ and $\chi$ small, find the sign pattern that the vacuum satisfies.
+:::
+
+::: {#exr-sinh-gordon-bps}
+For sinh-Gordon with $C_0=C_1=-1$, show that $\mathcal B_{\rm real}$ satisfies $\mathcal B'(\phi)^2=2V(\phi)$, and that every static kink $\phi'=-\mathcal B'(\phi)$ placed anywhere on $x<0$ satisfies the boundary condition. Compare with @prp-self-conjugate-vacuum.
+:::
+
+::: {#exr-linear-reflection}
+Derive (-@eq-linear-reflection) and express it in blocks. Locate its poles in the physical strip $0<\operatorname{Im}\theta<\pi/2$ for $C=\pm1$, and compute the bound-state frequencies.
+:::
+
+::: {#exr-dg-theorem}
+For $a_4^{(1)}$, use @prp-dg-weights to find the weight $\vec\lambda$ and the representation for $C=(C_0,\dots,C_4)=(+,-,-,+,+)$ and for $(-,+,-,-,+)$. Which of them has a single-soliton vacuum?
+:::
+
 ## Notes and references {#sec-half-line-solitons-notes}
+
+The method of images for affine Toda solitons, the time delays, the boundary breathers and the continuation to real coupling are due to Delius [-@delius1998a]; Bowcock [-@bowcock1998] had found the static real-coupling vacua and their classical reflection factors earlier, using a linear equation for the $\tau$-functions at the boundary. Delius and Gandenberger [-@delius_gandenberger1999] classified the solitonic boundary conditions and computed their quantum reflection amplitudes. The linearized reflection factors and classical boundary bound states for the uniform conditions are in Corrigan, Dorey and Rietdijk [-@cdr1995]; for sine-Gordon, images of kinks go back to Saleur, Skorik and Warner [-@ssw1995]. The soliton-preserving images are from Delius [-@delius1998b].
+
+Corrections to the sources made in this chapter:
+
+- In (3.36) of [@delius1998a], the regularity condition $u^2>\tan^2(\pi a/h)$ should be $u^2>\cot^2(\pi a/h)$.
+- In (3.37) of [@delius1998a], $|\cosh\rho_-|$ should be $|\sinh\rho_-|$.
+- The energy argument for attractive and repulsive boundaries on p. 7 of [@delius1998a] does not distinguish them: the energy of the soliton relative to the boundary vacuum is $M_a\cosh\theta$ for either sign. The distinction rests on the time delay, the collision point and the breathers.
+- The vacuum energy (4.4) of [@delius1998a], $-2(n+1)(1+m_a)/\beta^2$, agrees neither with (-@eq-vacuum-energy) nor, after converting normalizations, with Bowcock's $E_-$ for the regular solution; it coincides in form with Bowcock's $E_+$, the energy of the singular parity partner (comparison by hand).
+- Section 1.3 of [@delius1998a] states that no vacuum solutions are found for boundary conditions violating $\prod_iA_i=(-1)^{n+1}$. The uniform pattern $C\equiv-1$ for $h$ odd violates it but is solved by $\vec\phi=0$.
+- In the image form (1.4) of [@delius1998b], the coweight must lie in $2\Lambda_W^\vee$ (@sec-soliton-preserving).

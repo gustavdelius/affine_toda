@@ -1,39 +1,317 @@
 # Classically integrable boundary conditions {#sec-boundary-conditions}
 
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
-- To be written.
+- Write down the boundary action, the boundary potential and the boundary condition at real and imaginary coupling, and show that energy is conserved.
+- Derive the conserved charges on the half-line from Sklyanin's double-row transfer matrix, generalized to an arbitrary anti-automorphism $\sigma$.
+- Reduce the compatibility condition with $\sigma$ = transposition to a node-by-node equation, and read off the classification of integrable boundary conditions, including two corrections to the published table.
+- Obtain the soliton-preserving boundary condition from $\sigma$ = Hermitian conjugation and recognize it as $\Theta P$-invariance.
+- Translate between the boundary parameters of the literature and the book's $C_j$.
 :::
 
-*This chapter is being drafted.*
+On the whole line, affine Toda theory is integrable because its field equations are the flatness condition of the Lax connection (-@eq-lax-pair). On the half-line $x\le0$ translation invariance is gone, and with it momentum and every conserved charge of odd parity. A boundary condition is called integrable if infinitely many combinations of the remaining charges survive. For sine-Gordon there is a two-parameter family of such conditions [@gz1994]. For every other affine Toda theory the conditions are rigid: apart from the Neumann condition, most boundary parameters are forced to be $\pm1$. This chapter derives that rigidity from Sklyanin's formalism, collects the classification, and adds two further classes, the soliton-preserving condition and dynamical boundaries.
+
+Everything here is classical. The quantum counterparts are the reflection matrices of @sec-boundary-scattering and @sec-soliton-reflection. The classical solutions on the half-line, which link the two, are the subject of @sec-half-line-solitons.
 
 ## Boundary potentials and boundary conditions {#sec-boundary-potential}
 
-<!-- planned: The book's boundary convention, real and imaginary coupling, energy. -->
+The field lives on $x\le0$, with the boundary at $x=0$. The action is
+
+$$
+S=\int dt\,\Big[\int_{-\infty}^0\mathcal L\,dx-\mathcal B\big(\vec\phi(0,t)\big)\Big],\qquad
+\partial_x\vec\phi\big|_{x=0}=-\nabla\mathcal B\big(\vec\phi(0,t)\big),
+$$ {#eq-boundary-action}
+
+where $\mathcal L$ is the bulk Lagrangian of @sec-lagrangians and the boundary condition follows from the boundary term of the variation, $\int dt\,\delta\vec\phi\cdot(\partial_x\vec\phi+\nabla\mathcal B)|_{x=0}$. The boundary potentials that turn out to be integrable are
+
+$$
+\mathcal B_{\rm real}=\frac{2m}{\beta^2}\sum_jC_j\sqrt{\frac{2n_j}{\vec\alpha_j^2}}\left(e^{\beta\vec\alpha_j\cdot\vec\phi/2}-1\right),\qquad
+\mathcal B_{\rm imag}=-\frac{2m}{\beta^2}\sum_jC_j\sqrt{\frac{2n_j}{\vec\alpha_j^2}}\left(e^{i\beta\vec\alpha_j\cdot\vec\phi/2}-1\right).
+$$ {#eq-boundary-potential}
+
+The second follows from the first by $\beta\to i\beta$, exactly as $V_{\rm imag}$ follows from $V_{\rm real}$ in (-@eq-imaginary-potential). The boundary conditions are
+
+$$
+\partial_x\vec\phi\big|_0=-\frac m\beta\sum_jC_j\sqrt{\frac{2n_j}{\vec\alpha_j^2}}\;\vec\alpha_j\,e^{\beta\vec\alpha_j\cdot\vec\phi/2}\quad\text{(real)},\qquad
+\partial_x\vec\phi\big|_0=\frac{im}\beta\sum_jC_j\sqrt{\frac{2n_j}{\vec\alpha_j^2}}\;\vec\alpha_j\,e^{i\beta\vec\alpha_j\cdot\vec\phi/2}\quad\text{(imaginary)}.
+$$ {#eq-boundary-condition}
+
+The boundary potential has one term for each node of the affine Dynkin diagram, with the exponential $e^{\beta\vec\alpha_j\cdot\vec\phi/2}$, the square root of the bulk term. The complex numbers $C_j$ are the **boundary parameters**. Two values recur.
+
+- **Neumann**, $C_j\equiv0$: $\partial_x\vec\phi|_0=0$.
+- **Uniform**, $C_j\equiv+1$: the "$(+\cdots+)$" boundary of Delius and Gandenberger [@delius_gandenberger1999].
+
+The normalization $\sqrt{2n_j/\vec\alpha_j^2}$ is not cosmetic. @sec-durham-classification shows that it is exactly what makes the integrability conditions node by node, with the same allowed values for every algebra. It agrees with Bowcock, Corrigan, Dorey and Rietdijk [@bcdr1995], whose $A_i$ is $2C_i\sqrt{2n_i/\vec\alpha_i^2}$ (@tbl-boundary-dictionary).
+
+**Energy.** The energy on the half-line includes the boundary potential,
+
+$$
+E=\int_{-\infty}^0\Big(\tfrac12\dot{\vec\phi}^2+\tfrac12\vec\phi'^2+V\Big)dx+\mathcal B\big(\vec\phi(0,t)\big).
+$$ {#eq-boundary-energy}
+
+Differentiating, using the field equation and integrating by parts gives $\dot E=\dot{\vec\phi}(0,t)\cdot\big(\partial_x\vec\phi+\nabla\mathcal B\big)|_{x=0}$, which vanishes by (-@eq-boundary-action). Energy is conserved for every boundary potential (@exr-boundary-energy). Integrability is the much stronger requirement that infinitely many further charges are conserved. The constants $-1$ in (-@eq-boundary-potential) normalize $\mathcal B(0)=0$. They do not affect the boundary condition, but they fix the zero of the boundary energy, which matters when vacua are compared in @sec-real-coupling-vacua.
+
+**Is $\vec\phi=0$ a solution?** The constant field $\vec\phi=0$ satisfies (-@eq-boundary-condition) if and only if $\sum_jC_j\sqrt{2n_j/\vec\alpha_j^2}\,\vec\alpha_j=0$. Since $\sum_jn_j\vec\alpha_j=0$ is the only linear relation among the affine simple roots, this happens for $a_n^{(1)}$ exactly when all $C_j$ are equal. For other algebras it happens rarely: none of the 32 sign choices $C_j=\pm1$ of $d_4^{(1)}$ admits $\vec\phi=0$ (checked in `textbook_code/boundary_classical.py`). At imaginary coupling the vacua are the points $\frac{2\pi}\beta\Lambda_W^\vee$, and $\vec\phi=\frac{2\pi}\beta\vec\mu$ satisfies the boundary condition with parameters $C_j$ exactly when the field $\vec\phi=0$ satisfies it with parameters $C_je^{i\pi\vec\alpha_j\cdot\vec\mu}$. At imaginary coupling a coweight shift therefore changes the sign pattern of the $C_j$, a fact that @sec-images-boundary uses constantly.
 
 ## Sklyanin's formalism {#sec-sklyanin}
 
-<!-- planned: Double-row transfer matrix, classical reflection equation, compatibility, generalization by an anti-automorphism σ. -->
+Sklyanin [-@sklyanin1988] showed how a Lax pair produces conserved charges on an interval, provided the boundary conditions are compatible with a matrix $K$. We follow the slight generalization of Delius [-@delius1998b], in which an anti-automorphism $\sigma$ replaces Sklyanin's inverse.
+
+**The Lax components.** Write the flatness condition (-@eq-zero-curvature) as $[\partial_x+a_x,\partial_t+a_t]=0$, with $a_t=\frac12(A_++A_-)$ and $a_x=\frac12(A_+-A_-)$. From (-@eq-lax-pair),
+
+$$
+\begin{aligned}
+a_t(\lambda)&=\frac\beta2\,\partial_x\vec\phi\cdot\vec H+\frac m2\sum_jc_j\,e^{\beta\vec\alpha_j\cdot\vec\phi/2}\big(\lambda E_{\vec\alpha_j}-\lambda^{-1}E_{-\vec\alpha_j}\big),\\
+a_x(\lambda)&=\frac\beta2\,\partial_t\vec\phi\cdot\vec H+\frac m2\sum_jc_j\,e^{\beta\vec\alpha_j\cdot\vec\phi/2}\big(\lambda E_{\vec\alpha_j}+\lambda^{-1}E_{-\vec\alpha_j}\big),
+\end{aligned}
+\qquad c_j=\sqrt{n_j\vec\alpha_j^2/2}.
+$$ {#eq-boundary-lax-at}
+
+**Transfer matrices.** On an interval $[x_-,x_+]$ let $T(\lambda)$ be the parallel transport of $\partial_x+a_x$ from $x_-$ to $x_+$, so that $\partial_{x_+}T=-a_x(x_+)T$. Flatness gives
+
+$$
+\partial_tT(\lambda)=-a_t(\lambda;x_+)\,T(\lambda)+T(\lambda)\,a_t(\lambda;x_-).
+$$
+
+On a circle the two boundary terms cancel under the trace and $\operatorname{tr}T$ is conserved. On an interval they do not, and the remedy is to send the transport back along the interval. Let $\sigma$ be an involutive anti-automorphism of the Lie algebra, linear or antilinear, extended to the group by $\sigma(gh)=\sigma(h)\sigma(g)$. Sklyanin's choice is $\sigma(X)=-X$, so that $\sigma(g)=g^{-1}$. Define the **double-row transfer matrix** and its trace,
+
+$$
+\mathcal T(\lambda)=T(\lambda)\,K_-(1/\lambda)\,\sigma\big(T(1/\lambda)\big),\qquad
+\tau(\lambda)=\operatorname{tr}\big(K_+(\lambda)\,\mathcal T(\lambda)\big),
+$$ {#eq-double-row}
+
+with two matrices $K_\pm(\lambda)$ that do not depend on the fields.
+
+::: {#prp-sklyanin}
+**[Established]** [@sklyanin1988; @delius1998b]
+
+(a) If the boundary conditions at the two ends imply
+
+$$
+K_+(\lambda)\,a_t(\lambda)+\sigma\big(a_t(1/\lambda)\big)K_+(\lambda)=0\quad\text{at }x_+,\qquad
+K_-(\lambda)\,\sigma\big(a_t(\lambda)\big)+a_t(1/\lambda)\,K_-(\lambda)=0\quad\text{at }x_-,
+$$ {#eq-boundary-compatibility}
+
+then $\tau(\lambda)$ is conserved for every $\lambda$.
+
+(b) If, in addition, $K_\pm$ satisfy the classical reflection equations, which for $K_+$ read
+
+$$
+0=\overset1K_+(\lambda_1)\overset2K_+(\lambda_2)\,r\big(\tfrac{\lambda_1}{\lambda_2}\big)+r^{\sigma_1\sigma_2}\big(\tfrac{\lambda_2}{\lambda_1}\big)\overset1K_+(\lambda_1)\overset2K_+(\lambda_2)
++\overset1K_+(\lambda_1)\,r^{\sigma_2}(\lambda_1\lambda_2)\overset2K_+(\lambda_2)+\overset2K_+(\lambda_2)\,r^{\sigma_1}\big(\tfrac1{\lambda_1\lambda_2}\big)\overset1K_+(\lambda_1),
+$$ {#eq-classical-reflection}
+
+then $\{\tau(\lambda_1),\tau(\lambda_2)\}=0$: the conserved quantities are in involution. Here $r$ is the classical r-matrix of the Toda Lax pair, $\overset1X=X\otimes1$, $\overset2X=1\otimes X$, and $r^{\sigma_1}$ means $\sigma$ applied to the first tensor factor.
+:::
+
+::: {.proof}
+Part (a) is a two-line computation, which we give in full. Write $\mu=1/\lambda$ and $T=T(\lambda)$, $T'=T(\mu)$. Since $\sigma$ reverses products, $\partial_t\sigma(T')=-\sigma(T')\,\sigma(a_t(\mu;x_+))+\sigma(a_t(\mu;x_-))\,\sigma(T')$. Hence
+
+$$
+\dot\tau=-\operatorname{tr}\Big(\big[K_+a_t(\lambda)+\sigma(a_t(\mu))K_+\big]_{x_+}T K_-(\mu)\sigma(T')\Big)
++\operatorname{tr}\Big(K_+T\big[a_t(\lambda)K_-(\mu)+K_-(\mu)\sigma(a_t(\mu))\big]_{x_-}\sigma(T')\Big),
+$$
+
+and both brackets vanish by (-@eq-boundary-compatibility) (the second with $\lambda\leftrightarrow\mu$). Part (b) uses the Poisson brackets of $T$, which are governed by the r-matrix; it is quoted from Delius [-@delius1998b, Prop. 1] and not checked here. Equation (-@eq-classical-reflection) is his (2.7), also unchecked.
+:::
+
+For the half-line, take $x_-\to-\infty$ and $K_-=1$; the fields decay to a vacuum at $-\infty$, where the second condition holds trivially. The generating function $\tau(\lambda)$ is expanded in powers of $\lambda$, as on the whole line (@sec-conserved-charges), and produces an infinite set of conserved local charges. Heuristically, they are the combinations of the whole-line charges $Q_s$ and $Q_{-s}$ that are even under the reflection $x\to-x$: a charge carried out of the half-line by a right-moving excitation must be brought back by a left-moving one.
+
+The compatibility condition (-@eq-boundary-compatibility) is linear in $K$ and contains $\partial_x\vec\phi$ at the boundary. Substituting the boundary condition turns it into an algebraic condition on $\mathcal B$. This is the whole content of classical integrability on the half-line. The rest of the chapter solves it for three choices of $\sigma$: transposition (@sec-durham-classification), Hermitian conjugation (@sec-soliton-preserving), and transposition with a $K$ that depends on extra boundary degrees of freedom (@sec-dynamical-boundary).
 
 ## The integrable boundary conditions {#sec-durham-classification}
 
-<!-- planned: σ = transposition; the classification by algebra (Corrigan, Dorey, Rietdijk, Sasaki; Bowcock et al.). -->
+Take $\sigma$ to be transposition, $\sigma(E_{\pm\vec\alpha})=E_{\mp\vec\alpha}$, $\sigma(\vec H)=\vec H$. Then $\sigma(a_t(1/\lambda))=\frac\beta2\partial_x\vec\phi\cdot\vec H-\frac m2\sum_jc_je^{\beta\vec\alpha_j\cdot\vec\phi/2}(\lambda E_{\vec\alpha_j}-\lambda^{-1}E_{-\vec\alpha_j})$. With $K=1$ the compatibility condition reduces to $\beta\,\partial_x\vec\phi\cdot\vec H=0$: **the Neumann condition is integrable.**
+
+For other boundary conditions substitute (-@eq-boundary-condition). The key identity is
+
+$$
+\sqrt{\frac{2n_j}{\vec\alpha_j^2}}=\frac{2c_j}{\vec\alpha_j^2},
+$$
+
+so the boundary term $\frac\beta2\partial_x\vec\phi\cdot\vec H$ becomes $-\frac m2\sum_jc_je^{\beta\vec\alpha_j\cdot\vec\phi/2}\,C_j\frac{2\vec\alpha_j\cdot\vec H}{\vec\alpha_j^2}$. Each node now contributes the same prefactor $c_je^{\beta\vec\alpha_j\cdot\vec\phi/2}$ to the Cartan part and to the step operators. For a field-independent $K$, the coefficients of the $r+1$ linearly independent functions $e^{\beta\vec\alpha_j\cdot\vec\phi/2}$ must vanish separately, and the compatibility condition becomes, with $h_j=2\vec\alpha_j\cdot\vec H/\vec\alpha_j^2$ the simple coroot,
+
+$$
+K(\lambda)\big(-C_jh_j+\lambda E_{\vec\alpha_j}-\lambda^{-1}E_{-\vec\alpha_j}\big)=\big(C_jh_j+\lambda E_{\vec\alpha_j}-\lambda^{-1}E_{-\vec\alpha_j}\big)K(\lambda)\qquad\text{for every node }j.
+$$ {#eq-boundary-k-equation}
+
+Two features make this equation useful.
+
+- **It is node-local.** The Lax coefficients $c_j$ have cancelled. With any other normalization of $\mathcal B$, such as dropping $n_j$, the factors $c_j$ survive and couple the nodes; for $d_4^{(1)}$ (where $n_2=2$) one then finds no invertible $K$ for any choice of signs (checked in `textbook_code/boundary_classical.py`).
+- **It does not see the root normalization.** Rescaling all roots rescales $h_j$ and $E_{\pm\vec\alpha_j}$ consistently, so the allowed $C_j$ are the same with the literature's normalizations of twisted roots.
+
+Equation (-@eq-boundary-k-equation) is the condition (4.10) of Bowcock, Corrigan, Dorey and Rietdijk [@bcdr1995] with $B_i=2C_i$ and their $K$ equal to our $K^{-1}$. Its solutions were found in [@cdrs1994; @bcdr1995] by expanding $K(\lambda)$ in $\lambda$. The lowest orders give necessary conditions. We have solved (-@eq-boundary-k-equation) in full, in a faithful representation, for every algebra marked "checked" in @tbl-durham.
+
+| algebra | integrable $C_j$ (besides Neumann $C\equiv0$) | status |
+|---|---|---|
+| $a_1^{(1)}$ | $C_0$, $C_1$ arbitrary complex numbers | checked |
+| $a_n^{(1)}$, $n\ge2$ | all $C_j=\pm1$, signs independent | checked ($a_2$, $a_3$) |
+| $d_n^{(1)}$ | all $C_j=\pm1$ | checked ($d_4$) |
+| $e_6^{(1)}$, $e_7^{(1)}$, $e_8^{(1)}$ | all $C_j=\pm1$ | unchecked |
+| $b_n^{(1)}$ | long nodes $C_0,\dots,C_{n-1}=\pm1$; short end $C_n$ arbitrary | checked ($b_3$) |
+| $c_n^{(1)}$, $n\ge3$ | all $\pm1$; or short nodes $C_1=\dots=C_{n-1}=0$ with long ends $C_0$, $C_n$ arbitrary | checked ($c_3$) |
+| $c_2^{(1)}=b_2^{(1)}$ | $C_0,C_2=\pm1$ with $C_1$ arbitrary; or $C_1=0$ with $C_0$, $C_2$ arbitrary | checked; **first branch new** |
+| $g_2^{(1)}$ | **all $C_j=\pm1$ only** | checked; **corrects [@bcdr1995]** |
+| $f_4^{(1)}$ | all $\pm1$; or $C_0,C_1,C_2=\pm1$ with short $C_3=C_4=0$ | unchecked |
+| $a_2^{(2)}$ | long $C=\pm1$ with short $C$ arbitrary; or short $C=0$ with long $C$ arbitrary | checked |
+| $a_{2n}^{(2)}$, $n\ge2$ | $\pm1$ except the shortest node, which is arbitrary; or $0$ except the longest node, which is arbitrary | checked ($a_4$, $a_6$; $a_4$ also has the mixed branch (long, mid, shortest) $=(\pm1,\text{any},0)$) |
+| $a_{2n-1}^{(2)}$ | all $\pm1$; or $0$ except the long end, which is arbitrary | checked for $n=2$ (as $d_3^{(2)}$) |
+| $d_{n+1}^{(2)}$ | interior long nodes $\pm1$; the two short end nodes arbitrary | checked ($d_3^{(2)}$) |
+| $e_6^{(2)}$ | all $\pm1$; or $C_0=C_1=C_2=0$ with $C_3,C_4=\pm1$ | unchecked |
+| $d_4^{(3)}$ | all $\pm1$; or $C_0=C_1=0$ with the long $C_2$ arbitrary | unchecked |
+
+: Classically integrable boundary conditions with a field-independent $K$ and $\sigma$ = transposition. "Checked" means that an invertible $K(\lambda)$ solving (-@eq-boundary-k-equation) exists exactly for the listed $C_j$, tested against nearby non-listed values (`textbook_code/boundary_classical.py`). Unchecked rows are quoted from Appendix D of [@bcdr1995]. {#tbl-durham}
+
+::: {#prp-durham}
+**[Numerical]** For the algebras marked "checked" in @tbl-durham, an invertible field-independent $K(\lambda)$ satisfying (-@eq-boundary-k-equation) exists if and only if the $C_j$ are as listed. The same holds at imaginary coupling, where (-@eq-boundary-k-equation) is unchanged (checked for $a_2^{(1)}$ and $d_4^{(1)}$).
+:::
+
+Two entries differ from Appendix D of [@bcdr1995]. The conditions listed there come from the order-$\lambda^2$ terms of $K$ alone, so they are necessary but need not be sufficient.
+
+- For $g_2^{(1)}$, Appendix D allows the short-root parameter to be arbitrary. The full equation (-@eq-boundary-k-equation) has no invertible solution unless it is $\pm1$.
+- For $c_2^{(1)}=b_2^{(1)}$, Appendix D lists only the $c_n$ branch. Since the same algebra is also $b_2^{(1)}$, the $b_n$ rule applies too, and the full solve confirms both branches. Similarly, $a_3^{(2)}\cong d_3^{(2)}$ obeys the union of the $a_{2n-1}^{(2)}$ and $d_{n+1}^{(2)}$ rules.
+
+Why are the $C_j$ so rigid? For each node separately, (-@eq-boundary-k-equation) is the sine-Gordon problem, which has a solution for any $C_j$. The constraints come from asking for one $K(\lambda)$ that serves all nodes at once: the step operators of neighbouring nodes do not commute, and consistency at order $\lambda^2$ already forces $C_j^2=1$ in the simply-laced cases [@bcdr1995]. Sine-Gordon escapes because its two nodes act in the same $sl_2$, and in the non-simply-laced cases some nodes escape as well, as the table shows.
+
+That a solution $K$ of (-@eq-boundary-k-equation) also solves the classical reflection equation (-@eq-classical-reflection) was observed in [@bcdr1995; @delius1998b]; we have not checked it. Integrability on an interval with two boundaries follows from Delius's remark that $K_-(\lambda)=K_+(-1/\lambda)$ solves the condition at $x_-$ [@delius1998b]. The parameters at the two ends are independent.
+
+**The dictionary.** The literature uses at least eight conventions for the boundary parameters. @tbl-boundary-dictionary translates them. All entries were derived by comparing boundary conditions term by term and are checked in `textbook_code/boundary_classical.py` unless marked "by hand".
+
+| source | their parameters | book $C_j$ |
+|---|---|---|
+| Ghoshal–Zamolodchikov [@gz1994] | $\mathcal B=-M_0\cos\frac{\beta_{\rm SG}}2(\phi-\phi_0)$, $\beta_{\rm SG}=\sqrt2\beta$, $m_0=2m$ | $C_0=\frac{\beta_{\rm SG}^2M_0}{4m_0}e^{i\beta_{\rm SG}\phi_0/2}$, $C_1=\frac{\beta_{\rm SG}^2M_0}{4m_0}e^{-i\beta_{\rm SG}\phi_0/2}$ ($\vec\alpha_1=\sqrt2$) |
+| Saleur–Skorik–Warner [@ssw1995] | $(\zeta,\eta)$; field on $x\ge0$ | $C_0=\cosh(\zeta+i\eta)$, $C_1=\cosh(\zeta-i\eta)$ |
+| Corrigan–Delius [@corrigan_delius1999] | $(\epsilon_0,\epsilon_1)$ (sinh-Gordon) | $(C_0,C_1)=(\epsilon_0,\epsilon_1)$ |
+| Corrigan et al. [@cdrs1994; @cdr1995; @bcdr1995] | $A_i$ | $A_i=2C_i\sqrt{2n_i/\vec\alpha_i^2}$; their Lax $B_i=2C_i$ |
+| Bowcock [@bowcock1998] | $A_i$ in $\partial_x\phi=\sum A_i\sqrt{n_i}\vec\alpha_ie^{\vec\alpha_i\cdot\phi/2}$ | $A_i=-C_i$ (by hand) |
+| Delius [@delius1998a] | $\epsilon$, field $\phi_D=i\beta\vec\phi$ | $C_j\equiv-\epsilon$ ($a_n$, $c_n$ only); position $\xi_D=-\xi$ |
+| Delius [@delius1998b] | $A_i$ | $A_i=-C_i$ |
+| Delius–Gandenberger [@delius_gandenberger1999] | $C_i$ | $C_i$; "$(+\cdots+)$" is $C\equiv+1$ |
+| Baseilhac–Delius–George [@bdg2002] | oscillator $(\hat p,\hat q)$ | $C_0=\cos\hat p$, $C_1=\cos\hat q$ |
+
+: Boundary parameters in the literature and the book's $C_j$ of (-@eq-boundary-potential). {#tbl-boundary-dictionary}
+
+In particular, $C\equiv+1$ is Ghoshal and Zamolodchikov's $M_0=4m_0/\beta_{\rm SG}^2$, $\phi_0=0$, the Saleur–Skorik–Warner point $(\zeta,\eta)=(0,0)$, and Delius's $\epsilon=-1$; the sine-Gordon Neumann point is $(\zeta,\eta)=(0,\pi/2)$. The $C_j$ are real exactly when $\phi_0\in\frac{2\pi}{\beta_{\rm SG}}\mathbb Z$.
 
 ## Background-field boundary conditions {#sec-background-field}
 
-<!-- planned: Brief. -->
+The boundary conditions so far contain no time derivatives. With more than one field component, a boundary term linear in velocities is also possible,
+
+$$
+\mathcal L_{\rm bdy}=-\mathcal B(\vec\phi)+\tfrac12\,\phi_a\,b_{ab}\,\partial_t\phi_b,\qquad
+\partial_x\phi_a\big|_0=-b_{ab}\,\partial_t\phi_b-\partial_a\mathcal B,
+$$
+
+with $b_{ab}$ a constant antisymmetric matrix, the boundary value of a background two-form. Bowcock, Corrigan and Rietdijk [@bcr1996] analysed integrability in this setting. The constant term $K(0)$ must implement a symmetry of the extended Dynkin diagram that is an inner automorphism of odd order, which leaves only $a_r^{(1)}$ (with conditions on $r$) and $e_6^{(1)}$ as candidates; the solutions they find are discrete, with no free parameter beyond the bulk coupling. We do not use these conditions in what follows, and we have not checked them.
 
 ## A soliton-preserving boundary condition {#sec-soliton-preserving}
 
-<!-- planned: σ = Hermitian conjugation; Dirichlet on Re φ, Neumann on Im φ. -->
+Every boundary condition of @tbl-durham turns an incoming soliton into an outgoing antisoliton (@sec-images-neumann). Delius [-@delius1998b] found a condition under which solitons come back as solitons, by changing $\sigma$.
+
+Take $\sigma$ to be Hermitian conjugation, $\sigma(E_{\pm\vec\alpha})=E_{\mp\vec\alpha}$, $\sigma(\vec H)=\vec H$, extended antilinearly. It differs from transposition only in that coefficients are complex conjugated. At imaginary coupling, with $\lambda$ real,
+
+$$
+a_t(\lambda)+a_t(1/\lambda)^\dagger=-\beta\,\partial_x\operatorname{Im}\vec\phi\cdot\vec H+im\sum_jc_j\operatorname{Im}\big(e^{i\beta\vec\alpha_j\cdot\vec\phi/2}\big)\big(\lambda E_{\vec\alpha_j}-\lambda^{-1}E_{-\vec\alpha_j}\big).
+$$
+
+::: {#prp-soliton-preserving}
+**[Theorem]** With $\sigma$ = Hermitian conjugation and $K_+=1$, the compatibility condition (-@eq-boundary-compatibility) holds at imaginary coupling if and only if
+
+$$
+\operatorname{Re}\vec\phi(0,t)\in\frac{2\pi}\beta\Lambda_W^\vee\ \ \text{(Dirichlet)},\qquad\partial_x\operatorname{Im}\vec\phi(0,t)=0\ \ \text{(Neumann)}.
+$$ {#eq-soliton-preserving}
+
+At real coupling the roles of the real and imaginary parts are exchanged. $K_+=1$ solves the classical reflection equation, so this boundary condition is integrable.
+:::
+
+::: {.proof}
+The Cartan part of the display above vanishes iff $\partial_x\operatorname{Im}\vec\phi=0$. Since $\operatorname{Im}e^{i\beta\vec\alpha_j\cdot\vec\phi/2}=e^{-\beta\vec\alpha_j\cdot\operatorname{Im}\vec\phi/2}\sin\big(\frac\beta2\vec\alpha_j\cdot\operatorname{Re}\vec\phi\big)$, the step-operator parts vanish iff $\vec\alpha_j\cdot\operatorname{Re}\vec\phi\in\frac{2\pi}\beta\mathbb Z$ for every $j$, i.e. $\operatorname{Re}\vec\phi$ lies in $\frac{2\pi}\beta$ times the coweight lattice. That $K=1$ solves the reflection equation is quoted from [@delius1998b]. The $a_2^{(1)}$ case, at both couplings, is checked symbolically in `textbook_code/boundary_classical.py`.
+:::
+
+The condition has no free parameter, apart from the discrete choice of the vacuum value of $\operatorname{Re}\vec\phi(0)$. For sine-Gordon, where the physical field is real, it is the Dirichlet condition $\phi(0)\in\frac{2\pi}\beta\Lambda_W^\vee$ at a vacuum. For higher theories, where solitons are complex, it is the natural generalization of Dirichlet: Dirichlet on the real part, Neumann on the imaginary part.
+
+**Image form.** A field on the whole line obeys (-@eq-soliton-preserving) at $x=0$ if
+
+$$
+\vec\phi(x,t)=2\vec v-\overline{\vec\phi(-x,t)},\qquad \vec v\in\frac{2\pi}\beta\Lambda_W^\vee .
+$$ {#eq-theta-p-reflection}
+
+Indeed, at $x=0$ this gives $\operatorname{Re}\vec\phi(0)=\vec v$, and differentiating gives $\partial_x\operatorname{Im}\vec\phi(0)=0$. Equation (-@eq-theta-p-reflection) says that $\vec\phi$ is invariant under $\Theta P$ composed with a reflection through the vacuum $\vec v$, where $P:x\to-x$ and $\Theta:\vec\phi\to-\bar{\vec\phi}$ (@sec-theta-classical). Delius writes the same condition as $\vec\phi(x)=-\overline{\vec\phi(-x)}-\frac{2\pi}\beta\vec\lambda$ with $\vec\lambda$ in the coweight lattice. In this form $\vec\lambda=-2\vec v\beta/2\pi$ must lie in $2\Lambda_W^\vee$: a coweight not in $2\Lambda_W^\vee$ gives $\operatorname{Re}\vec\phi(0)=-\frac\pi\beta\vec\lambda$, which is not a vacuum, and the condition fails (checked in `textbook_code/boundary_classical.py`). The images built from (-@eq-theta-p-reflection) are the subject of @sec-images-preserving.
+
+Why does $\sigma$ decide between conjugating and preserving? Heuristically, the charges conserved on the half-line are the combinations of $Q_s$ and $Q_{-s}$ selected by $\sigma$. With transposition, matching the charges of the incoming and outgoing objects requires an outgoing antisoliton; the extra complex conjugation in $\sigma=\dagger$ conjugates once more and restores the original species. @sec-half-line-solitons makes this concrete with the method of images. In the quantum theory the distinction reappears as the two forms of the reflection equation, soliton-preserving and soliton-conjugating (@sec-reflection-equation, @sec-preserving-conjugating).
 
 ## Dynamical boundaries {#sec-dynamical-boundary}
 
-<!-- planned: Sklyanin's formalism with a dynamical K-matrix. -->
+The parameters $C_j$ need not be constants. Baseilhac, Delius and George [@bdg2002] coupled the sine-Gordon field to a boundary degree of freedom, a non-linear oscillator with canonical variables $(\hat p,\hat q)$. In book variables its Hamiltonian is the imaginary-coupling boundary potential of $a_1^{(1)}$ with operator-valued parameters,
 
-## The antilinear symmetry Θ on the half-line {#sec-boundary-theta}
+$$
+H_{\rm osc}=-\frac{2m}{\beta^2}\Big(\cos\hat q\;e^{i\beta\phi(0)/\sqrt2}+\cos\hat p\;e^{-i\beta\phi(0)/\sqrt2}\Big),\qquad\{\hat p,\hat q\}=\frac{\beta_{\rm SG}^2}4=\frac{\beta^2}2,
+$$ {#eq-boundary-oscillator}
 
-<!-- planned: When boundary terms are Θ-invariant; soliton-preserving as ΘP-invariance. -->
+i.e. $C_0=\cos\hat p$ and $C_1=\cos\hat q$ in (-@eq-boundary-potential), up to a constant. The total Hamiltonian $H_{\rm field}+H_{\rm osc}$ generates the sine-Gordon equation in the bulk, the boundary condition $\partial_x\phi(0)=-\partial H_{\rm osc}/\partial\phi(0)$, and the oscillator equations $\dot{\hat p}=-m\,e^{i\beta\phi(0)/\sqrt2}\sin\hat q$, $\dot{\hat q}=m\,e^{-i\beta\phi(0)/\sqrt2}\sin\hat p$ [@bdg2002, eqs. (7), (9), (10)]. The total energy is conserved (checked symbolically in `textbook_code/boundary_classical.py`).
+
+Integrability follows from Sklyanin's formalism with a **dynamical** $K$-matrix: $K_+(\lambda)$ depends on $(\hat p,\hat q)$, and the classical reflection equation acquires a term from the Poisson brackets of the entries of $K_+$ among themselves. The compatibility condition is then imposed with the boundary condition and the oscillator equations of motion [@bdg2002]. We do not reproduce the construction; @sec-bsg-dynamical treats the model in detail. As $\hat p,\hat q$ are frozen at constant values, the $C_j$ become constants and the general Ghoshal–Zamolodchikov boundary is recovered. In the quantum theory the oscillator becomes a $q$-oscillator, and Baseilhac and Koizumi [@baseilhac_koizumi2003] constructed the corresponding dynamical reflection matrices.
+
+Note that $H_{\rm osc}$ is complex, as Baseilhac, Delius and George point out. It is, however, $\Theta$-symmetric in the sense of the next section.
+
+## The antilinear symmetry $\Theta$ on the half-line {#sec-boundary-theta}
+
+In the bulk, $\Theta:\vec\phi\mapsto-\bar{\vec\phi}$ maps solutions to solutions because $\overline{V_{\rm imag}(\vec\phi)}=V_{\rm imag}(-\bar{\vec\phi})$ (@sec-theta-classical). This is the classical shadow of the antilinear symmetry of @sec-antilinear. On the half-line the same is needed of the boundary term.
+
+::: {#prp-boundary-theta}
+**[Theorem]** $\overline{\mathcal B_{\rm imag}(\vec\phi)}=\mathcal B_{\rm imag}(-\bar{\vec\phi})$ for all $\vec\phi$ if and only if all $C_j$ are real. In that case $\Theta$ maps solutions of the half-line theory to solutions, and the energy (-@eq-boundary-energy) of $\Theta\vec\phi$ is the complex conjugate of that of $\vec\phi$.
+:::
+
+::: {.proof}
+$\overline{\mathcal B_{\rm imag}(\vec\phi)}-\mathcal B_{\rm imag}(-\bar{\vec\phi})=-\frac{2m}{\beta^2}\sum_j(\bar C_j-C_j)\sqrt{2n_j/\vec\alpha_j^2}\,\big(e^{-i\beta\vec\alpha_j\cdot\bar{\vec\phi}/2}-1\big)$, and the functions $e^{-i\beta\vec\alpha_j\cdot\bar{\vec\phi}/2}-1$ are linearly independent. Conjugating the boundary condition (-@eq-boundary-condition) then shows that $-\bar{\vec\phi}$ satisfies it whenever $\vec\phi$ does; the bulk is as in @sec-theta-classical. (Checked symbolically for $a_2^{(1)}$ in `textbook_code/boundary_classical.py`.)
+:::
+
+So all the rigid boundary conditions $C_j\in\{0,\pm1\}$ of @tbl-durham are $\Theta$-symmetric, and so is the oscillator boundary (-@eq-boundary-oscillator): with $\hat p,\hat q$ conjugated along with $\vec\phi$, the equations of motion of the coupled system are mapped to themselves (by hand). The free parameters of $a_1^{(1)}$ and of the non-simply-laced cases break $\Theta$ unless they are real. For the physical, real sine-Gordon field, $\Theta$ is $\phi\to-\phi$, and a Ghoshal–Zamolodchikov boundary with $\phi_0\notin\frac\pi{\beta_{\rm SG}}\mathbb Z$ indeed breaks it.
+
+The soliton-preserving condition fits the same pattern with parity included. Equation (-@eq-theta-p-reflection) says that the field is invariant under $\Theta P$, up to a vacuum shift. Thus the two classes of boundary conditions are distinguished by how they treat $\Theta$:
+
+- $\sigma$ = transposition with real $C_j$: the boundary is $\Theta$-invariant, and images are parity images, which conjugate the species (@sec-images-neumann).
+- $\sigma$ = Hermitian conjugation: the boundary condition itself is $\Theta P$-invariance, and images are $\Theta P$ images, which preserve the species (@sec-images-preserving).
+
+As on the whole line (@prp-hirota-energy), solutions whose asymptotic data are mapped to themselves by the relevant antilinear map have real conserved charges. This is how the classical energy of a complex reflected soliton comes out real, and it is why the missing-charge problem of @sec-missing-charges reappears on the half-line in a new guise (@sec-boundary-missing-charges).
 
 ## Exercises {#sec-boundary-conditions-exercises}
 
+::: {#exr-boundary-energy}
+Show that the energy (-@eq-boundary-energy) is conserved for any boundary potential $\mathcal B$ when the boundary condition (-@eq-boundary-action) holds. What goes wrong if one drops $\mathcal B(\vec\phi(0))$ from $E$?
+:::
+
+::: {#exr-node-local}
+Derive (-@eq-boundary-k-equation) from (-@eq-boundary-compatibility) and (-@eq-boundary-lax-at). Then repeat the calculation with $\mathcal B$ normalized by $\sqrt{2/\vec\alpha_j^2}$ instead of $\sqrt{2n_j/\vec\alpha_j^2}$, and show that the conditions no longer decouple node by node when some $n_j\ne1$.
+:::
+
+::: {#exr-sg-k-classical}
+For $a_1^{(1)}$ in the two-dimensional representation, take $K(\lambda)=\begin{pmatrix}k_{11}&k_{12}\\k_{21}&k_{22}\end{pmatrix}$ and solve (-@eq-boundary-k-equation). Show that a solution exists for all complex $C_0$, $C_1$, and that it is diagonal only for Neumann. *Hint:* the two nodes have $h_1=-h_0=\operatorname{diag}(1,-1)$ and $E_{\vec\alpha_0}=E_{-\vec\alpha_1}$ up to normalization.
+:::
+
+::: {#exr-uniform-vacuum}
+Show that $\vec\phi=0$ satisfies the uniform boundary condition $C_j\equiv\pm1$ of $a_n^{(1)}$, and that for $d_4^{(1)}$ no choice of signs allows $\vec\phi=0$. *Hint:* $\sum_j n_j\vec\alpha_j=0$ is the only linear relation.
+:::
+
+::: {#exr-soliton-preserving}
+Derive (-@eq-soliton-preserving) from the display preceding @prp-soliton-preserving, and work out the real-coupling version. Show that (-@eq-theta-p-reflection) implies (-@eq-soliton-preserving).
+:::
+
+::: {#exr-gz-dictionary}
+Starting from the Ghoshal–Zamolodchikov boundary potential $-M_0\cos\frac{\beta_{\rm SG}}2(\phi-\phi_0)$, derive the entries of @tbl-boundary-dictionary for $C_0$ and $C_1$. Which $(M_0,\phi_0)$ give the Neumann boundary? Which give $C\equiv-1$?
+:::
+
+::: {#exr-oscillator-energy}
+Using $\{\hat p,\hat q\}=\beta^2/2$, write Hamilton's equations for $\hat p$ and $\hat q$ from (-@eq-boundary-oscillator), and show that $H_{\rm field}+H_{\rm osc}$ is conserved. Show that $(\vec\phi,\hat p,\hat q)\mapsto(-\bar\phi,\bar{\hat p},\bar{\hat q})$ maps solutions to solutions.
+:::
+
 ## Notes and references {#sec-boundary-conditions-notes}
+
+The algebraic framework of reflection equations goes back to Cherednik [-@cherednik1984] and Sklyanin [-@sklyanin1988], whose double-row transfer matrix is (-@eq-double-row) with $\sigma(g)=g^{-1}$. Ghoshal and Zamolodchikov [-@gz1994] found the two-parameter integrable boundary of sine-Gordon, and Saleur, Skorik and Warner [-@ssw1995] parametrized it by $(\zeta,\eta)$. The Durham group derived the rigidity of the boundary conditions of the other affine Toda theories, first from low-spin charges [@cdrs1994; @cdr1995] and then from the Lax pair [@bcdr1995]; Bowcock, Corrigan and Rietdijk [-@bcr1996] added the background-field conditions. Delius [-@delius1998b] generalized Sklyanin's formalism to arbitrary anti-automorphisms and found the soliton-preserving condition. Baseilhac, Delius and George [-@bdg2002] introduced the boundary oscillator, and Baseilhac and Koizumi [-@baseilhac_koizumi2003] quantized it.
+
+Corrections and clarifications to the sources made in this chapter:
+
+- Appendix D of [@bcdr1995] allows the short-root parameter of $g_2^{(1)}$ to be arbitrary. Only $\pm1$ (or Neumann) admits an invertible $K$.
+- Appendix D of [@bcdr1995] lists only the $c_n$ branch for $c_2^{(1)}$. Since $c_2^{(1)}=b_2^{(1)}$, the $b_n$ branch ($C_0,C_2=\pm1$, $C_1$ arbitrary) is also integrable; likewise $d_3^{(2)}=a_3^{(2)}$ obeys the union of two rules.
+- Appendix C of [@bcdr1995] normalizes $C_0$ of $a_2^{(2)}$ differently ($B_0=-\sqrt2C_0$); this is harmless. In the arXiv text of (1.4) and (3.18) the radicals are displaced; the reading consistent with the rest of the paper is $|A_i|=2\sqrt{n_i}$ for simply-laced algebras, which agrees with $|A_i|=2$ for $a_n$ in [@cdrs1994].
+- The boundary condition (1.5) of [@delius1998a], with a single $\epsilon$ multiplying $\eta_i\vec\alpha_i$, is integrable only when $\eta_i\vec\alpha_i^2=2$ for all nodes, i.e. for $a_n^{(1)}$ and $c_n^{(1)}$; for other algebras the factor $\sqrt{2n_j/\vec\alpha_j^2}$ is required.
+- Equation (1.5) of [@delius1998b] is written for $\phi_D=i\beta\vec\phi$, so its "Dirichlet on $\operatorname{Im}\phi_D$" is Dirichlet on $\operatorname{Re}\vec\phi$. In the image form (1.4) the coweight must lie in $2\Lambda_W^\vee$.
