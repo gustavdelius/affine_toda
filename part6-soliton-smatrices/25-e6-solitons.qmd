@@ -23,8 +23,11 @@ as a scalar, and the $e_0$ intertwining relation becomes a linear system for the
 | Channel | $\mathbf{324}$ | $\mathbf{273}$ | $\mathbf{52}$ | $\mathbf{26}$ | $\mathbf 1$ |
 | --- | --- | --- | --- | --- | --- |
 | Eigenvalue | $1$ | $\langle2\rangle$ | $\langle8\rangle$ | $\langle2\rangle\langle12\rangle$ | $\langle8\rangle\langle18\rangle$ |
+| Casimir $C$ | $52$ | $48$ | $36$ | $24$ | $0$ |
 
-The crossing point is $x_c=q^{-18}$, where 18 is twice the dual Coxeter number of $f_4$. The bound states $\mathbf{26}+\mathbf{26}\to\mathbf{299}\ (=\mathbf{273}+\mathbf{26})$, $\mathbf{53}\ (=\mathbf{52}+\mathbf1)$ and $\mathbf{26}$ sit at $x=q^{-2}$, $q^{-8}$ and $q^{-12}$, and the breathers sit at $q^{-18}$.
+Here $\langle l\rangle=(x-q^l)/(1-x\,q^l)$ as in @sec-cn-representation, and $q$ is normalized as in the other chapters of Part VI, with $q_i=q$ on the short roots and $q_i=q^2$ on the long ones. This $q$ is the square root of the $q$ of @sec-uqghat, in which $q_i=q$ on long roots. Correspondingly, the Casimir in the table is computed with short roots of squared length 2; with the long roots of squared length 2 of @sec-lie-algebraic-data the values are halved ($26,24,18,12,0$, with $C(\mathbf{52})=2h^\vee=18$). In this normalization the tensor-product graph rule (-@eq-tpg-rule) reads $\rho_\mu/\rho_\nu=\langle(C(\mu)-C(\nu))/2\rangle$ along each edge (the inversion relative to (-@eq-tpg-rule) is the opposite coproduct of Part VI). The edges join components of opposite parity, $\mathbf{324}$, $\mathbf{26}$, $\mathbf1$ (symmetric) to $\mathbf{273}$, $\mathbf{52}$ (antisymmetric). The edges $\mathbf{324}$–$\mathbf{273}$, $\mathbf{324}$–$\mathbf{52}$, $\mathbf{273}$–$\mathbf{26}$ and $\mathbf{52}$–$\mathbf1$ give exponents $2$, $8$, $12$ and $18$, which reproduce the table.
+
+The crossing point is $x_c=q^{-18}$, where 18 is twice the dual Coxeter number of $f_4$ (in the $q$ of @sec-uqghat this is $q^{-9}$, one of the two square roots of $q^{-2h^\vee}$ allowed by @sec-qg-crossing). The bound states $\mathbf{26}+\mathbf{26}\to\mathbf{299}\ (=\mathbf{273}+\mathbf{26})$, $\mathbf{53}\ (=\mathbf{52}+\mathbf1)$ and $\mathbf{26}$ sit at $x=q^{-2}$, $q^{-8}$ and $q^{-12}$, and the breathers sit at $q^{-18}$.
 
 ## Fixing the zeros by the mass pattern {#sec-fixing-zeros-mass-pattern}
 
@@ -34,7 +37,7 @@ $$
 \frac{m_2}{m_1}=2\cos\Big(\frac{\pi}{H}+\frac{\pi}{6}\Big),\qquad \frac{m_3}{m_1}=2\cos\frac{\pi}{H} .
 $$
 
-Requiring the solitons $\mathbf{26}$, $\mathbf{53}$ and $\mathbf{299}$ to carry the masses of particles 1, 2 and 3 exactly places the fusions at $t=2T/H+T/3$ for $\mathbf{53}$, $t=2T/H$ for $\mathbf{299}$, and $t=2T/3$ for the self-fusion. The last is a coupling-independent angle $2\pi/3$, matching CDS's self-coupling 111. Combined with the gradation ($h=9$, $h^\vee=12$, $\omega=2\pi/\beta^2-1$), this gives
+Requiring the solitons $\mathbf{26}$, $\mathbf{53}$ and $\mathbf{299}$ to carry the masses of particles 1, 2 and 3 exactly places the fusions at $t=2T/H+T/3$ for $\mathbf{53}$, $t=2T/H$ for $\mathbf{299}$, and $t=2T/3$ for the self-fusion. The last is a coupling-independent angle $2\pi/3$, matching CDS's self-coupling 111. The fusion $\mathbf{26}+\mathbf{26}\to\mathbf{299}$ comes from the R-matrix pole at $q^{-2}$, so its position $2T/H$ is the zero at $a=\omega$, which gives $H=2T/\omega$. The other two positions are then the zeros $2T/H+T/3=4\omega+1$ (pole $q^{-8}$) and $2T/3=6\omega+2$ (pole $q^{-12}$). Combined with the gradation ($h=9$, $h^\vee=12$, $\omega=2\pi/\beta^2-1$), this gives
 
 $$
 a\in\{\omega,\ 4\omega+1,\ 6\omega+2\},\qquad T=9\omega+3,\qquad H=\frac{2T}{\omega}=18+\frac{6}{\omega} .
@@ -50,7 +53,7 @@ $$
 S_{11}=[1]_0\,[H/3+1]_0,\qquad [x]_0=\{x\}_0\{H-x\}_0,\qquad B=\frac{H-12}{3},
 $$
 
-at the predicted $H=18+6/\omega$, with no adjustment. The lowest breather of the $\mathbf{26}$ is therefore CDS particle 1. A one-loop computation from the $e_6^{(2)}$ Lagrangian gives $\delta H/\tilde B_{\rm tree}=-3.000000$, exactly CDS's $H=18-3\tilde B$ at this end of their range (@sec-app-numerics), so this S-matrix is also consistent with perturbation theory. The same holds when the breather amplitude is compared directly with the Lagrangian, without reference to CDS. Its first-order term has exactly the tree-level $\theta$-dependence at eight rapidities, and that term fixes the coupling map $1/\omega=\beta^2/2\pi$, which is the gradation assumed. With that map the amplitude predicts the one-loop shifts of all three mass ratios exactly.
+at the predicted $H=18+6/\omega$, with no adjustment. The lowest breather of the $\mathbf{26}$ is therefore CDS particle 1. A one-loop computation from the $e_6^{(2)}$ Lagrangian gives $\delta H/\tilde B_{\rm tree}=-3.000000$, exactly CDS's $H=18-3\tilde B$ at this end of their range (@sec-app-numerics), so this S-matrix is also consistent with perturbation theory. The same holds when the breather amplitude is compared directly with the Lagrangian, without reference to CDS. Its first-order term has exactly the tree-level $\theta$-dependence at eight rapidities, and that term fixes the coupling map $1/\omega=\beta^2/2\pi+O(\beta^4)$ in the coupling of this chapter (longest root of squared length 4), that is $1/\omega=\beta^2/4\pi+O(\beta^4)$ in the normalization of @sec-lie-algebraic-data. This is the gradation assumed (@sec-qg-gradation). With that map the amplitude predicts the one-loop shifts of all three mass ratios exactly.
 
 ## Exercises {#sec-sm-e6-exercises}
 

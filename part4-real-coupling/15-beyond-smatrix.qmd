@@ -12,17 +12,17 @@ An exact S-matrix determines much more than scattering. Combined with the method
 
 ## The thermodynamic Bethe ansatz {#sec-tba}
 
-Put the theory on a circle of circumference $R$ and regard the Euclidean direction of length $L\to\infty$ as time. The partition function is then dominated by the ground state in volume $R$: $Z\simeq e^{-LE_0(R)}$. Exchanging the roles of space and time, the same partition function is a thermal trace at temperature $1/R$ in infinite volume, which can be evaluated from the Bethe–Yang equations (-@eq-bethe-yang) in the thermodynamic limit. For a diagonal S-matrix this gives Zamolodchikov's **thermodynamic Bethe ansatz** [@zamolodchikov1990]:
+Put the theory on a circle of circumference $L$, as in @sec-bethe-yang, and regard the Euclidean direction of length $L'\to\infty$ as time. The partition function is then dominated by the ground state in volume $L$: $Z\simeq e^{-L'E_0(L)}$. Exchanging the roles of space and time, the same partition function is a thermal trace at temperature $1/L$ in infinite volume, which can be evaluated from the Bethe–Yang equations (-@eq-bethe-yang) in the thermodynamic limit. For a diagonal S-matrix this gives Zamolodchikov's **thermodynamic Bethe ansatz** [@zamolodchikov1990]:
 
 $$
-\varepsilon_a(\theta)=m_aR\cosh\theta-\sum_b\int\frac{d\theta'}{2\pi}\,\varphi_{ab}(\theta-\theta')\,\ln\big(1+e^{-\varepsilon_b(\theta')}\big),\qquad\varphi_{ab}(\theta)=-i\frac{d}{d\theta}\ln S_{ab}(\theta),
+\varepsilon_a(\theta)=m_aL\cosh\theta-\sum_b\int\frac{d\theta'}{2\pi}\,K_{ab}(\theta-\theta')\,\ln\big(1+e^{-\varepsilon_b(\theta')}\big),\qquad K_{ab}(\theta)=-i\frac{d}{d\theta}\ln S_{ab}(\theta),
 $$ {#eq-tba}
 
 $$
-E_0(R)=-\sum_a\int\frac{d\theta}{2\pi}\,m_a\cosh\theta\,\ln\big(1+e^{-\varepsilon_a(\theta)}\big).
+E_0(L)=-\sum_a\int\frac{d\theta}{2\pi}\,m_a\cosh\theta\,\ln\big(1+e^{-\varepsilon_a(\theta)}\big).
 $$
 
-As $R\to0$ the theory approaches its ultraviolet fixed point, and $E_0(R)\simeq-\pi c_{\rm eff}/6R$ gives the **effective central charge**. For the real-coupling affine Toda theories the ultraviolet limit is $r$ free bosons, and the TBA gives $c_{\rm eff}=r$ [@klassen1990]. The approach to it is logarithmic rather than a power law, because the ultraviolet theory is non-compact; the logarithms are controlled by reflection amplitudes of the Toda conformal field theory [@afkry2000; @ahn2000].
+The functions $\varepsilon_a$ are the **pseudo-energies**, and $K_{ab}$ is the scattering kernel. As $L\to0$ the theory approaches its ultraviolet fixed point, and $E_0(L)\simeq-\pi c_{\rm eff}/6L$ gives the **effective central charge** $c_{\rm eff}$ (a central charge, not to be confused with the algebra family $c_n^{(1)}$). In the ultraviolet limit the pseudo-energies are approximately constant on a growing central interval of rapidities, the **plateau** (@exr-tba-uv). For the real-coupling affine Toda theories the TBA gives $c_{\rm eff}=r$, the value for $r$ free bosons [@klassen1990]. The ultraviolet theory itself is not free: it is the Toda conformal field theory, whose central charge is larger than $r$, and $c_{\rm eff}=r$ reflects the continuous spectrum of its zero modes. The approach to $c_{\rm eff}=r$ is logarithmic rather than a power law, because the ultraviolet theory is non-compact; the logarithms are controlled by reflection amplitudes of the Toda conformal field theory [@afkry2000; @ahn2000].
 
 The same equations with the minimal S-matrices give the central charges of perturbed minimal models, and at imaginary coupling the TBA with the soliton S-matrices gives the effective central charges of the restricted, often non-unitary, theories. @sec-lee-yang used this for the scaling Lee–Yang model.
 
@@ -36,24 +36,24 @@ $$
 
 satisfy a system of functional equations determined by the S-matrix [@smirnov1992]:
 
-- **Watson's equations:** exchanging two neighbouring rapidities multiplies $F$ by the S-matrix;
-- **cyclicity:** shifting $\theta_n\to\theta_n+2\pi i$ moves it to the front;
-- **kinematic poles** at $\theta_i-\theta_j=i\pi$ for a particle–antiparticle pair, with residue given by the $(n-2)$-particle form factor;
+- **Watson's equations:** exchanging two neighbouring rapidities multiplies $F$ by the S-matrix, $F_{\dots a_ia_{i+1}\dots}(\dots,\theta_i,\theta_{i+1},\dots)=S_{a_ia_{i+1}}(\theta_i-\theta_{i+1})\,F_{\dots a_{i+1}a_i\dots}(\dots,\theta_{i+1},\theta_i,\dots)$;
+- **cyclicity:** shifting $\theta_n\to\theta_n+2\pi i$ moves it to the front, $F_{a_1\dots a_n}(\theta_1,\dots,\theta_n+2\pi i)=F_{a_na_1\dots a_{n-1}}(\theta_n,\theta_1,\dots,\theta_{n-1})$;
+- **kinematic poles** at $\theta_i-\theta_j=i\pi$ for a particle–antiparticle pair, with residue given by the $(n-2)$-particle form factor. They come from crossing one member of the pair into the out-state: the pole is the disconnected term, in which that particle passes the operator without interacting. For a single self-conjugate particle, as in sinh-Gordon, the residue axiom reads $-i\lim_{\tilde\theta\to\theta}(\tilde\theta-\theta)F(\tilde\theta+i\pi,\theta,\theta_1,\dots,\theta_n)=\big(1-\prod_{i=1}^nS(\theta-\theta_i)\big)F(\theta_1,\dots,\theta_n)$. The general form and the normalization conventions are in [@smirnov1992];
 - **bound-state poles** at the fusing angles, with residues given by the three-point couplings.
 
 Solving these equations gives all form factors, and summing over intermediate states gives correlation functions as rapidly convergent series at large distance. For affine Toda theories the programme was begun by Fring, Mussardo and Simonetti [@fring1993], starting with sinh-Gordon and the minimal two-particle form factor of each amplitude.
 
 ## The mass–coupling relation and the bulk energy {#sec-mass-coupling}
 
-The S-matrix fixes mass ratios, but not the relation between the overall mass scale and the parameter $m$ of the Lagrangian. That relation, and the vacuum energy density in infinite volume (the **bulk energy**), follow exactly for all simply-laced theories from Fateev's results [@fateev1994], as derived by Ahn, Fateev, Kim, Rim and Yang [@afkry2000], with the non-simply-laced cases in [@ahn2000], building on Al. B. Zamolodchikov's result for sine-Gordon [@zamolodchikov1995]. The bulk energy is analytic in the coupling with poles at special values. In @sec-collapse-thresholds its continuation to imaginary coupling has poles exactly at the collapse thresholds of the Coulomb-gas representation, where additional counterterms are needed.
+The S-matrix fixes mass ratios, but not the relation between the overall mass scale and the parameter $m$ of the Lagrangian. That relation, and the vacuum energy density in infinite volume (the **bulk energy**), follow exactly for all simply-laced theories from Fateev's results [@fateev1994], as derived by Ahn, Fateev, Kim, Rim and Yang [@afkry2000], with the non-simply-laced cases in [@ahn2000], building on Al. B. Zamolodchikov's result for sine-Gordon [@zamolodchikov1995]. The relation expresses the Lagrangian parameter, raised to a coupling-dependent power fixed by the anomalous dimension of the normal-ordered exponentials, as the physical mass scale times an explicit product of Gamma functions of the coupling. We do not reproduce it here; it is given in [@fateev1994], and with the bulk energy in [@afkry2000; @ahn2000]. The bulk energy is analytic in the coupling with poles at special values. In @sec-collapse-thresholds its continuation to imaginary coupling has poles exactly at the collapse thresholds of the Coulomb-gas representation, where additional counterterms are needed.
 
 ## The ODE/IM correspondence {#sec-ode-im}
 
-The ODE/IM correspondence relates spectral problems of ordinary differential equations to integrable models. In its massive form, the linear problem associated with the Lax pair of affine Toda theory, specialized to particular solutions, has connection coefficients that satisfy the same functional relations as the conserved charges of the quantum theory [@lukyanov2010; @dorey2013; @ito2014]. The ultraviolet limit of the $a_r^{(1)}$ correspondence gives non-unitary $WA_r$ minimal models [@ito_shu2018], and a recent monograph reviews the subject and its applications [@ito_shu2025].
+The ODE/IM (ordinary differential equation / integrable model) correspondence relates spectral problems of ordinary differential equations to integrable models. In its massive form the ODE is the linear problem of the Lax connection of affine Toda theory, a first-order system that plays the role of a Schrödinger equation. Specialized to particular classical solutions, it has connection coefficients that satisfy the same functional relations as the conserved charges of the quantum theory [@lukyanov2010; @dorey2013; @ito2014]. The ultraviolet limit of the $a_r^{(1)}$ correspondence gives non-unitary $WA_r$ minimal models [@ito_shu2018], and a recent monograph reviews the subject and its applications [@ito_shu2025].
 
 ## Rigorous constructions {#sec-rigorous-real}
 
-The real-coupling potentials are real and bounded below, so the theories fall into the class of exponential interactions constructed rigorously by Albeverio and Høegh-Krohn [-@albeverio1974]. For a single field in the super-renormalizable range that construction gives the Wightman axioms and a mass gap. Extending it to several fields is expected to be routine, but to our knowledge it has not been written down. Nothing comparable existed for the imaginary-coupling theories, and Part VII supplies what can be done.
+The real-coupling potentials are real and bounded below. Albeverio and Høegh-Krohn [-@albeverio1974] constructed a class of two-dimensional theories of a single scalar field whose interaction is a superposition, with positive weights, of Wick-ordered exponentials $:e^{\alpha\phi}:$ with $\lvert\alpha\rvert$ below a fixed bound (the precise range is in their paper), added to a free field of positive mass. For these they proved the **Wightman axioms**, the standard axioms of relativistic quantum field theory (fields as operator-valued distributions, Poincaré covariance, positivity of the energy, a unique vacuum and locality), and a mass gap. The sinh-Gordon interaction is of this exponential type, but there it is added to a free field of positive mass, whereas in the Toda Lagrangian the whole mass term comes from the exponentials. That the real-coupling Toda theories, with one field or several, can be constructed by the same methods is expected, but to our knowledge it has not been written down. Nothing comparable existed for the imaginary-coupling theories, and Part VII supplies what can be done.
 
 ## Exercises {#sec-beyond-smatrix-exercises}
 
@@ -62,7 +62,7 @@ For $S=-1$ (free Majorana fermions), solve the TBA (-@eq-tba) exactly and show t
 :::
 
 ::: {#exr-tba-uv}
-Assuming $\varepsilon_a$ is constant in the central region $\lvert\theta\rvert\ll\ln(1/R)$, derive the algebraic equations for $x_a=e^{-\varepsilon_a}$ in the ultraviolet limit, and express $c_{\rm eff}$ through dilogarithms. (*Hint:* for the affine Toda S-matrices $N_{ab}=\frac1{2\pi}\int\varphi_{ab}=\delta_{ab}$, so the plateau equations $x_a=1+x_a$ have no finite solution; the limit $x_a\to\infty$ gives $c_{\rm eff}=r$.)
+Assuming $\varepsilon_a$ is constant in the central region $\lvert\theta\rvert\ll\ln(1/L)$, derive the algebraic equations for $x_a=e^{-\varepsilon_a}$ in the ultraviolet limit, and express $c_{\rm eff}$ through dilogarithms. (*Hint:* on the plateau (-@eq-tba) becomes $\varepsilon_a=-\sum_bN_{ab}\ln(1+e^{-\varepsilon_b})$, that is $x_a=\prod_b(1+x_b)^{N_{ab}}$, with $N_{ab}=\frac1{2\pi}\int_{-\infty}^\infty K_{ab}(\theta)\,d\theta$. Since $S_{ab}$ is a phase, $2\pi N_{ab}$ is the total change of $\arg S_{ab}$ along the real axis. Show that this change is $2\pi$ for $\{1\}$ and $0$ for $\{x\}$ with $2\le x\le h-1$, so that $N_{ab}=\delta_{ab}$ for $a_n^{(1)}$; for $a_2^{(1)}$, $N_{11}=N_{22}=1$ and $N_{12}=0$. The plateau equations $x_a=1+x_a$ then have no finite solution, and the limit $x_a\to\infty$ gives $c_{\rm eff}=r$.)
 :::
 
 ::: {#exr-watson}

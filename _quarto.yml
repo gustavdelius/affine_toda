@@ -67,13 +67,13 @@ book:
         - part7-foundations/31-continuum-window.qmd
         - part7-foundations/32-scattering.qmd
         - part7-foundations/33-outlook.qmd
+    - references.qmd
   appendices:
     - appendices/A-algebra-data.qmd
     - appendices/B-zero-mode.qmd
     - appendices/C-heat-trace.qmd
     - appendices/D-numerics.qmd
     - appendices/E-code.qmd
-    - references.qmd
 
 bibliography: references.bib
 csl: aps.csl

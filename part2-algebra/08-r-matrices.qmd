@@ -8,7 +8,7 @@
 - Pass from the vertex to the IRF (RSOS) form of an R-matrix.
 :::
 
-@sec-quantum-groups showed that an R-matrix is the unique intertwiner between two tensor products of representations of a quantum affine algebra. This chapter is about computing it. For small representations of $U_q(\widehat{sl}_n)$ the answers have been known since the 1980s. For many of the representations needed for the non-simply-laced solitons they were found in the 1990s by the tensor-product graph of this chapter: Delius, Gould and Zhang derived the spinor R-matrices of $U_q(b_n^{(1)})$ and $U_q(d_{n+1}^{(2)})$ for all $n$, and the $\mathbf{26}$ R-matrix of $U_q(f_4^{(1)})$ [@dgz1994; @dgz1996]. What remained hard were representations that are reducible under $U_q(g)$, such as the Kirillov–Reshetikhin modules of higher solitons and the $\mathbf{27}$ of $U_q(e_6^{(2)})$ (@sec-sm-introduction). The methods below are the ones Part VI uses.
+@sec-quantum-groups showed that an R-matrix is the unique intertwiner between two tensor products of representations of a quantum affine algebra. This chapter is about computing it. For small representations of $U_q(\widehat{sl}_n)$ the answers have been known since the 1980s. For many of the representations needed for the non-simply-laced solitons they were found in the 1990s by the tensor-product graph of this chapter: Delius, Gould and Zhang derived the spinor R-matrices of $U_q(b_n^{(1)})$ and $U_q(d_{n+1}^{(2)})$ for all $n$, and the $\mathbf{26}$ R-matrix of $U_q(f_4^{(1)})$ [@dgz1994; @dgz1996]. What remained hard were representations that are reducible under $U_q(g)$, such as the Kirillov–Reshetikhin modules of higher solitons (@sec-sm-introduction). The $\mathbf{27}$ of $U_q(e_6^{(2)})$ is reducible under $U_q(f_4)$, but irreducible under the other horizontal subalgebra $U_q(c_4)$, and Gandenberger, MacKay and Watts obtained its R-matrix with the tensor-product graph for that subalgebra [@gmw1996]; Part VI re-derives it directly. The methods below are the ones Part VI uses.
 
 ## Jimbo's equations {#sec-jimbo-equations}
 
@@ -45,7 +45,7 @@ $$
 \check R(z)=\sum_\mu\rho_\mu(z)\,P_\mu ,
 $$ {#eq-spectral-decomposition}
 
-where the $P_\mu$ are the $U_q(g)$-invariant projectors. The remaining task is to find the scalar functions $\rho_\mu(z)$, with $\rho_{\rm top}=1$ on the component of highest weight. For the six-vertex R-matrix there are two components, spin 1 and spin 0, and $\rho_0$ is (-@eq-six-vertex-eigenvalue).
+where the $P_\mu$ are the $U_q(g)$-invariant projectors. (The eigenvalues $\rho_\mu(z)$ always carry a subscript and an argument; they are unrelated to the Weyl vector $\vec\rho$ of (-@eq-casimir).) The remaining task is to find the scalar functions $\rho_\mu(z)$, with $\rho_{\rm top}=1$ on the component of highest weight. For the six-vertex R-matrix there are two components, spin 1 and spin 0, and $\rho_0$ is (-@eq-six-vertex-eigenvalue).
 
 ## The tensor-product graph {#sec-tpg}
 
@@ -65,14 +65,14 @@ with the Casimir $C$ of (-@eq-casimir). Note $\langle a\rangle\langle-a\rangle=1
 **Example: $U_q(\widehat{sl}_{n+1})$ vector representation.** $V\otimes V$ is the $q$-symmetric tensors $L(2\vec\lambda_1)$ and the $q$-antisymmetric tensors $L(\vec\lambda_2)$. Their Casimirs differ by 4 (@exr-tpg-an), so
 
 $$
-\check R(z)=P_{2\lambda_1}+\frac{1-zq^2}{z-q^2}\,P_{\lambda_2} ,
+\check R(z)=P_{2\vec\lambda_1}+\frac{1-zq^2}{z-q^2}\,P_{\vec\lambda_2} ,
 $$
 
 which is Jimbo's R-matrix for the vector representation of $U_q(\widehat{sl}_{n+1})$, and for $n=1$ the six-vertex R-matrix.
 
 **Twisted algebras.** The rule as stated is for untwisted $\hat g$, in the homogeneous gradation (other gradations are related to it by an $x$-dependent change of basis). For a twisted algebra $g^{(2)}$, $e_0$ transforms under $U_q(g_{(0)})$ not in the adjoint representation but in $g_{(1)}$ (@sec-twisted), and the graph changes accordingly [@dgz1996]: $\mu$ and $\nu$ are joined if $L(\nu)\subset L(\mu)\otimes g_{(1)}$, an edge may join two components of equal parity, and along such an edge $\langle a\rangle$ in (-@eq-tpg-rule) is replaced by $\langle a\rangle_+=(1+z\,q^{2a})/(z+q^{2a})$. The example that matters here is the spinor representation of $U_q(d_{n+1}^{(2)})$, which carries the spinor soliton of $c_n^{(1)}$. Under the horizontal subalgebra $U_q(b_n)$ its tensor square is $\bigoplus_{k=0}^n\Lambda^k\mathbb C^{2n+1}$, without multiplicities, the graph is the chain $\Lambda^n-\Lambda^{n-1}-\dots-\Lambda^0$, and $\rho_{\Lambda^{n-j}}=\prod_{i=1}^{j}\langle i/2\rangle_{(-1)^i}$ with $\langle a\rangle_-=\langle a\rangle$ [@dgz1996].
 
-**When it fails.** The graph defined above is what Delius, Gould and Zhang call the extended graph. The pairs of components that $e_0$ actually links form a connected subgraph of it whenever $V(x)\otimes V(y)$ is irreducible for generic $x/y$ [@dgz1994], so imposing the rule on every edge gives the R-matrix provided the relations are consistent around loops. What the method cannot do without is a multiplicity-free decomposition, and for several affine Toda theories this fails. The soliton multiplets of $c_n^{(1)}$ other than the spinor are Kirillov–Reshetikhin modules of $U_q(d_{n+1}^{(2)})$ that are reducible under $U_q(b_n)$, for example $\Lambda^1\oplus\Lambda^0$ and, for $c_3^{(1)}$, the 29-plet $\Lambda^2\oplus\Lambda^1\oplus\Lambda^0$ (@sec-sm-c3). Their tensor products contain the same $U_q(b_n)$-representation more than once. Then $\check R$ restricted to each isotypic component is a matrix, not a number, and no graph rule applies.
+**When it fails.** The graph defined above is what Delius, Gould and Zhang call the extended graph, as opposed to the subgraph of the pairs that $e_0$ actually links. The pairs of components that $e_0$ actually links form a connected subgraph of it whenever $V(x)\otimes V(y)$ is irreducible for generic $x/y$ [@dgz1994], so imposing the rule on every edge gives the R-matrix provided the relations are consistent around loops. What the method cannot do without is a multiplicity-free decomposition, and for several affine Toda theories this fails. The soliton multiplets of $c_n^{(1)}$ other than the spinor are Kirillov–Reshetikhin modules of $U_q(d_{n+1}^{(2)})$ that are reducible under $U_q(b_n)$, for example $\Lambda^1\oplus\Lambda^0$ and, for $c_3^{(1)}$, the 29-plet $\Lambda^2\oplus\Lambda^1\oplus\Lambda^0$ (@sec-sm-c3). Their tensor products contain the same $U_q(b_n)$-representation more than once. Then $\check R$ restricted to each isotypic component (the sum of all the components isomorphic to a given $L(\mu)$) is a matrix, not a number, and no graph rule applies.
 
 ## Beyond multiplicity-free tensor products {#sec-direct-method}
 
@@ -103,7 +103,7 @@ The right-hand side intertwines $V_c(x)\otimes V_d(y)$ with $V_d(y)\otimes V_c(x
 
 ## Vertex and IRF forms {#sec-irf}
 
-An R-matrix acting on $V\otimes V$, with $V$ a multiplet of solitons, is said to be in **vertex form**: its matrix elements describe particles carrying the labels of a basis of $V$. There is an equivalent **interaction-round-a-face (IRF)** form, in which the labels are carried by the regions between the particles. For field theory this is the kink picture: the regions are vacua, and a particle is a kink between two vacua.
+An R-matrix acting on $V\otimes V$, with $V$ a multiplet of solitons, is said to be in **vertex form**: its matrix elements describe particles carrying the labels of a basis of $V$. There is an equivalent **interaction-round-a-face (IRF)** form, in which the labels are carried by the regions between the particles. The name comes from statistical mechanics, where the Boltzmann weight of an IRF model is attached to a face of the lattice and depends on the four heights around it. For field theory this is the kink picture: the regions are vacua, and a particle is a kink between two vacua.
 
 The passage between the two uses only the $U_q(g)$-invariance of $\check R$. Fix a highest weight $a$ and consider $L(a)\otimes V\otimes V$. The space of $U_q(g)$ highest-weight vectors of weight $d$ in it has a basis labelled by **paths** $a\to b\to d$: weights $b$ with $L(b)\subset L(a)\otimes V$ and $L(d)\subset L(b)\otimes V$. Since $1\otimes\check R(z)$ commutes with $U_q(g)$, it acts on this space by a matrix,
 
@@ -111,7 +111,7 @@ $$
 (1\otimes\check R(z))\,\lvert a,b,d\rangle=\sum_{b'}W\!\left(\left.\begin{matrix}a&b\\b'&d\end{matrix}\right|z\right)\lvert a,b',d\rangle .
 $$
 
-The coefficients $W$ are the **face weights**. They satisfy a Yang–Baxter equation of their own, which follows from (-@eq-ybe-braid), and braiding unitarity. For $U_q(sl_2)$ and spin-$\frac12$ particles, the heights $a,b,d$ are spins, and neighbouring heights differ by $\frac12$.
+The coefficients $W$ are the **face weights**. They satisfy a Yang–Baxter equation of their own, which follows from (-@eq-ybe-braid), and braiding unitarity. For $U_q(sl_2)$ and spin-$\frac12$ particles, the heights $a,b,d$ are spins, and neighbouring heights differ by $\frac12$: the allowed paths have $b=a\pm\frac12$ and $d=b\pm\frac12$, with all heights non-negative.
 
 **RSOS restriction.** When $q$ is a root of unity with $q^{2p}=1$, the face weights involving only heights $a\le(p-2)/2$ never couple to larger heights, because the corresponding quantum dimensions vanish (@sec-roots-of-unity). Restricting to these heights gives a consistent **restricted solid-on-solid (RSOS)** model with finitely many heights. In field theory it is a theory of kinks interpolating between finitely many vacua. @prp-sg-rsos is the sine-Gordon instance, and @sec-rsos treats affine Toda theories.
 
@@ -132,11 +132,11 @@ For $sl_{n+1}$, show that $C(2\vec\lambda_1)-C(\vec\lambda_2)=4$. *Hint:* write 
 :::
 
 ::: {#exr-spin1}
-Use the tensor-product graph to find the R-matrix of $U_q(\widehat{sl}_2)$ on spin $1\otimes1$: show that $\rho_2=1$, $\rho_1=\langle2\rangle$, $\rho_0=\langle2\rangle\langle1\rangle$. Then obtain the same result by fusion from the six-vertex R-matrix. (*Hint:* $V_1(x)$ is the $q$-symmetric part of $V_{1/2}(xq)\otimes V_{1/2}(xq^{-1})$, the image of $\check R(q^{-2})$; fuse first in the left and then in the right factor.)
+Use the tensor-product graph to find the R-matrix of $U_q(\widehat{sl}_2)$ on spin $1\otimes1$: show that $\rho_2=1$, $\rho_1=\langle2\rangle$, $\rho_0=\langle2\rangle\langle1\rangle$. Then obtain the same result by fusion from the six-vertex R-matrix. (*Hint:* $V_1(x)$ is the $q$-symmetric part of $V_{1/2}(xq)\otimes V_{1/2}(xq^{-1})$, the image of $\check R(q^{-2})$ acting on $V_{1/2}(xq^{-1})\otimes V_{1/2}(xq)$; fuse first in the left and then in the right factor.)
 :::
 
 ::: {#exr-faces}
-For $U_q(sl_2)$ with spin-$\frac12$ particles, write down all paths $a\to b\to d$ for $a=\frac12$ and $d=\frac12$, and compute the $2\times2$ matrix of face weights from (-@eq-six-vertex) using the $q$-Clebsch–Gordan coefficients of $\frac12\otimes\frac12$ and of $1\otimes\frac12$.
+For $U_q(sl_2)$ with spin-$\frac12$ particles, write down all paths $a\to b\to d$ for $a=\frac12$ and $d=\frac12$, and compute the $2\times2$ matrix of face weights from (-@eq-six-vertex) using the $q$-Clebsch–Gordan coefficients of $\frac12\otimes\frac12$ and of $1\otimes\frac12$, that is, the components of the highest-weight vectors of each $L(j)\subset L(j_1)\otimes L(j_2)$, and of their descendants, computed with the coproduct (-@eq-coproduct).
 :::
 
 ## Notes and references {#sec-r-matrices-notes}

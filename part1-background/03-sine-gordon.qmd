@@ -13,16 +13,15 @@ Sine-Gordon theory is affine Toda field theory for the smallest affine algebra, 
 
 ## From affine Toda to sine-Gordon {#sec-sg-dictionary}
 
-The algebra $a_1^{(1)}$ has rank 1 and two simple roots, $\alpha_1=\sqrt2$ and $\alpha_0=-\sqrt2$, with Kac labels $n_0=n_1=1$ (@sec-affine-algebras). The imaginary-coupling potential (-@eq-imaginary-potential) becomes
+The algebra $a_1^{(1)}$ has rank 1 and two simple roots, $\alpha_1=\sqrt2$ and $\alpha_0=-\sqrt2$, with Kac labels $n_0=n_1=1$ (@sec-affine-dynkin). The imaginary-coupling potential (-@eq-imaginary-potential), quoted in @sec-why-atft-matters, becomes
 
 $$
 V=-\frac{m^2}{\beta^2}\left(e^{i\sqrt2\beta\phi}+e^{-i\sqrt2\beta\phi}-2\right)=\frac{2m^2}{\beta^2}\big(1-\cos\sqrt2\beta\phi\big).
 $$
 
-In this chapter we use the conventional sine-Gordon variables
+In this chapter we use the conventional sine-Gordon coupling $\beta_{\rm SG}=\sqrt2\,\beta$, so that $\beta_{\rm SG}^2=2\beta^2$, and the mass $m_0=2m$. The Lagrangian is
 
 $$
-\beta_{\rm SG}=\sqrt2\,\beta,\qquad m_0=2m,\qquad
 \mathcal L=\tfrac12\partial_\mu\phi\,\partial^\mu\phi-\frac{m_0^2}{\beta_{\rm SG}^2}\big(1-\cos\beta_{\rm SG}\phi\big).
 $$ {#eq-sg-lagrangian}
 
@@ -60,7 +59,7 @@ $$
 \phi_+=\frac{2i}{\beta_{\rm SG}}\ln\frac{\tau_1}{\tau_0},\qquad\tau_0=1+i\,e^{m_0(x-x_0)},\quad\tau_1=1-i\,e^{m_0(x-x_0)} .
 $$
 
-This is the simplest case of Hirota's construction (@sec-classical-solitons), which writes every affine Toda soliton through $\tau$-functions $\tau_0,\dots,\tau_r$, one for each node of the affine Dynkin diagram, each a finite sum of exponentials. Multi-soliton solutions are obtained by multiplying the exponentials, and the $N$-soliton $\tau$-functions are polynomials of degree $N$ in them.
+This is the simplest case of Hirota's construction (@sec-classical-solitons), which writes every affine Toda soliton through $\tau$-functions $\tau_0,\dots,\tau_r$, one for each node of the affine Dynkin diagram (the graph with one node per simple root, @sec-affine-dynkin), each a finite sum of exponentials. Multi-soliton solutions are obtained by multiplying the exponentials, and the $N$-soliton $\tau$-functions are polynomials of degree $N$ in them.
 
 **Scattering and time delays.** In a two-soliton solution the solitons pass through each other and emerge with the same velocities. The only effect of the collision is a time delay, which is the classical limit of the derivative of the S-matrix phase. That the shape and velocity are preserved is the classical counterpart of elastic, factorized scattering.
 
@@ -118,13 +117,13 @@ The quantum solitons form a doublet, a soliton $s$ and an antisoliton $\bar s$, 
 - the transmission amplitude $S_T(\theta)$ for $s\bar s\to s\bar s$;
 - the reflection amplitude $S_R(\theta)$ for $s\bar s\to\bar s s$.
 
-Zamolodchikov and Zamolodchikov [-@zz1979] solved the Yang–Baxter equation, braiding unitarity and crossing for this system and found, with
+Zamolodchikov and Zamolodchikov [-@zz1979] solved the Yang–Baxter equation, braiding unitarity and crossing for this system. In terms of the parameter
 
 $$
 \lambda=\frac{8\pi}{\beta_{\rm SG}^2}-1=\frac\pi\xi ,
 $$
 
-that
+which is unrelated to the eigenvalues called $\lambda$ in @sec-non-hermitian, they found
 
 $$
 S_T(\theta)=\frac{\sinh\lambda\theta}{\sinh\lambda(i\pi-\theta)}\,S_0(\theta),\qquad
@@ -171,7 +170,7 @@ The S-matrix of the elementary particle of sinh-Gordon, continued to imaginary c
 
 Two remarks:
 
-- The sinh-Gordon S-matrix is invariant under $B\to2-B$, which is the strong–weak duality $\beta_{\rm SG}\to8\pi/\beta_{\rm SG}$. For the non-simply-laced affine Toda theories the duality exchanges a theory with its Lie dual (@sec-non-simply-laced).
+- The sinh-Gordon S-matrix is invariant under $B\to2-B$, which is the strong–weak duality $\beta_{\rm SG}\to8\pi/\beta_{\rm SG}$. For the non-simply-laced affine Toda theories the duality exchanges the theory of $\hat g$ with that of the dual algebra $\hat g^\vee$, whose Dynkin diagram has the arrows reversed (@sec-affine-folding, @sec-non-simply-laced).
 - Sinh-Gordon has no bound states, so the bootstrap does not test its S-matrix. The breather–particle identification does: an S-matrix guessed from perturbation theory in one regime reproduces the bootstrap results of another regime.
 
 ## Coleman's bound and the free-fermion point {#sec-sg-coleman}
@@ -188,9 +187,9 @@ $$
 q=e^{8\pi^2i/\beta_{\rm SG}^2}=e^{4\pi^2i/\beta^2}
 $$
 
-for the coproduct of @sec-quantum-groups. The opposite coproduct, used in Part VI, gives $q^{-1}$. The sign of $q$ is not a convention: changing it reverses the sign of the transmission amplitude relative to the reflection amplitude (@sec-six-vertex). The soliton and antisoliton form its two-dimensional evaluation representation, the S-matrix commutes with the charges, and so the S-matrix is a $U_q(\widehat{sl}_2)$ R-matrix times a scalar. This is how (-@eq-sg-smatrix) is understood today. @sec-quantum-groups develops the algebra and @sec-qg-symmetry the general case.
+for the coproduct of @sec-quantum-groups. The opposite coproduct, used in Part VI, gives $q^{-1}$. The sign of $q$ is not a convention: changing it reverses the sign of the transmission amplitude relative to the reflection amplitude (@sec-six-vertex). The soliton and antisoliton form its two-dimensional evaluation representation (a representation in which the rapidity enters as a spectral parameter, @sec-uqghat), the S-matrix commutes with the charges, and so the S-matrix is a $U_q(\widehat{sl}_2)$ R-matrix times a scalar. This is how (-@eq-sg-smatrix) is understood today. @sec-quantum-groups develops the algebra and @sec-qg-symmetry the general case.
 
-When $q$ is a root of unity, the representation theory of $U_q(sl_2)$ admits a consistent truncation. In the S-matrix it amounts to replacing the soliton labels by kink labels in the IRF (RSOS) basis, keeping only the finitely many vacua allowed at that root of unity [@leclair1989; @smirnov1990; @reshetikhin1990]. The result is an S-matrix of kinks and breathers.
+When $q$ is a root of unity, the representation theory of $U_q(sl_2)$ admits a consistent truncation. In the S-matrix it amounts to replacing the soliton labels by kink labels in the IRF (RSOS) basis, in which a multi-soliton state is labelled by the sequence of vacua it passes through (@sec-irf), and keeping only the finitely many vacua allowed at that root of unity [@leclair1989; @smirnov1990; @reshetikhin1990]. The result is an S-matrix of kinks and breathers.
 
 ::: {#prp-sg-rsos}
 **[Established]** At $\beta_{\rm SG}^2/8\pi=p/p'$, with coprime $p<p'$, the RSOS restriction of sine-Gordon theory is the minimal model $\mathcal M(p,p')$ perturbed by its primary field $\phi_{1,3}$ [@leclair1989; @smirnov1990; @reshetikhin1990]. The coupling is $\xi=\pi p/(p'-p)$.
@@ -208,9 +207,9 @@ The question of which restrictions of which affine Toda theories are unitary is 
 | Sine-Gordon | General affine Toda theory |
 |---|---|
 | one scalar field | $r=\operatorname{rank}g$ scalar fields |
-| one elementary particle | $r$ particles, masses given by a Perron–Frobenius eigenvector (@sec-theories) |
+| one elementary particle | $r$ particles, masses given by a Perron–Frobenius eigenvector (@sec-perron-frobenius, @sec-theories) |
 | real kink solutions | complex soliton solutions, except for $a_1^{(1)}$ |
-| soliton doublet of $U_q(\widehat{sl}_2)$ | soliton multiplets of $U_q(\hat g^\vee)$, the quantum group of the *dual* algebra |
+| soliton doublet of $U_q(\widehat{sl}_2)$ | soliton multiplets of $U_q(\hat g^\vee)$, the quantum group of the *dual* algebra (@sec-affine-folding) |
 | S-matrix unitary in the QFT sense | S-matrices generally not unitary; finite-volume spectra can be complex |
 | DHN fluctuation operator Hermitian | non-Hermitian fluctuation operators with Jordan blocks (Part V) |
 | topological charges fill the multiplets | some charges of the quantum multiplets have no classical soliton |

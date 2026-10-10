@@ -24,7 +24,7 @@ $$
 B(\beta)=\frac1{2\pi}\frac{\beta^2}{1+\beta^2/4\pi}\in[0,2) .
 $$ {#eq-b-of-beta}
 
-The block $(x)$ has a simple pole at $\theta=i\pi x/h$ and a zero at $\theta=-i\pi x/h$. It satisfies $(x)(-\theta)=(x)^{-1}$, $(0)=1$, $(h)=-1$, $(x+2h)=(x)$ and $(x)(i\pi-\theta)=-(h-x)(\theta)$. The combination $\{x\}$ has the following properties (@exr-block-identities).
+The block $(x)$ has a simple pole at $\theta=i\pi x/h$ and a zero at $\theta=-i\pi x/h$. It satisfies $(x)(-\theta)=(x)^{-1}$, $(0)=1$, $(h)=-1$, $(x+2h)=(x)$ and $(x)(i\pi-\theta)=-(h-x)(\theta)$. These are identities between functions of $\theta$: $(0)$ and $(h)$ are the constant functions $1$ and $-1$, not values of a block at a particular rapidity. The combination $\{x\}$ has the following properties (@exr-block-identities).
 
 - **Unitarity and real analyticity:** $\{x\}(\theta)\{x\}(-\theta)=1$, and $\{x\}$ is a phase for real $\theta$.
 - **Crossing:** $\{x\}(i\pi-\theta)=\{h-x\}(\theta)$.
@@ -60,7 +60,7 @@ $$
 S_{ab}(\theta)=\prod_{p=1}^h\Big\{2p-1+\tfrac12\big(c(b)-c(a)\big)\Big\}^{-\frac12\vec\lambda_a\cdot w^p\vec\gamma_b} ,
 $$ {#eq-dorey-formula}
 
-where blocks with $x>h$ are reduced using $\{x+2h\}=\{x\}$ and $\{-x\}=\{x\}^{-1}$; the exponents then come out as integers. This reproduces (-@eq-an-smatrix) for $a_n^{(1)}$, and for the lightest particle of $e_8^{(1)}$ it gives
+where blocks with $x>h$ are reduced using $\{x+2h\}=\{x\}$ and $\{-x\}=\{x\}^{-1}$. The individual exponents are half-integers, and after this reduction they combine into integer powers of the blocks. For $A_2$, $S_{11}$ has exponents $\tfrac12,0,-\tfrac12$ on $\{1\},\{3\},\{5\}$, and $\{5\}=\{-1\}=\{1\}^{-1}$ gives $S_{11}=\{1\}^{1/2}\{1\}^{1/2}=\{1\}$. This reproduces (-@eq-an-smatrix) for $a_n^{(1)}$, and for the lightest particle of $e_8^{(1)}$ it gives
 
 $$
 S_{11}=\{1\}\{11\}\{19\}\{29\},\qquad h=30 .
@@ -78,11 +78,11 @@ $$
 B\Big(\frac{4\pi}\beta\Big)=2-B(\beta) ,
 $$
 
-so the theory at coupling $\beta$ has the same S-matrix as the theory at $4\pi/\beta$. Perturbation theory in $\beta$ and in $4\pi/\beta$ describe the same physics, and the S-matrix is most strongly coupled at the self-dual point $\beta^2=4\pi$, $B=1$. This weak–strong duality of the simply-laced theories is a simple instance of the more interesting duality of the non-simply-laced theories, where the strong-coupling limit of one theory is the weak-coupling limit of its Lie dual (@sec-non-simply-laced).
+so the theory at coupling $\beta$ has the same S-matrix as the theory at $4\pi/\beta$. Perturbation theory in $\beta$ and in $4\pi/\beta$ describe the same physics, and the S-matrix is most strongly coupled at the self-dual point $\beta^2=4\pi$, $B=1$. This weak–strong duality of the simply-laced theories is a simple instance of the more interesting duality of the non-simply-laced theories, where the strong-coupling limit of one theory is the weak-coupling limit of the theory of the dual algebra $\hat g^\vee$ (@sec-non-simply-laced).
 
-At $B\to0$ and $B\to2$ every block tends to 1: the theory becomes free in both limits. In between, the masses (in the normalization of @sec-one-loop-masses-real) keep their classical ratios exactly.
+At $B\to0$ and $B\to2$ every block $\{x\}$ tends to 1 (the blocks $(x)$ do not depend on $B$ and do not): the theory becomes free in both limits. In between, the masses (in the normalization of @sec-one-loop-masses-real) keep their classical ratios exactly.
 
-## Summary: the real-coupling S-matrices are known for every algebra {#sec-real-coupling}
+## Summary: the real-coupling S-matrices {#sec-real-coupling}
 
 **Simply-laced algebras.** The S-matrices are products of building blocks
 
@@ -92,7 +92,7 @@ $$
 
 constructed by Braden, Corrigan, Dorey and Sasaki, Christe and Mussardo, and Klassen and Melzer (all 1990), with a universal root-system formula due to Dorey [@dorey1991].
 
-**Non-simply-laced algebras.** The S-matrices were found by Delius, Grisaru and Zanon [-@dgz1992] and by Corrigan, Dorey and Sasaki [-@corrigan1993]. Here the Coxeter number "floats" with the coupling and interpolates between $h$ and $h^\vee$ of the dual algebra. The S-matrices of a dual pair are exchanged under $\beta\to4\pi/\beta$ (in the normalization in which $B(\beta)$ has the form (-@eq-b-of-beta); for $c_n^{(1)}$ the short roots then have squared length 2).
+**Non-simply-laced algebras.** S-matrices were proposed by Delius, Grisaru and Zanon [-@dgz1992] and by Corrigan, Dorey and Sasaki [-@corrigan1993]. They are conjectures, with the evidence listed in @sec-nsl-status. Here the Coxeter number "floats" with the coupling, between the Coxeter number $h$ of $\hat g$ and the number that plays its role in the classical masses of the dual theory $\hat g^\vee$ (@tbl-floating-h). The S-matrices of a dual pair are exchanged under strong–weak duality, in the coroot form of @sec-affine-folding.
 
 **Checks.** These S-matrices have been checked at one loop [@braden1990; @dgz1992] and more recently by tree-level and loop integrability arguments [@dorey_polvara2022], and the coupling dependence of the mass ratio predicted for the dual pair $g_2^{(1)}/d_4^{(3)}$ has been confirmed by Monte Carlo simulation [@watts_weston1992; @beccaria1996].
 
@@ -103,7 +103,7 @@ constructed by Braden, Corrigan, Dorey and Sasaki, Christe and Mussardo, and Kla
 - the exact mass–coupling relation [@fateev1994];
 - ODE/IM descriptions [@lukyanov2010; @dorey2013; @ito2014].
 
-**Rigour.** The real-coupling potentials are bounded below and real, so these theories fall into the class of exponential interactions constructed rigorously by Albeverio and Høegh-Krohn [-@albeverio1974]. That construction gives the Wightman axioms and a mass gap for a single field in the super-renormalizable range. Extending it to several fields is expected to be routine, but to our knowledge has not been written down.
+**Rigour.** What is known about a rigorous construction of these theories is summarized in @sec-rigorous-real.
 
 ## Exercises {#sec-simply-laced-exercises}
 

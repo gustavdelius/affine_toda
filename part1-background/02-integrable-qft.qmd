@@ -44,10 +44,10 @@ with summation over repeated indices. Reading the relation as a reordering of cr
 
 ## Higher conserved charges and factorization {#sec-factorization}
 
-Suppose the theory has local conserved currents of Lorentz spin $s$. In light-cone coordinates $x^\pm=x^0\pm x^1$ such a current is a pair $(T_{s+1},\Theta_{s-1})$ with $\partial_-T_{s+1}=\partial_+\Theta_{s-1}$, and
+Suppose the theory has local conserved currents of Lorentz spin $s$. (In this section $s$ is a spin, not the Mandelstam variable (-@eq-mandelstam-s).) In light-cone coordinates $x^\pm=x^0\pm x^1$ such a current is a pair $(T_{s+1},\mathcal X_{s-1})$ with $\partial_-T_{s+1}=\partial_+\mathcal X_{s-1}$, and
 
 $$
-Q_s=\int dx^1\,\big(T_{s+1}-\Theta_{s-1}\big)
+Q_s=\int dx^1\,\big(T_{s+1}-\mathcal X_{s-1}\big)
 $$
 
 is conserved. The energy and momentum are the combinations $Q_{\pm1}$ of spin $\pm1$. Because $Q_s$ is the integral of a local density, it acts on asymptotic states additively. Because it has spin $s$, it acts on a one-particle state as
@@ -56,7 +56,7 @@ $$
 Q_s\,|A_a(\theta)\rangle=\chi_a^{(s)}\,e^{s\theta}\,|A_a(\theta)\rangle .
 $$ {#eq-charge-eigenvalue}
 
-In affine Toda theory the spins of the conserved charges are the exponents of the affine algebra, repeated with period $h$ for untwisted and $kh$ for twisted algebras, and the eigenvalues $\chi^{(s)}_a$ form eigenvectors of the Cartan matrix (@sec-root-systems, @sec-theories). For now we only need that there are infinitely many charges with nonzero eigenvalues.
+In affine Toda theory the spins of the conserved charges are the exponents of the affine algebra, integers determined by its root system, repeated with period $h$ (the Coxeter number) for untwisted and $kh$ for twisted algebras $\hat g=X_n^{(k)}$, and the eigenvalues $\chi^{(s)}_a$ form eigenvectors of the Cartan matrix, the matrix of inner products of the simple roots (@sec-root-systems, @sec-conserved-charges). For $a_1^{(1)}$, the sinh-Gordon and sine-Gordon case, the only exponent is 1 and $h=2$, so the spins are the odd integers $\pm1,\pm3,\pm5,\dots$. For now we only need that there are infinitely many charges with nonzero eigenvalues.
 
 **No particle production.** Conservation of $Q_s$ in a scattering process says
 
@@ -109,7 +109,7 @@ $$
 S_{ab}(\theta)=S_{\bar a b}(i\pi-\theta),
 $$ {#eq-crossing}
 
-where $\bar a$ is the antiparticle of $a$. For non-diagonal S-matrices the same relation holds with a partial transpose and charge conjugation matrices, which @sec-quantum-groups derives from the Hopf algebra structure.
+where $\bar a$ is the antiparticle of $a$. For non-diagonal S-matrices the same relation holds with a partial transpose and charge conjugation matrices, which map each particle to its antiparticle. @sec-qg-crossing derives this from the Hopf algebra structure of the quantum-group symmetry (the antipode).
 
 **Periodicity.** For self-conjugate particles, (-@eq-braiding-unitarity) and (-@eq-crossing) together give $S_{ab}(\theta+2\pi i)=S_{ab}(\theta)$ (@exr-periodicity). The amplitude is a function of $e^\theta$, and the natural building blocks are trigonometric.
 
@@ -190,7 +190,7 @@ $$ {#eq-bethe-yang}
 
 which quantize the rapidities. The energy is then $E=\sum_jm_j\cosh\theta_j$, up to corrections that vanish as $e^{-mL}$. For non-diagonal theories the product of S-matrices is replaced by a **transfer matrix** acting on the internal labels, and its eigenvalues take the place of the product.
 
-The equations have a simple consequence that drives much of Part VII. If the transfer-matrix eigenvalues are pure phases, as they are in a unitary theory, then (-@eq-bethe-yang) has real solutions $\theta_j$ and the finite-volume energies are real. If an eigenvalue has modulus different from 1, the solutions are complex, and the energy can be complex. Complex finite-volume energies in non-unitary integrable theories were first predicted in exactly this way [@tw1999; @tw2002].
+The equations have a simple consequence that drives much of Part VII. If the transfer-matrix eigenvalues are pure phases, as they are in a unitary theory, then (-@eq-bethe-yang) has real solutions $\theta_j$ and the finite-volume energies are real. If an eigenvalue has modulus different from 1, the solutions are complex, and the energy can be complex. Kausch, Takács and Watts [-@tkw1997] found complex energy levels of this kind in a perturbed non-unitary minimal model and confirmed them with the truncated conformal space approach. Takács and Watts [-@tw1999; -@tw2002] used the same argument to predict complex finite-volume energies in imaginary-coupling affine Toda theories and their restrictions.
 
 ## Exercises {#sec-integrable-qft-exercises}
 

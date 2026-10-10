@@ -43,12 +43,12 @@ defined so that $[Ax,y]=[x,A^\sharp y]$. An operator with $A^\sharp=A$, equivale
 
 ::: {.proof}
 1. $H^\dagger=JHJ$ is similar to $H$, and the spectrum of $H^\dagger$ is the complex conjugate of that of $H$, with the same multiplicities.
-2. $\lambda[x,y]=[Hx,y]=[x,Hy]=\mu[x,y]$ shows $(\bar\lambda-\mu)[x,y]=0$, taking the form antilinear in its first argument.
+2. With the form antilinear in its first argument, $\bar\lambda[x,y]=[Hx,y]=[x,Hy]=\mu[x,y]$, so $(\bar\lambda-\mu)[x,y]=0$.
 3. Take $y=x$ in 2.
 4. $U(t)^\sharp=e^{iH^\sharp t}=e^{iHt}=U(t)^{-1}$.
 :::
 
-Part 4 says that time evolution is **Krein-unitary**. The total "Krein norm" $[x,x]$ is conserved, but the Hilbert norm $\langle x,x\rangle$ need not be, and it can grow without bound. The S-matrices of Part VII have the same property (@sec-krein-unitarity).
+Item 4 of @prp-krein-spectrum says that time evolution is **Krein-unitary**. The total "Krein norm" $[x,x]$ is conserved, but the Hilbert norm $\langle x,x\rangle$ need not be, and it can grow without bound. The S-matrices of Part VII have the same property (@sec-krein-unitarity).
 
 ## Antilinear symmetries and $PT$ {#sec-antilinear}
 
@@ -63,7 +63,7 @@ so again the spectrum is closed under complex conjugation. There are now two cas
 - **Unbroken.** If $\Theta x$ is proportional to $x$, then $\lambda$ is real.
 - **Broken.** If $\Theta x$ is not proportional to $x$, then either $\lambda$ is real and degenerate, or $\lambda$ and $\bar\lambda$ form a complex-conjugate pair.
 
-The name comes from $PT$-symmetric quantum mechanics, where $\Theta$ is the product of parity and time reversal. The standard example is $H=p^2+x^2(ix)^\varepsilon$. Bender and Boettcher conjectured that its spectrum is real for $\varepsilon\geq0$ [@bender1998], and Dorey, Dunning and Tateo proved it [@dorey2001]. In affine Toda theory the analogous symmetry is $\Theta=PK$, the field parity $P:\vec\phi\mapsto-\vec\phi$ combined with complex conjugation $K$ of wave functions in the field representation. It plays this role throughout Parts III, V and VII. Since the potential $V_{\rm imag}(\vec\phi)$ satisfies $\overline{V_{\rm imag}(\vec\phi)}=V_{\rm imag}(-\vec\phi)$ for real $\vec\phi$, the Hamiltonian commutes with $\Theta$.
+The name comes from $PT$-symmetric quantum mechanics, where $\Theta$ is the product of parity and time reversal. The standard example is $H=p^2+x^2(ix)^\varepsilon$. Bender and Boettcher conjectured that its spectrum is real for $\varepsilon\geq0$ [@bender1998], and Dorey, Dunning and Tateo proved it [@dorey2001]. In affine Toda theory the analogous symmetry is $\Theta=PK$, the field parity $P:\vec\phi\mapsto-\vec\phi$ combined with complex conjugation $K$ of wave functions in the field representation. It plays this role throughout Parts III, V and VII. Since the potential $V_{\rm imag}(\vec\phi)$ of @sec-why-atft-matters, a sum of exponentials $e^{i\beta\vec\alpha_j\cdot\vec\phi}$ with real coefficients, satisfies $\overline{V_{\rm imag}(\vec\phi)}=V_{\rm imag}(-\vec\phi)$ for real $\vec\phi$, the Hamiltonian commutes with $\Theta$.
 
 The two structures are closely related. An operator with discrete spectrum and a complete biorthonormal system of eigenvectors (in finite dimensions, a diagonalizable matrix) is pseudo-Hermitian if and only if its non-real eigenvalues come in complex-conjugate pairs of equal multiplicity [@mostafazadeh2002], and under the same hypotheses pseudo-Hermiticity is equivalent to the existence of an invertible antilinear symmetry [@mostafazadeh2002c]. In finite dimensions diagonalizability is not needed: a matrix is pseudo-Hermitian if and only if it is similar to its adjoint, which allows Jordan blocks such as the dimer of @sec-dimer at its exceptional point. In the theories of this book both structures arise naturally, and from the same source: on a lattice the transfer matrix is self-adjoint for a Krein form whose fundamental symmetry is field parity, and it commutes with $\Theta$ (@thm-krein-transfer).
 
@@ -116,12 +116,12 @@ The pattern is general. Real eigenvalues can leave the real axis only by collidi
 Lee and Yang showed that the zeros of the partition function of the Ising model in a magnetic field lie on the imaginary axis of the field [@leeyang1952]. Above the critical temperature they end at a point, the **Yang–Lee edge singularity**, which is a critical point at imaginary magnetic field. Fisher [-@fisher1978] showed that its scaling theory is a scalar field with an imaginary cubic interaction, with Euclidean action density
 
 $$
-\mathcal L=\tfrac12(\partial\phi)^2+i(h-h_c)\phi+ig\,\phi^3 ,
+\mathcal L=\tfrac12(\partial\phi)^2+i\nu\,\phi+i\kappa\,\phi^3 ,
 $$
 
-with real $g$. The Lagrangian is complex, the Hamiltonian is not Hermitian, and the theory has the antilinear symmetry $\phi\mapsto-\phi$ combined with complex conjugation.
+with real $\kappa$, and with real $\nu$ proportional to the distance of the imaginary magnetic field from its critical value at the edge. The Lagrangian is complex, the Hamiltonian is not Hermitian, and the theory has the antilinear symmetry $\phi\mapsto-\phi$ combined with complex conjugation.
 
-In two dimensions the critical point is a conformal field theory, the minimal model $\mathcal M(2,5)$, with central charge $c=-22/5$ and a single nontrivial primary field of dimension $h=-1/5$ [@cardy1985]. Negative dimensions and negative central charge are impossible in a unitary theory. The natural Hermitian form on the space of states is indefinite.
+In two dimensions the critical point is a conformal field theory, the minimal model $\mathcal M(2,5)$, with central charge $c=-22/5$ and a single nontrivial primary field of dimension $h=-1/5$ [@cardy1985]. (Here and in @exr-ceff, $h$ is a conformal dimension, not the Coxeter number.) Negative dimensions and negative central charge are impossible in a unitary theory. The natural Hermitian form on the space of states is indefinite.
 
 Moving away from criticality gives the **scaling Lee–Yang model**, a massive integrable field theory with a single particle. Its S-matrix is (-@eq-lee-yang-smatrix) [@cardy1989]:
 
@@ -129,7 +129,7 @@ $$
 S(\theta)=f_{2/3}(\theta)=\frac{\sinh\theta+i\sin\frac{2\pi}3}{\sinh\theta-i\sin\frac{2\pi}3}.
 $$
 
-It satisfies braiding unitarity, crossing and real analyticity, so it is a phase for real $\theta$. But by @exr-fx the residue at the $s$-channel pole $\theta=2\pi i/3$ is $i$ times a *negative* number. By (-@eq-residue) the three-point coupling $\Gamma$ is imaginary, as the $ig\phi^3$ Lagrangian says it should be. Equivalently, the particle appears in its own two-particle scattering as a bound state of negative norm.
+It satisfies braiding unitarity, crossing and real analyticity, so it is a phase for real $\theta$. But by @exr-fx the residue at the $s$-channel pole $\theta=2\pi i/3$ is $i$ times a *negative* number. By (-@eq-residue) the three-point coupling $\Gamma$ is imaginary, as the $i\kappa\phi^3$ Lagrangian says it should be. Equivalently, the particle appears in its own two-particle scattering as a bound state of negative norm.
 
 Despite this, the scaling Lee–Yang model is a well-defined quantum field theory by every operational test.
 
@@ -137,7 +137,7 @@ Despite this, the scaling Lee–Yang model is a well-defined quantum field theor
 - Its ground-state energy, computed by the thermodynamic Bethe ansatz from the S-matrix, is real, and its small-volume behaviour $E_0(L)\simeq-\pi c_{\rm eff}/6L$ gives the **effective central charge** $c_{\rm eff}=c-24h_{\rm min}=2/5$ rather than $c=-22/5$ [@zamolodchikov1990].
 - It describes a real physical phenomenon, the edge singularity, and its critical exponents agree with numerical studies of the Ising model.
 
-Non-unitarity here is a property of the theory, with measurable consequences, and not an inconsistency. @sec-sine-gordon showed that the scaling Lee–Yang model is also an RSOS restriction of sine-Gordon theory (@prp-sg-rsos), and it is a restriction of $a_2^{(2)}$ affine Toda theory too [@smirnov1991]. The imaginary-coupling affine Toda theories are its parents.
+Non-unitarity here is a property of the theory, with measurable consequences, and not an inconsistency. @sec-sine-gordon showed that the scaling Lee–Yang model is also an RSOS restriction of sine-Gordon theory (@prp-sg-rsos), Since $\phi_{1,3}$ and $\phi_{1,2}$ are the same field of $\mathcal M(2,5)$, the model is also a $\phi_{1,2}$ perturbation, and these arise as RSOS restrictions of $a_2^{(2)}$ affine Toda theory [@smirnov1991; @efthimiou1993]. The imaginary-coupling affine Toda theories are its parents.
 
 ## What we mean by a valid QFT {#sec-valid-qft}
 

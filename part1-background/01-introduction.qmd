@@ -4,7 +4,16 @@ Affine Toda field theories are a family of two-dimensional quantum field theorie
 
 ## Why affine Toda theory matters {#sec-why-atft-matters}
 
-For each affine Kac–Moody algebra $\hat g$ there is a Lagrangian field theory of $r=\operatorname{rank}g$ scalars with exponential interactions, the affine Toda field theory. These theories have been a laboratory for several central ideas in two-dimensional quantum field theory:
+For each affine Kac–Moody algebra $\hat g$ there is a Lagrangian field theory of $r=\operatorname{rank}g$ scalars with exponential interactions, the affine Toda field theory. Its Lagrangian is $\mathcal L=\tfrac12\partial_\mu\vec\phi\cdot\partial^\mu\vec\phi-V(\vec\phi)$, with $\vec\phi\in\mathbb R^r$ and one of the two potentials
+
+$$
+V_{\rm real}=\frac{m^2}{\beta^2}\sum_jn_j\left(e^{\beta\vec\alpha_j\cdot\vec\phi}-1\right),\qquad
+V_{\rm imag}=-\frac{m^2}{\beta^2}\sum_jn_j\left(e^{i\beta\vec\alpha_j\cdot\vec\phi}-1\right).
+$$
+
+The sums run over the $r+1$ simple roots $\vec\alpha_0,\dots,\vec\alpha_r\in\mathbb R^r$ of $\hat g$, the $n_j$ are positive integers called Kac labels, $m$ sets the mass scale and $\beta>0$ is the coupling. Part II defines the roots and labels (@sec-affine-dynkin), and Part III takes up the theory again from these potentials (-@eq-imaginary-potential). Until then two facts suffice. The labels satisfy $\sum_jn_j\vec\alpha_j=0$, so $\vec\phi=0$ is a stationary point of both potentials. For the smallest algebra, $a_1^{(1)}$, one has $r=1$, $\alpha_1=-\alpha_0=\sqrt2$ and $n_0=n_1=1$, and the two potentials are those of sinh-Gordon and sine-Gordon theory (@sec-sg-dictionary).
+
+These theories have been a laboratory for several central ideas in two-dimensional quantum field theory:
 
 - exact factorized S-matrices and the bootstrap [@zz1979; @braden1990];
 - the geometry of root systems in scattering (Dorey's fusing rule [@dorey1991]);
@@ -66,11 +75,21 @@ flowchart LR
 - *Non-unitary quantum field theory:* chapters 2–4, 9–11, then Part VII, consulting Parts V–VI as needed.
 - *For specialists:* Parts V–VII, which can be read on their own by a reader who already knows affine Toda theory.
 
+**What Part I borrows from Part II.** Part I uses some algebraic terms before Part II defines them. They appear in statements about general affine Toda theories, which a first reading can take on trust, and the sine-Gordon case of @sec-sine-gordon needs none of them in more than its simplest form. In brief:
+
+- **Affine Kac–Moody algebra** $\hat g=X_n^{(k)}$: an infinite-dimensional extension of a simple Lie algebra, untwisted for $k=1$ and twisted for $k=2,3$. All the theory needs from it is its simple roots $\vec\alpha_j$, its Kac labels $n_j$ and its **affine Dynkin diagram**, a graph with one node per simple root (@sec-affine-algebras).
+- **Cartan matrix, Coxeter number $h$, exponents**: the Cartan matrix is the matrix $a_{ij}=2\vec\alpha_i\cdot\vec\alpha_j/\vec\alpha_i^2$ of the simple roots; the Coxeter number is $h=\sum_jn_j$; and the exponents are a set of positive integers attached to each algebra (for untwisted $\hat g=g^{(1)}$, $r$ integers between 1 and $h-1$), which become the spins of the conserved charges (@sec-roots, @sec-weyl-coxeter, @sec-conserved-charges).
+- **Perron–Frobenius eigenvector**: the eigenvector of the Cartan matrix of $g$ with positive components; in the simply-laced theories the particle masses are proportional to its components (@sec-perron-frobenius).
+- **Dorey's fusing rule**: a criterion, in terms of the Coxeter element of the Weyl group, for which three-point couplings of particles are nonzero (@sec-dorey-rule).
+- **Duality of algebras and Lie duality**: reversing the arrows of an affine Dynkin diagram gives the dual algebra $\hat g^\vee$; "Lie duality" relates the soliton masses of $g^{(1)}$ to the particle masses of $(g^\vee)^{(1)}$ (@sec-affine-folding).
+- **Quantum affine algebras** $U_q(\hat g)$: deformations of the symmetry algebra of $\hat g$. They are Hopf algebras, whose coproduct says how a symmetry acts on multi-particle states and whose antipode gives crossing. Their **evaluation representations** are finite-dimensional representations depending on a spectral parameter, which becomes the rapidity (@sec-quantum-groups).
+- **IRF (RSOS) basis and quantum-group restriction**: a change of basis from soliton labels to sequences of vacua, after which, when $q$ is a root of unity, all but finitely many vacua can be discarded consistently (@sec-irf, @sec-qg-restriction). The restricted theories are perturbed minimal models of Virasoro or of $W$-algebras, the conformal field theories with higher-spin symmetry currents (@sec-perturbed-minimal).
+
 ## Conventions {#sec-conventions}
 
 We use units with $\hbar=c=1$ and the metric signature $(+,-)$. Rapidities are written $\theta$, and two-particle amplitudes depend on the rapidity difference (@sec-rapidities).
 
-Roots are normalized so that the longest roots of the finite algebra have squared length 2, as in @sec-lie-algebraic-data. Some of the literature instead gives the longest root of a twisted algebra $X_n^{(k)}$ squared length $2k$; its coupling is then $\beta_{\rm lit}^2=\beta^2/k$, and we convert whenever we quote such results. The coupling $\beta$ is always real and positive. "Real coupling" and "imaginary coupling" refer to the two potentials of (-@eq-imaginary-potential), not to the sign of $\beta^2$. For $a_1^{(1)}$ our $\beta$ is related to the conventional sine-Gordon coupling by $\beta_{\rm SG}^2=2\beta^2$ (@sec-sine-gordon).
+Roots are normalized so that the longest roots of the finite algebra have squared length 2, as in @sec-lie-algebraic-data. Some of the literature instead gives the longest root of a twisted algebra $X_n^{(k)}$ squared length $2k$; its coupling is then $\beta_{\rm lit}^2=\beta^2/k$, and we convert whenever we quote such results. The coupling $\beta$ is always real and positive. "Real coupling" and "imaginary coupling" refer to the two potentials $V_{\rm real}$ and $V_{\rm imag}$ of @sec-why-atft-matters, restated as (-@eq-imaginary-potential), not to the sign of $\beta^2$. For $a_1^{(1)}$ our $\beta$ is related to the conventional sine-Gordon coupling by $\beta_{\rm SG}^2=2\beta^2$ (@sec-sine-gordon).
 
 ## Status labels {#sec-status-labels}
 
