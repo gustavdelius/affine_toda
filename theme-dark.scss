@@ -1,0 +1,8 @@
+/*-- scss:defaults --*/
+
+// darkly colours links green, the colour of the "proved" status tags; use a
+// light blue instead, matching the blue links of the light theme.
+$link-color: #6ea8fe;
+
+// Mermaid node labels default to $primary, which is too dark on darkly.
+$mermaid-label-fg-color: #6ea8fe;
