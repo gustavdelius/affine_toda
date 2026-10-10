@@ -3,7 +3,7 @@ import numpy as np, sys
 args = sys.argv[1:]; sys.argv = ['x', args[0], args[1]]
 exec(open('spinor_scan.py').read().split('if __name__ == "__main__":')[0])
 out = []
-for om in (2.37, 1.61, 0.3):
+for om in (2.37, 1.61, 0.3013):   # 0.3 is a root of unity (q^20 = 1): rank-3 projectors degenerate
     q = QS*np.exp(-1j*np.pi*om); Pk = setup(q)
     lc = None
     for lx in np.linspace(0.001, 12, 2401):

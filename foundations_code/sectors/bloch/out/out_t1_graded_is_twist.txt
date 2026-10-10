@@ -1,0 +1,9 @@
+xi=0.55pi N=2: max |T_graded - Omega T_bos| = 3.7e-16
+xi=0.55pi N=3: max |T_graded - Omega T_bos| = 5.8e-16
+xi=0.55pi N=4: max |T_graded - Omega T_bos| = 7.8e-16
+xi=0.9pi N=2: max |T_graded - Omega T_bos| = 4.0e-16
+xi=0.9pi N=3: max |T_graded - Omega T_bos| = 7.5e-16
+xi=0.9pi N=4: max |T_graded - Omega T_bos| = 1.3e-15
+xi=1.3pi N=2: max |T_graded - Omega T_bos| = 4.6e-16
+xi=1.3pi N=3: max |T_graded - Omega T_bos| = 7.5e-16
+xi=1.3pi N=4: max |T_graded - Omega T_bos| = 3.2e-15

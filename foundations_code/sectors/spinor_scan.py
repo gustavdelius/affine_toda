@@ -20,7 +20,7 @@ def setup(q):
     comps = components(e, f, k, Wn, range(1, N+1), roots)
     byd = {d: Pm for d, Pm, _ in comps}
     Pk = [byd[math.comb(2*N+1, N-kk)] for kk in range(N+1)]
-    return Pk
+    return check_projectors(Pk, Wn)
 def Rmat(x, q, Pk): return sum(r*Pm for r, Pm in zip(rhos(x, q), Pk))
 if __name__ == "__main__":
     # verify against direct intertwiner for small N

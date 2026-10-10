@@ -1,0 +1,12 @@
+  IK c=1         : cRc=R 0e+00 | cRc=R21 1e+00 | R^dag=cR^-1c 1e+00 | R^dag=cR21^-1c 1e-15
+  IK c=diag(1,-1,1): cRc=R 0e+00 | cRc=R21 1e+00 | R^dag=cR^-1c 1e+00 | R^dag=cR21^-1c 1e-15
+  IK c=antidiag  : cRc=R 1e+00 | cRc=R21 4e-16 | R^dag=cR^-1c 1e-15 | R^dag=cR21^-1c 1e+00
+  IK c=antidiag(1,-1,1): cRc=R 1e+00 | cRc=R21 4e-16 | R^dag=cR^-1c 1e-15 | R^dag=cR21^-1c 1e+00
+  c_2 spinor c=1         : cRc=R 0e+00 | cRc=R21 2e+00 | R^dag=cR^-1c 2e+00 | R^dag=cR21^-1c 3e-15
+  c_2 spinor c=grading   : cRc=R 4e-34 | cRc=R21 2e+00 | R^dag=cR^-1c 2e+00 | R^dag=cR21^-1c 3e-15
+  c_2 spinor c=antidiag  : cRc=R 2e+00 | cRc=R21 1e-15 | R^dag=cR^-1c 4e-15 | R^dag=cR21^-1c 2e+00
+  c_2 spinor c=antidiag*grad: cRc=R 2e+00 | cRc=R21 1e-15 | R^dag=cR^-1c 4e-15 | R^dag=cR21^-1c 2e+00
+  c_3 spinor c=1         : cRc=R 0e+00 | cRc=R21 3e+00 | R^dag=cR^-1c 3e+00 | R^dag=cR21^-1c 1e-14
+  c_3 spinor c=grading   : cRc=R 1e-15 | cRc=R21 3e+00 | R^dag=cR^-1c 3e+00 | R^dag=cR21^-1c 1e-14
+  c_3 spinor c=antidiag  : cRc=R 3e+00 | cRc=R21 2e-15 | R^dag=cR^-1c 1e-14 | R^dag=cR21^-1c 3e+00
+  c_3 spinor c=antidiag*grad: cRc=R 3e+00 | cRc=R21 2e-15 | R^dag=cR^-1c 1e-14 | R^dag=cR21^-1c 3e+00

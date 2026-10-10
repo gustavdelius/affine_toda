@@ -4,7 +4,7 @@ N_, alg_ = sys.argv[1], sys.argv[2]; sys.argv = ['x', N_, alg_]
 exec(open('spinor_scan.py').read().split('if __name__ == "__main__":')[0])
 m = np.array([[int(b) for b in format(i, f'0{N}b')] for i in range(D)])     # 1 = down spin (index bit)
 lx = np.concatenate([np.linspace(0.05, 6, 25), [8, 11]])
-oms = (2.37, 1.61, 0.3)
+oms = (2.37, 1.61, 0.3013)   # 0.3 is a root of unity (q^20 = 1): rank-3 projectors degenerate
 setups = {om: setup(QS*np.exp(-1j*np.pi*om)) for om in oms}
 Rs = {om: [Rmat(np.exp(l), QS*np.exp(-1j*np.pi*om), setups[om]) for l in lx] for om in oms}
 good = []

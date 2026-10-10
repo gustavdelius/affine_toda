@@ -1,0 +1,7 @@
+IK: |R^T - P R P| = 1.0949950739735954
+c_2 spinor: |R^T - P R P| = 2.1868857395626282e-15
+c_3 spinor: |R^T - P R P| = 8.714366762947635e-15
+IK N=3 Q=0 alpha=0.3pi: max dist sigma(+a) to sigma(-a) = 3.8e-15; max||s|-1| = 1.35e-01
+IK N=3 Q=1 alpha=0.3pi: max dist sigma(+a) to sigma(-a) = 1.3e+00; max||s|-1| = 5.78e-01
+IK N=3 Q=0 alpha=0.5pi: max dist sigma(+a) to sigma(-a) = 1.7e-15; max||s|-1| = 8.88e-16
+IK N=3 Q=1 alpha=0.5pi: max dist sigma(+a) to sigma(-a) = 1.0e+00; max||s|-1| = 1.44e-15
