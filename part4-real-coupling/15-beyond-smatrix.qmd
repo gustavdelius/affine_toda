@@ -8,7 +8,7 @@
 - Know what has been proved rigorously about the real-coupling theories.
 :::
 
-An exact S-matrix determines much more than scattering. Combined with the methods of integrability it gives the finite-volume spectrum, thermodynamics, correlation functions and the relation between Lagrangian parameters and physical masses. This chapter surveys these results for affine Toda theory. It is a map rather than a treatment, and each section points to the literature. Several of these tools are used in Parts V–VII at imaginary coupling, where they test the non-unitary theories.
+An exact S-matrix determines much more than scattering. Combined with the methods of integrability it gives the finite-volume spectrum, thermodynamics, correlation functions and the relation between Lagrangian parameters and physical masses. This chapter surveys these results for affine Toda theory. It is a map rather than a treatment, and each section points to the literature. Several of these tools are used in Parts V, VI and VIII at imaginary coupling, where they test the non-unitary theories.
 
 ## The thermodynamic Bethe ansatz {#sec-tba}
 
@@ -53,7 +53,7 @@ The ODE/IM correspondence relates spectral problems of ordinary differential equ
 
 ## Rigorous constructions {#sec-rigorous-real}
 
-The real-coupling potentials are real and bounded below, so the theories fall into the class of exponential interactions constructed rigorously by Albeverio and Høegh-Krohn [-@albeverio1974]. For a single field in the super-renormalizable range that construction gives the Wightman axioms and a mass gap. Extending it to several fields is expected to be routine, but to our knowledge it has not been written down. Nothing comparable existed for the imaginary-coupling theories, and Part VII supplies what can be done.
+The real-coupling potentials are real and bounded below, so the theories fall into the class of exponential interactions constructed rigorously by Albeverio and Høegh-Krohn [-@albeverio1974]. For a single field in the super-renormalizable range that construction gives the Wightman axioms and a mass gap. Extending it to several fields is expected to be routine, but to our knowledge it has not been written down. Nothing comparable existed for the imaginary-coupling theories, and Part VIII supplies what can be done.
 
 ## Exercises {#sec-beyond-smatrix-exercises}
 

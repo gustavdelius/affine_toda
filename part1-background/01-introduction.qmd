@@ -28,7 +28,7 @@ The theories are not only of historical interest. They are rich enough to show g
 
 ## How this book is organised {#sec-reader-guide}
 
-The book has seven parts.
+The book has eight parts.
 
 - **Part I** collects the physical background: factorized scattering in two dimensions, sine-Gordon theory as the rank-one template, and the non-Hermitian quantum mechanics needed for the imaginary-coupling theories.
 - **Part II** collects the algebraic background: root systems, affine Kac–Moody algebras, quantum groups and R-matrices.
@@ -36,11 +36,12 @@ The book has seven parts.
 - **Part IV** treats the quantum theory at real coupling, where the exact particle S-matrices are known for every algebra.
 - **Part V** treats the semiclassical quantization of the complex solitons of the imaginary-coupling theories.
 - **Part VI** treats their exact soliton S-matrices, including the constructions for $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$ and the open case $f_4^{(1)}$.
-- **Part VII** asks whether the imaginary-coupling theories exist as quantum field theories, and answers: yes, as non-unitary ones.
+- **Part VII** restricts the theories to a half-line: integrable boundary conditions, solitons and their mirror images, the remnant of quantum-group symmetry that a boundary leaves unbroken, and the exact reflection amplitudes of solitons and particles.
+- **Part VIII** asks whether the imaginary-coupling theories exist as quantum field theories, and answers: yes, as non-unitary ones.
 
-Parts I–IV are textbook material. Parts V–VII present research results, many of them new.
+Parts I–IV are textbook material. Parts V, VI and VIII present research results, many of them new. Part VII presents the theory on the half-line, developed in the research literature since 1993, in textbook form.
 
-The dependencies between the parts are shown below. Chapter 4 is needed only for Parts V and VII, and Part II is needed in full only for Part VI.
+The dependencies between the parts are shown below. Chapter 4 is needed only for Parts V and VIII, and Part II is needed in full only for Parts VI and VII.
 
 ```{mermaid}
 %%| label: fig-dependencies
@@ -55,16 +56,20 @@ flowchart LR
   IV --> VI["VI. Soliton S-matrices<br/>ch. 20–27"]
   II --> VI
   V --> VI
-  V --> VII["VII. Foundations<br/>ch. 28–33"]
-  VI --> VII
+  VI --> VII["VII. Half-line<br/>ch. 28–35"]
+  III --> VII
+  IV --> VII
+  V --> VIII["VIII. Foundations<br/>ch. 36–41"]
+  VI --> VIII
 ```
 
 **Reading paths.**
 
 - *A course on integrable field theory:* chapters 2–3, 5–6, 9–10, 12–14, then 20–22. This covers sine-Gordon, the classical theory, the particle S-matrices and the known soliton S-matrices.
 - *A course on quantum groups in field theory:* chapters 2–3 and 5–8, then 20–22 and 27.
-- *Non-unitary quantum field theory:* chapters 2–4, 9–11, then Part VII, consulting Parts V–VI as needed.
-- *For specialists:* Parts V–VII, which can be read on their own by a reader who already knows affine Toda theory.
+- *Integrable boundaries:* chapters 2–3, 7–10 and 13, then Part VII, consulting chapters 20–21 for the quantum-group method.
+- *Non-unitary quantum field theory:* chapters 2–4, 9–11, then Part VIII, consulting Parts V–VI as needed.
+- *For specialists:* Parts V–VIII, which can be read on their own by a reader who already knows affine Toda theory.
 
 ## Conventions {#sec-conventions}
 

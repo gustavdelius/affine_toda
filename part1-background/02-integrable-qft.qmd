@@ -190,7 +190,7 @@ $$ {#eq-bethe-yang}
 
 which quantize the rapidities. The energy is then $E=\sum_jm_j\cosh\theta_j$, up to corrections that vanish as $e^{-mL}$. For non-diagonal theories the product of S-matrices is replaced by a **transfer matrix** acting on the internal labels, and its eigenvalues take the place of the product.
 
-The equations have a simple consequence that drives much of Part VII. If the transfer-matrix eigenvalues are pure phases, as they are in a unitary theory, then (-@eq-bethe-yang) has real solutions $\theta_j$ and the finite-volume energies are real. If an eigenvalue has modulus different from 1, the solutions are complex, and the energy can be complex. Complex finite-volume energies in non-unitary integrable theories were first predicted in exactly this way [@tw1999; @tw2002].
+The equations have a simple consequence that drives much of Part VIII. If the transfer-matrix eigenvalues are pure phases, as they are in a unitary theory, then (-@eq-bethe-yang) has real solutions $\theta_j$ and the finite-volume energies are real. If an eigenvalue has modulus different from 1, the solutions are complex, and the energy can be complex. Complex finite-volume energies in non-unitary integrable theories were first predicted in exactly this way [@tw1999; @tw2002].
 
 ## Exercises {#sec-integrable-qft-exercises}
 

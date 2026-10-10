@@ -7,7 +7,7 @@
 - Apply this to the complex solitons of affine Toda theory, and see what remains open.
 :::
 
-@sec-dhn-complex raised two questions about the semiclassical expansion around complex solitons: why complex saddles should contribute to an integral over real fields, and how their fluctuation eigenvalues should be counted. Both are answered by Picard–Lefschetz theory, the theory of steepest descent for integrals of holomorphic functions. This chapter introduces it in one variable, where everything can be seen, and then applies it to the lattice regularization of affine Toda theory from Part VII.
+@sec-dhn-complex raised two questions about the semiclassical expansion around complex solitons: why complex saddles should contribute to an integral over real fields, and how their fluctuation eigenvalues should be counted. Both are answered by Picard–Lefschetz theory, the theory of steepest descent for integrals of holomorphic functions. This chapter introduces it in one variable, where everything can be seen, and then applies it to the lattice regularization of affine Toda theory from Part VIII.
 
 ## Picard–Lefschetz theory in one variable {#sec-picard-lefschetz}
 

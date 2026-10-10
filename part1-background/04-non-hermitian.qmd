@@ -5,7 +5,7 @@
 - Use an antilinear (PT-type) symmetry to show that a spectrum is closed under complex conjugation, and distinguish broken from unbroken sectors.
 - Recognise Jordan blocks and exceptional points, and what they do to completeness, to time evolution and to determinants.
 - Understand why the scaling Lee–Yang model is a valid, non-unitary quantum field theory.
-- State the criteria for a valid quantum field theory used in Part VII.
+- State the criteria for a valid quantum field theory used in Part VIII.
 :::
 
 The imaginary-coupling affine Toda theories have a complex potential. Their Hamiltonian is not Hermitian in the usual inner product, and in some sectors their finite-volume energies are complex. A reader trained in unitary quantum field theory may conclude that such a theory is sick. This chapter supplies the concepts needed to see why that conclusion is too quick.
@@ -48,7 +48,7 @@ defined so that $[Ax,y]=[x,A^\sharp y]$. An operator with $A^\sharp=A$, equivale
 4. $U(t)^\sharp=e^{iH^\sharp t}=e^{iHt}=U(t)^{-1}$.
 :::
 
-Part 4 says that time evolution is **Krein-unitary**. The total "Krein norm" $[x,x]$ is conserved, but the Hilbert norm $\langle x,x\rangle$ need not be, and it can grow without bound. The S-matrices of Part VII have the same property (@sec-krein-unitarity).
+Part 4 says that time evolution is **Krein-unitary**. The total "Krein norm" $[x,x]$ is conserved, but the Hilbert norm $\langle x,x\rangle$ need not be, and it can grow without bound. The S-matrices of Part VIII have the same property (@sec-krein-unitarity).
 
 ## Antilinear symmetries and $PT$ {#sec-antilinear}
 
@@ -109,7 +109,7 @@ with eigenvectors $x_\pm=(s,\ \lambda_\pm-a-ig)^{\mathsf T}$. Three regimes appe
 - **Exceptional point, $\lvert g\rvert=s$.** The eigenvalues meet at $a$, the two eigenvectors coincide and become neutral, and $H-a$ is a nonzero nilpotent matrix: a Jordan block of size 2. The evolution $e^{-iHt}=e^{-iat}\big(1-it(H-a)\big)$ grows linearly.
 - **Broken, $\lvert g\rvert>s$.** The eigenvalues form a complex-conjugate pair, both eigenvectors are neutral, and $\Theta$ exchanges them.
 
-The pattern is general. Real eigenvalues can leave the real axis only by colliding, and in a Krein space a collision can push them off the axis only if the colliding eigenvectors have *opposite* Krein signature (more precisely, only if the root subspace at the collision is not definite); eigenvalues of the same signature pass through each other and stay real. Krein signature therefore protects reality. In Part VII the finite-volume levels of the imaginary-coupling theories are shown to behave exactly this way: some sectors are $\Theta$-unbroken with real levels, while in others levels have collided and form complex-conjugate pairs (@sec-sector-status).
+The pattern is general. Real eigenvalues can leave the real axis only by colliding, and in a Krein space a collision can push them off the axis only if the colliding eigenvectors have *opposite* Krein signature (more precisely, only if the root subspace at the collision is not definite); eigenvalues of the same signature pass through each other and stay real. Krein signature therefore protects reality. In Part VIII the finite-volume levels of the imaginary-coupling theories are shown to behave exactly this way: some sectors are $\Theta$-unbroken with real levels, while in others levels have collided and form complex-conjugate pairs (@sec-sector-status).
 
 ## An example: the scaling Lee–Yang model {#sec-lee-yang}
 

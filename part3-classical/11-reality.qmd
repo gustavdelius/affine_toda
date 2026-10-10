@@ -7,7 +7,7 @@
 - Understand the missing-charge problem.
 :::
 
-The solitons of @sec-classical-solitons are complex fields, yet their energies are real. The literature established this case by case, and also found complex solutions with complex or negative energies. This chapter shows that a single symmetry decides which solutions have real conserved charges. It is the classical counterpart of the Krein-space structure of the quantum theory (Part VII).
+The solitons of @sec-classical-solitons are complex fields, yet their energies are real. The literature established this case by case, and also found complex solutions with complex or negative energies. This chapter shows that a single symmetry decides which solutions have real conserved charges. It is the classical counterpart of the Krein-space structure of the quantum theory (Part VIII).
 
 ## $\Theta$ on solutions {#sec-theta-classical}
 
