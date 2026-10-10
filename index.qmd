@@ -18,4 +18,4 @@ The whole book is also available as a [PDF](affine-toda.pdf).
 
 **Status.** All chapters are drafted. Parts I–IV and the textbook chapters of Parts V–VI are new and have not yet been refereed; the record of what has been checked, and how, is in the repository (`briefs/referee_textbook.md`, `textbook_code/`).
 
-Supporting code: [textbook_code](https://github.com/gustavdelius/affine_toda/tree/main/textbook_code), [foundations_code](https://github.com/gustavdelius/affine_toda/tree/main/foundations_code) and [soliton_rmatrix_code](https://github.com/gustavdelius/affine_toda/tree/main/soliton_rmatrix_code); see the [guide to the supporting code](appendices/E-code.qmd).
+Supporting code: [textbook_code](https://github.com/gustavdelius/affine_toda/tree/main/textbook_code), [foundations_code](https://github.com/gustavdelius/affine_toda/tree/main/foundations_code) and [soliton_rmatrix_code](https://github.com/gustavdelius/affine_toda/tree/main/soliton_rmatrix_code); see the [guide to the supporting code](appendices/C-code.qmd).
