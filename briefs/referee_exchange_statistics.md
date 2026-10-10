@@ -75,7 +75,7 @@ Conventions: $q^2=-e^{i\psi}$, $\psi=2\pi^2/3\xi$ reduced to $(-\pi,\pi]$, in th
    - Check that $C^{-1}C^{\mathsf T}$ is diagonal and that $\epsilon_n=-1,-1,+1,+1$.
    - Check that the finite part of the $c_n^{(1)}$ spinor's quantum group is $b_n$, and that these are its Frobenius–Schur indicators.
    - Check that "the factor is a scalar, so it is not a grading" is not misleading.
-8. **The quantum-trace coincidence (`32-scattering.qmd:238`).** Is $q^{\pm2m}$, in these conventions, the twist implementing the quantum trace of the $U_q(a_1)$ subalgebra of the $(1,2)$ restriction? Check $q$ versus $q_{\rm TW}$ and the power. If not, say what the boundary $\lvert\alpha\rvert=\lvert\arg q^2\rvert$ is.
+8. **The quantum-trace coincidence (`32-scattering.qmd:238`).** Is $q^{\pm2m}$, in these conventions, the twist implementing the quantum trace of the $U_q(a_1)$ subalgebra of the $(1,2)$ restriction? Check $q$ versus $q_{\rm TW}$ and the power. If not, say what the boundary $\lvert\alpha\rvert=\lvert\arg q^2\rvert$ is. The other branch of the two-kink threshold, $\lvert\alpha\rvert=2\lvert\psi\rvert-\pi$ for $\pi/2\le\lvert\psi\rvert\le2\pi/3$, equals $\lvert\arg(-q^4)\rvert$. Is it the quantum-trace twist of the $U_{q^4}(a_1)$ subalgebra of the $(1,5)$ restriction, up to a sign $(-1)^m$? The book does not state this; propose text only if you can confirm an interpretation.
 9. **Labels and wording of every edit.**
    - Check the status labels against the evidence.
    - Check consistency between the table, the paragraphs and `33-outlook.qmd`.
