@@ -49,7 +49,7 @@ $$
 f(t)=\prod_{k\ge1}\frac{f^{(1)}\big(t+2T(k-1)\big)\,f^{(1)}\big(-t+2T(k-\tfrac12)\big)}{f^{(1)}\big(t+2T(k-\tfrac12)\big)\,f^{(1)}\big(-t+2Tk\big)} .
 $$
 
-The product makes $f(T-t)=f(t)$ and $f(t)f(-t)=1/\big(c(t)c(-t)\big)$, so $F$ is unitary and carries the crossing factor. Then $c\,\check R$ has no poles at all. The only physical-strip poles of $S$ come from the Gamma functions, at $t=a_j-k$ with $k=0,1,2,\dots$, and their crossed images. At $t=a_j$ the residue is $\check R$'s residue at the corresponding R-matrix pole, so it projects onto the bound-state multiplet.
+The product, with each factor normalized by a $t$-independent constant so that it converges, makes $f(T-t)=f(t)$ and $f(t)f(-t)=1/\big(c(t)c(-t)\big)$, so $F$ is unitary and carries the crossing factor. Then $c\,\check R$ has no poles at all. The only physical-strip poles of $S$ come from the Gamma functions, at $t=a_j-k$ with $k=0,1,2,\dots$, and their crossed images. At $t=a_j$ the residue is $\check R$'s residue at the corresponding R-matrix pole, so it projects onto the bound-state multiplet.
 
 ## The integer lifts {#sec-integer-lifts}
 
@@ -103,14 +103,14 @@ the classical ratio, now exact. No integer lift is needed: the scalar factor can
 
 **Crossing.** The dual of $V_1$ is $V_n$, the antisoliton. Crossing therefore relates $S_{11}$ to $S_{1n}$, and the crossing point $x(i\pi)=e^{2\pi iT}=e^{i\pi h\omega}$ is a power of $q$, as @sec-qg-crossing requires. The scalar factor is fixed by unitarity, crossing and minimality as an infinite product of Gamma functions, given explicitly by Hollowood [-@hollowood1993b].
 
-**Breathers.** In the soliton–antisoliton channel $V_a\otimes V_{\bar a}$ the singlet carries towers of breather poles. Gandenberger [@gandenberger1995] showed that the lowest breathers scatter as the particles of $a_n^{(1)}$ with the S-matrix (-@eq-an-smatrix) continued to imaginary coupling, the first instance of the breather–particle identification beyond sine-Gordon.
+**Breathers.** In the soliton–antisoliton channel $V_a\otimes V_{\bar a}$ the singlet carries towers of breather poles. Gandenberger [@gandenberger1995] showed for $a_2^{(1)}$ that the lowest breathers $B_1,\bar B_1$ scatter as the two particles of $a_2^{(1)}$, with the S-matrix (-@eq-an-smatrix) continued to imaginary coupling; Smirnov [@smirnov1991] had found the analogous identification for $a_2^{(2)}$.
 
 **Check: $n=1$.** For sine-Gordon $V_1\otimes V_1$ is spin $\frac12\otimes\frac12$, $T=\lambda$, and the antisymmetric pole at $t=\omega$ corresponds to $\theta=i\pi$, the edge of the physical strip: two solitons do not bind, as they should not. The breather towers of the scalar factor lie at $t=T-k$, $k=1,2,\dots$, which are the poles $\theta=i(\pi-k\xi)$ of the Zamolodchikov S-matrix (@sec-qg-gradation).
 
 ## Exercises {#sec-sm-construction-exercises}
 
 ::: {#exr-scalar-unitarity}
-Show that $f$ as defined in @sec-scalar-factor satisfies $f(T-t)=f(t)$ and $f(t)f(-t)=1/\big(c(t)c(-t)\big)$, using only the functional equation of the Gamma function.
+Show that $f$ as defined in @sec-scalar-factor satisfies $f(T-t)=f(t)$ and, using $\Gamma(z)\Gamma(1-z)=\pi/\sin\pi z$, that $f(t)f(-t)=1/\big(c(t)c(-t)\big)$.
 :::
 
 ::: {#exr-lift-cdd}

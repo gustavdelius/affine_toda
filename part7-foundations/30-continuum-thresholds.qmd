@@ -3,10 +3,10 @@
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
 - Locate the ultraviolet collapse thresholds of the Coulomb gas for every algebra.
 - Understand why Wick ordering must be done site by site with Dirichlet boundary conditions.
-- Follow the proof that the continuum limit exists in finite volume for $\beta^2<2\pi$, and why the threshold is sharp.
+- Follow the proof that the continuum limit exists in finite volume for $\beta^2<2\pi$, and why no continuum limit exists at or above the first collapse threshold $\beta^2_{\rm UV}$ without further counterterms.
 :::
 
-The lattice theory of @sec-lattice exists for every lattice spacing. This chapter and the next ask whether it has a continuum limit. In the Coulomb-gas picture the danger is clear: charges of opposite sign can collapse onto each other, and their Boltzmann weight can then diverge. This chapter finds where that happens and proves the continuum limit below the first, simplest threshold. A reader interested only in the result can read @sec-collapse-thresholds and the statements of @thm-below-2pi and @prp-uv-divergence.
+The lattice theory of @sec-lattice exists for every lattice spacing. This chapter and the next ask whether it has a continuum limit. In the Coulomb-gas picture the danger is clear: charges of opposite sign can collapse onto each other, and their Boltzmann weight can then diverge. This chapter finds where that happens and proves the continuum limit for $\beta^2<2\pi$, where a nearest-neighbour bound suffices; for sine-Gordon this is already the whole range below the first collapse threshold. A reader interested only in the result can read @sec-collapse-thresholds and the statements of @thm-below-2pi and @prp-uv-divergence.
 
 ## Collapse thresholds {#sec-collapse-thresholds}
 
@@ -244,7 +244,7 @@ Induct by adding one integrated point $x$ to a set $X'$ of $n$ points (integrate
 ## Exercises {#sec-continuum-limit-exercises}
 
 ::: {#exr-thresholds}
-Use the definition of $\beta^2_{\rm UV}$ in @sec-collapse-thresholds to compute it for $a_1^{(1)}$, $a_2^{(1)}$, $c_2^{(1)}$ and $e_8^{(1)}$, and identify the cluster that attains the minimum in each case.
+Use the definition of $\beta^2_{\rm UV}$ in @sec-collapse-thresholds to compute it for $a_1^{(1)}$, $a_2^{(1)}$, $c_2^{(1)}$ and $e_8^{(1)}$, and identify a cluster that attains the minimum in each case. (For $c_2^{(1)}$ two different clusters attain it.)
 :::
 
 ::: {#exr-pair-collapse}

@@ -159,7 +159,7 @@ Open problems:
 2. **Other species.** Each theory has several fundamental soliton species, obtainable by fusion; we carried this out only for $c_3^{(1)}$. The S-matrices of the vector and Kirillov–Reshetikhin solitons of $a_{2n-1}^{(2)}$ and $e_6^{(2)}$ follow mechanically but are not written down here.
 3. **Coleman–Thun analysis.** Explain the soliton poles not accounted for here: single-channel tower poles, and three light 29-plet poles in the $c_3^{(1)}$ amplitude $S_{22}$.
 4. **Crossing and the sign of $q$.** The factor $(-1)^n$ that our crossing test once returned for the $c_n^{(1)}$ spinor came from computing with $q=e^{-i\pi\omega}$, minus the physical value (-@eq-q-physical). At the physical $q$ the test returns $+1$ (@sec-crossing-sign). What remains open is a proof that $q\to-q$ changes the crossing factor by $(-1)^{2(\lambda,\rho)}$ for every representation, presumably from the Cartan part of the universal R-matrix.
-5. **Larger $n$.** Checks for $n\ge5$ need spinor R-matrix projectors of dimension $2^{2n}$, at increasing cost. The closed forms of @sec-sm-cn and @sec-sm-a2n are conjectured for all $n$.
+5. **Larger $n$.** The spinor R-matrices are known for all $n$ [@dgz1994; @dgz1996]. The S-matrices built on them are conjectured for $n\ge5$; checking them needs spinor projectors of dimension $2^{2n}$, at increasing cost.
 6. **Unitarity.** These S-matrices are not unitary in the Hilbert-space sense. @sec-scattering shows they are unitary with respect to an indefinite (Krein) inner product. A unitary theory requires a restriction of RSOS type, which remains to be carried out for these algebras.
 
 ## Exercises {#sec-sm-f4-exercises}

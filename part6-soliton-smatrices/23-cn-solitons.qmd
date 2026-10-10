@@ -23,7 +23,7 @@ $$
 \check R_{nn}(x)=\sum_{k=0}^{n}\Big[\prod_{j=1}^{k}\langle 2j\rangle_{(-1)^{j+1}}\Big]P_{\Lambda^{n-k}} .
 $$
 
-We verified this against direct solutions of the intertwining equations for $n=2,3,4$, to $10^{-13}$. The crossing point is $x_c=(-1)^{n+1}q^{-2n}$.
+This is the R-matrix derived for all $n$ by Delius, Gould and Zhang with the twisted tensor-product graph [@dgz1996, eqs. (4.30)–(4.31) at $a=1$, with their $q$ equal to our $q^{-2}$]; we re-derived it from direct solutions of the intertwining equations for $n=2,3,4$, to $10^{-13}$. The crossing point is $x_c=(-1)^{n+1}q^{-2n}$.
 
 ## Parameters and the scalar factor {#sec-cn-parameters}
 
@@ -138,4 +138,4 @@ Check that the lifts $a_j=j\omega+(j-1)/2$ satisfy $T-a_j\in(\omega+\frac12)\mat
 
 ## Notes and references {#sec-sm-cn-notes}
 
-The one-loop $c_n^{(1)}$ soliton masses that this S-matrix reproduces are those of Delius and Grisaru [-@delius_grisaru1995]; the competing values are in MacKay and Watts [-@mackay_watts1995]. The particle amplitudes used in the breather test are those of Delius, Grisaru and Zanon [-@dgz1992]. The $c_2^{(1)}\simeq b_2^{(1)}$ case was known from [@gmw1996]. The construction for $n\ge3$ is new here; code in `soliton_rmatrix_code/`.
+The one-loop $c_n^{(1)}$ soliton masses that this S-matrix reproduces are those of Delius and Grisaru [-@delius_grisaru1995]; the competing values are in MacKay and Watts [-@mackay_watts1995]. The particle amplitudes used in the breather test are those of Delius, Grisaru and Zanon [-@dgz1992]. The $c_2^{(1)}\simeq b_2^{(1)}$ case was known from [@gmw1996]. The spinor R-matrix is that of Delius, Gould and Zhang [@dgz1996]; the S-matrix construction for $n\ge3$ is new here; code in `soliton_rmatrix_code/`.

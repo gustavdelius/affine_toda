@@ -121,7 +121,7 @@ For two solitons this can be checked directly against the field equation.
 
 ## Breathers {#sec-breathers}
 
-A soliton of species $a$ and one of the conjugate species $\bar a=h-a$, with complex-conjugate rapidities $\theta_0\pm iu$ and suitably related $\xi$'s, form a **breather**: a localized, time-periodic solution of zero topological charge. Its energy is
+A soliton of species $a$ and one of the conjugate species $\bar a=h-a$, with complex-conjugate rapidities $\theta_0\pm iu$ (so $u$ here is $\frac\pi2$ minus the $u$ of @sec-sg-classical) and suitably related $\xi$'s, form a **breather**: a localized, time-periodic solution of zero topological charge. Its energy is
 
 $$
 E=M_a\cosh(\theta_0+iu)+M_{\bar a}\cosh(\theta_0-iu)=2M_a\cosh\theta_0\cos u ,

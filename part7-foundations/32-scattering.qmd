@@ -250,7 +250,7 @@ Let $S$ be a matrix with $PS^\dagger PS=1$ for a Hermitian involution $P$. Show 
 :::
 
 ::: {#exr-bethe-complex}
-For a single particle on a circle with a transfer-matrix eigenvalue $\Lambda(\theta)$ in the Bethe–Yang equation $e^{imL\sinh\theta}\Lambda(\theta)=1$, show that $\lvert\Lambda\rvert\ne1$ on the real axis forces $\theta$, and hence the energy, to be complex.
+For a single particle on a circle with a transfer-matrix eigenvalue $\Lambda(\theta)$ in the Bethe–Yang equation $e^{imL\sinh\theta}\Lambda(\theta)=1$, show that $\lvert\Lambda\rvert\ne1$ on the real axis forces $\theta$ off the real axis, and that the energy $m\cosh\theta$ is then complex unless $\operatorname{Re}\theta=0$ or $\operatorname{Im}\theta\in\pi\mathbb Z$.
 :::
 
 ## Notes and references {#sec-scattering-notes}
