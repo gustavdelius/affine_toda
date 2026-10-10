@@ -8,13 +8,7 @@ The whole book is also available as a [PDF](affine-toda.pdf).
 
 **Prerequisites.** Quantum field theory at the level of a first graduate course (path integrals, perturbation theory, renormalization, the S-matrix), finite-dimensional Lie algebras at the level of $su(n)$, and complex analysis. Everything else is developed in the text.
 
-**Structure.** Parts I–IV are textbook material: the physical and algebraic background, the classical theory, and the real-coupling quantum theory. Parts V–VII present research results, many of them new: the semiclassics of complex solitons, exact soliton S-matrices, and the foundations of the imaginary-coupling theories as non-unitary quantum field theories. The [introduction](part1-background/01-introduction.qmd) gives a chapter-by-chapter map.
-
-**Reading paths.**
-
-- *Physics first:* Parts I, III, IV and VI.
-- *Mathematics first:* Part II, then Part VII.
-- *For specialists:* Parts V–VII, consulting earlier chapters as needed.
+**Structure.** The [introduction](01-introduction.qmd) explains why affine Toda theory matters, gives a map of the book with the dependencies between its parts and suggested reading paths, and fixes the conventions used throughout. Parts I–IV are textbook material: the physical and algebraic background, the classical theory, and the real-coupling quantum theory. Parts V–VII present research results, many of them new: the semiclassics of complex solitons, exact soliton S-matrices, and the foundations of the imaginary-coupling theories as non-unitary quantum field theories.
 
 **Status.** All chapters are drafted. Parts I–IV and the textbook chapters of Parts V–VI are new and have not yet been refereed; the record of what has been checked, and how, is in the repository (`briefs/referee_textbook.md`, `textbook_code/`).
 
