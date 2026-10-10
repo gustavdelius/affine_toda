@@ -1,0 +1,5 @@
+(a) grid N=512, L=60: lowest eigenvalues [0.   0.75 1.  ]; max |grid - part 3| at t = 0.05, 0.3, 0.6, 1, 1.5, 5: 3.1e-13
+(a) grid N=1024, L=80: lowest eigenvalues [-0.    0.75  1.  ]; max |grid - part 3| at t = 0.05, 0.3, 0.6, 1, 1.5, 5: 1.9e-12
+(b) Jost function vs product at 5 complex lambda: max diff 2.9e-14
+(c) c = int V dx = -6.000000000000; from the roots -4(1 + 1/2) = -6
+(d) Mellin Delta M = -0.333127261978281; DHN = -0.33312726197828; diff 1.6e-15

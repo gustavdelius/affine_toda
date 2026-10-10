@@ -1,0 +1,12 @@
+(a) one root, Mellin integral vs psi(arcsin w), 8 values of w in [1e-3, 1]: max diff 3.4e-17
+(b) one factor, part 2 vs part 3, 36 values of (mu, w, t): max diff 1.2e-15
+(c) Hollowood a_n^(1), all a, h <= 30: max |closed form - (eq-hollowood-mass)| = 2.7e-15
+(d) a_n^(1), h <= 10: phase-shift form + sum c_b/4pi vs closed form 2.0e-13; unpaired bookkeeping (no threshold roots) vs closed form 4.4e-16
+(e) soliton sectors: pairing; max |c_mu(direct) - c_mu(roots)|; closed form; |closed form - Mellin|; (f) grid heat trace vs part 3
+   a4 soliton 1             pairing True   Born 3.6e-12  Delta M -0.5309807866  Mellin diff 6.0e-11  grid(N=768, L=48) 8.5e-12
+   c3(1)<a5 soliton 1       pairing True   Born 6.1e-12  Delta M -0.5515517082  Mellin diff 1.1e-10  grid(N=768, L=48) 4.2e-12
+   d4 soliton 3             pairing True   Born 8.6e-12  Delta M -0.7381020385  Mellin diff 1.4e-10  grid(N=768, L=48) 1.1e-11
+   b3(1)<d4 soliton 3       pairing True   Born 1.7e-11  Delta M -1.0260459190  Mellin diff 2.5e-10  grid(N=768, L=48) 4.2e-10
+   g2(1)<d4 soliton 1       pairing True   Born 2.6e-11  Delta M -1.2720799318  Mellin diff 3.4e-10  grid(N=768, L=48) 4.0e-08
+   f4(1)<e6 soliton 1       pairing True   Born 2.2e-11  Delta M -1.5091874927  Mellin diff 3.0e-10  grid(N=768, L=48) 6.3e-08
+exit 0

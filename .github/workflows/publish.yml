@@ -17,13 +17,21 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          tinytex: true
+      # HTML only. The PDF is built locally with publish-pdf.sh, which
+      # attaches it to the pdf-latest release.
       - name: Render
-        run: quarto render
+        run: quarto render --to html
+      - name: Add the latest PDF
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh release download pdf-latest --pattern affine-toda.pdf --dir _site \
+            || echo "::warning::No pdf-latest release yet, so the PDF download link will 404. Run publish-pdf.sh locally."
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
