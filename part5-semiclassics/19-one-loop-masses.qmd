@@ -22,7 +22,7 @@ Three independent checks favour the algebraic-multiplicity count:
 The details are in @sec-hirota-form-dn1-en1 and @sec-one-loop-masses-folded. For $b_n^{(1)}$ the spinor soliton is the coincident pair $(s,s')$ of $d_{n+1}^{(1)}$. Every vector channel $b$ has a double zero at $\lambda=2m^2\sin^2(\pi b/n)$. These zeros are isolated, embedded, or (for $b=n/2$) at the spinor threshold. Counted with weight 2 they give $H=2n+\beta^2/4\pi$ from every ratio, which is the exact result of [@gmw1996]. Counted once they give MacKay and Watts' table (@sec-one-loop-masses-folded).
 
 ::: {#cnj-counting-rule}
-**[Part 1: Theorem given a degree bound, for the algebraic multiplicity; the trace-weight clause rests on @prp-net-count part 2 (sketch); part 2: Conjecture]**
+**[Part 1: Theorem given a degree bound, for the algebraic multiplicity; the trace-weight clause rests on @prp-net-count part 2; part 2: Conjecture]**
 
 1. For every $\hat g$ and every soliton obtained by folding Hirota multisolitons, the fluctuation solutions have the Hirota form (H) of @sec-counting-rule-transmission-factors. Then the factorization (-@eq-net-factorization) holds by @thm-hirota-factorization, the algebraic multiplicity of each isolated eigenvalue is the net order (zeros minus poles) of $\prod_bX_{ab}$, and the same net order is the weight in the one-loop trace. Wherever Hypothesis (R) holds, the Jordan blocks have the sizes of the individual zeros (@thm-jordan-chains).
 2. Counting accordingly, the one-loop masses of all solitons obtained by folding multisolitons satisfy
@@ -50,29 +50,73 @@ This closes H8 for the algebraic multiplicity of isolated eigenvalues, given (D)
 
 The counting rule turns the one-loop masses into a computation with the transmission factors alone. Write $z=\kappa_b/m_b$, so that $X_b$ becomes a rational function of $z$ for Hirota solitons (@prp-hirota-form, which also gives the transmission factors of all the single solitons and foldings used below).
 
+::: {#lem-born}
+## Born approximation
+**[Theorem]** Assume (H), with $\psi_b^-$ rational in $z_b$. Then, as $k\to\infty$,
+
+$$
+X_b(k)=1-\frac{ic_b}{2k}+O(k^{-2}),\qquad c_b=\int e_{\bar b}^{\mathsf T}\big(M(x)-M_0\big)e_b\,dx .
+$$
+
+:::
+
+::: {.proof}
+1. Let $V=M-M_0$. Take real $k$ so large that $k_c=\sqrt{k^2+m_b^2-m_c^2}\ge k/2$ for every channel $c$. Let $\psi$ solve
+   $$
+   \psi(x)=e^{ikx}e_b+\int_{-\infty}^xG(x-y)V(y)\psi(y)\,dy,\qquad G(x)=\sum_c\frac{\sin k_cx}{k_c}\,e_ce_{\bar c}^{\mathsf T}.
+   $$
+   Then $(\mathcal A-\lambda)\psi=0$ at $\lambda=m_b^2+k^2$. Since $\lVert G\rVert=O(1/k)$, Gronwall's inequality gives $\sup_x\lVert\psi(x)-e^{ikx}e_b\rVert=O(1/k)$.
+2. At $z_b=ik/m_b$, (H) gives a solution $\psi_b^-$ with $\psi_b^--e^{ikx}e_b\to0$ as $x\to-\infty$, and so does $\psi$. All channels are open at this $\lambda$. Variation of constants about the free system, whose solutions $e^{\pm ik_cx}e_c$ are bounded, shows that the only solution tending to $0$ at $-\infty$ is $0$ [@coddington1955, Ch. 3]. So $\psi=\psi_b^-$.
+3. As $x\to+\infty$, using $e_{\bar b}^{\mathsf T}e_c=\delta_{bc}$,
+   $$
+   e_{\bar b}^{\mathsf T}\psi\to e^{ikx}\Big(1+\frac1{2ik}\int e^{-iky}e_{\bar b}^{\mathsf T}V\psi\,dy\Big)-e^{-ikx}\,\frac1{2ik}\int e^{iky}e_{\bar b}^{\mathsf T}V\psi\,dy .
+   $$
+   By (H) the limit is $X_be^{ikx}$. Comparing coefficients and inserting step 1 gives the expansion for real $k\to+\infty$. $X_b$ is rational in $k$, so this is its Laurent expansion at $\infty$, valid in all directions.
+
+:::
+
 ::: {#prp-one-loop-mass}
 ## One-loop mass from the transmission factors
-**[Proposition, sketch]** Assume (H), and that $X_b(z)$ is rational with zeros and poles in $[-1,1]$. Then (-@eq-one-loop-mass) equals
+**[Theorem]** Assume (H), with $\psi_b^\mp$ rational in $z_b$, and assume that every zero and pole of every $X_b(z)$ lies in $[-1,1]$. Then the integral (-@eq-one-loop-mellin) converges, and
 
 $$
 \Delta M=\tfrac12\sum_bm_b\sum_w\operatorname{ord}_w(X_b)\,\psi(\arcsin w),\qquad \psi(t)=\frac{t\cos t-\sin t}{\pi},
 $$
 
-where $w$ runs over all zeros and poles of $X_b$ in both half-planes, with zeros counted positively and poles negatively. Bound states, the continuum phase shift and the counterterm are all contained in $\psi$.
+where $w$ runs over all zeros and poles of $X_b$ in $[-1,1]$, with zeros counted positively and poles negatively. Equivalently, $\Delta M=\sum_\mu\mu\sum_{0<w\le1}\operatorname{ord}_w(X_\mu)\,\psi(\arcsin w)$, a sum over the roots on the physical sheet. Bound states, the continuum and the counterterm are all contained in $\psi$.
 
 :::
 
 ::: {.proof}
-## Sketch
-1. Insert the Mellin representations of $\sqrt\lambda$ and $\lambda^{-1/2}$ into (-@eq-one-loop-mass). The bracket of heat traces is $O(t^{3/2})$, so the $t$-integral converges.
-2. Insert @prp-net-count part 2 and do the $k$-integral first. The counterterm is fixed channel by channel by the Born approximation, $\log X_b(k)=-ic_b/2k+O(k^{-2})$ with $c_b=\int e_{\bar b}^{\mathsf T}(M-M_0)e_b\,dx$. This uses species-diagonality.
-3. Unpaired, a root $w$ of $X_b$ contributes $\tfrac12m_b\big[\psi(\arcsin w)+\tfrac12\sqrt{1-w^2}\big]$. Pair channel $b$ with $\bar b$ by @lem-wronskian, $X_{\bar b}(z)=1/X_b(-z)$. The second term cancels, and the first is odd in $w$.
+1. *Hypotheses.* (H) gives (-@eq-net-factorization) by @thm-hirota-factorization. $X_bu_b$ is the limit at $+\infty$ of a rational function of the $E_i$ with coefficients rational in $z_b$, so (X1) holds. @lem-wronskian, applied on the whole $z$-plane, gives (X2). Roots in $[-1,1]$ give (X3). So parts 2 and 3 of @prp-net-count apply. Write $n_{\mu,w}=\operatorname{ord}_wX_\mu$ for $0<w\le1$. By @lem-born, $X_\mu(\infty)=1$, so $X_\mu(z)=\prod_{0<w\le1}\big(\frac{z-w}{z+w}\big)^{n_{\mu,w}}$ (part 3 of @prp-net-count, step 1).
+2. *Counterterm.* $\operatorname{Tr}\big((\mathcal A-\mathcal A_0)e^{-t\mathcal A_0}\big)=\frac1{\sqrt{4\pi t}}\int\operatorname{tr}\big(V(x)e^{-tM_0}\big)dx=\frac1{\sqrt{4\pi t}}\sum_bc_be^{-tm_b^2}$, using $e^{-tM_0}=\sum_be^{-tm_b^2}e_be_{\bar b}^{\mathsf T}$. With $z=ik/\mu$, $\log\frac{z-w}{z+w}=\frac{2i\mu w}k+O(k^{-3})$. Comparing with @lem-born summed over the level gives $\sum_{m_b=\mu}c_b=-4\mu\sum_wn_{\mu,w}w$.
+3. *Reduction to one root.* By step 2 and part 3 of @prp-net-count, the bracket in (-@eq-one-loop-mellin) equals $\sum_\mu\sum_wn_{\mu,w}F_w(\mu^2t)$, with
+   $$
+   F_w(s)=e^{-s(1-w^2)}\operatorname{erf}(w\sqrt s)-\frac{2w}{\sqrt\pi}\sqrt s\,e^{-s}.
+   $$
+   The sum is finite. Substituting $s=\mu^2t$, it suffices to show that $-\frac1{4\sqrt\pi}\int_0^\infty s^{-3/2}F_w(s)\,ds=\psi(\arcsin w)$ for $0<w\le1$.
+4. *One root.* Insert $\operatorname{erf}(w\sqrt s)=\frac{2w\sqrt s}{\sqrt\pi}\int_0^1e^{-sw^2u^2}du$. Then
+   $$
+   F_w(s)=\frac{2w\sqrt s}{\sqrt\pi}\int_0^1\big(e^{-sa(u)}-e^{-s}\big)\,du,\qquad a(u)=1-w^2+w^2u^2\in(0,1]\ \text{for }u\in(0,1].
+   $$
+   The integrand is nonnegative, so by Tonelli's theorem the $s$-integral may be done first. Frullani's integral $\int_0^\infty(e^{-as}-e^{-s})\frac{ds}s=-\log a$ gives
+   $$
+   -\frac1{4\sqrt\pi}\int_0^\infty s^{-3/2}F_w(s)\,ds=\frac w{2\pi}\int_0^1\log\big(1-w^2+w^2u^2\big)\,du .
+   $$
+5. With $w=\sin\theta$ and $0<\theta\le\frac\pi2$, $\int_0^1\log(\cos^2\theta+u^2\sin^2\theta)\,du=2\theta\cot\theta-2$, which is $-2$ at $\theta=\frac\pi2$. So the root contributes $\frac{\sin\theta}\pi(\theta\cot\theta-1)=\psi(\theta)$. This is finite, so $s^{-3/2}F_w$ is integrable and (-@eq-one-loop-mellin) converges. The translation mode, $w=1$, is included.
+6. *All roots.* $\psi$ is odd and $\operatorname{ord}_{-w}X_\mu=-n_{\mu,w}$. So $\mu\sum_{w>0}n_{\mu,w}\psi(\arcsin w)=\frac\mu2\sum_w\operatorname{ord}_w(X_\mu)\psi(\arcsin w)$ over all roots in $[-1,1]$. Finally $\operatorname{ord}_wX_\mu=\sum_{m_b=\mu}\operatorname{ord}_wX_b$, which gives the per-channel form.
 
 :::
 
-$\psi$ is continuous at $w=0$, so a zero that crosses a threshold causes no jump. A threshold zero of $X_b$ that is cancelled by a pole of $X_{\bar b}$ contributes nothing once the pair is grouped (@lem-wronskian). A double or triple zero counts two or three times, whether its eigenvalue is isolated, embedded, or at another channel's threshold. A naive energy-weighted phase-shift sum misses a term $c_b/4\pi$ per channel; for the sine-Gordon kink it gives $0$ instead of $-m_1/\pi$.
+**Remarks.**
 
-*Calibration.* The formula reproduces the sine-Gordon kink, $-m_1/\pi=-2m/\pi$ in the units of @sec-lagrangians, and the $a_n^{(1)}$ masses (-@eq-hollowood-mass) (Hollowood's calculation, with the factor 2 in his $\cot$ term corrected), $\Delta M_a=-m_a\big[\tfrac h{2\pi}-\tfrac14\cot\tfrac\pi h\big]$. It also reproduces the Delius–Grisaru $c_n^{(1)}$ masses and the universal twisted rule of [@mackay_watts1995]. The closed form, the unpaired form, the direct phase-shift form and the heat-trace route agree to $10^{-12}$.
+- *Pairing.* The closed form is a statement about mass levels. It can be written per channel because orders add, but the individual channel terms have no separate meaning. For a channel with no root at $z=0$, a channel-by-channel evaluation, with $\int_{-\infty}^\infty$ in place of $2\int_0^\infty$, assigns each root $w$ of $X_b$ the amount $\tfrac12m_b\big[\psi(\arcsin w)+\tfrac12\sqrt{1-w^2}\big]$. The second term cancels within each level, because $\sqrt{1-w^2}$ is even and the orders are odd under $w\to-w$.
+- *Phase shifts.* For one factor, $\int_0^\infty\frac{dk}{\sqrt{1+k^2}\,(k^2+w^2)}=\frac{\arccos w}{w\sqrt{1-w^2}}$ evaluates the continuum integral below in closed form. Comparing with step 5 gives $\Delta M=\sum_\mu\Big[\tfrac12\sum_{0<w\le1}n_{\mu,w}\,\omega_{\mu,w}+\frac1{2\pi i}\int_0^\infty\Big(\sqrt{\mu^2+k^2}\,\partial_k\log X_\mu-\frac{ic_\mu}{2\sqrt{\mu^2+k^2}}\Big)dk\Big]+\frac1{4\pi}\int\operatorname{tr}(M-M_0)\,dx$, with $\omega_{\mu,w}=\mu\sqrt{1-w^2}$ and $c_\mu=\sum_{m_b=\mu}c_b$. The naive energy-weighted phase-shift sum omits the last term, $\sum_bc_b/4\pi$. For the sine-Gordon kink it gives $0$ instead of $-m_1/\pi$. This is the familiar difference between energy and mode-number cutoffs [@rebhan1997]. The Mellin form (-@eq-one-loop-mellin) fixes it without a choice of cutoff.
+- *Topological sectors.* The $X_b$ do not depend on $\xi$, because $\xi$ enters the Hirota solutions only through $E=e^{m_ax+\xi}$. So $\Delta M$ is the same in every regular sector, which proves the observation of @sec-which-saddles-contribute for the solitons covered here.
+
+$\psi$ is continuous at $w=0$, so a zero that crosses a threshold causes no jump. A threshold zero of $X_b$ that is cancelled by a pole of $X_{\bar b}$ contributes nothing once the pair is grouped (@lem-wronskian). A double or triple zero counts two or three times, whether its eigenvalue is isolated, embedded, or at another channel's threshold.
+
+*Calibration.* The formula reproduces the sine-Gordon kink, $-m_1/\pi=-2m/\pi$ in the units of @sec-lagrangians, and the $a_n^{(1)}$ masses (-@eq-hollowood-mass) (Hollowood's calculation, with the factor 2 in his $\cot$ term corrected), $\Delta M_a=-m_a\big[\tfrac h{2\pi}-\tfrac14\cot\tfrac\pi h\big]$. It also reproduces the Delius–Grisaru $c_n^{(1)}$ masses and the universal twisted rule of [@mackay_watts1995]. The closed form, the unpaired form, the direct phase-shift form and the heat-trace route agree to $10^{-12}$. For 19 solitons of $a_3^{(1)}$, $a_4^{(1)}$, $d_4^{(1)}$, $d_5^{(1)}$, $e_6^{(1)}$ and seven foldings, the Born constants computed from $M(x)$ agree with @lem-born to $3\times10^{-11}$, and the Mellin integral (-@eq-one-loop-mellin) agrees with the closed form to $5\times10^{-10}$ (`foundations_code/oneloop/heat_trace_checks.py`).
 
 **Results.** In every family, the counting rule makes all one-loop soliton mass ratios follow the classical pattern with $h$ replaced by one floating Coxeter number $H_s=h+\delta H\,\beta^2+O(\beta^4)$, the same for every ratio [Numerical, to round-off]. Counting each multiple zero once, that is, subtracting $(o-1)\tfrac12\omega_\zeta$ for each bound-state zero of order $o\ge2$ while keeping the continuum, breaks this wherever multiple zeros occur.
 
@@ -122,4 +166,4 @@ Using the $g_2^{(1)}$ numbers quoted in this chapter, check that $H_s-h=-(H_b-h)
 
 ## Notes and references {#sec-one-loop-masses-notes}
 
-The competing one-loop computations are MacKay and Watts [-@mackay_watts1995] and Delius and Grisaru [-@delius_grisaru1995] for $c_n^{(1)}$, and the exact $b_n^{(1)}$ masses are in Gandenberger, MacKay and Watts [-@gmw1996], with the open discrepancy noted in [@gm1997]. The exact masses used for comparison are those of [@gm1995; @gandenberger1998; @takacs1997c; @takacs1997b]. The resolution by algebraic multiplicity, the transmission-factor formula and the $f_4^{(1)}$ prediction are new here. Scripts: `foundations_code/oneloop/`.
+The competing one-loop computations are MacKay and Watts [-@mackay_watts1995] and Delius and Grisaru [-@delius_grisaru1995] for $c_n^{(1)}$, and the exact $b_n^{(1)}$ masses are in Gandenberger, MacKay and Watts [-@gmw1996], with the open discrepancy noted in [@gm1997]. The exact masses used for comparison are those of [@gm1995; @gandenberger1998; @takacs1997c; @takacs1997b]. The resolution by algebraic multiplicity, the transmission-factor formula and the $f_4^{(1)}$ prediction are new here. The transmission-factor formula extends that of Cahill, Comtet and Glauber [@cahill1976] to several channels, to poles as well as zeros, and to complex solitons. Its proof reduces each mass level to reflectionless Pöschl–Teller wells. Scripts: `foundations_code/oneloop/`.

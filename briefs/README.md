@@ -9,7 +9,8 @@ Self-contained task briefs for follow-up work on the book. The first two were wr
 | `referee_exchange_statistics_report.md` | Report of the referee pass on PR #2 (2026-10-10), with the integration notes and the open items; scripts in `referee_exchange_statistics_scripts/`. Not a brief | `part7-foundations/32-scattering.qmd`, `foundations_code/sectors/bloch/` |
 | `referee_textbook.md` | Referee the textbook chapters 1–16 and 20, and the textbook framing of 17–27: what was verified, and a prioritized list of unverified formulas, conventions, claims and references | `part1-background/`, `part2-algebra/`, `part3-classical/`, `part4-real-coupling/`, `part5-semiclassics/`, `part6-soliton-smatrices/`, `textbook_code/` |
 | `referee_textbook_report.md` | Report of the referee pass of 2026-10-10 on `referee_textbook.md`: a verdict per item, with replacement text for each error; scripts in `referee_textbook_scripts/`. Not a brief: it records findings to be integrated. Item 2 (the sign of $q$, crossing sign) was integrated on 2026-10-10, with the dependent results recomputed at the physical $q$; the other items on branch `textbook-referee-fixes`, except those listed at the top of the report | all parts, `references.bib` |
-| `rigorous_heat_trace.md` | Turn Proposition `prp-net-count` part 2 and Proposition `prp-one-loop-mass` from sketches into theorems | Sections `sec-counting-rule-transmission-factors` and `sec-one-loop-masses-folded`, open problem 3 (see below) |
+| `rigorous_heat_trace.md` | Turn Proposition `prp-net-count` part 2 and Proposition `prp-one-loop-mass` from sketches into theorems. Done 2026-10-10: proofs integrated on branch `worktree-heat-trace-theorems`, pending the referee pass below | Sections `sec-counting-rule-transmission-factors` and `sec-one-loop-masses-folded`, open problem 3 (see below) |
+| `referee_heat_trace.md` | Adversarial referee of those proofs (`eq-one-loop-mellin`, `prp-net-count` parts 2–3, `lem-born`, `prp-one-loop-mass`) before their [Theorem] labels are kept | Chapters 17–19, `foundations_code/oneloop/heat_trace_checks.py` |
 
 Recommended protocol, which worked in the session that wrote these briefs:
 
@@ -37,8 +38,10 @@ The papers are chapters of a Quarto book, and Quarto renumbers sections and theo
 | `prp-cn-threshold-blocks` | `part5-semiclassics/18-jordan-chains.qmd` | Proposition 8.5 | Proposition 8.7 |
 | `prp-hirota-form` | `part5-semiclassics/18-jordan-chains.qmd` | Proposition 8.6 | Proposition 8.8 |
 | `prp-one-loop-mass` | `part5-semiclassics/19-one-loop-masses.qmd` | Proposition 8.7 | Proposition 8.9 |
+| `lem-born` | `part5-semiclassics/19-one-loop-masses.qmd` | new (2026-10-10) | — |
 | `eq-one-loop-mass` | `part5-semiclassics/17-thimbles.qmd` | (8.1) | (8.1) |
 | `eq-net-factorization` | `part5-semiclassics/18-jordan-chains.qmd` | (8.2) | (F) |
+| `eq-one-loop-mellin` | `part5-semiclassics/17-thimbles.qmd` | new (2026-10-10) | — |
 | `prp-krein-unitarity` | `part7-foundations/32-scattering.qmd` | Proposition 9.1 | Proposition 9.1 |
 | `prp-krein-fundamental` | `part7-foundations/32-scattering.qmd` | Proposition 9.3 | Proposition 9.3 |
 | `prp-scalar-breathers` | `part7-foundations/32-scattering.qmd` | Proposition 9.4 | Proposition 9.4 |

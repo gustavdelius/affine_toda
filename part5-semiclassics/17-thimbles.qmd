@@ -78,6 +78,14 @@ $$ {#eq-one-loop-mass}
 
 which counts eigenvalues by algebraic multiplicity. The second term is the normal-ordering counterterm.
 
+Neither trace in (-@eq-one-loop-mass) exists on its own: both diverge logarithmically. The formula means the combination obtained from $\sqrt\lambda=-\frac1{2\sqrt\pi}\int_0^\infty t^{-3/2}(e^{-t\lambda}-1)\,dt$ and $\lambda^{-1/2}=\frac1{\sqrt\pi}\int_0^\infty t^{-1/2}e^{-t\lambda}\,dt$, with the two integrands added before integrating:
+
+$$
+\Delta M=-\frac1{4\sqrt\pi}\int_0^\infty t^{-3/2}\Big[\operatorname{Tr}\big(e^{-t\mathcal A}-e^{-t\mathcal A_0}\big)+t\operatorname{Tr}\big((\mathcal A-\mathcal A_0)e^{-t\mathcal A_0}\big)\Big]dt .
+$$ {#eq-one-loop-mellin}
+
+The second trace is $\frac1{\sqrt{4\pi t}}\sum_bc_be^{-tm_b^2}$, with $c_b=\int e_{\bar b}^{\mathsf T}(M-M_0)e_b\,dx$ in the channel basis of @sec-counting-rule-transmission-factors. @prp-one-loop-mass shows that the integral converges for the solitons of this book.
+
 The traditional DHN mode sum expands fluctuations in orthonormal eigenfunctions of $\mathcal A$. That presupposes $\mathcal A$ is diagonalizable with non-self-orthogonal eigenvectors, which can fail for a complex symmetric $\mathcal A$.
 
 **An exactly solvable example [Theorem].** On $L^2(S^1)$, the operator $H_g=-\partial_x^2+g\,e^{ix}$ (with $g\ne0$) is lower triangular in the Fourier basis. Its spectrum is $\{k^2:k\in\mathbb Z\}$, and each $n^2$ with $n\ge1$ is a $2\times2$ Jordan block.
@@ -86,7 +94,7 @@ The path integral for $\operatorname{Tr}e^{-TH_g}$ is independent of $g$: every 
 
 ## Which saddles contribute {#sec-which-saddles-contribute}
 
-The one-loop mass (-@eq-one-loop-mass) is independent of $\operatorname{Im}\xi$. This was checked numerically across topological sectors, including nearly singular ones. Classically the same holds by @prp-hirota-energy. So the intersection numbers $n_\sigma$ determine which topological sectors appear, but not the masses.
+The one-loop mass (-@eq-one-loop-mass) is independent of $\operatorname{Im}\xi$. This was checked numerically across topological sectors, including nearly singular ones. For the solitons covered by @prp-one-loop-mass it is a theorem, because the transmission factors do not depend on $\xi$. Classically the same holds by @prp-hirota-energy. So the intersection numbers $n_\sigma$ determine which topological sectors appear, but not the masses.
 
 ::: {#prp-static-saddles}
 ## Static saddles cannot fill the multiplets
