@@ -1,0 +1,53 @@
+name: Build PDF
+
+# Run by hand. On main it replaces the PDF in the pdf-latest release and
+# redeploys the site, whose download link serves that PDF. On another branch
+# it only uploads the PDF as a workflow artifact.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write  # update the pdf-latest release
+  actions: write   # start the Publish site workflow
+
+concurrency:
+  group: pdf
+  cancel-in-progress: false
+
+jobs:
+  pdf:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: quarto-dev/quarto-actions/setup@v2
+        with:
+          tinytex: true
+      # Quarto draws the mermaid figure in chapter 1 with headless Chrome,
+      # which hangs on Ubuntu 24.04 runners unless its sandbox may use
+      # unprivileged user namespaces.
+      - name: Let Chrome start its sandbox
+        run: sudo sysctl -w kernel.apparmor_restrict_unprivileged_userns=0 || true
+      - name: Render
+        run: quarto render --to pdf
+      - uses: actions/upload-artifact@v4
+        with:
+          name: affine-toda-pdf
+          path: _site/affine-toda.pdf
+      - name: Update the pdf-latest release
+        if: github.ref == 'refs/heads/main'
+        run: |
+          notes="Built from ${GITHUB_SHA} on $(date -u +%Y-%m-%d)."
+          if gh release view pdf-latest >/dev/null 2>&1; then
+            gh release upload pdf-latest _site/affine-toda.pdf --clobber
+            gh release edit pdf-latest --notes "$notes"
+          else
+            gh release create pdf-latest _site/affine-toda.pdf \
+              --target "$GITHUB_SHA" --title "Latest PDF" --notes "$notes"
+          fi
+      - name: Redeploy the site
+        if: github.ref == 'refs/heads/main'
+        run: gh workflow run publish.yml --ref main
