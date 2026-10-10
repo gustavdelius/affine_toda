@@ -26,7 +26,7 @@
   </info>
   <macro name="author">
     <names variable="author">
-      <name and="text" et-al-min="11" et-al-use-first="1" initialize-with=". " delimiter=", "/>
+      <name name-as-sort-order="all" sort-separator=", " and="text" et-al-min="11" et-al-use-first="1" initialize-with=". " delimiter=", "/>
       <label form="long" prefix=", " suffix=" "/>
       <substitute>
         <names variable="editor"/>
@@ -211,6 +211,12 @@
                 </group>
               </group>
             </group>
+            <!-- arXiv preprint (from bib note field) when the title links to the DOI -->
+            <choose>
+              <if variable="DOI note" match="all">
+                <text variable="note"/>
+              </if>
+            </choose>
           </group>
         </else>
       </choose>
