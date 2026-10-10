@@ -1,0 +1,289 @@
+# Breather and particle reflection amplitudes {#sec-particle-reflection}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Derive the reflection amplitude of the lowest breather from a soliton reflection matrix by the boundary bootstrap, and recognize Ghoshal's sine-Gordon result as its rank-one case.
+- State precisely what has to be assumed to continue breather amplitudes in the coupling to the reflection amplitudes of the real-coupling particles, and what supports it.
+- Know the $a_n^{(1)}$ particle reflection amplitudes for the uniform, Neumann and solitonic boundaries, and check them against unitarity, crossing-unitarity, the bootstrap, the classical limit and one-loop perturbation theory.
+- Understand why weak–strong duality is not a symmetry of a half-line theory, but maps the uniform boundary to the Neumann boundary.
+- Read a spectrum of boundary bound states off the poles of reflection amplitudes, and explain the remaining poles by boundary Coleman–Thun diagrams, for $a_2^{(1)}$.
+- Know the open problems of affine Toda theory on the half-line.
+:::
+
+On the full line, the S-matrices of the real-coupling particles were found by bootstrap from their poles (@sec-simply-laced), and only later recovered from the soliton S-matrices of the imaginary-coupling theory, by building the lowest breather and continuing it in the coupling (@sec-breather-test). On the half-line the order is reversed. A real-coupling reflection amplitude has poles from boundary bound states, and nothing in the Lagrangian tells us in advance what those states are, so the axioms of @sec-boundary-scattering leave too much freedom. Early conjectures that fixed the freedom by demanding weak–strong self-duality turned out to be wrong. What worked was the route through the solitons: take the soliton reflection matrix of @sec-soliton-reflection, bootstrap it to the lowest breather, and continue in $\beta$. This is the method of Gandenberger for $a_2^{(1)}$ [@gandenberger1999a] and of Delius and Gandenberger for $a_n^{(1)}$ [@delius_gandenberger1999].
+
+This chapter follows that route. It also closes Part VII, so its last section collects the open problems of the whole part. The amplitudes here are diagonal and are written in the blocks $(x)$ and $\{x\}$ of (-@eq-blocks), with $h=n+1$ and $B$ of (-@eq-b-of-beta). All their properties stated below, unless marked otherwise, are checked exactly (to 20 digits at random complex rapidities and couplings) in `textbook_code/particle_reflection.py`. We write DG for [@delius_gandenberger1999] when citing its equation numbers.
+
+## Breather reflection amplitudes {#sec-breather-reflection}
+
+Work at imaginary coupling, with $\omega=4\pi/\beta^2-1$ as in Part VI, and use Delius and Gandenberger's variables: $\mu=-\frac{iT\theta}\pi$ with $T=\frac{h\omega}2$, and the blocks
+
+$$
+(a)_I=\frac{\sin\frac{\pi(\mu+a)}{h\omega}}{\sin\frac{\pi(\mu-a)}{h\omega}} .
+$$
+
+Since $\frac{\pi\mu}{h\omega}=-\frac{i\theta}2$, $(a)_I$ is the block $(x)$ of (-@eq-blocks) with $x=2a/\omega$. The fundamental soliton multiplet $V$ (species 1) and its conjugate $\bar V$ (species $n$) bind at $\mu=\frac{h\omega}2-1$ into the lowest breather $B_1$, a singlet of $U_q(\hat g)$, whose S-matrices are those of the lightest real-coupling particle continued in the coupling (@sec-breather-test).
+
+**The bootstrap.** Let $B_1$ come in with rapidity $\mu$. Its constituents, a soliton and an antisoliton with rapidities $\mu\pm(\frac{h\omega}4-\frac12)$, reflect in turn, scattering once in between at rapidity $2\mu$; projecting the result onto $B_1$ gives its reflection amplitude (@eq-boundary-bootstrap-bulk, in matrix form). For the diagonal reflection matrix $K=A(\theta)\mathbf 1:v_i\mapsto\bar v_i$ of @sec-an-diagonal-k, each constituent is reflected into its antiparticle, and the reflected pair is again a singlet. That is why the breather is reflected diagonally, as a real-coupling particle must be. Delius and Gandenberger carried out the projection, with the minimal scalar factor $A$ of (-@eq-an-diagonal-scalar), and found [@delius_gandenberger1999, eq. (3.11)]
+
+$$
+K_{B_1}(\mu)=\Big(-\frac n2\omega\Big)_I\Big(\frac12-\frac h2\omega\Big)_I\Big(-\frac\omega2-\frac12\Big)_I .
+$$ {#eq-breather-k-imaginary}
+
+::: {#prp-breather-amplitude}
+## The lowest-breather reflection amplitude
+**[Established]** For the soliton reflection matrix $K=A\,\mathbf 1$ of (-@eq-an-diagonal-k) with the minimal scalar factor (-@eq-an-diagonal-scalar), the lowest breather of $a_n^{(1)}$ is reflected with the amplitude (-@eq-breather-k-imaginary) [@gandenberger1999a; @delius_gandenberger1999]. For $n=1$, (-@eq-breather-k-imaginary) equals Ghoshal's lowest-breather factor (-@eq-bsg-b1-reflection) at $\eta=\frac\pi2$, $\vartheta=0$, the point where the coideal parameters $\hat\epsilon_0=\hat\epsilon_1$ vanish (@sec-bsg-parameters), and there the derivation is checked at the level of matrices (@prp-bsg-breather-k).
+:::
+
+For $n=1$ the identity with Ghoshal's formula is checked in `textbook_code/particle_reflection.py`; the matrix-level projection for $n=1$ is in `textbook_code/boundary_sine_gordon.py`. For $n\ge2$ we have not redone the projection. A warning for anyone who does: the product $A(\mu-\frac{h\omega}4+\frac12)\,F_{11}(2\mu)\,A(\mu+\frac{h\omega}4-\frac12)$ of the three scalar factors alone is *not* (-@eq-breather-k-imaginary) (we checked this numerically for $n=2,3,4$). The matrix part of the soliton–soliton S-matrix acting on the reflected singlet, in the principal gradation, contributes a further scalar function of $\mu$. Gandenberger gives the details for $a_2^{(1)}$ [@gandenberger1999a, appendix].
+
+**Other soliton reflection matrices.** The same bootstrap applied to the two non-diagonal matrices (-@eq-an-k-matrix) ($s=\pm1$) gives two further breather amplitudes. For $a_2^{(1)}$ Gandenberger computed all three [@gandenberger1999a, eqs. (5.16)–(5.18)]. For $n\ge3$ the scalar factor of (-@eq-an-k-matrix) is not known (@sec-an-nondiagonal-k), so neither is the breather amplitude; this is the gap discussed in @sec-neumann-duality.
+
+## From breathers to particles {#sec-continuation-assumptions}
+
+On the full line, the S-matrix of the lightest particles of the real-coupling theory is the S-matrix of the lowest breather continued in the coupling, $\beta^2\to-\beta^2$. In the sine-Gordon case this is the statement that the sinh-Gordon particle is the continued $B_1$ (@sec-sg-breather-particle). For $a_n^{(1)}$ it was found by Gandenberger and is the breather test of @sec-breather-test. Under $\beta^2\to-\beta^2$, $\omega=4\pi/\beta^2-1$ becomes $-4\pi/\beta^2-1=-2/B$, with $B$ of (-@eq-b-of-beta) (@exr-sg-continuation). The block $(a)_I=(2a/\omega)$ therefore becomes $(-aB)$, and (-@eq-breather-k-imaginary) becomes
+
+$$
+K_1(\theta)=(-n)\Big(h-\frac B2\Big)\Big(-1+\frac B2\Big)=\frac{(h-\frac B2)}{(h-1)\,(1-\frac B2)} ,
+$$ {#eq-breather-continuation}
+
+which is DG (3.12). On the half-line, three more things have to continue: the boundary condition, the vacuum, and the identification of the soliton reflection matrix with that boundary condition. Delius and Gandenberger list the assumptions behind their amplitudes [@delius_gandenberger1999, sec. 7]. In our words:
+
+1. **Minimality.** The scalar factor of the soliton reflection matrix is the minimal solution (-@eq-an-diagonal-scalar) of unitarity and crossing-unitarity, with no CDD factor (-@eq-an-cdd). After continuation, a soliton CDD factor $\sigma_c$ gives the particle factor $k_c=(\frac h2+c+\frac B2)(\frac h2-c-\frac B2)(-\frac h2+c-\frac B2)(-\frac h2-c+\frac B2)$ [@delius_gandenberger1999, eq. (3.25)], which is unitary, satisfies the crossing condition of a boundary CDD factor (@sec-boundary-unitarity-crossing) and tends to 1 as $B\to0$. It is excluded only because its extra poles appear to have no explanation, and this has not been analysed in detail.
+2. **Vacua.** The vacuum of the real-coupling theory is the regular static solution of lowest energy: $\vec\phi=0$ for the uniform and Neumann boundaries, and the continued stationary soliton of @prp-solitonic-vacua for the solitonic ones. Lowest energy is believed, not proved (@sec-real-coupling-vacua).
+3. **Continuation.** The reflection amplitudes of the particles about that vacuum are the breather amplitudes continued by $\omega\to-2/B$, with the boundary parameters $C_j$ held fixed.
+
+The third assumption is the boundary analogue of the breather test, and we state it as a conjecture.
+
+::: {#cnj-reflection-continuation}
+## Continuation of reflection amplitudes
+**[Conjecture]** Let a soliton-conjugating boundary of imaginary-coupling $a_n^{(1)}$ theory with parameters $C_j$ have soliton reflection matrix $K$, and let the real-coupling theory with the same $C_j$ have a vacuum obtained by continuing an imaginary-coupling static solution. Then the reflection amplitude of particle $a$ about that vacuum is the reflection amplitude of the breather $B_1^{(a)}$, computed by the boundary bootstrap from $K$ (and from the static soliton, @sec-solitonic-boundaries), continued by $\omega\to-2/B$.
+:::
+
+The evidence, in decreasing order of strength:
+
+- **Sine-Gordon and sinh-Gordon.** For $n=1$ the conjecture gives the sinh-Gordon reflection factor (-@eq-shg-reflection) from Ghoshal's breather factor. That factor agrees with one-loop perturbation theory [@chenaghlou_corrigan2000] and with the semiclassical quantization of the boundary breathers (@sec-shg-boundary-breathers), which gives the relation between its parameter $E$ and the Lagrangian; the constant $N_0$ in that relation is fitted (@cnj-shg-e).
+- **Classical limits.** The continued amplitudes of the uniform and Neumann boundaries tend, as $B\to0$, to the linearized reflection factors (-@eq-linear-reflection) of the vacuum $\vec\phi=0$ (@sec-uniform-boundary, @sec-neumann-duality). For the solitonic boundaries Delius and Gandenberger report agreement with Bowcock's linearized factors [@bowcock1998, (4.21)], which we have not checked.
+- **One loop.** The Neumann amplitudes agree at $O(\beta^2)$ with Kim's one-loop calculation for $a_3^{(1)}$ [@kim1995], and for $a_2^{(1)}$ with Kim's result as quoted by Gandenberger (@sec-neumann-duality). The uniform amplitude for $a_2^{(1)}$ agrees at $O(\beta^2)$ with Perkins and Bowcock [@perkins_bowcock1999; @gandenberger1999a, sec. 6] (quoted, not checked here).
+- **Semiclassics of the solitons.** The scalar factor $A$ reproduces the classical time delay of the $C\equiv+1$ boundary (@prp-semiclassical-uniform). This supports assumption 1 only up to CDD factors, which the time delay does not see.
+- **Consistency.** The resulting amplitudes satisfy all the axioms, and for $a_2^{(1)}$ and $a_4^{(1)}$ every physical-strip pole is explained by a boundary bound state or a boundary Coleman–Thun diagram (@sec-boundary-spectrum-a2). Delius and Gandenberger call this the a posteriori justification of the continuation.
+
+The conjecture is stated for fixed $C_j$, which is unproblematic for $a_n^{(1)}$, $n\ge2$, where the $C_j$ are discrete. For $n=1$ the parameters are continuous and are renormalized, and fixed $C_j$ is not meaningful beyond the classical limit (@sec-uniform-boundary).
+
+## The uniform boundary condition {#sec-uniform-boundary}
+
+For the uniform boundary $C_j\equiv+1$ the vacuum is $\vec\phi=0$ (@exr-uniform-vacuum), and its soliton reflection matrix is the diagonal $K=A\,\mathbf 1$ (@cnj-neumann-coideal). The amplitude of the lightest particle is (-@eq-breather-continuation). Those of the heavier particles follow from the bulk boundary bootstrap (-@eq-boundary-bootstrap-bulk). In $a_n^{(1)}$, particles $a$ and $b$ with $a+b<h$ fuse to $a+b$ at $\theta=i\pi(a+b)/h$, and the constituents of $a+b$ at rapidity $\theta$ have rapidities $\theta+\frac{i\pi b}h$ and $\theta-\frac{i\pi a}h$, so
+
+$$
+K_{a+b}(\theta)=K_a\Big(\theta+\frac{i\pi b}h\Big)\,S_{ab}\Big(2\theta+\frac{i\pi(b-a)}h\Big)\,K_b\Big(\theta-\frac{i\pi a}h\Big) ,
+$$
+
+DG (3.13). Iterating from $K_1$ and simplifying with (-@eq-an-smatrix) gives DG (3.16). In the book's blocks,
+
+$$
+K_a(\theta)=\prod_{c=1}^a\frac{(c-1)\,\big(h+1-c-\frac B2\big)}{(h-c)\,\big(c-\frac B2\big)} .
+$$ {#eq-uniform-amplitude}
+
+::: {#prp-uniform-amplitude}
+## Particle reflection off the uniform boundary
+**[Numerical]** For $n=1,\dots,7$ and all $a$, the amplitudes (-@eq-uniform-amplitude):
+
+(i) follow from (-@eq-breather-continuation) by iterating the bootstrap (DG (3.15)), and satisfy the bulk boundary bootstrap (-@eq-boundary-bootstrap-bulk) at every fusing of $a_n^{(1)}$, including those with $a+b>h$;
+(ii) satisfy boundary unitarity (-@eq-boundary-unitarity), and crossing-unitarity both in the form (-@eq-boundary-crossing-diagonal) with $S_{a\bar a}$ from (-@eq-an-smatrix) and in DG's form $K_a(\theta)K_{\bar a}(\theta+i\pi)=S_{aa}(2\theta)$;
+(iii) are charge-conjugation invariant, $K_a=K_{h-a}$;
+(iv) tend, as $B\to0$, to $-1/\big((a)(h-a)\big)$, the linearized reflection factor (-@eq-linear-reflection) at $C=+1$;
+(v) equal the conjecture of Corrigan, Dorey, Rietdijk and Sasaki for this boundary, their (5.16) with $\langle x\rangle$ replaced by $\widetilde{\langle x\rangle}$ [@cdrs1994].
+:::
+
+Checked in `textbook_code/particle_reflection.py`. Item (iv) is the classical counterpart of the assignment of the diagonal soliton reflection matrix to $C\equiv+1$ rather than to Neumann (@sec-epsilon-constraint). The linearized calculation of @sec-classical-reflection-factors knows nothing about solitons or coideals, yet it picks out the same boundary. Item (v) is a nice piece of history. Corrigan et al. wrote (-@eq-uniform-amplitude) down in 1994 as the simplest factor with the right classical limit that satisfies the bootstrap. Delius and Gandenberger derived it five years later from the soliton reflection matrix.
+
+**Poles.** In the blocks, $(x)$ has a pole at $\theta=i\pi x/h$, and the physical strip $0<\operatorname{Im}\theta<\frac\pi2$ is $0<x<\frac h2$. The blocks $(h+1-c-\frac B2)$ and $(c-\frac B2)^{-1}$ have no poles there. So for $a\le h/2$ the only physical-strip poles of $K_a$ are simple poles at $\theta=\frac{i\pi p}h$, $p=1,\dots,a-1$, independent of the coupling (checked for $n\le7$). Delius and Gandenberger explain them by a triangle diagram: particle $a$ decays into $p$ and $a-p$, $p$ reflects off the boundary at rapidity $i\pi a/h$, where $K_p$ has neither a pole nor a zero, and fuses again with $a-p$ [@delius_gandenberger1999, fig. 9]. Three internal lines and one loop give a simple pole (@sec-boundary-coleman-thun). There are no boundary bound states, as in the classical theory, where (-@eq-linear-reflection) at $C=+1$ has no poles in the strip.
+
+**Rank one.** For $n=1$, (-@eq-uniform-amplitude) is $K_1=(2-\frac B2)/\big((1)(1-\frac B2)\big)$. This is the sinh-Gordon factor (-@eq-shg-reflection) at $E=\frac B2$, $F=0$: Ghoshal's factor at $\hat\epsilon=0$, continued. Chenaghlou and Corrigan's conjecture, extended to $C_0=C_1=1$, gives instead $E=0$ (@cnj-shg-e). Since (-@eq-shg-reflection) depends only on $E^2$, the two differ only at $O(B^2)$ (`textbook_code/particle_reflection.py`). So one-loop perturbation theory cannot tell them apart, and for sinh-Gordon it is undecided whether the uniform boundary sits exactly at $\hat\epsilon=0$. For sine-Gordon, Zamolodchikov's relation puts $\hat\epsilon=0$ at $\tilde\mu/\tilde\mu_{\rm crit}=\cos\frac\pi{2(\lambda+1)}$, which reaches the uniform value 1 only classically (@sec-bsg-parameters). For $n\ge2$ the question does not arise, because the $C_j$ cannot move.
+
+## The Neumann boundary and duality {#sec-neumann-duality}
+
+The bulk S-matrices are invariant under $B\to2-B$, the weak–strong duality $\beta\to4\pi/\beta$ (@sec-strong-weak). Every block $\{x\}$ is invariant separately, so the bulk S-matrices are self-dual. The reflection amplitudes (-@eq-uniform-amplitude) are not: the blocks $(h+1-c-\frac B2)$ and $(c-\frac B2)$ are not invariant. Corrigan observed that the sinh-Gordon reflection factors obtained from Ghoshal's breather factors are in general not self-dual, and that duality relates different boundary conditions rather than mapping each to itself [@corrigan1998]. Gandenberger found for $a_2^{(1)}$ that the dual of the uniform amplitude is the Neumann amplitude [@gandenberger1999a]. Delius and Gandenberger conjectured the same for all $n$ [@delius_gandenberger1999, eq. (3.20)]:
+
+$$
+K^N_a(\theta)=K_a(\theta)\big|_{B\to2-B}=\prod_{c=1}^a\frac{(c-1)\,\big(h-c+\frac B2\big)}{(h-c)\,\big(c-1+\frac B2\big)} .
+$$ {#eq-neumann-amplitude}
+
+::: {#cnj-neumann-amplitude}
+## Particle reflection off the Neumann boundary
+**[Conjecture]** The reflection amplitudes of the particles of real-coupling $a_n^{(1)}$ theory off the Neumann boundary $C_j\equiv0$ are (-@eq-neumann-amplitude).
+:::
+
+What is checked (`textbook_code/particle_reflection.py`):
+
+- (-@eq-neumann-amplitude) satisfies unitarity, crossing-unitarity, the bulk boundary bootstrap at every fusing, and $K^N_a=K^N_{h-a}$, for $n\le7$. This is automatic, since every axiom is invariant under $B\to2-B$.
+- As $B\to0$, $K^N_a\to1$, the linearized Neumann factor (@sec-classical-reflection-factors).
+- **One loop.** With $B=\frac{\beta^2}{2\pi}+O(\beta^4)$ and $(x+\frac B2)/(x)=1+\frac{i\pi B}{2h}\frac{\sinh\theta}{\cosh\theta-\cos(\pi x/h)}+O(B^2)$, the $O(\beta^2)$ terms of $K^N_1$ and $K^N_2$ for $a_3^{(1)}$ are exactly Kim's one-loop Neumann amplitudes [@kim1995, eqs. (33), (39)]; the uniform amplitude does not reproduce them. For $a_2^{(1)}$ the $O(\beta^2)$ term of $K^N_1$ is $-\frac14\frac{\cos(\theta/2i)}{\sin(3\theta/2i)}\beta^2$, as given by Gandenberger, who reports agreement with Kim [@gandenberger1999a, eq. (6.11)].
+- For $n=1$, (-@eq-neumann-amplitude) is (-@eq-shg-reflection) at $E=1-\frac B2$, $F=0$, Ghoshal and Zamolodchikov's Neumann point.
+
+Kim had proposed exact Neumann amplitudes by assuming self-duality [@kim1995]. They agree with (-@eq-neumann-amplitude) at one loop, which is all his calculation could test, but not beyond. The same applies to the other self-dual proposals of the period [@fring_koberle1994a; @sasaki1993], as Delius and Gandenberger point out.
+
+**Which soliton reflection matrix?** The conjecture rests on duality, not on the soliton route. Delius and Gandenberger obtained the uniform amplitude from the diagonal soliton reflection matrix and the Neumann amplitude only as its dual. The soliton route to the Neumann amplitude needs the soliton reflection matrix of the Neumann boundary. Following Delius and MacKay [@delius_mackay2003], one would take this to be the diagonal one. It is not: by @cnj-neumann-coideal, the Neumann boundary has coideal parameters $\hat\epsilon_j=\epsilon_*$ and the non-diagonal reflection matrix (-@eq-an-k-matrix) with $s=+1$, and the diagonal matrix belongs to $C\equiv+1$ (@sec-epsilon-constraint). Bootstrapping the $s=+1$ matrix to the breather and continuing gives the Neumann particle amplitude directly. For $a_2^{(1)}$ Gandenberger did exactly this, and found $K^{(+)}_1=(-2)(-\frac B2)(2+\frac B2)$ [@gandenberger1999a, eq. (6.4)], which is (-@eq-neumann-amplitude) for $n=2$. For $n\ge3$ the computation has not been done, because the scalar factor of (-@eq-an-k-matrix) is not known. So for general $n$, (-@eq-neumann-amplitude) is supported by duality, the classical limit and one loop, but not yet derived (@sec-boundary-open-problems, problem 3).
+
+**The third matrix.** The $s=-1$ matrix gives, for $a_2^{(1)}$, $K^{(-)}_1=-(1)(-1+\frac B2)(3-\frac B2)$ [@gandenberger1999a, eq. (6.4)]. It satisfies all the axioms with $K_2=K_1$ and tends to 1 as $B\to0$, like the Neumann amplitude, and its dual is the "minimal" amplitude $-(1)(2+\frac B2)/(\frac B2)$ that Corrigan et al. proposed for $C\equiv-1$ [@cdrs1994, eq. (5.7)] (both checked). No boundary condition is known for $s=-1$. The coideal analysis gives a third boundary, between Neumann and the uniform $C\equiv+1$, that the classical classification of @sec-durham-classification does not contain.
+
+**Duality on the half-line.** Duality is therefore not a symmetry of any single half-line theory we know. It exchanges the boundary conditions $C\equiv+1$ and $C\equiv0$, as for sinh-Gordon [@corrigan1998; @corrigan_delius1999]. On the soliton side the two have different kinds of reflection matrix ($\hat\epsilon=0$ and $\hat\epsilon=\epsilon_*$), so the duality cannot come from a symmetry of the coideals at fixed $\omega$. It relates the theory at $\beta$ to the one at $4\pi/\beta$, that is, $\omega$ to $\omega'=-\omega/(\omega+1)$, and how the coideal parameters transform under it is not known.
+
+## Solitonic boundary conditions {#sec-solitonic-boundaries}
+
+For a sign pattern $C_j\in\{\pm1\}$ with $\prod_jC_j=1$, not all $+1$, the vacuum is a stationary soliton held in front of the boundary and continued to real coupling (@prp-solitonic-vacua). Its topological charge $\vec\lambda$ is fixed by $(-1)^{\vec\alpha_j\cdot\vec\lambda}=C_j$ and is a weight of a fundamental representation $\Lambda_b$, with $b$ given by @prp-dg-weights. The energy of the vacuum is (-@eq-vacuum-energy). At imaginary coupling the picture is a stationary soliton, carrying the charge $\vec\lambda$, sitting in front of a boundary which, relative to the vacuum between them, is the uniform boundary $C\equiv+1$ (@sec-images-boundary).
+
+**The amplitude.** By factorization, a breather reflecting off this configuration passes the stationary soliton, reflects off the uniform boundary and passes the soliton again [@delius_gandenberger1999, fig. 8]. The breather–soliton S-matrix does not depend on which member of the multiplet the soliton is [@gandenberger1998], so the result is diagonal. Delius and Gandenberger computed the product of the two scatterings at imaginary coupling [@delius_gandenberger1999, eq. (5.3)] and continued it. In book blocks, the particle amplitudes are
+
+$$
+K^{(b)}_a(\theta)=K_a(\theta)\,M^{(b)}_a(\theta),\qquad
+M^{(b)}_a=\prod_{k=1}^a\frac{\big(a+b+\frac h2-2k+\frac B2\big)\big(b-a-\frac h2+2k-\frac B2\big)}{\big(a+b-\frac h2-2k+\frac B2\big)\big(b-a+\frac h2+2k-\frac B2\big)} ,
+$$ {#eq-solitonic-factor}
+
+with $K_a$ the uniform amplitude (-@eq-uniform-amplitude) [@delius_gandenberger1999, eqs. (5.4), (5.5)]. For odd $h$ the blocks sit at half-integer positions.
+
+::: {#prp-solitonic-amplitude}
+## Particle reflection off the solitonic boundaries
+**[Numerical]** For $n=2,\dots,6$ and all $a,b$:
+
+(i) $K^{(b)}_a$ satisfies boundary unitarity, crossing-unitarity in both forms, $K^{(b)}_a=K^{(b)}_{h-a}$, and the bulk boundary bootstrap at every fusing;
+(ii) $M^{(b)}_a=M^{(h-b)}_a$;
+(iii) as $B\to0$, $M^{(b)}_a\to\big(a+b-\frac h2\big)\big(-a-b-\frac h2\big)\big(a-b+\frac h2\big)\big(b-a+\frac h2\big)$, DG (5.7);
+(iv) the $a_2^{(1)}$ and $a_4^{(1)}$ vacuum amplitudes DG (6.3), (6.18), (6.19), (6.25) are special cases, and so is (6.26) once a missing block is restored (@sec-particle-reflection-notes).
+:::
+
+Checked in `textbook_code/particle_reflection.py`. Item (ii) is needed for consistency, since $\vec\lambda$ and $-\vec\lambda$, which lie in $\Lambda_b$ and $\Lambda_{h-b}$, give the same vacuum. It also has a striking consequence. **All solitonic boundary conditions whose weight lies in $\Lambda_b$ or $\Lambda_{h-b}$ have the same particle reflection amplitudes**, although their classical vacua look different. The $2^n-1$ solitonic patterns fall into $\lfloor(n+1)/2\rfloor$ quantum equivalence classes, one for each pair $\{b,h-b\}$. For $a_2^{(1)}$ there is one class, $(+--)$, $(-+-)$, $(--+)$. For $a_4^{(1)}$ there are two: five patterns with $b\in\{1,4\}$ and ten with $b\in\{2,3\}$ [@delius_gandenberger1999, sec. 6.4]. The classical limit (iii) is Bowcock's linearized reflection factor about the continued vacuum according to Delius and Gandenberger [@bowcock1998, (4.21)]; we have not checked Bowcock's formula.
+
+**What is assumed.** Besides @cnj-reflection-continuation:
+
+- *The vacuum.* That the continued soliton has the lowest energy (assumption 2). For the alternating patterns of $a_3^{(1)}$ and the other missing patterns of @tbl-missing-vacua no classical vacuum is known at all. Delius and Gandenberger's formula assigns them the amplitude of their class anyway. This is a prediction, and it supports Delius's suggestion that the missing vacua exist (@sec-boundary-missing-charges).
+- *The modulus.* The classical vacuum has a modulus $\chi$ (@prp-solitonic-vacua), and the formula does not depend on it. Delius and Gandenberger argue that the quantum theory has a unique ground state. The spectrum of @sec-boundary-spectrum-a2 suggests where the modulus goes: the tower $b_{n,-n}$, whose energies tend to zero as $B\to0$.
+- *$C\equiv-1$ for even $h$.* This pattern is solitonic of type $b=h/2$, with the self-conjugate vacuum family of @prp-self-conjugate-vacuum, and also has the vacuum $\vec\phi=0$ at the same energy. Corrigan et al.'s conjecture for $C\equiv-1$ [@cdrs1994] is built on $\vec\phi=0$ and differs from (-@eq-solitonic-factor). Delius and Gandenberger read this as two vacuum sectors [@delius_gandenberger1999, sec. 7].
+
+**Poles.** Unlike $K_a$, the factor $M^{(b)}_a$ has coupling-dependent poles in the physical strip. For $a_2^{(1)}$, $b=1$: $M^{(1)}_1=(\frac12-\frac B2)(\frac32-\frac B2)(\frac32+\frac B2)(\frac52+\frac B2)$, with poles at $\theta=\frac{i\pi}3(\frac12-\frac B2)$ (for $B<1$) and $\theta=\frac{i\pi}3(\frac32-\frac B2)$. These are boundary bound states, and they start the spectrum of the next section. For $a_3^{(1)}$, $b=2$, the vacuum amplitude $K_1^{(2)}=K_1\,(1-\frac B2)^2(3+\frac B2)^2$ even has a double pole at $\theta=\frac{i\pi}4(1-\frac B2)$.
+
+## The boundary spectrum of a_2 {#sec-boundary-spectrum-a2}
+
+Take $a_2^{(1)}$ with a solitonic boundary ($h=3$) and $0<B<1$. The vacuum amplitude $K^{b_{0,0}}_1=K^{b_{0,0}}_2$ is DG (6.3), the case $a=b=1$ of (-@eq-solitonic-factor). Its two physical-strip poles are boundary bound states, and the boundary bootstrap (-@eq-boundary-bootstrap) gives the amplitudes off the excited states, whose poles give further states, and so on. Delius and Gandenberger label the states $b_{n,m}$, where $n$ and $m$ count bound particles of type 1 and 2, and found [@delius_gandenberger1999, eq. (6.7)]
+
+$$
+\begin{aligned}
+K^{b_{n,m}}_1(\theta)=K_1(\theta)\;&\Big(\tfrac12-(2n+1)\tfrac B2\Big)\Big(\tfrac52+(2m+1)\tfrac B2\Big)\;\Big(\tfrac12-(2n-1)\tfrac B2\Big)\Big(\tfrac52+(2m-1)\tfrac B2\Big)\\
+\times\;&\Big(\tfrac32+(2n-1)\tfrac B2\Big)\Big(\tfrac32-(2m-1)\tfrac B2\Big)\;\Big(-\tfrac52+(2n+1)\tfrac B2\Big)\Big(-\tfrac12-(2m+1)\tfrac B2\Big),
+\end{aligned}
+$$ {#eq-a2-excited}
+
+with $K_1$ of (-@eq-breather-continuation) and $K^{b_{n,m}}_2=K^{b_{m,n}}_1$. Each pair of blocks has the form $\big(x(n,m)\big)\big(h-x(m,n)\big)$, which makes crossing-unitarity manifest.
+
+::: {#prp-a2-excited}
+## Reflection off the excited boundaries of $a_2^{(1)}$
+**[Numerical]** For $-3\le n,m\le3$: (i) (-@eq-a2-excited) satisfies boundary unitarity, crossing-unitarity (with $K^{b_{n,m}}_2=K^{b_{m,n}}_1$) and the bulk bootstrap $K_2=K_1(\theta+\frac{i\pi}3)S_{11}(2\theta)K_1(\theta-\frac{i\pi}3)$ on every state; (ii) the boundary bootstrap (-@eq-boundary-bootstrap) holds for particle 1 bound at $\theta=\frac{i\pi}3\big(\frac12-(2n+1)\frac B2\big)$, taking $b_{n,m}$ to $b_{n+1,m}$; for particle 2 bound at $\frac{i\pi}3\big(\frac12-(2m+1)\frac B2\big)$, taking $b_{n,m}$ to $b_{n,m+1}$; and for particle 1 bound to $b_{-n,n}$ at $\frac{i\pi}3\big(\frac32-(2n+1)\frac B2\big)$, taking it to $b_{-n-1,n+1}$; (iii) DG (6.3), (6.6), (6.9) and (6.10) are special cases.
+:::
+
+**Energies.** By (-@eq-boundary-bound-state-energy), each step adds $m_1\cos v$, with $iv$ the pole at which the particle binds. Summing along the steps of @prp-a2-excited gives a closed form (checked along all three kinds of step):
+
+$$
+e_{b_{n,m}}-e_{b_{0,0}}=m_1\big[F(n)+F(m)\big],\qquad F(k)=\frac{\sin k\delta\,\cos(\frac\pi6-k\delta)}{\sin\delta},\qquad\delta=\frac{\pi B}6 ,
+$$ {#eq-a2-energies}
+
+valid for negative $k$ too, with $m_1$ the renormalized particle mass. In particular $e_{b_{n,-n}}-e_{b_{0,0}}=m_1\sin^2(n\delta)/\sin\delta$.
+
+**Which poles are states.** Not every pole of (-@eq-a2-excited) is a new state. Delius and Gandenberger account for all of them, for $n+m>0$, as follows [@delius_gandenberger1999, sec. 6.2, figs. 10–12]:
+
+- the first block of the first line creates $b_{n+1,m}$;
+- the first block of the second line is the crossed process, with $b_{n-1,m}$ in the intermediate state;
+- the second block of the third line (for $m>0$), and its first block (for $n\le0$), come from boundary Coleman–Thun diagrams in which the reflection in the middle happens at a zero of the reflection factor, so the naive double pole becomes simple (@sec-boundary-coleman-thun).
+
+For $n+m=0$ the second and fourth lines cancel, and the pole of $(\frac32-(2n+1)\frac B2)$ creates $b_{-n-1,n+1}$. When two Coleman–Thun diagrams contribute at the same point, as for $b_{0,1}$, where the two blocks of the third line coincide, the pole is double. On $b_{n,-n}$ with $B>2/(2n-1)$ a further pole, at $p=\frac52-(2n-1)\frac B2$, comes from a third diagram [@delius_gandenberger1999, fig. 12c]; at $B=\frac9{20}$ this is the pole of $K_1$ on $b_{3,-3}$ in @tbl-a2-boundary-states. The poles that create states leave the physical strip as $n$ or $m$ grows, so the spectrum is finite [@delius_gandenberger1999, sec. 6.2]:
+
+$$
+b_{n,m}\ \text{with}\ n+m>0,\ |n|,|m|<\tfrac1{2B}+\tfrac12;\qquad b_{n,-n},\,b_{-n,n}\ \text{with}\ 0\le n<\tfrac3{2B}+\tfrac12 .
+$$
+
+The lower bound $n+m\ge0$ is forced: with a state below $b_{0,0}$ some poles would be left unexplained.
+
+| state | reached from | by particle, at $\theta=\frac{i\pi p}3$ | $p$ | $(e-e_{b_{0,0}})/m_1$ | poles of $K_1$ in the strip ($p$) |
+|---|---|---|---|---|---|
+| $b_{0,0}$ | ground state | — | — | 0 | $\frac{11}{40}$, $\frac{51}{40}$ |
+| $b_{-1,1}$ | $b_{0,0}$ | 1 | $\frac32-\frac B2=\frac{51}{40}$ | 0.2334 | $\frac{29}{40}$, $\frac{33}{40}$, $\frac{51}{40}$ |
+| $b_{1,-1}$ | $b_{0,0}$ | 2 | $\frac{51}{40}$ | 0.2334 | none |
+| $b_{-2,2}$ | $b_{-1,1}$ | 1 | $\frac32-\frac{3B}2=\frac{33}{40}$ | 0.8829 | $\frac{3}{8}$, $\frac{33}{40}$, $\frac{47}{40}$ |
+| $b_{2,-2}$ | $b_{1,-1}$ | 2 | $\frac{33}{40}$ | 0.8829 | none |
+| $b_{1,0}$ | $b_{0,0}$ | 1 | $\frac12-\frac B2=\frac{11}{40}$ | 0.9588 | $\frac{11}{40}$ |
+| $b_{0,1}$ | $b_{0,0}$ | 2 | $\frac{11}{40}$ | 0.9588 | $\frac{11}{40}$, $\frac{29}{40}$, $\frac{51}{40}$ (double) |
+| $b_{-3,3}$ | $b_{-2,2}$ | 1 | $\frac32-\frac{5B}2=\frac38$ | 1.807 | $\frac38$ |
+| $b_{3,-3}$ | $b_{2,-2}$ | 2 | $\frac38$ | 1.807 | $\frac{11}8$ |
+| $b_{1,1}$ | $b_{1,0}$ | 2 | $\frac{11}{40}$ | 1.918 | $\frac{11}{40}$, $\frac{51}{40}$ |
+
+: The boundary states of $a_2^{(1)}$ with a solitonic boundary at $B=\frac9{20}$, a generic coupling near the value $B\approx\frac12$ of DG's Figure 1. Energies from (-@eq-a2-energies). The last column lists the poles of $K_1$ on each state, all simple unless marked; those of $K_2$ follow from $K^{b_{n,m}}_2=K^{b_{m,n}}_1$. Computed in `textbook_code/particle_reflection.py`. {#tbl-a2-boundary-states}
+
+The spectrum has a simple shape. The states $b_{n,m}$ with $n,m\ge0$ are particles bound at the boundary, with energies close to $m_1\frac{\sqrt3}2(n+m)$ for small $B$. The diagonal tower $b_{n,-n}$, $b_{-n,n}$ is the new feature. Its energies $m_1\sin^2(n\delta)/\sin\delta\approx m_1\frac{\pi B}6n^2$ vanish as $B\to0$ and grow like $n^2$, the spectrum of a quantized rotor. The obvious classical candidate is the modulus $\chi$ of the continued vacuum (@prp-solitonic-vacua), a flat direction of the classical energy. This interpretation is ours and has not been checked by a collective-coordinate quantization. At $B=\frac1{2k}$, $k$ a positive integer, the levels cross and some states become degenerate. Delius and Gandenberger show that two diagrams then contribute to the same pole [@delius_gandenberger1999, sec. 6.2].
+
+**$a_4^{(1)}$ and $a_3^{(1)}$.** For $a_4^{(1)}$ Delius and Gandenberger carried out the same analysis for both classes [@delius_gandenberger1999, sec. 6.4]. For $b\in\{1,4\}$ the states form a lattice $b_{n_2,n_3}$ ($n_2+n_3\ge0$), built by binding particles 2 and 3. For $b\in\{2,3\}$ all four particles bind, and the lattice $b_{n_1,n_2,n_3,n_4}$ is restricted by $n_1+n_2\ge0$, $n_2+n_3\ge0$, $n_3+n_4\ge0$. The amplitudes are DG (6.20), (6.21), (6.28), (6.29), quoted and not checked here beyond their vacuum cases. The diagrams that explain the poles now have up to 13 internal lines and 5 loops, and give simple poles only because two of their reflections happen at zeros. In some cases, at $n_2=-n_3$, a pole receives contributions from two diagrams and fails the naive bootstrap. For $a_3^{(1)}$ with $b=2$ the analysis is incomplete: the amplitudes DG (6.11)–(6.14) have poles that require states with negative labels whose amplitudes were never computed [@delius_gandenberger1999, sec. 6.3].
+
+**Generalized Coleman–Thun.** The tools used here are those of Dorey, Tateo and Watts [@dtw1999]: a boundary diagram with $P$ on-shell propagators and $L$ loops gives a pole of order $P-2L$, lowered by one for every reflection at a zero. Delius and Gandenberger remark that the way everything falls into place "conveys the strong impression that there is some magic at work". A systematic explanation, like Dorey's root-system rules for the bulk (@sec-dorey-formula), has not been found.
+
+## Open problems on the half-line {#sec-boundary-open-problems}
+
+This list covers the whole of Part VII.
+
+1. **Boundaries with $\prod_jC_j=-1$.** For $a_n^{(1)}$ with these sign patterns no regular real vacuum is known, except $\vec\phi=0$ for $C\equiv-1$ with $h$ odd (@sec-real-coupling-vacua), and no particle reflection amplitudes have been derived [@delius_gandenberger1999, sec. 7]. Are there vacua at all, and if so, which soliton configuration do they continue?
+2. **Beyond $a_n^{(1)}$.** The particle amplitudes are known only for $a_n^{(1)}$ (and sinh-Gordon). For $d_n^{(1)}$, soliton reflection matrices of the vector solitons are now available (@sec-dn-vector-k), but their scalar factors and the breather bootstrap are not. For $c_n^{(1)}$ the continued vacua exist when $C_0C_n=1$ (@sec-images-cn) and the method of this chapter should apply. The exceptional and twisted cases are untouched.
+3. **Neumann from the soliton side.** Derive (-@eq-neumann-amplitude) for $n\ge3$ from the $s=+1$ reflection matrix (-@eq-an-k-matrix). This needs its scalar factor, which requires the eigenvalue of $\check R_{\bar V\bar V}$ in crossing-unitarity, and the singlet projection (@sec-an-nondiagonal-k). Agreement would confirm both @cnj-neumann-coideal and @cnj-neumann-amplitude; disagreement would break the duality picture.
+4. **Duality on the half-line.** Duality exchanges $C\equiv+1$ and Neumann, and maps the $s=-1$ amplitude to Corrigan et al.'s $C\equiv-1$ conjecture. What does it do to the solitonic boundaries, whose amplitudes (-@eq-solitonic-factor) have duals that satisfy every axiom? Is there a statement at the level of coideals?
+5. **Completeness of the coideals.** Do the coideals of @sec-boundary-qg and their generalizations (@sec-generalized-satake) exhaust the integrable boundaries? Which of them give soliton-preserving reflection matrices, and what are the corresponding classical boundaries beyond the one of @sec-soliton-preserving? The $s=-1$ solution is a coideal without a known classical boundary condition.
+6. **Missing vacua and missing charges.** For the patterns of @tbl-missing-vacua (for $a_3^{(1)}$ the alternating ones), find the classical vacua that Delius and Gandenberger's amplitudes presuppose, perhaps from the complex two-soliton configurations of @cnj-missing-charge.
+7. **The non-unitary half-line theory.** The imaginary-coupling theory is not unitary in the bulk (Part VIII). With a boundary: is there a Krein structure (@sec-krein-unitarity) for which boundary unitarity (-@eq-boundary-unitarity) is pseudo-unitarity? Are the boundary Bethe–Yang spectra (@sec-boundary-bethe-yang) real for $\Theta$-invariant boundaries (@prp-boundary-theta)? And are the Dirichlet walls of the constructive continuum limit (@sec-collapse-thresholds, @thm-window) integrable boundaries? On real field configurations a Dirichlet wall fixes ${\rm Re}\,\vec\phi$, which is half of the soliton-preserving condition (-@eq-soliton-preserving); whether the quantum theory with that wall is the soliton-preserving integrable boundary is open.
+8. **Masked bound states.** Delius and Gandenberger explain many poles by anomalous thresholds. In the bulk of non-simply-laced theories, Coleman–Thun poles can mask genuine bound states [@delius_gandenberger1999, sec. 7]. Deciding this on the half-line requires computing the residues of boundary Coleman–Thun diagrams, which has not been done.
+9. **Higher-rank dynamical boundaries.** The sine-Gordon boundary with an oscillator (@sec-dynamical-boundary) has no $a_n^{(1)}$ counterpart yet: which dynamical boundary systems are integrable, and what are their coideals and reflection matrices?
+10. **Defects.** Integrable defects, which transmit as well as reflect, were found classically by Bowcock, Corrigan and Zambon [@bcz2004]. Their affine Toda generalizations and quantum transmission matrices are outside this book.
+11. **Scalar factors for soliton-preserving reflection.** The soliton-preserving matrices (@sec-preserving-conjugating) have no scalar factors and no breather amplitudes yet, so the soliton-preserving boundary has no known particle amplitudes.
+12. **Rank one.** For sinh-Gordon, the uniform boundary sits at $E=\frac B2$ by @cnj-reflection-continuation and at $E=0$ by Chenaghlou and Corrigan's conjecture extended to $C_0=C_1=1$. The two differ at $O(\beta^4)$ (@sec-uniform-boundary), so a two-loop calculation would decide whether the $\hat\epsilon=0$ coideal is exactly the classical uniform boundary at finite coupling. For sine-Gordon, the boundary CDD factors $a_n$ of the excited states (-@eq-bsg-excited-k) have been checked here only for $n=0$ (@prp-bsg-excited), and the relations between reflection parameters and Lagrangian parameters rest on @cnj-bsg-uv-ir.
+
+## Exercises {#sec-particle-reflection-exercises}
+
+::: {#exr-uniform-classical}
+Show that (-@eq-uniform-amplitude) at $B=0$ telescopes to $-1/\big((a)(h-a)\big)$, and that (-@eq-neumann-amplitude) at $B=0$ is 1. *Hint:* $(h)=-1$ and $(x)(-\theta)=1/(x)(\theta)$.
+:::
+
+::: {#exr-uniform-crossing}
+Verify crossing-unitarity (-@eq-boundary-crossing-diagonal) for $K_1$ of (-@eq-breather-continuation) in $a_2^{(1)}$, with $S_{12}=\{2\}$. *Hint:* use $(x)(i\pi-\theta)=-(h-x)(\theta)$ and the doubling identity $(x)(2\theta)=-\big(\frac x2\big)(\theta)\big(\frac x2+h\big)(\theta)$, which follows from $\sinh2u=2\sinh u\cosh u$.
+:::
+
+::: {#exr-uniform-bootstrap}
+For $a_2^{(1)}$, derive $K_2$ from $K_1$ by the bootstrap $K_2(\theta)=K_1(\theta+\frac{i\pi}3)S_{11}(2\theta)K_1(\theta-\frac{i\pi}3)$, and check that $K_2=K_1$, as charge conjugation requires.
+:::
+
+::: {#exr-kim-expansion}
+Use $(x+\frac B2)/(x)=1+\frac{i\pi B}{2h}\frac{\sinh\theta}{\cosh\theta-\cos(\pi x/h)}+O(B^2)$ to expand $K^N_1$ and $K^N_2$ of (-@eq-neumann-amplitude) for $a_3^{(1)}$ to first order in $\beta^2$. Show that the result is self-dual to this order, and explain why one loop cannot test duality on the half-line.
+:::
+
+::: {#exr-shg-uniform}
+Show that (-@eq-uniform-amplitude) for $n=1$ is (-@eq-shg-reflection) with $E=\frac B2$, $F=0$, and that (-@eq-neumann-amplitude) for $n=1$ is the case $E=1-\frac B2$. Show that the factor with $E=0$ differs from that with $E=\frac B2$ only at $O(B^2)$. *Hint:* $(1-E)(1+E)=\big(\cos\frac{\pi E}2-i\sinh\theta\big)/\big(\cos\frac{\pi E}2+i\sinh\theta\big)$.
+:::
+
+::: {#exr-solitonic-a2}
+For $a_2^{(1)}$, $a=b=1$, evaluate (-@eq-solitonic-factor) and show that it reduces to $(\frac12-\frac B2)(\frac32-\frac B2)(\frac32+\frac B2)(\frac52+\frac B2)$. Locate its poles in the physical strip and compute the energies of the two boundary states they create.
+:::
+
+::: {#exr-a2-energies}
+Derive (-@eq-a2-energies) by summing $m_1\cos v$ along the bootstrap steps of @prp-a2-excited. Show that $e_{b_{-1,1}}-e_{b_{0,0}}=m_1\sin\frac{\pi B}6$, and that the states $b_{-2,2}$ and $b_{0,1}$ are degenerate at $B=\frac12$.
+:::
+
+::: {#exr-modulus-rotor}
+The classical vacuum (-@eq-vacuum-pair) of $a_2^{(1)}$ has a flat direction $\chi$. Assuming it is quantized as a free rotor, $E_n=n^2/2I$, compare with $e_{b_{n,-n}}\approx m_1\frac{\pi B}6n^2$ to predict the moment of inertia $I$ in terms of $\beta$. How would you compute $I$ from the classical solution? (Open-ended.)
+:::
+
+## Notes and references {#sec-particle-reflection-notes}
+
+The program of obtaining particle reflection amplitudes from soliton reflection matrices was proposed and carried out for $a_2^{(1)}$ by Gandenberger [@gandenberger1999a], and extended to all $a_n^{(1)}$, including the solitonic boundaries and the boundary spectra of $a_2^{(1)}$ and $a_4^{(1)}$, by Delius and Gandenberger [@delius_gandenberger1999]. Earlier conjectures for particle reflection factors are by Fring and Köberle [@fring_koberle1994a], Sasaki [@sasaki1993], Corrigan, Dorey, Rietdijk and Sasaki [@cdrs1994; @cdr1995] and Kim [@kim1995]. The one-loop calculations are by Kim [@kim1995] (Neumann) and Perkins and Bowcock [@perkins_bowcock1999] ($a_2^{(1)}$, $C\equiv+1$). The classical vacua and linearized reflection factors of the solitonic boundaries are due to Bowcock [@bowcock1998] and Delius [@delius1998a]. The boundary Coleman–Thun mechanism is due to Dorey, Tateo and Watts [@dtw1999]. For sine-Gordon and sinh-Gordon, the breather reflection factors are Ghoshal's [@ghoshal1994], the role of duality was pointed out by Corrigan [@corrigan1998], and the boundary breathers are Corrigan and Delius's [@corrigan_delius1999].
+
+The block notation of Delius and Gandenberger, $(x)=\sin(\frac\theta{2i}+\frac{\pi x}{2h})/\sin(\frac\theta{2i}-\frac{\pi x}{2h})$, is identical to the book's (-@eq-blocks). Their $\lambda$ is the book's $\omega$, their $C_i$ are the book's $C_j$ (@tbl-boundary-dictionary), and their S-matrix (3.14) is (-@eq-an-smatrix): with their lower limit $a-b+1$ for $a\le b$, the extra factors cancel in pairs, since $\{-p\}=\{p\}^{-1}$.
+
+Corrections and clarifications of the sources:
+
+- **DG (6.26).** The second line of $K^{(2)}_2$ should contain a fourth block: $\times(\frac52-\frac B2)(\frac52+\frac B2)(-\frac12-\frac B2)(-\frac92+\frac B2)$. As printed, with three blocks, the amplitude violates crossing-unitarity; with the fourth block it is (-@eq-solitonic-factor) for $a=b=2$. The left-hand side should read $K^{(2)}_2=K^{(2)}_3$ (printed $K^{(1)}_3$).
+- **DG (6.11).** In line (d) the second block should be $(-3+(2n_1+1)\frac B2)$, not $(-3-(2n_1+1)\frac B2)$. Only with the plus sign does $K^{0,0}_1$ reduce to (-@eq-solitonic-factor) for $b=2$ and satisfy crossing-unitarity with $K^{n_1,n_3}_3=K^{n_3,n_1}_1$.
+- **DG (3.11).** The breather amplitude is not the product of the three scalar factors alone: the matrix part of the soliton S-matrix on the reflected singlet contributes as well. This is implicit in the reference to Gandenberger's appendix, but easy to miss.
+- **DG versus Delius and MacKay.** The diagonal soliton reflection matrix belongs to $C\equiv+1$, as Delius and Gandenberger assumed and as the classical limit (iv) of @prp-uniform-amplitude confirms, and the Neumann boundary has the non-diagonal $s=+1$ matrix (@cnj-neumann-coideal). Delius and Gandenberger's conclusion that Neumann is dual to $C\equiv+1$ is not affected, but the soliton derivation of the Neumann amplitudes requires the non-diagonal matrix, and is done only for $a_2^{(1)}$.
+- **Kim's check.** Delius and Gandenberger's statement that (3.20) agrees with Kim's $O(\beta^2)$ result is confirmed. Kim's one-loop amplitudes are for $a_3^{(1)}$ [@kim1995, app.], and for $a_2^{(1)}$ the comparison is Gandenberger's. Kim's exact, self-dual conjectures in the same paper agree only to this order.
+- **Gandenberger's $K^{(-)}$.** This is the $s=-1$ matrix of (-@eq-an-k-matrix). Its dual is Corrigan et al.'s minimal $C\equiv-1$ proposal. That observation is in a footnote of [@gandenberger1999a], and it remains unexplained.

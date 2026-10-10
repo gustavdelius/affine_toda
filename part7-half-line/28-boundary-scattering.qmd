@@ -1,0 +1,278 @@
+# Integrable scattering with a boundary {#sec-boundary-scattering}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Explain which conserved charges survive a boundary, and why boundary scattering is elastic and factorized.
+- Derive the reflection equation from factorization, in the S/K form, in the braid form of Part VI, and in the twisted form for boundaries that conjugate solitons.
+- State boundary unitarity and boundary crossing-unitarity, and connect the latter to the Ghoshal–Zamolodchikov boundary state.
+- Read boundary bound states, their energies and the one-point couplings off reflection-factor poles, and close the boundary bootstrap.
+- Use boundary Bethe–Yang equations and know where the finite-size methods (g-function, boundary TBA, TCSA) come in.
+- Work through boundary scaling Lee–Yang as a complete example.
+:::
+
+@sec-integrable-qft set out the framework of integrable scattering on the full line: higher-spin charges force elastic, factorized scattering, the two-particle S-matrix obeys the Yang–Baxter equation, braiding unitarity and crossing, and its poles are bound states that the bootstrap must account for. This chapter does the same for a theory on the half-line $x\le0$ with a boundary at $x=0$. Each statement of @sec-integrable-qft has a boundary counterpart. A particle that hits the boundary is reflected with an amplitude, the **reflection factor** or **reflection matrix** $K$. Factorization gives the **reflection equation**, the boundary analogue of the Yang–Baxter equation. Unitarity becomes boundary unitarity, and crossing becomes the subtler boundary crossing-unitarity, which Ghoshal and Zamolodchikov derived from the boundary state [@gz1994]. Poles of $K$ in a strip half as wide as before are boundary bound states, and the boundary bootstrap closes the spectrum.
+
+Like @sec-integrable-qft, this chapter is independent of affine Toda theory. @sec-boundary-sine-gordon applies it to sine-Gordon and sinh-Gordon theory. The rest of Part VII applies it to affine Toda theory: the classical boundary conditions (@sec-boundary-conditions), their quantum-group symmetry (@sec-coideal, @sec-k-intertwiner), and the soliton and particle reflection amplitudes (@sec-soliton-reflection, @sec-particle-reflection).
+
+## Kinematics on the half-line {#sec-half-line-kinematics}
+
+Take a theory on $x\le0$, with a boundary condition at $x=0$ that comes from a boundary term in the action (@sec-boundary-potential). Time translation survives, so energy is conserved. Space translation does not, so momentum is not.
+
+**Which charges survive.** On the full line the local charges $Q_s$ of @sec-factorization act on a particle as $\chi_a^{(s)}e^{s\theta}$, and $Q_{-s}$ as $\chi_a^{(s)}e^{-s\theta}$ (for the charges of spin $\pm1$ these are the light-cone momenta). On the half-line, $\partial_-T_{s+1}=\partial_+\Theta_{s-1}$ still holds in the bulk, but integrating it over $x\le0$ leaves a boundary term at $x=0$. For the combination of spin $s$ and spin $-s$ that corresponds to energy, the boundary term can be a total time derivative of a local boundary density, and then
+
+$$
+\hat Q_s=Q_s+Q_{-s}+\Sigma_s\big(\phi(0,t)\big)
+$$
+
+is conserved. The other combination, $Q_s-Q_{-s}$, is the analogue of momentum and is not conserved. Ghoshal and Zamolodchikov showed this for the spin-3 charge of sine-Gordon theory [@gz1994], and that computation selects the integrable boundary potentials (@sec-bsg-classical). The boundary conditions for which a full tower of charges survives are classified in @sec-durham-classification. On an asymptotic state the surviving charges act as
+
+$$
+\hat Q_s\,\big|A_{a_1}(\theta_1)\cdots A_{a_N}(\theta_N)\big\rangle_B=\Big(\sum_{i=1}^N2\chi_{a_i}^{(s)}\cosh s\theta_i+h^{(s)}\Big)\big|A_{a_1}(\theta_1)\cdots A_{a_N}(\theta_N)\big\rangle_B ,
+$$
+
+with a constant $h^{(s)}$ from the boundary. Here an in-state has $\theta_1>\dots>\theta_N>0$: all particles move towards the boundary, the fastest furthest from it.
+
+::: {#prp-boundary-elastic}
+**[Established]** If infinitely many charges $\hat Q_s$ with nonzero $\chi^{(s)}$ survive, boundary scattering is elastic: the out-state of an $N$-particle in-state contains $N$ particles with rapidities $-\theta_1,\dots,-\theta_N$, and labels can change only within a multiplet of equal mass. The $N$-particle boundary S-matrix factorizes into $N$ reflections and $N(N-1)$ two-particle scatterings [@gz1994; @fring_koberle1994a].
+:::
+
+The elasticity argument is that of @sec-factorization with $\cosh s\theta$ in place of $e^{s\theta}$ (@exr-boundary-elastic). Factorization follows as before by shifting wave packets; now each particle meets every other particle twice, once before and once after its reflection.
+
+**The boundary Zamolodchikov–Faddeev algebra.** Ghoshal and Zamolodchikov introduced a formal boundary operator $B$ that creates the boundary ground state, $|0\rangle_B=B|0\rangle$, and placed it to the right of all particle creation operators. Reflection is then the exchange relation
+
+$$
+A_a(\theta)\,B=K_a^b(\theta)\,A_b(-\theta)\,B ,
+$$ {#eq-boundary-zf}
+
+to be used together with the bulk relation (-@eq-zf-algebra). $K_a^b(\theta)$ is the amplitude for an incoming particle $a$ with rapidity $\theta>0$ to come back as $b$ with rapidity $-\theta$. Ghoshal and Zamolodchikov write $R_a^b(\theta)$; we keep $R$ for R-matrices. When the boundary can be excited, $B$ carries a label $\alpha$ for the boundary state, and $K$ depends on it.
+
+**Two kinds of reflection matrix.** In the language of the quantum groups of Part VI, $K(\theta)$ is a linear map
+
+$$
+K_\mu(\theta):V_\mu(\theta)\to V_{\mu'}(-\theta),
+$$
+
+where $V_\mu(\theta)$ is the multiplet $\mu$ at rapidity $\theta$ (@sec-amplitude-and-gradation). A boundary is **soliton-preserving** if $\mu'=\mu$ and **soliton-conjugating** if $\mu'=\bar\mu$, the conjugate multiplet. For sine-Gordon theory $\bar V=V$ and the distinction is invisible. For $a_n^{(1)}$ with $n\ge2$ the multiplets $V_a$ and $V_{n+1-a}$ differ, and the classical boundary conditions of @sec-durham-classification turn solitons into antisolitons (@sec-images-neumann), while the condition of @sec-soliton-preserving preserves them. @sec-preserving-conjugating discusses which equation goes with which boundary.
+
+## The reflection equation {#sec-reflection-equation}
+
+Consider two particles with rapidities $\theta_1>\theta_2>0$, particle 2 nearer the boundary. Reflecting both and letting them scatter can be done in two orders: particle 2 reflects first, scatters with particle 1, then particle 1 reflects and the two scatter again; or the two scatter first, particle 1 reflects, they scatter again, and particle 2 reflects. Factorization says the results agree [@gz1994, Fig. 10]. In the rapidity bookkeeping the scatterings before and after reflection happen at rapidity differences $\theta_1-\theta_2$ and $\theta_1+\theta_2$.
+
+**S/K form.** Let $S_{12}(\theta)$ be the two-particle S-matrix acting on particles in tensor slots 1 and 2, $S_{21}=PS_{12}P$, and let $K_1=K\otimes1$, $K_2=1\otimes K$. The reflection equation of Cherednik [-@cherednik1984] and Sklyanin [-@sklyanin1988] is
+
+$$
+S_{12}(\theta_1-\theta_2)\,K_1(\theta_1)\,S_{21}(\theta_1+\theta_2)\,K_2(\theta_2)=K_2(\theta_2)\,S_{12}(\theta_1+\theta_2)\,K_1(\theta_1)\,S_{21}(\theta_1-\theta_2).
+$$ {#eq-reflection-sk}
+
+It is the associativity condition of the algebra (-@eq-zf-algebra), (-@eq-boundary-zf): reduce $A_a(\theta_1)A_b(\theta_2)B$ to the out-state in the two possible orders [@gz1994, eq. (3.25)].
+
+**Braid form.** Part VI writes S-matrices as $S=\Phi\,\check R$, with $\check R(\theta_1-\theta_2):V(\theta_1)\otimes V(\theta_2)\to V(\theta_2)\otimes V(\theta_1)$ (@eq-r-check), and the tensor positions are the spatial positions of the particles. The boundary is on the right. In this language the reflection equation for a soliton-preserving boundary reads
+
+$$
+\check S(\theta_1-\theta_2)\,K_2(\theta_1)\,\check S(\theta_1+\theta_2)\,K_2(\theta_2)=K_2(\theta_2)\,\check S(\theta_1+\theta_2)\,K_2(\theta_1)\,\check S(\theta_1-\theta_2),
+$$ {#eq-reflection-braid}
+
+with $\check S=\Phi\check R$, both sides mapping $V(\theta_1)\otimes V(\theta_2)$ to $V(-\theta_1)\otimes V(-\theta_2)$. Read from the right, the left-hand side lets the right particle reflect, the two scatter, the right particle (now particle 1) reflect, and the two scatter again. Writing $\check S=PS_{21}=S_{12}P$ turns (-@eq-reflection-braid) into (-@eq-reflection-sk) term by term (@exr-braid-to-sk). The scalar factor $\Phi$ drops out of both forms, so the reflection equation constrains only the matrix structure of $K$, up to a scalar. We checked numerically that the sine-Gordon $K$ of @sec-bsg-k-matrix satisfies both forms and that their two sides agree term by term (`textbook_code/boundary_axioms.py`).
+
+**Twisted form.** For a soliton-conjugating boundary, $K_\mu(\theta):V_\mu(\theta)\to V_{\bar\mu}(-\theta)$, the intermediate states carry conjugate multiplets, and four different R-matrices appear. For multiplets $\mu$ (rapidity $\theta_1$) and $\nu$ (rapidity $\theta_2$),
+
+$$
+\check R_{\bar\nu\bar\mu}(\theta_1-\theta_2)\,K^\mu_2(\theta_1)\,\check R_{\mu\bar\nu}(\theta_1+\theta_2)\,K^\nu_2(\theta_2)=K^\nu_2(\theta_2)\,\check R_{\nu\bar\mu}(\theta_1+\theta_2)\,K^\mu_2(\theta_1)\,\check R_{\mu\nu}(\theta_1-\theta_2).
+$$ {#eq-reflection-twisted}
+
+The subscripts of $\check R$ name the two multiplets it swaps, $\check R_{\mu\nu}:V_\mu\otimes V_\nu\to V_\nu\otimes V_\mu$. Following the multiplets through each side from the right shows that both are maps $V_\mu(\theta_1)\otimes V_\nu(\theta_2)\to V_{\bar\mu}(-\theta_1)\otimes V_{\bar\nu}(-\theta_2)$. This is the form of Delius and MacKay [@delius_mackay2003, eq. (2.8)], written for the book's $\check R$. It was verified for the $a_n^{(1)}$ vector-soliton reflection matrices of @sec-an-nondiagonal-k for all pairs $(\mu,\nu)$ of vector and conjugate vector, for $n=2,3$ (`textbook_code/boundary_coideal.py`). With R-matrices normalized to 1 on highest-weight vectors (@eq-r-check), the two sides are equal, not merely proportional, for $\mu=\nu$.
+
+**Diagonal scattering.** If the bulk S-matrix is diagonal and particles of different species have different masses, the reflection equation holds identically, as it does for the scaling Lee–Yang model of @sec-boundary-lee-yang and for the real-coupling affine Toda particles of @sec-particle-reflection. Then all the information is in the unitarity, crossing-unitarity and bootstrap conditions that follow.
+
+## Boundary unitarity and crossing-unitarity {#sec-boundary-unitarity-crossing}
+
+**Boundary unitarity.** Applying (-@eq-boundary-zf) twice gives
+
+$$
+K(\theta)\,K(-\theta)=1 ,
+$$ {#eq-boundary-unitarity}
+
+with $K(-\theta):V(-\theta)\to V(\theta)$ in the soliton-preserving case and the obvious modification for conjugating boundaries. As with braiding unitarity (@eq-braiding-unitarity), this is a consistency condition of the exchange algebra and says nothing about an inner product.
+
+Boundary unitarity and the reflection equation leave a large ambiguity: if $K$ is a solution, so is $\Phi_B(\theta)K(\theta)$ for any $\Phi_B$ with $\Phi_B(\theta)\Phi_B(-\theta)=1$, which need not even be meromorphic. On the full line it is crossing that turns the corresponding ambiguity into the discrete CDD ambiguity (@prp-cdd). The boundary has no obvious crossed channel, because a particle cannot be "crossed" into the boundary. Ghoshal and Zamolodchikov found one by exchanging the roles of space and time.
+
+**The boundary state.** Rotate the half-plane $x\le0$ by $90°$, so that $\tau=ix$ is the new time and $y=-it$ the new space. The boundary at $x=0$ becomes an initial condition at $\tau=0$, described by a state $|B\rangle$ in the Hilbert space of the bulk theory on the full line. The surviving charges $\hat Q_s=Q_s+Q_{-s}+\dots$ become, in the rotated picture, conditions $(Q_s-Q_{-s})|B\rangle=0$ (up to the relative factor $i^{s}$ that the rotation introduces). By the argument of @prp-boundary-elastic applied to $\sinh s\theta$, $|B\rangle$ contains only pairs of particles with opposite rapidities. Ghoshal and Zamolodchikov showed that, if no particle has a one-point coupling to the boundary,
+
+$$
+|B\rangle=\exp\Big(\frac12\int_{-\infty}^{\infty}d\theta\;k^{ab}(\theta)\,A_a(-\theta)A_b(\theta)\Big)|0\rangle,\qquad k^{ab}(\theta)=K_{\bar a}^{\,b}\Big(\frac{i\pi}2-\theta\Big),
+$$ {#eq-boundary-state}
+
+where $\bar a$ is the antiparticle of $a$ [@gz1994, eqs. (3.33), (3.38)]. The amplitude for emitting a pair from the boundary is the reflection amplitude continued to $\operatorname{Im}\theta=\pi/2$, the boundary analogue of the crossing continuation $\theta\to i\pi-\theta$.
+
+**Crossing-unitarity.** For $\theta>0$, $A_a(-\theta)A_b(\theta)|0\rangle$ is an out-state, and for $\theta<0$ an in-state. The two are related by the bulk S-matrix, and consistency of (-@eq-boundary-state) requires
+
+$$
+k(\theta)=\check S(2\theta)\,k(-\theta),\qquad k(\theta)=\sum_{a,b}K_{\bar a}^{\,b}\Big(\frac{i\pi}2-\theta\Big)\,v_a\otimes v_b ,
+$$ {#eq-boundary-crossing-unitarity}
+
+with $\check S(2\theta)$ acting on $V(-\theta)\otimes V(\theta)$ [@gz1994, eq. (3.35)]. This is **boundary crossing-unitarity**. We write it in the braid ordering of Part VI. The vector $k(\theta)$ lives in $V\otimes V$, and the order of the indices matters: with $k=\sum K_{b\bar a}\,v_a\otimes v_b$, where $K_{ba}$ is the matrix element from $a$ to $b$, the equation holds for the sine-Gordon $K$ of @sec-bsg-k-matrix, with the book's $S_0$ and $\bar a$ the plain conjugation $s\leftrightarrow\bar s$; with the other order it fails (`textbook_code/boundary_sine_gordon.py`). For the twisted $a_n^{(1)}$ reflection matrices it holds in the form $k(\theta)=\check S_{\bar V\bar V}(2\theta)\,k(-\theta)$ with $k(\theta)=\sum K_{ba}(\frac{i\pi}2-\theta)\,\bar v_a\otimes\bar v_b$ (`textbook_code/boundary_coideal.py`).
+
+**The diagonal case.** For a diagonal reflection $K_a^b=\delta_a^bK_a$ and a diagonal bulk S-matrix, (-@eq-boundary-crossing-unitarity) reduces to
+
+$$
+K_a\Big(\frac{i\pi}2-\theta\Big)=S_{a\bar a}(2\theta)\,K_{\bar a}\Big(\frac{i\pi}2+\theta\Big).
+$$ {#eq-boundary-crossing-diagonal}
+
+Several equivalent forms are in use. Using boundary unitarity, (-@eq-boundary-crossing-diagonal) is $K_a(\theta+\frac{i\pi}2)\,K_{\bar a}(\theta-\frac{i\pi}2)\,S_{a\bar a}(2\theta)=1$, the form used by Corrigan and Delius [@corrigan_delius1999, eq. (2.7)]. Shifting $\theta$ by $\frac{i\pi}2$ and using crossing (-@eq-crossing), $C$-invariance $S_{\bar a\bar a}=S_{aa}$ and the $2\pi i$-periodicity of @exr-periodicity, it becomes $K_a(\theta)K_{\bar a}(\theta+i\pi)=S_{aa}(2\theta)$, the form of Delius and Gandenberger [@delius_gandenberger1999, eq. (3.17)]. We checked that all three forms hold, or fail, together on explicit examples (`textbook_code/boundary_axioms.py`).
+
+**Minimal solutions and CDD factors.** With crossing-unitarity added, the remaining ambiguity is
+
+$$
+K(\theta)\to\Phi_B(\theta)K(\theta),\qquad \Phi_B(\theta)\Phi_B(-\theta)=1,\qquad \Phi_B\Big(\frac{i\pi}2-\theta\Big)=\Phi_B\Big(\frac{i\pi}2+\theta\Big),
+$$
+
+exactly the CDD ambiguity of the bulk with $\theta$ replaced by $2\theta$ [@gz1994, eq. (3.36)]. A boundary CDD factor is therefore a product of factors $f_x(2\theta)$ of (-@eq-fx-block), or equivalently of blocks $\frac{\sinh(\theta+i\pi x/2)}{\sinh(\theta-i\pi x/2)}\cdot\frac{\cosh(\theta-i\pi x/2)}{\cosh(\theta+i\pi x/2)}$ in the single-particle rapidity (@exr-boundary-cdd). As in the bulk, one looks for the **minimal** solution, with the fewest poles and zeros in the physical strip, and multiplies by CDD factors only when the bootstrap or perturbation theory demands it. The minimal solutions are infinite products of Gamma functions for soliton reflection matrices (@sec-bsg-k-matrix) and finite products of blocks for particles (@sec-boundary-lee-yang, @sec-uniform-boundary).
+
+**Zero-momentum particles.** If a particle $c$ has a nonzero one-point coupling $g^c$ to the boundary, $|B\rangle$ also contains the term $g^cA_c(0)$, and (-@eq-boundary-state) is modified [@gz1994, eq. (3.42)]. This is the situation of @sec-boundary-bound-states below, and of the sine-Gordon breathers, which couple to every boundary that breaks $\phi\to-\phi$.
+
+## Boundary bound states and the boundary bootstrap {#sec-boundary-bound-states}
+
+**The physical strip.** For reflection the natural variable is the energy of the incoming particle, $E=m\cosh\theta$. Real $\theta>0$ is physical scattering. The **physical strip** of a reflection amplitude is $0<\operatorname{Im}\theta<\pi/2$, half the bulk strip: $\theta=iv$ with $0<v<\pi/2$ gives $0<E<m$, below threshold. A simple pole of $K_a^\alpha(\theta)$ at $\theta=iv_{a\alpha}^\beta$ in this strip can signal a **boundary bound state** $\beta$, an excited state of the boundary, with energy
+
+$$
+e_\beta=e_\alpha+m_a\cos v_{a\alpha}^\beta ,
+$$ {#eq-boundary-bound-state-energy}
+
+above the energy $e_\alpha$ of the boundary state on which the particle reflects. Near the pole the residue is $i$ times the product of the couplings $g_{a\alpha}^\beta$ of particle and boundary states, and in a unitary theory it is $i$ times a positive number [@gz1994; @dtw1999]. As in the bulk, a pole can also have other explanations: a bulk bound state absorbed at zero momentum, or an on-shell diagram (@sec-boundary-coleman-thun). Reflection amplitudes always have poles that are not boundary bound states, and every pole has to be explained.
+
+**One-point couplings.** If two particles $a,b$ of equal mass fuse to a particle $c$ with fusing angle $u_{ab}^c$ (@eq-bound-state-mass), and $c$ has a one-point coupling $g^c$ to the boundary, then the particle and its reflected image fuse into $c$, which is absorbed at zero momentum. This gives a pole at $\theta=\frac{i\pi}2-\frac{iu_{ab}^c}2$ in the physical strip, with residue fixed by the three-point coupling $\Gamma_{ab}^c$ and $g^c$:
+
+$$
+k^{ab}(\theta)\simeq\frac i2\,\frac{\Gamma_{ab}^c\,g^c}{\theta-\frac{i}2u_{ab}^c},\qquad k^{c_1c_2}(\theta)\simeq-\frac i2\,\frac{g^{c_1}g^{c_2}}{\theta}
+$$ {#eq-one-point-residue}
+
+for $k$ of (-@eq-boundary-state) [@gz1994, eqs. (3.41), (3.45)]. The second relation is the double reflection of a zero-momentum particle, and it puts a pole at $\theta=i\pi/2$ in $K_c(\theta)$ whenever $g^c\ne0$.
+
+**The boundary bootstrap.** There are two bootstrap equations, one for each kind of bound state.
+
+- *Bulk bound states.* If $c$ is a bound state of $a$ and $b$, its reflection is that of its constituents, which carry the rapidities $\theta+i\bar u_{ac}^b$ and $\theta-i\bar u_{bc}^a$ (@eq-bootstrap) and scatter once between their reflections:
+$$
+K_c(\theta)=K_a\big(\theta+i\bar u_{ac}^b\big)\,S_{ab}\big(2\theta+i\bar u_{ac}^b-i\bar u_{bc}^a\big)\,K_b\big(\theta-i\bar u_{bc}^a\big),
+$$ {#eq-boundary-bootstrap-bulk}
+written here for diagonal scattering [@fring_koberle1994a; @gz1994, eq. (3.40)]. In matrix form the constituents' reflection is the left-hand side of (-@eq-reflection-braid) without its last scattering, restricted to the bound-state subspace.
+- *Boundary bound states.* If $K_a^\alpha$ has a pole at $iv=iv_{a\alpha}^\beta$ with boundary bound state $\beta$, a particle $b$ reflecting on $\beta$ sees the boundary $\alpha$ together with the bound particle $a$, which has rapidity $iv$. So
+$$
+K_b^\beta(\theta)=S_{ba}(\theta-iv)\,K_b^\alpha(\theta)\,S_{ba}(\theta+iv)
+$$ {#eq-boundary-bootstrap}
+for diagonal scattering [@fring_koberle1994a; @gz1994]. The excited boundary's reflection factors have new poles, which must again be explained, and the procedure continues until it closes.
+
+For non-diagonal theories (-@eq-boundary-bootstrap) involves the bulk S-matrix and the reflection matrices as matrices, and the boundary states carry multiplet labels. Ghoshal derived the sine-Gordon breather reflection factors from (-@eq-boundary-bootstrap-bulk) [@ghoshal1994], and Mattsson and Dorey and Bajnok, Palla, Takács and Tóth closed the boundary bootstrap for sine-Gordon theory using (-@eq-boundary-bootstrap) (@sec-bsg-spectrum). Sasaki [-@sasaki1993] and Fring and Köberle [-@fring_koberle1994a] wrote down the reflection bootstrap for affine Toda theory.
+
+## Boundary Coleman–Thun diagrams {#sec-boundary-coleman-thun}
+
+Higher-order poles, and simple poles that are not bound states, are explained by on-shell diagrams as in the bulk (@sec-coleman-thun). On the half-line the diagrams may include reflections, at which the boundary acts as a vertex, and segments along the boundary, where the boundary is in an excited state. Dorey, Tateo and Watts showed that the power counting of @sec-coleman-thun carries over: a diagram with $P$ on-shell internal lines, counting boundary segments as lines, and $L$ loops, counting loops closed by the boundary, contributes a pole of order $P-2L$ [@dtw1999]. Two features are new.
+
+- **Reflections at a zero.** If a particle in the diagram reflects at a rapidity where its reflection factor vanishes, the diagram's pole order drops by one. This is how simple poles arise from diagrams that would naively give double poles, and it is central for the sine-Gordon boundary spectrum [@mattsson_dorey2000; @bptt2002].
+- **Excited boundaries.** On an excited boundary the incoming particle can drop the boundary to a lower state and re-excite it. Such diagrams explain poles of excited-state reflection factors that would otherwise suggest further bound states.
+
+Mattsson and Dorey formulated two lemmas that list which diagrams can exist for a particle reflecting off a boundary in its ground state: in the ground state, rescattering must happen in a restricted region near the boundary, which rules out most diagrams [@mattsson_dorey2000]. These lemmas hold in any 1+1-dimensional boundary theory, and they make it possible to decide which poles are bound states. An example in which a Coleman–Thun diagram explains a pole beyond the coupling at which the corresponding state leaves the spectrum is the sinh-Gordon boundary spectrum of @sec-shg-boundary-breathers.
+
+## Boundary Bethe–Yang equations {#sec-boundary-bethe-yang}
+
+Put $N$ particles of a diagonal theory on an interval $-L\le x\le0$ with boundary conditions $\alpha$ at $x=-L$ and $\beta$ at $x=0$. Particle $j$ travels to the right boundary, reflects with $K_\beta(\theta_j)$, travels to the left boundary, reflects with $K_\alpha(\theta_j)$ (the left boundary is the mirror image of a right boundary), and returns. On the way it crosses every other particle twice, once with rapidity difference $\theta_j-\theta_k$ and once with $\theta_j+\theta_k$. Single-valuedness of the wave function gives the **boundary Bethe–Yang equations**
+
+$$
+e^{2im_jL\sinh\theta_j}\,K_\alpha(\theta_j)\,K_\beta(\theta_j)\prod_{k\ne j}S_{a_ja_k}(\theta_j-\theta_k)\,S_{a_ja_k}(\theta_j+\theta_k)=1,\qquad j=1,\dots,N ,
+$$ {#eq-boundary-bethe-yang}
+
+with energy $E=\sum_jm_j\cosh\theta_j+e_\alpha+e_\beta$ up to corrections that vanish exponentially in $L$. For one particle this is the quantization condition $2mL\sinh\theta-i\log K_\alpha(\theta)K_\beta(\theta)=2\pi k$ of Dorey, Pocklington, Tateo and Watts [@dptw1998, eq. (6.5)]. For a free boson with Dirichlet conditions at both ends, $K=-1$ and the equation gives $p=\pi k/L$, the modes of $\sin(k\pi x/L)$ (@exr-boundary-free). Continued to imaginary $\theta$, (-@eq-boundary-bethe-yang) describes a particle bound to one of the boundaries, and its solutions approach the boundary bound-state energies (-@eq-boundary-bound-state-energy) as $L\to\infty$ [@dptw1998]. For non-diagonal theories the product becomes a double-row transfer matrix, the boundary analogue of the transfer matrix of @sec-bethe-yang, built from $\check S$ and $K$ exactly as in Sklyanin's construction (@sec-sklyanin).
+
+## Finite size: g-function, boundary TBA and TCSA {#sec-boundary-finite-size}
+
+Three methods compute finite-size quantities from the reflection factors, and in the other direction they test reflection factors and fix their relation to the parameters of a Lagrangian. We only describe what each does.
+
+- **The g-function.** The partition function on a long cylinder between two boundary states behaves as $Z_{\alpha\beta}\sim g_\alpha g_\beta\,e^{-LE_0(R)}$, with a boundary entropy $\log g$ that decreases along boundary renormalization-group flows [@affleck_ludwig1991]. Its exact form in a massive theory, from the boundary state (-@eq-boundary-state), was derived by Dorey, Fioravanti, Rim and Tateo [@dfrt2004].
+- **The boundary TBA.** The ground-state energy on an interval of width $R$ follows, as in @sec-tba, from a saddle point, with the driving term $2r\cosh\theta-\log\big(K_\alpha(\frac{i\pi}2-\theta)K_\beta(\frac{i\pi}2+\theta)\big)$ in place of $r\cosh\theta$ [@lmss1995]. The boundary amplitude enters exactly in the combination $k(\theta)$ of the boundary state. Excited states follow by analytic continuation [@dptw1998].
+- **The truncated conformal space approach.** Writing the massive boundary theory as a conformal field theory with a conformal boundary condition, perturbed in the bulk and on the boundary, and diagonalizing the Hamiltonian in a truncated space of conformal states, gives finite-volume spectra with no input from the S-matrix [@dptw1998; @bpt2002].
+
+Comparing the last method with the first two is how reflection factors were matched to boundary perturbations in boundary Lee–Yang [@dptw1998] and boundary sine-Gordon theory [@bpt2002], and how the relations of @sec-bsg-parameters were tested.
+
+## Worked example: boundary Lee–Yang {#sec-boundary-lee-yang}
+
+The scaling Lee–Yang model has a single particle with $S=f_{2/3}$ (-@eq-lee-yang-smatrix), and the particle is its own bound state at $u_{aa}^a=2\pi/3$ (@sec-lee-yang). Its boundary version, analysed by Dorey, Pocklington, Tateo and Watts [@dptw1998], shows every feature of this chapter in its simplest form. We use the blocks (-@eq-blocks) with $h=6$,
+
+$$
+(x)=\frac{\sinh\big(\frac\theta2+\frac{i\pi x}{12}\big)}{\sinh\big(\frac\theta2-\frac{i\pi x}{12}\big)},\qquad (x)(-x)=1,\qquad (x+12)=(x),
+$$
+
+in which $S=f_{2/3}=-(2)(4)$. Since $\theta$ is now a single-particle rapidity, the block $(x)$ has its pole at $\theta=i\pi x/6$, and the physical strip $0<\operatorname{Im}\theta<\pi/2$ corresponds to $0<x<3$.
+
+**Conditions.** Because the bulk scattering is diagonal, the reflection equation is empty. The reflection factor $K$ must satisfy unitarity (-@eq-boundary-unitarity), crossing-unitarity (-@eq-boundary-crossing-diagonal) with $S_{a\bar a}=f_{2/3}$, and, since the particle is a bound state of two copies of itself with $\bar u=\pi/3$, the bootstrap (-@eq-boundary-bootstrap-bulk):
+
+$$
+K(\theta)=K\Big(\theta+\frac{i\pi}3\Big)\,S(2\theta)\,K\Big(\theta-\frac{i\pi}3\Big).
+$$
+
+Unitarity and crossing-unitarity are linear in $K$, so they cannot fix the sign of $K$. The bootstrap is quadratic and does.
+
+**The two boundary conditions.** The conformal minimal model $\mathcal M(2,5)$ has two conformal boundary conditions, $\mathbb 1$ and $\Phi$. The first has no relevant boundary field, and the second has one, $\phi$, of dimension $-1/5$. With the bulk perturbation switched on, the $\mathbb 1$ boundary gives a single boundary theory, and the $\Phi$ boundary a one-parameter family $\Phi(h)$, with $h$ the coefficient of the boundary perturbation. Dorey, Pocklington, Tateo and Watts identified their reflection factors by comparing the boundary TBA with boundary TCSA spectra:
+
+$$
+K_{(\mathbb 1)}(\theta)=(1)(3)(4)^{-1},\qquad
+K_{\Phi(h)}(\theta)=K_b(\theta)=(1)(3)(4)^{-1}\,(1-b)^{-1}(1+b)(5-b)(5+b)^{-1},
+$$ {#eq-ly-reflection}
+
+with $b$ related to $h$ by the numerically determined relation $h(b)=-0.685289983\,\sin\big(\frac{(b+0.5)\pi}5\big)\,M^{6/5}$ [@dptw1998, eqs. (2.8), (2.9), (5.13)].
+
+::: {#prp-ly-reflection}
+**[Numerical]** The factors (-@eq-ly-reflection) satisfy boundary unitarity, crossing-unitarity with $f_{2/3}$, and the bootstrap, for all $b$; $K_b$ reduces to $K_{(\mathbb 1)}$ at $b=0$ and to Ghoshal and Zamolodchikov's second minimal solution $(3)^{-1}(4)^{-1}(5)^{-1}$ at $b=-2$. With the overall sign $-1$ printed in [@gz1994, eq. (3.51)], $K_{(\mathbb 1)}$ still satisfies unitarity and crossing-unitarity but violates the bootstrap; the sign must be $+$. (`textbook_code/boundary_axioms.py`)
+:::
+
+**Poles of $K_{(\mathbb 1)}$.** In the physical strip $K_{(\mathbb 1)}$ has a pole at $\theta=i\pi/6$ and a pole at $\theta=i\pi/2$. The first is the one-point-coupling pole of (-@eq-one-point-residue): $\frac{i\pi}2-\frac{i}2u_{aa}^a=\frac{i\pi}6$, the particle and its image fusing into a particle absorbed by the boundary. The second is the double reflection of a zero-momentum particle. From the residue at $i\pi/2$ Ghoshal and Zamolodchikov found $g=2i\sqrt{2\sqrt3-3}$ [@gz1994, eq. (3.54)]. With the $+$ sign of (-@eq-ly-reflection), the residue at $i\pi/2$ is $\frac i2g^2$ with this $g$, and the residue at $i\pi/6$ is consistent with (-@eq-one-point-residue) and the bulk coupling $\Gamma$ read off from $S$ by (-@eq-residue) (`textbook_code/boundary_axioms.py`). The coupling $g$ is imaginary, like $\Gamma$: the boundary inherits the non-unitarity of the bulk.
+
+**Boundary bound states of $K_b$.** Of the blocks in $K_b$, $(1+b)$ has a pole at $\theta=i(b+1)\pi/6$, which enters the physical strip at $b=-1$. By (-@eq-boundary-bound-state-energy) this is a boundary bound state with energy $e_1-e_0=M\cos\frac{(b+1)\pi}6$, and the boundary TCSA spectrum shows a level dropping below the one-particle threshold at exactly this $b$ with exactly this gap [@dptw1998]. The bootstrap (-@eq-boundary-bootstrap) gives the reflection factor on the excited boundary:
+
+$$
+K_b(\theta)\,S\Big(\theta-\frac{i(b+1)\pi}6\Big)\,S\Big(\theta+\frac{i(b+1)\pi}6\Big)=K_{b+2}(\theta).
+$$
+
+The excited boundary scatters like the ground state of the family with $b$ shifted by 2 (@exr-ly-excited). Its pole at $i(b+3)\pi/6$ is outside the physical strip for $b>0$. The second pole of $K_b$ in the strip, at $i(b-1)\pi/6$ for $1<b<4$, is the second boundary bound state seen in the TCSA at $b>1$ [@dptw1998]. At $b=2$, that is $h=h_{\rm crit}=-0.68529\,M^{6/5}$, the first gap vanishes, and beyond it the boundary destabilizes the vacuum and the TCSA levels become complex. The infrared data alone do not fix the boundary condition: $K_{b=0}=K_{(\mathbb 1)}$, although $\mathbb 1$ and $\Phi(h(0))$ are different boundary conditions with different ultraviolet limits [@dptw1998].
+
+The reflection factors $K_b$ are a subset of Ghoshal's lowest-breather reflection factors (@sec-bsg-breathers) at the Lee–Yang point of sine-Gordon theory, the boundary counterpart of the restriction of @prp-sg-rsos [@dptw1998].
+
+## Exercises {#sec-boundary-scattering-exercises}
+
+::: {#exr-boundary-elastic}
+Suppose $\sum_{i=1}^N\cosh s\theta_i=\sum_{j=1}^{N'}\cosh s\theta'_j$ for all odd $s$, with all $\theta_i>0$ and all $\theta'_j<0$. Show that $N=N'$ and $\{\theta'_j\}=\{-\theta_i\}$. *Hint:* adapt @exr-no-production.
+:::
+
+::: {#exr-braid-to-sk}
+Show that (-@eq-reflection-braid) and (-@eq-reflection-sk) are the same equation. *Hint:* write $\check S=S_{12}P=PS_{21}$ and use $P\,(1\otimes K)=(K\otimes1)\,P$.
+:::
+
+::: {#exr-twisted-domains}
+Check that both sides of (-@eq-reflection-twisted) map $V_\mu(\theta_1)\otimes V_\nu(\theta_2)$ to $V_{\bar\mu}(-\theta_1)\otimes V_{\bar\nu}(-\theta_2)$. Why are four different R-matrices needed, and why does the equation reduce to (-@eq-reflection-braid) when $\bar\mu=\mu$ and $\bar\nu=\nu$?
+:::
+
+::: {#exr-boundary-cdd}
+Show that $\Phi_B(\theta)=f_x(2\theta)$ satisfies $\Phi_B(\theta)\Phi_B(-\theta)=1$ and $\Phi_B(\frac{i\pi}2-\theta)=\Phi_B(\frac{i\pi}2+\theta)$. Where are its poles in the strip $0<\operatorname{Im}\theta<\pi/2$?
+:::
+
+::: {#exr-crossing-forms}
+Derive the forms of Corrigan–Delius and Delius–Gandenberger of (-@eq-boundary-crossing-diagonal), stating at each step which bulk property you use.
+:::
+
+::: {#exr-boundary-free}
+Show that (-@eq-boundary-bethe-yang) for a free boson on an interval gives $p=\pi k/L$ for Dirichlet conditions at both ends ($K=-1$), $p=\pi k/L$ with $k\ge0$ for Neumann at both ends ($K=1$), and $p=\pi(k+\frac12)/L$ for mixed conditions. Compare with the mode expansions.
+:::
+
+::: {#exr-ly-excited}
+Using $(x)(\theta+i\pi a/6)\,(x)(\theta-i\pi a/6)=(x+a)(x-a)$ for the blocks of @sec-boundary-lee-yang, show that $K_b(\theta)S(\theta-iv)S(\theta+iv)=K_{b+2}(\theta)$ for $v=(b+1)\pi/6$. Locate the physical-strip poles of $K_{b+2}$ for $-1<b<0$ and explain which of them corresponds to the boundary returning to its ground state.
+:::
+
+::: {#exr-ly-sign}
+Show that if $K$ satisfies the bootstrap of @sec-boundary-lee-yang, then $-K$ does not, and conclude that the overall sign of a reflection factor of a particle that is its own bound state is physical.
+:::
+
+## Notes and references {#sec-boundary-scattering-notes}
+
+The reflection equation goes back to Cherednik [-@cherednik1984] and Sklyanin [-@sklyanin1988]. The S-matrix formulation of integrable boundary theories, with the boundary state, boundary crossing-unitarity and the one-point couplings, is due to Ghoshal and Zamolodchikov [-@gz1994]; Fring and Köberle [-@fring_koberle1994a] independently set up factorized boundary scattering and the boundary bootstrap, and Sasaki [-@sasaki1993] wrote the reflection bootstrap for affine Toda theory. The generalized Coleman–Thun mechanism on the half-line is in Dorey, Tateo and Watts [-@dtw1999] and Mattsson and Dorey [-@mattsson_dorey2000]. The boundary TBA is due to LeClair, Mussardo, Saleur and Skorik [-@lmss1995], its excited-state generalization and the boundary TCSA to Dorey, Pocklington, Tateo and Watts [-@dptw1998], and the exact g-function to Dorey, Fioravanti, Rim and Tateo [-@dfrt2004]; the g-theorem is due to Affleck and Ludwig [-@affleck_ludwig1991].
+
+Corrections to the sources:
+
+- The overall sign of $R_{(1)}$ in [@gz1994, eq. (3.51)] should be $+$, as in [@dptw1998, eq. (2.8)]: with the printed sign the bootstrap (3.50) of [@gz1994] fails, and the value of $g$ in (3.54) of [@gz1994] belongs to the $+$ sign.
+- The index order in the crossing-unitarity relation matters for non-diagonal theories. In the braid conventions of Part VI it is $k=\sum_{a,b}K_{b\bar a}(\frac{i\pi}2-\theta)\,v_a\otimes v_b$, as in (-@eq-boundary-crossing-unitarity); the other order fails.

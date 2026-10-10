@@ -8,14 +8,14 @@ The whole book is also available as a [PDF](affine-toda.pdf).
 
 **Prerequisites.** Quantum field theory at the level of a first graduate course (path integrals, perturbation theory, renormalization, the S-matrix), finite-dimensional Lie algebras at the level of $su(n)$, and complex analysis. Everything else is developed in the text.
 
-**Structure.** Parts I–IV are textbook material: the physical and algebraic background, the classical theory, and the real-coupling quantum theory. Parts V–VII present research results, many of them new: the semiclassics of complex solitons, exact soliton S-matrices, and the foundations of the imaginary-coupling theories as non-unitary quantum field theories. The [introduction](part1-background/01-introduction.qmd) gives a chapter-by-chapter map.
+**Structure.** Parts I–IV are textbook material: the physical and algebraic background, the classical theory, and the real-coupling quantum theory. Parts V, VI and VIII present research results, many of them new: the semiclassics of complex solitons, exact soliton S-matrices, and the foundations of the imaginary-coupling theories as non-unitary quantum field theories. Part VII treats the theories on a half-line, with integrable boundary conditions. The [introduction](part1-background/01-introduction.qmd) gives a chapter-by-chapter map.
 
 **Reading paths.**
 
 - *Physics first:* Parts I, III, IV and VI.
-- *Mathematics first:* Part II, then Part VII.
-- *For specialists:* Parts V–VII, consulting earlier chapters as needed.
+- *Mathematics first:* Part II, then Part VIII; chapters 32–34 for the quantum-group symmetry of boundaries.
+- *For specialists:* Parts V–VIII, consulting earlier chapters as needed.
 
-**Status.** All chapters are drafted. Parts I–IV and the textbook chapters of Parts V–VI are new and have not yet been refereed; the record of what has been checked, and how, is in the repository (`briefs/referee_textbook.md`, `textbook_code/`).
+**Status.** All chapters are drafted. Parts I–IV, the textbook chapters of Parts V–VI and Part VII on the half-line are new; Part VII is the most recent addition; the record of what has been checked, and how, is in the repository (`briefs/referee_textbook.md`, `textbook_code/`).
 
 Supporting code: [textbook_code](https://github.com/gustavdelius/affine_toda/tree/main/textbook_code), [foundations_code](https://github.com/gustavdelius/affine_toda/tree/main/foundations_code) and [soliton_rmatrix_code](https://github.com/gustavdelius/affine_toda/tree/main/soliton_rmatrix_code); see the [guide to the supporting code](appendices/E-code.qmd).

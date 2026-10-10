@@ -1,0 +1,5 @@
+---
+title: "Part VII: Affine Toda theory on the half-line"
+---
+
+Affine Toda theory restricted to a half-line by integrable boundary conditions: the scattering axioms with a boundary, sine-Gordon and sinh-Gordon as the rank-one template, the classification of classically integrable boundary conditions, solitons and their mirror images, the quantum-group symmetry that survives the boundary and the reflection matrices it determines, quantum symmetric pairs, and the exact reflection amplitudes of breathers and particles.

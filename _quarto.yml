@@ -59,14 +59,24 @@ book:
         - part6-soliton-smatrices/25-e6-solitons.qmd
         - part6-soliton-smatrices/26-f4-solitons.qmd
         - part6-soliton-smatrices/27-rsos.qmd
-    - part: part7-foundations/part.qmd
+    - part: part7-half-line/part.qmd
       chapters:
-        - part7-foundations/28-twelve-gaps.qmd
-        - part7-foundations/29-lattice.qmd
-        - part7-foundations/30-continuum-thresholds.qmd
-        - part7-foundations/31-continuum-window.qmd
-        - part7-foundations/32-scattering.qmd
-        - part7-foundations/33-outlook.qmd
+        - part7-half-line/28-boundary-scattering.qmd
+        - part7-half-line/29-boundary-sine-gordon.qmd
+        - part7-half-line/30-boundary-conditions.qmd
+        - part7-half-line/31-half-line-solitons.qmd
+        - part7-half-line/32-boundary-quantum-groups.qmd
+        - part7-half-line/33-soliton-reflection.qmd
+        - part7-half-line/34-quantum-symmetric-pairs.qmd
+        - part7-half-line/35-particle-reflection.qmd
+    - part: part8-foundations/part.qmd
+      chapters:
+        - part8-foundations/36-twelve-gaps.qmd
+        - part8-foundations/37-lattice.qmd
+        - part8-foundations/38-continuum-thresholds.qmd
+        - part8-foundations/39-continuum-window.qmd
+        - part8-foundations/40-scattering.qmd
+        - part8-foundations/41-outlook.qmd
   appendices:
     - appendices/A-algebra-data.qmd
     - appendices/B-zero-mode.qmd

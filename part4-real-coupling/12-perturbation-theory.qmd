@@ -32,7 +32,7 @@ $$
 {:}e^{\beta\vec\alpha\cdot\vec\phi}{:}=e^{\beta\vec\alpha\cdot\vec\phi}\,e^{-\frac{\beta^2}2\langle(\vec\alpha\cdot\vec\phi)^2\rangle},
 $$
 
-which multiplies each term of the potential by a divergent constant that can be absorbed into $m^2$, together with a constant shift of $\vec\phi$ (for $a_n^{(1)}$ the $\mathbb Z_h$ symmetry makes the shift unnecessary). With normal-ordered exponentials no further divergences occur at any order, so the theory is **super-renormalizable**. The finite part of the renormalization of $m$ is a convention, and with it the relation between the parameters $m$, $\beta$ of the Lagrangian and the physical masses. Part VII treats the same normal ordering non-perturbatively, at imaginary coupling, where it is the site-by-site Wick ordering of @sec-wick-ordering-statement.
+which multiplies each term of the potential by a divergent constant that can be absorbed into $m^2$, together with a constant shift of $\vec\phi$ (for $a_n^{(1)}$ the $\mathbb Z_h$ symmetry makes the shift unnecessary). With normal-ordered exponentials no further divergences occur at any order, so the theory is **super-renormalizable**. The finite part of the renormalization of $m$ is a convention, and with it the relation between the parameters $m$, $\beta$ of the Lagrangian and the physical masses. Part VIII treats the same normal ordering non-perturbatively, at imaginary coupling, where it is the site-by-site Wick ordering of @sec-wick-ordering-statement.
 
 ## Amplitudes and the two-dimensional S-matrix {#sec-tree-level}
 

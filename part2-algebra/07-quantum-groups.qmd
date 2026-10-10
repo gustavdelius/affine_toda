@@ -196,7 +196,7 @@ extended antilinearly and anti-multiplicatively is consistent with (-@eq-uqsl2),
 - **Indefinite forms.** On the spin-1 representation, the invariant form has $\langle Fv_0,Fv_0\rangle=\langle v_0,EFv_0\rangle=[2]_q\langle v_0,v_0\rangle$, and $[2]_q=q+q^{-1}=2\cos\gamma$ for $q=e^{i\gamma}$. For $\pi/2<\gamma<\pi$ this is negative: the invariant Hermitian form is indefinite. Higher representations have forms whose signature is governed by the signs of $q$-numbers.
 - **Reversal of tensor factors.** The $*$-operation is not compatible with $\Delta$, but with $\Delta^{\rm op}$: $(*\otimes*)\circ\Delta=\Delta^{\rm op}\circ*$. An invariant Hermitian form on $V\otimes W$ therefore pairs $V\otimes W$ with $W\otimes V$, and to turn it into a form on a single space one needs an intertwiner, that is, an R-matrix.
 
-The second point is why the S-matrices of the imaginary-coupling theories are generally not Hermitian analytic in the soliton basis, and why the question of unitarity depends on the choice of basis [@miramontes1999]. Part VII returns to it (@sec-scattering).
+The second point is why the S-matrices of the imaginary-coupling theories are generally not Hermitian analytic in the soliton basis, and why the question of unitarity depends on the choice of basis [@miramontes1999]. Part VIII returns to it (@sec-scattering).
 
 ## Roots of unity {#sec-roots-of-unity}
 

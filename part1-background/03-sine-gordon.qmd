@@ -26,7 +26,7 @@ $$
 \mathcal L=\tfrac12\partial_\mu\phi\,\partial^\mu\phi-\frac{m_0^2}{\beta_{\rm SG}^2}\big(1-\cos\beta_{\rm SG}\phi\big).
 $$ {#eq-sg-lagrangian}
 
-Here $m_0$ is the mass of the elementary particle, the quantum of small oscillations about $\phi=0$. The dictionary $\beta_{\rm SG}^2=2\beta^2$ is worth remembering: the free-fermion point $\beta_{\rm SG}^2=4\pi$ is $\beta^2=2\pi$, the threshold that recurs in Part VII, and Coleman's bound $\beta_{\rm SG}^2=8\pi$ is $\beta^2=4\pi$.
+Here $m_0$ is the mass of the elementary particle, the quantum of small oscillations about $\phi=0$. The dictionary $\beta_{\rm SG}^2=2\beta^2$ is worth remembering: the free-fermion point $\beta_{\rm SG}^2=4\pi$ is $\beta^2=2\pi$, the threshold that recurs in Part VIII, and Coleman's bound $\beta_{\rm SG}^2=8\pi$ is $\beta^2=4\pi$.
 
 Replacing $\beta_{\rm SG}$ by $i\beta_{\rm SG}$ gives **sinh-Gordon** theory, $V=(m_0^2/\beta_{\rm SG}^2)(\cosh\beta_{\rm SG}\phi-1)$, which is the real-coupling $a_1^{(1)}$ affine Toda theory. It has a unique vacuum and a single particle.
 
@@ -178,7 +178,7 @@ Two remarks:
 
 The operator $\cos\beta_{\rm SG}\phi$ has scaling dimension $\beta_{\rm SG}^2/4\pi$ at the free-boson fixed point. The perturbation is relevant for $\beta_{\rm SG}^2<8\pi$. Beyond this bound, found by Coleman [@coleman1975], the theory flows to a massless free boson and has no mass gap. At $\beta_{\rm SG}^2\to8\pi$ one has $\xi\to\infty$ and $\lambda\to0$.
 
-Below $8\pi$ the ultraviolet divergences are mild but not absent. Normal ordering of $\cos\beta_{\rm SG}\phi$ removes all divergences of the correlation functions for $\beta_{\rm SG}^2<4\pi$ [@frohlich1976]. A neutral cluster of $2k$ charges collapsing to a point diverges for $\beta_{\rm SG}^2\ge8\pi(1-\frac1{2k})$, $k=1,2,\dots$; the first case is a pair, $\int d^2y\,\lvert x-y\rvert^{-\beta_{\rm SG}^2/2\pi}$. In the vacuum energy these divergences require additive counterterms; in correlation functions of $\cos\beta_{\rm SG}\phi$ they also occur when integrated charges collapse onto an inserted one, and are removed by an additive renormalization of that operator. Clusters with nonzero net charge diverge only from $8\pi$ on, so below $8\pi$ finitely many field-independent counterterms suffice [@benfatto1982; @nicolo1986]. In the language of @sec-collapse-thresholds these are the collapse thresholds of a two-dimensional Coulomb gas of positive and negative charges. Part VII proves, for every imaginary-coupling affine Toda theory in finite volume, that normal ordering suffices exactly below the first collapse threshold, and locates the higher thresholds by power counting.
+Below $8\pi$ the ultraviolet divergences are mild but not absent. Normal ordering of $\cos\beta_{\rm SG}\phi$ removes all divergences of the correlation functions for $\beta_{\rm SG}^2<4\pi$ [@frohlich1976]. A neutral cluster of $2k$ charges collapsing to a point diverges for $\beta_{\rm SG}^2\ge8\pi(1-\frac1{2k})$, $k=1,2,\dots$; the first case is a pair, $\int d^2y\,\lvert x-y\rvert^{-\beta_{\rm SG}^2/2\pi}$. In the vacuum energy these divergences require additive counterterms; in correlation functions of $\cos\beta_{\rm SG}\phi$ they also occur when integrated charges collapse onto an inserted one, and are removed by an additive renormalization of that operator. Clusters with nonzero net charge diverge only from $8\pi$ on, so below $8\pi$ finitely many field-independent counterterms suffice [@benfatto1982; @nicolo1986]. In the language of @sec-collapse-thresholds these are the collapse thresholds of a two-dimensional Coulomb gas of positive and negative charges. Part VIII proves, for every imaginary-coupling affine Toda theory in finite volume, that normal ordering suffices exactly below the first collapse threshold, and locates the higher thresholds by power counting.
 
 ## Quantum-group symmetry and RSOS restriction {#sec-sg-quantum-group}
 
@@ -216,7 +216,7 @@ The question of which restrictions of which affine Toda theories are unitary is 
 | topological charges fill the multiplets | some charges of the quantum multiplets have no classical soliton |
 | soliton S-matrix known since 1979 | some soliton S-matrices still unknown (@sec-sm-f4) |
 
-The first three rows are developed in Part III. The remaining rows are what Parts V–VII are about.
+The first three rows are developed in Part III. The remaining rows are what Parts V–VIII are about.
 
 ## Exercises {#sec-sine-gordon-exercises}
 

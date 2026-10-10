@@ -49,7 +49,7 @@ The second follows from the first by $\beta\to i\beta$. For $a_1^{(1)}$ they are
 **Imaginary coupling.** $V_{\rm imag}$ is complex for real $\vec\phi$, but it has three features that the rest of the book exploits.
 
 - **Vacua.** $V_{\rm imag}$ vanishes, together with its gradient, exactly when $e^{i\beta\vec\alpha_j\cdot\vec\phi}=1$ for all $j$, that is on the lattice $\frac{2\pi}\beta\Lambda_W^\vee$, where $\Lambda_W^\vee$ is the coweight lattice (@sec-weights). These are infinitely many degenerate vacua, and finite-energy solutions interpolate between them. These are the solitons.
-- **Positive fugacities.** In the Euclidean path integral, $e^{-S_E}$ contains $\exp\big(\frac{m^2}{\beta^2}\sum_jn_j\int e^{i\beta\vec\alpha_j\cdot\vec\phi}\big)$. Expanding this exponential gives a gas of charges with positive weights $m^2n_j/\beta^2$, the starting point of Part VII.
+- **Positive fugacities.** In the Euclidean path integral, $e^{-S_E}$ contains $\exp\big(\frac{m^2}{\beta^2}\sum_jn_j\int e^{i\beta\vec\alpha_j\cdot\vec\phi}\big)$. Expanding this exponential gives a gas of charges with positive weights $m^2n_j/\beta^2$, the starting point of Part VIII.
 - **An antilinear symmetry.** For real $\vec\phi$, $\overline{V_{\rm imag}(\vec\phi)}=V_{\rm imag}(-\vec\phi)$. So the combination $\Theta$ of field parity $\vec\phi\mapsto-\vec\phi$ with complex conjugation is a symmetry. It plays the role of $PT$ symmetry (@sec-antilinear), and @sec-classical shows what it implies classically.
 
 ## The Lax pair {#sec-lax-pair}

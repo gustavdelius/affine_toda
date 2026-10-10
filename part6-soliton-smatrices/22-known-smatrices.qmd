@@ -102,7 +102,7 @@ The main results are:
 5. **$f_4^{(1)}$.** The $U_q(e_6^{(2)})$ R-matrix on $\mathbf{27}=\mathbf{26}\oplus\mathbf 1$ and a soliton amplitude that satisfies every axiom, but which one-loop perturbation theory rules out (@sec-sm-f4).
 6. **Check.** The same method independently reproduces Takács's $d_4^{(3)}$ and $g_2^{(1)}$ results (@sec-sm-checks).
 
-Two chapters of Part V and Part VII bear on these results. @sec-resolution-semiclassical-mass-disagreements resolves the one-loop disagreement for $c_n^{(1)}$ soliton masses between Delius–Grisaru [@delius_grisaru1995] and MacKay–Watts [@mackay_watts1995]. It traces the disagreement to a Jordan block in the fluctuation operator, and finds the Delius–Grisaru value correct. Our exact $c_3^{(1)}$ masses reproduce that value. @sec-lattice establishes the existence and Krein-space structure of the lattice theory, the setting in which a non-Hermitian S-matrix of this kind is meaningful.
+Two chapters of Part V and Part VIII bear on these results. @sec-resolution-semiclassical-mass-disagreements resolves the one-loop disagreement for $c_n^{(1)}$ soliton masses between Delius–Grisaru [@delius_grisaru1995] and MacKay–Watts [@mackay_watts1995]. It traces the disagreement to a Jordan block in the fluctuation operator, and finds the Delius–Grisaru value correct. Our exact $c_3^{(1)}$ masses reproduce that value. @sec-lattice establishes the existence and Krein-space structure of the lattice theory, the setting in which a non-Hermitian S-matrix of this kind is meaningful.
 
 ## Exercises {#sec-known-smatrices-exercises}
 

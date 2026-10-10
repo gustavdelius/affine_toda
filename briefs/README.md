@@ -1,14 +1,18 @@
 # Agent briefs
 
-Self-contained task briefs for follow-up work on the book. The first two were written when the book had two parts; their "Part I" is now Parts V and VII and their "Part II" is Part VI, and the files they name under `foundations/` and `smatrices/` have moved (use the id table below). Each brief can be given verbatim as the prompt of a background agent, or pasted into a fresh Claude Code session started in this repository.
+Self-contained task briefs for follow-up work on the book. On 2026-10-10 a new Part VII (the half-line, chapters 28–35, `part7-half-line/`) was inserted, and the Foundations part became Part VIII with chapters 36–41 (`part8-foundations/`, formerly `part7-foundations/28–33`); dated reports keep the numbering they were written with. The first two were written when the book had two parts; their "Part I" is now Parts V and VIII and their "Part II" is Part VI, and the files they name under `foundations/` and `smatrices/` have moved (use the id table below). Each brief can be given verbatim as the prompt of a background agent, or pasted into a fresh Claude Code session started in this repository.
 
 | Brief | Task | Paper location |
 |---|---|---|
 | `exchange_statistics.md` | Decide which exchange of soliton labels the Bethe–Yang equations require, and hence which multi-soliton sectors are $\Theta$-broken. **Answered 2026-10-10:** a graded exchange is a Bloch twist, and the global form selects the twists; integrated as Propositions `prp-exchange-twist` and `prp-bloch-sectors` (scripts in `foundations_code/sectors/bloch/`). Refereed on 2026-10-10 (below); the fixes are in PR #2, merged. | Section `sec-sector-status` (paragraph "Exchange statistics and Bloch sectors"), open problem 6 (see below) |
 | `referee_exchange_statistics.md` | Adversarial referee pass on the answer to `exchange_statistics.md`: the proofs of `prp-exchange-twist` and `prp-bloch-sectors`, the scope claim "in every global form", the numerics in `foundations_code/sectors/bloch/`, and prior art. **Run 2026-10-10** (items 1–5, partly 6); its findings are integrated in PR #2 | Section `sec-sector-status`, open problem 6, `sec-crossing-sign` |
-| `referee_exchange_statistics_report.md` | Report of the referee pass on PR #2 (2026-10-10), with the integration notes and the open items; scripts in `referee_exchange_statistics_scripts/`. Not a brief | `part7-foundations/32-scattering.qmd`, `foundations_code/sectors/bloch/` |
+| `referee_exchange_statistics_report.md` | Report of the referee pass on PR #2 (2026-10-10), with the integration notes and the open items; scripts in `referee_exchange_statistics_scripts/`. Not a brief | `part8-foundations/40-scattering.qmd`, `foundations_code/sectors/bloch/` |
 | `referee_textbook.md` | Referee the textbook chapters 1–16 and 20, and the textbook framing of 17–27: what was verified, and a prioritized list of unverified formulas, conventions, claims and references | `part1-background/`, `part2-algebra/`, `part3-classical/`, `part4-real-coupling/`, `part5-semiclassics/`, `part6-soliton-smatrices/`, `textbook_code/` |
 | `referee_textbook_report.md` | Report of the referee pass of 2026-10-10 on `referee_textbook.md`: a verdict per item, with replacement text for each error; scripts in `referee_textbook_scripts/`. Not a brief: it records findings to be integrated. Item 2 (the sign of $q$, crossing sign) was integrated on 2026-10-10, with the dependent results recomputed at the physical $q$; the other items on branch `textbook-referee-fixes`, except those listed at the top of the report | all parts, `references.bib` |
+| `referee_half_line_28_29.md` | Referee chapters 28–29 of Part VII: scattering axioms with a boundary, boundary Lee–Yang, boundary sine-Gordon and sinh-Gordon; the corrections to Ghoshal–Zamolodchikov, the status of the UV–IR and $E(\varepsilon,\beta)$ relations, the unreproduced BPTT factor | `part7-half-line/28-boundary-scattering.qmd`, `29-boundary-sine-gordon.qmd`, `textbook_code/boundary_axioms.py`, `boundary_sine_gordon.py`, `shg_boundary_breathers.py` |
+| `referee_half_line_30_31.md` | Referee chapters 30–31 of Part VII: the boundary convention, Sklyanin's formalism, the classification table (corrected $g_2$, $c_2$ rows), the soliton-preserving condition, the method of images, boundary breathers and real-coupling vacua; corrections to Bowcock et al. and Delius 1998 | `part7-half-line/30-boundary-conditions.qmd`, `31-half-line-solitons.qmd`, `textbook_code/boundary_classical.py`, `boundary_images.py`, `boundary_vacua.py` |
+| `referee_half_line_32_33.md` | Referee chapters 32–33 of Part VII: the boundary coideal, $K$ as intertwiner, the Neumann/uniform identification that overturns Delius–MacKay, the $a_n$ and $d_n$ reflection matrices, XXZ of any spin; corrections to Delius–MacKay, Delius–Nepomechie, Delius–Gandenberger and Delius–George | `part7-half-line/32-boundary-quantum-groups.qmd`, `33-soliton-reflection.qmd`, `textbook_code/boundary_coideal.py`, `reflection_matrices.py` |
+| `referee_half_line_35.md` | Referee chapter 35 of Part VII: breather and particle reflection amplitudes of $a_n$ (uniform, Neumann, solitonic boundaries), the $a_2$ boundary spectrum, the corrected Delius–Gandenberger (6.11) and (6.26), the $n=1$ discrepancy, and the open problems of the part | `part7-half-line/35-particle-reflection.qmd`, `textbook_code/particle_reflection.py` |
 | `rigorous_heat_trace.md` | Turn Proposition `prp-net-count` part 2 and Proposition `prp-one-loop-mass` from sketches into theorems. Done 2026-10-10: proofs integrated (PR #3) and refereed (below) | Sections `sec-counting-rule-transmission-factors` and `sec-one-loop-masses-folded`, open problem 3 (see below) |
 | `referee_heat_trace.md` | Adversarial referee of those proofs (`eq-one-loop-mellin`, `prp-net-count` parts 2–3, `lem-born`, `prp-one-loop-mass`) before their [Theorem] labels are kept. Done 2026-10-10: no fatal errors; all [Theorem] labels kept after fixes made in place (proof details, applicability and status statements, the Mellin-form gap stated in Chapter 17, prior art credited), plus the independent $\phi^4$ check `phi4_check.py` | Chapters 17–19, `foundations_code/oneloop/heat_trace_checks.py` |
 
@@ -30,8 +34,8 @@ The papers are chapters of a Quarto book, and Quarto renumbers sections and theo
 | `sec-counting-rule-transmission-factors` | `part5-semiclassics/18-jordan-chains.qmd` | 8.5 | 8.5 |
 | `sec-hirota-form-dn1-en1` | `part5-semiclassics/18-jordan-chains.qmd` | 8.8 | 8.8 |
 | `sec-one-loop-masses-folded` | `part5-semiclassics/19-one-loop-masses.qmd` | 8.9 | 8.9 |
-| `sec-krein-unitarity` | `part7-foundations/32-scattering.qmd` | 9.2 | 9.2 |
-| `sec-sector-status` | `part7-foundations/32-scattering.qmd` | 9.3 | 9.3 |
+| `sec-krein-unitarity` | `part8-foundations/40-scattering.qmd` | 9.2 | 9.2 |
+| `sec-sector-status` | `part8-foundations/40-scattering.qmd` | 9.3 | 9.3 |
 | `prp-net-count` | `part5-semiclassics/18-jordan-chains.qmd` | Proposition 8.3 | Proposition 8.5 |
 | `lem-wronskian` | `part5-semiclassics/18-jordan-chains.qmd` | Lemma 8.1 | Lemma 8.4 |
 | `thm-hirota-factorization` | `part5-semiclassics/18-jordan-chains.qmd` | Theorem 8.2 | Theorem G |
@@ -42,16 +46,16 @@ The papers are chapters of a Quarto book, and Quarto renumbers sections and theo
 | `eq-one-loop-mass` | `part5-semiclassics/17-thimbles.qmd` | (8.1) | (8.1) |
 | `eq-net-factorization` | `part5-semiclassics/18-jordan-chains.qmd` | (8.2) | (F) |
 | `eq-one-loop-mellin` | `part5-semiclassics/17-thimbles.qmd` | new (2026-10-10) | — |
-| `prp-krein-unitarity` | `part7-foundations/32-scattering.qmd` | Proposition 9.1 | Proposition 9.1 |
-| `prp-krein-fundamental` | `part7-foundations/32-scattering.qmd` | Proposition 9.3 | Proposition 9.3 |
-| `prp-scalar-breathers` | `part7-foundations/32-scattering.qmd` | Proposition 9.4 | Proposition 9.4 |
-| `prp-exchange-twist` | `part7-foundations/32-scattering.qmd` | (new, 2026-10-10) | — |
-| `prp-bloch-sectors` | `part7-foundations/32-scattering.qmd` | (new, 2026-10-10) | — |
+| `prp-krein-unitarity` | `part8-foundations/40-scattering.qmd` | Proposition 9.1 | Proposition 9.1 |
+| `prp-krein-fundamental` | `part8-foundations/40-scattering.qmd` | Proposition 9.3 | Proposition 9.3 |
+| `prp-scalar-breathers` | `part8-foundations/40-scattering.qmd` | Proposition 9.4 | Proposition 9.4 |
+| `prp-exchange-twist` | `part8-foundations/40-scattering.qmd` | (new, 2026-10-10) | — |
+| `prp-bloch-sectors` | `part8-foundations/40-scattering.qmd` | (new, 2026-10-10) | — |
 | `sec-crossing-sign` | `part6-soliton-smatrices/21-construction.qmd` | 14.6 | Section 2.6 of the S-matrix note |
 
 The numbers in the third column may drift as chapters change; the ids will not.
 
 Open problems are items of numbered lists, not labelled objects. Use the first words of the item:
 
-- Former Part I open problems, now in `part7-foundations/33-outlook.qmd`: item 3 is the one that begins with a reference to `cnj-counting-rule` ("… in general"); item 6 is "The sector classification for self-conjugate theories" (its former sub-item "Exchange statistics" is now "Bloch sectors").
+- Former Part I open problems, now in `part8-foundations/41-outlook.qmd`: item 3 is the one that begins with a reference to `cnj-counting-rule` ("… in general"); item 6 is "The sector classification for self-conjugate theories" (its former sub-item "Exchange statistics" is now "Bloch sectors").
 - Former Part II open problems, now in `part6-soliton-smatrices/26-f4-solitons.qmd` (section `sec-sm-discussion`): item 4 is "Crossing convention".
