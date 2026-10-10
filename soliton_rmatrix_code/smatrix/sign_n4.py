@@ -1,6 +1,6 @@
 import numpy as np, itertools, time
 from rsolve import intertwiner
-n4 = 4; omega = 2.37; q = np.exp(-1j*np.pi*omega); D = 16
+n4 = 4; omega = 2.37; q = float(__import__("os").environ.get("QSIGN", "1"))*np.exp(-1j*np.pi*omega); D = 16
 sp, sm, I2 = np.array([[0,1],[0,0]],complex), np.array([[0,0],[1,0]],complex), np.eye(2)
 def site(op, i):
     mats = [I2]*n4; mats[i] = op; out = mats[0]

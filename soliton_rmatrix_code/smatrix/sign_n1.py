@@ -1,6 +1,6 @@
 import numpy as np
 from rsolve import intertwiner
-omega = 2.37; q = np.exp(-1j*np.pi*omega); D = 2
+omega = 2.37; q = float(__import__("os").environ.get("QSIGN", "1"))*np.exp(-1j*np.pi*omega); D = 2
 sp, sm = np.array([[0,1],[0,0]],complex), np.array([[0,0],[1,0]],complex)
 W1 = np.array([[0.5], [-0.5]])
 def rep(x):   # nodes 0 and 1, both short (q_i = q): U_q(a_1^(1)) doublet = sine-Gordon soliton multiplet

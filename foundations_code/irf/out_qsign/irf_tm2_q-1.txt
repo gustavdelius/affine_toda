@@ -1,0 +1,6 @@
+W3(10,13) r=3 lam=0.300 breathers=no: 3b[84]: off 6e-01 pairing 3e-14; 333[147]: off 2e-01 pairing 2e-13; 3b3b[336]: off 9e-01 pairing 7e-12
+W3(9,11) r=2 lam=0.222 breathers=no: 3b[63]: off 8e-15 pairing 2e-14; 333[108]: off 1e-14 pairing 2e-14; 3b3b[243]: off 2e-14 pairing 5e-14
+W3(11,13) r=2 lam=0.182 breathers=no: 3b[108]: off 8e-15 pairing 2e-14; 333[192]: off 1e-14 pairing 2e-14
+W3(11,14) r=3 lam=0.273 breathers=no: 3b[108]: off 5e-01 pairing 3e-14; 333[192]: off 2e-01 pairing 2e-13
+W3(8,11) r=3 lam=0.375 breathers=yes: 3b[45]: off 8e-01 pairing 3e-14; 333[75]: off 1e-01 pairing 4e-14; 3b3b[165]: off 1e+00 pairing 1e-12
+W3(13,17) r=4 lam=0.308 breathers=no: 3b[165]: off 6e-01 pairing 1e-13; 333[300]: off 3e-01 pairing 3e-13

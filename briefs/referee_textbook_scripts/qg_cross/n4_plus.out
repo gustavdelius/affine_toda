@@ -1,0 +1,5 @@
+sign of q: 1
+n=4 closed form check 1.7e-13  [1233s]
+n=4 crossing point x(i pi) = -q^-8
+n=4: universal-crossing residual 1.4e-12;  [c(T-t)/c(t)] / c_u(1/x) = +1.000000-0.000000i
+n=4: universal-crossing residual 9.3e-13;  [c(T-t)/c(t)] / c_u(1/x) = +1.000000-0.000000i

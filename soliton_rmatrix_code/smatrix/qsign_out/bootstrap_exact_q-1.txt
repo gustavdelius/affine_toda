@@ -1,0 +1,25 @@
+
+breather-soliton amplitudes S[B^a, b] = sign x prod (y), y in t-units (w = omega):
+  S[B1,1] = + (-5/2w-5/4) (-1/2w+1/4) (3/2w+1/4) (3/2w+3/4)  [matches direct numerics]
+  S[B1,2] = + (1/2) (w+1/2) (2w+1/2) (3w+1/2)  [matches direct numerics]
+  S[B1,3] = - (1/2w+1/2) (5/2w+1/2)
+  S[B2,1] = + (1/2) (w+1/2) (2w+1/2) (3w+1/2)  [matches direct numerics]
+  S[B2,2] = + (-5/2w-5/4) (-1/2w+1/4) (1/2w+1/4) (1/2w+3/4) (3/2w+1/4) (3/2w+3/4) (5/2w+1/4) (5/2w+3/4)
+  S[B2,3] = + (1/4) (w+3/4) (2w+1/4) (3w+3/4)
+  S[B3,1] = + (1/2w+1/4) (1/2w+3/4) (5/2w+1/4) (5/2w+3/4)  [matches direct numerics]
+  S[B3,2] = - (1/2) (w+1/2) (w+1) (2w) (2w+1/2) (3w+1/2)  [matches direct numerics]
+  S[B3,3] = - (-5/2w-1) (-1/2w) (1/2w+1/2) (3/2w) (3/2w+1) (5/2w+1/2)
+
+breather-breather amplitudes (lowest breathers = particles; masses m1=0.20409, m2=0.34673, m3=0.38496):
+  S[B1,B1] = - (-2w) (-w-1) (1/2) (w+1/2) (2w+1/2) (3w+1/2)
+        two fusion routes agree: True;  physical-strip poles: 1/2->B(1)_1, w+1/2->B(2)_0.5, 2w+1/2->0.2154, 3w+1/2->0.0395
+  S[B1,B2] = + (-5/2w-5/4) (-3/2w-5/4) (-3/2w+1/4) (-1/2w+1/4) (1/2w+1/4) (3/2w+1/4) (3/2w+3/4) (5/2w+3/4)
+        two fusion routes agree: True;  physical-strip poles: 1/2w+1/4->0.5311, 3/2w+1/4->0.419, 3/2w+3/4->B(3)_1, 5/2w+3/4->B(1)_0.5
+  S[B1,B3] = + (-2w-3/2) (-w+1/2) (w+1/2) (2w+1/2)
+        two fusion routes agree: True;  physical-strip poles: w+1/2->0.5094, 2w+1/2->B(2)_0.5
+  S[B2,B2] = - (-2w-3/2) (-2w) (-w-1) (-w+1/2) (1/2) (w+1/2) (w+1/2) (2w+1/2) (2w+1/2) (3w+1/2)
+        two fusion routes agree: True;  physical-strip poles: 1/2->B(2)_1, w+1/2->0.589, w+1/2->0.589, 2w+1/2->0.3659, 2w+1/2->0.3659, 3w+1/2->0.0671
+  S[B2,B3] = + (-5/2w-7/4) (-3/2w-5/4) (-3/2w+1/4) (-1/2w+3/4) (1/2w+1/4) (3/2w+1/4) (3/2w+3/4) (5/2w+3/4)
+        two fusion routes agree: True;  physical-strip poles: 1/2w+1/4->0.7037, 3/2w+1/4->0.5424, 3/2w+3/4->0.4925, 5/2w+3/4->B(1)_0.5
+  S[B3,B3] = - (-2w-3/2) (-2w) (-w-1) (-w+1/2) (1) (w) (w+1/2) (2w+1/2) (2w+1) (3w)
+        two fusion routes agree: True;  physical-strip poles: 1->B(3)_2, w->B(2)_1, w+1/2->0.654, 2w+1/2->B(1)_1, 2w+1->0.3411, 3w->0.1482

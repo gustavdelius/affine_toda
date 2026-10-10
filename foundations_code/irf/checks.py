@@ -1,4 +1,5 @@
 """Consolidated checks for the A_2^(1) RSOS (IRF) soliton S-matrix in the symmetric gauge."""
+import qsign_patch
 from irf_a2 import *
 import itertools, sys
 from math import gcd
@@ -63,14 +64,14 @@ if which == 'tm':
 if which == 'vertex':
     from krein_bethe import R, embed
     for (p, pp) in [(4, 5), (6, 7), (7, 9), (5, 7)]:
-        lam = (pp-p)/p; q = np.exp(1j*np.pi*lam); worst = 0
+        lam = (pp-p)/p; q = qsign_patch.QS*np.exp(1j*np.pi*lam); worst = 0
         for t in range(20):
             th = rng.normal(size=3)*1.5; x = np.exp(1.5*lam*th)
             Tm = np.eye(27, dtype=complex)
             for j in (1, 2): Tm = embed(R(3, x[0]/x[j], q), 0, j, 3, 3) @ Tm
             ids = [np.ravel_multi_index(c, [3]*3) for c in itertools.permutations(range(3))]
             ev = np.linalg.eigvals(Tm[np.ix_(ids, ids)]); worst = max(worst, np.abs(np.abs(ev)-1).max())
-        print(f"vertex U_q(sl3^), q=e^(i pi lam), lam={lam:.3f} [W3({p},{pp}) coupling]: 3 solitons, all-colour sector max||s|-1| = {worst:.3f}", flush=True)
+        print(f"vertex U_q(sl3^), q={'-' if qsign_patch.QS < 0 else ''}e^(i pi lam), lam={lam:.3f} [W3({p},{pp}) coupling]: 3 solitons, all-colour sector max||s|-1| = {worst:.3f}", flush=True)
 
 if which == 'signs':
     bad = []

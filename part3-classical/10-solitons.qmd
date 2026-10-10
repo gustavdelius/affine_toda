@@ -24,7 +24,7 @@ with each $\tau_j$ a finite sum of products of exponentials of linear functions 
 - in the simply-laced and twisted cases, to the particle masses of the same theory;
 - in the untwisted non-simply-laced cases, to those of the theory based on $(g^\vee)^{(1)}$ ("Lie duality").
 
-The quantum theory has a non-local $U_q(\hat g^\vee)$ symmetry with $q=\pm e^{4\pi^2i/\beta^2}$ [@bernard1991; @felder1992]. Soliton S-matrices are therefore proportional to $U_q(\hat g^\vee)$ R-matrices.
+The quantum theory has a non-local $U_q(\hat g^\vee)$ symmetry with $q=e^{4\pi^2i/\beta^2}$ for the coproduct of @sec-quantum-groups, and $q^{-1}$ for the opposite one used in Part VI (-@eq-q-physical) [@bernard1991; @felder1992]. Soliton S-matrices are therefore proportional to $U_q(\hat g^\vee)$ R-matrices.
 
 The rest of this chapter derives these statements, mostly for $a_n^{(1)}$, where everything is explicit.
 

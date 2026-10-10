@@ -1,3 +1,4 @@
+QS = float(__import__("os").environ.get("QSIGN", "1"))   # QSIGN=-1: the physical q = -e^{-i pi omega}
 import numpy as np, sys
 from lib import apply_pair, krein_err
 sys.argv = ['x', '2', 'c']
@@ -18,7 +19,7 @@ def transfer_graded(Rpl, ls):
         T = op(T)
     return T
 for om in (2.37, 1.61, 0.3):
-    q = np.exp(-1j*np.pi*om); Pk = setup(q); Rpl = lambda x: Pg @ Rmat(x, q, Pk)
+    q = QS*np.exp(-1j*np.pi*om); Pk = setup(q); Rpl = lambda x: Pg @ Rmat(x, q, Pk)
     rng = np.random.default_rng(5)
     for Nn in (2, 3, 4):
         w = 0; kr = 0
