@@ -38,7 +38,7 @@ where, for untwisted $\hat g$, $m^\vee$ are the one-loop particle masses of the 
 Part 1 is a theorem given the degree bound (D) of @sec-hirota-form-dn1-en1 (@prp-hirota-form, which covers single solitons and coincident orbits). (D) is verified for $d_n^{(1)}$ with $n\le8$, for all $e_n^{(1)}$, and for the 19 foldings listed there. Evidence for part 2:
 
 - In every family tested, the counting rule makes all one-loop soliton mass ratios follow one floating Coxeter number, and counting each multiple zero once breaks this (@sec-one-loop-masses-folded). The families are $b_n^{(1)}$ ($n\le7$), $c_n^{(1)}$ ($n\le6$), $g_2^{(1)}$, $f_4^{(1)}$, $a_{2n-1}^{(2)}$ ($n\le4$), $d_{n+1}^{(2)}$ ($n\le6$), $a_{2n}^{(2)}$ ($n\le3$), $d_4^{(3)}$ and $e_6^{(2)}$.
-- The resulting floating Coxeter numbers agree at $O(\beta^2)$ with every known result: the exact $b_n^{(1)}$ [@gmw1996], $g_2^{(1)}$ [@takacs1997d], $d_4^{(3)}$ [@takacs1997c], $d_{n+1}^{(2)}$ [@gm1995] and $a_{2n}^{(2)}$ [@gandenberger1998] masses; Part VI's $c_n^{(1)}$ (complete for $n=3$), $a_{2n-1}^{(2)}$ and $e_6^{(2)}$ amplitudes; and the one-loop $c_n^{(1)}$ result of [@delius_grisaru1995].
+- The resulting floating Coxeter numbers agree at $O(\beta^2)$ with every known result: the exact $b_n^{(1)}$ [@gmw1996], $g_2^{(1)}$ [@takacs1997b], $d_4^{(3)}$ [@takacs1997c], $d_{n+1}^{(2)}$ [@gm1995] and $a_{2n}^{(2)}$ [@gandenberger1998] masses; Part VI's $c_n^{(1)}$ (complete for $n=3$), $a_{2n-1}^{(2)}$ and $e_6^{(2)}$ amplitudes; and the one-loop $c_n^{(1)}$ result of [@delius_grisaru1995].
 - The $c_n^{(1)}$ blocks were constructed explicitly as Jordan chains (@prp-cn-threshold-blocks), and the lattice evaluation of (-@eq-one-loop-mass) agrees with the algebraic-multiplicity count.
 - For $b_3^{(1)}$ and $g_2^{(1)}$ the spectrum and heat trace on a Fourier grid confirm clusters of algebraic multiplicity 4 at $\lambda=\tfrac32$, and @prp-net-count part 2, to $10^{-5}$.
 
@@ -80,7 +80,7 @@ $\psi$ is continuous at $w=0$, so a zero that crosses a threshold causes no jump
 |---|---|---|---|---|---|
 | $c_n^{(1)}$, $n\le6$ | $a_{2n-1}^{(1)}$ | double, at a threshold | $-1/4\pi$ | inconsistent between ratios | $-1/4\pi$: Part VI (complete for $n=3$, conjectured for general $n$); the one-loop result of [@delius_grisaru1995] agrees |
 | $b_n^{(1)}$, $n\le7$ | $d_{n+1}^{(1)}$ | double: isolated, embedded or at a threshold | $+1/4\pi$ | spinor ratio $-(n-1)/4\pi$, as tabulated in [@mackay_watts1995] | $+1/4\pi$, exact [@gmw1996] |
-| $g_2^{(1)}$ | $d_4^{(1)}$ | triple plus simple, isolated | $+1/2\pi$ | $-1/\pi$, as tabulated in [@mackay_watts1995] | $+1/2\pi$, exact [@takacs1997d] |
+| $g_2^{(1)}$ | $d_4^{(1)}$ | triple plus simple, isolated | $+1/2\pi$ | $-1/\pi$, as tabulated in [@mackay_watts1995] | $+1/2\pi$, exact [@takacs1997b] |
 | $f_4^{(1)}$ | $e_6^{(1)}$ | double: isolated, embedded or at a threshold | $+3/4\pi$ | inconsistent between ratios | open |
 | $a_{2n-1}^{(2)}$, $n\le4$ | $d_{2n}^{(1)}$ | none | $-1/8\pi$ | same | Part VI; lattice (@sec-a2n-lattice) |
 | $d_{n+1}^{(2)}$, $n\le6$ | $d_{n+2}^{(1)}$ | none | $+1/2\pi$ | same | exact [@gm1995] |
@@ -122,4 +122,4 @@ Using the $g_2^{(1)}$ numbers quoted in this chapter, check that $H_s-h=-(H_b-h)
 
 ## Notes and references {#sec-one-loop-masses-notes}
 
-The competing one-loop computations are MacKay and Watts [-@mackay_watts1995] and Delius and Grisaru [-@delius_grisaru1995] for $c_n^{(1)}$, and the exact $b_n^{(1)}$ masses are in Gandenberger, MacKay and Watts [-@gmw1996], with the open discrepancy noted in [@gm1997]. The exact masses used for comparison are those of [@gm1995; @gandenberger1998; @takacs1997c; @takacs1997d]. The resolution by algebraic multiplicity, the transmission-factor formula and the $f_4^{(1)}$ prediction are new here. Scripts: `foundations_code/oneloop/`.
+The competing one-loop computations are MacKay and Watts [-@mackay_watts1995] and Delius and Grisaru [-@delius_grisaru1995] for $c_n^{(1)}$, and the exact $b_n^{(1)}$ masses are in Gandenberger, MacKay and Watts [-@gmw1996], with the open discrepancy noted in [@gm1997]. The exact masses used for comparison are those of [@gm1995; @gandenberger1998; @takacs1997c; @takacs1997b]. The resolution by algebraic multiplicity, the transmission-factor formula and the $f_4^{(1)}$ prediction are new here. Scripts: `foundations_code/oneloop/`.

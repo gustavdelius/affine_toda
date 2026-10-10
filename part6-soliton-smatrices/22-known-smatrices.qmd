@@ -48,7 +48,7 @@ Miramontes [-@miramontes1999] identified the missing condition. Braiding unitari
 
 ## Check on known cases: $d_4^{(3)}$ and $g_2^{(1)}$ {#sec-sm-checks}
 
-Takács constructed the $d_4^{(3)}$ soliton S-matrix from $U_q(g_2^{(1)})$ [@takacs1997c] and the $g_2^{(1)}$ soliton S-matrix from the 8-dimensional $U_q(d_4^{(3)})$ R-matrix [@takacs1997d]. He found consistency with the real-coupling particle S-matrices through breather–particle correspondence. Applied blind, our method reproduces this, which tests the zero-fixing principle on a pair where the answer is known.
+Takács constructed the $d_4^{(3)}$ soliton S-matrix from $U_q(g_2^{(1)})$ [@takacs1997c] and the $g_2^{(1)}$ soliton S-matrix from the 8-dimensional $U_q(d_4^{(3)})$ R-matrix [@takacs1997b]. He found consistency with the real-coupling particle S-matrices through breather–particle correspondence. Applied blind, our method reproduces this, which tests the zero-fixing principle on a pair where the answer is known.
 
 ### $d_4^{(3)}$ solitons {#sec-d43-solitons}
 
@@ -86,7 +86,7 @@ For $c_3^{(1)}$ we give all six soliton–soliton amplitudes and the lowest-brea
 
 Affine Toda field theory with imaginary coupling has topologically charged solitons with real masses [@hollowood1992]. For a Kac–Moody algebra $\hat{\mathfrak g}$, the theory carries non-local charges that generate the quantum affine algebra $U_q(\hat{\mathfrak g}^\vee)$ of the dual algebra. Solitons therefore come in finite-dimensional $U_q(\hat{\mathfrak g}^\vee)$ multiplets, and their S-matrix is an R-matrix of $U_q(\hat{\mathfrak g}^\vee)$ multiplied by a scalar factor [@bernard1991; @delius1995].
 
-This programme has been carried out for $a_n^{(1)}$ [@hollowood1992], $d_{n+1}^{(2)}$ [@gm1995], $b_n^{(1)}$ [@gmw1996], and for the pair $d_4^{(3)}$, $g_2^{(1)}$ [@takacs1997c; @takacs1997d]. It had not been done for $c_n^{(1)}$, $a_{2n-1}^{(2)}$, $f_4^{(1)}$ and $e_6^{(2)}$. Two obstacles stood in the way.
+This programme has been carried out for $a_n^{(1)}$ [@hollowood1992], $d_{n+1}^{(2)}$ [@gm1995], $b_n^{(1)}$ [@gmw1996], and for the pair $d_4^{(3)}$, $g_2^{(1)}$ [@takacs1997c; @takacs1997b]. It had not been done for $c_n^{(1)}$, $a_{2n-1}^{(2)}$, $f_4^{(1)}$ and $e_6^{(2)}$. Two obstacles stood in the way.
 
 - **Multiplicities.** The tensor-product-graph method [@dgz1994] needs multiplicity-free tensor products, and the relevant products fail this for $c_n^{(1)}$ with $n\ge3$.
 - **Unusual representations.** The twisted and exceptional algebras need representations that had to be built from scratch.
@@ -120,4 +120,4 @@ For Takács's $g_2^{(1)}$ amplitude, the solitons have $H_s=6+2/\omega$ and the 
 
 ## Notes and references {#sec-known-smatrices-notes}
 
-The soliton S-matrices of the table are due to Hollowood [@hollowood1993b] and Gandenberger [@gandenberger1995] for $a_n^{(1)}$, Smirnov [@smirnov1991] and Efthimiou [@efthimiou1993] for $a_2^{(2)}$, Gandenberger [@gandenberger1998] for $a_{2n}^{(2)}$, Gandenberger and MacKay [@gm1995] and Delius [@delius1995] for $d_{n+1}^{(2)}$, Gandenberger, MacKay and Watts [@gmw1996] for $b_n^{(1)}$, Takács [@takacs1997c; @takacs1997d] for $g_2^{(1)}$ and $d_4^{(3)}$, and Johnson [@johnson1997] for $d_n^{(1)}$ and $e_n^{(1)}$. The non-unitarity results are Takács and Watts [-@tw1999; -@tw2002].
+The soliton S-matrices of the table are due to Hollowood [@hollowood1993b] and Gandenberger [@gandenberger1995] for $a_n^{(1)}$, Smirnov [@smirnov1991] and Efthimiou [@efthimiou1993] for $a_2^{(2)}$, Gandenberger [@gandenberger1998] for $a_{2n}^{(2)}$, Gandenberger and MacKay [@gm1995] and Delius [@delius1995] for $d_{n+1}^{(2)}$, Gandenberger, MacKay and Watts [@gmw1996] for $b_n^{(1)}$, Takács [@takacs1997c; @takacs1997b] for $g_2^{(1)}$ and $d_4^{(3)}$, and Johnson [@johnson1997] for $d_n^{(1)}$ and $e_n^{(1)}$. The non-unitarity results are Takács and Watts [-@tw1999; -@tw2002].
