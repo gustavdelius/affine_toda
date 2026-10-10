@@ -85,7 +85,7 @@ The exponent is minus a positive-semidefinite quadratic form (the covariance $C\
 
 This is the multi-component analogue of the well-known equivalence of sine-Gordon theory with the two-component Coulomb gas. Here, however, it holds without any reality of the potential. It closes H2.
 
-The sign of $V$ in (-@eq-imaginary-potential) is essential: the opposite sign gives fugacities of alternating sign. @sec-app-zero-mode shows that this sign choice decides whether the partition function is positive.
+The sign of $V$ in (-@eq-imaginary-potential) is essential: the opposite sign gives fugacities of alternating sign. @sec-solvable-check shows that this sign choice decides whether the partition function is positive.
 
 ## Hamiltonian structure: a Krein space {#sec-hamiltonian-structure-krein-space}
 
@@ -159,7 +159,7 @@ $$
 H=\tfrac12\lvert\vec p\rvert^2-g\sum_jn_je^{i\vec\alpha_j\cdot\vec x},\qquad \vec p\in\text{root lattice},\quad g>0.
 $$
 
-This $H$ has the same $\Theta$-symmetry, and its partition function has the same positive Coulomb-gas expansion. Diagonalizing in a momentum basis (cutoff $P=16$, converged) gives:
+Here $\vec x\in\mathbb R^r/(2\pi\Lambda^\vee)$. For $a_2$ the roots have squared length 4, and for $c_2$ the long roots do. This $H$ has the same $\Theta$-symmetry, and its partition function has the same positive Coulomb-gas expansion. Diagonalizing in the plane-wave basis $\vec p=\sum_ic_i\vec\alpha_i$ with $\lvert c_i\rvert\le P$ gives the following at $P=16$. The levels shown do not change for $P$ from 8 to 20.
 
 | algebra | $g$ | lowest level | complex levels among the lowest 40 | $Z(T)$ for $T=0.5,2,8$ |
 |---|---|---|---|---|
@@ -170,7 +170,7 @@ This $H$ has the same $\Theta$-symmetry, and its partition function has the same
 
 As Theorems [-@thm-coulomb-gas] and [-@thm-vacuum-energy] require, $Z(T)>0$ and the lowest level is real. Excited levels include complex-conjugate pairs: $\Theta$ is broken in parts of the finite-volume spectrum, while the vacuum is protected.
 
-With the *opposite* sign of the potential, $Z(T)$ for $a_2$ at $g=1$ is negative at $T=2$ ($-0.72$), and the lowest level is the complex pair $0.410\pm1.327\,i$. For $c_2$ the two signs are equivalent, because a shift of $\vec x$ flips the sign of every $e^{i\vec\alpha_j\cdot\vec x}$ when $\sum_jn_j$ is even. Positivity of the fugacity is the mechanism that protects the vacuum.
+With the *opposite* sign of the potential, $Z(T)$ for $a_2$ at $g=1$ is negative at $T=2$ ($-0.72$), and the lowest level is the complex pair $0.410\pm1.327\,i$. A shift $\vec x\mapsto\vec x+\vec s$ multiplies each term of the potential by $e^{i\vec\alpha_j\cdot\vec s}$, and a shift that flips the sign of every term exists if and only if $\sum_jn_j$ is even (@exr-zero-mode-sign). So for $c_2$ ($\sum_jn_j=4$) the two signs give the same spectrum, while for $a_2$ ($\sum_jn_j=3$) only the physical sign gives a positive $Z(T)$ and a real ground state. Positivity of the fugacity is the mechanism that protects the vacuum.
 
 ## Exercises {#sec-lattice-exercises}
 
@@ -187,7 +187,7 @@ A matrix with eigenvalues $\pm i$ has $\operatorname{Tr}T^2=-2$. Explain why suc
 :::
 
 ::: {#exr-zero-mode-sign}
-Show that a shift $\vec x\mapsto\vec x+\vec s$ with $\vec\alpha_j\cdot\vec s\equiv\pi\pmod{2\pi}$ for all $j$ exists if and only if $\sum_jn_j$ is even, and deduce the sign equivalence of @sec-app-zero-mode.
+Show that a shift $\vec x\mapsto\vec x+\vec s$ with $\vec\alpha_j\cdot\vec s\equiv\pi\pmod{2\pi}$ for all $j$ exists if and only if $\sum_jn_j$ is even, and deduce that $g$ and $-g$ give the same spectrum in that case.
 :::
 
 ## Notes and references {#sec-lattice-notes}

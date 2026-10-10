@@ -1,9 +1,0 @@
-# Lattice evaluation of the one-loop trace {#sec-app-heat-trace}
-
-Formula (-@eq-one-loop-mass) is evaluated with Dirichlet conditions on $[-L/2,L/2]$ and second-order finite differences. The counterterm uses the lattice propagator $\langle\phi_i\phi_i^{\mathsf T}\rangle=(2h)^{-1}[\mathcal A_0^{-1/2}]_{ii}$. The full complex spectrum is used, the lattice-broken zero mode is removed, and results are extrapolated in $h^2$. Non-simply-laced theories are realized as folding-invariant sectors of their simply-laced parents.
-
-Calibration:
-
-- sine-Gordon: $-2m/\pi$ reproduced to $10^{-4}$;
-- Hollowood's $a_{N-1}^{(1)}$ masses: reproduced for $N\le6$;
-- results independent of $L$ and of the topological sector.
