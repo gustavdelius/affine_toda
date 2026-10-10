@@ -67,7 +67,7 @@ The **Dynkin diagram** of $g$ has a node for each simple root. Nodes $i$ and $j$
 |---|---|---|---|---|---|
 | $A_n$, $n\ge1$ | $su(n+1)$ | $n(n+2)$ | $n+1$ | $n+1$ | $1,2,\dots,n$ |
 | $B_n$, $n\ge2$ | $so(2n+1)$ | $n(2n+1)$ | $2n$ | $2n-1$ | $1,3,\dots,2n-1$ |
-| $C_n$, $n\ge3$ | $sp(2n)$ | $n(2n+1)$ | $2n$ | $n+1$ | $1,3,\dots,2n-1$ |
+| $C_n$, $n\ge3$ | $usp(2n)$ | $n(2n+1)$ | $2n$ | $n+1$ | $1,3,\dots,2n-1$ |
 | $D_n$, $n\ge4$ | $so(2n)$ | $n(2n-1)$ | $2n-2$ | $2n-2$ | $1,3,\dots,2n-3$; $n-1$ |
 | $E_6$ | | 78 | 12 | 12 | $1,4,5,7,8,11$ |
 | $E_7$ | | 133 | 18 | 18 | $1,5,7,9,11,13,17$ |
@@ -116,7 +116,7 @@ where the integers $1=m_1\le m_2\le\dots\le m_r=h-1$ are the **exponents** of $g
 
 The exponents also give the degrees $m_k+1$ of the independent Casimir invariants of $g$. In affine Toda theory they reappear as the **spins** of the conserved charges, repeated modulo $h$ (@sec-theories).
 
-**The bicoloured Coxeter element.** Since a Dynkin diagram is a tree, its nodes can be coloured black and white so that no two nodes of the same colour are joined. Simple reflections of the same colour commute, so $w=s_{\rm black}s_{\rm white}$, with $s_{\rm black}=\prod_{i\ \rm black}s_i$, is a well-defined Coxeter element. Steinberg showed that $w$ acts on a distinguished plane in $\mathbb R^r$ as a rotation by $2\pi/h$, and that the projections of the roots onto this plane form $r$ regular $h$-gons. Dorey's fusing rule (@sec-simply-laced) reads off the three-point couplings of affine Toda theory from these orbits.
+**The bicoloured Coxeter element.** Since a Dynkin diagram is a tree, its nodes can be coloured black and white so that no two nodes of the same colour are joined. Simple reflections of the same colour commute, so $w=s_{\rm black}s_{\rm white}$, with $s_{\rm black}=\prod_{i\ \rm black}s_i$, is a well-defined Coxeter element. Steinberg [@steinberg1959] showed that $w$ acts on a distinguished plane in $\mathbb R^r$ as a rotation by $2\pi/h$, and that the projections of the roots onto this plane form $r$ regular $h$-gons. Dorey's fusing rule (@sec-simply-laced) reads off the three-point couplings of affine Toda theory from these orbits.
 
 ## Weights and representations {#sec-weights}
 
@@ -161,7 +161,7 @@ $$
 
 and for $a_1^{(1)}$ the single mass $2m$ of @sec-sg-dictionary. For $E_8$ the two lightest masses are in the golden ratio, $m_2/m_1=2\cos\frac\pi5$. These are the masses that Zamolodchikov found in the scaling Ising model in a magnetic field [@zamolodchikov1989], whose S-matrix is the coupling-independent (minimal) part of the $e_8^{(1)}$ Toda S-matrix [@braden1990].
 
-The other eigenvectors of the Cartan matrix are also physical: their components are the eigenvalues $\chi_a^{(s)}$ of the conserved charges of spin $s=m_k$ on the particles, in the sense of (-@eq-charge-eigenvalue) [@freeman1991]. The Cartan matrix thus encodes both the mass spectrum and the higher conserved charges.
+The other eigenvectors of the Cartan matrix are also physical: for every spin $s$ of a conserved charge, the eigenvalues $\chi_a^{(s)}$ of (-@eq-charge-eigenvalue) form an eigenvector of the Cartan matrix with eigenvalue $4\sin^2\frac{\pi s}{2h}$. For $s=m_k$ this is the eigenvector of the exponent $m_k$; when an exponent is repeated ($D_{2n}$, $s=2n-1$) the charges of that spin span the two-dimensional eigenspace [@klassen1990; @dorey1991]. The Cartan matrix thus encodes both the mass spectrum and the higher conserved charges.
 
 ## Exercises {#sec-root-systems-exercises}
 
@@ -187,4 +187,4 @@ Use @tbl-simple-lie to check $d=r(h+1)$ for every simple Lie algebra, and explai
 
 ## Notes and references {#sec-root-systems-notes}
 
-Humphreys [@humphreys1972] is the standard concise introduction to root systems and their classification, and Fuchs and Schweigert [@fuchs1997] is written for physicists. Kostant [@kostant1959] relates the exponents to the principal three-dimensional subalgebra and the Coxeter element, and Steinberg's bicolouring argument is reviewed by Dorey [-@dorey1991] in the context of affine Toda theory. The connection between Perron–Frobenius eigenvectors and affine Toda masses was found by Freeman [-@freeman1991], following the observation of Braden, Corrigan, Dorey and Sasaki [-@braden1990] that the masses of all simply-laced theories fit this pattern.
+Humphreys [@humphreys1972] is the standard concise introduction to root systems and their classification, and Fuchs and Schweigert [@fuchs1997] is written for physicists. Kostant [@kostant1959] relates the exponents to the principal three-dimensional subalgebra and the Coxeter element, and Steinberg's bicolouring argument [@steinberg1959] is reviewed by Dorey [-@dorey1991] in the context of affine Toda theory. The connection between Perron–Frobenius eigenvectors and affine Toda masses was found by Freeman [-@freeman1991], following the observation of Braden, Corrigan, Dorey and Sasaki [-@braden1990] that the masses of all simply-laced theories fit this pattern.
