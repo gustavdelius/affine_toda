@@ -47,6 +47,10 @@ $$
 
 This is the classical $c_n^{(1)}$ soliton spectrum with $h$ replaced by $H$. For $n=3$ it reproduces the Delius–Grisaru one-loop corrections [@delius_grisaru1995], since $H=6-\beta^2/4\pi+O(\beta^4)$, in agreement with the one-loop soliton masses of @sec-one-loop-masses-folded. This confirms their value in the dispute with [@mackay_watts1995].
 
+@fig-cn-ladders shows both ladders of poles and the resulting mass ratios for $c_3^{(1)}$.
+
+![Left: poles of $S_{33}$ of $c_3^{(1)}$ at $\omega=2.37$ in the strip variable $t$: the bound-state poles $a_j$, spaced by $\omega+\frac12$ and ending at $a_3=T$, and the breather tower $T-k$, spaced by 1; the second row is the crossed image $t\to T-t$. Right: the mass ratios $M_a/M_3=2\sin(a\pi/H)$ against $\omega$, with $H=6+B$ and the classical limit $H=6$ dotted; the dots mark $\omega=2.37$ and $1.61$.](figures/ch23_f23_cn_ladders.svg){#fig-cn-ladders fig-alt="Left: two horizontal rows of poles on the interval from 0 to T, bound-state poles as large dots with equal spacing omega plus one half and breather poles as small ticks with spacing one. Right: two decreasing curves, the mass ratios of solitons 2 and 1 to soliton 3, approaching their classical values as omega grows."}
+
 ## Breather–particle identification {#sec-breather-particle-identification}
 
 The lowest breathers have mass ratios $m_a/m_n=\sin(a\pi/H)/\sin(n\pi/H)$, exactly the DGZ $c_n^{(1)}$ particle masses [@dgz1992]. The lowest-breather self-amplitude $S[\mathcal B^n,\mathcal B^n]$ is identical, block by block and including the sign, to the DGZ amplitude

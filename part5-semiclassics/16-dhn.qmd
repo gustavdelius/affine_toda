@@ -73,6 +73,10 @@ $$
 \Delta M=m\Big(\frac1{4\sqrt3}-\frac3{2\pi}\Big).
 $$
 
+@fig-bound-states shows the data that enter. In $\phi^4$ the zero mode costs $-m/\pi$ and the second bound state, which lies close to the threshold, only $-0.015\,m$.
+
+![Left: zeros (bound states, $z_j=\sin t_j$) and poles ($-z_j$) of the transmission factor $X(z)$ of the sine-Gordon and $\phi^4$ kinks. Right: the contribution $-(m/\pi)(\sin t-t\cos t)$ of one bound state of frequency $\omega=m\cos t$ to the one-loop mass (-@eq-ccg).](figures/ch16_f21_bound_states.svg){#fig-bound-states fig-alt="Left panel: on the real z axis, the sine-Gordon kink has a zero at 1 and a pole at minus 1, the phi-fourth kink has zeros at 1 and one half and poles at minus 1 and minus one half. Right panel: a decreasing curve from 0 at t equals 0 to about minus 0.32 at t equals pi over 2, with the two phi-fourth bound states marked."}
+
 ## The $a_n^{(1)}$ solitons {#sec-dhn-an}
 
 For a theory with several fields the fluctuations split into **channels**, one for each particle species $b$ of mass $m_b$. A fluctuation that is a wave of species $b$ far to the left of the soliton emerges far to the right as a wave of the same species, multiplied by a transmission factor $X_{ab}$. That the waves neither reflect nor change species is a special property of integrable solitons (for the Hirota solitons used here, @sec-counting-rule-transmission-factors; near special eigenvalues this structure needs care, @thm-jordan-chains). Hollowood [@hollowood1993a] showed that for the soliton of species $a$ of $a_n^{(1)}$, with $\vartheta_a=\pi a/h$ and $\vartheta_b=\pi b/h$,
