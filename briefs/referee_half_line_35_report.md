@@ -158,3 +158,44 @@ I listed the 28 INSPIRE citations of DG. By title and abstract, none reports the
 Rendered PDF pages used for checking printed equations (DG pp. 4, 11, 12, 25, 27, 35; Kim pp. 16–17; PB p. 16) are also in that directory.
 
 **Not done:** item 5c (a₄ excited amplitudes away from the vacuum) and a full reading of the 28 citing papers.
+
+## Integration (2026-10-11)
+
+Integrated in the main session. Before editing, the main session re-ran the referee's scripts `r1b_prefactor.py`, `r2_matrix_bootstrap.py`, `r5b_perkins_bowcock.py` and `r6_rotor.py`, and read DG (3.9) on the rendered PDF page (p. 11): the prefactor is printed $(-\frac{n+1}4\lambda)_I$ with no overall sign.
+
+**Integrated:**
+- **Item 1 (3.11) and item 2.**
+  - Ch. 33: `eq-an-diagonal-scalar` now has DG's prefactor $(-\frac h4\omega)_I$. The paragraph after `prp-an-diagonal-scalar` and the note on DG (3.9) were rewritten.
+  - Ch. 35: the paragraph after `prp-breather-amplitude` now gives the singlet projection for $n\ge2$; the DG (3.11) note now says (3.11) is correct.
+  - `reflection_matrices.py`: `A1` fixed, and three new checks — the matrix-level singlet projection for $n=2,3$ with the book's $\check R$; $A F_{11} A=$ DG (3.11) for $n=1,2,3$; a control with the other prefactor (47 PASS).
+  - The `particle_reflection.py` docstring was corrected.
+- **Item 3.** Kim-for-$a_2$ wording.
+- **Item 4.** The $n=1$ discrepancy reframed through the continued `cnj-bsg-uv-ir`, in `sec-uniform-boundary` and in open problem 12.
+- **Item 5.** Bowcock (4.14), (4.21), (4.22) stated as agreeing, by hand. Perkins–Bowcock wording, with the missing factor $i$ and the counterterm.
+- **Item 6.**
+  - The unexplained pole $p=\frac12+(2n-1)\frac B2$ on $b_{-n,n}$ is stated as open after the range display.
+  - The "$n+m\ge0$ is forced" sentence is replaced by DG's actual argument.
+  - The rotor paragraph now has the inertia $I=6/(\beta^2m_1)$ and the period caveat.
+- **Item 7.**
+  - Castro-Alvaredo–Fring in problem 2.
+  - Ahn–Kim–Rim in problem 3 and in the evidence list.
+  - Baseilhac–Belliard in problems 5 and 9.
+  - Problem 7 reworded.
+  - BCZ JHEP 2004 in problem 10.
+  - Line 127 wording.
+- **Item 8.** `prp-uniform-amplitude`, `prp-solitonic-amplitude` and `prp-a2-excited` retitled as properties of the amplitudes. Each now has a sentence making its physical reading conditional on `cnj-reflection-continuation`.
+- **Item 9.**
+  - `exr-uniform-classical` hint.
+  - `exr-kim-expansion` rewritten.
+  - `exr-modulus-rotor` period question.
+- **Item 10.** New bib entries `akr2002`, `castro_alvaredo_fring2004`, `bcz2004b`, checked against the arXiv API.
+- **Checks ported to `particle_reflection.py`** (46 PASS):
+  - Perkins–Bowcock at $O(\beta^2)$, with the factor $i$;
+  - Kim's self-dual conjecture against DG (3.20) at $O(B)$ and $O(B^2)$ for $n=2,\dots,6$;
+  - the inertia $\beta^2I(\chi)=6/m_1$.
+
+**Not integrated:**
+- Item 5c: the $a_4$ excited amplitudes away from the vacuum remain unchecked, as the text says.
+- Item 6: whether the pole $\frac{47}{40}$ on $b_{-2,2}$ has a Coleman–Thun explanation; stated as open.
+- Item 1: the journal version of DG (NPB 554) was not consulted. All verdicts are against arXiv v2.
+- Item 11: Fateev (hep-th/0103014) and Fateev–Onofri (NPB 634) were not added.

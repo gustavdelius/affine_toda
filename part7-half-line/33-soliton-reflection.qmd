@@ -88,7 +88,7 @@ $$ {#eq-an-diagonal-scalar-eqs}
 with $F_{11}$ the scalar factor of the soliton–soliton amplitude, normalized to 1 on identical solitons. Their minimal solution is
 
 $$
-A(\mu)=-\Big(\frac h4\omega\Big)_I\prod_{k=1}^\infty\frac{G_{2k}\big(2\mu,-\frac32h\omega+1\big)\,G_{2k}\big(2\mu,-\frac12h\omega\big)}{G_{2k}\big(2\mu,-\frac32n\omega-\frac12\omega+1\big)\,G_{2k}\big(2\mu,-\frac12n\omega-\frac32\omega\big)} .
+A(\mu)=\Big(-\frac h4\omega\Big)_I\prod_{k=1}^\infty\frac{G_{2k}\big(2\mu,-\frac32h\omega+1\big)\,G_{2k}\big(2\mu,-\frac12h\omega\big)}{G_{2k}\big(2\mu,-\frac32n\omega-\frac12\omega+1\big)\,G_{2k}\big(2\mu,-\frac12n\omega-\frac32\omega\big)} .
 $$ {#eq-an-diagonal-scalar}
 
 ::: {#prp-an-diagonal-scalar}
@@ -102,7 +102,7 @@ $$
 This $F_{11}$ is unitary, and with the transmission amplitude $S^T(\mu)=\frac{\sin\pi\mu}{\sin\pi(\omega-\mu)}F_{11}(\mu)$ the crossed transmission amplitude satisfies $S^T(\frac h2\omega-\mu)S^T(\frac h2\omega+\mu)=1$.
 :::
 
-Checked in `textbook_code/reflection_matrices.py`. For $h=3$ this $F_{11}$ is Gandenberger's [@gandenberger1999a, eq. (2.6)]. Delius and Gandenberger take $F_{11}$ from Gandenberger's unpublished thesis, so we have checked the $h$-dependence through bulk unitarity and crossing instead. The equations (-@eq-an-diagonal-scalar-eqs) do not fix the prefactor $(\pm\frac h4\omega)_I$: the two choices differ by a factor that is itself unitary and crossing-symmetric.
+Checked in `textbook_code/reflection_matrices.py`. For $h=3$ this $F_{11}$ is Gandenberger's [@gandenberger1999a, eq. (2.6)]. Delius and Gandenberger take $F_{11}$ from Gandenberger's unpublished thesis, so we have checked the $h$-dependence through bulk unitarity and crossing instead. The equations (-@eq-an-diagonal-scalar-eqs) do not fix the prefactor: $(-\frac h4\omega)_I$ and $-(\frac h4\omega)_I$ differ by $-(1-i\sinh\theta)/(1+i\sinh\theta)$, which is unitary and crossing-symmetric and drops out of the semiclassical limit. Delius and Gandenberger's $(-\frac h4\omega)_I$ is the choice for which the breather bootstrap gives their (3.11) (@prp-breather-amplitude), and for $n=1$ Ghoshal's $K_{B_1}$ at $\hat\epsilon=0$. With it, $A(0)=-1$.
 
 **CDD factors.** The solution is unique up to factors $\sigma(\mu)$ with $\sigma(\mu)\sigma(-\mu)=1$ and $\sigma(-\mu+\frac h4\omega)=\sigma(\mu+\frac h4\omega)$. Consistency with the soliton bootstrap requires in addition $\sigma(\mu)=\prod_{k=1}^n\sigma(\mu+\frac h2\omega-k\omega)$. Delius and Gandenberger give the solutions [@delius_gandenberger1999, eq. (3.24)]
 
@@ -257,7 +257,7 @@ Sine-Gordon's reflection matrix is due to Ghoshal and Zamolodchikov [@gz1994], a
 Corrections and clarifications of the sources, in addition to those of @sec-boundary-qg-notes:
 
 - **Delius and Nepomechie (3.8).** The square root covers only the first product; read otherwise, the formula fails their own equations for $m\ge2$. At imaginary $\eta$, which includes the physical $q$, the closed form with principal-branch square roots fails for $j\ge1$, as their footnote anticipates; their linear equations (3.6)–(3.7) remain correct there.
-- **Delius and Gandenberger (3.9).** The prefactor $(\pm\frac h4\omega)_I$ is not fixed by (3.8); both signs solve it.
+- **Delius and Gandenberger (3.9).** The prefactor is not fixed by (3.8): $(-\frac h4\omega)_I$, as printed, and $-(\frac h4\omega)_I$ both solve it. Only the printed one is consistent with their breather amplitude (3.11) and, for $n=1$, with Ghoshal (`textbook_code/reflection_matrices.py`).
 - **Delius and Gandenberger (3.24).** The overall minus sign that they print is necessary when $n$ is even: without it the bootstrap condition (3.23) acquires a factor $(-1)^{n+1}$.
 - **Delius and Gandenberger versus Delius and MacKay.** The diagonal matrix belongs to the uniform boundary, as Delius and Gandenberger assigned it, and not to Neumann (@cnj-neumann-coideal).
 - **Gandenberger's free parameters** and **Delius and George's $n$-parameter families** are conjugations by the Cartan torus. They solve the reflection equation, but only the parity-symmetric representative is the intertwiner of the coideal of @sec-boundary-qg.
