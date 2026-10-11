@@ -20,9 +20,9 @@ book:
     collapse-level: 1
   chapters:
     - index.qmd
+    - 01-introduction.qmd
     - part: part1-background/part.qmd
       chapters:
-        - part1-background/01-introduction.qmd
         - part1-background/02-integrable-qft.qmd
         - part1-background/03-sine-gordon.qmd
         - part1-background/04-non-hermitian.qmd
