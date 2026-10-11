@@ -101,6 +101,11 @@
     </layout>
   </citation>
   <bibliography entry-spacing="0" second-field-align="flush">
+    <sort>
+      <key variable="author"/>
+      <key variable="issued"/>
+      <key variable="title"/>
+    </sort>
     <!-- Reference for book, chapter, report layouts: https://doi.org/10.1103/PhysRevX.10.011010 -->
     <!-- Reference for arXiv: https://doi.org/10.1103/PhysRevX.10.011004 -->
     <layout suffix=".">

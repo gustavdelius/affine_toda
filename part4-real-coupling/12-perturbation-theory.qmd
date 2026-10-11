@@ -24,9 +24,9 @@ $$
 C_{a_1\dots a_n}=m^2\beta^{n-2}\sum_jn_j\prod_{k=1}^n(\vec\alpha_j\cdot\vec e_{a_k}) .
 $$ {#eq-n-point-couplings}
 
-The theory has infinitely many interactions, but at each order in $\beta$ only finitely many contribute.
+Here, as in Part III, $m$ is the mass parameter of the Lagrangian, and $m_a$ are the classical particle masses, the square roots of the eigenvalues of $\mathsf M^2$. The theory has infinitely many interactions, but at each order in $\beta$ only finitely many contribute.
 
-**Ultraviolet divergences.** In two dimensions a scalar propagator has dimension zero, and a loop integral $\int d^2k/(k^2-m^2)^n$ diverges only for $n=1$, logarithmically. So the only divergent diagrams are those containing a propagator that begins and ends at the same vertex: **tadpoles**. They are removed by normal ordering the interaction with respect to the free field of mass matrix $M^2$. For exponentials,
+**Ultraviolet divergences.** In two dimensions a scalar propagator has dimension zero, and a loop integral $\int d^2k/(k^2-m^2)^n$ diverges only for $n=1$, logarithmically. So the only divergent diagrams are those containing a propagator that begins and ends at the same vertex: **tadpoles**. They are removed by normal ordering the interaction with respect to the free field of mass matrix $\mathsf M^2$. For exponentials,
 
 $$
 {:}e^{\beta\vec\alpha\cdot\vec\phi}{:}=e^{\beta\vec\alpha\cdot\vec\phi}\,e^{-\frac{\beta^2}2\langle(\vec\alpha\cdot\vec\phi)^2\rangle},
@@ -44,13 +44,13 @@ $$ {#eq-s-from-m}
 
 where $4m_am_b\sinh\theta$ is the Jacobian from the two delta functions of energy and momentum to the single delta function of rapidities. For $m_a=m_b$ the reflection $a+b\to b+a$ is also kinematically allowed. For identical particles it coincides with transmission, and otherwise its amplitude vanishes in affine Toda theory, whose S-matrix is diagonal.
 
-**Example: sinh-Gordon at tree level.** Take $V=\frac{m^2}{b^2}(\cosh b\phi-1)$, so that $m$ is the particle mass and $b=\sqrt2\beta$ in the affine Toda normalization. Expanding, $V=\frac12m^2\phi^2+\frac{m^2b^2}{4!}\phi^4+O(b^4)$, with no cubic term. The tree amplitude is the contact term, $\mathcal M=-m^2b^2$, and (-@eq-s-from-m) gives
+**Example: sinh-Gordon at tree level.** For $a_1^{(1)}$ the roots are $\pm\sqrt2$, and the potential is $V=\frac{2m^2}{\beta^2}(\cosh\sqrt2\beta\phi-1)$. The particle mass is $m_1=2m$, so $V=\frac{m_1^2}{2\beta^2}(\cosh\sqrt2\beta\phi-1)$. Expanding, $V=\frac12m_1^2\phi^2+\frac{2m_1^2\beta^2}{4!}\phi^4+O(\beta^4)$, with no cubic term. The tree amplitude is the contact term, $\mathcal M=-2m_1^2\beta^2$, and (-@eq-s-from-m) gives
 
 $$
-S(\theta)=1-\frac{ib^2}{4\sinh\theta}+O(b^4).
+S(\theta)=1-\frac{i\beta^2}{2\sinh\theta}+O(\beta^4).
 $$
 
-The exact S-matrix (-@eq-sinh-gordon-smatrix), $S=(\sinh\theta-i\sin\frac{\pi B}2)/(\sinh\theta+i\sin\frac{\pi B}2)$ with $B=\frac{b^2/4\pi}{1+b^2/8\pi}$, expands to $1-i\pi B/\sinh\theta=1-ib^2/(4\sinh\theta)$. The two agree. This fixes the leading behaviour of $B(\beta)$, and a one-loop computation fixes the next order [@arinshtein1979].
+The exact S-matrix (-@eq-sinh-gordon-smatrix), $S=(\sinh\theta-i\sin\frac{\pi B}2)/(\sinh\theta+i\sin\frac{\pi B}2)$ with $B$ given by (-@eq-b-of-beta), expands to $1-i\pi B/\sinh\theta=1-i\beta^2/(2\sinh\theta)$. The two agree. This fixes the leading behaviour of $B(\beta)$, and a one-loop computation fixes the next order [@arinshtein1979].
 
 **Tree-level poles.** When $C_{abc}\ne0$, the tree amplitude for $a+b\to a+b$ contains the $s$-channel exchange $-C_{abc}^2/(s-m_c^2)$. In terms of $\theta$, near the fusing angle $\theta=iu_{ab}^c$, one has $s-m_c^2\simeq2m_am_b\sinh(iu_{ab}^c)(\theta-iu_{ab}^c)=2i\,m_am_b\sin u_{ab}^c\,(\theta-iu_{ab}^c)$, and (-@eq-s-from-m) gives
 
@@ -74,13 +74,13 @@ independent of $a$.
 
 The classical mass ratios, and with them the fusing angles and the Coxeter-number structure of @sec-dorey-rule, survive one loop. This is what makes it possible to write the exact S-matrices of @sec-simply-laced in terms of blocks with fixed positions $x\pi/h$.
 
-For the non-simply-laced theories this fails [@dgz1992]. The one-loop corrections differ between particles, and the mass ratios drift with the coupling. Delius, Grisaru and Zanon found that the drift is captured by replacing the Coxeter number $h$ in the classical masses by a coupling-dependent **floating Coxeter number** $H(\beta)$. @sec-non-simply-laced develops this.
+For the non-simply-laced theories this fails [@dgz1992]. The one-loop corrections differ between particles, and the mass ratios drift with the coupling. Delius, Grisaru and Zanon found that the drift is captured by replacing the Coxeter number $h$ in the classical masses by a coupling-dependent **floating Coxeter number** $H(\beta)$. @sec-non-simply-laced develops this. (The symbol $H$ is also used for Hamiltonians, in Part I and Part VII; the context always distinguishes them.)
 
 ## Anomalous thresholds and higher-order poles {#sec-coleman-thun}
 
 The exact S-matrices of affine Toda theory have double and higher-order poles in the physical strip. A double pole cannot be a bound state, which would give a simple pole with a residue fixed by a coupling. Coleman and Thun [@coleman_thun1978] explained the double poles of the sine-Gordon breather amplitudes by **anomalous thresholds**: Landau singularities of Feynman diagrams in which every internal line is on shell.
 
-In two dimensions such singularities are poles. Power counting near the singular point shows that a diagram with $P$ internal on-shell propagators and $L$ loops has a singularity of order $P-2L$. The tree exchange has $P=1$, $L=0$, a simple pole. A box diagram with four on-shell internal lines and one loop gives $4-2=2$, a double pole. In affine Toda theory, at each double pole of the exact S-matrix there is an on-shell box diagram built from the three-point couplings, whose internal momenta form a closed polygon of mass triangles (a "dual diagram"). Double and triple poles have been explained in detail by such on-shell diagrams [@braden1991]; for the higher-order poles, up to order 12 in $e_8^{(1)}$, contributing diagrams have been identified, but the full residues have not been checked [@corrigan1993].
+In two dimensions such singularities are poles. Power counting near the singular point shows that a diagram with $P$ internal on-shell propagators and $L$ loops has a singularity of order $P-2L$. The tree exchange has $P=1$, $L=0$, a simple pole. A box diagram with four on-shell internal lines and one loop gives $4-2=2$, a double pole. In affine Toda theory the relevant diagrams are built from the three-point couplings, and their on-shell internal momenta form a closed polygon of mass triangles (a "dual diagram"). Braden, Corrigan, Dorey and Sasaki [-@braden1991] explained the double and triple poles of the simply-laced S-matrices in detail by such on-shell diagrams. For the higher-order poles, up to order 12 in $e_8^{(1)}$, Feynman diagrams that contribute to each pole have been identified, but the full coefficients have not been checked [@corrigan1993].
 
 The analysis matters for the soliton S-matrices of Part VI, where some poles are explained neither by bound states nor by known on-shell diagrams (@sec-sm-discussion, open problem 3).
 
@@ -95,7 +95,7 @@ Derive (-@eq-s-from-m): write $\langle p_3p_4|S-1|p_1p_2\rangle=i(2\pi)^2\delta^
 :::
 
 ::: {#exr-tree-residue}
-For $a_2^{(1)}$, compute the tree amplitude for $1+1\to1+1$ from the cubic coupling $C_{11\bar1}$ and check that its pole at $\theta=2\pi i/3$ has residue $i\beta^2/(2h)=i\beta^2/6$. Compare with the residue of the exact S-matrix $S_{11}=\{1\}$ of @sec-simply-laced expanded to first order in $B$.
+For $a_2^{(1)}$, work in the basis of @exr-shg-cubic, where the only cubic couplings are $C_{111}$ and $C_{222}$. Compute the tree amplitude for $1+1\to1+1$ from $C_{111}$, with particle $2=\bar1$ exchanged in the $s$-channel, and check that its pole at $\theta=2\pi i/3$ has residue $i\beta^2/(2h)=i\beta^2/6$. Compare with the residue at $\theta=2\pi i/3$ of the exact S-matrix $S_{11}=\{1\}$ of @sec-simply-laced, expanded to first order in $B$, with $B=\beta^2/2\pi+O(\beta^4)$ from (-@eq-b-of-beta).
 :::
 
 ::: {#exr-landau}

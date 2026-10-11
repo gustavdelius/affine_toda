@@ -20,9 +20,9 @@ book:
     collapse-level: 1
   chapters:
     - index.qmd
+    - 01-introduction.qmd
     - part: part1-background/part.qmd
       chapters:
-        - part1-background/01-introduction.qmd
         - part1-background/02-integrable-qft.qmd
         - part1-background/03-sine-gordon.qmd
         - part1-background/04-non-hermitian.qmd
@@ -77,13 +77,11 @@ book:
         - part8-foundations/39-continuum-window.qmd
         - part8-foundations/40-scattering.qmd
         - part8-foundations/41-outlook.qmd
+    - references.qmd
   appendices:
     - appendices/A-algebra-data.qmd
-    - appendices/B-zero-mode.qmd
-    - appendices/C-heat-trace.qmd
-    - appendices/D-numerics.qmd
-    - appendices/E-code.qmd
-    - references.qmd
+    - appendices/B-numerics.qmd
+    - appendices/C-code.qmd
 
 bibliography: references.bib
 csl: aps.csl

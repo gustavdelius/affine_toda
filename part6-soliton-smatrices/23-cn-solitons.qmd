@@ -39,17 +39,17 @@ The zeros of $c$ sit at $a_j=j\omega+(j-1)/2$ for $j=1,\dots,n$, so $a_n=T$. The
 
 The pole of $S$ at $t=a_j$ is the bound state $n+n\to n-j$. Its residue projects onto the Kirillov–Reshetikhin module formed by the channels that contain $\langle 2j\rangle$. For $n=4$ the residue ranks are $130=84+36+9+1$, $46=36+9+1$ and $10=9+1$. The breathers sit at $t=T-k$, with rank-one residues.
 
-Since $T-a_{n-a}=a(\omega+\tfrac12)$, the fusion angles give the soliton masses in closed form:
+Since $T-a_j=(n-j)(\omega+\tfrac12)$, and $a_j$ is the fusion $n+n\to n-j$, the fusion angles give the soliton masses in closed form:
 
 $$
 \frac{M_a}{M_n}=2\sin\frac{a\pi}{H},\qquad H=\frac{2T}{\omega+\frac12}=2n+B,\qquad B=-\frac{1}{\omega+\frac12}=-\frac{2\beta^2}{8\pi-\beta^2},\qquad a=1,\dots,n-1 .
 $$
 
-This is the classical $c_n^{(1)}$ soliton spectrum with $h$ replaced by $H$. For $n=3$ it reproduces the Delius–Grisaru one-loop corrections [@delius_grisaru1995], since $H=6-\beta^2/4\pi+O(\beta^4)$. This confirms their value in the dispute with [@mackay_watts1995].
+This is the classical $c_n^{(1)}$ soliton spectrum with $h$ replaced by $H$. For $n=3$ it reproduces the Delius–Grisaru one-loop corrections [@delius_grisaru1995], since $H=6-\beta^2/4\pi+O(\beta^4)$, in agreement with the one-loop soliton masses of @sec-one-loop-masses-folded. This confirms their value in the dispute with [@mackay_watts1995].
 
 ## Breather–particle identification {#sec-breather-particle-identification}
 
-The lowest breathers have mass ratios $m_a/m_n=\sin(a\pi/H)/\sin(n\pi/H)$, exactly the DGZ $c_n^{(1)}$ particle masses [@dgz1992]. The lowest-breather self-amplitude $S[B^n,B^n]$ is identical, block by block and including the sign, to the DGZ amplitude
+The lowest breathers have mass ratios $m_a/m_n=\sin(a\pi/H)/\sin(n\pi/H)$, exactly the DGZ $c_n^{(1)}$ particle masses [@dgz1992]. The lowest-breather self-amplitude $S[\mathcal B^n,\mathcal B^n]$ is identical, block by block and including the sign, to the DGZ amplitude
 
 $$
 S_{nn}=\prod_{p=1}^{n}\{2p-1\}_H\,\{H-2p+1\}_H,\qquad \{x\}_H=\frac{(x-1)_H\,(x+1)_H}{(x-1+B)_H\,(x+1-B)_H},
@@ -67,19 +67,19 @@ so the two choices disagree first at one loop, in the breather masses as well as
 
 ## The complete $c_3^{(1)}$ S-matrix {#sec-sm-c3}
 
-For $c_3^{(1)}$ we obtain all six soliton–soliton amplitudes by fusion from $S_{33}$. The lowest-breather amplitudes are identical to all six DGZ particle amplitudes. Here $\omega=4\pi/\beta^2-1$, $T=3\omega+1$, and we write $u_1=\pi(2\omega+\tfrac12)/T$ and $u_2=\pi\omega/T$.
+For $c_3^{(1)}$ we obtain all six soliton–soliton amplitudes by fusion from $S_{33}$. The lowest-breather amplitudes are identical to all six DGZ particle amplitudes. Here $\omega=4\pi/\beta^2-1$, $T=3\omega+1$, and we write $u_1=\pi(2\omega+\tfrac12)/T$ and $u_2=\pi\omega/T$ for the fusing angles $u_{33}^1$ and $u_{33}^2$.
 
 ### Soliton–soliton amplitudes {#sec-soliton-soliton-amplitudes}
 
 Solitons 1 and 2 are the bound states $3+3\to1$ and $3+3\to2$. Every amplitude takes the form
 
 $$
-S_{ab}(\theta)=k_{ab}(x)\prod_{\alpha}F_{33}(\theta+i\alpha)\;\check R_{ab}(x),
+S_{ab}(\theta)=\eta_{ab}(x)\prod_{\alpha}F_{33}(\theta+i\alpha)\;\check R_{ab}(x),
 $$
 
-where $\check R_{ab}$ is the unique intertwiner normalised on the top channel, and $k_{ab}$ is a rational fusion factor, verified exactly with constant $\pm1$.
+where $\check R_{ab}$ is the unique intertwiner normalised on the top channel, and $\eta_{ab}$ is a rational fusion factor, verified exactly with constant $\pm1$.
 
-| $ab$ | shifts $\alpha$ | $k_{ab}(x)$ |
+| $ab$ | shifts $\alpha$ | $\eta_{ab}(x)$ |
 | --- | --- | --- |
 | 33 | $0$ | $1$ |
 | 31 | $\pm u_1/2$ | $\langle0\rangle_i\,\langle2\rangle_{-i}$ |
@@ -88,7 +88,7 @@ where $\check R_{ab}$ is the unique intertwiner normalised on the top channel, a
 | 22 | $\pm u_2,\ 0,\ 0$ | $-\langle2\rangle_+$ |
 | 12 | $\pm(u_1+u_2)/2,\ \pm(u_1-u_2)/2$ | $\langle1\rangle_{-i}\,\langle3\rangle_{i}$ |
 
-The reversed amplitudes follow from $k_{ba}(x)=1/k_{ab}(1/x)$. The fused amplitudes close on their multiplets to $10^{-6}$ and are unitary to the truncation accuracy of the infinite product.
+The reversed amplitudes follow from $\eta_{ba}(x)=1/\eta_{ab}(1/x)$. The fused amplitudes close on their multiplets to $10^{-6}$ and are unitary to the truncation accuracy of the infinite product.
 
 ### Spectrum {#sec-c3-spectrum}
 
@@ -112,19 +112,19 @@ The breathers form complete towers: integer $p$ for soliton 3, and half-integer 
 
 ### Breather amplitudes {#sec-breather-amplitudes}
 
-Breather–soliton amplitudes are finite block products, with blocks in the notation of @sec-breather-test. The three amplitudes $S[B^a,3]$ were identified numerically. All the others follow from them by exact bootstrap arithmetic, and five of the derived forms were confirmed against independent fused numerics. Every residual scales exactly as $1/J$ under truncation of the infinite product, extrapolating to about $10^{-5}$.
+Breather–soliton amplitudes are finite block products, with blocks in the notation of @sec-breather-test. The three amplitudes $S[\mathcal B^a,3]$ were identified numerically. All the others follow from them by exact bootstrap arithmetic, and five of the derived forms were confirmed against independent fused numerics. Every residual scales exactly as $1/J$ under truncation of the infinite product, extrapolating to about $10^{-5}$.
 
 | Amplitude | Blocks |
 | --- | --- |
-| $S[B^3,3]$ | $-(\tfrac{\omega}{2}+\tfrac12)(\tfrac{3\omega}{2})(\tfrac{3\omega}{2}+1)(\tfrac{5\omega}{2}+\tfrac12)(-\tfrac{\omega}{2})(-\tfrac{5\omega}{2}-1)$ |
-| $S[B^1,3]$ | $-(\tfrac{\omega}{2}+\tfrac12)(\tfrac{5\omega}{2}+\tfrac12)$ |
-| $S[B^2,3]$ | $(\tfrac14)(\omega+\tfrac34)(2\omega+\tfrac14)(3\omega+\tfrac34)$ |
-| $S[B^1,2]=S[B^2,1]$ | $(\tfrac12)(\omega+\tfrac12)(2\omega+\tfrac12)(3\omega+\tfrac12)$ |
-| $S[B^1,B^1]$ | $-(\tfrac12)(\omega+\tfrac12)(2\omega+\tfrac12)(3\omega+\tfrac12)(-\omega-1)(-2\omega)$ |
-| $S[B^1,B^3]$ | $(\omega+\tfrac12)(2\omega+\tfrac12)(-\omega+\tfrac12)(-2\omega-\tfrac32)$ |
-| $S[B^3,B^3]$ | $-(1)(\omega)(\omega+\tfrac12)(2\omega+\tfrac12)(2\omega+1)(3\omega)(-\omega+\tfrac12)(-\omega-1)(-2\omega)(-2\omega-\tfrac32)$ |
+| $S[\mathcal B^3,3]$ | $-(\tfrac{\omega}{2}+\tfrac12)(\tfrac{3\omega}{2})(\tfrac{3\omega}{2}+1)(\tfrac{5\omega}{2}+\tfrac12)(-\tfrac{\omega}{2})(-\tfrac{5\omega}{2}-1)$ |
+| $S[\mathcal B^1,3]$ | $-(\tfrac{\omega}{2}+\tfrac12)(\tfrac{5\omega}{2}+\tfrac12)$ |
+| $S[\mathcal B^2,3]$ | $(\tfrac14)(\omega+\tfrac34)(2\omega+\tfrac14)(3\omega+\tfrac34)$ |
+| $S[\mathcal B^1,2]=S[\mathcal B^2,1]$ | $(\tfrac12)(\omega+\tfrac12)(2\omega+\tfrac12)(3\omega+\tfrac12)$ |
+| $S[\mathcal B^1,\mathcal B^1]$ | $-(\tfrac12)(\omega+\tfrac12)(2\omega+\tfrac12)(3\omega+\tfrac12)(-\omega-1)(-2\omega)$ |
+| $S[\mathcal B^1,\mathcal B^3]$ | $(\omega+\tfrac12)(2\omega+\tfrac12)(-\omega+\tfrac12)(-2\omega-\tfrac32)$ |
+| $S[\mathcal B^3,\mathcal B^3]$ | $-(1)(\omega)(\omega+\tfrac12)(2\omega+\tfrac12)(2\omega+1)(3\omega)(-\omega+\tfrac12)(-\omega-1)(-2\omega)(-2\omega-\tfrac32)$ |
 
-All six breather–breather amplitudes, including $S[B^1,B^2]$, $S[B^2,B^2]$ and $S[B^2,B^3]$ not listed here, are identical to the DGZ $c_3^{(1)}$ particle amplitudes. The identification is $H=2T/(\omega+\tfrac12)=6+B$ with $B=-1/(\omega+\tfrac12)$, and the comparison is done in exact arithmetic in $\omega$. Among the lowest breathers, which are the particles, we find the fusions $1+1\to2$, $1+2\to1$, $1+2\to3$, $1+3\to2$ and $2+3\to1$. The remaining poles of the breather amplitudes are DGZ's own displaced and split double poles. These are inherited from the particle S-matrix, not artefacts of the soliton construction.
+All six breather–breather amplitudes, including $S[\mathcal B^1,\mathcal B^2]$, $S[\mathcal B^2,\mathcal B^2]$ and $S[\mathcal B^2,\mathcal B^3]$ not listed here, are identical to the DGZ $c_3^{(1)}$ particle amplitudes. The identification is $H=2T/(\omega+\tfrac12)=6+B$ with $B=-1/(\omega+\tfrac12)$, and the comparison is done in exact arithmetic in $\omega$. Among the lowest breathers, which are the particles, we find the fusions $1+1\to2$, $1+2\to1$, $1+2\to3$, $1+3\to2$ and $2+3\to1$. The remaining poles of the breather amplitudes are DGZ's own displaced and split double poles. These are inherited from the particle S-matrix, not artefacts of the soliton construction.
 
 ## Exercises {#sec-sm-cn-exercises}
 

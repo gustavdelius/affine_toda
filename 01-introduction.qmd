@@ -4,7 +4,16 @@ Affine Toda field theories are a family of two-dimensional quantum field theorie
 
 ## Why affine Toda theory matters {#sec-why-atft-matters}
 
-For each affine Kac–Moody algebra $\hat g$ there is a Lagrangian field theory of $r=\operatorname{rank}g$ scalars with exponential interactions, the affine Toda field theory. These theories have been a laboratory for several central ideas in two-dimensional quantum field theory:
+For each affine Kac–Moody algebra $\hat g$ there is a Lagrangian field theory of $r=\operatorname{rank}g$ scalars with exponential interactions, the affine Toda field theory. Its Lagrangian is $\mathcal L=\tfrac12\partial_\mu\vec\phi\cdot\partial^\mu\vec\phi-V(\vec\phi)$, with $\vec\phi\in\mathbb R^r$ and one of the two potentials
+
+$$
+V_{\rm real}=\frac{m^2}{\beta^2}\sum_jn_j\left(e^{\beta\vec\alpha_j\cdot\vec\phi}-1\right),\qquad
+V_{\rm imag}=-\frac{m^2}{\beta^2}\sum_jn_j\left(e^{i\beta\vec\alpha_j\cdot\vec\phi}-1\right).
+$$
+
+The sums run over the $r+1$ simple roots $\vec\alpha_0,\dots,\vec\alpha_r\in\mathbb R^r$ of $\hat g$, the $n_j$ are positive integers called Kac labels, $m$ sets the mass scale and $\beta>0$ is the coupling. Part II defines the roots and labels (@sec-affine-dynkin), and Part III takes up the theory again from these potentials (-@eq-imaginary-potential). Until then two facts suffice. The labels satisfy $\sum_jn_j\vec\alpha_j=0$, so $\vec\phi=0$ is a stationary point of both potentials. For the smallest algebra, $a_1^{(1)}$, one has $r=1$, $\alpha_1=-\alpha_0=\sqrt2$ and $n_0=n_1=1$, and the two potentials are those of sinh-Gordon and sine-Gordon theory (@sec-sg-dictionary).
+
+These theories have been a laboratory for several central ideas in two-dimensional quantum field theory:
 
 - exact factorized S-matrices and the bootstrap [@zz1979; @braden1990];
 - the geometry of root systems in scattering (Dorey's fusing rule [@dorey1991]);
@@ -17,6 +26,10 @@ The theories come in two regimes.
 
 - **Real coupling.** The theory is an ordinary unitary QFT with a unique vacuum and $r$ massive particles.
 - **Imaginary coupling.** The potential is periodic and complex. There are infinitely many degenerate vacua, solitons interpolating between them, and breathers. These are the theories that describe perturbed (W-algebra) minimal models after quantum-group restriction, and they carry the richest physics.
+
+@fig-two-regimes shows the two kinds of potential for $a_1^{(1)}$ and $a_2^{(1)}$.
+
+![The two regimes. (a) For $a_1^{(1)}$, in the sine-Gordon normalization of @sec-sg-dictionary, the real-coupling potential has a single minimum and the imaginary-coupling potential has infinitely many. A kink runs between neighbouring minima. (b) For $a_2^{(1)}$ the vacua of the imaginary-coupling theory form a hexagonal lattice, shown on the real part of $V_{\rm imag}$ (its imaginary part also vanishes at the vacua).](figures/intro_f2_potentials.svg){#fig-two-regimes fig-alt="Left: the cosh potential with one minimum and the cosine potential with infinitely many minima, with an arrow for a kink between adjacent minima. Right: a contour plot of the real part of the imaginary-coupling potential of a_2^(1) over the plane of the two fields, with its minima at the points of a triangular lattice."}
 
 The theories are not only of historical interest. They are rich enough to show generic phenomena of quantum field theory, yet solvable enough that claims about them can be checked exactly. Five features keep them current.
 
@@ -45,10 +58,10 @@ The dependencies between the parts are shown below. Chapter 4 is needed only for
 
 ```{mermaid}
 %%| label: fig-dependencies
-%%| fig-cap: "Dependencies between the parts of the book. An arrow means that the later part uses the earlier one."
+%%| fig-cap: "Dependencies between the parts of the book. An arrow means that the later part uses the earlier one. Chapter 4 of Part I, on non-Hermitian quantum mechanics, is drawn separately because only Parts V and VIII use it."
 %%| fig-width: 6
 flowchart LR
-  I["I. Physical background<br/>ch. 1–4"] --> III["III. Classical theory<br/>ch. 9–11"]
+  I["I. Physical background<br/>ch. 2–3"] --> III["III. Classical theory<br/>ch. 9–11"]
   II["II. Algebraic background<br/>ch. 5–8"] --> III
   I --> IV["IV. Real coupling<br/>ch. 12–15"]
   III --> IV
@@ -60,6 +73,8 @@ flowchart LR
   III --> VII
   IV --> VII
   V --> VIII["VIII. Foundations<br/>ch. 36–41"]
+  I4["I. Non-Hermitian QM<br/>ch. 4"] --> V
+  I4 --> VIII
   VI --> VIII
 ```
 
@@ -71,11 +86,25 @@ flowchart LR
 - *Non-unitary quantum field theory:* chapters 2–4, 9–11, then Part VIII, consulting Parts V–VI as needed.
 - *For specialists:* Parts V–VIII, which can be read on their own by a reader who already knows affine Toda theory.
 
+The five paths are drawn in @fig-reading-paths.
+
+![The five reading paths, by chapter. An arrow means "then", and the colour of a box is the Part its chapters belong to.](figures/intro_f1_reading_paths.svg){#fig-reading-paths fig-alt="Four rows of boxes joined by arrows. The first row runs through chapters 2 to 3, 5 to 6, 9 to 10, 12 to 14 and 20 to 22. The second runs through chapters 2 to 3, 5 to 8, 20 to 22 and 27. The third runs through chapters 2 to 4, 9 to 11 and Part VII. The fourth is a single box for Parts V to VII."}
+
+**What Part I borrows from Part II.** Part I uses some algebraic terms before Part II defines them. They appear in statements about general affine Toda theories, which a first reading can take on trust, and the sine-Gordon case of @sec-sine-gordon needs none of them in more than its simplest form. In brief:
+
+- **Affine Kac–Moody algebra** $\hat g=X_n^{(k)}$: an infinite-dimensional extension of a simple Lie algebra, untwisted for $k=1$ and twisted for $k=2,3$. All the theory needs from it is its simple roots $\vec\alpha_j$, its Kac labels $n_j$ and its **affine Dynkin diagram**, a graph with one node per simple root (@sec-affine-algebras).
+- **Cartan matrix, Coxeter number $h$, exponents**: the Cartan matrix is the matrix $a_{ij}=2\vec\alpha_i\cdot\vec\alpha_j/\vec\alpha_i^2$ of the simple roots; the Coxeter number is $h=\sum_jn_j$; and the exponents are a set of positive integers attached to each algebra (for untwisted $\hat g=g^{(1)}$, $r$ integers between 1 and $h-1$), which become the spins of the conserved charges (@sec-roots, @sec-weyl-coxeter, @sec-conserved-charges).
+- **Perron–Frobenius eigenvector**: the eigenvector of the Cartan matrix of $g$ with positive components; in the simply-laced theories the particle masses are proportional to its components (@sec-perron-frobenius).
+- **Dorey's fusing rule**: a criterion, in terms of the Coxeter element of the Weyl group, for which three-point couplings of particles are nonzero (@sec-dorey-rule).
+- **Duality of algebras and Lie duality**: reversing the arrows of an affine Dynkin diagram gives the dual algebra $\hat g^\vee$; "Lie duality" relates the soliton masses of $g^{(1)}$ to the particle masses of $(g^\vee)^{(1)}$ (@sec-affine-folding).
+- **Quantum affine algebras** $U_q(\hat g)$: deformations of the symmetry algebra of $\hat g$. They are Hopf algebras, whose coproduct says how a symmetry acts on multi-particle states and whose antipode gives crossing. Their **evaluation representations** are finite-dimensional representations depending on a spectral parameter, which becomes the rapidity (@sec-quantum-groups).
+- **IRF (RSOS) basis and quantum-group restriction**: a change of basis from soliton labels to sequences of vacua, after which, when $q$ is a root of unity, all but finitely many vacua can be discarded consistently (@sec-irf, @sec-qg-restriction). The restricted theories are perturbed minimal models of Virasoro or of $W$-algebras, the conformal field theories with higher-spin symmetry currents (@sec-perturbed-minimal).
+
 ## Conventions {#sec-conventions}
 
 We use units with $\hbar=c=1$ and the metric signature $(+,-)$. Rapidities are written $\theta$, and two-particle amplitudes depend on the rapidity difference (@sec-rapidities).
 
-Roots are normalized so that the longest roots of the finite algebra have squared length 2, as in @sec-lie-algebraic-data. Some of the literature instead gives the longest root of a twisted algebra $X_n^{(k)}$ squared length $2k$; its coupling is then $\beta_{\rm lit}^2=\beta^2/k$, and we convert whenever we quote such results. The coupling $\beta$ is always real and positive. "Real coupling" and "imaginary coupling" refer to the two potentials of (-@eq-imaginary-potential), not to the sign of $\beta^2$. For $a_1^{(1)}$ our $\beta$ is related to the conventional sine-Gordon coupling by $\beta_{\rm SG}^2=2\beta^2$ (@sec-sine-gordon).
+Roots are normalized so that the longest roots of the finite algebra have squared length 2, as in @sec-lie-algebraic-data. Some of the literature instead gives the longest root of a twisted algebra $X_n^{(k)}$ squared length $2k$; its coupling is then $\beta_{\rm lit}^2=\beta^2/k$, and we convert whenever we quote such results. The coupling $\beta$ is always real and positive. "Real coupling" and "imaginary coupling" refer to the two potentials $V_{\rm real}$ and $V_{\rm imag}$ of @sec-why-atft-matters, restated as (-@eq-imaginary-potential), not to the sign of $\beta^2$. For $a_1^{(1)}$ our $\beta$ is related to the conventional sine-Gordon coupling by $\beta_{\rm SG}^2=2\beta^2$ (@sec-sine-gordon).
 
 ## Status labels {#sec-status-labels}
 

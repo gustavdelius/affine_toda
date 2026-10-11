@@ -11,7 +11,7 @@
 
 ## Picard–Lefschetz theory in one variable {#sec-picard-lefschetz}
 
-Consider $I(\hbar)=\int_{\mathbb R}e^{-S(x)/\hbar}dx$ with $\hbar>0$ and $S$ holomorphic, real or not on the real line. Continue $S$ to $z\in\mathbb C$. At each critical point $z_\sigma$, $S'(z_\sigma)=0$, define
+Consider $I(\hbar)=\int_{\mathbb R}e^{-S(x)/\hbar}dx$ with $\hbar>0$ and $S$ holomorphic, real or not on the real line. (In this chapter $S$ is an action, and the S-matrices of Parts I and IV do not appear.) Continue $S$ to $z\in\mathbb C$. At each critical point $z_\sigma$, $S'(z_\sigma)=0$, define
 
 - the **thimble** $\mathcal J_\sigma$: the curve of points reached by the upward flow $\dot z=\overline{S'(z)}$ from $z_\sigma$, along which $\frac{d}{dt}S=\lvert S'\rvert^2>0$. So $\operatorname{Re}S$ increases and $\operatorname{Im}S$ is constant;
 - the **dual thimble** $\mathcal K_\sigma$: the curve of points reached by the downward flow from $z_\sigma$.
@@ -25,15 +25,17 @@ $$
 The **Picard–Lefschetz decomposition** writes the original contour as an integer combination of thimbles,
 
 $$
-\int_{\mathbb R}=\sum_\sigma n_\sigma\int_{\mathcal J_\sigma},\qquad n_\sigma=\langle\mathbb R,\mathcal K_\sigma\rangle ,
+\int_{\mathbb R}=\sum_\sigma \nu_\sigma\int_{\mathcal J_\sigma},\qquad \nu_\sigma=\langle\mathbb R,\mathcal K_\sigma\rangle ,
 $$
 
-where the intersection number $n_\sigma$ counts, with orientation, how often the real line crosses the dual thimble of $z_\sigma$ [@pham1983; @witten2010]. The semiclassical expansion is then the sum over the saddles with $n_\sigma\ne0$. As $\arg\hbar$ varies, the $n_\sigma$ can jump when two saddles have equal $\operatorname{Im}(S/\hbar)$. These are **Stokes phenomena**.
+where the intersection number $\nu_\sigma$ counts, with orientation, how often the real line crosses the dual thimble of $z_\sigma$ [@pham1983; @witten2010]. The semiclassical expansion is then the sum over the saddles with $\nu_\sigma\ne0$. As $\arg\hbar$ varies, the $\nu_\sigma$ can jump when two saddles have equal $\operatorname{Im}(S/\hbar)$. These are **Stokes phenomena**.
+
+**Several variables.** The same definitions apply to $z\in\mathbb C^n$, with the flow $\dot z=\overline{\partial S(z)}$. At a nondegenerate critical point, $\mathcal J_\sigma$ and $\mathcal K_\sigma$ are real $n$-dimensional submanifolds of $\mathbb C^n$ that meet transversally, at $z_\sigma$ only. At a transverse intersection point of two oriented real $n$-manifolds, count $+1$ if an oriented frame of the first followed by an oriented frame of the second is positively oriented for the complex orientation of $\mathbb C^n$, and $-1$ otherwise. Orient $\mathcal K_\sigma$ so that $\langle\mathcal J_\sigma,\mathcal K_\sigma\rangle=+1$. Then $\nu_\sigma=\langle\mathbb R^n,\mathcal K_\sigma\rangle$ is the signed count of the points where $\mathbb R^n$ meets $\mathcal K_\sigma$. The decomposition holds in the homology of $\mathbb C^n$ relative to the region where $\operatorname{Re}(S/\hbar)$ is large [@pham1983; @witten2010]. A saddle off the integration cycle can contribute: in the Airy integral of @exr-airy with $a>0$, the saddle $t=i\sqrt a$ has $\nu_\sigma=\pm1$ and the saddle $t=-i\sqrt a$ has $\nu_\sigma=0$. The reduced model of @sec-which-saddles-contribute gives an example in two complex variables.
 
 **Example: zero-dimensional $i\phi^3$.** Take $S(x)=\frac{x^2}2+\frac{ix^3}3$, the zero-dimensional version of Fisher's Lee–Yang Lagrangian (@sec-lee-yang), and $\hbar=1/\lambda$. Then:
 
 - The critical points are $z=0$, with $S=0$, and $z=i$, with $S(i)=-\frac16$. The second has the *lower* action and would dominate if it contributed, by a factor $e^{\lambda/6}$.
-- But on the real line $\lvert e^{-\lambda S}\rvert=e^{-\lambda x^2/2}$, so $\lvert I\rvert\le\sqrt{2\pi/\lambda}$. An exponentially large contribution is impossible, so $n_i=0$ and $I=\int_{\mathcal J_0}$.
+- But on the real line $\lvert e^{-\lambda S}\rvert=e^{-\lambda x^2/2}$, so $\lvert I\rvert\le\sqrt{2\pi/\lambda}$. An exponentially large contribution is impossible, so $\nu_i=0$ and $I=\int_{\mathcal J_0}$.
 - Expanding around $z=0$ gives $I=\sqrt{2\pi/\lambda}\,\big(1-\frac5{6\lambda}+O(\lambda^{-2})\big)$, which agrees with the numerical integral (`textbook_code/semiclassics.py`).
 - The antilinear map $x\mapsto-\bar x$ maps the real line to itself and $S$ to $\bar S$, and both critical points are fixed by it. This is the zero-dimensional $\Theta$.
 
@@ -45,28 +47,41 @@ So the question is never "is there a complex saddle?", but "what is its intersec
 The lattice integral (-@eq-lattice-action) is a finite-dimensional integral of a holomorphic function of the complexified fields. Picard–Lefschetz theory therefore applies to it directly [@pham1983; @witten2010]. The integral decomposes as
 
 $$
-\int_{\mathbb R^n}=\sum_\sigma n_\sigma\int_{\mathcal J_\sigma},
+\int_{\mathbb R^n}=\sum_\sigma \nu_\sigma\int_{\mathcal J_\sigma},
 $$
 
-a sum over steepest-descent thimbles $\mathcal J_\sigma$ attached to complex critical points, with integer intersection numbers $n_\sigma$. Complex solitons are critical points of the continuum action, and the semiclassical expansion of a given topological sector is the expansion around the contributing thimbles. This answers the "why complex saddles" half of H7.
+a sum over steepest-descent thimbles $\mathcal J_\sigma$ attached to complex critical points, with integer intersection numbers $\nu_\sigma$. Complex solitons are critical points of the continuum action, and the semiclassical expansion of a given topological sector is the expansion around the contributing thimbles. This answers the "why complex saddles" half of H7.
 
 $\Theta$ maps thimbles to thimbles and conjugates their contributions, so the total is real (consistent with @thm-coulomb-gas). In the continuum the soliton critical points form complexified translation orbits $\{\vec\phi(x;\xi):\xi\in\mathbb C\}$. Removing the values of $\xi$ at which some $\tau_j$ vanishes on the real line cuts these orbits into strips in $\operatorname{Im}\xi$, which are the topological sectors.
 
 ## The counting rule {#sec-counting-rule}
 
 ::: {#prp-thimble-gaussian}
-**[Theorem]** Let $B$ be a complex symmetric matrix with spectrum off $(-\infty,0]$, and let $\mathcal J$ be the thimble of $\tfrac12q^{\mathsf T}Bq$. Then
+**[Theorem]** Let $B$ be a complex symmetric $n\times n$ matrix with spectrum off $(-\infty,0]$, and let $\mathcal J$ be the thimble of $\tfrac12q^{\mathsf T}Bq$ at $q=0$, oriented as in the proof. Then
 
 $$
 \int_{\mathcal J}e^{-\frac12q^{\mathsf T}Bq}\,d^nq=(2\pi)^{n/2}\prod_\lambda\lambda^{-m_\lambda/2},
 $$
 
-where $m_\lambda$ is the **algebraic** multiplicity, whether or not $B$ is diagonalizable.
+where the product runs over the distinct eigenvalues, $m_\lambda$ is the **algebraic** multiplicity, whether or not $B$ is diagonalizable, and each power is the principal branch, which is defined because $\lambda\notin(-\infty,0]$.
 
 :::
 
 ::: {.proof}
-Triangularize $B$ (Schur form), deform the contour accordingly, and integrate the triangular quadratic form iteratively.
+1. *Congruence, not similarity.* Under $q=Pp$ the quadratic form changes by congruence, $B\mapsto P^{\mathsf T}BP$. A unitary Schur triangularization $B=UTU^\dagger$ is a similarity, and does not simplify the form. Use instead Takagi's factorization [@horn2012, Sec. 4.4]: $B=U\Sigma U^{\mathsf T}$ with $U$ unitary and $\Sigma=\operatorname{diag}(\sigma_1,\dots,\sigma_n)$ the singular values of $B$, all positive because $B$ is invertible.
+2. *The thimble.* Put $q=\bar Uw$. Since $U^{\mathsf T}\bar U=I$, we get $q^{\mathsf T}Bq=w^{\mathsf T}\Sigma w$, and the upward flow $\dot q=\overline{Bq}$ becomes $\dot w=\Sigma\bar w$. The real parts of the $w_j$ grow like $e^{\sigma_jt}$ and the imaginary parts decay. So $\mathcal J=\bar U\,\mathbb R^n$, a real $n$-plane on which $\tfrac12q^{\mathsf T}Bq=\tfrac12\sum_j\sigma_jw_j^2\ge0$.
+3. *The integral.* Orient $\mathcal J$ by the columns of $\bar U$. Then $d^nq=\det\bar U\,d^nw$ on $\mathcal J$, and
+   $$
+   I(B):=\int_{\mathcal J}e^{-\frac12q^{\mathsf T}Bq}\,d^nq=(2\pi)^{n/2}\det\bar U\prod_j\sigma_j^{-1/2}.
+   $$
+   Since $\det B=(\det U)^2\det\Sigma$ and $\lvert\det U\rvert=1$, $I(B)^2=(2\pi)^n/\det B$.
+4. *The sign.* The orientation, and so the sign of $I$, must still be fixed. Let $B_s=(1-s)I+sB$ for $0\le s\le1$. Its eigenvalues $(1-s)+s\lambda$ lie on the segment from $1$ to $\lambda$, which avoids $(-\infty,0]$, so $B_s$ is invertible. The thimble $\mathcal J_s$ is the unstable subspace of the hyperbolic real-linear map $q\mapsto\overline{B_sq}$, so it depends continuously on $s$. Give $\mathcal J_0=\mathbb R^n$ its standard orientation and carry it along $s$. Then $I(B_s)$ is continuous and $I(B_0)=(2\pi)^{n/2}$. So is $F(s)=(2\pi)^{n/2}\prod_\lambda\big((1-s)+s\lambda\big)^{-m_\lambda/2}$, with principal branches, and $F(s)^2=(2\pi)^n/\det B_s=I(B_s)^2$. Two continuous square roots of the same nonvanishing function that agree at $s=0$ agree for all $s$, so $I(B)=F(1)$.
+5. Only $\det B=\prod_\lambda\lambda^{m_\lambda}$ entered, and it counts each eigenvalue with its algebraic multiplicity, whatever the Jordan structure.
+
+:::
+
+::: {.remark}
+The Jordan structure becomes visible with the complex-orthogonal normal form [@horn2012, Sec. 4.4]: every complex symmetric matrix is $B=O\big(\bigoplus_iJ^{\rm s}_{m_i}(\lambda_i)\big)O^{\mathsf T}$, with $O^{\mathsf T}O=I$ and $J^{\rm s}_m(\lambda)$ a symmetric matrix similar to the $m\times m$ Jordan block. The change of variable $q=Op$ is a similarity and a congruence at once. After a deformation of the contour, the Gaussian factorizes into one integral per block, and a block of size $m$ gives $\lambda^{-m/2}$: it counts $m$ times, although it has a single eigenvector.
 
 :::
 
@@ -76,7 +91,7 @@ $$
 \Delta M=\tfrac12\operatorname{Tr}\big(\sqrt{\mathcal A}-\sqrt{\mathcal A_0}\big)-\tfrac14\operatorname{Tr}\big[(\mathcal A-\mathcal A_0)\mathcal A_0^{-1/2}\big],
 $$ {#eq-one-loop-mass}
 
-which counts eigenvalues by algebraic multiplicity. The second term is the normal-ordering counterterm.
+which counts eigenvalues by algebraic multiplicity. The second term is the normal-ordering counterterm. It is the $\delta M_{\rm ct}$ of (-@eq-dhn-mode-sum), and @sec-dhn-method derives it from the normal ordering of @sec-feynman-rules.
 
 Neither trace in (-@eq-one-loop-mass) exists on its own: both diverge logarithmically. The formula means the combination obtained from $\sqrt\lambda=-\frac1{2\sqrt\pi}\int_0^\infty t^{-3/2}(e^{-t\lambda}-1)\,dt$ and $\lambda^{-1/2}=\frac1{\sqrt\pi}\int_0^\infty t^{-1/2}e^{-t\lambda}\,dt$, with the two integrands added before integrating:
 
@@ -84,7 +99,7 @@ $$
 \Delta M=-\frac1{4\sqrt\pi}\int_0^\infty t^{-3/2}\Big[\operatorname{Tr}\big(e^{-t\mathcal A}-e^{-t\mathcal A_0}\big)+t\operatorname{Tr}\big((\mathcal A-\mathcal A_0)e^{-t\mathcal A_0}\big)\Big]dt .
 $$ {#eq-one-loop-mellin}
 
-The second trace is $\frac1{\sqrt{4\pi t}}\sum_bc_be^{-tm_b^2}$, with $c_b=\int e_{\bar b}^{\mathsf T}(M-M_0)e_b\,dx$ in the channel basis of @sec-counting-rule-transmission-factors. @prp-one-loop-mass shows that the integral converges for the solitons of this book. For the sine-Gordon and $\phi^4$ kinks it gives the DHN values. Heat-kernel and zeta-function treatments of kink masses are in [@alonso2002; @bordag2002].
+The second trace is $\frac1{\sqrt{4\pi t}}\sum_bc_be^{-tm_b^2}$, with $c_b=\int e_{\bar b}^{\mathsf T}\big(\mathsf M^2(x)-\mathsf M^2\big)e_b\,dx$ in the channel basis of @sec-counting-rule-transmission-factors. @prp-one-loop-mass shows that the integral converges for the solitons of this book. For the sine-Gordon and $\phi^4$ kinks it gives the DHN values. Heat-kernel and zeta-function treatments of kink masses are in [@alonso2002; @bordag2002].
 
 (-@eq-one-loop-mellin) is a definition. That it is the continuum limit of the lattice Gaussian of @prp-thimble-gaussian, with the lattice counterterm, is not proved here. Two kinds of evidence support it: lattice evaluations of (-@eq-one-loop-mass) agree with it to about $10^{-4}$ (@sec-resolution-semiclassical-mass-disagreements), and the masses it gives agree with every known exact result (@sec-one-loop-masses-folded). The theorems of @sec-jordan-chains and @sec-one-loop-masses are about (-@eq-one-loop-mellin).
 
@@ -96,11 +111,11 @@ The path integral for $\operatorname{Tr}e^{-TH_g}$ is independent of $g$: every 
 
 ## Which saddles contribute {#sec-which-saddles-contribute}
 
-The one-loop mass (-@eq-one-loop-mass) is independent of $\operatorname{Im}\xi$. This was checked numerically across topological sectors, including nearly singular ones. For the solitons covered by @prp-one-loop-mass it is a theorem in every regular sector, that is, wherever no $\tau_j$ vanishes on the real line, because the transmission factors do not depend on $\xi$. Classically the same holds by @prp-hirota-energy. So the intersection numbers $n_\sigma$ determine which topological sectors appear, but not the masses.
+The one-loop mass (-@eq-one-loop-mass) is independent of $\operatorname{Im}\xi$. This was checked numerically across topological sectors, including nearly singular ones. For the solitons covered by @prp-one-loop-mass it is a theorem in every regular sector, that is, wherever no $\tau_j$ vanishes on the real line, because the transmission factors do not depend on $\xi$. Classically the same holds by @prp-hirota-energy. So the intersection numbers $\nu_\sigma$ determine which topological sectors appear, but not the masses.
 
 ::: {#prp-static-saddles}
 ## Static saddles cannot fill the multiplets
-**[Proposition, sketch]** A single static soliton of species $a$ of $a_n^{(1)}$ carries $h/\gcd(a,h)$ topological charges [@mcghee1994]; scanning $\operatorname{Im}\xi$ confirms this for $n\le4$. So the species-2 soliton of $a_3^{(1)}$ carries only the weights $13$ and $24$ of the six weights of $\Lambda^2$. In $a_3^{(1)}$ the masses are non-resonant. So every complex static solution leaving the vacuum lies in the unstable manifold of the vacuum, which is parametrized by the coefficients of the $e^{m_ax}$ and is realized by static Hirota multi-solitons of distinct species. Its energy is $\sum_aM_a$ over the species present. The four missing weights are reached statically only with species $\{1,2,3\}$, at energy $(1+\sqrt2)M_2$ [Numerical]. So no static saddle of energy $M_2$ carries them. Bound states of two species-1 solitons at rapidities $\pm iu$, by contrast, have energy $2M_1\cos u$, which tends to $M_2$ at the fusing angle $u=\pi/4$. At $t=0$ their charges cover all of $\Lambda^2$ [Numerical], consistently with [@harder1995].
+**[Proposition, sketch]** A single static soliton of species $a$ of $a_n^{(1)}$ carries $h/\gcd(a,h)$ topological charges [@mcghee1994]; scanning $\operatorname{Im}\xi$ confirms this for $n\le4$. So the species-2 soliton of $a_3^{(1)}$ carries only the weights $13$ and $24$ of the six weights of $\Lambda^2$. In $a_3^{(1)}$ the masses are non-resonant. So every complex static solution leaving the vacuum lies in the unstable manifold of the vacuum, which is parametrized by the coefficients of the $e^{m_ax}$ and is realized by static Hirota multi-solitons of distinct species. Its energy is $\sum_aM_a$ over the species present. The four missing weights are reached statically only with species $\{1,2,3\}$, at energy $(1+\sqrt2)M_2$ [Numerical]. So no static saddle of energy $M_2$ carries them. Bound states of two species-1 solitons at rapidities $\pm iu$, by contrast, have energy $2M_1\cos u$, which tends to $M_2$ at $u=\pi/4$, so that the fusing angle is $U=2u=\pi/2$. At $t=0$ their charges cover all of $\Lambda^2$ [Numerical], consistently with [@harder1995].
 
 :::
 
@@ -111,8 +126,8 @@ The one-loop mass (-@eq-one-loop-mass) is independent of $\operatorname{Im}\xi$.
 
 **A reduced model.** Take the static lattice energy on a chain of $L$ sites in the rescaled fields $u=\beta\vec\phi$, with boundary values $0$ and $2\pi\vec\lambda$, fugacity $\kappa=z\beta^2$, and weight $e^{-S/\hbar}$ with $\hbar=g\beta^2$. It is the Euclidean transition amplitude, in winding sector $\vec\lambda$, of the zero-mode model of @sec-solvable-check, with the chain as Euclidean time.
 
-- **[Theorem]** For real $\hbar>0$ the gradient flows of $S/\hbar$ are reparametrized flows of $S$. So the thimbles and the $n_\sigma$ depend on $\kappa$, $L$ and $\arg\hbar$, but not on $\lvert\hbar\rvert$, and no Stokes jump occurs as $\lvert g\rvert$ varies.
-- **[Numerical]** For $a_2^{(1)}$ with $L=1$, $\kappa=1$ and $\vec\lambda$ a weight of $\mathbf3$, 54 complex critical points were found, and exactly four contribute, each with $\lvert n_\sigma\rvert=1$. They are a $\Theta$-pair of real-action kinks centred on the two bonds and a $\Theta$-pair of complex-action kinks centred on the site, the lattice image of the complex translation orbit. $\Theta$ maps these thimbles to each other and conjugates their contributions. The decomposition reproduces the exact integral. After the exactly integrated real pair is subtracted, the residual equals the two-loop contribution of the complex pair to $6.6\times10^{-9}$ of the total at $\hbar=0.15$, which is 2% of that contribution and the size of its two-loop truncation error. The $n_\sigma$ are unchanged at $\arg\hbar=\pm0.02$. For $L=2$ the same pattern appears: real-action kinks on bonds and complex-action kinks on sites.
+- **[Theorem]** For real $\hbar>0$ the gradient flows of $S/\hbar$ are reparametrized flows of $S$. So the thimbles and the $\nu_\sigma$ depend on $\kappa$, $L$ and $\arg\hbar$, but not on $\lvert\hbar\rvert$, and no Stokes jump occurs as $\lvert g\rvert$ varies.
+- **[Numerical]** For $a_2^{(1)}$ with $L=1$, $\kappa=1$ and $\vec\lambda$ a weight of $\mathbf3$, a broad search finds 54 complex critical points, and exactly four contribute, each with $\lvert \nu_\sigma\rvert=1$. They are a $\Theta$-pair of real-action kinks centred on the two bonds and a $\Theta$-pair of complex-action kinks centred on the site, the lattice image of the complex translation orbit. $\Theta$ maps these thimbles to each other and conjugates their contributions. The decomposition reproduces the exact integral. After the exactly integrated real pair is subtracted, the residual equals the two-loop contribution of the complex pair to $6.6\times10^{-9}$ of the total at $\hbar=0.15$, which is 2% of that contribution and the size of its two-loop truncation error. At $\arg\hbar=\pm0.02$ the same four saddles contribute, with $\lvert\nu_\sigma\rvert=1$. For $L=2$ the same pattern appears: real-action kinks on bonds and complex-action kinks on sites.
 - The reduced model validates the method, but it cannot decide @cnj-missing-charge, because it contains only static saddles. Scripts: `foundations_code/thimbles/`.
 
 ## Exercises {#sec-semiclassics-exercises}
@@ -126,7 +141,7 @@ For $S=\frac{x^2}2+\frac{ix^3}3$, find $S''$ at both critical points, and verify
 :::
 
 ::: {#exr-thimble-gaussian}
-Prove @prp-thimble-gaussian for $n=2$ by writing $B$ in Schur form. Check it on the matrix of @exr-jordan-determinant.
+For $n=2$, find the Takagi factorization of the matrix of @exr-jordan-determinant, describe its thimble, and check @prp-thimble-gaussian on it. Why does a unitary Schur form not help?
 :::
 
 ::: {#exr-hg}

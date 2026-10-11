@@ -7,20 +7,34 @@
 - See the Hirota form of the fluctuations, which makes all of this computable for every algebra.
 :::
 
-@sec-semiclassics showed that the one-loop mass counts eigenvalues by algebraic multiplicity. This chapter computes those multiplicities. The tool is the transmission factor of @sec-transmission-factors: for the integrable solitons of affine Toda theory, the fluctuations in each channel are reflectionless, and a bound state shows up as a zero of the channel's transmission factor. For a Hermitian operator every zero is simple. For the complex symmetric operators of complex solitons, zeros can be multiple, and a multiple zero is a Jordan block. Zeros of one channel can also be cancelled by poles of another. The precise statements are theorems given a hypothesis (D), which is verified for every case used in this book.
+@sec-semiclassics showed that the one-loop mass counts eigenvalues by algebraic multiplicity. This chapter computes those multiplicities. The tool is the transmission factor of @sec-transmission-factors: for the integrable solitons of affine Toda theory, the fluctuations in each channel are reflectionless, and a bound state shows up as a zero of the channel's transmission factor. For a Hermitian operator every zero is simple. For the complex symmetric operators of complex solitons, zeros can be multiple, and a multiple zero is a Jordan block. Zeros of one channel can also be cancelled by poles of another. The precise statements are theorems given a degree bound (D). It is not needed for $a_n^{(1)}$ and $c_n^{(1)}$, and it has been checked numerically, but not proved, in every other case used in this book.
 
 The chapter is more technical than its predecessors. A reader who wants the result can read @thm-jordan-chains, @thm-hirota-factorization and @sec-example-an1-zeros-alone, and go on to @sec-one-loop-masses.
 
+The chapter's theorems are conditional on the hypotheses in @tbl-jordan-hypotheses. The table says where each is used and what its status is.
+
+| hypothesis | content | used in | status |
+|---|---|---|---|
+| (R) | reflectionless, species-diagonal solutions near $\lambda_0$ | @thm-jordan-chains | an assumption at each $\lambda_0$. It fails at cancelled zeros (@prp-an-zeros), at the $c_n^{(1)}$ blocks (@prp-cn-threshold-blocks) and at the isolated multiple zeros of folded solitons |
+| (-@eq-net-factorization) | $\det(I+Q)=\prod_bX_b$ | @prp-net-count | proved given (H) (@thm-hirota-factorization) |
+| (H) | Hirota form of the fluctuation solutions | @thm-hirota-factorization, @lem-born, @prp-one-loop-mass | proved for $a_n^{(1)}$ and $c_n^{(1)}$; proved given (D) for $d_n^{(1)}$, $e_n^{(1)}$ and the foldings (@prp-hirota-form) |
+| (D) | degree bound on the Hirota polynomials | @prp-hirota-form | explicit for $a_n^{(1)}$; checked numerically for $d_4^{(1)},\dots,d_8^{(1)}$, $e_{6,7,8}^{(1)}$ and 19 foldings; open in general |
+| (X1), (X2) | rationality in $z_b$; $X_b(z)X_{\bar b}(-z)=1$ | @prp-net-count parts 2–3 | follow from (H) with $\psi_b^\mp$ rational in $z_b$ |
+| (X3) | no zero or pole of $X_\mu$ at real $k\ne0$ | @prp-net-count parts 2–3 | follows from the root condition of part 3: explicit for $a_n^{(1)}$ and $c_n^{(1)}$, numerical otherwise |
+| mass levels | channels grouped by mass, $X_\mu=\prod_{m_c=\mu}X_c$ | @prp-net-count parts 2–3, @prp-one-loop-mass | not a hypothesis: a bookkeeping device, needed because single channels can vanish at their own threshold |
+
+: Hypotheses of @sec-jordan-chains and @sec-one-loop-masses. {#tbl-jordan-hypotheses}
+
 ## The counting rule from the transmission factors {#sec-counting-rule-transmission-factors}
 
-**Setting.** The fluctuation operator about a static soliton is $\mathcal A=-\partial_x^2+M(x)$ on $L^2(\mathbb R,\mathbb C^r)$, with $M(x)=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}e^{i\beta\vec\alpha_j\cdot\vec\phi_s(x)}$. The matrix $M$ is complex symmetric, and it tends exponentially to $M_0=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$ at both ends, because both vacua lie on the co-weight lattice.
+**Setting.** The fluctuation operator about a static soliton is $\mathcal A=-\partial_x^2+\mathsf M^2(x)$ on $L^2(\mathbb R,\mathbb C^r)$, with $\mathsf M^2(x)=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}e^{i\beta\vec\alpha_j\cdot\vec\phi_s(x)}$ (@sec-dhn-method). The matrix $\mathsf M^2(x)$ is complex symmetric, and it tends exponentially to the mass matrix $\mathsf M^2=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$ at both ends, because both vacua lie on the co-weight lattice. Write $\delta\mathsf M^2(x)=\mathsf M^2(x)-\mathsf M^2$, and $\mathcal A_0=-\partial_x^2+\mathsf M^2$.
 
-- **Channels.** Let $e_b$ be eigenvectors of $M_0$ with eigenvalues $m_b^2$, adapted to the species and normalized by $e_b^{\mathsf T}e_c=\delta_{c\bar b}$; so $e_b$ is isotropic when $b\ne\bar b$. Let $\kappa_b(\lambda)=\sqrt{m_b^2-\lambda}$ with $\operatorname{Re}\kappa_b\ge0$. At a point $\lambda_0$, channel $c$ is *closed* if $\operatorname{Re}\kappa_c(\lambda_0)>0$ (always, for non-real $\lambda_0$), *open* if $\lambda_0>m_c^2$, and *at threshold* if $\lambda_0=m_c^2$. Write $C$ for the set of closed channels.
-- **Bilinear structure.** The form $\langle u,v\rangle=\int u^{\mathsf T}v$ satisfies $\langle\mathcal Au,v\rangle=\langle u,\mathcal Av\rangle$. The Wronskian $W(u,v)=u^{\mathsf T}v'-u'^{\mathsf T}v$ is constant for two solutions at the same $\lambda$, because $M^{\mathsf T}=M$.
-- **Root space.** Let $\mathcal R(\lambda_0)=\bigcup_j\ker(\mathcal A-\lambda_0)^j$, taken in $L^2$. For an isolated eigenvalue ($\lambda_0\notin[m_1^2,\infty)$), $\mathcal R(\lambda_0)$ is the range of the Riesz projection, so $\dim\mathcal R(\lambda_0)$ is the algebraic multiplicity. For an eigenvalue embedded in the continuum there is no Riesz projection, and $\dim\mathcal R(\lambda_0)$ is the natural replacement.
+- **Channels.** Let $e_b$ be eigenvectors of $\mathsf M^2$ with eigenvalues $m_b^2$, adapted to the species and normalized by $e_b^{\mathsf T}e_c=\delta_{c\bar b}$; so $e_b$ is isotropic when $b\ne\bar b$. Let $\kappa_b(\lambda)=\sqrt{m_b^2-\lambda}$ with $\operatorname{Re}\kappa_b\ge0$. At a point $\lambda_0$, channel $c$ is *closed* if $\operatorname{Re}\kappa_c(\lambda_0)>0$ (always, for non-real $\lambda_0$), *open* if $\lambda_0>m_c^2$, and *at threshold* if $\lambda_0=m_c^2$. Write $\mathcal C$ for the set of closed channels.
+- **Bilinear structure.** The form $\langle u,v\rangle=\int u^{\mathsf T}v$ satisfies $\langle\mathcal Au,v\rangle=\langle u,\mathcal Av\rangle$. The Wronskian $W(u,v)=u^{\mathsf T}v'-u'^{\mathsf T}v$ is constant for two solutions at the same $\lambda$, because $\mathsf M^2(x)$ is symmetric.
+- **Root space.** Let $\mathcal R(\lambda_0)=\bigcup_j\ker(\mathcal A-\lambda_0)^j$, taken in $L^2$. For an isolated eigenvalue ($\lambda_0\notin[m_1^2,\infty)$), $\mathcal R(\lambda_0)$ is the range of the Riesz projection $P=-\frac1{2\pi i}\oint R(\lambda)\,d\lambda$, where $R(\lambda)=(\mathcal A-\lambda)^{-1}$ is the resolvent and the circle encloses $\lambda_0$ and no other spectrum. So $\dim\mathcal R(\lambda_0)$ is the algebraic multiplicity. For an eigenvalue embedded in the continuum there is no Riesz projection, and $\dim\mathcal R(\lambda_0)$ is the natural replacement.
 - **Transmission factors.** We use the following convention: the channel-$c$ fluctuation is $e^{ikx}e_c$ as $x\to-\infty$ and $X_c(k)e^{ikx}e_c$ as $x\to+\infty$, and bound states sit at zeros with $\operatorname{Im}k<0$. We write $X_c(\lambda):=X_c(-i\kappa_c(\lambda))$. Away from threshold $dk/d\lambda\ne0$, so the order of a zero is the same in $\lambda$ and in $k$.
 
-**Hypothesis (R) at $\lambda_0$ (reflectionless, species-diagonal).** For each $c\in C$ and each $\lambda$ in a neighbourhood $U$ of $\lambda_0$, there are solutions $\psi_c(\cdot,\lambda)$ and $G_c(\cdot,\lambda)$ of $(\mathcal A-\lambda)u=0$, analytic in $\lambda$, and an analytic function $X_c$ on $U$, such that:
+**Hypothesis (R) at $\lambda_0$ (reflectionless, species-diagonal).** For each $c\in \mathcal C$ and each $\lambda$ in a neighbourhood $U$ of $\lambda_0$, there are solutions $\psi_c(\cdot,\lambda)$ and $G_c(\cdot,\lambda)$ of $(\mathcal A-\lambda)u=0$, analytic in $\lambda$, and an analytic function $X_c$ on $U$, such that:
 
 - **(R1)** $\psi_c=e^{\kappa_cx}(e_c+o(1))$ as $x\to-\infty$, and $\psi_c|_{\mathbb R_-}$ is analytic as an $L^2(\mathbb R_-)$-valued function;
 - **(R2)** $(\psi_c-X_cG_c)|_{\mathbb R_+}$ is analytic as an $L^2(\mathbb R_+)$-valued function;
@@ -29,15 +43,15 @@ The chapter is more technical than its predecessors. A reader who wants the resu
 In words: $\psi_c$ is the channel-$c$ fluctuation solution, it is reflectionless, and it leaves through channel $c$ only, with nothing in open or threshold channels. This is the structure the semiclassical literature works with [@hollowood1993a; @mackay_watts1995]. It is not automatic. @prp-an-zeros shows that it fails where a zero of one transmission factor is cancelled by a pole of another. @prp-cn-threshold-blocks shows that it fails at the $c_n^{(1)}$ blocks, where a forced tail of $\psi_c$ resonates with the threshold of another channel. It also fails at the isolated multiple zeros of the folded solitons of @sec-hirota-form-dn1-en1: there $\kappa_c(\lambda_0)>m_a$, and $\partial_\lambda\psi_c$ grows at $+\infty$ along another channel.
 
 ::: {#thm-jordan-chains}
-**[Theorem]** Assume (R) at $\lambda_0$, and let $p_c=\operatorname{ord}_{\lambda_0}X_c$ for $c\in C$. Then the vectors
+**[Theorem]** Assume (R) at $\lambda_0$, and let $p_c=\operatorname{ord}_{\lambda_0}X_c$ for $c\in \mathcal C$. Then the vectors
 
 $$
-\chi_{c,j}=\frac1{j!}\,\partial_\lambda^j\psi_c\Big|_{\lambda_0},\qquad0\le j<p_c,\quad c\in C,
+\chi_{c,j}=\frac1{j!}\,\partial_\lambda^j\psi_c\Big|_{\lambda_0},\qquad0\le j<p_c,\quad c\in \mathcal C,
 $$
 
 form a basis of $\mathcal R(\lambda_0)$ made of Jordan chains: $(\mathcal A-\lambda_0)\chi_{c,0}=0$ and $(\mathcal A-\lambda_0)\chi_{c,j}=\chi_{c,j-1}$. Consequently:
 
-1. $\dim\mathcal R(\lambda_0)=\sum_{c\in C}p_c$. For isolated $\lambda_0$ this is the algebraic multiplicity.
+1. $\dim\mathcal R(\lambda_0)=\sum_{c\in \mathcal C}p_c$. For isolated $\lambda_0$ this is the algebraic multiplicity.
 2. The Jordan blocks have sizes $p_c$, one block for each channel with a zero. So $\mathcal A$ is diagonalizable at $\lambda_0$ if and only if all these zeros are simple.
 3. Items 1 and 2 hold whether $\lambda_0$ is isolated or embedded in the continua of open channels, including when $\lambda_0$ is the threshold of another channel, provided (R) holds there. @prp-cn-threshold-blocks gives a case where it does not.
 4. The eigenvector heading a block of size at least 2 is self-orthogonal.
@@ -56,8 +70,8 @@ form a basis of $\mathcal R(\lambda_0)$ made of Jordan chains: $(\mathcal A-\lam
 
 **Step 3: the chains span $\mathcal R(\lambda_0)$.**
 
-1. Consider the solutions of $(\mathcal A-\lambda_0)u=0$ that lie in $L^2(\mathbb R_-)$. Because the perturbation decays exponentially, asymptotic integration applies [@coddington1955, Ch. 3]. Open channels give oscillating solutions and threshold channels give $1$ and $x$, none of which are in $L^2$. So this space has dimension $\lvert C\rvert$, and the $\psi_c(\lambda_0)$ span it.
-2. Let $u_0,\dots,u_{q-1}$ be any Jordan chain in $L^2$. We show by induction on $j$ that there is a polynomial vector $\alpha(\lambda)=(\alpha_c(\lambda))_{c\in C}$ such that $v(\lambda)=\sum_c\alpha_c(\lambda)\psi_c(\lambda)$ satisfies $u_i=\frac1{i!}\partial^iv(\lambda_0)$ for $i\le j$, and $(\alpha_cX_c)^{(i)}(\lambda_0)=0$ for all $i\le j$ and all $c$.
+1. Consider the solutions of $(\mathcal A-\lambda_0)u=0$ that lie in $L^2(\mathbb R_-)$. Because the perturbation decays exponentially, asymptotic integration applies [@coddington1955, Ch. 3]. Open channels give oscillating solutions and threshold channels give $1$ and $x$, none of which are in $L^2$. So this space has dimension $\lvert\mathcal C\rvert$, and the $\psi_c(\lambda_0)$ span it.
+2. Let $u_0,\dots,u_{q-1}$ be any Jordan chain in $L^2$. We show by induction on $j$ that there is a polynomial vector $\alpha(\lambda)=(\alpha_c(\lambda))_{c\in \mathcal C}$ such that $v(\lambda)=\sum_c\alpha_c(\lambda)\psi_c(\lambda)$ satisfies $u_i=\frac1{i!}\partial^iv(\lambda_0)$ for $i\le j$, and $(\alpha_cX_c)^{(i)}(\lambda_0)=0$ for all $i\le j$ and all $c$.
 3. *Base case $j=0$.* By item 1, $u_0=\sum a_c\psi_c(\lambda_0)$. On $\mathbb R_+$, $u_0=\sum a_cX_c(\lambda_0)G_c(\lambda_0)+L^2$. The $G_c(\lambda_0)$ are independent modulo $L^2(\mathbb R_+)$ by (R3), so $a_cX_c(\lambda_0)=0$ for every $c$. Take $\alpha=a$.
 4. *Step $j\to j+1$.* Since $(\mathcal A-\lambda_0)\big[\frac1{(j+1)!}\partial^{j+1}v(\lambda_0)\big]=u_j$, the difference between $u_{j+1}$ and that term is an $L^2(\mathbb R_-)$ solution, hence equal to $\sum b_c\psi_c(\lambda_0)$. Add $b_c(\lambda-\lambda_0)^{j+1}$ to $\alpha_c$; this does not change the lower derivatives. By (R2) and the induction hypothesis, $u_{j+1}=\sum_c\frac{(\alpha_cX_c)^{(j+1)}(\lambda_0)}{(j+1)!}G_c(\lambda_0)+L^2(\mathbb R_+)$. Since $u_{j+1}\in L^2$, each coefficient $(\alpha_cX_c)^{(j+1)}(\lambda_0)$ vanishes.
 5. So $\alpha_cX_c=O((\lambda-\lambda_0)^q)$, which forces $\alpha_c=O((\lambda-\lambda_0)^{q-p_c})$. Then $u_j=\sum_c\sum_i\frac{\alpha_c^{(i)}(\lambda_0)}{i!}\chi_{c,j-i}$, and only terms with $j-i\le p_c-1$ survive. Hence every $u_j$ lies in $\operatorname{span}\{\chi_{c,m}:m<p_c\}$.
@@ -67,7 +81,7 @@ form a basis of $\mathcal R(\lambda_0)$ made of Jordan chains: $(\mathcal A-\lam
 :::
 
 ::: {.remark}
-Without the species-diagonal assumption, the same proof applies with $\psi_c-\sum_dT_{cd}G_d\in L^2(\mathbb R_+)$. It then gives $\dim\mathcal R(\lambda_0)=\operatorname{ord}_{\lambda_0}\det T$, with block sizes equal to the partial multiplicities of the matrix function $T$ at $\lambda_0$ [@gohberg1971]. Species-diagonality is what turns these into the individual orders. For isolated eigenvalues this recovers the Evans-function multiplicity theorem [@alexander1990] in this setting.
+Without the species-diagonal assumption, the same proof applies with $\psi_c-\sum_dT_{cd}G_d\in L^2(\mathbb R_+)$. It then gives $\dim\mathcal R(\lambda_0)=\operatorname{ord}_{\lambda_0}\det T$, with block sizes equal to the partial multiplicities of the matrix function $T$ at $\lambda_0$ [@gohberg1971]. Species-diagonality is what turns these into the individual orders. For isolated eigenvalues this recovers the Evans-function multiplicity theorem [@alexander1990] in this setting. (The Evans function is the Wronskian determinant of the solutions that decay at $-\infty$ and at $+\infty$; it vanishes exactly at eigenvalues, to the order of their algebraic multiplicity.)
 
 :::
 
@@ -91,11 +105,11 @@ A single factor can vanish at its own threshold when $b\ne\bar b$. In $a_3^{(1)}
 - the spinor solitons of $d_n^{(1)}$ with $n$ odd;
 - $e_6^{(1)}$.
 
-At such a zero $\psi_b(\cdot,0)$ tends to $u_b$ at $-\infty$ and decays at $+\infty$. It is a bounded half-bound state.
+At such a zero $\psi_b(\cdot,0)$ tends to $u_b$ at $-\infty$ and decays at $+\infty$. It is a **half-bound state**: a solution at a threshold that is bounded but not in $L^2$. A **threshold resonance** of channel $c$ is the same thing at the threshold $\lambda=m_c^2$, with the bounded tail in channel $c$.
 
 ::: {#prp-net-count}
 ## The net count
-Write $\mathcal A-\mathcal A_0=V_1V_2$ with exponentially decaying factors. Let $K(\lambda)=V_2(\mathcal A_0-\lambda)^{-1}V_1$ be the Birman–Schwinger operator, which is trace class, and let $d(\lambda)=\det(I+K(\lambda))$. Assume the factorization
+Write $\mathcal A-\mathcal A_0=\delta\mathsf M^2=V_1V_2$ with exponentially decaying factors, and $R_0(\lambda)=(\mathcal A_0-\lambda)^{-1}$. Let $Q(\lambda)=V_2R_0(\lambda)V_1$ be the Birman–Schwinger operator. It is trace class, so its Fredholm determinant $d(\lambda)=\det(I+Q(\lambda))=\prod_j(1+q_j(\lambda))$, the product over the eigenvalues $q_j$ of $Q(\lambda)$ with algebraic multiplicity, converges and is analytic in $\lambda$ off $[m_1^2,\infty)$ [@simon2005, Ch. 3]. Assume the factorization
 
 $$
 d(\lambda)=\prod_bX_b(\lambda)
@@ -114,9 +128,9 @@ on the physical sheet $\mathbb C\setminus[m_1^2,\infty)$. @thm-hirota-factorizat
    \operatorname{Tr}\big(e^{-t\mathcal A}-e^{-t\mathcal A_0}\big)=\sum_\mu\Big[\sum_\zeta\operatorname{ord}_\zeta X_\mu\;e^{-t(\mu^2+\zeta^2)}+\frac1{\pi i}\int_0^\infty e^{-t(\mu^2+k^2)}\,\partial_k\log X_\mu(k)\,dk\Big],
    $$
    where $\mu$ runs over the distinct masses, $X_\mu$ is a function of $k=-i\kappa_\mu$, and the inner sum runs over the zeros and poles of $X_\mu$ with $\operatorname{Im}\zeta<0$, signed as in part 1. Each zero counts with its order whether its energy is isolated, embedded in other channels' continua, or at another channel's threshold.
-3. **[Theorem]** Suppose moreover that every zero and pole of every $X_b(z)$ lies in $[-1,1]$. Write $n_{\mu,w}=\operatorname{ord}_wX_\mu$. Then $\operatorname{ord}_{-w}X_\mu=-n_{\mu,w}$, $X_\mu$ has no zero or pole at $z=0$, and
+3. **[Theorem]** Suppose moreover that every zero and pole of every $X_b(z)$ lies in $[-1,1]$. Write $o_{\mu,w}=\operatorname{ord}_wX_\mu$ for the order of the root $w$ (positive for zeros, negative for poles). Then $\operatorname{ord}_{-w}X_\mu=-o_{\mu,w}$, $X_\mu$ has no zero or pole at $z=0$, and
    $$
-   \operatorname{Tr}\big(e^{-t\mathcal A}-e^{-t\mathcal A_0}\big)=\sum_\mu\sum_{0<w\le1}n_{\mu,w}\,e^{-t\mu^2(1-w^2)}\operatorname{erf}\big(\mu w\sqrt t\big).
+   \operatorname{Tr}\big(e^{-t\mathcal A}-e^{-t\mathcal A_0}\big)=\sum_\mu\sum_{0<w\le1}o_{\mu,w}\,e^{-t\mu^2(1-w^2)}\operatorname{erf}\big(\mu w\sqrt t\big).
    $$
    Each term is the heat trace of the reflectionless well $-\partial_x^2+\mu^2-2\mu^2w^2\operatorname{sech}^2(\mu wx)$ relative to $-\partial_x^2+\mu^2$. In particular $\sigma(\mathcal A)\subset[0,\infty)$.
 
@@ -124,7 +138,7 @@ on the physical sheet $\mathbb C\setminus[m_1^2,\infty)$. @thm-hirota-factorizat
 
 ::: {.proof}
 ## part 1
-1. The function $d$ is analytic off $[m_1^2,\infty)$. There $I+K(\lambda)$ fails to be invertible exactly at the eigenvalues of $\mathcal A$: if $(I+K)\phi=0$ with $\phi\ne0$, then $u=R_0V_1\phi$ satisfies $(\mathcal A-\lambda)u=0$ and $V_2u=-\phi\ne0$ (Birman–Schwinger). Where $I+K$ is invertible, the Konno–Kuroda formula $R=R_0-R_0V_1(I+K)^{-1}V_2R_0$ gives the resolvent, and cyclicity of the trace gives $d'/d=\operatorname{tr}(R_0-R)$.
+1. The function $d$ is analytic off $[m_1^2,\infty)$. There $I+Q(\lambda)$ fails to be invertible exactly at the eigenvalues of $\mathcal A$: if $(I+Q)\phi=0$ with $\phi\ne0$, then $u=R_0V_1\phi$ satisfies $(\mathcal A-\lambda)u=0$ and $V_2u=-\phi\ne0$ (Birman–Schwinger). Where $I+Q$ is invertible, the Konno–Kuroda formula $R=R_0-R_0V_1(I+Q)^{-1}V_2R_0$ gives the resolvent (multiply out, using the second resolvent identity $R=R_0-R_0V_1V_2R$), and cyclicity of the trace gives $d'/d=\operatorname{tr}(R_0-R)$.
 2. Integrate over a small circle around $\lambda_0$. The term $R_0$ is analytic there, and $-\frac1{2\pi i}\oint R\,d\lambda$ is the Riesz projection $P$. So $\operatorname{ord}_{\lambda_0}d=\operatorname{tr}P=m_{\rm alg}(\lambda_0)$.
 3. By (-@eq-net-factorization), $\operatorname{ord}_{\lambda_0}d=\sum_b\operatorname{ord}_{\lambda_0}X_b$.
 
@@ -132,9 +146,9 @@ on the physical sheet $\mathbb C\setminus[m_1^2,\infty)$. @thm-hirota-factorizat
 
 ::: {.proof}
 ## part 2
-1. *Semigroup.* Let $v=\sup_x\lVert M(x)-M_0\rVert$. Since $M_0$ is real symmetric with smallest eigenvalue $m_1^2$, the numerical range of $\mathcal A$ lies in the half-strip $S=\{\operatorname{Re}\lambda\ge m_1^2-v,\ \lvert\operatorname{Im}\lambda\rvert\le v\}$. The complement of $S$ is connected and contains resolvent points: for real $\lambda<m_1^2-v$, $\lVert VR_0(\lambda)\rVert<1$ and a Neumann series inverts $\mathcal A-\lambda$. So every $\lambda\notin S$ lies in the resolvent set, with $\lVert R(\lambda)\rVert\le1/\operatorname{dist}(\lambda,S)$ [@kato1966, Thm V.3.2]. Hence $\mathcal A$ is m-sectorial, and $e^{-t\mathcal A}=-\frac1{2\pi i}\int_\Gamma e^{-t\lambda}R(\lambda)\,d\lambda$ [@kato1966, Sec. IX.1.6]. Here $\Gamma$ is the boundary of $\{\operatorname{Re}\lambda\ge a,\ \lvert\operatorname{Im}\lambda\rvert\le c\}$, traversed with this region on its left, with $a<m_1^2-v$ and $c>v$. The resolvent bound lets us move the sector contour of [@kato1966] to $\Gamma$. The same holds for $\mathcal A_0$.
+1. *Semigroup.* Let $v=\sup_x\lVert\delta\mathsf M^2(x)\rVert$. Since $\mathsf M^2$ is real symmetric with smallest eigenvalue $m_1^2$, the numerical range of $\mathcal A$ lies in the half-strip $S=\{\operatorname{Re}\lambda\ge m_1^2-v,\ \lvert\operatorname{Im}\lambda\rvert\le v\}$. The complement of $S$ is connected and contains resolvent points: for real $\lambda<m_1^2-v$, $\lVert\delta\mathsf M^2R_0(\lambda)\rVert<1$ and a Neumann series inverts $\mathcal A-\lambda$. So every $\lambda\notin S$ lies in the resolvent set, with $\lVert R(\lambda)\rVert\le1/\operatorname{dist}(\lambda,S)$ [@kato1966, Thm V.3.2]. Hence $\mathcal A$ is m-sectorial (its numerical range lies in a sector $\lvert\arg(\lambda-\gamma)\rvert\le\theta<\frac\pi2$, and points outside the sector are in the resolvent set), and $e^{-t\mathcal A}=-\frac1{2\pi i}\int_\Gamma e^{-t\lambda}R(\lambda)\,d\lambda$ [@kato1966, Sec. IX.1.6]. Here $\Gamma$ is the boundary of $\{\operatorname{Re}\lambda\ge a,\ \lvert\operatorname{Im}\lambda\rvert\le c\}$, traversed with this region on its left, with $a<m_1^2-v$ and $c>v$. The resolvent bound lets us move the sector contour of [@kato1966] to $\Gamma$. The same holds for $\mathcal A_0$.
 2. *Choice of $\Gamma$.* By (X1) each $X_b$ has finitely many zeros and poles with $\operatorname{Re}z_b>0$. Enlarge $c$ and lower $a$ until $\Gamma$ encloses their images $\lambda=m_b^2(1-z_b^2)$. This does not change the integral, because the region swept out lies outside $S$, in the resolvent sets of $\mathcal A$ and $\mathcal A_0$.
-3. *Trace class.* Write $\mathcal A-\mathcal A_0=V_1V_2$ as in part 1, with $\lVert V_j(x)\rVert\le Ce^{-\delta\lvert x\rvert/2}$. Then $V_2R_0(\lambda)$ and $R_0(\lambda)V_1$ are Hilbert–Schmidt, with norms bounded and continuous on $\Gamma$ [@simon2005, Thm 4.1]. The resolvent identity gives $R-R_0=-(RV_1)(V_2R_0)$ and $RV_1=R_0V_1-RV(R_0V_1)$, so $\lVert R-R_0\rVert_1$ is bounded and continuous on $\Gamma$. Since $\lvert e^{-t\lambda}\rvert=e^{-t\operatorname{Re}\lambda}$ is integrable along $\Gamma$, the integral for $e^{-t\mathcal A}-e^{-t\mathcal A_0}$ converges in trace norm. The trace passes through it. $\Gamma$ lies in the resolvent set, so $I+K$ is invertible on $\Gamma$, and step 1 of part 1 gives
+3. *Trace class.* Write $\mathcal A-\mathcal A_0=V_1V_2$ as in part 1, with $\lVert V_j(x)\rVert\le Ce^{-\delta\lvert x\rvert/2}$. Then $V_2R_0(\lambda)$ and $R_0(\lambda)V_1$ are Hilbert–Schmidt, with norms bounded and continuous on $\Gamma$ [@simon2005, Thm 4.1]. The reason is that an operator $f(x)g(p)$ is Hilbert–Schmidt when $f,g\in L^2(\mathbb R)$. The exponential decay of $\delta\mathsf M^2$ puts $V_j$ in $L^2$, and $(p^2+m_b^2-\lambda)^{-1}$ is in $L^2$ in $p$ for $\lambda$ on $\Gamma$. The resolvent identity gives $R-R_0=-(RV_1)(V_2R_0)$ and $RV_1=R_0V_1-R\,\delta\mathsf M^2(R_0V_1)$, so $\lVert R-R_0\rVert_1$ is bounded and continuous on $\Gamma$. Since $\lvert e^{-t\lambda}\rvert=e^{-t\operatorname{Re}\lambda}$ is integrable along $\Gamma$, the integral for $e^{-t\mathcal A}-e^{-t\mathcal A_0}$ converges in trace norm. The trace passes through it. $\Gamma$ lies in the resolvent set, so $I+Q$ is invertible on $\Gamma$, and step 1 of part 1 gives
    $$
    \operatorname{Tr}\big(e^{-t\mathcal A}-e^{-t\mathcal A_0}\big)=\frac1{2\pi i}\int_\Gamma e^{-t\lambda}\,\frac{d'(\lambda)}{d(\lambda)}\,d\lambda .
    $$
@@ -150,10 +164,10 @@ on the physical sheet $\mathbb C\setminus[m_1^2,\infty)$. @thm-hirota-factorizat
 
 ::: {.proof}
 ## part 3
-1. By (X2), $\operatorname{ord}_{-w}X_\mu=-\operatorname{ord}_wX_\mu$ for each level, and in particular $\operatorname{ord}_0X_\mu=0$. So $X_\mu(z)=\pm\prod_{0<w\le1}\big(\frac{z-w}{z+w}\big)^{n_{\mu,w}}$, because the quotient of the two sides is rational with no zeros or poles. Roots in $[-1,1]$ are not on the imaginary $z$-axis, so (X3) holds and part 2 applies.
+1. By (X2), $\operatorname{ord}_{-w}X_\mu=-\operatorname{ord}_wX_\mu$ for each level, and in particular $\operatorname{ord}_0X_\mu=0$. So $X_\mu(z)=\pm\prod_{0<w\le1}\big(\frac{z-w}{z+w}\big)^{o_{\mu,w}}$, because the quotient of the two sides is rational with no zeros or poles. Roots in $[-1,1]$ are not on the imaginary $z$-axis, so (X3) holds and part 2 applies.
 2. With $z=ik/\mu$, the factor with root $w$ has $\partial_k\log\frac{ik-\mu w}{ik+\mu w}=-\frac{2i\mu w}{k^2+\mu^2w^2}$ and a zero at $\zeta=-i\mu w$, where $\mu^2+\zeta^2=\mu^2(1-w^2)$. Using $\int_0^\infty\frac{e^{-tk^2}}{k^2+a^2}\,dk=\frac\pi{2a}e^{a^2t}\operatorname{erfc}(a\sqrt t)$ for $a>0$, its two terms in part 2 sum to $e^{-t\mu^2(1-w^2)}\big(1-\operatorname{erfc}(\mu w\sqrt t)\big)$.
-3. The Pöschl–Teller well with depth parameter $\kappa=\mu w$ is reflectionless with transmission factor $\frac{ik-\kappa}{ik+\kappa}$ in the convention of this section (@exr-pt-transmission), so the same computation gives its heat trace.
-4. Take $\lambda\notin[m_1^2,\infty)$ with $d(\lambda)\ne0$. Then $I+K(\lambda)$ is invertible, and the Konno–Kuroda formula of part 1 gives the resolvent, so $\lambda\notin\sigma(\mathcal A)$. Hence every spectral point off $[m_1^2,\infty)$ is a zero of $d=\prod_bX_b$, and so a zero of some $X_b$ with $\operatorname{Re}z_b>0$. It lies in $\{m_b^2(1-w^2):0<w\le1\}\subset[0,\infty)$.
+3. The Pöschl–Teller well with depth parameter $\mu w$ is reflectionless with transmission factor $\frac{ik-\kappa}{ik+\kappa}$ in the convention of this section (@exr-pt-transmission), so the same computation gives its heat trace.
+4. Take $\lambda\notin[m_1^2,\infty)$ with $d(\lambda)\ne0$. Then $I+Q(\lambda)$ is invertible, and the Konno–Kuroda formula of part 1 gives the resolvent, so $\lambda\notin\sigma(\mathcal A)$. Hence every spectral point off $[m_1^2,\infty)$ is a zero of $d=\prod_bX_b$, and so a zero of some $X_b$ with $\operatorname{Re}z_b>0$. It lies in $\{m_b^2(1-w^2):0<w\le1\}\subset[0,\infty)$.
 
 :::
 
@@ -164,10 +178,10 @@ on the physical sheet $\mathbb C\setminus[m_1^2,\infty)$. @thm-hirota-factorizat
 **Hypothesis (H) (Hirota form).** For each channel $b$ there are solutions $\psi_b^\mp(\cdot,\lambda)$ of $(\mathcal A-\lambda)u=0$, meromorphic in $\lambda$ on the physical sheet, of the form
 
 $$
-\psi_b^\mp(x,\lambda)=e^{\pm\kappa_b x}R_b^\mp(x,\lambda).
+\psi_b^\mp(x,\lambda)=e^{\pm\kappa_b x}Y_b^\mp(x,\lambda).
 $$
 
-Here each $R_b^\mp$ is a rational function, with vector coefficients, of finitely many exponentials $E_i=e^{\mu_ix+\xi_i}$ with $\mu_i>0$. Its limits are as follows: $R_b^-\to u_b$ as $x\to-\infty$; $R_b^-\to X_b(\lambda)\,u_b$ as $x\to+\infty$; and $R_b^+\to u_b$ as $x\to+\infty$. The channel vectors are normalized so that $u_b^{\mathsf T}u_c=\delta_{c\bar b}$.
+Here each $Y_b^\mp$ is a rational function, with vector coefficients, of finitely many exponentials $E_i=e^{\mu_ix+\xi_i}$ with $\mu_i>0$. Its limits are as follows: $Y_b^-\to u_b$ as $x\to-\infty$; $Y_b^-\to X_b(\lambda)\,u_b$ as $x\to+\infty$; and $Y_b^+\to u_b$ as $x\to+\infty$. The channel vectors are normalized so that $u_b^{\mathsf T}u_c=\delta_{c\bar b}$.
 
 This is the form of the fluctuation solutions obtained by linearizing a Hirota two-soliton solution in the amplitude of the second soliton, continued to a linear wave. $\psi_b^+$ is the solution at $-k$, divided by $X_b(-k)$. @sec-example-an1-zeros-alone and @sec-example-cn1-jordan-blocks show that (H) holds for $a_n^{(1)}$ and $c_n^{(1)}$, and @sec-hirota-form-dn1-en1 extends this to $d_n^{(1)}$, $e_n^{(1)}$ and their foldings.
 
@@ -175,7 +189,7 @@ This is the form of the fluctuation solutions obtained by linearizing a Hirota t
 **[Theorem]** Assume (H). Then:
 
 1. The Wronskian matrix is $W(\psi_b^-,\psi_d^+)=-2\kappa_bX_b(\lambda)\,\delta_{d\bar b}$; that is, $\mathcal W=X\mathcal W_0$.
-2. The factorization (-@eq-net-factorization) holds: $\det(I+K(\lambda))=\prod_bX_b(\lambda)$.
+2. The factorization (-@eq-net-factorization) holds: $\det(I+Q(\lambda))=\prod_bX_b(\lambda)$.
 
 Consequently, part 1 of @prp-net-count holds unconditionally for such solitons. The algebraic multiplicity of every isolated fluctuation eigenvalue is the net order (zeros minus poles) of $\prod_bX_b$.
 
@@ -184,39 +198,39 @@ Consequently, part 1 of @prp-net-count holds unconditionally for such solitons. 
 ::: {.proof}
 1. The Wronskian $W(\psi_b^-,\psi_d^+)$ is independent of $x$. For large $x$ it equals $e^{(\kappa_b-\kappa_d)x}F(x)$. Here $F(x)=\sum_rf_re^{-rx}$ is the convergent expansion of a rational function of the $E_i$, running over a discrete set of exponents $r\ge0$, and $f_0=-(\kappa_b+\kappa_d)X_b\,u_b^{\mathsf T}u_d$.
 2. Suppose $m_b\ne m_d$. For $\lambda$ off a discrete set, $\kappa_b-\kappa_d$ is non-real or avoids every $r$. Since exponentials with distinct exponents are linearly independent, constancy in $x$ forces every term to vanish, so $W=0$. Suppose instead $m_b=m_d$. Then only the $r=0$ term can survive, and $W=f_0=-2\kappa_bX_b\,u_b^{\mathsf T}u_d$. Both identities extend to all $\lambda$ by meromorphy. This proves item 1.
-3. By the matrix Jost–Pais formula [@jost1951; @gesztesy2003; @gesztesy2007], $\det(I+K)=\det\mathcal W^{\rm J}/\det\mathcal W_0$. Here $\mathcal W^{\rm J}$ is the Wronskian matrix of the Jost solutions $\psi_b^{{\rm J},\mp}=e^{\pm\kappa_bx}(u_b+o(1))$ at $\mp\infty$.
+3. By the matrix Jost–Pais formula [@jost1951; @gesztesy2003; @gesztesy2007], which identifies the Fredholm determinant with a ratio of Wronskian determinants, $\det(I+Q)=\det\mathcal W^{\rm J}/\det\mathcal W_0$. Here $\mathcal W^{\rm J}$ is the Wronskian matrix of the Jost solutions $\psi_b^{{\rm J},\mp}=e^{\pm\kappa_bx}(u_b+o(1))$ at $\mp\infty$.
 4. Take $\lambda$ off a null set, where the real parts $\operatorname{Re}\kappa_c$ are distinct. The difference $\psi_b^--\psi_b^{{\rm J},-}$ decays at $-\infty$ and is $o(e^{\operatorname{Re}\kappa_bx})$ there. So it is a combination of the $\psi_c^{{\rm J},-}$ with $\operatorname{Re}\kappa_c>\operatorname{Re}\kappa_b$.
 5. Order the channels by $\operatorname{Re}\kappa$. Then the change of basis from Jost to Hirota solutions is unit triangular, and the same holds at $+\infty$. Hence $\det\mathcal W=\det\mathcal W^{\rm J}$, and item 2 follows from item 1.
 
 :::
 
-*Numerical check.* For the $a_4^{(1)}$ soliton $a=1$ and the $c_2^{(1)}$ and $c_3^{(1)}$ solitons, the Hirota Wronskian matrix is diagonal to $10^{-8}$ at complex $\lambda$, with diagonal entries $X_b$. The ratio $\det(\mathcal A_N-\lambda)/\det(\mathcal A_{0,N}-\lambda)$ on a Fourier grid, multiplied by $\exp\!\big(\int\operatorname{tr}(M-M_0)\,dx/\pi k_{\max}\big)$ to correct for the momentum cutoff, equals $\prod_bX_b(\lambda)$ to about $10^{-4}$. It converges to it as the grid is refined: for $a_4^{(1)}$ the ratio is $0.99999$ at $N=640$. The same check gives $1$ to $10^{-4}$ for solitons of $d_4^{(1)}$, $d_5^{(1)}$ and $e_6^{(1)}$ (@sec-hirota-form-dn1-en1, Numerics).
+*Numerical check.* For the $a_4^{(1)}$ soliton $a=1$ and the $c_2^{(1)}$ and $c_3^{(1)}$ solitons, the Hirota Wronskian matrix is diagonal to $10^{-8}$ at complex $\lambda$, with diagonal entries $X_b$. The ratio $\det(\mathcal A_N-\lambda)/\det(\mathcal A_{0,N}-\lambda)$ on a Fourier grid, multiplied by $\exp\!\big(\int\operatorname{tr}\delta\mathsf M^2\,dx/\pi k_{\max}\big)$ to correct for the momentum cutoff, equals $\prod_bX_b(\lambda)$ to about $10^{-4}$. It converges to it as the grid is refined: for $a_4^{(1)}$ the ratio is $0.99999$ at $N=640$. The same check gives $1$ to $10^{-4}$ for solitons of $d_4^{(1)}$, $d_5^{(1)}$ and $e_6^{(1)}$ (@sec-hirota-form-dn1-en1, Numerics).
 
 **Check.** For the sine-Gordon kink, $\mathcal A=-\partial^2+1-2\operatorname{sech}^2x$ and $X(k)=(k+i)/(k-i)$. Part 2 gives $1-\operatorname{erfc}\sqrt t=\operatorname{erf}\sqrt t$. This has the correct small-$t$ behaviour, $2\sqrt{t/\pi}$, and tends to $1$ as $t\to\infty$, as the zero mode requires.
 
 **Which solitons satisfy the hypotheses.** Suppose (H) holds with $\psi_b^\mp$ rational in $z_b$. Then (-@eq-net-factorization) holds by @thm-hirota-factorization, (X1) holds because $X_b$ is a ratio of top coefficients, and (X2) follows from @lem-wronskian applied on the whole $z$-plane. The status differs between families:
 
 - **$a_n^{(1)}$ and $c_n^{(1)}$.** (H) with $\psi_b^\mp$ rational in $z_b$ is explicit (@sec-example-an1-zeros-alone, @sec-example-cn1-jordan-blocks), and so is the root condition of part 3, which implies (X3). So parts 2 and 3 apply without further assumptions.
-- **$d_n^{(1)}$, $e_n^{(1)}$ and the foldings.** (H) with $\psi_b^\mp$ rational in $z_b$ holds given (D) (step 1 of the proof of @prp-hirota-form). (D) is numerical, for $d_4^{(1)},\dots,d_8^{(1)}$, $e_{6,7,8}^{(1)}$ and the 19 foldings listed there. The root condition rests on part 3 of @prp-hirota-form and on the folding products $X_b^{\rm fold}=\prod_{a'\in O(a)}X_{a'b}$, both numerical. So here parts 2 and 3 apply on numerical evidence.
+- **$d_n^{(1)}$, $e_n^{(1)}$ and the foldings.** (H) with $\psi_b^\mp$ rational in $z_b$ holds given (D) (step 1 of the proof of @prp-hirota-form). (D) has been checked numerically at $3(h+2)$ random points per soliton–channel pair, for $d_4^{(1)},\dots,d_8^{(1)}$, $e_{6,7,8}^{(1)}$ and the 19 foldings listed there, but not proved. The root condition rests on part 3 of @prp-hirota-form and on the folding products $X_b^{\rm fold}=\prod_{a'\in O(a)}X_{a'b}$, both numerical. So here parts 2 and 3 apply on numerical evidence.
 
 The soliton must be regular, that is, $\operatorname{Im}\xi$ is chosen so that no $\tau_j$ vanishes on the real line. The transmission factors do not depend on $\xi$, so the heat trace is the same in every regular topological sector.
 
-**Consequence for (-@eq-one-loop-mass).** Part 3 writes each mass level's heat trace as a signed sum of heat traces of reflectionless Pöschl–Teller wells, one for each root $0<w\le1$ of $X_\mu$, with weight $n_{\mu,w}$. @prp-one-loop-mass inserts this into (-@eq-one-loop-mellin). A root then contributes $\mu\,\psi(\arcsin w)$. This contains its bound state $\tfrac12\omega$, with $\omega=\mu\sqrt{1-w^2}$, together with its share of the continuum and of the counterterm. So the continuum depends on the roots too. Where (R) holds, the weight $n_{\mu,w}$ is the level's contribution to $\dim\mathcal R$ (@thm-jordan-chains), whether the eigenvalue is isolated or embedded. At threshold resonances it can be larger (@prp-cn-threshold-blocks).
+**Consequence for (-@eq-one-loop-mass).** Part 3 writes each mass level's heat trace as a signed sum of heat traces of reflectionless Pöschl–Teller wells, one for each root $0<w\le1$ of $X_\mu$, with weight $o_{\mu,w}$. @prp-one-loop-mass inserts this into (-@eq-one-loop-mellin). A root then contributes $\mu\,\varpi(\arcsin w)$, with $\varpi$ as in (-@eq-dhn-psi). This contains its bound state $\tfrac12\omega$, with $\omega=\mu\sqrt{1-w^2}$, together with its share of the continuum and of the counterterm. So the continuum depends on the roots too. Where (R) holds, the weight $o_{\mu,w}$ is the level's contribution to $\dim\mathcal R$ (@thm-jordan-chains), whether the eigenvalue is isolated or embedded. At threshold resonances it can be larger (@prp-cn-threshold-blocks).
 
 ## Example: $a_n^{(1)}$, and why zeros alone over-count {#sec-example-an1-zeros-alone}
 
-Let $h=n+1$, $m_b=2m\sin(\pi b/h)$, $A=\pi a/h$ and $B=\pi b/h$. Take the static soliton of species $a$, $\tau_j=1+\omega^{ja}E$ with $\omega=e^{2\pi i/h}$ and $E=e^{m_ax+\xi}$. Linearizing the two-soliton Hirota solution in the amplitude of the second soliton, with that soliton continued to a linear wave $e^{ikx-i\omega t}$ of species $b$, gives exact fluctuation solutions. Their transmission factor is the two-soliton interaction coefficient [@hollowood1992; @fring1994] evaluated at $\cosh\theta=ik/m_b$:
+Let $h=n+1$, $m_b=2m\sin(\pi b/h)$, $\vartheta_a=\pi a/h$ and $\vartheta_b=\pi b/h$. Take the static soliton of species $a$, $\tau_j=1+\omega^{ja}E$ with $\omega=e^{2\pi i/h}$ and $E=e^{m_ax+\xi}$, as in (-@eq-an-soliton). (As there, $\omega$ is a root of unity and $E$ an exponential, not a frequency or an energy.) Linearizing the two-soliton Hirota solution in the amplitude of the second soliton, with that soliton continued to a linear wave $e^{ikx-i\sqrt\lambda\,t}$ of species $b$, gives exact fluctuation solutions. Their transmission factor is the two-soliton interaction coefficient [@hollowood1992; @fring1994] evaluated at $\cosh\theta=ik/m_b$:
 
 $$
-X_{ab}(k)=\frac{ik/m_b-\cos(A-B)}{ik/m_b-\cos(A+B)}.
+X_{ab}(k)=\frac{ik/m_b-\cos(\vartheta_a-\vartheta_b)}{ik/m_b-\cos(\vartheta_a+\vartheta_b)}.
 $$
 
-So $X_{ab}$ has a zero in the bound-state half-plane when $\cos(A-B)>0$, at $\kappa=m_b\cos(A-B)$ and $\lambda=m_b^2\sin^2(A-B)$. It has a pole there when $\cos(A+B)>0$.
+So $X_{ab}$ has a zero in the bound-state half-plane when $\cos(\vartheta_a-\vartheta_b)>0$, at $\kappa=m_b\cos(\vartheta_a-\vartheta_b)$ and $\lambda=m_b^2\sin^2(\vartheta_a-\vartheta_b)$. It has a pole there when $\cos(\vartheta_a+\vartheta_b)>0$.
 
 Explicitly, the channel-$b$ solution has components $f_j=e^{ikx}\big(\omega^{jb}+\omega^{j(a+b)}X_{ab}E\big)/(1+\omega^{ja}E)$ along $\vec\alpha_j$. This is a rational function of $E$ times $e^{ikx}$, with limits $u_b\propto\sum_j\vec\alpha_j\omega^{jb}$ at $-\infty$ and $X_{ab}u_b$ at $+\infty$. So these solutions have the Hirota form (H), and @thm-hirota-factorization applies.
 
 ::: {#prp-an-zeros}
-1. **[Theorem]** Take a zero of $X_{ab}$ with $b\ne a$ and $\cos(A-B)>0$. The exact solution at the zero is in $L^2$ if and only if $\cos B\,\sin(A-B)>0$. If $\cos B\,\sin(A-B)<0$, it grows at $+\infty$ in channel $c\equiv b-a\pmod h$, and $X_{ac}$ has a pole at the same energy. If $\cos B=0$, that is $b=h/2$, the zero sits at the threshold $\lambda=m_c^2$; the solution tends to a constant vector in channel $c$, so it is a bounded threshold resonance. There $X_{ac}$ has a pole and $X_{a\bar c}$ a zero at $k_c=0$, so the level $m_c$ carries no net weight at its own threshold. (For $b=a$ the zero is the translation mode at $\lambda=0$.)
+1. **[Theorem]** Take a zero of $X_{ab}$ with $b\ne a$ and $\cos(\vartheta_a-\vartheta_b)>0$. The exact solution at the zero is in $L^2$ if and only if $\cos\vartheta_b\,\sin(\vartheta_a-\vartheta_b)>0$. If $\cos\vartheta_b\,\sin(\vartheta_a-\vartheta_b)<0$, it grows at $+\infty$ in channel $c\equiv b-a\pmod h$, and $X_{ac}$ has a pole at the same energy. If $\cos\vartheta_b=0$, that is $b=h/2$, the zero sits at the threshold $\lambda=m_c^2$; the solution tends to a constant vector in channel $c$, so it is a bounded threshold resonance. There $X_{ac}$ has a pole and $X_{a\bar c}$ a zero at $k_c=0$, so the level $m_c$ carries no net weight at its own threshold. (For $b=a$ the zero is the translation mode at $\lambda=0$.)
 2. **[Theorem, by @thm-hirota-factorization and @prp-net-count; checked numerically for $n\le6$]** For every $n$ and every soliton, the isolated eigenvalues of $\mathcal A$, counted with algebraic multiplicity, are exactly the net count (zeros minus poles) of $\prod_bX_{ab}$. Counting zeros alone over-counts. For example, in $a_4^{(1)}$ with $a=1$, $X_{12}$ has a simple zero at $\lambda=1.25\,m^2$, below the lowest threshold $m_1^2=1.382\,m^2$. But $X_{11}$ has a pole there, and $\mathcal A$ has no eigenvalue there: below threshold it has only the zero mode.
 
 :::
@@ -224,8 +238,8 @@ Explicitly, the channel-$b$ solution has components $f_j=e^{ikx}\big(\omega^{jb}
 ::: {.proof}
 ## part 1
 1. At the zero, the channel-$b$ solution is $f_j=e^{\kappa x}\omega^{jb}/(1+\omega^{ja}E)$.
-2. As $x\to+\infty$ its leading term is $e^{(\kappa-m_a)x}\omega^{j(b-a)}$, and $\kappa-m_a=-2m\cos B\sin(A-B)$. So the solution decays if and only if $\cos B\sin(A-B)>0$.
-3. At the zero, $\kappa_c(\lambda)=m_c\lvert\cos B\rvert$ and $\cos(A+C)=\pm\cos B$, where $C=\pi c/h$. In the growing case these agree, which is exactly the pole condition for $X_{ac}$.
+2. As $x\to+\infty$ its leading term is $e^{(\kappa-m_a)x}\omega^{j(b-a)}$, and $\kappa-m_a=-2m\cos\vartheta_b\sin(\vartheta_a-\vartheta_b)$. So the solution decays if and only if $\cos\vartheta_b\sin(\vartheta_a-\vartheta_b)>0$.
+3. At the zero, $\kappa_c(\lambda)=m_c\lvert\cos\vartheta_b\rvert$ and $\cos(\vartheta_a+\vartheta_c)=\pm\cos\vartheta_b$, where $\vartheta_c=\pi c/h$. In the growing case these agree, which is exactly the pole condition for $X_{ac}$.
 
 :::
 
@@ -233,20 +247,20 @@ Explicitly, the channel-$b$ solution has components $f_j=e^{ikx}\big(\omega^{jb}
 
 ## Example: the $c_n^{(1)}$ Jordan blocks are threshold blocks {#sec-example-cn1-jordan-blocks}
 
-Realize $c_n^{(1)}$ as the $\sigma$-invariant sector of $a_{2n-1}^{(1)}$, where $\sigma:\vec\alpha_j\mapsto\vec\alpha_{-j}$. Then $h=2n$, $m_b=2m\sin(\pi b/2n)$, $A=\pi a/2n$ and $B=\pi b/2n$. The soliton $a<n$ is the coincident static pair $(a,\,2n-a)$, with
+Realize $c_n^{(1)}$ as the $\sigma$-invariant sector of $a_{2n-1}^{(1)}$, where $\sigma:\vec\alpha_j\mapsto\vec\alpha_{-j}$. Then $h=2n$, $m_b=2m\sin(\pi b/2n)$, $\vartheta_a=\pi a/2n$ and $\vartheta_b=\pi b/2n$. The soliton $a<n$ is the coincident static pair $(a,\,2n-a)$, with
 
 $$
-\tau_j=1+2\cos(\pi ja/n)\,E+\cos^2\!A\;E^2,\qquad E=e^{m_ax+\xi}.
+\tau_j=1+2\cos(\pi ja/n)\,E+\cos^2\!\vartheta_a\;E^2,\qquad E=e^{m_ax+\xi}.
 $$
 
 Channel $b$ of $c_n^{(1)}$ is the $\sigma$-invariant combination of the $a_{2n-1}^{(1)}$ channels $b$ and $2n-b$. Its fluctuation passes through both solitons, so its transmission factor is the product of the two $a_{2n-1}^{(1)}$ factors of @sec-example-an1-zeros-alone. The fluctuation solutions come from the linearized three-soliton solution. They are rational in $E$ times $e^{ikx}$, so they have the Hirota form (H), and @thm-hirota-factorization applies. With $z=\kappa_b/m_b$,
 
 $$
-X_b(z)=\frac{\big(z-\cos(A-B)\big)\big(z+\cos(A+B)\big)}{\big(z-\cos(A+B)\big)\big(z+\cos(A-B)\big)},\qquad X_n(z)=\Big(\frac{z-\sin A}{z+\sin A}\Big)^2 .
+X_b(z)=\frac{\big(z-\cos(\vartheta_a-\vartheta_b)\big)\big(z+\cos(\vartheta_a+\vartheta_b)\big)}{\big(z-\cos(\vartheta_a+\vartheta_b)\big)\big(z+\cos(\vartheta_a-\vartheta_b)\big)},\qquad X_n(z)=\Big(\frac{z-\sin\vartheta_a}{z+\sin\vartheta_a}\Big)^2 .
 $$
 
 ::: {#prp-cn-threshold-blocks}
-1. **[Theorem]** $X_n$ has a double zero at $z=\sin A$, that is at $\lambda_0=m_n^2\cos^2\!A=m_{n-a}^2$, the threshold of channel $n-a$. So $\lambda_0$ is never an isolated eigenvalue. It is embedded in the continua of channels $1,\dots,n-a-1$ when $n-a\ge2$, and sits at the bottom of the continuum when $a=n-1$.
+1. **[Theorem]** $X_n$ has a double zero at $z=\sin\vartheta_a$, that is at $\lambda_0=m_n^2\cos^2\!\vartheta_a=m_{n-a}^2$, the threshold of channel $n-a$. So $\lambda_0$ is never an isolated eigenvalue. It is embedded in the continua of channels $1,\dots,n-a-1$ when $n-a\ge2$, and sits at the bottom of the continuum when $a=n-1$.
 2. **[Theorem]** The eigenvector $\psi_n(\lambda_0)$ is in $L^2$ and self-orthogonal. The generalized eigenvector $\partial_\lambda\psi_n(\lambda_0)$ satisfies $(\mathcal A-\lambda_0)\partial_\lambda\psi_n=\psi_n$ and decays at $-\infty$. At $+\infty$, however, it tends to a nonzero constant vector in channel $n-a$. No homogeneous solution can correct this, so the $L^2$ root space contributed by channel $n$ at $\lambda_0$ is one-dimensional. The second member of the chain is a bounded threshold resonance of channel $n-a$. Hypothesis (R) fails at $\lambda_0$, and @thm-jordan-chains does not apply.
 3. **[Numerical; (-@eq-net-factorization) itself holds by @thm-hirota-factorization]** For every soliton with $n\le4$, the heat trace $\operatorname{Tr}(e^{-t\mathcal A}-e^{-t\mathcal A_0})$ in the $\sigma$-invariant sector agrees with @prp-net-count, part 2, to four decimals at $t=0.3,0.6,1,1.5$, with weight 2 at $\lambda_0$. With weight 1 instead, the disagreement is $e^{-t\lambda_0}$. The check includes the embedded blocks and, for $c_3^{(1)}$ with $a=1$, a zero of $X_2$ at $\lambda=\tfrac34$ that is cancelled by a pole of $X_1$.
 
@@ -254,16 +268,16 @@ $$
 
 ::: {.proof}
 ## part 1
-At $B=\pi/2$, $\cos(A\mp B)=\pm\sin A$, so the two zeros of $X_n$ coincide. Also $m_n^2\cos^2\!A=4m^2\cos^2(\pi a/2n)=m_{n-a}^2$.
+At $\vartheta_b=\pi/2$, $\cos(\vartheta_a\mp\vartheta_b)=\pm\sin\vartheta_a$, so the two zeros of $X_n$ coincide. Also $m_n^2\cos^2\!\vartheta_a=4m^2\cos^2(\pi a/2n)=m_{n-a}^2$.
 
 :::
 
 ::: {.proof}
 ## part 2
-1. In both $a_{2n-1}^{(1)}$ factors the zero at $z_0=\sin A$ is simple. At $z_0$ only the first term of the linearized three-soliton numerator survives, so $\psi_n=e^{\kappa_0x}\sum_j\vec\alpha_j(-1)^j/\tau_j$.
-2. This decays like $e^{\kappa_0x}$ at $-\infty$. At $+\infty$ it decays like $e^{(\kappa_0-2m_a)x}$, and $\kappa_0=m_n\sin A=m_a$. Self-orthogonality follows from the identity $\langle\psi,\psi\rangle=\lim_{L\to\infty}W(\partial_\lambda\psi_n,\psi)(L)$, because the tail of $\partial_\lambda\psi_n$ is bounded while $\psi$ decays.
-3. Differentiating at $z_0$ gives $\partial_\kappa\psi_n=x\,\psi_n+e^{\kappa_0x}\sum_j\vec\alpha_j(-1)^j\big(\omega^{ja}A_1'+\omega^{-ja}A_2'\big)E/\tau_j$, with $A_1'=A_2'=1/(2\sin A)\ne0$.
-4. As $x\to+\infty$, $E/\tau_j\sim e^{-m_ax}/\cos^2\!A$. So the second term tends to a constant multiple of $\sum_j\vec\alpha_j(-1)^j\cos(\pi ja/n)$, which is the $\sigma$-invariant channel-$(n-a)$ vector.
+1. In both $a_{2n-1}^{(1)}$ factors the zero at $z_0=\sin\vartheta_a$ is simple. At $z_0$ only the first term of the linearized three-soliton numerator survives, so $\psi_n=e^{\kappa_0x}\sum_j\vec\alpha_j(-1)^j/\tau_j$.
+2. This decays like $e^{\kappa_0x}$ at $-\infty$. At $+\infty$ it decays like $e^{(\kappa_0-2m_a)x}$, and $\kappa_0=m_n\sin\vartheta_a=m_a$. Self-orthogonality follows from the identity $\langle\psi,\psi\rangle=\lim_{L\to\infty}W(\partial_\lambda\psi_n,\psi)(L)$, because the tail of $\partial_\lambda\psi_n$ is bounded while $\psi$ decays.
+3. Differentiating at $z_0$ gives $\partial_\kappa\psi_n=x\,\psi_n+e^{\kappa_0x}\sum_j\vec\alpha_j(-1)^j\big(\omega^{ja}A_1'+\omega^{-ja}A_2'\big)E/\tau_j$, with $A_1'=A_2'=1/(2\sin\vartheta_a)\ne0$.
+4. As $x\to+\infty$, $E/\tau_j\sim e^{-m_ax}/\cos^2\!\vartheta_a$. So the second term tends to a constant multiple of $\sum_j\vec\alpha_j(-1)^j\cos(\pi ja/n)$, which is the $\sigma$-invariant channel-$(n-a)$ vector.
 5. Any $L^2(\mathbb R_-)$ solution at $\lambda_0$ is a combination of closed-channel solutions $\psi_c(\lambda_0)$. Their $+\infty$ exponents are $\kappa_c-jm_a$ with $j\in\{0,1,2\}$. An exponent of zero requires $\kappa_c(\lambda_0)=m_a$, which means $m_c^2=m_a^2+m_{n-a}^2=m_n^2$, so $c=n$. But the rate-zero coefficient of $\psi_n(\lambda_0)$ is proportional to $A_1(z_0)$ and $A_2(z_0)$, which vanish. So the constant tail cannot be removed.
 
 :::
@@ -280,7 +294,7 @@ $$
 \tfrac12(D_x^2-D_t^2)\,\tau_j\cdot\tau_j=n_j\Big(\tau_j^2-\prod_{l\sim j}\tau_l\Big),
 $$
 
-because $\sum_jn_j\vec\alpha_j=0$. Consider a static soliton that is either a single soliton of species $a$ or a coincident static orbit $O$ of parent species $a$ under a folding automorphism $\sigma$ ($\lvert O\rvert=1$ for a single soliton), with $E=e^{m_ax+\xi}$. The fluctuation in channel $b$ is $\tau_j+\epsilon\,e^{ikx-i\omega t}S_j(E)$, with $S_j(0)=v^b_j$, where $v^b$ is the eigenvector of $NC$ with eigenvalue $m_b^2$ ($N=\operatorname{diag}(n_j)$, $C$ the affine Cartan matrix). For a degenerate mass, $v^b$ is the eigenvector with character $\chi_g(b)$ under the centre $\mathcal Z$ described below.
+because $\sum_jn_j\vec\alpha_j=0$. Consider a static soliton that is either a single soliton of species $a$ or a coincident static orbit $O$ of parent species $a$ under a folding automorphism $\sigma$ ($\lvert O\rvert=1$ for a single soliton), with $E=e^{m_ax+\xi}$. The fluctuation in channel $b$ is $\tau_j+\epsilon\,e^{ikx-i\sqrt\lambda\,t}S_j(E)$, with $S_j(0)=v^b_j$, where $v^b$ is the eigenvector of $N\mathsf C$ with eigenvalue $m_b^2$ ($N=\operatorname{diag}(n_j)$, and $\mathsf C=(a_{ij})$ the affine Cartan matrix of @sec-affine-dynkin). For a degenerate mass, $v^b$ is the eigenvector with character $\gamma_g(b)$ under the centre $\mathcal Z$ described below.
 
 **Hypothesis (D) (degree bound).** $\tau_j$ is a polynomial in $E$ of degree exactly $\lvert O\rvert n_j$, with constant term 1. For each channel $b$ and generic $k$, the linearized bilinear equations have a polynomial solution $S_j$ of degree at most $\lvert O\rvert n_j$.
 
@@ -288,7 +302,7 @@ because $\sum_jn_j\vec\alpha_j=0$. Consider a static soliton that is either a si
 **[Theorem given (D), as labelled]**
 
 1. **[Theorem]** Under (D), the fluctuation solutions about every static soliton of $a_n^{(1)}$, $d_n^{(1)}$ and $e_n^{(1)}$, and about every coincident orbit of the foldings listed below, have the Hirota form (H), with $X_{ab}$ rational in $z=\kappa_b/m_b$. So (-@eq-net-factorization) holds by @thm-hirota-factorization, and part 1 of @prp-net-count applies.
-2. **[Numerical]** (D) holds for every soliton and channel of $d_4^{(1)},\dots,d_8^{(1)}$ and $e_{6,7,8}^{(1)}$, at 96 random complex $k$ per pair, to $10^{-25}$ or better, and for the 19 foldings listed below. For $a_n^{(1)}$ it is explicit (@sec-example-an1-zeros-alone). For general rank, the bound on $S_j$ would follow from the vertex-operator construction of the $\tau$-functions if $\langle\Lambda_j|(F^a)^KF^b|\Lambda_j\rangle=0$ for $K>n_j$ [Proposition, sketch].
+2. **[Numerical]** (D) was checked numerically, not proved, for every soliton and channel of $d_4^{(1)},\dots,d_8^{(1)}$ and $e_{6,7,8}^{(1)}$, at $3(h+2)$ random complex values of $z$ per soliton–channel pair (24 for $d_4^{(1)}$, up to 96 for $e_8^{(1)}$), to $10^{-25}$ or better, and in the same way for the 19 foldings listed below. For $a_n^{(1)}$ it is explicit (@sec-example-an1-zeros-alone). For general rank, the bound on $S_j$ would follow from the vertex-operator construction of the $\tau$-functions if $\langle\Lambda_j|(F^a)^KF^b|\Lambda_j\rangle=0$ for $K>n_j$ [Proposition, sketch].
 3. **[Numerical, agreement to $10^{-23}$ in all 355 pairs of $a_4^{(1)}$, $d_{4,\dots,8}^{(1)}$ and $e_{6,7,8}^{(1)}$]** For single solitons, $X_{ab}(z)=\prod_{x\in A_{ab}}\dfrac{z-\cos(\pi(x-1)/h)}{z-\cos(\pi(x+1)/h)}$, where $S_{ab}=\prod_{x\in A_{ab}}\{x\}$ is Dorey's block content of the real-coupling S-matrix. This is the interaction factor of [@fring1994] at $\cosh\theta=z$.
 4. **[Theorem, given 3]** No $X_{ab}$ has a zero or a pole at real $k\ne0$. So static solitons have no spectral singularities.
 
@@ -296,17 +310,17 @@ because $\sum_jn_j\vec\alpha_j=0$. Consider a static soliton that is either a si
 
 ::: {.proof}
 ## part 1
-1. The coefficients of $S$ satisfy a linear recursion, $\big((K^2m_a^2+2Km_am_bz+m_b^2)I-NC\big)s_K=r_K$, whose determinant is a polynomial in $z$ with leading term $(2Km_am_bz)^{r+1}\ne0$. So $S$ is unique for generic $z$, rational in $z$, and $f_j=e^{ikx}S_j/\tau_j$ is rational in $E$. At $-\infty$, $f\to e^{ikx}v^b$.
-2. At $+\infty$, $f\to e^{ikx}w$ with $w_j=s_{j,\lvert O\rvert n_j}/t_{j,\lvert O\rvert n_j}$. The top-degree terms of the soliton and fluctuation equations give $NCw=m_b^2w$, so $\sum_j\vec\alpha_jw_j$ lies in the $m_b^2$-eigenspace of $M_0$. If that mass is non-degenerate, (H) follows.
-3. Degenerate masses are separated by the centre $\mathcal Z$ of the affine diagram (its automorphisms with linear part in the Weyl group), through the characters $\chi_g(c)=e^{-2\pi i(C^{-1})_{g(0),c}}$, with $v^c_{g(j)}=\chi_g(c)v^c_j$. The degeneracies are the conjugate pairs of $a_n^{(1)}$ and $e_6^{(1)}$, the spinor pair of $d_n^{(1)}$, and in $d_n^{(1)}$ with $3\mid n-1$ the vector $(n-1)/3$ with the spinors; $e_7^{(1)}$ and $e_8^{(1)}$ have none. In each case the characters differ; for $a_n^{(1)}$ they are $\omega^{ja}$.
-4. The non-resonance condition $Km_a\ne m_c$ for $2\le K\le\max n_j$ holds for all $a_n^{(1)},d_n^{(1)},e_n^{(1)}$; for $e_n^{(1)}$ this is a finite check, and for $d_n^{(1)}$ it reduces to excluding $2\cos x=\cos y$ for rational angles, by Niven's theorem and the Conway–Jones classification of vanishing sums of cosines. Non-resonance makes the soliton unique given its first-order data, so $g\in\mathcal Z$ maps the soliton to its complex translate, $\tau_{g(j)}(E)=\tau_j(\chi_g(a)E)$ up to normalization. Uniqueness of $S$ then gives $S_{g(j)}(E)=\chi_g(b)\,S_j(\chi_g(a)E)$. Comparing top coefficients gives $w_{g(j)}=\chi_g(b)w_j$, so $w\propto v^b$.
+1. The coefficients of $S$ satisfy a linear recursion, $\big((K^2m_a^2+2Km_am_bz+m_b^2)I-N\mathsf C\big)s_K=r_K$, whose determinant is a polynomial in $z$ with leading term $(2Km_am_bz)^{r+1}\ne0$. So $S$ is unique for generic $z$, rational in $z$, and $f_j=e^{ikx}S_j/\tau_j$ is rational in $E$. At $-\infty$, $f\to e^{ikx}v^b$.
+2. At $+\infty$, $f\to e^{ikx}w$ with $w_j=s_{j,\lvert O\rvert n_j}/t_{j,\lvert O\rvert n_j}$. The top-degree terms of the soliton and fluctuation equations give $N\mathsf Cw=m_b^2w$, so $\sum_j\vec\alpha_jw_j$ lies in the $m_b^2$-eigenspace of $\mathsf M^2$. If that mass is non-degenerate, (H) follows.
+3. Degenerate masses are separated by the centre $\mathcal Z$ of the affine diagram (its automorphisms with linear part in the Weyl group), through the characters $\gamma_g(c)=e^{-2\pi i(\mathsf C_{\rm fin}^{-1})_{g(0),c}}$, with $\mathsf C_{\rm fin}$ the Cartan matrix of the finite algebra and $v^c_{g(j)}=\gamma_g(c)v^c_j$. The degeneracies are the conjugate pairs of $a_n^{(1)}$ and $e_6^{(1)}$, the spinor pair of $d_n^{(1)}$, and in $d_n^{(1)}$ with $3\mid n-1$ the vector $(n-1)/3$ with the spinors; $e_7^{(1)}$ and $e_8^{(1)}$ have none. In each case the characters differ; for $a_n^{(1)}$ they are $\omega^{ja}$.
+4. The non-resonance condition $Km_a\ne m_c$ for $2\le K\le\max n_j$ holds for all $a_n^{(1)},d_n^{(1)},e_n^{(1)}$; for $e_n^{(1)}$ this is a finite check, and for $d_n^{(1)}$ it reduces to excluding $2\cos x=\cos y$ for rational angles, by Niven's theorem and the Conway–Jones classification of vanishing sums of cosines. Non-resonance makes the soliton unique given its first-order data, so $g\in\mathcal Z$ maps the soliton to its complex translate, $\tau_{g(j)}(E)=\tau_j(\gamma_g(a)E)$ up to normalization. Uniqueness of $S$ then gives $S_{g(j)}(E)=\gamma_g(b)\,S_j(\gamma_g(a)E)$. Comparing top coefficients gives $w_{g(j)}=\gamma_g(b)w_j$, so $w\propto v^b$.
 5. For a coincident orbit, steps 1 and 2 hold with $n_j$ replaced by $\lvert O\rvert n_j$. By uniqueness the folded-channel solution is $\sigma$-invariant, so $w$ lies in the $\sigma$-invariant part of the $m_b^2$-eigenspace. That part is one-dimensional, except in $b_n^{(1)}$ with $3\mid n$. There the centre element with $g(0)=1$ commutes with $\sigma$, maps the spinor pair to itself with $E\mapsto-E$, is non-resonant up to $K=4$, and separates the vector $n/3$ from $s+s'$.
 
 :::
 
 *Numerics.* (H) holds in all 339 soliton–channel pairs of $d_4^{(1)},\dots,d_8^{(1)}$ and $e_{6,7,8}^{(1)}$, and every static soliton there has $\deg\tau_j=n_j$, with residuals below $10^{-38}$ at 50 digits. Components along other equal-mass species are at most $7\times10^{-24}$. Direct integration of the fluctuation equation gives reflectionless, species-diagonal scattering with $T_{cc}=X_c$ to $2\times10^{-10}$ (all solitons of $a_3,d_4,d_5,d_7,e_6,e_7$, and three of $e_8$). The Hirota Wronskian matrices are constant and diagonal to $4\times10^{-15}$. The determinant check of @thm-hirota-factorization gives $1$ to $10^{-4}$ for solitons of $d_4^{(1)}$, $d_5^{(1)}$ and $e_6^{(1)}$. Isolated grid eigenvalues and their multiplicities match the net count, with cancelled zeros absent (for example $\{0,0.95096\}$ for $e_6^{(1)}$, $a=1$, with the cancelled $0.31699$ absent).
 
-**Foldings [Numerical; Theorem given (D)].** (H) holds in every folded channel of 19 foldings, with $X_b^{\rm fold}=\prod_{a'\in O(a)}X_{a'b}$ to $3\times10^{-23}$: $c_{2,3,4}^{(1)}$, $b_{3,\dots,6}^{(1)}$, $g_2^{(1)}$, $f_4^{(1)}$, $a_{2,4,6}^{(2)}$, $d_{3,4,5}^{(2)}$, $a_{3,5}^{(2)}$, $d_4^{(3)}$ and $e_6^{(2)}$. Two kinds of folding are used here. Foldings by a diagram automorphism that fixes the affine node have coincident orbits of parent solitons as solitons; these give $b_n^{(1)}$, $c_n^{(1)}$, $g_2^{(1)}$, $f_4^{(1)}$, and $a_{2n}^{(2)}$ from $a_{2n}^{(1)}$ by $j\mapsto-j$. Foldings by a centre element keep the parent solitons of character 1; these give the other twisted algebras. @sec-one-loop-masses-folded also obtains $a_{2n}^{(2)}$ from $d_{2n+2}^{(1)}$, by an order-4 automorphism that moves the affine node, with the same one-loop masses.
+**Foldings [Numerical; Theorem given (D)].** (H) holds in every folded channel of 19 foldings, with $X_b^{\rm fold}=\prod_{a'\in O(a)}X_{a'b}$ to $3\times10^{-23}$: $c_{2,3,4}^{(1)}$, $b_{3,\dots,6}^{(1)}$, $g_2^{(1)}$, $f_4^{(1)}$, $a_{2,4,6}^{(2)}$, $d_{3,4,5}^{(2)}$, $a_{3,5}^{(2)}$, $d_4^{(3)}$ and $e_6^{(2)}$. Two kinds of folding are used here. Foldings by a diagram automorphism that fixes the affine node have coincident orbits of parent solitons as solitons; these give $b_n^{(1)}$, $c_n^{(1)}$, $g_2^{(1)}$, $f_4^{(1)}$, and $a_{2n}^{(2)}$ from $a_{2n}^{(1)}$ by $j\mapsto-j$. Foldings by a centre element keep the parent solitons of character 1; these give the other twisted algebras. @sec-one-loop-masses-folded also obtains $a_{2n}^{(2)}$ from $d_{2n+2}^{(1)}$, by the order-4 diagram automorphism of @sec-affine-folding, which moves the affine node. Both are foldings of the Toda theory, not the order-2 twist that defines $a_{2n}^{(2)}$ as a loop algebra (@sec-twisted). @sec-affine-folding shows that they give the same classical masses, and the one-loop masses agree too [Numerical, $n\le3$].
 
 **Multiple zeros and threshold resonances [Numerical].** All zeros of single simply-laced solitons are simple. All net counts are non-negative; at isolated eigenvalues this is a theorem given (-@eq-net-factorization), because $d$ is analytic there, and at embedded points it is numerical. Multiple zeros occur only for coincident orbits:
 
@@ -320,12 +334,12 @@ because $\sum_jn_j\vec\alpha_j=0$. Consider a static soliton that is either a si
 
 The Jordan types were read off from the ranks of $(\mathcal A_N-\lambda_0)^k$ on Fourier grids, and from the $\epsilon^{1/3}$ splitting of the $g_2^{(1)}$ triple. @thm-jordan-chains does not apply to the isolated clusters, because (R) fails there (@sec-counting-rule-transmission-factors), so their Jordan types are numerical. They equal the individual orders.
 
-Simple zeros can also sit exactly at another channel's threshold: in $a_n^{(1)}$ with $h$ even (@prp-an-zeros, case $\cos B=0$), in $d_n^{(1)}$ with $n$ odd, and in $e_6^{(1)}$. There the exact solution tends to a constant in the threshold channel. It adds nothing to the $L^2$ root space, but the heat trace counts it with weight 1: dropping it changes the $a_3^{(1)}$ trace by $e^{-0.6}=0.55$ at $t=0.3$. So the trace weight can exceed the dimension of the $L^2$ root space already for single simply-laced solitons. Scripts: `foundations_code/hirota/`.
+Simple zeros can also sit exactly at another channel's threshold: in $a_n^{(1)}$ with $h$ even (@prp-an-zeros, case $\cos\vartheta_b=0$), in $d_n^{(1)}$ with $n$ odd, and in $e_6^{(1)}$. There the exact solution tends to a constant in the threshold channel. It adds nothing to the $L^2$ root space, but the heat trace counts it with weight 1: dropping it changes the $a_3^{(1)}$ trace by $e^{-0.6}=0.55$ at $t=0.3$. So the trace weight can exceed the dimension of the $L^2$ root space already for single simply-laced solitons. Scripts: `foundations_code/hirota/`.
 
 ## Exercises {#sec-jordan-chains-exercises}
 
 ::: {#exr-wronskian-bilinear}
-Show that for $\mathcal A=-\partial_x^2+M(x)$ with $M^{\mathsf T}=M$, the Wronskian $W(u,v)=u^{\mathsf T}v'-u'^{\mathsf T}v$ of two solutions at the same $\lambda$ is constant. Why is complex conjugation not needed?
+Show that for $\mathcal A=-\partial_x^2+\mathsf M^2(x)$ with $\mathsf M^2(x)$ symmetric, the Wronskian $W(u,v)=u^{\mathsf T}v'-u'^{\mathsf T}v$ of two solutions at the same $\lambda$ is constant. Why is complex conjugation not needed?
 :::
 
 ::: {#exr-chain}
@@ -337,7 +351,7 @@ For the species-1 soliton of $a_4^{(1)}$, use (-@eq-an-transmission) to show tha
 :::
 
 ::: {#exr-cn-double-zero}
-For $c_n^{(1)}$, show that $X_n(z)=\big(\frac{z-\sin A}{z+\sin A}\big)^2$ has its double zero at the threshold of channel $n-a$, using $m_b=2m\sin\frac{\pi b}{2n}$.
+For $c_n^{(1)}$, show that $X_n(z)=\big(\frac{z-\sin\vartheta_a}{z+\sin\vartheta_a}\big)^2$ has its double zero at the threshold of channel $n-a$, using $m_b=2m\sin\frac{\pi b}{2n}$.
 :::
 
 ## Notes and references {#sec-jordan-chains-notes}
