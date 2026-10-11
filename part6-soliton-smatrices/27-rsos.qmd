@@ -75,6 +75,10 @@ Evidence:
 
 *Numerics.* The mixed Yang–Baxter equations hold to $5\times10^{-15}$ and braiding unitarity to $8\times10^{-14}$ in all four sectors. Hermitian analyticity and $SS^\dagger=1$ hold to $10^{-12}$ at the eight couplings tested with $p'\equiv\pm1$, and fail by $O(1)$ at the five others. The sign criterion was checked by brute force for $4\le p\le60$. Scripts: `foundations_code/irf/`.
 
+@fig-qdim-signs shows which couplings pass the criterion of part 1 and which pass only the weaker $\mathrm{su}(2)$ criterion.
+
+![The sign of the quantum dimensions for $q=e^{i\pi r/p}$ with $r=p'-p$ small. Green: all $\mathrm{su}(2)$ dimensions $[k]$ positive ($r\equiv\pm1$ mod $2p$, which includes the unitary series $r=1$). Orange: the $[k]$ alternate but all $\mathrm{su}(3)$ dimensions $d_h$ are positive ($r\equiv p\pm1$ mod $2p$). Red: some $d_h<0$. The $a_2^{(1)}$ kink S-matrix is Hermitian analytic exactly at the green and orange points ($r\equiv\pm1$ mod $p$).](figures/ch27_f24_qdim_signs.svg){#fig-qdim-signs fig-alt="A grid of points with p on the horizontal axis and r equal to p prime minus p on the vertical axis. A row of green points along r equals 1, a diagonal of orange squares along r equals p minus 1 and r equals p plus 1, and red points elsewhere."}
+
 Three consequences follow.
 
 - **Restriction cures the vertex-form breaking.** For $p'\equiv\pm1$ the three-soliton breaking of @prp-krein-fundamental and the soliton–antisoliton breaking of Takács and Watts both disappear: all restricted transfer matrices are unitary (part 1), and numerically unimodular to $3\times10^{-14}$ for up to six kinks. Breathers are present exactly when $3(p'-p)>2p$ [@tw1999, eq. 3.3]. Together with $p'\equiv\pm1$, their absence leaves only $p'=p+1$, the unitary $W_3$ series. For $p'\equiv\pm1$ with $p'\ne p+1$ the kink S-matrix is unitary, but these models contain breathers, and the kink–breather amplitude [@tw1999, eq. 3.7] is not a phase.

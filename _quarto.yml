@@ -5,7 +5,10 @@ project:
 book:
   title: "Affine Toda field theory"
   subtitle: "A graduate introduction, leading into current research"
-  author: "Gustav Delius"
+  author:
+    - Gustav Delius
+    - Niall MacKay
+    - Gerard Watts
   repo-url: https://github.com/gustavdelius/affine_toda
   output-file: affine-toda
   downloads: [pdf]
@@ -20,7 +23,6 @@ book:
     collapse-level: 1
   chapters:
     - index.qmd
-    - 01-introduction.qmd
     - part: part1-background/part.qmd
       chapters:
         - part1-background/02-integrable-qft.qmd
@@ -76,7 +78,8 @@ book:
         - part8-foundations/38-continuum-thresholds.qmd
         - part8-foundations/39-continuum-window.qmd
         - part8-foundations/40-scattering.qmd
-        - part8-foundations/41-outlook.qmd
+        - part8-foundations/41-unitarity.qmd
+    - outlook/42-outlook.qmd
     - references.qmd
   appendices:
     - appendices/A-algebra-data.qmd

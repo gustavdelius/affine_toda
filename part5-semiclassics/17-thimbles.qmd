@@ -39,6 +39,10 @@ where the intersection number $\nu_\sigma$ counts, with orientation, how often t
 - Expanding around $z=0$ gives $I=\sqrt{2\pi/\lambda}\,\big(1-\frac5{6\lambda}+O(\lambda^{-2})\big)$, which agrees with the numerical integral (`textbook_code/semiclassics.py`).
 - The antilinear map $x\mapsto-\bar x$ maps the real line to itself and $S$ to $\bar S$, and both critical points are fixed by it. This is the zero-dimensional $\Theta$.
 
+@fig-thimbles shows the geometry. The real line meets the dual thimble $\mathcal K_0$ of the saddle at $0$ once and the dual thimble $\mathcal K_i$ of the saddle at $i$ never, which is the statement $\nu_0=1$, $\nu_i=0$.
+
+![Thimble $\mathcal J_0$ and dual thimble $\mathcal K_i$ of $S=\frac{x^2}2+\frac{ix^3}3$ in the complex plane. Both critical points have $\operatorname{Im}S=0$, so they are joined by a flow line (dotted). The real line does not meet $\mathcal K_i$. The integral over $\mathcal J_0$ equals the real-line integral.](figures/ch17_f22_thimbles.svg){#fig-thimbles fig-alt="The complex plane with the real line, a blue curve bending downward through the saddle at 0 (the thimble), and a red dashed curve bending upward through the saddle at i (its dual thimble), which stays above the real line."}
+
 So the question is never "is there a complex saddle?", but "what is its intersection number?". In field theory the intersection numbers are hard to compute, and that is the difficulty of gap H7 (@sec-critique).
 
 
