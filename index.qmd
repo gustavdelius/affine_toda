@@ -17,20 +17,20 @@ The whole book is also available as a [PDF](affine-toda.pdf).
 
 ## Presentation and new results {#sec-new-results}
 
-Parts I–IV, and the introductory chapters of Parts V and VI, present established material. We have rewritten it in a common notation and with consistent conventions, and have added exercises, figures and some derivations that the original papers omit, but the results are those of the literature cited in each chapter's *Notes and references*. Parts V–VII contain original results. We list them here so that a reader can tell what is new. In the book itself, claims beyond the textbook literature carry the status labels of @sec-status-labels.
+Parts I–IV, Part VII on the half-line, and the introductory chapters of Parts V and VI present established material. We have rewritten it in a common notation and with consistent conventions, and have added exercises, figures and some derivations that the original papers omit, but the results are those of the literature cited in each chapter's *Notes and references*. Parts V, VI and VIII contain original results. We list them here so that a reader can tell what is new. In the book itself, claims beyond the textbook literature carry the status labels of @sec-status-labels.
 
 **Original results.**
 
-- **A selection rule from the antilinear symmetry $\Theta$** (chapter 11, with the Krein structure of Part VII). Reality of soliton energies and charges was shown for specific solution classes by Olive, Turok and Underwood, Zhu and Caldi, and Freeman, and complex-energy and singular solutions were found by Khastgir and Sasaki and by Takács and Watts. The new point is that all of these follow from one criterion: classical energies and charges are real precisely when the asymptotic data are invariant under the $PT$-type symmetry $\Theta$. The earlier restriction to "good" solutions becomes a symmetry statement. The same $\Theta$, together with an indefinite (Krein) inner product, is the foundation of the quantum theory of Part VII.
+- **A selection rule from the antilinear symmetry $\Theta$** (chapter 11, with the Krein structure of Part VIII). Reality of soliton energies and charges was shown for specific solution classes by Olive, Turok and Underwood, Zhu and Caldi, and Freeman, and complex-energy and singular solutions were found by Khastgir and Sasaki and by Takács and Watts. The new point is that all of these follow from one criterion: classical energies and charges are real precisely when the asymptotic data are invariant under the $PT$-type symmetry $\Theta$. The earlier restriction to "good" solutions becomes a symmetry statement. The same $\Theta$, together with an indefinite (Krein) inner product, is the foundation of the quantum theory of Part VII.
 - **Semiclassical quantization of complex solitons** (chapters 17–19). The application of Picard–Lefschetz theory to the saddles of affine Toda theory; the counting rule that eigenvalues of the non-Hermitian fluctuation operator be counted with algebraic multiplicity, which resolves the disagreements between earlier one-loop computations for $c_n^{(1)}$ and $b_n^{(1)}$; its derivation from the transmission factors, with Jordan blocks that have the sizes of the zeros, and a transmission-factor formula for one-loop masses that extends the Cahill–Comtet–Glauber formula to several channels, to poles and to complex solitons; one-loop masses of all folded solitons; and a prediction of the $f_4^{(1)}$ soliton masses. The Hirota form of the fluctuation operator for $d_n^{(1)}$, $e_n^{(1)}$ and their foldings is established for rank at most 8 and assumed beyond. The reduction to Pöschl–Teller wells uses known heat-trace results for single real channels, which we cite.
 - **New soliton S-matrices** (chapters 23–25). Constructions for the spinor solitons of $c_n^{(1)}$ ($n\ge3$) and $a_{2n-1}^{(2)}$ ($n\ge3$), and for $e_6^{(2)}$, from the known R-matrices, with checks against one-loop and lattice masses. These three families were previously missing, contrary to a common impression that all soliton S-matrices were known.
 - **The $f_4^{(1)}$ obstruction** (chapter 26). A candidate amplitude satisfying all the axioms, shown by a one-loop computation not to be the right one. The soliton S-matrix of $f_4^{(1)}$ remains open.
 - **Unitary RSOS subtheories** (chapter 27). An exact criterion for when the kinks of the restricted $a_2^{(1)}$ theory, the perturbed $W_3(p,p')$ models, have a Hermitian-analytic and unitary S-matrix, and a conjectured general criterion.
-- **The foundations of the non-unitary theory** (chapters 28–33). A lattice regularization of every imaginary-coupling theory whose partition function is a convergent sum of positive Coulomb-gas weights, so that the complex action gives no sign problem; the Krein-space transfer matrix with its antilinear symmetry $\Theta$; reality of the finite-volume vacuum energy; a finite-volume continuum limit for every algebra below the first collapse threshold $\beta^2_{\rm UV}$ (awaiting independent check); a Krein-unitarity criterion for the eigenvalues of S-matrices, with the proof that it holds for the fundamental solitons of $a_n^{(1)}$; the graded exchange statistics of solitons as a Bloch twist; and a list of the consequences of unitarity that cannot be restored.
+- **The foundations of the non-unitary theory** (chapters 36–41). A lattice regularization of every imaginary-coupling theory whose partition function is a convergent sum of positive Coulomb-gas weights, so that the complex action gives no sign problem; the Krein-space transfer matrix with its antilinear symmetry $\Theta$; reality of the finite-volume vacuum energy; a finite-volume continuum limit for every algebra below the first collapse threshold $\beta^2_{\rm UV}$ (awaiting independent check); a Krein-unitarity criterion for the eigenvalues of S-matrices, with the proof that it holds for the fundamental solitons of $a_n^{(1)}$; the graded exchange statistics of solitons as a Bloch twist; and a list of the consequences of unitarity that cannot be restored.
 
 **Presentation of known material.** The book also gathers, in one notation, results that the literature scatters: factorized scattering and sine-Gordon (Part I), root systems, affine algebras, quantum groups and R-matrices (Part II), classical solitons and Hirota solutions (Part III), the exact particle S-matrices, the thermodynamic Bethe ansatz and form factors at real coupling (Part IV), and the quantum-group symmetry and bootstrap construction of soliton S-matrices (chapters 20–22).
 
-Statements labelled **[Theorem]** have complete proofs in the text but, being new, have not been checked by anyone outside the project. The Part VII continuum-limit theorems in particular await independent checking.
+Statements labelled **[Theorem]** have complete proofs in the text but, being new, have not been checked by anyone outside the project. The Part VIII continuum-limit theorems in particular await independent checking.
 
 ## Why affine Toda theory matters {#sec-why-atft-matters}
 
@@ -71,7 +71,7 @@ The theories are not only of historical interest. They are rich enough to show g
 
 ## How this book is organised {#sec-reader-guide}
 
-The book has seven parts.
+The book has eight parts.
 
 - **Part I** collects the physical background: factorized scattering in two dimensions, sine-Gordon theory as the rank-one template, and the non-Hermitian quantum mechanics needed for the imaginary-coupling theories.
 - **Part II** collects the algebraic background: root systems, affine Kac–Moody algebras, quantum groups and R-matrices.
@@ -79,15 +79,16 @@ The book has seven parts.
 - **Part IV** treats the quantum theory at real coupling, where the exact particle S-matrices are known for every algebra.
 - **Part V** treats the semiclassical quantization of the complex solitons of the imaginary-coupling theories.
 - **Part VI** treats their exact soliton S-matrices, including the constructions for $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$ and the open case $f_4^{(1)}$.
-- **Part VII** asks whether the imaginary-coupling theories exist as quantum field theories, and answers: yes, as non-unitary ones.
+- **Part VII** restricts the theories to a half-line: integrable boundary conditions, solitons and their mirror images, the remnant of quantum-group symmetry that a boundary leaves unbroken, and the exact reflection amplitudes of solitons and particles.
+- **Part VIII** asks whether the imaginary-coupling theories exist as quantum field theories, and answers: yes, as non-unitary ones.
 
-Parts I–IV are textbook material. Parts V–VII present research results, many of them new.
+Parts I–IV are textbook material. Parts V, VI and VIII present research results, many of them new. Part VII presents the theory on the half-line, developed in the research literature since 1993, in textbook form.
 
-The dependencies between the parts are shown below. Chapter 4 is needed only for Parts V and VII, and Part II is needed in full only for Part VI.
+The dependencies between the parts are shown below. Chapter 4 is needed only for Parts V and VIII, and Part II is needed in full only for Parts VI and VII.
 
 ```{mermaid}
 %%| label: fig-dependencies
-%%| fig-cap: "Dependencies between the parts of the book. An arrow means that the later part uses the earlier one. Chapter 4 of Part I, on non-Hermitian quantum mechanics, is drawn separately because only Parts V and VII use it."
+%%| fig-cap: "Dependencies between the parts of the book. An arrow means that the later part uses the earlier one. Chapter 4 of Part I, on non-Hermitian quantum mechanics, is drawn separately because only Parts V and VIII use it."
 %%| fig-width: 6
 flowchart LR
   I["I. Physical background<br/>ch. 2–3"] --> III["III. Classical theory<br/>ch. 9–11"]
@@ -98,22 +99,26 @@ flowchart LR
   IV --> VI["VI. Soliton S-matrices<br/>ch. 20–27"]
   II --> VI
   V --> VI
-  V --> VII["VII. Foundations<br/>ch. 28–33"]
+  VI --> VII["VII. Half-line<br/>ch. 28–35"]
+  III --> VII
+  IV --> VII
+  V --> VIII["VIII. Foundations<br/>ch. 36–41"]
   I4["I. Non-Hermitian QM<br/>ch. 4"] --> V
-  I4 --> VII
-  VI --> VII
+  I4 --> VIII
+  VI --> VIII
 ```
 
 **Reading paths.**
 
 - *A course on integrable field theory:* chapters 2–3, 5–6, 9–10, 12–14, then 20–22. This covers sine-Gordon, the classical theory, the particle S-matrices and the known soliton S-matrices.
 - *A course on quantum groups in field theory:* chapters 2–3 and 5–8, then 20–22 and 27.
-- *Non-unitary quantum field theory:* chapters 2–4, 9–11, then Part VII, consulting Parts V–VI as needed.
-- *For specialists:* Parts V–VII, which can be read on their own by a reader who already knows affine Toda theory.
+- *Integrable boundaries:* chapters 2–3, 7–10 and 13, then Part VII, consulting chapters 20–21 for the quantum-group method.
+- *Non-unitary quantum field theory:* chapters 2–4, 9–11, then Part VIII, consulting Parts V–VI as needed.
+- *For specialists:* Parts V–VIII, which can be read on their own by a reader who already knows affine Toda theory.
 
-The four paths are drawn in @fig-reading-paths.
+The five paths are drawn in @fig-reading-paths.
 
-![The four reading paths, by chapter. An arrow means "then", and the colour of a box is the Part its chapters belong to.](figures/intro_f1_reading_paths.svg){#fig-reading-paths fig-alt="Four rows of boxes joined by arrows. The first row runs through chapters 2 to 3, 5 to 6, 9 to 10, 12 to 14 and 20 to 22. The second runs through chapters 2 to 3, 5 to 8, 20 to 22 and 27. The third runs through chapters 2 to 4, 9 to 11 and Part VII. The fourth is a single box for Parts V to VII."}
+![The five reading paths, by chapter. An arrow means "then", and the colour of a box is the Part its chapters belong to.](figures/intro_f1_reading_paths.svg){#fig-reading-paths fig-alt="Four rows of boxes joined by arrows. The first row runs through chapters 2 to 3, 5 to 6, 9 to 10, 12 to 14 and 20 to 22. The second runs through chapters 2 to 3, 5 to 8, 20 to 22 and 27. The third runs through chapters 2 to 4, 9 to 11 and Part VII. The fourth is a single box for Parts V to VII."}
 
 **What Part I borrows from Part II.** Part I uses some algebraic terms before Part II defines them. They appear in statements about general affine Toda theories, which a first reading can take on trust, and the sine-Gordon case of @sec-sine-gordon needs none of them in more than its simplest form. In brief:
 

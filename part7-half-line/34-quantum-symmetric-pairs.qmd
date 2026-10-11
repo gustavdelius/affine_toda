@@ -1,0 +1,35 @@
+# Quantum symmetric pairs and universal K-matrices {#sec-qsp}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is being drafted.*
+
+## Symmetric pairs and Satake diagrams {#sec-symmetric-pairs}
+
+<!-- planned: Involutions and fixed-point subalgebras. -->
+
+## Letzter–Kolb coideals {#sec-letzter-kolb}
+
+<!-- planned: Generators, parameter conditions, relation to the physics coideals. -->
+
+## The q-Onsager algebra {#sec-q-onsager}
+
+<!-- planned: The sine-Gordon coideal; boundary degrees of freedom. -->
+
+## The universal K-matrix {#sec-universal-k}
+
+<!-- planned: Balagović–Kolb, Kolb–Yakimov. -->
+
+## Trigonometric K-matrices {#sec-trigonometric-k}
+
+<!-- planned: Appel–Vlaar. -->
+
+## Generalized Satake diagrams {#sec-generalized-satake}
+
+<!-- planned: Regelskis–Vlaar; a table of physical boundaries. -->
+
+## Exercises {#sec-qsp-exercises}
+
+## Notes and references {#sec-qsp-notes}

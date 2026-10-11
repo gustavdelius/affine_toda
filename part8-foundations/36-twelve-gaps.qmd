@@ -3,10 +3,10 @@
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
 - Know the three standard objections to the imaginary-coupling theories.
 - Know the twelve gaps between what the literature uses and what it establishes.
-- Know which chapter of Part VII (or Parts V and VI) addresses each gap, and with what status.
+- Know which chapter of Part VIII (or Parts V and VI) addresses each gap, and with what status.
 :::
 
-Part VII asks whether the imaginary-coupling affine Toda theories exist as quantum field theories, in the operational sense of @sec-valid-qft. This chapter states the problem: the objections usually raised, the twelve specific gaps in the literature, and a summary of what the rest of the part establishes.
+Part VIII asks whether the imaginary-coupling affine Toda theories exist as quantum field theories, in the operational sense of @sec-valid-qft. This chapter states the problem: the objections usually raised, the twelve specific gaps in the literature, and a summary of what the rest of the part establishes.
 
 ## Three objections {#sec-three-objections}
 
@@ -44,7 +44,7 @@ We list the gaps between what the literature uses and what it establishes. In ea
 
 **H12. Unitary subtheories.** RSOS restriction sometimes yields unitary theories and sometimes not, depending on the coupling, the gradation, and whether breathers survive. There is no general criterion.
 
-## What Part VII establishes {#sec-summary-overview}
+## What Part VIII establishes {#sec-summary-overview}
 
 ::: {.callout-note appearance="simple" icon=false title="Abstract"}
 Affine Toda field theories (ATFTs) are a family of two-dimensional integrable quantum field theories, one for each affine Kac–Moody algebra $\hat g$. With real coupling they are unitary theories of $\operatorname{rank}(g)$ scalar particles. Their exact S-matrices are known for every $\hat g$ and have been checked perturbatively and numerically.
