@@ -13,6 +13,32 @@
 
 Like @sec-integrable-qft, this chapter is independent of affine Toda theory. @sec-boundary-sine-gordon applies it to sine-Gordon and sinh-Gordon theory. The rest of Part VII applies it to affine Toda theory: the classical boundary conditions (@sec-boundary-conditions), their quantum-group symmetry (@sec-coideal, @sec-k-intertwiner), and the soliton and particle reflection amplitudes (@sec-soliton-reflection, @sec-particle-reflection).
 
+::: {.callout-tip collapse="true" title="Symbols used in Part VII"}
+The literature of this part uses many symbols in several senses. The table lists those that recur, with the chapters in which each meaning is used.
+
+| symbol | meanings |
+|---|---|
+| $K$ | reflection matrix or factor (all chapters); the Cartan generator of $U_q(sl_2)$ is written $q^H$ here |
+| $B$, $\mathcal B$ | coupling $B(\beta)$ of (-@eq-b-of-beta); the boundary operator $B$ (@sec-boundary-scattering); the coideal $B_{\hat\epsilon}$ and Kolb's $B_i$ (@sec-boundary-qg, @sec-qsp); $\mathcal B$ the boundary potential (@sec-boundary-conditions) and the $\mathcal B$-matrix (@sec-reflection-algebra) |
+| $C_j$ | classical boundary parameters (-@eq-boundary-potential) |
+| $\hat\epsilon_j$, $\epsilon_*$ | coideal parameters (-@eq-coideal-generators) and their special value (-@eq-an-eps-condition) |
+| $\epsilon$, $\epsilon_j$ | $C_0=C_1$ for sinh-Gordon (@sec-shg-boundary-breathers); Delius and MacKay's boundary couplings (@sec-boundary-qg); Delius's $\epsilon=-C$ (@tbl-boundary-dictionary) |
+| $\omega$ | the coupling $\frac{4\pi}{\beta^2}-1$ of Part VI (@sec-boundary-qg to @sec-particle-reflection); $\omega$ and $\omega_q$, Chevalley involutions (@sec-qsp). The root of unity of Part III is written $\zeta$ in @sec-half-line-solitons |
+| $\lambda$ | sine-Gordon coupling $\frac{8\pi}{\beta_{\rm SG}^2}-1$, which equals $\omega$ (@sec-boundary-sine-gordon, @sec-sg-k-from-symmetry); spectral parameter of the Lax pair (@sec-boundary-conditions); weight $\vec\lambda$ (@sec-half-line-solitons); boundary coupling $\lambda_b$ (@sec-boundary-qg); torus scale (@sec-qsp) |
+| $q$ | $-e^{-i\pi\omega}$ (-@eq-q-physical) |
+| $\theta$, $\Theta$ | rapidity; an involution of $\mathfrak g$ and $\Theta=-w_X\tau$ on weights (@sec-qsp); $\Theta$ also the antilinear symmetry (@sec-boundary-theta) |
+| $\eta$, $\vartheta$ | boundary parameters of Bajnok, Palla, Takács and Tóth (@sec-bsg-k-matrix); $\eta$ also an imaginary rapidity $\theta=i\eta$ (@sec-boundary-breathers-classical), $q=e^\eta$ of Delius and Nepomechie and the shift of Delius and George (@sec-soliton-reflection) |
+| $\xi$, $\xi_B$ | $\xi=\pi/\lambda$; Ghoshal and Zamolodchikov's boundary parameter $\xi_B$; soliton position parameters $\xi_{1,2}$ (@sec-half-line-solitons); Delius and Nepomechie's $\xi$ (@sec-xxz-spin-j) |
+| $\sigma$ | anti-automorphism (@sec-sklyanin); scalar function $\sigma(x,u)$ (@sec-bsg-k-matrix); CDD factors $\sigma_c$ (@sec-an-diagonal-k) |
+| $T$, $\tau$ | transfer matrix $T$ and $\tau(\lambda)$ (@sec-sklyanin); topological charges $T_j$ (@sec-boundary-charges); $T=h\omega/2$ (@sec-an-diagonal-k, @sec-particle-reflection); Hirota functions $\tau_j$; diagram involution $\tau$ (@sec-qsp) |
+| $\mu$ | multiplet $V_\mu$; $\mu_\pm$ (@sec-bsg-parameters); Delius and Gandenberger's rapidity $\mu=-iT\theta/\pi$; coweight $\vec\mu$ |
+| $h$ | Coxeter number; block denominator ($h=6$ for Lee–Yang); Lee–Yang boundary field $h(b)$; coroots $h_j$ |
+| $a$, $b$ | particle labels; six-vertex weights $a=S_0$, $b=S_T$ (@prp-bsg-excited); Lee–Yang parameter $b$; coideal generators $b_j$; boundary states $b_{n,m}$ |
+| $s$ | spin; the sign $s=\pm1$ of the non-diagonal coideals; $s=\sin(\pi a/h)/\cosh\theta$ (@sec-images-neumann); Kolb's $s_i$ |
+| $u$ | $u=-i\theta$; fusing angles $u_{ab}^c$; $u=\tan\eta$ (@sec-boundary-breathers-classical) |
+| $\Omega$, $\zeta$ | frequency of small fluctuations and $e^{2\pi i/h}$ (@sec-half-line-solitons) |
+:::
+
 ## Kinematics on the half-line {#sec-half-line-kinematics}
 
 Take a theory on $x\le0$, with a boundary condition at $x=0$ that comes from a boundary term in the action (@sec-boundary-potential). Time translation survives, so energy is conserved. Space translation does not, so momentum is not.
@@ -51,7 +77,7 @@ $$
 K_\mu(\theta):V_\mu(\theta)\to V_{\mu'}(-\theta),
 $$
 
-where $V_\mu(\theta)$ is the multiplet $\mu$ at rapidity $\theta$ (@sec-amplitude-and-gradation). A boundary is **soliton-preserving** if $\mu'=\mu$ and **soliton-conjugating** if $\mu'=\bar\mu$, the conjugate multiplet. For sine-Gordon theory $\bar V=V$ and the distinction is invisible. For $a_n^{(1)}$ with $n\ge2$ the multiplets $V_a$ and $V_{n+1-a}$ differ, and the classical boundary conditions of @sec-durham-classification turn solitons into antisolitons (@sec-images-neumann), while the condition of @sec-soliton-preserving preserves them. @sec-preserving-conjugating discusses which equation goes with which boundary.
+where $V_\mu(\theta)$ is the multiplet $\mu$ at rapidity $\theta$ (@sec-amplitude-and-gradation). A boundary is **soliton-preserving** if $\mu'=\mu$ and **soliton-conjugating** if $\mu'=\bar\mu$, the conjugate multiplet. For sine-Gordon theory $\bar V=V$ and the distinction is invisible. For $a_n^{(1)}$ with $n\ge2$ the multiplets $V_a$ and $V_{n+1-a}$ differ, and the classical boundary conditions of @sec-durham-classification turn solitons into antisolitons (@sec-images-neumann), while the condition of @sec-soliton-preserving preserves them. @sec-preserving-conjugating discusses which equation goes with which boundary. In @sec-k-intertwiner $K$ acquires a second characterization, as an intertwiner of the conserved non-local charges of the boundary theory.
 
 ## The reflection equation {#sec-reflection-equation}
 

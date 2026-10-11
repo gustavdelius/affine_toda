@@ -170,7 +170,13 @@ Checked in `textbook_code/particle_reflection.py`. That these are the amplitudes
 
 ## The boundary spectrum of a_2 {#sec-boundary-spectrum-a2}
 
-Take $a_2^{(1)}$ with a solitonic boundary ($h=3$) and $0<B<1$. The vacuum amplitude $K^{b_{0,0}}_1=K^{b_{0,0}}_2$ is DG (6.3), the case $a=b=1$ of (-@eq-solitonic-factor). Its two physical-strip poles are boundary bound states, and the boundary bootstrap (-@eq-boundary-bootstrap) gives the amplitudes off the excited states, whose poles give further states, and so on. Delius and Gandenberger label the states $b_{n,m}$, where $n$ and $m$ count bound particles of type 1 and 2, and found [@delius_gandenberger1999, eq. (6.7)]
+Take $a_2^{(1)}$ with a solitonic boundary ($h=3$) and $0<B<1$. The vacuum amplitude $K^{b_{0,0}}_1=K^{b_{0,0}}_2$ is DG (6.3), the case $a=b=1$ of (-@eq-solitonic-factor). Its two physical-strip poles are boundary bound states, and the boundary bootstrap (-@eq-boundary-bootstrap) gives the amplitudes off the excited states, whose poles give further states, and so on. **One step in detail.** By (-@eq-solitonic-factor) the vacuum amplitude is $K^{b_{0,0}}_1=K_1\,(\frac12-\frac B2)(\frac32-\frac B2)(\frac32+\frac B2)(\frac52+\frac B2)$. The block $(\frac12-\frac B2)$ has its pole at $\theta=iv$, $v=\frac\pi6(1-B)$, inside the physical strip for $0<B<1$. As a bound state of particle 1 it raises the boundary energy by $m_1\cos v$ (-@eq-boundary-bound-state-energy), which is $0.9588\,m_1$ at $B=\frac9{20}$. The boundary bootstrap (-@eq-boundary-bootstrap) gives the amplitude of particle 1 on the new state as $K^{b_{0,0}}_1(\theta)\,S_{11}(\theta-iv)\,S_{11}(\theta+iv)$, with $S_{11}=\{1\}=(0)(2)/\big((B)(2-B)\big)$ by (-@eq-an-smatrix). The shift identity $(x)(\theta+\frac{i\pi p}h)\,(x)(\theta-\frac{i\pi p}h)=(x+p)(x-p)$ of @exr-ly-excited, with $p=\frac12-\frac B2$, turns the two S-matrices into
+$$
+\frac{(\frac52-\frac B2)(\frac32+\frac B2)}{(\frac12+\frac B2)(-\frac12+\frac{3B}2)(\frac52-\frac{3B}2)(\frac32-\frac B2)} .
+$$
+The factor $(\frac32-\frac B2)^{-1}$ removes the second pole of the vacuum amplitude, and the product is the amplitude of the state $b_{1,0}$ below (checked numerically). Its pole at $\frac12-\frac B2$ survives; on $b_{1,0}$ it is the crossed process, with $b_{0,0}$ in the intermediate state, as explained after (-@eq-a2-excited). Repeating the step gives all the states.
+
+Delius and Gandenberger label the states $b_{n,m}$, where $n$ and $m$ count bound particles of type 1 and 2, and found [@delius_gandenberger1999, eq. (6.7)]
 
 $$
 \begin{aligned}
@@ -179,7 +185,7 @@ K^{b_{n,m}}_1(\theta)=K_1(\theta)\;&\Big(\tfrac12-(2n+1)\tfrac B2\Big)\Big(\tfra
 \end{aligned}
 $$ {#eq-a2-excited}
 
-with $K_1$ of (-@eq-breather-continuation) and $K^{b_{n,m}}_2=K^{b_{m,n}}_1$. Each pair of blocks has the form $\big(x(n,m)\big)\big(h-x(m,n)\big)$, which makes crossing-unitarity manifest.
+with $K_1$ of (-@eq-breather-continuation) and $K^{b_{n,m}}_2=K^{b_{m,n}}_1$. The display contains four pairs of blocks, which we call its four lines, as in DG (6.7). Each pair has the form $\big(x(n,m)\big)\big(h-x(m,n)\big)$, which makes crossing-unitarity manifest.
 
 ::: {#prp-a2-excited}
 ## The excited-state amplitudes of $a_2^{(1)}$

@@ -59,6 +59,10 @@ $$
 K(\theta)\propto\begin{pmatrix}(q-q^{-1})(\hat\epsilon_1y+\hat\epsilon_0y^{-1})&y^2-y^{-2}\\ y^2-y^{-2}&(q-q^{-1})(\hat\epsilon_0y+\hat\epsilon_1y^{-1})\end{pmatrix}.
 $$ {#eq-bsg-k-matrix}
 
+::: {.callout-note appearance="simple" icon=false title="Preview: what $\hat\epsilon_0,\hat\epsilon_1$ are"}
+Here $\hat\epsilon_0,\hat\epsilon_1$ are simply the two parameters of the reflection matrix. @sec-boundary-qg explains them: the conserved non-local charges of the boundary theory are the coideal generators $b_j$, and $\hat\epsilon_j$ is the eigenvalue of $b_j$ on the boundary ground state (@prp-boundary-module). Their relation to the Lagrangian parameters $C_j$ is the subject of @sec-bsg-parameters.
+:::
+
 It satisfies the reflection equation (-@eq-reflection-braid) for all $\hat\epsilon_0,\hat\epsilon_1$, and it is the general solution found by de Vega and González-Ruiz [-@devega1994] and Ghoshal and Zamolodchikov [-@gz1994] (`textbook_code/boundary_sine_gordon.py`). Following Bajnok, Palla, Takács and Tóth we parametrize the two boundary parameters by $(\eta,\vartheta)$,
 
 $$

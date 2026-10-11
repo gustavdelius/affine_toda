@@ -12,6 +12,15 @@ The coideal subalgebras of @sec-boundary-qg were found by physicists, who asked 
 
 This chapter places the physics coideals in that framework. Three results come out. The sine-Gordon boundary algebra, for every value of the boundary parameters, is a quantum symmetric pair coideal: the q-Onsager algebra. For $a_n^{(1)}$, $n\ge2$, and $d_n^{(1)}$ the diagonal case $\hat\epsilon=0$ is a quantum symmetric pair coideal, but the non-diagonal cases $\hat\epsilon_j=\pm\epsilon_*$ are not. They lie outside Kolb's parameter set, and they are the generalized q-Onsager algebras of Baseilhac and Belliard [@baseilhac_belliard2010]. The special value $\epsilon_*$ is precisely where an obstruction identified by Kolb vanishes, which gives an algebraic reason for @prp-an-k-existence. Finally, a theorem of Appel and Vlaar on generic irreducibility proves hypothesis (ii) of @thm-k-reflection for all the coideals of @sec-boundary-qg.
 
+::: {.callout-tip appearance="simple" icon=false title="What the rest of the book uses from this chapter"}
+1. The boundary coideals of @sec-boundary-qg deform the fixed-point algebra of the Chevalley involution of $\hat g$, with Satake diagram $(\emptyset,{\rm id})$. For sine-Gordon every $(\hat\epsilon_0,\hat\epsilon_1)$ gives a quantum symmetric pair coideal, the q-Onsager algebra. For $a_n^{(1)}$ and $d_n^{(1)}$ only $\hat\epsilon=0$ does.
+2. The special value $\hat\epsilon_j^2=\epsilon_*^2$ of @prp-an-k-existence is where a quantum Serre relation of the coideal closes (@prp-serre-obstruction). These coideals are generalized q-Onsager algebras, not quantum symmetric pairs in Kolb's sense.
+3. Generic irreducibility proves hypothesis (ii) of @thm-k-reflection for every coideal of this part, when $q$ is not a root of unity (@prp-hypothesis-ii). It gives uniqueness of $K$, not existence.
+4. Universal K-matrices exist for the quantum symmetric pair coideals and give the reflection equation directly; none is known for $\hat\epsilon_j=\pm\epsilon_*$.
+
+@sec-trigonometric-k and @sec-generalized-satake are a guide to the mathematical literature. @sec-particle-reflection does not need them, except for its open problems.
+:::
+
 ## Symmetric pairs and Satake diagrams {#sec-symmetric-pairs}
 
 **Symmetric pairs.** Let $\theta$ be an involutive automorphism of a Lie algebra $\mathfrak g$ and $\mathfrak k=\{x\in\mathfrak g\,|\,\theta(x)=x\}$ its fixed-point subalgebra. The pair $(\mathfrak g,\mathfrak k)$ is a *symmetric pair*. The simplest example is the Chevalley involution $\omega(e_i)=-f_i$, $\omega(f_i)=-e_i$, $\omega(h)=-h$. For $\mathfrak g=sl_N$ it is $X\mapsto-X^T$, and $\mathfrak k=so_N$. Every involution of a finite-dimensional simple $\mathfrak g$ is, up to conjugation, described by a *Satake diagram* $(X,\tau)$: a set $X$ of black nodes of the Dynkin diagram, on whose subalgebra $\mathfrak g_X$ the involution acts trivially, and a diagram involution $\tau$, drawn as arrows. Kolb calls $(X,\tau)$ *admissible* if $\tau^2=1$, $\tau$ acts on $X$ as $-w_X$, and $\alpha_j(\rho_X^\vee)\in\mathbb Z$ for every white node $j$ fixed by $\tau$ [@kolb2014, Def. 2.3]. The involution is then
