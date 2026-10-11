@@ -1,4 +1,4 @@
-"""Shared style for the figures of Part I and the introduction.
+"""Shared style for the figures of the introduction and Parts I and II.
 
 Every figure script imports this module. Figures are designed for a canvas about 7 inches wide: the book
 shows them at text width (about 5.4 inches in the PDF), so text of 8-9 pt stays readable. It fixes the matplotlib backend, one
@@ -9,7 +9,8 @@ Figures are written as SVG into the book tree and committed, so that the HTML
 build needs no Python:
 
   * `figures/`                    for the introduction (01-introduction.qmd),
-  * `part1-background/figures/`   for chapters 2-4.
+  * `part1-background/figures/`   for chapters 2-4,
+  * `part2-algebra/figures/`      for chapters 5-8.
 
 Each script also prints one PASS or FAIL line per formula it plots, like the
 other scripts in textbook_code/.
@@ -24,6 +25,7 @@ import matplotlib.pyplot as plt  # noqa: E402
 ROOT = Path(__file__).resolve().parents[2]
 OUT_INTRO = ROOT / "figures"
 OUT_PART1 = ROOT / "part1-background" / "figures"
+OUT_PART2 = ROOT / "part2-algebra" / "figures"
 
 GREY = "#868b94"          # text, axes: readable on white and on the dark theme
 LIGHTGREY = "#868b9455"   # grid lines, light fills
