@@ -17,9 +17,12 @@ sec-classical-reflection-factors, eq-linear-reflection):
    energy E = (2m/b^2)(2k - h m_a/m) (k = number of C_j = -1) independent of the modulus chi; the parity partner
    (d = 1/(1-s)) is singular on x < 0.
 4. a_{2k-1}, C = -1: the static self-conjugate soliton tau_j = 1 + (-1)^j e^{2mx+xi} satisfies the boundary condition for every
-   xi (sympy); for real xi < 0 it is real and regular on x <= 0 with energy 0, the energy of phi = 0 (a modulus).
+   xi (sympy); for real xi < 0 it is real and regular on x <= 0 with energy 0, the energy of phi = 0 (a modulus; a_1, a_3, a_5, a_7).
+   c_n by folding: only C = -1 of the 3 folded c_2 patterns with C_0 C_2 = 1 has a single-soliton vacuum; the continued pair
+   is folding-invariant only for chi in pi Z.
 5. Linearized reflection about phi = 0 (uniform C): K_a = (sinh th - i C s_a)/(sinh th + i C s_a) = -((a)(h-a))^{-C};
-   boundary bound states for C = -1 at omega = m_a cos(pi a/h) (Corrigan-Dorey-Rietdijk hep-th/9407148 (4.7)-(4.9), (5.3));
+   boundary bound states for C = -1 at th = i pi min(a, h-a)/h, omega = m_a |cos(pi a/h)| (Corrigan-Dorey-Rietdijk hep-th/9407148
+   (4.7)-(4.9), (5.3));
    B -> 0 limit of Delius-Gandenberger (3.16) is the C = +1 value.
 """
 import itertools
@@ -229,20 +232,39 @@ for n in (1, 3, 5):
     ok &= all(sp.simplify(sp.exp(bs_ * (al[k].T * phi)[0] / 2).subs({x_: 0, xi_: -1}) - ex[k].subs({x_: 0, xi_: -1})) == 0 for k in range(h))
 report('a_1, a_3, a_5: the static self-conjugate soliton tau_j = 1 + (-1)^j e^{2mx+xi} satisfies the C = -1 boundary condition for every xi', ok)
 ok = True; Evals = []
-for n in (1, 3):
+for n in (1, 3, 5, 7):
     h = n + 1
     for xi in (-0.3, -1.0, -3.0):
         def fx(x, xi=xi, n=n):
             h = n + 1; E = np.exp(2 * m * np.atleast_1d(x) + xi)
             T = [(1 + (-1) ** j * E, (-1) ** j * 2 * m * E, (-1) ** j * 4 * m**2 * E) for j in range(h)]
             return tuple(v[:, 0] for v in fields(n, T))
-        if n == 1:
-            continue
         En = energy(n, fx, (-1,) * h)
         Evals.append(En)
         ok &= np.exp(xi) < 1 and abs(En) < 1e-8
-report(f'a_3, C = -1: for real xi < 0 the static soliton is real and regular on x <= 0 with energy 0 = E(phi=0), independent of xi  '
-       f'[E = {max(abs(np.array(Evals))):.1e}]', ok)
+report(f'a_1, a_3, a_5, a_7, C = -1: for real xi < 0 the static soliton is real and regular on x <= 0 with energy 0 = E(phi=0), independent of xi  '
+       f'[max |E| = {max(abs(np.array(Evals))):.1e}]', ok)
+
+# c_n by folding a_{2n-1} (sec-images-cn): folding-symmetric solitonic patterns C_j = C_{h-j} (C_0 C_n = 1 for the folded
+# pattern) that have a single-soliton a_{2n-1} vacuum; and folding invariance tau_j = tau_{h-j} of the continued pair
+cn = {}
+for n in (3, 5, 7):
+    h = n + 1
+    sym = [C for C in itertools.product([1, -1], repeat=h) if np.prod(C) == 1 and C != (1,) * h and all(C[j] == C[(h - j) % h] for j in range(h))]
+    cn[h // 2] = (len([C for C in sym if C not in missing[n]]), len(sym), [C for C in sym if C not in missing[n]])
+print('   c_n folding: symmetric solitonic patterns with a single-soliton a_{2n-1} vacuum: ' + ', '.join(f'c_{k}: {v[0]} of {v[1]}' for k, v in cn.items()))
+report('c_2 by folding a_3: of the 3 folded patterns with C_0 C_2 = 1, only C = -1 has a single-soliton vacuum ((+,-,+), (-,+,-) fold from the '
+       'missing alternating a_3 patterns); c_3: at most 2 of 7, c_4: at most 1 of 15',
+       cn[2][:2] == (1, 3) and cn[2][2] == [(-1, -1, -1, -1)] and cn[3][:2] == (2, 7) and cn[4][:2] == (1, 15))
+ok = True
+xs_f = np.linspace(-6, 0, 61)
+for h in (4, 6, 8):
+    for a in range(1, h // 2):
+        for chi in np.linspace(0, 2 * np.pi, 24, endpoint=False):
+            T = pair_taus(h - 1, a, chi, xs_f)
+            inv = all(np.allclose(T[j][0], T[(h - j) % h][0], atol=1e-12) for j in range(h))
+            ok &= inv == (abs(np.sin(chi)) < 1e-9)
+report('the continued pair (eq-vacuum-pair) with a != h/2 is folding-invariant (tau_j = tau_{h-j}) only for chi in pi Z (h = 4, 6, 8)', ok)
 
 # ---------------------------------------------------------------- 5. linearized reflection about phi = 0
 
@@ -270,10 +292,20 @@ for n in (2, 3, 4, 5):
                 Kb = -(block(a, th, h) * block(h - a, th, h)) ** (-C)
                 ok_K &= abs(K - Kf) < 1e-10 and abs(K - Kb) < 1e-10
         # bound states for C = -1: pole at th = i pi a/h (a < h/2), omega = m_a cos(pi a/h)
-    for a in range(1, (h + 1) // 2):
-        th = 1j * np.pi * a / h; ma = 2 * m * np.sin(np.pi * a / h)
-        den = np.sinh(th) + 1j * (-1) * np.sin(np.pi * a / h)
-        ok_bs &= abs(den) < 1e-12 and abs(ma * np.cosh(th) - ma * np.cos(np.pi * a / h)) < 1e-12
+    for a in range(1, h):
+        # poles of K_a: sinh th = -i C s_a, th = i pi x; physical strip 0 < x < 1/2
+        s_a = np.sin(np.pi * a / h); ma = 2 * m * s_a
+        for C in (1, -1):
+            xs_p = [np.arcsin(-C * s_a) / np.pi, 1 - np.arcsin(-C * s_a) / np.pi]
+            inside = sorted({round(x_, 12) for x_ in xs_p if 1e-12 < x_ < 0.5 - 1e-12})
+            if C == 1 or 2 * a == h:
+                ok_bs &= inside == []
+            else:
+                x0 = min(a, h - a) / h
+                ok_bs &= len(inside) == 1 and abs(inside[0] - x0) < 1e-12 and abs(np.sinh(1j * np.pi * x0) - 1j * s_a) < 1e-12
+                ok_bs &= abs(ma * np.cos(np.pi * x0) - ma * abs(np.cos(np.pi * a / h))) < 1e-12 and abs(ma * np.cos(np.pi * x0) - m * abs(np.sin(2 * np.pi * a / h))) < 1e-12
+        if 2 * a == h:                                         # double pole at the edge th = i pi/2, omega = 0 (zero mode)
+            ok_bs &= abs(np.sinh(1j * np.pi / 2) - 1j * s_a) < 1e-12 and abs(ma * np.cos(np.pi / 2)) < 1e-12
     # Delius-Gandenberger (3.16): K_a = prod_{c=1}^a (c-1)(c-n-1)(-c+B/2)(-c-n-B/2); B -> 0 gives the C = +1 value
     for a in range(1, h):
         for th in (0.41, 1.7):
@@ -282,7 +314,8 @@ for n in (2, 3, 4, 5):
                            for c in range(1, a + 1)])
             ok_dg &= abs(Kdg - (-1 / (block(a, th, h) * block(h - a, th, h)))) < 1e-5
 report('linearized reflection about phi = 0: K_a = (sinh th - i C s_a)/(sinh th + i C s_a) = -((a)(h-a))^{-C} (CDR (4.7); a_2..a_5)', ok_K)
-report('C = -1: poles at th = i pi a/h, boundary bound states omega_a = m_a cos(pi a/h) = m sin(2 pi a/h) (CDR (4.9))', ok_bs)
+report('C = -1: one pole in the physical strip at th = i pi min(a, h-a)/h for every a != h/2, omega_a = m_a |cos(pi a/h)| = m |sin(2 pi a/h)| (CDR (4.9)); '
+       'a = h/2: th = i pi/2, omega = 0; C = +1: no poles (a_2..a_5)', ok_bs)
 th = 0.77
 report('CDR (5.3): a_2, C = -1: (ip - 3m/2)/(ip + 3m/2) = -(1)(2)',
        abs((1j * np.sqrt(3) * np.sinh(th) - 1.5) / (1j * np.sqrt(3) * np.sinh(th) + 1.5) - (-(block(1, th, 3) * block(2, th, 3)))) < 1e-12)

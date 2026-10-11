@@ -201,3 +201,43 @@ The integration status is recorded at the end.
 - **Found:** `prp-self-conjugate-vacuum` is in Bowcock–Perkins §4.2.
 - **Not found in these:** the g₂ and d₄^(3) App. D errors, the c₂ branch, the cot²/sinh slips, the (4.4) partner energy, the 98b 2Λ^∨ point.
 - The search is not exhaustive. Bowcock–Perkins was read only around §4, and the Rietdijk thesis was not checked.
+
+## Integration (2026-10-11)
+
+**Integrated** (ch. 30, ch. 31, one sentence of ch. 35; checks in `boundary_classical.py`, `boundary_images.py`, `boundary_vacua.py`):
+- 1a, 1b: already in the text; unchanged.
+- 1c: BCDR radicals note replaced; the `boundary_classical.py` control is relabelled as a normalization control (overall factor 1/√2).
+- 1d: Delius (1.5) note replaced. New check: (1.5) is integrable for a₂, c₃, a₂^(2), a₄^(2), a₆^(2), d₃^(2) and not for b₃, d₄, g₂.
+- 1e–1h: added to ch. 31 (breather paragraph and notes). 1i was already in the text.
+- `prp-self-conjugate-vacuum`: the general dE/dξ proof is added, and the proposition is relabelled **[Established; reformulated]** [@bowcock_perkins2003, sec. 4.2]. Bowcock–Perkins (4.11) is described, with the d=1 remark and DG's "two vacuum sectors" reading. The χ-independence remark is added after `prp-solitonic-vacua`. The energy check now covers a₁, a₃, a₅, a₇.
+- `prp-soliton-preserving`: the K₊=1 reduction sentence is added, with a check, plus the caveat about antilinear σ.
+- `prp-durham`: the "only if" direction for simply-laced algebras is cited to BCDR. "Two corrections" now reads "three corrections" in the learning goals and the list.
+- Item 3: the d₄^(3) row is corrected, with a bullet in the text and in the notes. The e₆^(1), f₄^(1) and a_{2n−1}^(2) (n=3, 4) rows are marked "checked". The coweight/inverse reductions sentence is added.
+  - New checks: e₆^(1) in the 27 (uniform, 5 random patterns covering both classes, C=0; 4 off-list values fail); the reductions K⁻¹ and DKD⁻¹ for 6 fundamental coweights; f₄^(1) folded 27; d₄^(3), both faithful summands (8, 16); a₅^(2), a₇^(2).
+  - e₆^(2) stays unchecked: the referee's K-solve hit its 1500 s timeout without a result.
+- Item 4 (i)–(iv): the K₋ equation, the definition of r, the part (b) text and the replacement of l.175. New checks for a₁ (generic complex C) and a₂ (all sign patterns):
+  - r is the r-matrix of the canonical brackets, and r^{t₁t₂}(z) = −r(1/z);
+  - the Durham K solves (2.7); K₋ = K₊(−1/λ) solves (2.8) and the x₋ condition; K_C(λ)^T ∝ K_{−C}(−1/λ);
+  - {τ,τ} = 0 from {T,T} = [r, TT] alone, with a random-K₊ control.
+- Item 5:
+  - c_n sentence replaced in ch. 31, with a notes bullet; ch. 35 sentence changed to "for some patterns with C₀C_n=1". New checks: the c₂ count (1 of 3), c₃ (2 of 7) and c₄ (1 of 15); the pair is folding-invariant only for χ ∈ πZ.
+  - K^cl pole statement replaced, with min(a,h−a); the check now covers all a, the a=h/2 edge, and no poles for C=+1.
+  - `tbl-missing-vacua` caption extended.
+- "Attractive binds" wording changed at both places.
+- Item 6: `prp-boundary-breathers` is now a **[Theorem]** for all a_n^(1) and species, with the analytic proof. New grid scan for h=3..7, all a, which also checks the closed form of τ_j used in the proof.
+- Item 7: the asymptotic-charge sentence is added to the σ heuristic in ch. 30; the heuristic label is kept.
+- Item 8: the SSW (2.15) remark is added to the ch. 31 notes. The BDG convention ḟ={H,f} is stated after `eq-boundary-oscillator` and in `exr-oscillator-energy`.
+- Item 9:
+  - `exr-dg-theorem`: second pattern changed to (−,+,−,+,+).
+  - `exr-linear-reflection`: hint added, consistent with the new pole statement.
+- Item 10: `bowcock_perkins2003` is cited but **not yet in `references.bib`**. The entry was verified against INSPIRE (recid 507731) and must be added.
+
+**Not integrated** (unclear or unchecked in the report):
+- the lowest-energy assumption;
+- Bowcock §3.2 multi-soliton vacua and Bowcock–Perkins §4 singular backgrounds;
+- Bowcock (4.21) and DG (5.7);
+- BCR "discrete solutions, no free parameter";
+- Baseilhac–Koizumi;
+- the e₆^(2), e₇^(1) and e₈^(1) rows;
+- CDR (4.7)/(4.9)/(5.3) re-verification beyond the existing script;
+- Delius (3.19)/(3.26).

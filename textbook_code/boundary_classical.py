@@ -8,7 +8,8 @@ Lax pair eq-lax-pair, a_t = (A_+ + A_-)/2, a_x = (A_+ - A_-)/2.
    d_x phi = -grad B_real substituted, solved for a field-independent K in a faithful representation.
    An invertible K exists exactly for the classified C (tbl-durham), for a_1^(1), a_2^(1), a_3^(1),
    d_4^(1), c_2^(1) (= b_2^(1)), c_3^(1), b_3^(1), g_2^(1), a_2^(2), a_4^(2), a_6^(2), d_3^(2) (folded reps);
-   none exists for the normalizations without n_j or for the literal reading |A_i| = sqrt(2 n_i) of BCDR (1.4).
+   none exists for the normalization without n_j or with an overall factor 1/sqrt2 (normalization controls).
+   Delius 98a (1.5) (C_j ~ sqrt(n_j alpha_j^2/2)) is integrable for a_n, c_n, a_2n^(2), d_n+1^(2), not for b_3, d_4, g_2.
    Corrections to BCDR App. D: c_2^(1) = b_2^(1) also allows (C_0, C_2 = +-1, C_1 free); d_3^(2) = a_3^(2) obeys
    the union of the d_n^(2) and a_{2n-1}^(2) rules; g_2^(1) does NOT allow C_2 (short) free -- only C = 0 or all +-1.
 2. Soliton-preserving condition (sigma = hermitian conjugation, K = 1): compatibility <=> Dirichlet on
@@ -18,6 +19,12 @@ Lax pair eq-lax-pair, a_t = (A_+ + A_-)/2, a_x = (A_+ - A_-)/2.
    Corrigan-Delius (eps_0, eps_1) = (C_0, C_1), Ghoshal-Zamolodchikov (M_0, phi_0), Saleur-Skorik-Warner
    (zeta, eta), Baseilhac-Delius-George oscillator (C_0, C_1) = (cos p^, cos q^).
 5. Boundary oscillator: energy of field + oscillator is conserved (symbolic).
+6. eq-boundary-k-equation solved directly (referee pass 2026-10-11): e_6^(1) in the 27; the reductions K -> K^{-1} (C -> -C) and
+   K -> D K D^{-1} (coweight sign flips); f_4^(1) and d_4^(3) by folding the 27 (d_4^(3): BCDR App. D branch C_0 = C_1 = 0,
+   C_2 free has NO solution); a_5^(2), a_7^(2).
+7. Sklyanin's formalism (a_1^(1), a_2^(1)): r(z) = (beta^2/4) Delius hep-th/9809140 (3.4) from the canonical brackets;
+   r^(t1 t2)(z) = -r(1/z); the Durham K solves the reflection equation (2.7), K_- = K_+(-1/lam) solves (2.8) and the x_-
+   condition; K_C(lam)^T ~ K_-C(-1/lam); {tau, tau} = 0 from {T, T} = [r, T T]; sigma = dagger with K = 1.
 """
 import itertools
 import numpy as np
@@ -250,10 +257,21 @@ report('imaginary coupling (B_imag, beta -> i beta): same classification (a2, d4
 
 # normalization controls on d_4^(1) (n_2 = 2) and a_2^(1)
 no_n = lambda n, a: np.sqrt(2 / (a @ a))                    # drop n_j
-lit = lambda n, a: np.sqrt(2 * n / (a @ a)) / np.sqrt(2)    # literal |A_i| = sqrt(2 n_i) reading of BCDR (1.4)
+half = lambda n, a: np.sqrt(2 * n / (a @ a)) / np.sqrt(2)   # overall factor 1/sqrt2 (normalization control; BCDR (1.4)
+                                                             # prints |A_i| = 2 sqrt(n_i), i.e. our |C_i| = 1)
 ok = all(K_nullity('d4(1)', C, norm=no_n) == 0 for C in signs(5)[:8])
-ok &= K_nullity('d4(1)', np.ones(5), norm=lit) == 0 and K_nullity('a2(1)', np.ones(3), norm=lit) == 0
-report('controls: without the factor sqrt(n_j), or with |A_i| = sqrt(2 n_i), no K exists for |C_j| = 1 (d4, a2)', ok)
+ok &= K_nullity('d4(1)', np.ones(5), norm=half) == 0 and K_nullity('a2(1)', np.ones(3), norm=half) == 0
+report('normalization controls: without the factor sqrt(n_j), or with an overall factor 1/sqrt2, no K exists for |C_j| = 1 (d4, a2)', ok)
+
+# Delius 98a (1.5): C_j proportional to sqrt(n_j alpha_j^2/2) (single eps, largest |C_j| = 1)
+d15 = {}
+for name in ['a2(1)', 'c3(1)', 'a2(2)', 'a4(2)', 'a6(2)', 'd3(2)', 'b3(1)', 'd4(1)', 'g2(1)']:
+    roots, Es, Hs, nj, sub = algebra(name)
+    Cd = np.sqrt(np.array(nj) * np.array([a @ a for a in roots]) / 2)
+    d15[name] = K_nullity(name, Cd / Cd.max())
+report('Delius 98a (1.5) (C_j ~ sqrt(n_j alpha_j^2/2)): integrable for a2, c3, a2^(2), a4^(2), a6^(2), d3^(2); not for b3, d4, g2  '
+       f'[nullities {d15}]', all(d15[k] > 0 for k in ['a2(1)', 'c3(1)', 'a2(2)', 'a4(2)', 'a6(2)', 'd3(2)'])
+       and all(d15[k] <= 0 for k in ['b3(1)', 'd4(1)', 'g2(1)']))
 
 # phi = 0 is a solution of the boundary condition iff sum_j C_j sqrt(2n_j/alpha_j^2) alpha_j = 0
 roots, Es, Hs, nj, sub = algebra('d4(1)')
@@ -392,3 +410,296 @@ report('BDG oscillator: equations (9), (10) reproduced; d/dt (E_field + H_osc) =
 bc7 = -(sp.I * m0 / bSG) * (sp.exp(-sp.I * bSG * f / 2) * sp.cos(ph_) - sp.exp(sp.I * bSG * f / 2) * sp.cos(qh_))
 report('BDG (7): d_x phi(0) = -(i m_0/beta_SG)(e^{-i beta_SG phi/2} cos p^ - e^{i beta_SG phi/2} cos q^) = -dH_osc/dphi',
        sp.simplify(bc7 + sp.diff(Hosc, f)) == 0)
+
+# ---------------------------------------------------------------- 7. eq-boundary-k-equation solved directly: exceptional and twisted rows
+# K(-C_j h_j + lam E_j - F_j/lam) = (C_j h_j + lam E_j - F_j/lam) K,  F_j = E_j^T, h_j = [E_j, F_j], [h_j, E_j] = 2 E_j.
+# e_6^(1) in the 27 (minuscule, Bourbaki labels, affine node E_0 = lowering by the highest root); f_4^(1) and d_4^(3) by
+# folding the 27 (Z_2: 1<->6, 3<->5; Z_3: arms {0,1,6}, {2,3,5}, node 4 fixed); a_5^(2), a_7^(2) in the 2n-dim rep of the
+# twisted loop algebra of sl(2n).  (Referee pass 2026-10-11; e_6^(2) in the 56 of e_7 was not finished there.)
+import scipy.sparse as sps
+
+
+def kn_normalize(Es):
+    out = []
+    for E in Es:
+        h_ = E @ E.T - E.T @ E
+        c = np.vdot((h_ @ E - E @ h_).ravel(), E.ravel()).real / np.vdot(E.ravel(), E.ravel()).real
+        assert c > 0 and np.allclose(h_ @ E - E @ h_, c * E)
+        out.append(E * np.sqrt(2 / c))
+    return out
+
+
+def kn_cartan(Es):
+    """A_ij from [h_i, E_j] = A_ij E_j; asserts [E_i, F_j] = 0 for i != j."""
+    A = np.zeros((len(Es), len(Es)))
+    for i, Ei in enumerate(Es):
+        h_ = Ei @ Ei.T - Ei.T @ Ei
+        for j, Ej in enumerate(Es):
+            c = h_ @ Ej - Ej @ h_
+            A[i, j] = np.vdot(c.ravel(), Ej.ravel()).real / np.vdot(Ej.ravel(), Ej.ravel()).real
+            assert np.allclose(c, A[i, j] * Ej)
+            if i != j:
+                assert np.allclose(Ei @ Ej.T - Ej.T @ Ei, 0)
+    return np.round(A, 9)
+
+
+def kn_null(Es, C, lam=0.83 + 0.37j):
+    """nullity of eq-boundary-k-equation (all nodes); minus the nullity if no solution is invertible."""
+    N = Es[0].shape[0]; I = sps.identity(N, format='csr'); G = 0
+    for E, c in zip(Es, C):
+        h_ = E @ E.T - E.T @ E
+        X = -c * h_ + lam * E - E.T / lam; Y = c * h_ + lam * E - E.T / lam
+        L = sps.kron(sps.csr_matrix(X.T), I) - sps.kron(I, sps.csr_matrix(Y))      # column-major vec(K X - Y K)
+        G = G + (L.conj().T @ L)
+    w, V = np.linalg.eigh(G.toarray())
+    nul = int((w < 1e-10 * w[-1]).sum())
+    if nul == 0:
+        return 0
+    Kr = (V[:, :nul] @ rng.normal(size=nul)).reshape(N, N, order='F')
+    sv = np.linalg.svd(Kr, compute_uv=False)
+    return nul if sv[-1] > 1e-7 * sv[0] else -nul
+
+
+def kn_K(Es, C, lam):
+    """the (unique up to scale) solution K for an irreducible rep."""
+    N = Es[0].shape[0]; I = np.eye(N); G = 0
+    for E, c in zip(Es, C):
+        h_ = E @ E.T - E.T @ E
+        L = np.kron((-c * h_ + lam * E - E.T / lam).T, I) - np.kron(I, c * h_ + lam * E - E.T / lam)
+        G = G + L.conj().T @ L
+    return np.linalg.eigh(G)[1][:, 0].reshape(N, N, order='F')
+
+
+def e6_27():
+    A = 2 * np.eye(6)
+    for i, j in [(1, 3), (3, 4), (4, 5), (5, 6), (2, 4)]:
+        A[i - 1, j - 1] = A[j - 1, i - 1] = -1
+    W = [(1, 0, 0, 0, 0, 0)]; idx = {W[0]: 0}; k = 0                       # weights in Dynkin labels
+    while k < len(W):
+        mu = np.array(W[k])
+        for i in range(6):
+            if mu[i] == 1:
+                nu = tuple((mu - A[i]).astype(int))
+                if nu not in idx:
+                    idx[nu] = len(W); W.append(nu)
+        k += 1
+    N = len(W); Es = []
+    for i in range(6):
+        E = np.zeros((N, N))
+        for nu, bb in idx.items():
+            if nu[i] == -1:
+                E[idx[tuple((np.array(nu) + A[i]).astype(int))], bb] = 1
+        Es.append(E)
+    F = {tuple(np.eye(6, dtype=int)[i]): Es[i].T for i in range(6)}; front = list(F)
+    while front:                                                             # lowering operators F_beta, beta > 0
+        new = []
+        for bt in front:
+            for i in range(6):
+                c = tuple(np.array(bt) + np.eye(6, dtype=int)[i])
+                if c not in F:
+                    M = Es[i].T @ F[bt] - F[bt] @ Es[i].T
+                    if np.linalg.norm(M) > 1e-9:
+                        F[c] = M; new.append(c)
+        front = new
+    theta = max(F, key=sum)
+    rootc = np.array([np.linalg.solve(A, np.array(w, float)) for w in W])   # weights in simple-root coordinates
+    return kn_normalize([F[theta]] + Es), np.array((1,) + theta), rootc
+
+
+def summands(Es):
+    """invariant subspaces of a reducible rep from a generic element of the commutant."""
+    N = Es[0].shape[0]; I = np.eye(N)
+    L = np.vstack([np.kron(g.T, I) - np.kron(I, g) for g in Es + [E.T for E in Es]])
+    w, V = np.linalg.eigh(L.T @ L)
+    Z = (V[:, w < 1e-9 * w[-1]] @ rng.normal(size=int((w < 1e-9 * w[-1]).sum()))).reshape(N, N, order='F')
+    ev, U = np.linalg.eigh(Z + Z.T)
+    groups = []
+    for k in range(N):
+        if groups and abs(ev[k] - ev[groups[-1][0]]) < 1e-6:
+            groups[-1].append(k)
+        else:
+            groups.append([k])
+    return [U[:, g] for g in groups]
+
+
+E6, n6, rootc = e6_27()
+A6 = kn_cartan(E6)
+ok = np.allclose(A6 @ n6, 0) and np.allclose(n6, [1, 1, 2, 2, 3, 2, 1])
+# uniform +1, 5 random sign patterns covering both classes prod_j C_j^{n_j} = +-1, and C = 0 admit an invertible K;
+# off-list values do not.  (With the reductions below this covers all 128 sign patterns.)
+pats = [np.ones(7)] + [np.array(p, float) for p in rng.choice([1, -1], size=(5, 7))]
+pats[1][0] = -np.prod(pats[1][1:] ** n6[1:])                          # make sure both classes occur
+classes = sorted(set(int(np.prod(p ** n6)) for p in pats))
+ng = [kn_null(E6, p) for p in pats] + [kn_null(E6, np.zeros(7))]
+bad6 = [np.array([1, 1, 1, 0.5, 1, 1, 1]), np.array([1, 1, 1, 1, 0, 1, 1.]), np.array([0, 0, 0, 0, 0, 0, 1.]), np.array([1, -1, 1, 1, 1, 1, 1.3])]
+nb = [kn_null(E6, p) for p in bad6]
+report(f'e6^(1) (27, affine Cartan matrix verified): invertible K for uniform +1, 5 random sign patterns (classes prod C^n = {classes}) and C = 0; '
+       f'none for 4 off-list C  [nullities: good {sorted(set(ng))}, bad {sorted(set(nb))}]',
+       ok and classes == [-1, 1] and all(x == 1 for x in ng) and all(x <= 0 for x in nb))
+
+# reductions: K -> K^{-1} maps C -> -C;  K -> D K D^{-1}, D = e^{i pi mu.H}, flips C_j -> (-1)^{alpha_j.mu} C_j
+lam = 0.71 + 0.2j
+C = pats[2]; K = kn_K(E6, C, lam)
+res = lambda Kx, Cx: max(np.linalg.norm(Kx @ (-c * (E @ E.T - E.T @ E) + lam * E - E.T / lam) - (c * (E @ E.T - E.T @ E) + lam * E - E.T / lam) @ Kx)
+                         for E, c in zip(E6, Cx)) / np.linalg.norm(Kx)
+ok = res(K, C) < 1e-10 and res(np.linalg.inv(K), -C) < 1e-10
+for k in range(6):                                  # mu = fundamental coweight k+1: alpha_j.mu = delta_jk, alpha_0.mu = -theta_k
+    D = np.diag(np.exp(1j * np.pi * rootc[:, k]))
+    Cf = C * np.array([(-1) ** n6[k + 1]] + [(-1) ** (j == k) for j in range(6)])
+    ok &= res(D @ K @ np.linalg.inv(D), Cf) < 1e-10 and res(D @ K @ np.linalg.inv(D), C) > 1e-3
+report('reductions (e6, 27): K^{-1} solves the equation for -C; D K D^{-1} with D = e^{i pi mu.H} for C_j -> (-1)^{alpha_j.mu} C_j '
+       '(6 fundamental coweights); so for simply-laced rows only the classes of prod_j C_j^{n_j} need checking', ok)
+
+# f_4^(1): Z_2 fold, nodes (0, 2, 4, {3,5}, {1,6}) = (C_0, ..., C_4), 3 and 4 short
+F4 = kn_normalize([E6[0], E6[2], E6[4], E6[3] + E6[5], E6[1] + E6[6]])
+ok = np.allclose(kn_cartan(F4), [[2, -1, 0, 0, 0], [-1, 2, -1, 0, 0], [0, -1, 2, -1, 0], [0, 0, -2, 2, -1], [0, 0, 0, -1, 2]])
+good = [np.ones(5), np.array([1, -1, 1, -1, -1.]), np.array([-1, -1, 1, 1, -1.]), np.array([1, 1, 1, 0, 0.]), np.array([-1, 1, -1, 0, 0.]),
+        np.array([1, -1, -1, 0, 0.]), np.zeros(5)]
+bad = [np.array([1, 1, 1, 0.5, 1]), np.array([1, 1, 1, 1, 0.]), np.array([1, 1, 1, 0, 1.]), np.array([1, 1, 0.4, 0, 0]), np.array([0, 0, 1, 0, 0.]),
+       np.array([1, 1, 1, 0, 0.6])]
+ng = [kn_null(F4, c) for c in good]; nb = [kn_null(F4, c) for c in bad]
+report(f'f4^(1) (27 = 26 + 1 of the folded algebra): invertible K for all +-1 and for (C_0, C_1, C_2) = +-1, C_3 = C_4 = 0; none for 6 off-list C  '
+       f'[nullities: good {sorted(set(ng))}, bad {sorted(set(nb))}]', ok and all(x > 0 for x in ng) and all(x <= 0 for x in nb))
+
+# d_4^(3): Z_3 fold, nodes ({0,1,6}, {2,3,5}, 4) = (C_0, C_1, C_2), C_2 long.  BCDR App. D also lists C_0 = C_1 = 0, C_2 free: wrong.
+D43 = kn_normalize([E6[0] + E6[1] + E6[6], E6[2] + E6[3] + E6[5], E6[4]])
+ok = np.allclose(kn_cartan(D43), [[2, -1, 0], [-1, 2, -3], [0, -1, 2]])
+good = [np.array(p, float) for p in itertools.product([1, -1], repeat=3)] + [np.zeros(3)]
+bcdr = [np.array([0, 0, c]) for c in (0.7, 2 + 1j, 1, -1)]
+bad = [np.array([1, 1, 0.5]), np.array([0, 1, 1.]), np.array([1, 0, 1.]), np.array([0.5, 0, 0]), np.array([1, 1, 0.])]
+info = []
+for P in summands(D43):
+    R = [P.T @ E @ P for E in D43]
+    if all(np.allclose(r_, 0) for r_ in R):
+        continue                                                            # trivial summands
+    R = kn_normalize(R)
+    ng = [kn_null(R, c) for c in good]; nbc = [kn_null(R, c) for c in bcdr]; nb = [kn_null(R, c) for c in bad]
+    info.append(f'dim {P.shape[1]}: good {sorted(set(ng))}, C_0=C_1=0 {sorted(set(nbc))}, bad {sorted(set(nb))}')
+    ok &= all(x > 0 for x in ng) and all(x == 0 for x in nbc) and all(x <= 0 for x in nb)
+report('d4^(3) (faithful summands of the folded 27): invertible K for all 8 sign patterns and C = 0; NO solution for C_0 = C_1 = 0 with '
+       f'C_2 = 0.7, 2+i, +1, -1 (corrects BCDR App. D) or 5 other off-list C  [{"; ".join(info)}]', ok and len(info) == 2)
+
+# a_{2n-1}^(2), n = 3, 4: sl(2n) with sigma(X) = -J X^T J^{-1}; nodes (0, 1, ..., n), node 0 in g_1, node n the long end
+for n in (3, 4):
+    N = 2 * n; J = np.zeros((N, N))
+    for i in range(n):
+        J[i, N - 1 - i] = 1; J[N - 1 - i, i] = -1
+    sig = lambda X: -J @ X.T @ np.linalg.inv(J)
+    Es = [(eij(N, i, i + 1) + sig(eij(N, i, i + 1))) / 2 for i in range(n)]
+    E0 = (eij(N, N - 1, 1) - sig(eij(N, N - 1, 1))) / 2
+    A2 = kn_normalize([E0] + Es); Ac = kn_cartan(A2)
+    ok = Ac[n - 1, n] == -2 and Ac[n, n - 1] == -1 and Ac[0, 2] == -1 and Ac[1, 2] == -1 and Ac[0, 1] == 0
+    good = [np.ones(n + 1)] + [rng.choice([1., -1.], n + 1) for _ in range(4)] + [np.r_[np.zeros(n), 0.7], np.r_[np.zeros(n), 2 + 1j], np.zeros(n + 1)]
+    bad = [np.r_[np.ones(n), 0.5], np.r_[0.5, np.ones(n)], np.r_[np.ones(n), 0.], np.r_[np.zeros(n - 1), 1, 1.], np.r_[1, np.zeros(n - 1), 1.]]
+    ng = [kn_null(A2, c) for c in good]; nb = [kn_null(A2, c) for c in bad]
+    report(f'a{2 * n - 1}^(2) ({N}-dim): invertible K for all +-1 (uniform and 4 random) and for 0 except the long end (0.7, 2+i); none for 5 off-list C  '
+           f'[nullities: good {sorted(set(ng))}, bad {sorted(set(nb))}]', ok and all(x == 1 for x in ng) and all(x <= 0 for x in nb))
+
+# ---------------------------------------------------------------- 8. Sklyanin's formalism: r-matrix and reflection equations (a_1^(1), a_2^(1))
+# Defining rep of a_{N-1}^(1): E_0 = e_{N-1,0}, E_j = e_{j-1,j}; F_j(lam) = lam E_j + E_j^T/lam (exponential part of a_x).
+
+
+def rm_setup(N):
+    E = [eij(N, N - 1, 0)] + [eij(N, j - 1, j) for j in range(1, N)]
+    Hs = []
+    for k in range(1, N):
+        d = np.zeros(N); d[:k] = 1; d[k] = -k; Hs.append(np.diag(d / np.sqrt(k * (k + 1))))
+    return E, [e @ e.T - e.T @ e for e in E], Hs
+
+
+def r_toda(N, z, bt=beta):
+    """r(z) = beta^2/(4(z^h-1)) [(z^h+1) sum_a H_a(x)H_a + 2 sum_{alpha>0} (z^{ht} E_alpha(x)E_-alpha + z^{h-ht} E_-alpha(x)E_alpha)]
+    (alpha^2 = 2), i.e. (beta^2/4) x Delius hep-th/9809140 (3.4)."""
+    E, h_, Hs = rm_setup(N)
+    r = (z**N + 1) * sum(np.kron(H, H) for H in Hs)
+    for i in range(N):
+        for k in range(i + 1, N):
+            r = r + 2 * (z**(k - i) * np.kron(eij(N, i, k), eij(N, k, i)) + z**(N - k + i) * np.kron(eij(N, k, i), eij(N, i, k)))
+    return bt**2 / (4 * (z**N - 1)) * r
+
+
+def pt(X, N, which):
+    """partial transpose in End(V (x) V): which = 1, 2 or 12."""
+    X4 = X.reshape(N, N, N, N)
+    perm = {1: (2, 1, 0, 3), 2: (0, 3, 2, 1), 12: (2, 3, 0, 1)}[which]
+    return X4.transpose(perm).reshape(N * N, N * N)
+
+
+def RE_plus(K, rf, l1, l2, N):           # eq-classical-reflection, sigma = transposition
+    I = np.eye(N); K1, K2 = np.kron(K(l1), I), np.kron(I, K(l2))
+    return K1 @ K2 @ rf(l1 / l2) + pt(rf(l2 / l1), N, 12) @ K1 @ K2 + K1 @ pt(rf(l1 * l2), N, 2) @ K2 + K2 @ pt(rf(1 / (l1 * l2)), N, 1) @ K1
+
+
+def RE_minus(K, rf, l1, l2, N):          # the K_- equation of prp-sklyanin (b)
+    I = np.eye(N); K1, K2 = np.kron(K(l1), I), np.kron(I, K(l2))
+    return K1 @ K2 @ pt(rf(l1 / l2), N, 12) + rf(l2 / l1) @ K1 @ K2 + K1 @ pt(rf(l1 * l2), N, 1) @ K2 + K2 @ pt(rf(1 / (l1 * l2)), N, 2) @ K1
+
+
+def durham_K(N, C, lam):
+    E, h_, _ = rm_setup(N)
+    K = kn_K(E, C, lam)
+    return K / np.linalg.det(K) ** (1 / N)
+
+
+def tau_bracket(N, rf, Kp, Km, l1, l2):
+    """{tau(l1), tau(l2)}, tau(l) = tr(K_+(l) T(l) K_-(1/l) T(1/l)^T), by the chain rule from {T(a) (x), T(b)} = [r(a/b), T(a) (x) T(b)]
+    alone, with random T's."""
+    lams = [l1, 1 / l1, l2, 1 / l2]
+    Ts = [rng.normal(size=(N, N)) + 1j * rng.normal(size=(N, N)) for _ in range(4)]
+    def grads(lam, T, Tp):
+        return Kp(lam).T @ Tp @ Km(1 / lam).T, Kp(lam) @ T @ Km(1 / lam)
+    g1, g2 = grads(l1, Ts[0], Ts[1]), grads(l2, Ts[2], Ts[3]); tot = 0
+    for a_, ga in zip([0, 1], g1):
+        for b_, gb in zip([2, 3], g2):
+            r = rf(lams[a_] / lams[b_]); TT = np.kron(Ts[a_], Ts[b_])
+            tot += np.einsum('ij,kl,ikjl->', ga, gb, (r @ TT - TT @ r).reshape(N, N, N, N))
+    return tot
+
+
+pairs = [(0.7, 1.3), (1.9, 0.45), (0.8 + 0.3j, 1.1 - 0.2j), (2.2, -0.6)]
+for N in (2, 3):
+    E, h_, Hs = rm_setup(N); I = np.eye(N); rf = lambda z, N=N: r_toda(N, z)
+    # r is the r-matrix of the canonical brackets: [r(l1/l2), F_j(l1)(x)1 + 1(x)F_j(l2)] = (beta^2/4)(F_j(l1)(x)h_j - h_j(x)F_j(l2)),
+    # [r, H(x)1 + 1(x)H] = 0  (from {phi_a(x), pi_b(y)} = delta_ab delta(x-y))
+    br = 0
+    for l1, l2 in pairs[:3]:
+        r = rf(l1 / l2)
+        for j in range(N):
+            X = np.kron(l1 * E[j] + E[j].T / l1, I) + np.kron(I, l2 * E[j] + E[j].T / l2)
+            tgt = (beta**2 / 4) * (np.kron(l1 * E[j] + E[j].T / l1, h_[j]) - np.kron(h_[j], l2 * E[j] + E[j].T / l2))
+            br = max(br, np.linalg.norm(r @ X - X @ r - tgt))
+        br = max(br, max(np.linalg.norm(r @ (np.kron(H, I) + np.kron(I, H)) - (np.kron(H, I) + np.kron(I, H)) @ r) for H in Hs))
+    sym = max(np.linalg.norm(pt(rf(z), N, 12) + rf(1 / z)) for z in (0.37, 1.8, 0.5 + 0.4j))
+    report(f'a{N - 1}^(1): r(z) = (beta^2/4) Delius (3.4) is the r-matrix of the canonical brackets of a_x, and r^(t1 t2)(z) = -r(1/z)  '
+           f'[residuals {br:.1e}, {sym:.1e}]', br < 1e-12 and sym < 1e-12)
+    Cs = [(1, 1), (0.3 + 0.2j, -1.7), (2.5, 0.4j), (0, 0), (-1, 1)] if N == 2 else [tuple(p) for p in itertools.product([1, -1], repeat=3)] + [(0, 0, 0)]
+    rp = rm = xm = tr = 0
+    for C in Cs:
+        C = np.array(C, complex)
+        Kf = lambda lam, C=C: durham_K(N, C, lam)
+        Km = lambda lam, Kf=Kf: Kf(-1 / lam)
+        rp = max(rp, max(np.linalg.norm(RE_plus(Kf, rf, *p, N)) for p in pairs) / np.linalg.norm(np.kron(Kf(0.7), Kf(1.3))))
+        rm = max(rm, max(np.linalg.norm(RE_minus(Km, rf, *p, N)) for p in pairs) / np.linalg.norm(np.kron(Kf(0.7), Kf(1.3))))
+        # K_C(-1/lam) solves the x_- condition K_-(lam) a_t(lam)^T + a_t(1/lam) K_-(lam) = 0 for the same equation d_x phi = -grad B_C
+        for lam in (0.83, 1.7 + 0.3j):
+            at = lambda l, j: -C[j] * h_[j] + l * E[j] - E[j].T / l
+            xm = max(xm, max(np.linalg.norm(Km(lam) @ at(lam, j).T + at(1 / lam, j) @ Km(lam)) for j in range(N)) / np.linalg.norm(Km(lam)))
+            A_, B_ = Kf(lam).T, durham_K(N, -C, -1 / lam)
+            tr = max(tr, np.linalg.norm(A_ - np.vdot(B_.ravel(), A_.ravel()) / np.vdot(B_.ravel(), B_.ravel()) * B_) / np.linalg.norm(A_))
+    lab = 'generic complex C_0, C_1' if N == 2 else 'all 8 sign patterns'
+    report(f'a{N - 1}^(1), {lab} and Neumann: the Durham K solves eq-classical-reflection; K_- = K_+(-1/lam) solves the K_- equation and the '
+           f'x_- condition for d_x phi = -grad B_C; K_C(lam)^T ~ K_-C(-1/lam)  [rel. residuals {rp:.1e}, {rm:.1e}, {xm:.1e}, {tr:.1e}]',
+           max(rp, rm, xm, tr) < 1e-12)
+    # involution from the bracket of T alone (prp-sklyanin (b)), different C at the two ends; control: random K_+
+    C1, C2 = np.array(Cs[0], complex), np.array(Cs[1], complex)
+    Kp = lambda lam: durham_K(N, C1, lam); Km2 = lambda lam: durham_K(N, C2, -1 / lam)
+    tb = max(abs(tau_bracket(N, rf, Kp, Km2, *p)) for p in pairs[:3])
+    Kr = rng.normal(size=(N, N)); tbad = abs(tau_bracket(N, rf, lambda l: Kr, Km2, 0.7, 1.3))
+    report(f'a{N - 1}^(1): {{tau(l1), tau(l2)}} = 0 from {{T (x), T}} = [r, T (x) T] with K_+ = K_C, K_- = K_C\'(-1/lam)  [{tb:.1e}; random K_+: {tbad:.1e}]',
+           tb < 1e-10 and tbad > 1e-3)
+    # sigma = hermitian conjugation, K_+ = 1, real spectral parameters: r is real, so the reflection equation reduces to
+    # r(z) + r^(t1 t2)(1/z) = 0 and r^(t2)(w) + r^(t1)(1/w) = 0
+    re = max(max(np.linalg.norm(rf(l1 / l2) + pt(rf(l2 / l1), N, 12)), np.linalg.norm(pt(rf(l1 * l2), N, 2) + pt(rf(1 / (l1 * l2)), N, 1)))
+             for l1, l2 in [(0.7, 1.3), (1.9, 0.45), (2.2, -0.6)])
+    report(f'a{N - 1}^(1), sigma = dagger, K_+ = 1, real lambda: r real, r(z) + r^(t1 t2)(1/z) = 0 and r^(t2)(w) + r^(t1)(1/w) = 0  [{re:.1e}]',
+           re < 1e-12 and np.abs(rf(0.7 / 1.3).imag).max() == 0)

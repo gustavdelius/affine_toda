@@ -16,6 +16,7 @@ Checks:
    v = Re phi(0) in (2 pi/beta) x coweights, and d_x Im phi(0) = 0.
 5. Boundary breathers (th = i eta, u = tan eta): Neumann regular on x<=0 iff A < 0 (u^2 > cot^2(pi a/h)) and
    |rho_-| < arcsinh sqrt|A|; C = +1 with rho_- = 0 regular on x<0 with zeros of tau exactly at x = 0; C = -1 singular.
+   Grid scan of the same criteria for h = 3..7 and all species, and the closed form of tau_j used in the proof.
 6. Two pairs (4 solitons): xi_r + xi_rbar = [pair value] - sum_{p != r} (ln A_{rp} + ln A_{r pbar}) (hep-th/9807189 (3.26)).
 7. c_2^(1) by folding a_3^(1) (sec-images-cn): the coincident (1,3) pair and its mirror (3,1) pair stay folding-invariant
    (tau_1 = tau_3) and satisfy the BC for C = 0, +-1.
@@ -313,6 +314,53 @@ for u in [0.3, 1.0, 2.0]:
         sol, A, s = breather(n, a, u, rm, -1)
         ok &= min_tau(sol, 0.0, per(u))[0] < 1e-6
 report('C=-1 boundary breathers: singular on x<=0 for all tested u, rho_-', ok)
+
+# all h = 3..7 and all species a (prp-boundary-breathers is a theorem; this is an independent grid scan).
+# tau_j = 1 + om^{ja} E_1 + om^{-ja} E_2 + A E_1 E_2 on y = m_a x cos(eta) in [-10, 0] and one period; first the closed form
+# tau_j = 1 + 2 e^{y + S/2} cosh(rho_- + i psi) + A e^S e^{2y}, psi = zeta_- - m_a t sin(eta) + 2 pi j a/h, used in the proof.
+
+
+def breather_grid(h, a, u, rho, C, zeta=0.37, ny=250, nt=250, ymax=0.0):
+    eta = np.arctan(u); s = np.sin(np.pi * a / h) / np.cos(eta); ma = 2 * m * np.sin(np.pi * a / h); A = 1 - s**2
+    S = -np.log(A + 0j) if C == 0 else -2 * np.log(1 + C * s + 0j)
+    Y, T = np.meshgrid(np.linspace(-10, ymax, ny), np.linspace(0, 2 * np.pi / (ma * np.sin(eta)), nt, endpoint=False))
+    E1 = np.exp(Y - 1j * ma * T * np.sin(eta) + S / 2 + rho + 1j * zeta)
+    E2 = np.exp(Y + 1j * ma * T * np.sin(eta) + S / 2 - rho - 1j * zeta)
+    om = np.exp(2j * np.pi / h); mins = []; cf = 0
+    for j in range(h):
+        tau = 1 + om**(j * a) * E1 + om**(-j * a) * E2 + A * E1 * E2
+        if j == h - 1:                                              # closed form of the proof
+            psi = zeta - ma * T * np.sin(eta) + 2 * np.pi * j * a / h
+            cf = np.max(np.abs(tau - (1 + 2 * np.exp(Y + S / 2) * np.cosh(rho + 1j * psi) + A * np.exp(S + 2 * Y))))
+        mins.append(np.min(np.abs(tau)))
+    return min(mins), A, s, cf
+
+
+viol = []; cfmax = 0; ncase = 0
+for h in range(3, 8):
+    for a in range(1, h):
+        for u in [0.3, 0.8, 1.5, 3.0, 6.0]:
+            for rho in [0.0, 0.2, 0.6, 1.2]:                        # Neumann
+                mn, A, s, cf = breather_grid(h, a, u, rho, 0); cfmax = max(cfmax, cf); ncase += 1
+                if A < 0 and abs(np.sinh(rho)) < np.sqrt(-A) - 1e-3 and mn < 1e-3:
+                    viol.append(('N regular?', h, a, u, rho, mn))
+                if (A > 0 or abs(np.sinh(rho)) > np.sqrt(abs(A)) + 1e-3) and mn > 0.1:
+                    viol.append(('N singular?', h, a, u, rho, mn))
+            s = np.sin(np.pi * a / h) / np.cos(np.arctan(u))
+            mn_in = breather_grid(h, a, u, 0.0, 1, ymax=-0.3)[0]     # C = +1, rho = 0: regular inside, zero at x = 0
+            mn_0 = breather_grid(h, a, u, 0.0, 1)[0]
+            mn_r = breather_grid(h, a, u, 0.4, 1)[0]                 # C = +1, rho != 0: singular
+            ncase += 3
+            if mn_in < 1e-3 or mn_0 > 0.1 or mn_r > 0.1:
+                viol.append(('C=+1', h, a, u, mn_in, mn_0, mn_r))
+            if abs(s - 1) > 1e-2:
+                for rho in [0.0, 0.3, 1.0]:                          # C = -1: singular
+                    mn = breather_grid(h, a, u, rho, -1)[0]; ncase += 1
+                    if mn > 0.1:
+                        viol.append(('C=-1', h, a, u, rho, mn))
+report(f'boundary breathers, h = 3..7, all species a, 5 u, several rho_- ({ncase} cases): Neumann regular iff A < 0 and |sinh rho_-| < sqrt|A|; '
+       f'C=+1 regular on x<0 with zeros at x=0 iff rho_- = 0; C=-1 singular  [violations {len(viol)}; closed form of the proof to {cfmax:.1e}]',
+       len(viol) == 0 and cfmax < 1e-9)
 
 # ---------------------------------------------------------------- 6. two pairs (four solitons)
 def two_pairs(n, specs, C):
