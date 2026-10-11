@@ -203,7 +203,7 @@ So for $h$ even the real-coupling theory with $C\equiv-1$ has a one-parameter fa
 | solitonic patterns | 1 | 3 | 7 | 15 | 31 | 63 | 127 |
 | with a single-soliton vacuum | 1 | 3 | 5 | 10 | 10 | 21 | 21 |
 
-: Solitonic boundary conditions of real-coupling $a_n^{(1)}$ for which a continued single-soliton vacuum exists (`textbook_code/boundary_vacua.py`). Only single-soliton vacua are counted; multi-soliton backgrounds [@bowcock1998, sec. 3.2; @bowcock_perkins2003, sec. 4] are not considered. {#tbl-missing-vacua}
+: Solitonic boundary conditions of real-coupling $a_n^{(1)}$ for which a continued single-soliton vacuum exists (`textbook_code/boundary_vacua.py`). Only single-soliton vacua are counted; multi-soliton backgrounds [@bowcock1998, sec. 3.2] [@bowcock_perkins2003, sec. 4] are not considered. {#tbl-missing-vacua}
 
 For $a_3^{(1)}$ the two missing patterns are the alternating ones, $(C_0,C_1,C_2,C_3)=(+,-,+,-)$ and $(-,+,-,+)$. Their weights, such as $\epsilon_1+\epsilon_2\in\Lambda_2$, are among the four weights of $\Lambda_2$ that no single species-2 soliton carries. The species-2 soliton carries $\pm(\epsilon_1+\epsilon_3)$, whose pattern is $C\equiv-1$, and indeed provides the self-conjugate vacua of @prp-self-conjugate-vacuum.
 

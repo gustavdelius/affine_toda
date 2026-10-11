@@ -153,7 +153,7 @@ for $k$ of (-@eq-boundary-state) [@gz1994, eqs. (3.41), (3.45)]. The second rela
 $$
 K_c(\theta)=K_a\big(\theta+i\bar u_{ac}^b\big)\,S_{ab}\big(2\theta+i\bar u_{ac}^b-i\bar u_{bc}^a\big)\,K_b\big(\theta-i\bar u_{bc}^a\big),
 $$ {#eq-boundary-bootstrap-bulk}
-written here for diagonal scattering [@fring_koberle1994a; @gz1994, eq. (3.40)]. In matrix form the constituents' reflection is the left-hand side of (-@eq-reflection-braid) without its last scattering, restricted to the bound-state subspace.
+written here for diagonal scattering [@fring_koberle1994a] [@gz1994, eq. (3.40)]. In matrix form the constituents' reflection is the left-hand side of (-@eq-reflection-braid) without its last scattering, restricted to the bound-state subspace.
 - *Boundary bound states.* If $K_a^\alpha$ has a pole at $iv=iv_{a\alpha}^\beta$ with boundary bound state $\beta$, a particle $b$ reflecting on $\beta$ sees the boundary $\alpha$ together with the bound particle $a$, which has rapidity $iv$. So
 $$
 K_b^\beta(\theta)=S_{ba}(\theta-iv)\,K_b^\alpha(\theta)\,S_{ba}(\theta+iv)

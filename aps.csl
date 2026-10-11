@@ -97,7 +97,13 @@
       <key variable="citation-number"/>
     </sort>
     <layout delimiter="," prefix="&#160;[" suffix="]">
-      <text variable="citation-number"/>
+      <group delimiter=", ">
+        <text variable="citation-number"/>
+        <group delimiter=" ">
+          <label variable="locator" form="short"/>
+          <text variable="locator"/>
+        </group>
+      </group>
     </layout>
   </citation>
   <bibliography entry-spacing="0" second-field-align="flush">
