@@ -23,7 +23,10 @@ Checks:
     checked against bulk unitarity and crossed-transmission unitarity; the CDD factors (3.24) solve (3.22)-(3.23).
  6. Semiclassical limit (sec-boundary-semiclassics): (beta^2/4h) d(-i log A_1)/dtheta -> ln(1 + sin(pi/h)/cosh theta),
     the (+...+) time delay of eq-boundary-time-delay.
-Runtime: about a minute.
+ 7. Delius-George math/0208043 (16)-(17), d_4 and d_5 at the physical q: as printed not an intertwiner of their coproduct
+    (2) and not a solution of their YBE (7); with (1-q^2) -> (1-q^-2), x on the a < b terms, the last sum over all a, b
+    and E_{abar,b} (x) E_{a,bbar} in it, it is (x - q^-2)(x - xi) times the book R-check (eq-dn-vector-r).
+Runtime: about a minute and a half.
 """
 import itertools
 import numpy as np
@@ -421,3 +424,85 @@ for n in (2, 3):
     errs = [abs(v - target) for v in vals]
     report(f'a_{n}: semiclassical limit of A_1 = (+...+) time delay: errors {[mp.nstr(e, 2) for e in errs]} '
            f'at lam = 40, 80, 160 (decreasing like 1/lam)', errs[2] < errs[1] < errs[0] and errs[2] < 0.05*target)
+
+
+# ---------------------------------------------------------------- 7. Delius-George's printed d_n R-matrix
+# math/0208043 (16)-(18): 1-based indices a = 1..2n, abar = 2n+1-a (the book's basis order v_1..v_n, v_-n..v_-1),
+# a' = a + 1/2 (a <= n), a - 1/2 (a > n), xi = q^(2-2n).  Their representation (12)-(14) is dn_hom (x_j^+ = E_j,
+# x_j^- = F_j = E_j^T, q^(h_j) = k_j) and their coproduct (2), Delta(x^+-) = x^+- (x) q^(-h/2) + q^(h/2) (x) x^+-, is the
+# Part VI coproduct after e_j = x_j^+ q^(h_j/2), f_j = q^(-h_j/2) x_j^-.  The corrections: (1-q^2) -> (1-q^-2), the
+# factor x on the a < b terms, the last sum over all a, b, and E_{bbar,a} (x) E_{b,abar} -> E_{abar,b} (x) E_{a,bbar}.
+def dg_R(n, qq, x, fix_sign=False, fix_x=False, fix_last=False, sum_all=False):
+    N = 2*n; xi = qq**(2 - 2*n)
+    bar = lambda a: N + 1 - a
+    ap = lambda a: a + 0.5 if a <= n else a - 0.5
+
+    def E(a, b):
+        M = np.zeros((N, N)); M[a - 1, b - 1] = 1; return M
+    c3 = (1 - qq**-2) if fix_sign else (1 - qq**2)
+    R = np.zeros((N*N, N*N), complex)
+    for a in range(1, N + 1):
+        R += (x - qq**-2)*(x - xi)*kron(E(a, a), E(a, a))
+        for b in range(1, N + 1):
+            if b != a and b != bar(a):
+                R += (x - 1)*(x - xi)/qq*kron(E(a, b), E(b, a))
+                R += c3*(x - xi)*(x if ((a < b) if fix_x else (a > b)) else 1)*kron(E(a, a), E(b, b))
+            if a == b and not sum_all:
+                continue
+            d = 1.0 if a == bar(b) else 0.0
+            if a == b:
+                bab = (qq**-2*x - xi)*(x - 1)
+            elif a < b:
+                bab = (qq**-2 - 1)*(xi*qq**(ap(b) - ap(a))*(x - 1) - d*(x - xi))
+            else:
+                bab = (qq**-2 - 1)*x*(qq**(ap(b) - ap(a))*(x - 1) - d*(x - xi))
+            R += bab*(kron(E(bar(a), b), E(a, bar(b))) if fix_last else kron(E(bar(b), a), E(b, bar(a))))
+    return R
+
+
+def dg_cop_residual(R, n, qq, x):
+    """max |R Delta_{x,1}(Q) - Delta_{1,x}(Q) R| / |R| over Q = x_j^+-, with DG's coproduct (2)."""
+    A, B = dn_hom(n, qq, x), dn_hom(n, qq, 1.0)
+    res = 0
+    for j in nodes_of(A):
+        H = np.real(np.diag(A[('e', j)] @ A[('f', j)] - A[('f', j)] @ A[('e', j)]))
+        qh = lambda s: np.diag(qq**(s*H/2))
+        for kind in 'ef':
+            dAB = kron(A[(kind, j)], qh(-1)) + kron(qh(1), B[(kind, j)])
+            dBA = kron(B[(kind, j)], qh(-1)) + kron(qh(1), A[(kind, j)])
+            res = max(res, np.abs(R @ dAB - dBA @ R).max())
+    return res/np.abs(R).max()
+
+
+def ybe_res(Rf, N, x, y):
+    """DG (7): (R(y) (x) 1)(1 (x) R(xy))(R(x) (x) 1) = (1 (x) R(x))(R(xy) (x) 1)(1 (x) R(y))."""
+    I = np.eye(N)
+    L = kron(Rf(y), I) @ kron(I, Rf(x*y)) @ kron(Rf(x), I)
+    Rr = kron(I, Rf(x)) @ kron(Rf(x*y), I) @ kron(I, Rf(y))
+    return np.linalg.norm(L - Rr)/np.linalg.norm(L)
+
+
+xg, yg = 0.63 + 0.41j, 1.21 - 0.37j
+for n in (4, 5):
+    N = 2*n; xi = q**(2 - 2*n)
+    P = np.zeros((N*N, N*N))
+    for a in range(N):
+        for b in range(N):
+            P[b*N + a, a*N + b] = 1
+    Rbook = rcheck_w(dn_hom(n, q, xg), dn_hom(n, q, 1.0))
+    printed = lambda z: dg_R(n, q, z)
+    fixed = lambda z: dg_R(n, q, z, True, True, True, True)
+    partial = lambda z: dg_R(n, q, z, fix_sign=True, sum_all=True)
+    r_pr = (prop_residual(printed(xg), Rbook)[0], dg_cop_residual(printed(xg), n, q, xg), ybe_res(printed, N, xg, yg))
+    r_pa = prop_residual(dg_R(n, q, xg, sum_all=True), Rbook)[0]
+    report(f'd_{n}: Delius-George (16)-(17) as printed is not the intertwiner, does not intertwine their coproduct (2) and '
+           f'fails their YBE (7) [{r_pr[0]:.1f}, {r_pr[1]:.1f}, {r_pr[2]:.1f}]; also with the last sum over all a, b '
+           f'[{r_pa:.1f}]', min(r_pr) > 0.1 and r_pa > 0.1)
+    Rf = fixed(xg)
+    r_fx = (np.abs(Rf/((xg - q**-2)*(xg - xi)) - Rbook).max(), dg_cop_residual(Rf, n, q, xg), ybe_res(fixed, N, xg, yg))
+    report(f'd_{n}: corrected (16)-(17) = (x - q^-2)(x - xi) * book R-check (eq-dn-vector-r, same q, no gauge), '
+           f'intertwines (2), solves (7) [{max(r_fx):.0e}]', max(r_fx) < 1e-10)
+    r_pp = (prop_residual(partial(xg), P @ Rbook @ P)[0], ybe_res(partial, N, xg, yg), prop_residual(partial(xg), Rbook)[0])
+    report(f'd_{n}: with only (1-q^2) -> (1-q^-2) and the last sum over all a, b it is P R-check P (solves (7), '
+           f'intertwines the opposite coproduct) [{r_pp[0]:.0e}, {r_pp[1]:.0e}; vs R-check {r_pp[2]:.1f}]',
+           r_pp[0] < 1e-10 and r_pp[1] < 1e-10 and r_pp[2] > 0.1)

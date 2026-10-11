@@ -10,22 +10,31 @@ Checks:
     parity-symmetric form q^-1 f_j k_j = k_j^(1/2) f_j k_j^(1/2); d_n^(1) vector rep relations.
  2. sine-Gordon (worked example): K: V(y) -> V(1/y) from the linear equations; a solution exists
     only if c_0 c_1 = q^-2; closed form with c_j = q^-1.
- 3. a_n^(1) vector solitons, n = 2, 3, 4: K: V(y) -> Vbar(1/y) exists iff all eps_j = 0 (then K = 1)
+ 3. a_n^(1) vector solitons, n = 2..7: K: V(y) -> Vbar(1/y) exists iff all eps_j = 0 (then K = 1)
     or all eps_j^2 = 1/((1-q)(1-q^-1)) = 1/(4 cos^2(pi omega/2)); not for |eps_j| = 1 (DM (4.21)).
     Closed form (corrected DM (4.21)) and the substitution that maps DM (4.21) onto it; gauge
-    equivalence of sign patterns; twisted reflection equation for all four (mu, nu); failure of the
-    printed K at -q (where the antisoliton is Vbar(-y) and eps = 0 has a solution only for odd n).
+    equivalence of sign patterns.  For n = 2, 3, 4: twisted reflection equation for all four (mu, nu); failure
+    of the printed K at -q (where the antisoliton is Vbar(-y) and eps = 0 has a solution only for odd n).
  4. Identification of the solutions: the non-diagonal s=+1 solution is Gandenberger's K^+ for a_2
     (hep-th/9806003 (3.7), his Neumann candidate), s=-1 is his K^-; eps = 0 gives DG (3.7) (K = 1).
     Boundary crossing-unitarity (GZ (3.35)) in book form k(theta) = f R_{Vbar Vbar}(2theta) k(-theta),
     k = sum_ab K_ba(i pi/2 - theta) v_a (x) v_b, holds for the matrix part (n = 2, 3).
+ 5. The 2x2 systems behind eq-an-eps-condition (symbolic, a_3); DM's own corrected (4.15)-(4.16) are solved by
+    their printed (4.21) only after q_(4.21) -> -(-q)^(1/2) (n = 2..7).
+ 6. Hypothesis (ii) of thm-k-reflection: dim End_B(V_mu (x) V_nu) = 1 (a_1, a_2, a_3).
+ 7. prp-boundary-module against BPTT: one-dimensional B-submodules of V(y) at y = exp(-i lambda nu_n) carry the
+    beta_j of the excited boundary states.
+ 8. B = Lbar (K (x) 1) L (eq-b-matrix) at first order in 1/y: leading terms of the universal R-matrix against the
+    exact R-check; for the a_n vector representation (n <= 6) the coefficients are exactly the b_j of
+    eq-coideal-generators, with eps = 0 (K = 1) or eps = (s eps_*, eps_*, ..., eps_*) (eq-an-k-matrix).
+ 9. Sine-Gordon eps_j near the Neumann point from eq-bsg-eta-theta and cnj-bsg-uv-ir (prp-dm-first-order).
 Runtime: about a minute.
 """
 import numpy as np
 import sympy as sp
 from boundary_common import (report, q_phys, an_vector, sl2_spin, dn_vector, check_relations, cartan_a,
                              cartan_d, coideal_gen, coideal_gen_tensor, cop, k_intertwiner, rcheck,
-                             re_twisted, re_preserving, dual, kron)
+                             re_twisted, re_preserving, dual, kron, intertwiners, nodes_of)
 
 rng = np.random.default_rng(7)
 OMEGA = 0.37
@@ -159,7 +168,7 @@ def prop(A, B):
 
 
 y0 = 0.9 + 0.4j
-for n in (2, 3, 4):
+for n in (2, 3, 4, 5, 6, 7):
     N = n + 1
     cases = {'generic eps': (rng.normal(size=N) + 1j*rng.normal(size=N), 0),
              'eps = 0': (np.zeros(N), 1),
@@ -268,3 +277,275 @@ for n in (2, 3):
             ok &= np.linalg.norm(np.outer(km, v) - np.outer(v, km))/(np.linalg.norm(km)*np.linalg.norm(v)) < 1e-11
 report('a_n (n=2,3): boundary crossing-unitarity k(theta) = f(theta) R_{Vbar Vbar}(2theta) k(-theta) holds for '
        'the matrix part of both non-diagonal K (eps = 0: trivially)', ok)
+
+# ---------------------------------------------------------------- 5. why eps_j^2 = eps_*^2: the 2x2 systems
+# For node j (alpha_j = eps_a - eps_b) and c not in {a, b}, the (a, c) and (b, c) entries of
+# K pi_y(b_j) = pibar_{1/y}(b_j) K involve only K_ac, K_bc, and the (c, a), (c, b) entries only K_ca, K_cb; in both
+# cases the 2x2 determinant is +-(eps_j^2 (1-q)(1-q^-1) - 1).  Symbolic, a_3, all nodes.
+qs_, ys_, es_ = sp.symbols('q y epsilon', nonzero=True)
+n = 3; N = n + 1
+Ksym = sp.Matrix(N, N, sp.symbols(f'K0:{N*N}'))          # row-major: K[r, c] = symbol r*N + c
+ok = True
+for j in range(N):
+    a, b = (n, 0) if j == 0 else (j - 1, j)
+    Ej = sp.zeros(N); Ej[a, b] = 1; Fj = Ej.T
+    kj = sp.diag(*[qs_ if i == a else (1/qs_ if i == b else 1) for i in range(N)]); kbj = kj.inv()
+    bV = ys_*Ej + Fj*kj/(qs_*ys_) + es_*kj                 # pi_y(b_j) on V(y)
+    bW = Fj/ys_ + ys_*Ej*kbj/qs_ + es_*kbj                 # pibar_{1/y}(b_j): e_j = F_j/y, f_j = y E_j, k_j -> k_j^-1
+    Eq = Ksym*bV - bW*Ksym
+    for c in range(N):
+        if c in (a, b):
+            continue
+        for pair, idx in (((Eq[a, c], Eq[b, c]), (a*N + c, b*N + c)), ((Eq[c, a], Eq[c, b]), (c*N + a, c*N + b))):
+            A2, _ = sp.linear_eq_to_matrix(list(pair), list(Ksym))
+            ok &= {i for i in range(N*N) if any(A2[:, i])} == set(idx)
+            det = A2[:, list(idx)].det()
+            ok &= sp.simplify(det**2 - (es_**2*(1 - qs_)*(1 - 1/qs_) - 1)**2) == 0
+report('a_3: for each node j the off-block entries of rows/columns a_j, b_j obey 2x2 systems with determinant '
+       '+-(eps_j^2 (1-q)(1-q^-1) - 1) (origin of eq-an-eps-condition)', ok)
+
+
+# DM's own equations (4.15)-(4.16), with the constant term of q^{T_i} restored, in DM's basis and at the q of their
+# representation: the printed (4.21) solves them only with q_(4.21) = -(-q)^(1/2), not with q_(4.21) = q (n = 2..7)
+def dm_system(n, qd, x, eps):
+    N = n + 1; I = np.eye(N); rows = []
+    def E(a, b):
+        M = np.zeros((N, N), complex); M[a % N, b % N] = 1; return M
+    for i in range(N):
+        qT = I + (1/qd - 1)*E(i, i) + (qd - 1)*E(i + 1, i + 1); qTb = I + (qd - 1)*E(i, i) + (1/qd - 1)*E(i + 1, i + 1)
+        M = x*E(i + 1, i) + E(i, i + 1)/x + eps[i]*qT; Mp = E(i, i + 1)/x + x*E(i + 1, i) + eps[i]*qTb
+        rows.append(np.kron(M.T, I) - np.kron(I, Mp))
+    return np.vstack(rows)
+
+
+xdm = 0.8*np.exp(0.3j)
+res_good, res_bad = 0, np.inf
+for n in range(2, 8):
+    N = n + 1
+    for signs in [(1,)*N, (-1,) + (1,)*n, tuple(rng.choice([1, -1], N))]:
+        A = dm_system(n, q, xdm, EPS_STAR*np.array(signs))
+        for qdm, good in ((-np.sqrt(-q + 0j), True), (q, False)):
+            # dm_system labels the node acting on basis vectors (i, i+1) by i, k_dm by i+1 (DM's labels)
+            v = k_dm(n, xdm, qdm, np.roll(np.array(signs, float), 1)).reshape(-1, order='F')
+            r = np.linalg.norm(A @ v)/np.linalg.norm(v)
+            res_good, res_bad = (max(res_good, r), res_bad) if good else (res_good, min(res_bad, r))
+report(f'DM (4.21) solves DM\'s corrected (4.15)-(4.16) at their q only after q_(4.21) -> -(-q)^(1/2), n = 2..7 '
+       f'[{res_good:.0e}; with q_(4.21) = q: {res_bad:.2f}]', res_good < 1e-12 and res_bad > 1e-2)
+
+# ---------------------------------------------------------------- 6. hypothesis (ii) of thm-k-reflection
+# Schur needs dim End_B(V_mu(y1) (x) V_nu(y2)) = 1, B acting by the coproduct; computed at generic rapidities.
+y1c, y2c = np.exp(0.41 + 0.2j), np.exp(-0.23 + 0.1j)
+
+
+def comm_dim(A, B, eps):
+    gens = [coideal_gen_tensor(A, B, j, 1/q, eps[j]) for j in range(len(eps))]
+    return len(intertwiners([(G, G) for G in gens])[0])
+
+
+dims = []
+for n in (2, 3):
+    N = n + 1
+    for eps in (np.zeros(N), EPS_STAR*np.ones(N), EPS_STAR*np.r_[-1, np.ones(n)], rng.normal(size=N)):
+        for cA in (False, True):
+            for cB in (False, True):
+                dims.append(comm_dim(an_vector(n, q, y1c, cA), an_vector(n, q, y2c, cB), eps))
+for j2 in (1, 2):
+    for eps in ([0, 0], [0.3, -0.7]):
+        dims.append(comm_dim(sl2_spin(1, q, y1c), sl2_spin(j2, q, y2c), eps))
+report(f'dim End_B(V_mu (x) V_nu) = 1: a_2, a_3 with (mu, nu) in {{V, Vbar}}^2 at eps = 0, s = +-1 and generic eps '
+       f'(where no K exists); a_1 spin 1/2 (x) 1/2 and 1/2 (x) 1 [{len(dims)} cases]', set(dims) == {1})
+
+# ---------------------------------------------------------------- 7. one-dimensional boundary modules vs BPTT
+# At y = exp(-i lambda nu_n), nu_n = eta/lambda - (2n+1) pi/(2 lambda), pi_y(b_0) and pi_y(b_1) of eq-sg-coideal-rep
+# (eps_j from eq-bsg-eta-theta) have a common eigenvector: V(y) (x) C_eps has a one-dimensional B-submodule.  Its
+# eigenvalues beta_j are eq-bsg-eta-theta with eta -> etabar = pi(lambda+1) - eta and s <-> sbar (theta -> -theta),
+# i.e. the matrix part of BPTT's excited states eq-bsg-excited-k, for every n.  At y = exp(+i lambda nu_n) the
+# one-dimensional submodule carries the complementary eigenvalues eps_j (q + q^-1) - beta_j.  lambda = 4.3, eta = 8.1:
+# nu_0, nu_1, nu_2 all in the physical strip.
+lam_, eta_, vth = 4.3, 8.1, 0.37
+qx = q_phys(lam_); sx = np.sin(np.pi*lam_)
+epsx = {1: -np.cos(eta_ - 1j*vth)/sx, 0: -np.cos(eta_ + 1j*vth)/sx}
+etab = np.pi*(lam_ + 1) - eta_
+pred = {1: -np.cos(etab + 1j*vth)/sx, 0: -np.cos(etab - 1j*vth)/sx}
+
+
+def common_eig(y):
+    """(residual, beta_1, beta_0) for the eigenvector of pi_y(b_1) that is closest to an eigenvector of pi_y(b_0)."""
+    V = sl2_spin(1, qx, y)
+    b1, b0 = coideal_gen(V, 1, 1/qx, epsx[1]), coideal_gen(V, 0, 1/qx, epsx[0])
+    w, U = np.linalg.eig(b1)
+    out = []
+    for k in range(2):
+        v = U[:, k]; beta0 = np.vdot(v, b0 @ v)/np.vdot(v, v)
+        out.append((np.linalg.norm(b0 @ v - beta0*v)/np.linalg.norm(v), w[k], beta0))
+    return min(out, key=lambda t: t[0])
+
+
+ok, nus = True, []
+for nn in range(3):
+    nu = eta_/lam_ - (2*nn + 1)*np.pi/(2*lam_); nus.append(nu)
+    r, be1, be0 = common_eig(np.exp(-1j*lam_*nu))
+    ok &= r < 1e-12 and abs(be1 - pred[1]) < 1e-12 and abs(be0 - pred[0]) < 1e-12
+    r, be1, be0 = common_eig(np.exp(1j*lam_*nu))
+    trq = qx + 1/qx
+    ok &= r < 1e-12 and abs(be1 - (epsx[1]*trq - pred[1])) < 1e-12 and abs(be0 - (epsx[0]*trq - pred[0])) < 1e-12
+ok &= all(0 < nu < np.pi/2 for nu in nus) and common_eig(np.exp(0.3 + 0.2j))[0] > 1e-3
+report(f'sine-Gordon: at y = exp(-i lambda nu_n), n = 0, 1, 2, V(y) has a 1-dim B-submodule with beta_(1,0) = '
+       f'-cos(etabar +- i theta)/sin(pi lambda) (BPTT excited states), the same for all n; complementary values at '
+       f'exp(+i lambda nu_n); none at generic y', ok)
+
+# ---------------------------------------------------------------- 8. B = Lbar (K (x) 1) L to first order in 1/y
+# (a) Leading terms of the universal R-matrix for the Part VI coproduct, in the principal gradation:
+#     R = q^{sum G h (x) h} (1 + sum_j (q_j - q_j^-1) f_j (x) e_j + ...), a power series in y2/y1.  Compared with the exact
+#     R-check: (pi_A(y1) (x) pi_B(y2))(R) = q^{(lam_A, lam_B)} P R-check (normalized to 1 on highest weights; the scalar
+#     factor is 1 + O((y2/y1)^2)), at first order by central differences.  a_1 spin 1/2 (x) 1 and 1 (x) 1/2 separate
+#     the Cartan placement; a_2 with all four (mu, nu) in {V, Vbar}^2.
+hR = 2e-4
+cR = q - 1/q
+
+
+def perm(dA, dB):
+    """P: A (x) B -> B (x) A."""
+    P = np.zeros((dA*dB, dA*dB))
+    for i in range(dA):
+        for j in range(dB):
+            P[j*dA + i, i*dB + j] = 1
+    return P
+
+
+def r_expansion(mkA, mkB, cart):
+    """(M0, M1): (pi_A(y1) (x) pi_B(y2))(R) = M0 + t M1 + O(t^2), t = y2/y1."""
+    vals = {}
+    for sg in (1, -1):
+        A, B = mkA(sg/np.sqrt(hR)), mkB(np.sqrt(hR))
+        Rc = rcheck(A, B)[0]
+        i0 = A['hw']*B['dim'] + B['hw']
+        vals[sg] = cart[i0, i0]*perm(B['dim'], A['dim']) @ Rc      # P: B (x) A -> A (x) B
+    return (vals[1] + vals[-1])/2, (vals[1] - vals[-1])/(2*hR)
+
+
+def rel(a, b):
+    return np.linalg.norm(a - b)/np.linalg.norm(b)
+
+
+ok = True
+cases = [(lambda y, jA=jA: sl2_spin(jA, q, y), lambda y, jB=jB: sl2_spin(jB, q, y),
+          np.diag([q**(a_*b_/2) for a_ in range(jA, -jA - 1, -2) for b_ in range(jB, -jB - 1, -2)]), True)
+         for jA, jB in ((1, 2), (2, 1))]
+W2 = np.eye(3) - 1/3                                       # projected weights eps_i of the a_2 vector representation
+for cA in (False, True):
+    for cB in (False, True):
+        WA, WB = (-W2 if cA else W2), (-W2 if cB else W2)
+        cases.append((lambda y, cA=cA: an_vector(2, q, y, cA), lambda y, cB=cB: an_vector(2, q, y, cB),
+                      np.diag([q**(WA[i] @ WB[j]) for i in range(3) for j in range(3)]), False))
+for mkA, mkB, C, is_sl2 in cases:
+    M0, M1 = r_expansion(mkA, mkB, C)
+    A, B = mkA(1.0), mkB(1.0)
+    nodes = nodes_of(A)
+    FE = sum(kron(A[('f', j)], B[('e', j)]) for j in nodes)
+    FEk = sum(kron(A[('f', j)] @ A[('k', j)], np.linalg.inv(B[('k', j)]) @ B[('e', j)]) for j in nodes)
+    ok &= rel(M0, C) < 1e-6 and rel(M1, cR*C @ FE) < 1e-6 and rel(M1, cR*FEk @ C) < 1e-6
+    ok &= rel(M1, -cR*C @ FE) > 1e-2
+    if is_sl2:                                             # placement variants differ only on a_1 spin 1/2 (x) 1
+        ok &= rel(M1, cR*FE @ C) > 1e-2 and rel(M1, cR*C @ FEk) > 1e-2
+report('universal R for the Part VI coproduct = q^{G h(x)h}(1 + sum_j (q-q^-1) f_j (x) e_j + ...) at first order in y2/y1, '
+       'against the exact R-check (a_1 spin 1/2 (x) 1, a_2 all {V,Vbar} pairs); sign and Cartan-placement variants fail', ok)
+
+
+# (b) B-matrix of eq-b-matrix for the a_n vector representation at first order in u = 1/y, with the second tensor factor
+#     kept abstract.  Elements coeff * X * K_lam with X in {1, e_j, f_j} and K_lam group-like (K_lam e_j K_lam^-1 =
+#     q^{(lam, alpha_j)} e_j, K_{alpha_j} = k_j) are stored as {(X, lam): coeff}; lam in the eps basis.
+#     L = C_V (1 + c u sum_j F_j (x) e_j),  Lbar = C_Vbar (1 + c u sum_j F_j (x) f_j),  C_V = diag K_{eps_i}, C_Vbar = diag K_{-eps_i},
+#     K = kappa (1 + u K1 + O(u^2)) from eq-an-k-matrix (Laurent coefficients by FFT) or K = 1.
+def b_first_order(n, s, qq):
+    N = n + 1; c = qq - 1/qq; es = 1/np.sqrt((1 - qq)*(1 - 1/qq))
+    alpha, Fm = {}, {}
+    for j in range(N):
+        a, b = (n, 0) if j == 0 else (j - 1, j)
+        al = [0]*N; al[a] += 1; al[b] -= 1; alpha[j] = tuple(al)
+        Fm[j] = np.zeros((N, N)); Fm[j][b, a] = 1
+    eps_v = [tuple(int(k == i) for k in range(N)) for i in range(N)]
+    pair = lambda u_, v_: sum(x_*y_ for x_, y_ in zip(u_, v_))
+    wt = lambda X: alpha[X[1]] if X[0] == 'e' else tuple(-x_ for x_ in alpha[X[1]])
+    z0 = (0,)*N
+
+    def add(d, key, v):
+        d[key] = d.get(key, 0) + v
+
+    def mul(x_, y_):
+        out = {}
+        for (l1, m1), c1 in x_.items():
+            for (l2, m2), c2 in y_.items():
+                m = tuple(u1 + u2 for u1, u2 in zip(m1, m2))
+                add(out, (l1, m) if l2 is None else (l2, m), c1*c2*(1 if l2 is None else qq**pair(m1, wt(l2))))
+        return out
+
+    def mat(f):
+        return [[f(r_, s_) for s_ in range(N)] for r_ in range(N)]
+
+    def _sum(ds):
+        out = {}
+        for d in ds:
+            for k, v in d.items():
+                add(out, k, v)
+        return out
+
+    def matmul(A, B):
+        return mat(lambda r_, s_: _sum([mul(A[r_][t], B[t][s_]) for t in range(N)]))
+    neg = lambda lam: tuple(-x_ for x_ in lam)
+    C_V = mat(lambda r_, s_: {(None, eps_v[r_]): 1} if r_ == s_ else {})
+    C_W = mat(lambda r_, s_: {(None, neg(eps_v[r_])): 1} if r_ == s_ else {})
+    L1 = mat(lambda r_, s_: _sum([{(('e', j), eps_v[r_]): c*Fm[j][r_, s_]*qq**pair(eps_v[r_], alpha[j])}
+                                  for j in range(N) if Fm[j][r_, s_]]))
+    Lb1 = mat(lambda r_, s_: _sum([{(('f', j), neg(eps_v[r_])): c*Fm[j][r_, s_]*qq**pair(eps_v[r_], alpha[j])}
+                                   for j in range(N) if Fm[j][r_, s_]]))
+    if s is None:
+        K1 = np.zeros((N, N)); epshat = [0]*N
+    else:                                                  # K / X^(N/2) is a polynomial in u of degree <= N
+        w = np.sqrt(-qq + 0j); Mf = 2*N + 2; us = 0.5*np.exp(2j*np.pi*np.arange(Mf)/Mf)
+        P = [k_closed(n, 1/u_, s, qq)/(w/u_)**(N/2) for u_ in us]
+        coef = lambda m: sum(P[k]*us[k]**(-m) for k in range(Mf))/Mf
+        K0c, K1c = coef(0), coef(1)
+        assert np.abs(K0c - K0c[0, 0]*np.eye(N)).max() < 1e-12*abs(K0c[0, 0])
+        K1 = K1c/K0c[0, 0]; epshat = [s*es] + [es]*n
+    Ks1 = mat(lambda r_, s_: {(None, z0): K1[r_, s_]} if abs(K1[r_, s_]) > 0 else {})
+    B0 = matmul(C_W, C_V)
+    B1 = [[_sum([x_, y_, z_]) for x_, y_, z_ in zip(*rows)] for rows in
+          zip(matmul(Lb1, C_V), matmul(matmul(C_W, Ks1), C_V), matmul(C_W, L1))]
+    want = mat(lambda r_, s_: _sum([{(('e', j), z0): c*Fm[j][r_, s_], (('f', j), alpha[j]): c*Fm[j][r_, s_]/qq,
+                                     (None, alpha[j]): c*Fm[j][r_, s_]*epshat[j]} for j in range(N) if Fm[j][r_, s_]]))
+    clean = lambda d: {k: v for k, v in d.items() if abs(v) > 1e-12}
+    ok0 = all(clean(B0[r_][s_]) == ({(None, z0): 1} if r_ == s_ else {}) for r_ in range(N) for s_ in range(N))
+    ok1 = all(clean(_sum([B1[r_][s_], {k: -v for k, v in want[r_][s_].items()}])) == {}
+              for r_ in range(N) for s_ in range(N))
+    return ok0 and ok1
+
+
+ok = all(b_first_order(n, s, qq) for n in range(1, 7) for s in (None, 1, -1) for qq in (q, 0.7 + 0.3j))
+report('B = Lbar (K(x)1) L, a_n vector rep (n = 1..6), K = 1 and eq-an-k-matrix (s = +-1), physical and generic q: '
+       'B/kappa = 1 + (q-q^-1) y^-1 sum_j pi_V(f_j)|_{y=1} (x) (e_j + q^-1 f_j k_j + eps_j k_j) + O(y^-2), '
+       'eps = 0 resp. (s eps_*, eps_*, ..., eps_*)', ok)
+
+# ---------------------------------------------------------------- 9. sine-Gordon: eps near the Neumann point
+# eq-bsg-eta-theta with cnj-bsg-uv-ir: cos((eta -+ i vartheta)/(lambda+1)) = mu_+-, mu_+- = (mu~/mu~_crit) e^{+-i beta phi_0/2}.
+# So eps_1 = -cos((lambda+1) arccos mu_+)/sin(pi lambda), eps_0 the same with mu_-, and near mu~ = 0
+# eps = eps_* - (lambda+1)/(2 sin(pi lambda/2)) mu_+- + O(mu^2); eps = 0 at phi_0 = 0, mu~/mu~_crit = cos(pi/(2(lambda+1))).
+lamS = 1.37
+sS = np.sin(np.pi*lamS)
+eps_sg = lambda mu: -np.cos((lamS + 1)*np.arccos(mu + 0j))/sS
+ok = True
+for m_, ph in ((0.31, 0.4), (0.8, -1.1), (1.7, 0.25)):       # m_ = mu~/mu~_crit, ph = beta phi_0/2
+    Am, Ap = (lamS + 1)*np.arccos(m_*np.exp(1j*ph) + 0j), (lamS + 1)*np.arccos(m_*np.exp(-1j*ph) + 0j)
+    eta_s, vth_s = (Am + Ap)/2, (Ap - Am)/2j                   # Am = eta - i vartheta, Ap = eta + i vartheta
+    ok &= abs(eta_s.imag) < 1e-12 and abs(vth_s.imag) < 1e-12
+    e_, t_ = eta_s.real/(lamS + 1), vth_s.real/(lamS + 1)
+    ok &= (abs(np.cos(e_)*np.cosh(t_) - m_*np.cos(ph)) < 1e-12 and abs(np.sin(e_)*np.sinh(t_) - m_*np.sin(ph)) < 1e-12)
+    ok &= (abs(-np.cos(eta_s.real - 1j*vth_s.real)/sS - eps_sg(m_*np.exp(1j*ph))) < 1e-12 and
+           abs(-np.cos(eta_s.real + 1j*vth_s.real)/sS - eps_sg(m_*np.exp(-1j*ph))) < 1e-12)
+hS, zS = 1e-5, np.exp(0.7j)
+dS = (eps_sg(hS*zS) - eps_sg(-hS*zS))/(2*hS*zS)
+kapS = -(lamS + 1)/(2*np.sin(np.pi*lamS/2))
+ok &= abs(eps_sg(0) - 1/(2*np.cos(np.pi*lamS/2))) < 1e-12 and abs(dS - kapS) < 1e-8
+ok &= abs(eps_sg(np.cos(np.pi/(2*(lamS + 1))))) < 1e-12
+report(f'sine-Gordon: eq-bsg-eta-theta + cnj-bsg-uv-ir give eps_(1,0) = -cos((lambda+1) arccos mu_+-)/sin(pi lambda), '
+       f'= eps_* - (lambda+1)/(2 sin(pi lambda/2)) mu_+- + O(mu^2) near Neumann; eps = 0 at mu_+- = cos(pi/(2(lambda+1)))', ok)

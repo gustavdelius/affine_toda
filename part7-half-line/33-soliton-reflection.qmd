@@ -136,7 +136,7 @@ Checked in `textbook_code/boundary_coideal.py`. The scalar factor of (-@eq-an-k-
 
 **Which boundary.** By @cnj-neumann-coideal, $s=+1$ is the Neumann boundary and $\hat\epsilon=0$ the uniform boundary $C\equiv+1$. For $a_2$ the evidence is Gandenberger's comparison with first-order perturbation theory [@gandenberger1999a, sec. 6]: $K^+$ reproduces Kim's $O(\beta^2)$ Neumann amplitude [@kim1995], and $K^d$ the $O(\beta^2)$ result for $C\equiv+1$. No boundary condition is known for $s=-1$. Delius and Gandenberger obtained the particle amplitudes for Neumann by weak–strong duality from those of the uniform boundary [@delius_gandenberger1999, eq. (3.20)]. Checking them against the breather amplitude of (-@eq-an-k-matrix) with $s=+1$ is open for $n\ge3$ (@sec-neumann-duality).
 
-**Delius and MacKay's (4.21).** The non-diagonal matrix (4.21) of [@delius_mackay2003] is (-@eq-an-k-matrix) after reversing the order of the basis and substituting $q_{\rm DM}\to-(-q)^{1/2}$, $x\to y$ and $\hat\epsilon_i\to\hat\epsilon_i/\epsilon_*$. Their $(-qx)$ is our $X$. For $s=+1$ the two agree exactly, for $s=-1$ up to a diagonal gauge (`textbook_code/boundary_coideal.py`). Read this way, their (4.21) is correct, but the conditions under which they derive it are not (@sec-boundary-qg-notes).
+**Delius and MacKay's (4.21).** The non-diagonal matrix (4.21) of [@delius_mackay2003] is (-@eq-an-k-matrix) after reversing the order of the basis and substituting $q_{\rm DM}\to-(-q)^{1/2}$, $x\to y$ and $\hat\epsilon_i\to\hat\epsilon_i/\epsilon_*$. Their $(-qx)$ is our $X$. For $s=+1$ the two agree exactly, for $s=-1$ up to a diagonal gauge (`textbook_code/boundary_coideal.py`). The $q$ in their (4.21) is not the $q$ of their representation (4.15): (4.21) solves their own (corrected) equations only after this substitution, which we have checked in their basis for $n\le7$. Read this way, their (4.21) is correct, but the conditions under which they derive it are not (@sec-boundary-qg-notes).
 
 ## d_n vector solitons {#sec-dn-vector-k}
 
@@ -155,7 +155,7 @@ in the homogeneous gradation, with $q\to q^{-1}$ in $\langle a\rangle$ for the P
 **[Numerical]** For $n=4,5$ the intertwiner $V(z)\otimes V(1)\to V(1)\otimes V(z)$ has eigenvalues $1$, $\langle1\rangle$ and $\langle1\rangle\langle n-1\rangle$ with multiplicities $n(2n+1)-1$, $n(2n-1)$ and 1, as in (-@eq-dn-vector-r).
 :::
 
-Jimbo's explicit matrix [@jimbo1986], as printed by Delius and George in the homogeneous gradation [@delius_george2002, eqs. (16)–(17)], should agree with (-@eq-dn-vector-r) up to a diagonal gauge; we have not checked their transcription entry by entry. To use it for solitons, transform to the principal gradation by the automorphism $\sigma_0=1$, $\sigma_i=x$ [@delius_george2002, sec. 6].
+Jimbo's explicit matrix [@jimbo1986] as printed by Delius and George in the homogeneous gradation [@delius_george2002, eqs. (16)–(17)] contains misprints: as printed it is not an intertwiner of their coproduct, and it does not solve the Yang–Baxter equation. With $(1-q^2)\to(1-q^{-2})$, the factor $x$ on the $a<b$ terms, the last sum over all $a,b$ and its elementary matrices $E_{\bar a,b}\otimes E_{a,\bar b}$, it equals $(x-q^{-2})(x-\xi)$ times (-@eq-dn-vector-r), with the same $q$ and no gauge transformation (checked for $n=4,5$ in `textbook_code/reflection_matrices.py`). With only the first and third changes it is $P\check RP$, which solves the Yang–Baxter equation but intertwines the opposite coproduct. To use it for solitons, transform to the principal gradation by the automorphism $\sigma_0=1$, $\sigma_i=x$ [@delius_george2002, sec. 6].
 
 **The reflection matrices.** Delius and George used the coideal generators $\hat Q_j=q_j^{h_j/2}(x_j^++x_j^-)+\hat\epsilon_j(q_j^{h_j}-1)$ [@delius_george2002, eq. (8)] with the symmetric coproduct $\Delta(x^\pm)=x^\pm\otimes q^{-h/2}+q^{h/2}\otimes x^\pm$, in the homogeneous gradation. With $e_j=x_j^+q_j^{h_j/2}$, $f_j=q_j^{-h_j/2}x_j^-$, $k_j=q_j^{h_j}$, which is the Part VI coproduct, their generator is $q\,e_j+k_jf_j+\hat\epsilon_j(k_j-1)=q\big(e_j+q^{-3}f_jk_j+q^{-1}\hat\epsilon_jk_j\big)-\hat\epsilon_j$. The constant drops out of the intertwining equation. In their representation [@delius_george2002, eqs. (12)–(14)] $x_j^\pm$ have entries $\pm1$, so $e_j=q^{-1/2}E_j$ and $f_j=q^{1/2}F_j$ in terms of matrices $E_j$, $F_j=E_j^T$ with entries $\pm1$, and their generator becomes $q^{1/2}\big(E_j+q^{-2}F_jk_j+q^{-1/2}\hat\epsilon_jk_j\big)-\hat\epsilon_j$. Relative to the parity-symmetric $E_j+q^{-1}F_jk_j$ this is a rescaling $E_j\to sE_j$ with $s^2=q$ at every node. In the homogeneous gradation such a rescaling is a shift of the spectral parameter by $s^h=q^{h/2}$ (their (19)–(20)), up to a change of basis. This is why they find intertwiners $K(x):V_{\eta x}\to V_{\eta/x}$ with a shifted centre, $\eta^2=q^{-h}=q^{2-2n}$, while the book's generators give $\eta=\pm1$.
 
@@ -185,13 +185,13 @@ The classical analysis of @sec-boundary-conditions distinguishes two kinds of in
 | classical boundary | $\sigma=$ transposition, $\mathcal B$ with $C_j$ (@sec-durham-classification) | $\sigma=$ Hermitian conjugation, Dirichlet on ${\rm Re}\,\vec\phi$, Neumann on ${\rm Im}\,\vec\phi$ (@sec-soliton-preserving) |
 | classical images | antisoliton mirror (@sec-images-boundary) | $\Theta P$ mirror (@sec-images-preserving) |
 | examples | $K=1$ and (-@eq-an-k-matrix) for $a_n$; @prp-dn-k for $d_n$ | de Vega–González-Ruiz diagonal $K$ |
-| Doikou's name | soliton non-preserving (SNP) | soliton preserving (SP) |
+| spin-chain name | soliton non-preserving (SNP) | soliton preserving (SP) |
 
 : The two classes of soliton reflection. For self-conjugate multiplets, such as those of $a_1^{(1)}$ and the $d_n^{(1)}$ vector, the two columns coincide. {#tbl-k-types}
 
 The classical solitons decide which class a boundary is in. For the boundaries of @sec-durham-classification, a soliton returns as an antisoliton [@delius1998a], so the reflection matrix is soliton-conjugating, and the reflection equation that follows from factorization involves four different R-matrices [@delius_mackay2003, eq. (2.8)]. For the boundary of Delius [-@delius1998b] solitons return as solitons, and the reflection equation is Sklyanin's original braid form.
 
-For the soliton-preserving case, de Vega and González-Ruiz found all diagonal solutions for the $a_{n-1}$ vertex models [@devega1993; @devega1994]. In their conventions they are $K_a(\theta)=k\sinh(\xi+\theta)e^\theta$ for $a\le l$ and $K_a(\theta)=k\sinh(\xi-\theta)e^{-\theta}$ for $a>l$, with a discrete parameter $l$ (unchecked in book conventions). The soliton-conjugating reflection equation was studied in the spin-chain setting by Doikou, who introduced the names in the last row of the table [@doikou2000]. The coideals behind the soliton-preserving matrices are of a different type, related to other involutions of $\hat g$; they are part of the classification of @sec-generalized-satake.
+For the soliton-preserving case, de Vega and González-Ruiz found all diagonal solutions for the $a_{n-1}$ vertex models [@devega1993]. In their conventions they are $K_a(\theta)=k\sinh(\xi+\theta)e^\theta$ for $a\le l$ and $K_a(\theta)=k\sinh(\xi-\theta)e^{-\theta}$ for $a>l$, with a discrete parameter $l$ (unchecked in book conventions). The soliton-conjugating reflection equation was studied in the spin-chain setting by Doikou, who called it "soliton non-preserving", in contrast to the "soliton-preserving" case of Delius [@doikou2000; @delius1998b]. The coideals behind the soliton-preserving matrices are of a different type, related to other involutions of $\hat g$; they are part of the classification of @sec-generalized-satake.
 
 ## Semiclassical check {#sec-boundary-semiclassics}
 
@@ -247,7 +247,7 @@ Compute $C(2\omega_1)$, $C(\omega_2)$ and $C(0)$ for $d_n$ with $|\alpha|^2=2$, 
 :::
 
 ::: {#exr-semiclassical}
-Derive (-@eq-semiclassical-uniform) from (-@eq-semiclassical-phase). What sign does $d\delta/d\theta$ have for $C\equiv-1$ and for Neumann, and what does that say about attraction and repulsion?
+Derive (-@eq-semiclassical-uniform) from (-@eq-semiclassical-phase). What sign does $d\delta/d\theta$ have for $C\equiv-1$ and for Neumann? Interpret the signs with the convention of one-dimensional scattering in which a positive time delay means repulsion. In this sense the delayed $C\equiv+1$ boundary is repulsive, while @sec-images-boundary, following Delius, calls it attractive because the collision with the image happens behind the wall and the boundary binds solitons. Which property does each use of the word describe?
 :::
 
 ## Notes and references {#sec-soliton-reflection-notes}
@@ -258,7 +258,8 @@ Corrections and clarifications of the sources, in addition to those of @sec-boun
 
 - **Delius and Nepomechie (3.8).** The square root covers only the first product; read otherwise, the formula fails their own equations for $m\ge2$. At imaginary $\eta$, which includes the physical $q$, the closed form with principal-branch square roots fails for $j\ge1$, as their footnote anticipates; their linear equations (3.6)–(3.7) remain correct there.
 - **Delius and Gandenberger (3.9).** The prefactor $(\pm\frac h4\omega)_I$ is not fixed by (3.8); both signs solve it.
-- **Delius and Gandenberger (3.24).** The overall minus sign of $\sigma_c$ is necessary for the bootstrap condition (3.23) when $n$ is even.
+- **Delius and Gandenberger (3.24).** The overall minus sign that they print is necessary when $n$ is even: without it the bootstrap condition (3.23) acquires a factor $(-1)^{n+1}$.
 - **Delius and Gandenberger versus Delius and MacKay.** The diagonal matrix belongs to the uniform boundary, as Delius and Gandenberger assigned it, and not to Neumann (@cnj-neumann-coideal).
 - **Gandenberger's free parameters** and **Delius and George's $n$-parameter families** are conjugations by the Cartan torus. They solve the reflection equation, but only the parity-symmetric representative is the intertwiner of the coideal of @sec-boundary-qg.
+- **Delius and George (16)–(17).** Jimbo's $d_n$ R-matrix as printed is not an intertwiner; four corrections are listed in @sec-dn-vector-k.
 - **Delius and George (22).** Their $\hat\epsilon_j^2$ equals the $a_n$ value $\epsilon_*^2$; the shift $\eta$ is the price of their normalization of the generators. The condition omits the solution at $\hat\epsilon=0$.

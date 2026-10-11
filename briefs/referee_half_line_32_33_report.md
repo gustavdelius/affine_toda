@@ -173,3 +173,43 @@ Caveats:
 - `main/commutant.py`: dim End_B = 1 in all 36 cases.
 - `main/excited.py`: common eigenvector at y = e^{−iλν_n}, n=0,1,2; β = 0.7607 ± 0.3826i, equal to the BPTT prediction.
 - Helpers: `item7/r_leading.py`, `item7/b_first_order_symbolic.py` (PASS); `item8a`, `item8b/check_A.py` (Delius–George (16)–(17)).
+
+## Integration (2026-10-11)
+
+**Integrated** (ch. 32 = `32-boundary-quantum-groups.qmd`, ch. 33 = `33-soliton-reflection.qmd`):
+- Item 1: `prp-dm-first-order` restated as [Conjecture] for $a_n$, with the exact sine-Gordon map and its first-order expansion. The proof now uses $c\propto g^{1/2}$ from DM (4.3), writing $g$ for the bulk coupling to avoid a clash with sine-Gordon's $\lambda$. Gandenberger's $a_2$ conjecture and DG's general-$n$ duality comparison with Kim were added to the evidence for `cnj-neumann-coideal`.
+- Item 2: the "(4.27) prints $\Delta(Q)$ twice" note was deleted; the (4.19)–(4.20) note was reworded; the sharpened (4.21) remark was added in ch. 33.
+- Item 3: DG (3.24) reworded as a clarification.
+- Item 4: `thm-k-reflection` (ii) is now stated as dim End$_B=1$, the proof uses invertibility plus (ii), and a remark on (iii) was added.
+- Item 5 (c_j part only): the heuristic parity argument was replaced by the DM (4.26) argument, with the $\mathcal B$-expansion as independent confirmation.
+- Item 6: `prp-an-k-existence` relabelled [Numerical] $n\le7$; [Proposition, sketch] in general. A proof sketch with the $2\times2$ determinant was added; the mixed-pattern step is stated as not written out.
+- Item 7: the $\mathcal B=\bar LKL$ paragraph was replaced (universal R leading term, $1/y$ expansion, $n\le6$).
+- Item 8: Delius–George (16)–(17) correction. This was confirmed independently: (16)–(18), (2) and (7) were read from the PDF/text of math/0208043 (the $a'$ of (18) included), the referee's `check_A.py` was rerun (72 PASS, 0 FAIL), and a compact port was added. Also added: with only $(1-q^2)\to(1-q^{-2})$ and the full last sum, the printed matrix is $P\check RP$.
+- Item 9: the excited-state $\beta_j$ text in ch. 32.
+- Item 10: the de Vega–González-Ruiz $a_{n-1}$ statement now cites `devega1993` only; the Doikou naming was fixed; the table row was relabelled "spin-chain name".
+- Item 12: the `exr-boundary-unitarity-k` hint now asks for End$_B(V(y))=\mathbb C$; `exr-semiclassical` now states the convention (positive delay = repulsion) and its relation to ch. 31's "attractive $C=+1$". Ch. 31 is unchanged.
+- From the 28–29 report, item 1c: the GZ (5.9) note in ch. 32 now says all four operators carry $-\theta$.
+
+**New checks:**
+- `textbook_code/boundary_coideal.py`:
+  - the $a_n$ loop now runs over $n=2,\dots,7$;
+  - §5: $2\times2$ systems (sympy, $a_3$); DM's corrected (4.15)–(4.16) are solved by (4.21) only with $q_{(4.21)}=-(-q)^{1/2}$, for $n\le7$;
+  - §6: dim End$_B=1$, 36 cases;
+  - §7: one-dimensional $B$-submodules at $y=e^{-i\lambda\nu_n}$, $n=0,1,2$, at $\lambda=4.3$, $\eta=8.1$ (all three $\nu_n$ in the strip). They give the BPTT $\beta_j$; the complementary values appear at $e^{+i\lambda\nu_n}$;
+  - §8: universal-R leading term against the exact $\check R$ ($a_1$ spin $\frac12\otimes1$, $a_2$ all pairs, physical $q$ only), and the $\mathcal B$ first-order coefficients for $n\le6$ at the physical and one generic $q$. The referee's version was symbolic in $q$ and also checked $R_{21}^{-1}$; the port is numerical and omits $R_{21}^{-1}$;
+  - §9: the sine-Gordon $\hat\epsilon(\mu_\pm)$ map.
+  
+  Result: 59 PASS, about 30–50 s.
+- `textbook_code/reflection_matrices.py` §7: DG (16)–(17) for $d_4,d_5$ at the physical $q$ only (the referee also used a generic $q$). Result: 44 PASS, about 1–1.5 min.
+
+**Not integrated:**
+- **Item 5, the $\hat\epsilon_j\leftrightarrow C_j$ node-label inconsistency.** By ch. 29's formulas, $\hat\epsilon_1$ depends on $C_0$ alone; ch. 32 asserts $\hat\epsilon_j\propto\epsilon_j\propto C_j$. This is still open. The new sine-Gordon formula in `prp-dm-first-order` is written per node with $\mu_\pm$ and deliberately avoids assigning $\pm$ to $j$.
+- Gandenberger (3.3)–(3.4) in his conventions (unchecked).
+- The open question whether arbitrary $\beta_j$ give one-dimensional $B$-modules for $a_n$, $n\ge2$.
+- Item 14 (prior art, Kolb admissibility, whether the $s=\pm1$ coideals are QSPs).
+- The classical identification of the $d_n$ solutions.
+- Minor points not on the integration list:
+  - the Chebyshev caveat on classical limits (item 1);
+  - the CDD robustness of the semiclassical test (item 1);
+  - DN (2.11) $R^{(1/2,j)}$, verified by the referee's helper; ch. 33 still says "not checked here entry by entry".
+- `textbook_code/README.md` was not updated; its runtime and ids columns for the two scripts are now stale.
