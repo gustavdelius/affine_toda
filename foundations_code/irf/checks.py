@@ -44,7 +44,7 @@ if which == 'ha':
                         un[key] = max(un.get(key, 0), np.abs(M @ M.conj().T - sigma(m, A, B, u)*np.eye(len(outs))).max())
         r = pp - p
         neg = sum(m.qdim(h) < 0 for h in m.H)
-        print(f"W3({p},{pp}) r={r} r mod p={r % p} lam={r/p:.3f} breathers={'yes' if 3*r > p else 'no'} "
+        print(f"W3({p},{pp}) r={r} r mod p={r % p} lam={r/p:.3f} breathers={'yes' if 3*r > 2*p else 'no'} "
               f"neg qdims {neg}/{len(m.H)}: HA err 33:{ha['ss']:.1e} 33b:{ha['sa']:.1e}; unitarity err 33:{un['ss']:.1e} 33b:{un['sa']:.1e}", flush=True)
 
 if which == 'tm':

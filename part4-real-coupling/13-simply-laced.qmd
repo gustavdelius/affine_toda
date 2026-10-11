@@ -135,5 +135,5 @@ Show that $B(4\pi/\beta)=2-B(\beta)$, and that $B$ is monotonic in $\beta$ with 
 
 ## Notes and references {#sec-simply-laced-notes}
 
-The simply-laced S-matrices were found by Braden, Corrigan, Dorey and Sasaki [-@braden1990], Christe and Mussardo [-@christe1990] and Klassen and Melzer [-@klassen1990]. Dorey's formula is in [@dorey1991], and Fring and Olive [@fring1992] proved uniformly, from Coxeter-element identities, that Dorey's formula satisfies crossing and the bootstrap. The $e_8$ S-matrix of the Ising model in a magnetic field is due to Zamolodchikov [-@zamolodchikov1989]. Dorey's lectures [-@dorey1998] give a detailed account of all of this.
+The simply-laced S-matrices were found by Braden, Corrigan, Dorey and Sasaki [-@braden1990], Christe and Mussardo [-@christe1990] and Klassen and Melzer [-@klassen1990]. Dorey's formula is in [@dorey1991], and his short note on the coupling dependence of affine Toda field theories [@dorey1993] followed two years later. Fring and Olive [@fring1992] proved uniformly, from Coxeter-element identities, that Dorey's formula satisfies crossing and the bootstrap. The $e_8$ S-matrix of the Ising model in a magnetic field is due to Zamolodchikov [-@zamolodchikov1989]. Dorey's lectures [-@dorey1998] give a detailed account of all of this.
 

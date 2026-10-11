@@ -1,14 +1,16 @@
-import numpy as np, time, sys
+import numpy as np, time, sys, os, subprocess
 from lie import An
 from model import Chain
 from thimble_exact import thimble_integral
 from exactZ import Z_grid
 g = An(2); lam = g.fundamental_weights_rep(1)[(1,)]
 ch = Chain(g, 1, 1.0, lam)
+if not os.path.exists('cps_a2L1_k1.00.npy'):   # critical points of the L=1 chain, ~2 s
+    subprocess.run([sys.executable, 'cps_a2L2.py', '1.0', '1'], check=True)
 cps = list(np.load('cps_a2L1_k1.00.npy'))
 Ua, Uc, Ud = cps[0], cps[2], cps[3]
 mua, Va = ch.tangent(Ua); muc, Vc = ch.tangent(Uc); mud, Vd = ch.tangent(Ud)
-nc, nd = 1, -1   # recomputed with these V in check_th2.py
+nc, nd = 1, -1   # intersection numbers of the complex pair Uc, Ud (cf. out_a2L1_final_k1_w1.txt, 12.67224 +-0.818i rows)
 for hbar in (0.15, 0.1):
     Zex = Z_grid(ch, hbar, h=0.02)
     Zc = ch.one_loop(Uc, hbar, Vc, muc)*(1+hbar*ch.two_loop_c1(Uc)); Zd = ch.one_loop(Ud, hbar, Vd, mud)*(1+hbar*ch.two_loop_c1(Ud))

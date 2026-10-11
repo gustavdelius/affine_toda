@@ -171,7 +171,7 @@ For sine-Gordon, write down the breather $\tau$-functions using (-@eq-n-soliton)
 
 **Solutions.** Single and multi-soliton solutions are known for all algebras [@hollowood1992; @olive1993a; @olive1993b; @kneipp1996; @mackay1993; @aratyn1993; @zhu1995]. So are breathers [@harder1995] and soliton time delays [@fring1994].
 
-**Reality.** Although the fields are complex, on Hirota solutions the energy–momentum tensor is a total derivative, $T_{\mu\nu}=(\eta_{\mu\nu}\partial^2-\partial_\mu\partial_\nu)C$ with $C=-\frac2{\beta^2}\sum_j\frac2{\vec\alpha_j^2}\ln\tau_j$, and the energies are real [@olive1993a; @olive1993b; @zhu1995]. The function $C$ involves $\ln\tau_0$, which is not a local function of $\vec\phi$. Olive, Turok and Underwood derive the formula with arguments from conformal Toda theory. For the trace, $T^\mu{}_\mu\propto V$, it follows directly from the bilinear equations (-@eq-hirota-bilinear). So are all the higher conserved charges [@freeman1995].
+**Reality.** Although the fields are complex, on Hirota solutions the energy–momentum tensor is a total derivative, $T_{\mu\nu}=(\eta_{\mu\nu}\partial^2-\partial_\mu\partial_\nu)C$ with $C=-\frac2{\beta^2}\sum_j\frac2{\vec\alpha_j^2}\ln\tau_j$, and the energies are real [@olive1993a; @olive1993b; @zhu1995]. The function $C$ involves $\ln\tau_0$, which is not a local function of $\vec\phi$. Olive, Turok and Underwood derive the formula with arguments from conformal Toda theory. For the trace, $T^\mu{}_\mu\propto V$, it follows directly from the bilinear equations (-@eq-hirota-bilinear). So are the higher conserved charges of a single soliton [@freeman1995].
 
 **Known problems.**
 

@@ -12,4 +12,4 @@ for (p,pp) in [(10,13),(9,11),(11,13),(11,14),(8,11),(13,17)]:
             worst=max(worst,np.abs(np.abs(ev)-1).max())
             pair=max(pair,max(min(abs(e-1/np.conj(g)) for g in ev) for e in ev))
         out.append(f"{''.join('3' if t==0 else 'b' for t in types)}[{len(P)}]: off {worst:.0e} pairing {pair:.0e}")
-    print(f"W3({p},{pp}) r={pp-p} lam={(pp-p)/p:.3f} breathers={'yes' if 3*(pp-p)>p else 'no'}:", "; ".join(out), flush=True)
+    print(f"W3({p},{pp}) r={pp-p} lam={(pp-p)/p:.3f} breathers={'yes' if 3*(pp-p)>2*p else 'no'}:", "; ".join(out), flush=True)

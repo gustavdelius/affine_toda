@@ -36,7 +36,7 @@ $$
 E=\sum_iM_{a_i}\cosh\theta_i,\qquad P=\sum_iM_{a_i}\sinh\theta_i,
 $$
 
-where $(a_i,\theta_i)$ are the species and (possibly complex) rapidities of the constituent solitons [@tw1999, eq. 4.6]. The masses $M_a$ are real and positive. The same holds for all higher conserved charges [@freeman1995].
+where $(a_i,\theta_i)$ are the species and (possibly complex) rapidities of the constituent solitons [@tw1999, eq. 4.6]. The masses $M_a$ are real and positive. For the higher conserved charges of a single soliton the same holds [@freeman1995]; for multi-soliton solutions it is assumed here, on the basis of additivity (see the remark below).
 
 :::
 
@@ -93,4 +93,4 @@ Show that a zero of $\tau_j$ in the real $(x,t)$ plane is generically an isolate
 
 ## Notes and references {#sec-classical-notes}
 
-Reality of soliton energies was shown by Olive, Turok and Underwood [-@olive1993a; -@olive1993b] and Zhu and Caldi [@zhu1995], and of all conserved charges by Freeman [-@freeman1995]. Complex-energy and negative-energy solutions are in Khastgir and Sasaki [-@khastgir1996], and the complex time delays and singular final states of $a_2^{(1)}$ in Takács and Watts [-@tw1999]. The missing charges were found by McGhee [-@mcghee1994]. The formulation as a selection rule from $\Theta$ is new here.
+Reality of soliton energies was shown by Olive, Turok and Underwood [-@olive1993a; -@olive1993b] and Zhu and Caldi [@zhu1995], and of the higher conserved charges of single solitons by Freeman [-@freeman1995]. Complex-energy and negative-energy solutions are in Khastgir and Sasaki [-@khastgir1996], and the complex time delays and singular final states of $a_2^{(1)}$ in Takács and Watts [-@tw1999]. The missing charges were found by McGhee [-@mcghee1994]. The formulation as a selection rule from $\Theta$ is new here.

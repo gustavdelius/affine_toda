@@ -22,7 +22,7 @@ This appendix collects the Lie-algebraic data used throughout the book. Normaliz
 
 | $\hat g$ | rank | $h$ | $h^\vee$ | folded from | dual $\hat g^\vee$ |
 |---|---|---|---|---|---|
-| $a_{2n}^{(2)}$ | $n$ | $2n+1$ | $2n+1$ | $d_{2n+2}^{(1)}$ | $a_{2n}^{(2)}$ |
+| $a_{2n}^{(2)}$ | $n$ | $2n+1$ | $2n+1$ | $a_{2n}^{(1)}$ or $d_{2n+2}^{(1)}$ | $a_{2n}^{(2)}$ |
 | $a_{2n-1}^{(2)}$ | $n$ | $2n-1$ | $2n$ | $d_{2n}^{(1)}$ | $b_n^{(1)}$ |
 | $d_{n+1}^{(2)}$ | $n$ | $n+1$ | $2n$ | $d_{n+2}^{(1)}$ | $c_n^{(1)}$ |
 | $e_6^{(2)}$ | 4 | 9 | 12 | $e_7^{(1)}$ | $f_4^{(1)}$ |

@@ -89,8 +89,6 @@ book:
 
 bibliography: references.bib
 csl: aps.csl
-nocite: |
-  @bender2007 @braden1991 @christe1990 @dorey1992 @dorey1993 @gandenberger1998 @ge2012 @johnson1997 @konno1966 @mostafazadeh2010 @osterwalder1973 @osterwalder1975 @zz1979
 
 format:
   html:
