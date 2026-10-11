@@ -34,6 +34,10 @@ The block $(x)$ has a simple pole at $\theta=i\pi x/h$ and a zero at $\theta=-i\
 
 The numerator $(x-1)(x+1)$ is the **minimal** part. It carries the poles and depends only on $h$. The denominator is a CDD factor (@sec-cdd): it adds zeros, not poles, so it does not change the bound-state structure, and it carries all the dependence on the coupling. For $h=2$, $\{1\}=f_{-B/2}$ is the sinh-Gordon S-matrix (-@eq-sinh-gordon-smatrix).
 
+@fig-b-duality shows the coupling parameter $B(\beta)$ and how the poles and zeros of $\{x\}$ depend on it.
+
+![Left: the parameter $B(\beta)$; the map $\beta\to4\pi/\beta$ acts as $B\to2-B$. Right: the poles (fixed) and zeros (moving) of the block $\{x\}$ as $B$ varies; $B\to2-B$ exchanges the two zeros.](figures/ch13_f17_b_duality.svg){#fig-b-duality fig-alt="Left: B against beta rising from 0 to 2 with the self-dual point B=1 marked. Right: poles of the block at fixed positions x plus and minus 1, and two zeros crossing at B=1."}
+
 ## The $a_n^{(1)}$ S-matrices {#sec-an-smatrix}
 
 For $a_n^{(1)}$, with $h=n+1$ and the particles labelled by $a=1,\dots,n$ so that $m_a=2m\sin\frac{\pi a}h$,
@@ -66,7 +70,9 @@ $$
 S_{11}=\{1\}\{11\}\{19\}\{29\},\qquad h=30 .
 $$
 
-Its poles at $\theta=\frac{2\pi i}3$, $\frac{2\pi i}5$ and $\frac{i\pi}{15}$ are the fusings $1+1\to1$, $1+1\to2$ and $1+1\to3$, with $m_2=2m_1\cos\frac\pi5$ and $m_3=2m_1\cos\frac\pi{30}$. The minimal part of the $e_8^{(1)}$ S-matrix is Zamolodchikov's S-matrix of the Ising model in a magnetic field [@zamolodchikov1989].
+Its poles at $\theta=\frac{2\pi i}3$, $\frac{2\pi i}5$ and $\frac{i\pi}{15}$ are the fusings $1+1\to1$, $1+1\to2$ and $1+1\to3$, with $m_2=2m_1\cos\frac\pi5$ and $m_3=2m_1\cos\frac\pi{30}$. @fig-e8-poles shows where all six poles lie. The minimal part of the $e_8^{(1)}$ S-matrix is Zamolodchikov's S-matrix of the Ising model in a magnetic field [@zamolodchikov1989].
+
+![The poles of $S_{11}$ for $e_8^{(1)}$ in the physical strip, at $\theta=i\pi y/30$. Green: bound-state poles, with positive residue$/i$. Red: their crossed images. Circles: the zeros at $B=0.5$.](figures/ch13_f18_e8_poles.svg){#fig-e8-poles fig-alt="The imaginary axis from 0 to i pi with six poles at positions 2, 10, 12, 18, 20 and 28 in units of pi over 30; the three at 2, 12 and 20 are bound states and the others their crossed images."}
 
 The signs and the direction of the colour shift in (-@eq-dorey-formula) matter. Products of blocks are easily written that are unitary, crossing symmetric and satisfy the bootstrap at every fusing, yet are not the S-matrices of the theory: the variant with $w^{-p}$ in place of $w^p$ is an example. What singles out the physical S-matrix is agreement with the known cases and with perturbation theory. All three properties, the bootstrap at every fusing of $e_7^{(1)}$ and $e_8^{(1)}$ (112 and 224 fusings respectively), and the reduction to (-@eq-an-smatrix) are checked in `textbook_code/smatrix_simply_laced.py`.
 

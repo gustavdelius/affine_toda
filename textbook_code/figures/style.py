@@ -11,7 +11,8 @@ build needs no Python:
   * `figures/`                    for the introduction (01-introduction.qmd),
   * `part1-background/figures/`   for chapters 2-4,
   * `part2-algebra/figures/`      for chapters 5-8,
-  * `part3-classical/figures/`    for chapters 9-11.
+  * `part3-classical/figures/`    for chapters 9-11,
+  * `part4-real-coupling/figures/` for chapters 12-15.
 
 Each script also prints one PASS or FAIL line per formula it plots, like the
 other scripts in textbook_code/.
@@ -28,6 +29,7 @@ OUT_INTRO = ROOT / "figures"
 OUT_PART1 = ROOT / "part1-background" / "figures"
 OUT_PART2 = ROOT / "part2-algebra" / "figures"
 OUT_PART3 = ROOT / "part3-classical" / "figures"
+OUT_PART4 = ROOT / "part4-real-coupling" / "figures"
 
 GREY = "#868b94"          # text, axes: readable on white and on the dark theme
 LIGHTGREY = "#868b9455"   # grid lines, light fills

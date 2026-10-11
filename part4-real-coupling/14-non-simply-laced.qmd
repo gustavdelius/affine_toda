@@ -42,7 +42,9 @@ The floating Coxeter number interpolates between the Coxeter number $h$ of $\hat
 $$
 H=h+\tfrac12\,(h_\vee-h)\,B ,
 $$ {#eq-floating-h}
-so that $H=h$ at $B=0$ and $H=h_\vee$ at $B=2$. The values are in @tbl-floating-h. The endpoint $h_\vee$ is not the dual Coxeter number of @tbl-foldings. With $h$ as in that table, it is $kh$ for $d_{n+1}^{(2)}$, $d_4^{(3)}$ and $e_6^{(2)}$, and $h$ for $a_{2n-1}^{(2)}$.
+so that $H=h$ at $B=0$ and $H=h_\vee$ at $B=2$. The values are in @tbl-floating-h. @fig-floating-h plots $H(B)$ for the four families and the resulting mass drift in $c_2^{(1)}$. The endpoint $h_\vee$ is not the dual Coxeter number of @tbl-foldings. With $h$ as in that table, it is $kh$ for $d_{n+1}^{(2)}$, $d_4^{(3)}$ and $e_6^{(2)}$, and $h$ for $a_{2n-1}^{(2)}$.
+
+![Left: the floating Coxeter number $H=h+\frac12(h_\vee-h)B$ for $c_3^{(1)}$, $b_3^{(1)}$, $g_2^{(1)}$ and $f_4^{(1)}$, running between the classical value at $B=0$ and the dual endpoint at $B=2$. Right: the mass ratio $m_1/m_2=\sin\frac\pi H/\sin\frac{2\pi}H$ in $c_2^{(1)}$.](figures/ch14_f19_floating_h.svg){#fig-floating-h fig-alt="Left: four straight lines of H against B, three rising and the b-type one falling. Right: a decreasing curve of the mass ratio from 0.707 at B=0 to 0.577 at B=2."}
 
 The linear dependence of $H$ on $B$ is fixed by the bootstrap: for $c_n^{(1)}$, for example, the amplitudes have too many higher-order poles unless $H=h\pm B$, and the one-loop masses select the sign [@dgz1992]. The bootstrap does not fix how $B$ depends on the coupling. The conjecture is that $B$ has the form (-@eq-b-of-beta) in a coupling $\beta_*$ adapted to the dual pair. In terms of the coupling $\beta$ of @sec-conventions (longest roots of squared length 2), $\beta_*^2=\beta^2/k$ for $c_n^{(1)}$, $g_2^{(1)}$ and $f_4^{(1)}$, which amounts to rescaling the short roots to squared length 2, and $\beta_*=\beta$ for $b_n^{(1)}$. Here $k$ is the twist order of the dual algebra. This choice makes strong–weak duality in the coroot form of @sec-affine-folding act exactly as $B\to2-B$ (@sec-nsl-duality).
 
