@@ -4,6 +4,9 @@ Lee-Yang reflection factor K_b in the physical strip 0 < Im theta < pi/2, as fun
 K_b = (1)(3)(4)^{-1}(1-b)^{-1}(1+b)(5-b)(5+b)^{-1}, with the blocks (x) = sinh(th/2 + i pi x/12)/sinh(th/2 - i pi x/12).
 A block (x) has its pole at th = i pi x/6 and its zero at th = -i pi x/6 (mod 2 pi i).  The pole of (1+b) enters the strip
 at b = -1, leaves it at b = 2 where the first bound-state energy M cos((b+1) pi/6) vanishes; (b-1) is the second one.
+The factor (1-b)^{-1} has its zero at th = i(1-b) pi/6, in the strip for -2 < b < 1; at b = 0 it cancels the pole of
+(1+b), so that K_0 = K_(1) has a simple pole at i pi/6.  At b = 2 the tracks 1+b and 5-b both reach i pi/2 (a triple
+pole with the fixed pole of (3)), and the track b-1 reaches i pi/6 (a double pole with the fixed pole of (1)).
 
 Writes part7-half-line/figures/ch28_f25_ly_boundary_poles.svg.
 """
@@ -71,6 +74,9 @@ for b in (-0.5, 0.5, 1.5, 2.5, 4.5):
     peaks = [ys[i] for i in range(w, len(ys) - w) if v[i] >= v[i - 1] and v[i] >= v[i + 1]
              and v[i] > 3 * min(v[i - w], v[i + w]) and ys[i] < 3.05]
     scan_ok &= all(any(abs(f - p) < 0.05 for p in pred) for f in peaks) and all(any(abs(f - p) < 0.05 for f in peaks) for p in pred)
+report("b = 0: the zero of (1-b)^{-1} cancels the pole of (1+b) at i pi/6; b = 2: triple pole at i pi/2, double pole at i pi/6",
+       strip_poles(0.0)[0] == (1, 1) and dict(strip_poles(2.0)) == {1: 2, 3: 3}
+       and 1e-3 < abs(K(2.0, 1j * np.pi / 2 + 1e-4)) * 1e-12 < 1e3)
 report("a scan of K_b along the imaginary axis finds large values exactly at the predicted poles (b = -.5, .5, 1.5, 2.5, 4.5)", scan_ok)
 
 # ---- figure ----------------------------------------------------------------
@@ -91,6 +97,8 @@ for lab, (f, c) in tracks.items():
     y = f(b) / 6
     y = np.where((y > 0) & (y <= .5), y, np.nan)
     ax.plot(b, y, color=c, lw=1.8, label=names[lab])
+yz = (1 - b) / 6
+ax.plot(b, np.where((yz > 0) & (yz <= .5), yz, np.nan), color=style.RED, lw=1.2, ls="--", label=r"zero at $i(1-b)\pi/6$")
 for bx, ls in ((0, ":"), (2, "--")):
     ax.axvline(bx, color=style.GREY, lw=.8, ls=ls)
 ax.text(0.03, 0.51, r"$b=0$", fontsize=7.5)
