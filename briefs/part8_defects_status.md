@@ -6,8 +6,8 @@ Working record for Part VIII, kept in the repository because the session scratch
 
 | Ch | Drafted | Script(s) | Checks | Refereed |
 |---|---|---|---|---|
-| 36 | 2026-10-11 | `defect_axioms.py` | 20 PASS (2 s) | no |
-| 37 | 2026-10-11 | `defect_classical_sg.py`, `defect_sg_transmission.py` | 27 + 24 PASS (18 s, 103 s) | no |
+| 36 | 2026-10-11 | `defect_axioms.py` | 20 PASS (2 s) | Gemini 3.8 Flash, 2026-10-11 (light) |
+| 37 | 2026-10-11 | `defect_classical_sg.py`, `defect_sg_transmission.py` | 27 + 24 PASS (18 s, 103 s) | Gemini 3.8 Flash, 2026-10-11 (light) |
 | 38 | | `defect_classical_an.py` (conventions part), `defect_lax_rmatrix.py` | | |
 | 39 | | `defect_solitons_an.py` | | |
 | 40 | | `defect_universal_r.py`, `defect_transfer.py` | | |
