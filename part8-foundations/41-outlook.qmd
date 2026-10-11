@@ -6,7 +6,7 @@
 - Place the results in current research, and know the open problems.
 :::
 
-This final chapter collects the conclusions of Part VII and of the book. It lists precisely which consequences of unitarity are lost, gives the verdict on whether the imaginary-coupling theories are valid quantum field theories, and ends with their connections to current research and the open problems.
+This final chapter collects the conclusions of Part VIII and of the book. It lists precisely which consequences of unitarity are lost, gives the verdict on whether the imaginary-coupling theories are valid quantum field theories, and ends with their connections to current research and the open problems.
 
 ## What unitarity would give, and what cannot be rescued {#sec-unitarity-loss}
 

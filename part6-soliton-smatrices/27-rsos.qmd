@@ -34,7 +34,7 @@ The conformal Toda theory based on the finite algebra $g$ at imaginary coupling 
 
 Examples include the thermal perturbation of the 3-state Potts model, $W_3(4,5)$, the $\phi_{1,2}$ perturbation of $\mathcal M(3,4)$, which is the Ising model in a magnetic field, and the scaling Lee–Yang model, which arises from both sine-Gordon and $a_2^{(2)}$ (@sec-lee-yang).
 
-The unitary minimal models are those with $p'=p+1$, and in the cases checked their perturbations have unitary S-matrices. The others are non-unitary, and some of them have complex finite-volume spectra, observed directly in the truncated conformal space approach [@tkw1997; @tw2002]. Every unitary restriction $W_{n+1}(p,p+1)$ has $\beta^2/4\pi=p/(p+1)>n/(n+1)$, above the first collapse threshold $\beta^2_{\rm UV}=4\pi n/(n+1)$ of $a_n^{(1)}$, so the unitary subtheories lie outside the range of the continuum theorems of Part VII (@sec-collapse-thresholds).
+The unitary minimal models are those with $p'=p+1$, and in the cases checked their perturbations have unitary S-matrices. The others are non-unitary, and some of them have complex finite-volume spectra, observed directly in the truncated conformal space approach [@tkw1997; @tw2002]. Every unitary restriction $W_{n+1}(p,p+1)$ has $\beta^2/4\pi=p/(p+1)>n/(n+1)$, above the first collapse threshold $\beta^2_{\rm UV}=4\pi n/(n+1)$ of $a_n^{(1)}$, so the unitary subtheories lie outside the range of the continuum theorems of Part VIII (@sec-collapse-thresholds).
 
 ## Hermitian analyticity and IRF bases {#sec-hermitian-analyticity-irf}
 
