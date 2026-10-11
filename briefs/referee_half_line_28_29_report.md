@@ -137,3 +137,35 @@ This is the report of the 2026-10-11 referee pass on `referee_half_line_28_29.md
 | `ref_cdd.py` | $f_x(\theta)$ is a boundary CDD factor; $f_x(2\theta)$ is not | as above |
 | `ref_gz522.py` | GZ (5.22)/(5.24) normalization factor | $k^2/\cos^2\xi$ |
 | `ref_uvir_shg.py` | continued UV–IR relation equals the CT/CC relation | 1e-16 |
+
+## Integration (2026-10-11)
+Integrated into `28-boundary-scattering.qmd` and `29-boundary-sine-gordon.qmd`; new checks appended to `textbook_code/boundary_axioms.py` (check 6), `boundary_sine_gordon.py` (checks 9–13) and `shg_boundary_breathers.py` (check 8). All lines PASS (16, 31 and 9; runtimes about 1 s, 55 s and 8 s). The new keys `corrigan_taormina2000` and `friedan_konechny2004` are cited but not yet in `references.bib`.
+
+**Integrated**
+- Item 11 / finding 1: boundary CDD factor is $f_x(\theta)$; ch28 text after the CDD display and `exr-boundary-cdd` corrected; check 6 of `boundary_axioms.py` (both conditions, crossing-unitarity of $K_{(\mathbb 1)}f_x$, $K_b/K_{(\mathbb 1)}$, pole positions).
+- Item 7 / finding 2: poles of $R_0$ at $u=n\pi/2\lambda$; $\sin\lambda u$ removes them from $Q$, $\cos\lambda u$ the odd ones from $P^\pm$ at $\vartheta=0$; Neumann tower kept. Check 9 of `boundary_sine_gordon.py`.
+- Item 2a / finding 3: UV–IR attribution (BPTT sec. 4 first, Zamolodchikov's normalization printed in BPT (3.2), (3.3)); status paragraph extended (FZZ derivation on $\phi_0=0$, TCSA tests only indirectly). Conjecture title changed to "The UV–IR relation"; notes paragraph adjusted.
+- Items 1e, 2b / findings 4, 5: $N_0$ derived by CT; CT bullet replaces "we have not compared"; ch29 corrections note updated. Continuation check is check 8 of `shg_boundary_breathers.py`. The text states that the exact match with $C_{0,1}=(\tilde\mu/\tilde\mu_{\rm crit})e^{\pm i\beta_{\rm SG}\phi_0/2}$ holds for $F=(a_1-a_0)(1-\frac B2)$ when $\vartheta=-i\pi F/B$; the other sign of $F$ exchanges $C_0,C_1$.
+- Item 2c: `prp-bsg-spectrum` follow-up paragraph reworded (low-lying TCSA, mainly $\phi_0=0$; higher states extrapolated). Label kept.
+- Item 3: $a_n$ printed (display after `eq-bsg-excited-k`, blocks identified as `eq-blocks` with $h=1$); `prp-bsg-excited` now says $a_1,a_2$ checked; $b_{mk}$ formula of BPTT (3.9) printed and checked for $m=1,2$, $k=0,1$ (item 6). Checks 12, 13.
+- Item 4: residue sentence added to `prp-bsg-breather-k`; check 11.
+- Item 5a: residue normalization $\frac i2 gg$ (GZ (3.57), (3.62)), positivity as heuristic (indices relabelled so that $\beta$ stays the bound state).
+- Item 5b: $(Q_s-Q_{-s})|B\rangle=0$ with GZ (2.21) and the $i^{\mp s}$ factors.
+- Item 5c: DTW counting-rule paragraph replaced; the first bullet already cited MD and BPTT, and now mentions cancellations between diagrams.
+- Item 5d: Mattsson–Dorey lemmas paragraph replaced (written with the book's $\pi-u_{ab}^c$); sinh-Gordon puzzle text replaced.
+- Item 8: SSW sentence at l.40 replaced; MD clause at l.110 deleted; notes sentence on SSW/MacIntyre replaced.
+- Item 10: g-theorem conjectured by AL, proved by Friedan–Konechny (text and notes); "obtained, correcting [@lmss1995], by DFRT"; one-point-coupling remark appended to the Lee–Yang IR paragraph.
+- Item 11: `exr-bsg-sign-q` reworded; $\Pi K(\hat\epsilon)\Pi\propto K(-\hat\epsilon)$ added to `boundary_sine_gordon.py`.
+- Item 1b: GZ (5.22)/(5.24) normalization note; check 10.
+- Item 13: Lee–Yang sign "not new: DPTW print $+$" in `prp-ly-reflection` and the notes.
+- `exr-ly-excited` (minor): one sentence noting that the pole at $i(b+3)\pi/6$ is in the strip for $-1<b<0$ and is not explained.
+
+**Not integrated**
+- 2a: later literature on the UV–IR relation (INSPIRE search of papers citing hep-th/0108157).
+- 5d: CD's critical couplings (6.2), (6.4) (kept as quoted).
+- Item 6: which poles on the higher excited states are bound states and which Coleman–Thun poles.
+- Item 9: DG (3.16) at $n=1$.
+- `exr-ly-excited`: an explanation of the extra pole.
+- 1c: GZ (5.9) typo statement lives in ch. 32 (not owned here).
+- 1d: no change needed. Item 12 (bibliography) and the new bib entries: for `references.bib`. Item 13: crossing-unitarity fixing the sign of $q$ needs a wider prior-art search; no novelty is claimed in the text.
+- Ch. 35 still calls the relation "Zamolodchikov's relation" (not owned here).

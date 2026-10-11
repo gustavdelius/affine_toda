@@ -19,6 +19,10 @@ Checks:
  4. Boundary bound states of R_b: pole at theta = i(b+1)pi/6, boundary bootstrap
     R'(theta) = R_b(theta) S(theta - iv) S(theta + iv) gives R' = R_{b+2}; energy gap M cos((b+1)pi/6).
  5. Boundary Bethe-Yang (eq-boundary-bethe-yang): free Dirichlet boson (S = 1, R = -1) gives p L = pi k.
+ 6. Boundary CDD factors (GZ (3.36), text after eq-boundary-crossing-diagonal, exr-boundary-cdd): f_x(theta) of
+    eq-fx-block satisfies Phi(theta)Phi(-theta) = 1 and Phi(i pi/2 - theta) = Phi(i pi/2 + theta), f_x(2 theta) only the
+    first; K_(1) f_x(theta) stays crossing-unitary, K_(1) f_x(2 theta) does not; K_b/K_(1) = f_((1+b)/6)/f_((1-b)/6);
+    the poles of f_x(theta) in the strip are at i pi x (x < 1/2) and i pi(1-x) (x > 1/2).
 Runtime: a few seconds.
 """
 import numpy as np
@@ -173,3 +177,29 @@ Lint, k = 3.7, 5
 p = np.pi*k/Lint
 report('boundary Bethe-Yang e^{2ipL} R_alpha R_beta = 1 with R = -1 (Dirichlet free boson) gives p L = pi k',
        abs(np.exp(2j*p*Lint)*(-1)*(-1) - 1) < 1e-12)
+
+# ---------------------------------------------------------------- 6. boundary CDD factors (GZ (3.36))
+# Phi(theta) Phi(-theta) = 1 and Phi(i pi/2 - theta) = Phi(i pi/2 + theta): f_x(theta) of eq-fx-block, in the
+# single-particle rapidity, satisfies both; f_x(2 theta) satisfies the first only.
+xc = mp.mpf('0.27')
+cdd_test = lambda Phi: (max(abs(Phi(t)*Phi(-t) - 1) for t in pts),
+                        max(abs(Phi(1j*mp.pi/2 - t) - Phi(1j*mp.pi/2 + t)) for t in pts))
+u1, c1 = cdd_test(lambda t: fx(xc)(t))
+u2, c2 = cdd_test(lambda t: fx(xc)(2*t))
+report(f'boundary CDD condition: f_x(theta) satisfies Phi(theta)Phi(-theta) = 1 and Phi(i pi/2 - theta) = '
+       f'Phi(i pi/2 + theta) [{float(max(u1, c1)):.0e}]; f_x(2 theta) satisfies the first [{float(u2):.0e}] but not the '
+       f'second [{float(c2):.2f}] (x = 0.27)', max(u1, c1) < 1e-25 and u2 < 1e-25 and c2 > 0.1)
+cu1 = max(abs(R1(1j*mp.pi/2 - t)*fx(xc)(1j*mp.pi/2 - t) - S_ly(2*t)*R1(1j*mp.pi/2 + t)*fx(xc)(1j*mp.pi/2 + t))
+          for t in pts)
+cu2 = max(abs(R1(1j*mp.pi/2 - t)*fx(xc)(2j*mp.pi/2 - 2*t) - S_ly(2*t)*R1(1j*mp.pi/2 + t)*fx(xc)(2j*mp.pi/2 + 2*t))
+          for t in pts)
+b = mp.mpf('0.6')
+rat = max(abs(Rb(b)(t)/R1(t)/(fx((1 + b)/6)(t)/fx((1 - b)/6)(t)) - 1) for t in pts)
+report(f'K_(1) f_x(theta) stays crossing-unitary [{float(cu1):.0e}], K_(1) f_x(2 theta) does not [{float(cu2):.2f}]; '
+       f'K_b/K_(1) = f_((1+b)/6)(theta)/f_((1-b)/6)(theta) (b = 0.6) [{float(rat):.0e}]',
+       cu1 < 1e-25 and cu2 > 0.1 and rat < 1e-25)
+ok = True
+for xx in (mp.mpf('0.27'), mp.mpf('0.71')):
+    v = mp.pi*xx if xx < 0.5 else mp.pi*(1 - xx)
+    ok &= abs(1/fx(xx)(1j*v + mp.mpf('1e-20'))) < 1e-15
+report('poles of f_x(theta) in 0 < Im theta < pi/2: at i pi x for x < 1/2, at i pi(1-x) for x > 1/2 (x = 0.27, 0.71)', ok)

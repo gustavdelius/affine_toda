@@ -26,9 +26,20 @@ Checks:
     Dirichlet and Neumann values.
  7. Excited boundary states (Bajnok-Palla-Takacs-Toth): bootstrap identity for Q on |0> (eta -> etabar),
     poles nu_0, nu_1 of sigma(eta,u), K on |0> (s <-> sbar, eta -> etabar) unitary and crossing-unitary.
- 8. Limits of Al. B. Zamolodchikov's UV-IR relation (BPT hep-th/0108157 (3.2)): Neumann, Dirichlet, the eps-hat = 0
-    point, and the classical value of M_crit (the C = 1 boundary).
-Runtime: about 40 seconds.
+ 8. Limits of the UV-IR relation (BPTT sec. 4; in Al. B. Zamolodchikov's normalization BPT hep-th/0108157 (3.2), (3.3)):
+    Neumann, Dirichlet, the eps-hat = 0 point, and the classical value of M_crit (the C = 1 boundary).
+ 9. Poles (sec-bsg-k-matrix): R_0 has simple poles at u = n pi/(2 lambda), none at pi/2 - n pi/(2 lambda); at these
+    points Q is regular and P has the pole, except for vt = 0 and odd n; Neumann tower: P and Q have simple poles at
+    u = pi/2 - pi/lambda and u = pi/2.
+10. GZ (5.22)/(5.24) normalization (notes): with sigma normalized as GZ (5.24) prints it, the prefactor 1/cos(xi) of
+    (5.22) violates (5.20) by k^2/cos^2 xi; the prefactor 1/k (equivalently, the BPTT normalization) satisfies it.
+11. prp-bsg-breather-k: the residue of R-check(theta_1 - theta_2) at theta_12 = i u_n is rank 1, with image the breather
+    singlet in V(theta - i u_n/2) (x) V(theta + i u_n/2).
+12. BPTT (3.5): a_n = a(u+nu_n)a(u-nu_n)/(a(u+nu_0)a(u-nu_0)) = prod_{l=1}^n {2(eta/pi - l)} for n = 1, 2, 3; the bootstrap
+    a(u - nu_n) Q(eta) b(u + nu_n) = Q(etabar) a_n holds for n = 0, 1, 2 (eq-bsg-excited-k, prp-bsg-excited).
+13. BPTT (3.9): B_1, B_2 on |0>, |1> by the full matrix bootstrap equal K_{B_m}(etabar) b_mk,
+    b_mk = a_k(u + pi/2 - m pi/2lam) a_k(u - pi/2 + m pi/2lam); and (exr-bsg-sign-q) Pi K(eps) Pi ~ K(-eps).
+Runtime: about 50 seconds.
 """
 import numpy as np
 import mpmath as mp
@@ -355,3 +366,148 @@ ok &= abs(Mcrit/(4*m0/bs2) - 1) < 1e-8                                          
 report('Zamolodchikov UV-IR relation: M_0 -> 0 gives Neumann (eta, vt) = (pi(lambda+1)/2, 0); M_0 -> infinity gives '
        'the Dirichlet eta = 4 pi phi_0/beta_SG; (pi/2, 0) <-> M_0/M_crit = cos(pi/(2(lambda+1))); classically '
        'M_crit -> 4 m_0/beta_SG^2, the C_0 = C_1 = 1 boundary', ok)
+
+# ---------------------------------------------------------------- 9. poles of R_0, P and Q (sec-bsg-k-matrix, "Poles")
+# R_0 has simple poles at u = n pi/(2 lambda) (soliton + image -> B_n at zero momentum; GZ after (5.21), BPTT sec. 3.4),
+# not at pi/2 - n pi/(2 lambda) (that is R_0^(n) of the breathers).  sin(lambda u) in Q_0 removes them from Q; for
+# vt = 0, cos(lambda u) removes the odd ones from P.  Neumann tower: P and Q have poles at u = pi/2 - n pi/lambda.
+L = mp.mpf('3.3')
+
+
+def order(vals):
+    """pole order p from |f(u0 + d)|/|f(u0 + 2d)| = 2^p; vals = (f(u0 + d), f(u0 + 2d))."""
+    return float(mp.log(abs(vals[0])/abs(vals[1]))/mp.log(2))
+
+
+def PQ(u, eta, vt):
+    pref = mp.exp(log_R0(u) + log_sigma(eta, u) + log_sigma(1j*vt, u))
+    return (pref*(mp.cos(L*u)*mp.cos(eta)*mp.cosh(vt) - mp.sin(L*u)*mp.sin(eta)*mp.sinh(vt)),
+            -pref*mp.sin(L*u)*mp.cos(L*u))
+
+
+def orders_PQ(u0, eta, vt, d=mp.mpf('1e-7')):
+    v1, v2 = PQ(u0 + d, eta, vt), PQ(u0 + 2*d, eta, vt)
+    return order((v1[0], v2[0])), order((v1[1], v2[1]))
+
+
+d7 = mp.mpf('1e-7')
+R0f = lambda u: mp.exp(log_R0(u))
+o_new = [order((R0f(n*mp.pi/(2*L) + d7), R0f(n*mp.pi/(2*L) + 2*d7))) for n in (1, 2, 3)]
+o_old = [order((R0f(mp.pi/2 - n*mp.pi/(2*L) + d7), R0f(mp.pi/2 - n*mp.pi/(2*L) + 2*d7))) for n in (1, 2, 3)]
+report(f'R_0 has simple poles at u = n pi/(2 lambda), n = 1, 2, 3 < lambda = 3.3 [orders {[round(o, 3) for o in o_new]}], '
+       f'and none at pi/2 - n pi/(2 lambda) [{[round(o, 3) for o in o_old]}]',
+       all(abs(o - 1) < 1e-3 for o in o_new) and all(abs(o) < 1e-3 for o in o_old))
+gen = [orders_PQ(n*mp.pi/(2*L), mp.mpf('2.1'), mp.mpf('0.3')) for n in (1, 2, 3)]
+vt0 = [orders_PQ(n*mp.pi/(2*L), mp.mpf('2.1'), mp.mpf(0)) for n in (1, 2, 3)]
+ok_gen = all(abs(p - 1) < 1e-3 and abs(qq_) < 1e-3 for p, qq_ in gen)
+ok_vt0 = all(abs(vt0[i][0] - (1 if n % 2 == 0 else 0)) < 1e-3 and abs(vt0[i][1]) < 1e-3 for i, n in enumerate((1, 2, 3)))
+report('at u = n pi/(2 lambda): Q is regular, P has the simple pole for generic (eta, vt) = (2.1, 0.3); for vt = 0 '
+       'P keeps it only for even n (n = 1, 2, 3)', ok_gen and ok_vt0)
+etaN = mp.pi*(L + 1)/2
+oN = [orders_PQ(u0, etaN, mp.mpf(0)) for u0 in (mp.pi/2 - mp.pi/L, mp.pi/2)]
+report(f'Neumann point: P and Q have simple poles at u = pi/2 - pi/lambda (energy M sin(pi/lambda)) and at u = pi/2 '
+       f'[orders {[(round(p, 3), round(qq_, 3)) for p, qq_ in oN]}]', all(abs(p - 1) < 1e-3 and abs(qq_ - 1) < 1e-3 for p, qq_ in oN))
+
+# ---------------------------------------------------------------- 10. GZ (5.22)/(5.24) normalization (notes)
+# With sigma normalized as GZ (5.24) prints it, sigma(x,u) sigma(x,-u) = 1/(cos(x+lambda u) cos(x-lambda u)), GZ's
+# prefactor 1/cos(xi) in (5.22) violates the unitarity condition (5.20) by k^2/cos^2 xi; the prefactor 1/k works,
+# i.e. (5.22) is right with the BPTT normalization cos^2 x/(cos(x+lambda u) cos(x-lambda u)).
+L = mp.mpf(LAM)
+eta, vt = mp.mpf('0.6'), mp.mpf('0.3')
+E1 = -mp.cos(eta - 1j*vt)/mp.sin(mp.pi*L); E0 = -mp.cos(eta + 1j*vt)/mp.sin(mp.pi*L)
+epsB = mp.sqrt(E0*E1); xiB = -1j*mp.log(E1/epsB); kB = 1/(epsB*mp.sin(mp.pi*L))
+u = mp.mpc('0.3', '0.1')
+sGZ = lambda x, uu: mp.exp(log_sigma(x, uu))/mp.cos(x)
+prodGZ = sGZ(eta, u)*sGZ(eta, -u)*sGZ(1j*vt, u)*sGZ(1j*vt, -u)
+s2 = mp.sin(L*u)**2
+D520 = mp.cos(xiB)**2 - (1 + kB**2)*s2 + kB**2*s2**2
+Mgz = lambda uu: mp.matrix([[mp.cos(xiB + L*uu), kB/2*mp.sin(2*L*uu)], [kB/2*mp.sin(2*L*uu), mp.cos(xiB - L*uu)]])
+MM = Mgz(u)*Mgz(-u)
+devM = max(abs(MM[0, 0] - D520), abs(MM[1, 1] - D520), abs(MM[0, 1]), abs(MM[1, 0]))
+r_printed = prodGZ*D520/mp.cos(xiB)**2
+r_k = prodGZ*D520/kB**2
+report(f'GZ (5.22) with sigma normalized by (5.24): R(u)R(-u) M(u)M(-u) = k^2/cos^2 xi = {mp.nstr(mp.re(kB**2/mp.cos(xiB)**2), 8)} '
+       f'[{float(abs(r_printed - kB**2/mp.cos(xiB)**2)):.0e}] instead of 1 (M(u)M(-u) = (5.20) denominator [{float(devM):.0e}]); '
+       f'with prefactor 1/k it is 1 [{float(abs(r_k - 1)):.0e}]',
+       abs(r_printed - kB**2/mp.cos(xiB)**2) < 1e-15 and abs(kB**2/mp.cos(xiB)**2 - 1) > 0.1 and abs(r_k - 1) < 1e-15
+       and devM < 1e-15)
+
+# ---------------------------------------------------------------- 11. breather singlet = image of the R-check residue
+# prp-bsg-breather-k: R-check(theta_1 - theta_2): V(theta_1) (x) V(theta_2) -> V(theta_2) (x) V(theta_1) has a rank-1
+# residue at the physical pole theta_12 = i u_n, whose image is the singlet in V(theta - i u_n/2) (x) V(theta + i u_n/2).
+LAM3 = 3.3
+q3 = q_phys(LAM3)
+
+
+def inv_vec_q(ya, yb, qq):
+    A, B = sl2_spin(1, qq, ya), sl2_spin(1, qq, yb)
+    Mx = np.vstack([cop(A, B, kd, j) - (np.eye(4) if kd == 'k' else 0) for j in (0, 1) for kd in 'efk'])
+    _, sv, Vh = np.linalg.svd(Mx)
+    w = Vh[-1].conj()
+    return sv[-1]/sv[0], w/w[1]
+
+
+ok_res, ovs = True, []
+for n in (1, 2):
+    un = np.pi - n*np.pi/LAM3
+    Rn = lambda z: Rsg(np.exp(LAM3*z), q3)
+    dd = 1e-6
+    res = (Rn(1j*un + dd)*dd + Rn(1j*un + 2*dd)*2*dd)/2
+    U, sv, _ = np.linalg.svd(res)
+    r_out, w_out = inv_vec_q(np.exp(LAM3*(0.37 - 1j*un/2)), np.exp(LAM3*(0.37 + 1j*un/2)), q3)
+    ovs.append(abs(np.vdot(w_out, U[:, 0]))/np.linalg.norm(w_out))
+    ok_res &= sv[1]/sv[0] < 1e-4 and r_out < 1e-10
+report(f'the residue of R-check(theta_12) at theta_12 = i u_n is rank 1 and its image is the breather singlet in '
+       f'V(theta - i u_n/2) (x) V(theta + i u_n/2) (n = 1, 2, lambda = 3.3) [overlap - 1: {max(abs(o - 1) for o in ovs):.0e}]',
+       ok_res and max(abs(o - 1) for o in ovs) < 1e-9)
+
+# ---------------------------------------------------------------- 12. BPTT a_n (eq. (3.5)) and the bootstrap for n = 1, 2
+# a_n = a(u + nu_n) a(u - nu_n)/(a(u + nu_0) a(u - nu_0)) = prod_{l=1}^n {2(eta/pi - l)}, BPTT blocks
+# (x) = sin(u/2 + pi x/2)/sin(u/2 - pi x/2) (eq-blocks with h = 1) and {y} = (y+1/2lam)(y-1/2lam)/((y+1/2lam - 1)(y-1/2lam + 1));
+# a(u - nu_n) Q(eta, vt, u) b(u + nu_n) = Q(etabar, vt, u) a_n(eta, u), a = S_0, b = S_T.
+L = mp.mpf('3.3')
+eta, vt = mp.mpf('5.5'), mp.mpf('0.3')
+etab = mp.pi*(L + 1) - eta
+nu = lambda n: eta/L - (2*n + 1)*mp.pi/(2*L)
+blk1 = lambda x, uu: mp.sin(uu/2 + x*mp.pi/2)/mp.sin(uu/2 - x*mp.pi/2)
+curly = lambda y, uu: (blk1((y + 1)/(2*L), uu)*blk1((y - 1)/(2*L), uu)
+                       / (blk1((y + 1)/(2*L) - 1, uu)*blk1((y - 1)/(2*L) + 1, uu)))
+a_n = lambda n, uu: mp.fprod([curly(2*(eta/mp.pi - l), uu) for l in range(1, n + 1)]) if n else mp.mpf(1)
+dev_ratio, dev_boot = 0, 0
+for u in (mp.mpc('0.3', '0.2'), mp.mpc('-0.5', '0.1')):
+    av = {(n, s): a_gz(1j*(u + s*nu(n))) for n in (0, 1, 2, 3) for s in (1, -1)}
+    dev_ratio = max([dev_ratio] + [abs(av[(n, 1)]*av[(n, -1)]/(av[(0, 1)]*av[(0, -1)])/a_n(n, u) - 1) for n in (1, 2, 3)])
+    Qrat = mp.exp(log_sigma(eta, u) - log_sigma(etab, u))*mp.cos(etab)/mp.cos(eta)      # Q(eta)/Q(etabar)
+    bv = lambda n: mp.sin(L*(u + nu(n)))/mp.sin(L*(mp.pi - u - nu(n)))*av[(n, 1)]
+    dev_boot = max([dev_boot] + [abs(av[(n, -1)]*bv(n)*Qrat/a_n(n, u) - 1) for n in (0, 1, 2)])
+report(f'BPTT a_n: a(u+nu_n)a(u-nu_n)/(a(u+nu_0)a(u-nu_0)) = prod_(l=1)^n {{2(eta/pi - l)}} for n = 1, 2, 3 '
+       f'[{float(dev_ratio):.0e}]; bootstrap a(u - nu_n) Q(eta) b(u + nu_n) = Q(etabar) a_n for n = 0, 1, 2 '
+       f'[{float(dev_boot):.0e}]', dev_ratio < 1e-15 and dev_boot < 1e-15)
+
+# ---------------------------------------------------------------- 13. breathers on the excited boundaries |0>, |1>
+# Soliton K on |k> = sigma_x K(etabar) sigma_x a_k (eq-bsg-excited-k); the full matrix bootstrap for B_m gives
+# K_{B_m}(etabar) b_mk with b_mk = a_k(u + pi/2 - m pi/2lam) a_k(u - pi/2 + m pi/2lam) (BPTT (3.9)), m = 1, 2, k = 0, 1.
+X = np.array([[0, 1], [1, 0]])
+devs = []
+for n in (1, 2):
+    un = np.pi - n*np.pi/LAM3
+    th = 0.3
+    ta, tb = th - 1j*un/2, th + 1j*un/2
+    _, w = inv_vec_q(np.exp(LAM3*ta), np.exp(LAM3*tb), q3)
+    S2 = complex(a_gz(ta + tb))*Rsg(np.exp(LAM3*(ta + tb)), q3)
+    Ka, Kb = X @ K_full(ta, etab, vt) @ X, X @ K_full(tb, etab, vt) @ X
+    uth, ua, ub = -1j*mp.mpf(th), -1j*mp.mpmathify(ta), -1j*mp.mpmathify(tb)
+    for k in (0, 1):
+        v = np.kron(np.eye(2), Ka*complex(a_n(k, ua))) @ S2 @ np.kron(np.eye(2), Kb*complex(a_n(k, ub))) @ w
+        RB = v[1]
+        bmk = a_n(k, uth + mp.pi/2 - n*mp.pi/(2*L))*a_n(k, uth - mp.pi/2 + n*mp.pi/(2*L))
+        pred = complex(ghoshal_breather(n, uth, etab, vt)*bmk)
+        devs.append(max(np.linalg.norm(v - RB*w)/np.linalg.norm(v), abs(RB/pred - 1)))
+report(f'B_1, B_2 on the excited boundaries |0>, |1>: the full matrix bootstrap gives K_(B_m)(etabar) b_mk, '
+       f'b_mk = a_k(u + pi/2 - m pi/2lam) a_k(u - pi/2 + m pi/2lam) (BPTT (3.9)) [{max(devs):.0e}]', max(devs) < 1e-10)
+
+# exr-bsg-sign-q: Pi K(eps) Pi is proportional to K(-eps)
+yy = 0.8 + 0.3j
+report('Pi K(eps_0, eps_1) Pi is proportional to K(-eps_0, -eps_1), Pi = diag(1,-1) (exr-bsg-sign-q)',
+       prop(Pi @ K_closed(yy, 0.43 - 0.2j, -0.71 + 0.35j) @ Pi, K_closed(yy, -0.43 + 0.2j, 0.71 - 0.35j)) < 1e-12)
+L = mp.mpf(LAM)

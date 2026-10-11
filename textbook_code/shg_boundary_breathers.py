@@ -15,6 +15,9 @@ Checks:
     for any N_0; the Neumann limit a -> 1/2 gives |E| = 1 - B/2 (Ghoshal-Zamolodchikov) only for N_0 = 1/2.
  6. m(beta) is the continuation beta_SG^2 -> -beta_SG^2 of the sine-Gordon m_1 = 2M sin(xi/2), M = m_0/xi.
  7. CD (4.4)-(4.6): the excited reflection factors K_1, K_2 follow from K_0 by the boundary bootstrap.
+ 8. The UV-IR relation (ch. 29, cnj-bsg-uv-ir) continued to lambda = -2/B, with eta = pi E/B, vt = -i pi F/B, is exactly
+    the Corrigan-Taormina relation (hep-th/0008237 (2.10)) E = (a_0+a_1)(1-B/2), F = +-(a_0-a_1)(1-B/2), C_j = cos(pi a_j),
+    with C_{0,1} = (mu/mu_crit) e^{+-i beta_SG phi_0/2} for F = (a_1-a_0)(1-B/2); the sign of F only exchanges C_0, C_1.
 Runtime: about 10 seconds.
 """
 import numpy as np
@@ -128,3 +131,21 @@ for n in (0, 1):
     dev = max(dev, 1/abs(Kn(n)(1j*psi + mp.mpf('1e-15')))*1e-5)
 report(f'CD (4.4)-(4.6): K_{{n+1}}(theta) = K_n(theta) S(theta - i psi_n) S(theta + i psi_n), psi_n = pi(E - 1 - nB)/2 '
        f'a pole of K_n, for n = 0, 1 [{float(dev):.0e}]', dev < 1e-20)
+
+# ---------------------------------------------------------------- 8. UV-IR relation continued = Corrigan-Taormina (2.10)
+# cnj-bsg-uv-ir at lambda -> -2/B with eta = pi E/B, vt = -i pi F/B (eq-shg-reflection: E = B eta/pi, F = i B vt/pi) and
+# E = (a_0 + a_1)(1 - B/2), F = (a_1 - a_0)(1 - B/2): the left-hand sides become (C_0 + C_1)/2 and (C_0 - C_1)/(2i),
+# C_j = cos(pi a_j), i.e. C_{0,1} = (mu/mu_crit) e^{+-i beta_SG phi_0/2}.  F -> -F exchanges C_0 and C_1.
+dev, dev_sw = 0, 0
+for Bv_, a0, a1 in ((mp.mpf('0.37'), mp.mpf('0.71'), mp.mpf('0.58')), (mp.mpf('1.3'), mp.mpf('0.9'), mp.mpf('0.2'))):
+    lam = -2/Bv_
+    E_ = (a0 + a1)*(1 - Bv_/2); F_ = (a1 - a0)*(1 - Bv_/2)
+    eta_, vt_ = mp.pi*E_/Bv_, -1j*mp.pi*F_/Bv_
+    L1 = mp.cos(eta_/(lam + 1))*mp.cosh(vt_/(lam + 1)); L2 = mp.sin(eta_/(lam + 1))*mp.sinh(vt_/(lam + 1))
+    C0, C1 = mp.cos(mp.pi*a0), mp.cos(mp.pi*a1)
+    dev = max(dev, abs(L1 - (C0 + C1)/2), abs(L2 - (C0 - C1)/(2j)))
+    L2m = mp.sin(eta_/(lam + 1))*mp.sinh(-vt_/(lam + 1))
+    dev_sw = max(dev_sw, abs(L2m - (C1 - C0)/(2j)))
+report(f'UV-IR relation (cnj-bsg-uv-ir) at lambda = -2/B, eta = pi E/B, vt = -i pi F/B gives exactly E = (a_0+a_1)(1-B/2), '
+       f'F = (a_1-a_0)(1-B/2) (Corrigan-Taormina (2.10) up to the sign of F) with C_(0,1) = (mu/mu_crit) e^(+-i beta phi_0/2) = cos(pi a_(0,1)) '
+       f'[{float(dev):.0e}]; F -> -F exchanges C_0, C_1 [{float(dev_sw):.0e}]', dev < 1e-25 and dev_sw < 1e-25)
