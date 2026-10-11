@@ -70,10 +70,8 @@ book:
     - references.qmd
   appendices:
     - appendices/A-algebra-data.qmd
-    - appendices/B-zero-mode.qmd
-    - appendices/C-heat-trace.qmd
-    - appendices/D-numerics.qmd
-    - appendices/E-code.qmd
+    - appendices/B-numerics.qmd
+    - appendices/C-code.qmd
 
 bibliography: references.bib
 csl: aps.csl

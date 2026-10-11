@@ -15,7 +15,7 @@ In $c_n^{(1)}$, the fluctuation operator around soliton $a<n$ has a Jordan block
 
 Three independent checks favour the algebraic-multiplicity count:
 
-- **Lattice.** Evaluating (-@eq-one-loop-mass) on a lattice reproduces the algebraic-multiplicity result to about $10^{-4}$ for all ten cases with $n\le5$. The same method reproduces the $a_{N-1}^{(1)}$ masses (-@eq-hollowood-mass) for $N\le6$.
+- **Lattice.** Evaluating (-@eq-one-loop-mass) on a lattice reproduces the algebraic-multiplicity result to about $10^{-4}$ for all ten cases with $n\le5$. The same method reproduces the sine-Gordon kink mass and the $a_{N-1}^{(1)}$ masses (-@eq-hollowood-mass) for $N\le6$. The lattice uses Dirichlet conditions on $[-L/2,L/2]$ and second-order finite differences with spacing $\epsilon$. The counterterm is built from the lattice equal-time propagator $(2\epsilon)^{-1}[\mathcal A_0^{-1/2}]_{kk}$ at site $k$. The full complex spectrum is used, the zero mode broken by the lattice is removed, and the results are extrapolated in $\epsilon^2$. Non-simply-laced theories are treated as the folding-invariant sectors of their simply-laced parents. The results do not depend on $L$ or on the topological sector.
 - **Exact S-matrix.** The exact S-matrix of $c_2^{(1)}\simeq b_2^{(1)}$ agrees with the algebraic-multiplicity result to $O(\beta^4)$.
 - **Fate of the block.** That exact S-matrix resolves the Jordan block into two real bound states, bound below threshold by amounts proportional to $\beta^2$ and $\beta^4$.
 
