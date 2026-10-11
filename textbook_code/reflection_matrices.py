@@ -18,15 +18,17 @@ Checks:
     (22)) in their conventions, plus the eps = 0 solution they omit; in book conventions K: V(y) -> V(1/y)
     exists iff eps = 0 (antidiagonal K) or all eps_j^2 = eps_*^2 = 1/((1-q)(1-q^-1)), and solves the reflection
     equation; conjugation by the Cartan torus gives the continuous families.
- 5. Delius-Gandenberger scalar factor hep-th/9904002 (3.9) (sec-an-diagonal-k): unitarity and the crossing
-    relation (3.8), with the a_n soliton scalar factor F_11 (h-generalization of hep-th/9806003 (2.6)) itself
-    checked against bulk unitarity and crossed-transmission unitarity; the CDD factors (3.24) solve (3.22)-(3.23).
+ 5. Delius-Gandenberger scalar factor hep-th/9904002 (3.9) (sec-an-diagonal-k), with the prefactor (-h lam/4)_I as
+    printed: unitarity and the crossing relation (3.8), with the a_n soliton scalar factor F_11 (h-generalization of
+    hep-th/9806003 (2.6)) itself checked against bulk unitarity and crossed-transmission unitarity; the CDD factors
+    (3.24) solve (3.22)-(3.23).  Breather bootstrap (prp-breather-amplitude): the singlet projection at matrix level
+    for n = 2, 3 with the book's R-check, and A_1 F_11 A_1 = DG (3.11) for n = 1, 2, 3 (fails with -(h lam/4)_I).
  6. Semiclassical limit (sec-boundary-semiclassics): (beta^2/4h) d(-i log A_1)/dtheta -> ln(1 + sin(pi/h)/cosh theta),
     the (+...+) time delay of eq-boundary-time-delay.
  7. Delius-George math/0208043 (16)-(17), d_4 and d_5 at the physical q: as printed not an intertwiner of their coproduct
     (2) and not a solution of their YBE (7); with (1-q^2) -> (1-q^-2), x on the a < b terms, the last sum over all a, b
     and E_{abar,b} (x) E_{a,bbar} in it, it is (x - q^-2)(x - xi) times the book R-check (eq-dn-vector-r).
-Runtime: about a minute and a half.
+Runtime: about three minutes.
 """
 import itertools
 import numpy as np
@@ -370,7 +372,7 @@ def F11(mu, h, lam, N=400):
 
 
 def A1(mu, n, lam, N=300):
-    """DG (3.9): A_1 = -((n+1) lam/4)_I prod_k G_2k(2mu, -3/2 h lam + 1) G_2k(2mu, -1/2 h lam)
+    """DG (3.9): A_1 = (-(n+1) lam/4)_I prod_k G_2k(2mu, -3/2 h lam + 1) G_2k(2mu, -1/2 h lam)
                         / [G_2k(2mu, -3/2 n lam - lam/2 + 1) G_2k(2mu, -1/2 n lam - 3/2 lam)]."""
     h = n + 1
     G = lambda j, m, a: mp.loggamma(m + j*h*lam + a) - mp.loggamma(-m + j*h*lam + a)
@@ -378,7 +380,7 @@ def A1(mu, n, lam, N=300):
     def lg(M):
         return sum(G(2*k, 2*mu, -1.5*h*lam + 1) + G(2*k, 2*mu, -0.5*h*lam) - G(2*k, 2*mu, -1.5*n*lam - 0.5*lam + 1)
                    - G(2*k, 2*mu, -0.5*n*lam - 1.5*lam) for k in range(1, M + 1))
-    return -blk(h*lam/4, mu, h, lam)*mp.exp(_rich(lg, N))
+    return blk(-h*lam/4, mu, h, lam)*mp.exp(_rich(lg, N))
 
 
 lam = mp.mpf(OMEGA)*3
@@ -404,6 +406,63 @@ report('DG (3.24): sigma_c = -(c lam/2)_I (h lam/2 - c lam/2)_I solves (3.22) an
 sig_bad = lambda m: blk(lam/2, m, 5, lam)*blk(5*lam/2 - lam/2, m, 5, lam)
 report('... without the minus sign (3.23) fails for even n (control)',
        abs(sig_bad(mu) - mp.fprod([sig_bad(mu + 5*lam/2 - k*lam) for k in range(1, 5)])) > 1e-3)
+
+# ---------------------------------------------------------------- 5b. breather bootstrap (prp-breather-amplitude)
+# B_1 = bound state of a soliton and an antisoliton at relative rapidity i u, u = pi(1 - 2/(h omega)).  Matrix part:
+# after K = 1 reflects the second constituent the singlet becomes sum_i c_i v_i (x) v_i, on which R-check acts by
+# its identical-soliton eigenvalue 1, so the outgoing state is the outgoing singlet with coefficient 1.
+from boundary_common import an_vector
+
+
+def _singlet(A, B):
+    d = A['dim']*B['dim']
+    M = np.vstack([cop(A, B, kd, j) - (np.eye(d) if kd == 'k' else 0) for j in nodes_of(A) for kd in 'efk'])
+    _, sv, Vh = np.linalg.svd(M)
+    w = Vh[-1].conj()
+    return sv[-1]/sv[0], w/w[int(np.argmax(np.abs(w) > 1e-8))]
+
+
+worst = 0
+for n in (2, 3):
+    h = n + 1
+    for om in (0.37, 1.83):
+        qq = q_phys(om)
+        u = np.pi*(1 - 2/(h*om))
+        for th in (0.31 + 0.07j, -0.52 + 0.11j):
+            ta, tb = th - 1j*u/2, th + 1j*u/2
+            for ca in (False, True):
+                Va, Vb = an_vector(n, qq, np.exp(om*ta), ca), an_vector(n, qq, np.exp(om*tb), not ca)
+                r_in, w = _singlet(Va, Vb)
+                r_out, wo = _singlet(an_vector(n, qq, np.exp(-om*tb), ca), an_vector(n, qq, np.exp(-om*ta), not ca))
+                R, _ = rcheck(Va, an_vector(n, qq, np.exp(-om*tb), ca))
+                v = R @ w
+                worst = max(worst, r_in, r_out, np.linalg.norm(v - wo)/np.linalg.norm(v))
+report(f'breather bootstrap, matrix part (n = 2, 3; both orderings): (1 (x) K) R-check (1 (x) K) maps the incoming '
+       f'singlet to the outgoing singlet with coefficient 1, K = 1 [{worst:.1e}]', worst < 1e-12)
+
+
+def dg311(mu, n, lam):
+    """DG (3.11): K_B1 = (-n lam/2)_I (1/2 - h lam/2)_I (-lam/2 - 1/2)_I."""
+    h = n + 1
+    return blk(-n*lam/2, mu, h, lam)*blk(mp.mpf(1)/2 - h*lam/2, mu, h, lam)*blk(-lam/2 - mp.mpf(1)/2, mu, h, lam)
+
+
+mp.mp.dps = 25
+worst, worst_bad = 0, mp.inf
+for n in (1, 2, 3):
+    h = n + 1
+    lam = mp.mpf('2.7')
+    for mu in (mp.mpc('0.31', '0.17'), mp.mpc('-0.4', '0.6')):
+        c = h*lam/4 - mp.mpf(1)/2
+        r = A1(mu - c, n, lam)*F11(2*mu, h, lam)*A1(mu + c, n, lam)/dg311(mu, n, lam)
+        f = lambda m: -blk(h*lam/4, m, h, lam)**2         # ratio of the two prefactor choices
+        worst = max(worst, abs(r - 1))
+        worst_bad = min(worst_bad, abs(r*f(mu - c)*f(mu + c) - 1))
+report(f'breather bootstrap, scalar part: A_1(mu - h lam/4 + 1/2) F_11(2 mu) A_1(mu + h lam/4 - 1/2) = DG (3.11), '
+       f'n = 1, 2, 3 [{mp.nstr(worst, 2)}]', worst < 1e-7)
+report(f'... with the prefactor -(h lam/4)_I instead of (-h lam/4)_I it fails (control) [{mp.nstr(worst_bad, 2)}]',
+       worst_bad > 1e-2)
+mp.mp.dps = 30
 
 # ---------------------------------------------------------------- 6. semiclassical limit of A_1
 # beta^2 = 4 pi/(lam + 1); M_1 = 2 h m_1/beta^2; time delay for C = +1 (eq-boundary-time-delay):

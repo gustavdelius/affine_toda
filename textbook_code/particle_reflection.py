@@ -13,9 +13,9 @@ Checks:
     -1/((a)(h-a)) = eq-linear-reflection at C = +1 (and its closed form); equality with the conjecture of
     Corrigan-Dorey-Rietdijk-Sasaki hep-th/9404108 (5.16) with <x> replaced by <x~>; n = 1..7.
  3. Breather amplitude at imaginary coupling, DG (3.11): the closed form, continued by omega -> -2/B
-    (the bulk continuation beta^2 -> -beta^2), is DG (3.12).  (The singlet projection that produces (3.11) from
-    the soliton K involves the matrix part of S_VV and is not checked here; the product of the three scalar
-    factors A_1 F_11 A_1 alone is not equal to (3.11).)  For n = 1, (3.11) is Ghoshal's K_B1 (eq-bsg-b1-reflection)
+    (the bulk continuation beta^2 -> -beta^2), is DG (3.12).  (That the singlet projection of the soliton K gives
+    (3.11), with A_1 F_11 A_1 and DG's prefactor in (3.9), is checked in reflection_matrices.py.)
+    For n = 1, (3.11) is Ghoshal's K_B1 (eq-bsg-b1-reflection)
     at eta = pi/2, vartheta = 0, the point eps-hat = 0.
  4. n = 1: DG (3.16) is the sinh-Gordon factor eq-shg-reflection at E = B/2, F = 0 (the point eps-hat = 0,
     eta = pi/2, theta-param = 0 of Ghoshal's B_1 factor), DG (3.20) is E = 1 - B/2 (Neumann); E = 0 differs only
@@ -36,7 +36,14 @@ Checks:
     energies E_{nm} from the bootstrap; pole table and spectrum at B = 9/20 (tbl-a2-boundary-states).
     a_3 (b = 2): DG (6.11) needs (-3+(2n1+1)B/2) in line (d) (printed with a minus sign) to reduce to (5.5)
     and to satisfy crossing-unitarity.
-Runtime: about a minute.
+ 8. Perturbative and semiclassical comparisons (sec-continuation-assumptions, sec-boundary-spectrum-a2):
+    the O(beta^2) term of the uniform a_2 amplitude equals Perkins-Bowcock hep-th/9807146 (4.40) + alpha i (5.3),
+    alpha = -1/(16 sqrt 3), and i times their (5.5) (their (5.3), (5.5) lack a factor i); Kim's self-dual conjecture
+    hep-th/9506031 (17), (42) agrees with DG (3.20) at O(B) and differs at O(B^2), n = 2..6 (exr-kim-expansion);
+    the collective-coordinate inertia of the a_2 vacuum modulus (eq-vacuum-pair, a = 1),
+    beta^2 I = beta^2 int_{-inf}^0 |d phi/d chi|^2 dx = 6/m_1 for all chi, as the rotor reading of b_{n,-n} needs
+    (exr-modulus-rotor).
+Runtime: about two and a half minutes.
 """
 from fractions import Fraction as Fr
 from collections import Counter
@@ -472,3 +479,58 @@ for (nn, mm) in states:
         x = Fr(1, 2) - (2*mm + 1)*BF/2
         ok &= 0 < x < Fr(3, 2) and K1nm(mm, nn).poles(BF).get(x, 0) >= 1
 report('at B = 9/20 every creation pole b_nm -> b_{n+1,m}, b_{n,m+1} between listed states is a physical-strip pole', ok)
+
+# ---------------------------------------------------------------- 8. perturbative and semiclassical comparisons
+mp.mp.dps = 40
+beta = mp.mpf('1e-8')
+Bs = beta**2/(2*PI)/(1 + beta**2/(4*PI))          # eq-b-of-beta
+K1u = lambda th, B: blk(3 - B/2, th, 3)/(blk(2, th, 3)*blk(1 - B/2, th, 3))
+err_pb, err_i = 0, 0
+for th in (mp.mpc('0.37', '0.11'), mp.mpc('-0.9', '0.2')):
+    y = mp.exp(th); k = mp.sqrt(3)*mp.sinh(th)
+    d = (K1u(th, Bs) - K1u(th, 0))/beta**2
+    f = -I*(4*y**2 + 5*y + 4)*(y - 1)/((2*I*k - 3)**2*4*y*(y + 1))           # PB (4.40)
+    g = -4*mp.sqrt(3)*I*(y**2 - 1)/(y*(2*I*k - 3)**2)                         # i * PB (5.3)
+    pb55 = -3*(y**3 - 1)/(4*y*(y + 1)*(2*I*k - 3)**2)                         # PB (5.5) as printed
+    err_pb = max(err_pb, abs(d/(f - g/(16*mp.sqrt(3))) - 1))
+    err_i = max(err_i, abs(d/pb55 - I))
+report(f'a_2 uniform: O(beta^2) term of DG (3.12) = Perkins-Bowcock (4.40) + alpha i(5.3), alpha = -1/(16 sqrt3), '
+       f'= i x PB (5.5) [{mp.nstr(err_pb, 2)}, {mp.nstr(err_i, 2)}]', err_pb < 1e-8 and err_i < 1e-8)
+
+mp.mp.dps = 30
+sq = lambda x, th, B, h: (blk(x - mp.mpf(1)/2, th, h)*blk(x + mp.mpf(1)/2, th, h)
+                          /(blk(x - mp.mpf(1)/2 + B/2, th, h)*blk(x + mp.mpf(1)/2 - B/2, th, h)))
+th = mp.mpc('0.41', '0.13')
+ok, coef = True, []
+for n in range(2, 7):
+    h = n + 1
+    kim = lambda B: mp.fprod([sq(mp.mpf(k)/2, th, B, h) for k in range(1, 2*h - 2, 2)])
+    c6, c3 = [abs(K_neumann(1, n)(th, B) - kim(B))/B**2 for B in (mp.mpf('1e-6'), mp.mpf('1e-3'))]
+    ok &= 0.05 < c6 < 10 and abs(c3/c6 - 1) < 0.05
+    coef.append(mp.nstr(c6, 3))
+kim2 = lambda B: sq(mp.mpf(1)/2, th, B, 4)*sq(mp.mpf(3)/2, th, B, 4)**2*sq(mp.mpf(5)/2, th, B, 4)
+c2 = abs(K_neumann(2, 3)(th, mp.mpf('1e-6')) - kim2(mp.mpf('1e-6')))/mp.mpf('1e-12')
+ok &= 0.05 < c2 < 10
+report(f'Kim\'s self-dual conjecture (17), (42) = DG (3.20) at O(B), not at O(B^2): |K^N - K^Kim|/B^2 = {coef} '
+       f'(K_1, n = 2..6), {mp.nstr(c2, 3)} (K_2, a_3)', ok)
+
+mp.mp.dps = 20
+s3 = mp.sin(PI/3); m1 = 2*s3                       # a_2, m = 1, soliton a = 1
+cart = [[2, -1, -1], [-1, 2, -1], [-1, -1, 2]]
+tau = lambda j, x, chi: (1 + 2*mp.cos(chi + 2*PI*j/3)/(1 + s3)*mp.exp(m1*x)
+                         + (1 - s3)/(1 + s3)*mp.exp(2*m1*x))          # eq-vacuum-pair
+dtau = lambda j, x, chi: -2*mp.sin(chi + 2*PI*j/3)/(1 + s3)*mp.exp(m1*x)
+
+
+def inertia(chi):
+    def integrand(x):
+        gl = [dtau(j, x, chi)/tau(j, x, chi) for j in range(3)]
+        return sum(cart[i][k]*gl[i]*gl[k] for i in range(3) for k in range(3))
+    return mp.quad(integrand, [-mp.inf, -5, -1, 0])
+
+
+lo = PI/3                                          # an interval between singular values pi - 2 pi j/3
+vals = [inertia(lo + t*2*PI/3) for t in (0.1, 0.5, 0.9)]
+report(f'a_2 vacuum modulus: beta^2 I(chi) = {[mp.nstr(v, 8) for v in vals]} = 6/m_1 = {mp.nstr(6/m1, 8)} for all chi '
+       f'(rotor reading of b_(n,-n): n^2/2I = m_1 (pi B/6) n^2)', all(abs(v - 6/m1) < 1e-10 for v in vals))
+
