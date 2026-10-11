@@ -78,7 +78,8 @@ book:
         - part8-foundations/38-continuum-thresholds.qmd
         - part8-foundations/39-continuum-window.qmd
         - part8-foundations/40-scattering.qmd
-        - part8-foundations/41-outlook.qmd
+        - part8-foundations/41-unitarity.qmd
+    - outlook/42-outlook.qmd
     - references.qmd
   appendices:
     - appendices/A-algebra-data.qmd
