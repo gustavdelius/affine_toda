@@ -74,7 +74,7 @@ independent of $a$.
 
 The classical mass ratios, and with them the fusing angles and the Coxeter-number structure of @sec-dorey-rule, survive one loop. This is what makes it possible to write the exact S-matrices of @sec-simply-laced in terms of blocks with fixed positions $x\pi/h$.
 
-For the non-simply-laced theories this fails [@dgz1992]. The one-loop corrections differ between particles, and the mass ratios drift with the coupling. Delius, Grisaru and Zanon found that the drift is captured by replacing the Coxeter number $h$ in the classical masses by a coupling-dependent **floating Coxeter number** $H(\beta)$. @sec-non-simply-laced develops this. (The symbol $H$ is also used for Hamiltonians, in Part I and Part VII; the context always distinguishes them.)
+For the non-simply-laced theories this fails [@dgz1992]. The one-loop corrections differ between particles, and the mass ratios drift with the coupling. Delius, Grisaru and Zanon found that the drift is captured by replacing the Coxeter number $h$ in the classical masses by a coupling-dependent **floating Coxeter number** $H(\beta)$. @sec-non-simply-laced develops this. (The symbol $H$ is also used for Hamiltonians, in Part I and Part VIII; the context always distinguishes them.)
 
 ## Anomalous thresholds and higher-order poles {#sec-coleman-thun}
 

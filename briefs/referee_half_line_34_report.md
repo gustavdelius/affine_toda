@@ -246,7 +246,7 @@ Fetched for this pass: Kolb–Yakimov 1901.00490, Noumi math/9503224, MacKay–S
 Integrated in the main session.
 
 **Integrated:**
-- **Item 1.** The full hand proof replaces the sketch, and the label is now [Proposition]. Each step was re-derived in the main session: $\varphi_ie_i=q^2e_i\varphi_i-q^2D_i$; the weight-zero bracket $-qc_i(k_i^2-1)$; $-q^2D_ie_j+e_jD_i=qc_ie_j$; $D_i\varphi_j-q^2\varphi_jD_i=qc_i\varphi_j$.
+- **Item 1.** The full hand proof replaces the sketch, and the label is now [Proposition] (changed to [Theorem] when chapter 1 was updated, to match the label list there). Each step was re-derived in the main session: $\varphi_ie_i=q^2e_i\varphi_i-q^2D_i$; the weight-zero bracket $-qc_i(k_i^2-1)$; $-q^2D_ie_j+e_jD_i=qc_ie_j$; $D_i\varphi_j-q^2\varphi_jD_i=qc_i\varphi_j$.
 - **Item 2.** The proof of the "only if" direction is added after `prp-admissibility`, with one correction: the element in $B$ is the q-commutator $e_i(f_ik_i)-q^{-2}(f_ik_i)e_i=(k_i^2-1)/(q-q^{-1})$, not $[e_i,f_ik_i]$. "(in the principal gradation)" was added for the $d_n$ step.
 - **Item 3.** Character-twist paragraph after the parameter-set bullets, with a new bib entry `dobson_kolb2019` (verified via Crossref). Injectivity is stated as unchecked.
 - **Item 4.** Baseilhac–Belliard sentence replaced.

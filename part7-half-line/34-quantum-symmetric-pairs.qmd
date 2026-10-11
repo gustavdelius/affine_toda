@@ -100,7 +100,7 @@ for the quantum Serre polynomial of two simply-laced adjacent nodes ($a_{ij}=-1$
 
 ::: {#prp-serre-obstruction}
 ## The Serre relation of the boundary coideal
-**[Proposition]** For a simply-laced $\hat g$, adjacent nodes $i,j$ and arbitrary $c_i,\hat\epsilon_i,\hat\epsilon_j$, the generators $b_j=e_j+c_jf_jk_j+\hat\epsilon_jk_j$ satisfy
+**[Theorem]** For a simply-laced $\hat g$, adjacent nodes $i,j$ and arbitrary $c_i,\hat\epsilon_i,\hat\epsilon_j$, the generators $b_j=e_j+c_jf_jk_j+\hat\epsilon_jk_j$ satisfy
 
 $$
 F_{ij}(b_i,b_j)=q\,c_i\,b_j+\hat\epsilon_j\Big((1-q)(1-q^{-1})\,\hat\epsilon_i^2-q\,c_i\Big)\,k_i^2k_j .
