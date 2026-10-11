@@ -149,6 +149,28 @@ Verified on 2026-10-11 by the conventions agent of phase 0. Status key: [V:scrip
   - BLZ use $q=e^{i\pi\beta^2}$.
   - Penati–Polvara use $\gamma=\beta^2/2\pi$ in Euclidean signature.
 
+
+### 9. Added from chapter 37 (2026-10-11)
+
+- **Sign of $q$, settled.** Unitarity of $\mathbb T$ holds at both $\pm q$ and cannot see the sign. Crossing with the book's $C=\sigma_x$ holds at $q_{\rm phys}$ and fails at $-q_{\rm phys}$; at $-q$ it is restored only with $C'=[[0,1],[-1,0]]$ (`defect_sg_transmission.py`). This is the same mechanism as in `sec-crossing-sign`.
+- **The two types for $a_1$.** Type I$_+$ is type I$_-$ followed by $\psi\to-\psi$, so $z_{\rm I_+}=-z_{\rm I_-}$ and $\mathbb T^{\rm cl}_{\rm I_+}=-\mathbb T^{\rm cl}$.
+- **Bäcklund transformation.** $\mathfrak B_a$ with $a(\theta)=-e^{-\theta}$. The type-I$_-$ conditions are $\mathfrak B_a$ at $x=0$ with $a=-\sigma=a(\theta_d)$, and the delay is the Bianchi coefficient $z=(a(\theta)+a(\theta_d))/(a(\theta)-a(\theta_d))$. The interaction coefficient $A_{11}$ is its inverse square.
+- **Odd sector.** Classically $\theta_d\to\theta_d+i\pi$. In the quantum theory the bootstrap gives the $s=1$ intertwiner at $\theta_d-i\pi$ (the image prescription of the bound state).
+- **Poles.**
+  - The scalar factor $\Phi$ (`eq-sgd-scalar`) is the Konik–LeClair minimal solution in the BCZ (3.43)–(3.44) form, with $Y=e^{\lambda(\theta-\theta_d)}$.
+  - There is a resonance at $\theta=\theta_d-i\pi/(2\lambda)$ on the soliton mass shell.
+  - The pole of $\bar{\mathbb T}$ is at $-\theta_d-i\pi/(2\lambda)$.
+- **Renormalization (`cnj-defect-parameter`).** For sinh-Gordon $\theta_d=(1-B/2)\theta_d^{\rm cl}$; continued to sine-Gordon, $\lambda\theta_d=(\lambda+1)\theta_d^{\rm cl}$.
+- **Names.** Λ is the type-II auxiliary field, since λ is the coupling in ch. 37.
+- **Dictionary additions.**
+  - KL's ν corresponds to $-\lambda\theta_d$.
+  - Bajnok–Simon's $B_{\rm BS}=B/2$.
+  - cz2009b has $\sigma=e^{+\eta}$.
+  - Penati–Polvara's β is the book's β, and their $\gamma/2=\beta_{SG}^2/8\pi$.
+- **Fusion onto a Dirichlet boundary.**
+  - Classically it gives Ghoshal–Zamolodchikov with $C_{0,1}=\cosh(\theta_d\pm i\beta_{SG}\phi_D/2)$.
+  - In the quantum theory $\bar{\mathbb T}K_D\mathbb T=K_{\rm shG}(E,F=2i\theta_d/\pi)$, i.e. $\vartheta=2\theta_d/B$.
+
 ## Status-label rules specific to Part VIII
 
 - Every quantum $a_r$ transmission matrix is labelled as a solution of the scattering axioms ([Numerical] or [Established]); its identification with the transmission matrix of the Lagrangian defect is [Conjecture], because of the higher-spin anomalies found by Penati and Polvara (arXiv:1902.10690).

@@ -7,7 +7,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 | Ch | Drafted | Script(s) | Checks | Refereed |
 |---|---|---|---|---|
 | 36 | 2026-10-11 | `defect_axioms.py` | 20 PASS (2 s) | no |
-| 37 | | `defect_classical_sg.py` (conventions part), `defect_sg_transmission.py` | | |
+| 37 | 2026-10-11 | `defect_classical_sg.py`, `defect_sg_transmission.py` | 27 + 24 PASS (18 s, 103 s) | no |
 | 38 | | `defect_classical_an.py` (conventions part), `defect_lax_rmatrix.py` | | |
 | 39 | | `defect_solitons_an.py` | | |
 | 40 | | `defect_universal_r.py`, `defect_transfer.py` | | |
@@ -63,6 +63,91 @@ Working record for Part VIII, kept in the repository because the session scratch
 **Obligations for later chapters:**
 - Ch. 40 must deliver `prp-defect-twist-limit`, which ch. 36 cites.
 - Ch. 42 must decide the symmetry of the doubled boundary; ch. 36 leaves it open, as the pre-registered `cnj-twisted-diagonal` requires.
+
+## Chapter 37 (`sec-defect-sine-gordon`)
+
+**By script.**
+- `defect_classical_sg.py` (27 checks):
+  - Bäcklund compatibility (sympy); vacuum → soliton; Bianchi → two-soliton with A₁₁.
+  - The defect conditions are the Bäcklund transformation with a = −σ, and z is the Bianchi coefficient.
+  - I₊ = I₋ ∘ (ψ → −ψ) for a₁, with 𝕋^cl_{I₊} = −𝕋^cl.
+  - 𝕋̄^cl = 𝕋^cl(iπ−θ); there is no parity.
+  - Absorption and emission (θ_d of both signs); two solitons through the defect.
+  - Odd-sector delay and the A₁₁ identities; the M/2 mass shell; 𝕋_odd² = f_{1/2}.
+  - Θ holds iff σ is real.
+  - Dirichlet fusion gives Ghoshal–Zamolodchikov (GZ) with C_{0,1} = cosh(θ_d ± iβφ_D/2).
+  - BCZ 2003 (2.6)–(2.9).
+- `defect_sg_transmission.py` (24 checks):
+  - The scalar factor Φ: unitarity, crossing, its poles; the BCZ (3.47) phase drift.
+  - 𝕋 is unitary at both ±q.
+  - **Crossing with C = σ_x holds at q_phys and fails at −q_phys; at −q it is restored only with C′ = [[0,1],[−1,0]].**
+  - The resonance at θ_d − iπ/(2λ) (rank-one residue, mass shell, Im E < 0); the 𝕋̄ pole at −θ_d − iπ/(2λ).
+  - The odd sector by bootstrap (the s = 1 intertwiner at θ_d − iπ; not unitary).
+  - B₁ = 𝕋^cl; B₂ and B_n agree with BCZ (5.10), (5.12)–(5.13).
+  - Semiclassical approach of the phase to the classical delay.
+  - S₀ Gamma product; S_{sB₁} = the defect pair; Bajnok–Simon fusion identity; BS (17) ⇔ 1 − B/2.
+  - Windows: |n| ≤ 5, equations imposed on |n| ≤ 3.
+
+**By hand (drafting agent).**
+- Compatibility and permutability proofs; dE/dt and dP/dt.
+- The crossing condition ΦΦ′(1+Y²) = q^{−s} for general s (only s = 0 is checked numerically); q^{−s/2}Φ for s ≠ 0.
+- No poles of Φ in the physical strip.
+- The rational form of 𝕋^cl.
+- The momentum criterion forcing exponential potentials (F‴/F′ = G‴/G′); the boost argument.
+- The KL dictionary ν ↔ −λθ_d.
+- Penati–Polvara normalization γ/2 = β_SG²/8π.
+- The classical limit of Bajnok–Simon's ε_def; E_D as the continuation of `eq-bsg-dirichlet`.
+- 𝕋̄𝕋 = (cosh θ_d + i sinh θ)/(cosh θ_d − i sinh θ).
+- The stable-pole window for imaginary θ_d.
+
+**Unchecked.**
+- **Type II, quoted only:** all CZ 2009b/2010 type-II statements. In particular their resonance at η_p + iπ/2γ has the opposite sign to BCZ (4.1) and is not reconciled.
+- **Attributions to sources:**
+  - CZ 2004 gates.
+  - Weston's identification, including his Borel subalgebra in book conventions.
+  - BCZ Sec. 6 (moving defects) and (3.52)–(3.56).
+  - Bajnok–Simon (17), (18), (23).
+  - Penati–Polvara's anomaly statements.
+  - KL (5.30)–(5.37).
+  - The necessity direction of the BCZ classification.
+- **Unverified checks:** Bianchi permutability for a general seed; the interpretation of the 𝕋_{B₂} poles.
+- **Citations:** `habibullin_kundu2008` is cited by title only.
+
+**Corrections to sources recorded in the Notes.**
+- BCZ 2005 (3.42), (3.47) diverge; the KL pairing (3.44) converges.
+- BCZ 2005 Sec. 2 two-defect remark: the left-to-right factors are inverse.
+- Bajnok–Simon B_BS = B/2; their (17) ⇔ θ_d = (1 − B/2)θ_d^cl.
+- BCZ 2005 (2.2): +δ(x).
+
+**Book-internal correction applied to ch. 36 (2026-10-11).** The excited defect is the image of the residue in 𝒲⊗V(iu), with transmission Ř₂₃𝕋₁₂ (the particle sits to the right). Ch. 36 had "a subspace of V(iu)⊗𝒲".
+
+**Pending edits elsewhere.**
+- `textbook_code/README.md` rows: `defect_classical_sg.py` (ch. 36–37, 27 checks, ~20 s) and `defect_sg_transmission.py` (ch. 37/40, 24 checks, ~100 s); the new helpers in `defect_common.py`.
+- Pointers:
+  - ch. 3 `sec-sg-classical` → `sec-backlund`;
+  - ch. 10 `sec-multi-solitons` → `prp-bianchi`;
+  - ch. 29 `sec-bsg-classical` and `cnj-shg-e` → `sec-sg-breather-transmission`, `cnj-defect-parameter`.
+- Optional bib: Rogers–Schief, *Bäcklund and Darboux Transformations* (2002); Habibullin, sine-Gordon on the semi-axis. Confirm what `habibullin_kundu2008` contains.
+
+**Obligations for later chapters.**
+- **Ch. 38:**
+  - dictionary rows for `tbl-defect-dictionary`;
+  - the cz2009a momentum argument in `sec-defect-momentum`;
+  - "delay = Bianchi coefficient" for a_r in `sec-defect-backlund-an`;
+  - type-II conditions and delay in book conventions;
+  - the a_r version of Θ iff σ real.
+- **Ch. 39:** the absorption/emission direction rule, and the odd-sector σ → −σ correspondence for a_r.
+- **Ch. 40:**
+  - reconcile Weston's Borel subalgebra with I₋ ↔ b⁻;
+  - relate I₊ = I₋ ∘ (ψ → −ψ) to b⁺ via BCZ's (a,b) labels (3.57)–(3.59);
+  - treat the s ≠ 0 scalar.
+- **Ch. 41:**
+  - reuse the C vs C′ crossing test and the Wigner semiclassical test;
+  - reconcile the sign of the CZ 2010 (3.17) pole.
+- **Ch. 42:** `prp-defect-fusion-k` with the sinh-Gordon identity and the cz2012 soliton version.
+- **Ch. 43:**
+  - `prp-lightest-breather-universal`;
+  - open problems: Penati–Polvara vs Bajnok–Simon; the sine-Gordon continuation of `cnj-defect-parameter`; stable defects at imaginary θ_d.
 
 ## Global pending edits
 

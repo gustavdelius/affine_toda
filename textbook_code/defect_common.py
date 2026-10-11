@@ -290,3 +290,69 @@ def triangle_residual_braid(Rcheck_fn, T_fn, y1, y2, W, dV=2, margin=2):
     nout = np.repeat(W['n'], dV*dV)                            # W (x) V (x) V: W index slowest
     blk = np.ix_(np.abs(nout) <= N - margin, np.abs(nin) <= N - margin)
     return prop_residual(L[blk], Rr[blk])
+
+
+# ======================================================================== sine-Gordon transmission: scalar factors
+# (appended for ch. 37; numpy/scipy versions of Gamma products, summed with three-level Richardson extrapolation)
+def richardson_sum(terms, K):
+    """sum_{k>=0} t_k from the partial sums at K, 2K, 4K (terms has length >= 4K, t_k = O(1/k^2)):
+    removes the 1/K and 1/K^2 tails."""
+    c = np.cumsum(terms)
+    S1, S2, S4 = c[K - 1], c[2*K - 1], c[4*K - 1]
+    R1, R2 = 2*S2 - S1, 2*S4 - S2
+    return (4*R2 - R1)/3
+
+
+def sg_transmission_scalar(D, lam, K=2000):
+    """Scalar factor Phi(theta - theta_d) of the sine-Gordon soliton transmission matrix (eq-sg-transmission-matrix),
+    s = 0: the Konik-LeClair minimal solution in the form of BCZ hep-th/0506169 (3.43)-(3.44) with gamma = lambda,
+    theta~ = D:  Phi = e^{i pi (1+lam)/4} r(D)/((1 + i e^{lam D}) rbar(D)),
+    r = prod_{k>=0} G(k lam + 1/4 - i w/2) G((k+1) lam + 3/4 - i w/2)/[G((k+1/2) lam + 1/4 - i w/2) G((k+1/2) lam + 3/4 - i w/2)],
+    w = lam D/pi, rbar the same with -i w -> +i w (paired as in (3.44), which converges; (3.42)/(3.47) do not).
+    |Phi|^2 (1 + e^{2 lam D}) = 1 for real D and Phi(D) Phi(D + i pi)(1 + e^{2 lam D}) = 1."""
+    from scipy.special import loggamma as LG
+    k = np.arange(4*K)
+    w = lam*D/np.pi
+
+    def logr(a):
+        return richardson_sum(LG(k*lam + .25 + a) + LG((k + 1)*lam + .75 + a)
+                              - LG((k + .5)*lam + .25 + a) - LG((k + .5)*lam + .75 + a), K)
+    return np.exp(1j*np.pi*(1 + lam)/4 + logr(-1j*w/2) - logr(1j*w/2))/(1 + 1j*np.exp(lam*D))
+
+
+def sg_S0(theta, lam, K=2000):
+    """Sine-Gordon S_0 (eq-sg-s0) for complex theta, as Ghoshal-Zamolodchikov's a(u) = sin(lam(pi - u)) rho(u),
+    u = -i theta (hep-th/9306002 (5.7); equal to the book S_0, checked in boundary_sine_gordon.py)."""
+    from scipy.special import loggamma as LG
+    u = -1j*theta
+    l = np.arange(1, 4*K + 1)
+
+    def logF(uu):
+        v = lam*uu/np.pi
+        return LG(2*l*lam - v) + LG(1 + 2*l*lam - v) - LG((2*l + 1)*lam - v) - LG(1 + (2*l - 1)*lam - v)
+    s = richardson_sum(logF(u) + logF(np.pi - u) - logF(0) - logF(np.pi), K)
+    logrho = np.log(-1/np.pi + 0j) + LG(lam) + LG(1 - lam*u/np.pi) + LG(1 - lam + lam*u/np.pi) + s
+    return np.sin(lam*(np.pi - u))*np.exp(logrho)
+
+
+def sg_tmatrix(theta, lam, q, theta_d, N, s=0.0, scalar=True):
+    """The U_q(b^-) transmission matrix (type I_-, eq-sg-transmission-matrix) on the window n = -N..N:
+    A_n = q^-n, D_n = q^(n+s), C_n = -i Y q^-n, B_n = -i Y q^(n+s), Y = e^{lam(theta - theta_d)}, times Phi (s = 0 form)
+    if scalar.  Returns (T, V, W)."""
+    from boundary_common import sl2_spin
+    y, yd = np.exp(lam*theta), np.exp(lam*theta_d)
+    V = sl2_spin(1, q, y)
+    W = weyl_module_b(-1, q, yd, N, s=s)
+    T = tmatrix_from_elements(lambda n: q**-n, lambda n: -1j*(y/yd)*q**(n + s), lambda n: -1j*(y/yd)*q**-n,
+                              lambda n: q**(n + s), V, W)
+    return (sg_transmission_scalar(theta - theta_d, lam) if scalar else 1.0)*T, V, W
+
+
+def invariant_vector(ya, yb, q):
+    """The vector of V(ya) (x) V(yb) (spin 1/2) annihilated by Delta(e_j), Delta(f_j), Delta(k_j) - 1 (the breather
+    singlet of prp-bsg-breather-k); returns (relative smallest singular value, vector)."""
+    from boundary_common import sl2_spin
+    A, B = sl2_spin(1, q, ya), sl2_spin(1, q, yb)
+    M = np.vstack([cop(A, B, kd, j) - (np.eye(4) if kd == 'k' else 0) for j in (0, 1) for kd in 'efk'])
+    _, sv, Vh = np.linalg.svd(M)
+    return sv[-1]/sv[0], Vh[-1].conj()

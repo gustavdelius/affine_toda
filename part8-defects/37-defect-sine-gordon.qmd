@@ -1,95 +1,323 @@
 # Sine-Gordon and sinh-Gordon with a defect {#sec-defect-sine-gordon}
 
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
-- To be written.
+- Write down the sine-Gordon Bäcklund transformation, generate a soliton from the vacuum with it, and build the two-soliton solution by Bianchi permutability.
+- Obtain the jump defect as a Bäcklund transformation frozen at a point, with its defect conditions and its conserved energy and momentum.
+- Follow a soliton through a defect: delay, conversion into an antisoliton, absorption and emission; and say precisely in which sense a defect is half a soliton.
+- Show that linear waves are transmitted without reflection, and know the type-II defects as fused pairs.
+- Know the quantum soliton transmission matrix and its scalar factor, and why crossing, but not the triangle relation, fixes the sign of $q$.
+- Read off the resonance of the defect, derive breather transmission factors by the bootstrap, and continue them to sinh-Gordon theory.
+- State honestly what is known about the relation between the Lagrangian and the quantum defect parameters.
 :::
 
-*This chapter is a skeleton; it is being drafted.*
+@sec-defect-scattering set up scattering with a purely transmitting defect without reference to a Lagrangian. Sine-Gordon theory is where the abstract framework meets an explicit model. The defect of Bowcock, Corrigan and Zambon is a jump in the field at one point, governed by conditions that are a Bäcklund transformation frozen at that point [@bcz2004; @bcz2004b]. It conserves a modified energy and momentum, it transmits linear waves without reflection, and it delays, converts or absorbs solitons. Its quantum transmission matrix was found by Konik and LeClair before the Lagrangian was known [@konik_leclair1999] and identified with the jump defect by Bowcock, Corrigan and Zambon [@bcz2005]. The lightest breather crosses it with a factor that does not depend on the coupling, and continuing that factor gives the sinh-Gordon defect, which Bajnok and Simon solved by fusing it onto a boundary [@bajnok_simon2008]. This chapter develops these results in the book's conventions, as @sec-boundary-sine-gordon did for the half-line. Two questions recur. The first is the sign of $q$, which the triangle relations do not see. The second is how the parameter of the transmission matrix is related to the parameter in the Lagrangian, which remains partly conjectural.
+
+The conventions are those of @sec-sg-dictionary: $\beta_{\rm SG}=\sqrt2\beta$, $m_0=2m$, the soliton mass $M=8m_0/\beta_{\rm SG}^2$ (-@eq-sg-classical-mass; in the quantum sections $M$ is the soliton mass of the quantum theory), and $\lambda=8\pi/\beta_{\rm SG}^2-1$. The field is $\phi$ on $x<0$ and $\psi$ on $x>0$, and light-cone derivatives are $\partial_\pm=\partial_t\pm\partial_x$ (@sec-lagrangians), so that the sine-Gordon equation reads $\partial_+\partial_-\phi=-(m_0^2/\beta_{\rm SG})\sin\beta_{\rm SG}\phi$.
 
 ## Bäcklund transformations {#sec-backlund}
 
+A **Bäcklund transformation** is a pair of first-order equations relating two fields that are consistent only if both fields solve the field equation. Solving it for one field with the other given adds a soliton. For sine-Gordon theory, with a free complex parameter $a$,
+
 $$
-\text{(to be written)}
+\partial_+(\phi-\psi)=\frac{2a\,m_0}{\beta_{\rm SG}}\sin\frac{\beta_{\rm SG}(\phi+\psi)}2,\qquad
+\partial_-(\phi+\psi)=-\frac{2m_0}{a\,\beta_{\rm SG}}\sin\frac{\beta_{\rm SG}(\phi-\psi)}2 .
 $$ {#eq-sg-backlund}
 
+We write $\psi=\mathfrak B_a\phi$.
+
 ::: {#prp-sg-backlund}
-**[Draft]** To be written.
+**[Established]** (1) If $\phi$ and $\psi$ satisfy (-@eq-sg-backlund), both solve the sine-Gordon equation. (2) For $\phi=0$ and $a=-e^{-\theta}$ the solutions of (-@eq-sg-backlund) are the vacua and the one-soliton solutions (-@eq-an-soliton) with $h=2$ and rapidity $\theta$,
+$$
+\psi=\frac{2i}{\beta_{\rm SG}}\ln\frac{1-E}{1+E},\qquad E=\exp\big(m_0(x\cosh\theta-t\sinh\theta)+\xi\big),
+$$
+for any complex $\xi$, up to shifts by multiples of $4\pi/\beta_{\rm SG}$: kinks for $\operatorname{Im}\xi=\frac\pi2$, antikinks for $\operatorname{Im}\xi=-\frac\pi2$, complex solutions otherwise.
 :::
 
-::: {#prp-bianchi}
-**[Draft]** To be written.
+::: {.proof}
+(1) Apply $\partial_-$ to the first equation and use the second, and apply $\partial_+$ to the second and use the first. This gives $\partial_+\partial_-(\phi\mp\psi)=-\frac{2m_0^2}{\beta_{\rm SG}}\cos\frac{\beta_{\rm SG}(\phi\pm\psi)}2\sin\frac{\beta_{\rm SG}(\phi\mp\psi)}2$, whose sum and difference are the field equations for $\phi$ and $\psi$. (2) Put $\psi=\frac4{\beta_{\rm SG}}\arctan Y$. Then $\partial\psi=\frac2{\beta_{\rm SG}}\sin\frac{\beta_{\rm SG}\psi}2\,\partial\ln Y$, and (-@eq-sg-backlund) with $\phi=0$ becomes $\partial_+\ln Y=-am_0$, $\partial_-\ln Y=m_0/a$. For $a=-e^{-\theta}$ the solution is $\ln Y=m_0(x\cosh\theta-t\sinh\theta)+c$, and $E=iY$ gives the Hirota form. (1) was checked symbolically and (2) numerically for complex $\xi$ (`textbook_code/defect_classical_sg.py`).
 :::
+
+So the Bäcklund parameter is a rapidity in disguise, $a(\theta)=-e^{-\theta}$; a positive $a$ corresponds to $\theta+i\pi$ and gives an antisoliton on the vacuum $2\pi/\beta_{\rm SG}$ (@exr-sgd-backlund-vacuum). Applying two transformations in either order gives the same result.
+
+::: {#prp-bianchi}
+**[Established]** Let $\phi_1=\mathfrak B_{a_1}\phi_0$ and $\phi_2=\mathfrak B_{a_2}\phi_0$. Then $\phi_{12}$ defined by
+$$
+\tan\frac{\beta_{\rm SG}(\phi_{12}-\phi_0)}4=\frac{a_1+a_2}{a_1-a_2}\,\tan\frac{\beta_{\rm SG}(\phi_1-\phi_2)}4
+$$ {#eq-sgd-bianchi}
+satisfies $\phi_{12}=\mathfrak B_{a_2}\phi_1=\mathfrak B_{a_1}\phi_2$. For $\phi_0=0$ and $a_k=-e^{-\theta_k}$ it is the two-soliton solution (-@eq-n-soliton) with $h=2$ and interaction coefficient
+$$
+A_{11}(\theta_1-\theta_2)=\Big(\frac{a_1-a_2}{a_1+a_2}\Big)^2=\tanh^2\frac{\theta_1-\theta_2}2 ,
+$$
+the case $a=b=1$, $h=2$ of (-@eq-interaction-coefficient).
+:::
+
+::: {.proof}
+Adding the $\partial_+$ equations along the two paths $\phi_0\to\phi_1\to\phi_{12}$ and $\phi_0\to\phi_2\to\phi_{12}$ gives two expressions for $\partial_+(\phi_0-\phi_{12})$; equating them eliminates all derivatives and leaves $a_1\sin(X+Y)=a_2\sin(X-Y)$ with $X=\frac{\beta_{\rm SG}}4(\phi_0-\phi_{12})$, $Y=\frac{\beta_{\rm SG}}4(\phi_1-\phi_2)$, which is (-@eq-sgd-bianchi). The $\partial_-$ equations give the same relation. That the $\phi_{12}$ so defined satisfies all four first-order equations is Bianchi's permutability theorem; we checked it numerically. With $\phi_0=0$, $\phi_k=\frac4{\beta_{\rm SG}}\arctan Y_k$ and $t=\tanh\frac{\theta_1-\theta_2}2$, (-@eq-sgd-bianchi) reads $\tan\frac{\beta_{\rm SG}\phi_{12}}4=(X_1+X_2)/(1-t^2X_1X_2)$ with $X_1=-Y_1/t$, $X_2=Y_2/t$, which is (-@eq-n-soliton) with $E_k=iX_k$ (@exr-sgd-bianchi). (`textbook_code/defect_classical_sg.py`)
+:::
+
+The two-soliton coefficient is thus the inverse square of the **Bianchi coefficient** $(a_1+a_2)/(a_1-a_2)$. We meet this coefficient again in the delay of a soliton at a defect.
 
 ## The jump defect as a frozen Bäcklund transformation {#sec-sg-defect-lagrangian}
 
+Bowcock, Corrigan and Zambon asked which local terms at $x=0$ leave the theory integrable, allowing the field to jump there [@bcz2004]. The answer is the $a_1$ case of (-@eq-defect-action):
+
 $$
-\text{(to be written)}
+S=\int dt\,\Big\{\int_{-\infty}^0\mathcal L(\phi)\,dx+\int_0^\infty\mathcal L(\psi)\,dx+\Big[\mathsf D\,\phi\,\partial_t\psi-\mathcal B_d(\phi,\psi)\Big]_{x=0}\Big\},\qquad\mathsf D=\pm1,
 $$ {#eq-sg-defect-lagrangian}
 
+with $\mathcal L$ the sine-Gordon Lagrangian (-@eq-sg-lagrangian). The kinetic term equals $\frac{\mathsf D}2(\phi\dot\psi-\psi\dot\phi)$, the form of Bowcock, Corrigan and Zambon, up to a total time derivative. The **defect potential** of type I$_-$ ($\mathsf D=1$), with the defect parameter $\sigma=e^{-\theta_d}$, is
+
 $$
-\text{(to be written)}
+\mathcal B_d=-\frac{2m_0}{\beta_{\rm SG}^2}\Big[\sigma\Big(\cos\frac{\beta_{\rm SG}(\phi+\psi)}2-1\Big)+\sigma^{-1}\Big(\cos\frac{\beta_{\rm SG}(\phi-\psi)}2-1\Big)\Big],
 $$ {#eq-sg-defect-potential}
 
+and type I$_+$ ($\mathsf D=-1$) has $\sigma$ and $\sigma^{-1}$ exchanged. For sinh-Gordon theory replace $\beta_{\rm SG}$ by $i\beta_{\rm SG}$, which turns the cosines into hyperbolic cosines and the prefactor into $+2m_0/\beta_{\rm SG}^2$. Like the boundary potential (-@eq-bsg-boundary), $\mathcal B_d$ has twice the period of the bulk potential. Varying the action, with bulk boundary terms $-\phi_x\delta\phi$ from $x<0$ and $+\psi_x\delta\psi$ from $x>0$, gives the **defect conditions**
+
 $$
-\text{(to be written)}
+\partial_x\phi=\mathsf D\,\partial_t\psi-\frac{\partial\mathcal B_d}{\partial\phi},\qquad
+\partial_x\psi=\mathsf D\,\partial_t\phi+\frac{\partial\mathcal B_d}{\partial\psi}\qquad\text{at }x=0 .
 $$ {#eq-sg-defect-conditions}
 
+For type I$_-$ their sum and difference are
+$$
+\partial_+(\phi-\psi)=-\frac{2\sigma m_0}{\beta_{\rm SG}}\sin\frac{\beta_{\rm SG}(\phi+\psi)}2,\qquad\partial_-(\phi+\psi)=\frac{2m_0}{\sigma\beta_{\rm SG}}\sin\frac{\beta_{\rm SG}(\phi-\psi)}2 ,
+$$
+the Bäcklund transformation (-@eq-sg-backlund) with $a=-\sigma=a(\theta_d)$, imposed only at $x=0$. This is why $\theta_d$ is called the **defect rapidity**. For $a_1$ the two types are related by a field redefinition: $\mathcal B_d^{\rm I_+}(\phi,\psi)=\mathcal B_d^{\rm I_-}(\phi,-\psi)$, and the kinetic term changes sign under $\psi\to-\psi$, so type I$_+$ is type I$_-$ followed by $\psi\to-\psi$, a symmetry of the bulk. We therefore mostly discuss type I$_-$. (All checked in `textbook_code/defect_classical_sg.py`.)
+
 ::: {#prp-sg-defect-classification}
-**[Draft]** To be written.
+**[Established]** Consider two scalar fields with potentials $V_1(\phi)$ on $x<0$ and $V_2(\psi)$ on $x>0$, coupled by the kinetic term of (-@eq-sg-defect-lagrangian) with $\mathsf D=1$ and a potential $\mathcal B(\phi,\psi)$. If a modified charge of spin 3 is conserved, then either both fields are free with equal masses and $\mathcal B$ is quadratic, or $V_k=A_ke^{2\lambda_0\phi_k}+B_ke^{-2\lambda_0\phi_k}$ with a common $\lambda_0$ and
+$$
+\mathcal B=a\,e^{\lambda_0(\phi+\psi)}+b\,e^{\lambda_0(\phi-\psi)}+c\,e^{-\lambda_0(\phi-\psi)}+d\,e^{-\lambda_0(\phi+\psi)},
+$$
+with $A_1=2\lambda_0^2ab$, $A_2=2\lambda_0^2ac$, $B_1=2\lambda_0^2cd$, $B_2=2\lambda_0^2bd$ [@bcz2004, eqs. (2.6)–(2.11)]. The possibilities are free massless fields, Liouville fields, a free massless field next to a Liouville field, and sinh-Gordon on both sides. In the last case, after shifting the fields, $\mathcal B$ is (-@eq-sg-defect-potential) continued to real coupling, with $\lambda_0=\beta_{\rm SG}/2$ and a single free parameter $\sigma$ [@bcz2004, eq. (2.13)]. Sine-Gordon theory follows by continuation.
 :::
 
+The proof is the boundary argument of Ghoshal and Zamolodchikov [@gz1994]: the time derivative of the spin-3 charge is a boundary term at $x=0$, and requiring it to be a total time derivative gives the differential conditions (2.6)–(2.9) of [@bcz2004], whose solutions are listed above. We checked that (-@eq-sg-defect-potential) satisfies them. The same potentials follow from the requirement that a modified momentum be conserved, which imposes $\partial_\phi^2\mathcal B=\partial_\psi^2\mathcal B$ and $\frac12(\partial_\phi\mathcal B)^2-\frac12(\partial_\psi\mathcal B)^2=V_1(\phi)-V_2(\psi)$ [@bcz2004b, eqs. (2.4)–(2.5)]. Corrigan and Zambon turned this into a general argument for affine Toda theory, which is the subject of @sec-defect-momentum [@cz2009a]. Unlike a boundary, which has two parameters (@sec-bsg-classical), the defect has one.
+
 ::: {#prp-sg-defect-momentum}
-**[Draft]** To be written.
+**[Established; numerically checked]** With $E$ and $P=-\int\phi_t\phi_x\,dx-\int\psi_t\psi_x\,dx$ the bulk energy and momentum of both fields, $E+\mathcal B_d$ and $P+P_d$ are conserved, where for type I$_-$
+$$
+P_d=\frac{2m_0}{\beta_{\rm SG}^2}\Big[\sigma\Big(\cos\frac{\beta_{\rm SG}(\phi+\psi)}2-1\Big)-\sigma^{-1}\Big(\cos\frac{\beta_{\rm SG}(\phi-\psi)}2-1\Big)\Big]
+$$
+at $x=0$, and $P_d^{\rm I_+}(\sigma)=-P_d^{\rm I_-}(1/\sigma)$. In light-cone form, $E+P$ acquires $-\frac{4m_0}{\sigma\beta_{\rm SG}^2}\big(\cos\frac{\beta_{\rm SG}(\phi-\psi)}2-1\big)$ and $E-P$ acquires $-\frac{4\sigma m_0}{\beta_{\rm SG}^2}\big(\cos\frac{\beta_{\rm SG}(\phi+\psi)}2-1\big)$. A static jump $\psi-\phi=2\pi/\beta_{\rm SG}$ carries $\mathcal B_d=M\cosh\theta_d$ and $P_d=M\sinh\theta_d$.
 :::
+
+::: {.proof}
+$dE/dt=[\phi_t\phi_x-\psi_t\psi_x]_{x=0}$, and the defect conditions make this $-d\mathcal B_d/dt$, because the kinetic terms cancel. For the momentum, $dP/dt=[\frac12(\psi_t^2+\psi_x^2)-V(\psi)-\frac12(\phi_t^2+\phi_x^2)+V(\phi)]_{x=0}$. The terms quadratic in time derivatives cancel, the terms linear in them combine into $-dP_d/dt$ because $\partial_\phi\mathcal B_d=-\partial_\psi P_d$ and $\partial_\psi\mathcal B_d=-\partial_\phi P_d$, and the rest vanishes by $\frac12(\partial_\phi\mathcal B_d)^2-\frac12(\partial_\psi\mathcal B_d)^2=V(\phi)-V(\psi)$. We checked these identities symbolically, and conservation along soliton solutions to relative accuracy $5\times10^{-16}$ (`textbook_code/defect_classical_sg.py`) [@bcz2004; @bcz2005].
+:::
+
+**Boosts.** $E+P$ has spin $+1$ and scales as $e^\vartheta$ under a boost by $\vartheta$. Its defect term is proportional to $\sigma^{-1}=e^{\theta_d}$, so a boost is compensated by $\theta_d\to\theta_d+\vartheta$, and the same holds for $E-P$. Bowcock, Corrigan and Zambon made this precise: a defect moving with rapidity $\chi$ has the energy and momentum of a defect at rest whose parameter is boosted by $\chi$ [@bcz2005, eqs. (6.19)–(6.26)]. The stored energy and momentum of a jump, $M(\cosh\theta_d,\sinh\theta_d)$, are those of a soliton of rapidity $\theta_d$.
+
+**Reality.** The antilinear map $\Theta:(\phi,\psi)\mapsto(-\bar\phi,-\bar\psi)$ of @sec-theta-classical maps solutions of the defect theory to solutions if and only if $\sigma$ is real: $\overline{\mathcal B_d(\phi,\psi)}=\mathcal B_d(-\bar\phi,-\bar\psi)$ holds for all complex fields exactly when $\bar\sigma=\sigma$, as for the boundary parameters of @prp-boundary-theta. Real $\sigma$ means $\theta_d\in\mathbb R+i\pi\mathbb Z$. For complex $\sigma$ the $\Theta$-image of a soliton passing the defect violates the defect conditions (`textbook_code/defect_classical_sg.py`). @sec-defect-theta treats $a_r^{(1)}$.
 
 ## Solitons meeting a defect {#sec-sg-defect-solitons}
 
+Send the soliton of @prp-sg-backlund, with any complex $\xi$, towards the defect from the left, and look for a solution in which the field on the right is the same soliton with $E$ replaced by $zE$. The defect conditions hold for all $t$ exactly when
+
 $$
-\text{(to be written)}
+z_{\rm I_-}(\theta)=\frac{e^{-\theta}+\sigma}{e^{-\theta}-\sigma}=-\coth\frac{\theta-\theta_d}2,\qquad z_{\rm I_+}(\theta)=-z_{\rm I_-}(\theta).
 $$ {#eq-sg-delay}
 
+In terms of the Bäcklund parameters, $z_{\rm I_-}=(a(\theta)+a(\theta_d))/(a(\theta)-a(\theta_d))$: the delay is the Bianchi coefficient of (-@eq-sgd-bianchi) for the soliton's parameter $a(\theta)$ and the defect's parameter $a(\theta_d)$.
+
 ::: {#prp-sg-delay}
-**[Draft]** To be written.
+**[Established; numerically checked]** For the type-I$_-$ defect:
+
+1. A soliton of rapidity $\theta\ne\theta_d$ emerges with $E\to z_{\rm I_-}(\theta)E$. Since $|z|>1$ it is always delayed, by $\Delta x=-\ln|z|/(m_0\cosh\theta)$. For $\theta<\theta_d$ it keeps its character; for $\theta>\theta_d$, $z<0$ and it emerges as an antisoliton. If $\theta_d<0$ every soliton arriving from the left is converted. Type I$_+$ converts for $\theta<\theta_d$ instead.
+2. At $\theta=\theta_d>0$ the soliton is absorbed: $(\phi,\psi)=(\text{soliton},2\pi/\beta_{\rm SG})$ solves the defect conditions, and the defect is left with a jump that stores the soliton's energy and momentum (@prp-sg-defect-momentum). The configurations $(\text{soliton},2\pi/\beta_{\rm SG})$ and $(0,\text{soliton})$ with $\theta=\theta_d$ of either sign describe absorption from one side and emission to the other; the absorbed or emitted soliton always moves in the direction of $\operatorname{sign}\theta_d$, as conservation of $P+P_d$ with $P_d=M\sinh\theta_d$ requires.
+3. Several solitons pass independently: in a multi-soliton solution each $E_k$ is multiplied by $z(\theta_k)$.
 :::
 
-::: {#prp-half-soliton}
-**[Draft]** To be written.
+::: {.proof}
+Substituting the Hirota forms into (-@eq-sg-defect-conditions) and clearing denominators gives a polynomial identity in $E$ that fixes $z$. We found $z$ by root-finding, checked the conditions at several times and rapidities, for complex $\xi$, both types, the absorption and emission configurations for $\theta_d=0.4$ and $-0.5$, and a two-soliton solution with one soliton on each side of $\theta_d$, with residuals below $10^{-14}$ (`textbook_code/defect_classical_sg.py`) [@bcz2004, eq. (3.6)] [@bcz2005, eq. (2.7)] [@cz2004, eqs. (2.5)–(2.9)].
 :::
+
+**The energy budget.** When a soliton passes, the jump changes by $0$ or $4\pi/\beta_{\rm SG}$, a change of topological charge by two units when the soliton is converted, and $\mathcal B_d$ returns to its initial value: the defect stores nothing. An absorbed soliton changes the jump by $2\pi/\beta_{\rm SG}$ and is stored as $M(\cosh\theta_d,\sinh\theta_d)$. Conversely, a defect carrying an odd jump can emit a soliton of rapidity $\theta_d$, but the classical equations do not say when: the position constant of the emitted soliton is free, and the defect resembles an excited atom [@bcz2005, Sec. 2]. A defect without a jump cannot emit, since it would have to end with a jump and so with more energy [@bcz2005, eqs. (2.11)–(2.12)]. The quantum counterpart is the resonance of @sec-sg-defect-spectrum. Corrigan and Zambon used these rules to build logic gates from solitons and defects: a defect with $\theta_d<0$ converts every soliton and is a NOT gate, and combinations of defects and solitons realize XOR and NAND gates [@cz2004].
+
+**Time delays and phases.** By Wigner's relation, as in @sec-multi-solitons, the delay corresponds to a phase $e^{i\delta(\theta)}$ of the dominant transmission amplitude with $d\delta/d\theta=p\,\Delta t=\frac{8}{\beta_{\rm SG}^2}\ln|z(\theta)|$ at leading order. This is a semiclassical test of the quantum transmission matrix, carried out in @sec-sg-transmission-matrix.
+
+**Half a soliton.** Bowcock, Corrigan and Zambon remarked that the defect behaves like "half a soliton" [@bcz2005, Sec. 2]. Before checking, we stated what we would test: whether some power of $z$ equals the soliton interaction coefficient $A_{11}(\theta-\theta_d)$ of @prp-bianchi, and whether the defect energy lies on a mass shell. Under $\psi\to\psi+2\pi/\beta_{\rm SG}$ both cosines in $\mathcal B_d$ change sign, so a defect with an odd jump (the **odd sector**) behaves as one with $\sigma\to-\sigma$, that is $\theta_d\to\theta_d+i\pi$, and its delay is $z_{\rm odd}=1/z_{\rm I_-}=-\tanh\frac{\theta-\theta_d}2$.
+
+::: {#prp-half-soliton}
+**[Proposition, sketch]** Add to $\mathcal B_d$ and $P_d$ the constants $-\frac M2(\cosh\theta_d,\sinh\theta_d)$, as Bowcock, Corrigan and Zambon do [@bcz2005, eq. (2.3)]. Then:
+
+1. A defect without a jump carries $(E,P)=\frac M2(\cosh,\sinh)(\theta_d+i\pi)$ and a defect with an odd jump carries $\frac M2(\cosh,\sinh)(\theta_d)$: both lie on the mass shell of mass $M/2$.
+2. $z_{\rm odd}(\theta)^2=A_{11}(\theta-\theta_d)$ and $z_{\rm I_-}(\theta)^2=A_{11}(\theta-\theta_d-i\pi)=1/A_{11}(\theta-\theta_d)$. So two odd defects shift a passing soliton exactly as a soliton of rapidity $\theta_d$ does, taking $E$ on the left to $A_{11}E$ on the right, and two defects without jumps shift it as a soliton of rapidity $\theta_d+i\pi$ would.
+3. For linear waves (@sec-sg-defect-linear), $\mathbb T^{\rm cl}_{\rm odd}(\theta)^2=f_{1/2}(\theta-\theta_d)=\frac{\sinh(\theta-\theta_d)+i}{\sinh(\theta-\theta_d)-i}$, the classical limit of the soliton–$B_1$ amplitude. In the quantum theory the lightest-breather factors of @prp-sg-breather-transmission, written $\mathbb T_{B_1}(\theta;\theta_d)$, satisfy $\mathbb T_{B_1}(\theta;\vartheta+i\pi+\frac{i\xi}2)\,\mathbb T_{B_1}(\theta;\vartheta-i\pi-\frac{i\xi}2)=S_{sB_1}(\theta-\vartheta)=\frac{\sinh(\theta-\vartheta)+i\cos\frac\xi2}{\sinh(\theta-\vartheta)-i\cos\frac\xi2}$, the amplitude for a soliton passing $B_1$, with $\xi=\pi/\lambda$ [@cz2010, Sec. 4].
+4. A single defect is not a soliton: $z_{\rm odd}$ is a signed square root of $A_{11}$, and its sign converts solitons into antisolitons, which a soliton never does; and absorption at $\theta=\theta_d$ has no counterpart in soliton scattering.
+:::
+
+::: {.proof}
+Items 1 and 2 are evaluations of $\mathcal B_d$, $P_d$ and $z$ and the identity $\tanh^2\frac{\theta-i\pi}2=\coth^2\frac\theta2$. Item 3 uses $\mathbb T^{\rm cl}_{\rm odd}(\theta)=\mathbb T^{\rm cl}(\theta;\theta_d+i\pi)$ and the product of two blocks. We checked the odd-sector delay against the defect conditions, the identities numerically, and the quantum product against the soliton–$B_1$ amplitude computed by the bulk bootstrap from (-@eq-sg-smatrix) and (-@eq-sg-s0) (`textbook_code/defect_classical_sg.py`, `textbook_code/defect_sg_transmission.py`).
+:::
+
+The outcome of the test is therefore a qualified yes. The remark is exact in a squared sense: a pair of odd defects is a soliton as far as passing solitons and linear waves are concerned, and a pair of defects without jumps is a soliton continued to $\theta_d+i\pi$, with negative energy. Bowcock, Corrigan and Zambon compared a pair of identical defects with a soliton of rapidity $\theta_d$ that overtakes the passing soliton. The passing soliton is then indeed displaced by the factor $1/A_{11}=\coth^2\frac{\theta-\theta_d}2$ from before to after the collision, but it moves from the right of the other soliton to its left, while it crosses the defects from left to right. As maps from the left side to the right side the two factors are $\coth^2$ and $\tanh^2$, inverse to each other. Quantum mechanically the pair must be placed at the complex rapidities $\vartheta\pm i(\pi+\frac\xi2)$ to reproduce the soliton–breather amplitude, and Corrigan and Zambon showed that with these parameters the whole odd-label block of the type-II transmission matrix of @sec-type-two is the soliton S-matrix [@cz2010, eqs. (4.1)–(4.6)].
 
 ## Linear waves: pure transmission {#sec-sg-defect-linear}
 
+Linearize (-@eq-sg-defect-conditions) about $\phi=\psi=0$ and send in a plane wave $e^{-i(Et-px)}$ with $E=m_0\cosh\theta$, $p=m_0\sinh\theta$. For type I$_-$ there is no reflected wave, and the transmitted amplitude is
+
 $$
-\text{(to be written)}
+\mathbb T^{\rm cl}(\theta)=-i\,\frac{\sinh\big(\frac{\theta-\theta_d}2-\frac{i\pi}4\big)}{\sinh\big(\frac{\theta-\theta_d}2+\frac{i\pi}4\big)}=\frac{\sinh\theta_d+i\cosh\theta}{\cosh\theta_d-i\sinh\theta},\qquad R=0,
 $$ {#eq-shg-linear-transmission}
+
+for sinh-Gordon theory and for the sine-Gordon vacua with an even jump [@bcz2004, eq. (3.1)] [@bcz2005, eq. (2.9)]. Here $|\mathbb T^{\rm cl}|=1$, $\mathbb T^{\rm cl}(\theta_d)=i$, and $\mathbb T^{\rm cl}\to1$ as $\theta_d\to+\infty$, when the defect disappears. About the odd vacua $(\phi,\psi)=(0,2\pi/\beta_{\rm SG})$, $\mathbb T^{\rm cl}_{\rm odd}=\overline{\mathbb T^{\rm cl}}$, which is $\mathbb T^{\rm cl}$ with $\theta_d\to\theta_d+i\pi$. Type I$_+$ gives $-\mathbb T^{\rm cl}$, by $\psi\to-\psi$.
+
+A wave of rapidity $-\theta$ arriving from the right is transmitted with $\bar{\mathbb T}^{\rm cl}(\theta)=\mathbb T^{\rm cl}(i\pi-\theta)=i\sinh(\frac{\theta+\theta_d}2-\frac{i\pi}4)/\sinh(\frac{\theta+\theta_d}2+\frac{i\pi}4)$, a function of $\theta+\theta_d$ as in @sec-defect-kinematics. So $\mathbb T^{\rm cl}(\theta)\bar{\mathbb T}^{\rm cl}(-\theta)=\mathbb T^{\rm cl}(\theta)\mathbb T^{\rm cl}(\theta+i\pi)=1$, which is defect unitarity (-@eq-defect-unitarity) and crossing (-@eq-defect-crossing) for a self-conjugate particle, while $\mathbb T^{\rm cl}(\theta)\mathbb T^{\rm cl}(-\theta)\ne1$: the defect is not parity invariant [@bcz2005, eq. (2.10)]. All of this was checked symbolically (`textbook_code/defect_classical_sg.py`). $\mathbb T^{\rm cl}$ has a pole at $\theta=\theta_d-\frac{i\pi}2$ and a zero at $\theta_d+\frac{i\pi}2$, neither in the physical strip for real $\theta_d$: a linear wave has no bound state at the defect. It is a defect CDD factor in the sense of @sec-defect-unitarity-crossing, and its square is a bulk CDD factor (@exr-defect-cdd).
 
 ## Type-II defects and fused pairs {#sec-type-two}
 
+Corrigan and Zambon generalized the jump defect by giving it a degree of freedom of its own [@cz2009b]. Their Lagrangian adds to the type-I terms $\Lambda\,\partial_t(\phi-\psi)-(\phi-\psi)\,\partial_t\Lambda$, with $\Lambda(t)$ a field that lives only at $x=0$ and has no kinetic term of its own, and the defect potential $\mathcal D(\phi,\psi,\Lambda)$ depends on it [@cz2009b, eq. (2.1)]. (We write $\Lambda$ for their $\lambda$, which in this chapter is the coupling.) The defect conditions acquire terms in $\partial_t\Lambda$, and a third condition, $\partial_t\phi=\partial_t\psi+\frac12\partial_\Lambda\mathcal D$, fixes the evolution of $\Lambda$ [@cz2009b, eqs. (2.2)–(2.4)]. A modified momentum is conserved if $\mathcal D$ is a sum $f+g$, with $f$ depending on $\phi-\psi$ and $\frac{\phi+\psi}2-\Lambda$ and $g$ on $\phi-\psi$ and $\Lambda$, subject to one Poisson-bracket condition in which $\Lambda$ and $\phi-\psi$ act as conjugate variables; it replaces $\frac12(\partial_\phi\mathcal B)^2-\frac12(\partial_\psi\mathcal B)^2=V(\phi)-V(\psi)$ [@cz2009b, eqs. (2.10)–(2.13)]. For sine-Gordon theory the solution has two parameters, the defect rapidity $\theta_d$ and $\tau$ [@cz2009b, eq. (3.2)]; in that paper $\sigma=e^{+\theta_d}$, unlike in the others.
+
+A soliton passing a type-II defect is delayed by the product of the delays of two type-I defects with rapidities $\theta_d\pm\tau$, in a sector fixed by the initial value of $\Lambda$, and linear waves are transmitted with $\mathbb T^{\rm cl}(\theta;\theta_d+\tau)\,\mathbb T^{\rm cl}(\theta;\theta_d-\tau)$ [@cz2009b, eq. (4.3)] [@cz2010, eq. (2.11)]. The type-II defect is the limit of two type-I defects brought together, with $\Lambda$ the remnant of the field between them, a **fused pair**; it cannot be split again, because the field between the two defects loses its kinetic term in the limit [@cz2010, Sec. 2]. Its quantum transmission matrix acts on a single topological-charge label, has a resonance pole for each of the two rapidities $\theta_d\pm\tau$, and its lightest-breather factor is the product of two type-I factors [@cz2010, eqs. (3.9)–(3.19)]. We have not re-derived the type-II results; @sec-type-two-atft takes them up for affine Toda theory, where type-II defects exist beyond $a_r^{(1)}$ [@cz2009b; @cz2011].
+
 ## The quantum transmission matrix {#sec-sg-transmission-matrix}
 
+The solitons form the spin-$\frac12$ evaluation representation $V(\theta)$ of $U_q(\widehat{sl}_2)$ in the Part VI conventions, with $q=-e^{-i\pi\lambda}$ (-@eq-q-physical), $y=e^{\lambda\theta}$ and $v_+$ the soliton, and the bulk S-matrix is $S_0\check R$, with $S_0$ of (-@eq-sg-s0) and the six-vertex $\check R$ of @sec-six-vertex in the Part VI conventions. The defect carries a topological charge, the jump $\frac{\beta_{\rm SG}}{2\pi}(\psi(0)-\phi(0))$, so its states are labelled by an integer. Write $\mathcal W$ for the space with basis $|n\rangle$, $n\in\mathbb Z$, the defect of charge $2n+s$; the **even sector** $s=0$ consists of the jumps by multiples of $4\pi/\beta_{\rm SG}$, which store no energy. With $Y=e^{\lambda(\theta-\theta_d)}$ the transmission matrix $\mathbb T(\theta):V(\theta)\otimes\mathcal W\to\mathcal W\otimes V(\theta)$ is
+
 $$
-\text{(to be written)}
+\begin{aligned}
+\mathbb T(\theta)\,(v_+\otimes|n\rangle)&=\Phi(\theta-\theta_d)\,q^{-n}\big(|n\rangle\otimes v_+-iY\,|n+1\rangle\otimes v_-\big),\\
+\mathbb T(\theta)\,(v_-\otimes|n\rangle)&=\Phi(\theta-\theta_d)\,q^{n+s}\big(-iY\,|n-1\rangle\otimes v_++|n\rangle\otimes v_-\big),
+\end{aligned}
 $$ {#eq-sg-transmission-matrix}
 
+and in the even sector the scalar factor is the minimal solution of Konik and LeClair, in the form of Bowcock, Corrigan and Zambon [@konik_leclair1999, eqs. (5.25)–(5.26)] [@bcz2005, eqs. (3.43)–(3.44)],
+
+$$
+\Phi(\theta)=\frac{e^{i\pi(1+\lambda)/4}}{1+ie^{\lambda\theta}}\,\frac{r(\theta)}{\bar r(\theta)},\qquad
+r(\theta)=\prod_{k\ge0}\frac{\Gamma\big(k\lambda+\frac14-\frac{i\lambda\theta}{2\pi}\big)\,\Gamma\big((k+1)\lambda+\frac34-\frac{i\lambda\theta}{2\pi}\big)}{\Gamma\big((k+\frac12)\lambda+\frac14-\frac{i\lambda\theta}{2\pi}\big)\,\Gamma\big((k+\frac12)\lambda+\frac34-\frac{i\lambda\theta}{2\pi}\big)},
+$$ {#eq-sgd-scalar}
+
+where $\bar r$ is $r$ with $i$ replaced by $-i$. It satisfies
+
+$$
+|\Phi(\theta)|^2\big(1+e^{2\lambda\theta}\big)=1\quad(\theta\in\mathbb R),\qquad\Phi(\theta)\,\Phi(\theta+i\pi)\big(1+e^{2\lambda\theta}\big)=1 .
+$$
+
+A soliton crossing the defect keeps its character with amplitude $\propto q^{\mp n}$ and changes it, with the defect charge changing by two, with amplitude $\propto Y$. So conversion dominates for $\theta>\theta_d$ and is suppressed for $\theta<\theta_d$, exactly as for the classical type-I$_-$ defect. The phases $q^{\mp n}$ come from the kinetic term $\phi\,\partial_t\psi$: in a path integral it contributes a phase proportional to the change of the fields at $x=0$, weighted by the defect charge [@bcz2005, eqs. (3.52)–(3.56)].
+
+**As an intertwiner.** Let $U_q(\mathfrak b^-)\subset U_q(\widehat{sl}_2)$ be generated by $f_0,f_1,k_0^{\pm1},k_1^{\pm1}$, and let it act on $\mathcal W$ by $k_1|n\rangle=q^{2n+s}|n\rangle$, $k_0=k_1^{-1}$, $f_1|n\rangle=\frac\mu{y_d}|n-1\rangle$, $f_0|n\rangle=\frac\mu{y_d}|n+1\rangle$, with $y_d=e^{\lambda\theta_d}$ and $\mu=i/(q-q^{-1})$. This is a Weyl module of the Borel subalgebra (-@eq-weyl-module); $f_0f_1$ acts as a scalar, so the $q$-Serre relations hold. The matrix part of (-@eq-sg-transmission-matrix) is, up to a scalar, the unique map $V(\theta)\otimes\mathcal W\to\mathcal W\otimes V(\theta)$ that intertwines the coproduct of $U_q(\mathfrak b^-)$, and uniqueness implies the triangle relation (-@eq-triangle-braid), as uniqueness of $\check R$ implies the Yang–Baxter equation. @sec-t-intertwiner develops this (@prp-sg-t-unique, @thm-t-triangle). The other Borel subalgebra $U_q(\mathfrak b^+)$ gives the time-reversed defect of type I$_+$, which converts solitons for $\theta<\theta_d$ (@prp-two-borels). Weston identified the type-I matrix with an L-operator on a $q$-oscillator representation of a Borel subalgebra, and the type-II matrix with an L-operator on a generalized oscillator representation [@weston2010, eqs. (4.15)–(4.16)].
+
+**Dictionary.** Bowcock, Corrigan and Zambon use the conventions of Konik and LeClair, with $\gamma=\lambda$, $q_{\rm BCZ}=e^{i\pi\gamma}=-1/q$, $x=y$, the defect label $\alpha=2n$, and defect parameter $\eta=\theta_d$. Their symmetric form [@bcz2005, eq. (3.51)] equals (-@eq-sg-transmission-matrix) up to a diagonal change of basis on $\mathcal W$, with their constant $\nu=q^s$ and their scalar factor $f(q,x)=\Phi$ for $s=0$. Konik and LeClair's parameter $\nu$, which they left as an unknown function of the defect coupling, corresponds to $-\lambda\theta_d$: the ratio of their converting and non-converting amplitudes is $e^{\gamma\theta+\nu}$ [@konik_leclair1999, eqs. (5.21), (5.25)], that of (-@eq-sg-transmission-matrix) is $Y$ in modulus.
+
+**The sign of $q$.** As for the boundary (@sec-bsg-k-matrix), the triangle relations cannot fix the sign of $q$: the Borel intertwiners built at $-q$ satisfy them with $\check R(-q)$ (@sec-triangle-relations). Unitarity cannot either, since the matrix part is unitary at both signs. Crossing can. Define $\bar{\mathbb T}(\theta)=\mathbb T(-\theta)^{-1}$ by defect unitarity (-@eq-defect-unitarity) and impose (-@eq-defect-crossing) with the charge conjugation $s\leftrightarrow\bar s$. At $q=-e^{-i\pi\lambda}$, since $y(\theta+i\pi)=-y(\theta)/q$, the four matrix entries of crossing reduce to the single scalar condition $\Phi(\theta)\Phi(\theta+i\pi)(1+Y^2)=q^{-s}$. At $-q$ the off-diagonal entries require the opposite sign from the diagonal ones, and no scalar factor satisfies both; crossing is restored only with the conjugation $\big(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\big)$ of the bulk amplitude with crossing sign $\kappa=-1$ of @sec-crossing-sign.
+
 ::: {#prp-sg-transmission}
-**[Draft]** To be written.
+**[Established; Numerical re-derivation]** (1) For all $\theta_d$ and $s$, the matrix part of (-@eq-sg-transmission-matrix) satisfies the triangle relation (-@eq-triangle-braid) with the book's $\check R$, is the unique $U_q(\mathfrak b^-)$ intertwiner up to a scalar, and equals [@bcz2005, eq. (3.51)] up to a diagonal change of basis. (2) With $\Phi$ of (-@eq-sgd-scalar), $s=0$ and real $\theta_d$, $\mathbb T(\theta)$ is unitary for real $\theta$ and satisfies defect crossing (-@eq-defect-crossing) with $\bar{\mathbb T}(\theta)=\mathbb T(-\theta)^{-1}$ and the conjugation $s\leftrightarrow\bar s$. (3) At $-q$ crossing fails with this conjugation for every scalar factor and holds with $\big(\begin{smallmatrix}0&1\\-1&0\end{smallmatrix}\big)$. (4) $\Phi$ has a simple pole at $\theta=\theta_d-\frac{i\pi}{2\lambda}$; the pole of $1/(1+iY)$ at $\theta_d+\frac{i\pi}{2\lambda}$ is cancelled by $\bar r$ [@bcz2005, Sec. 4].
 :::
 
+Item (1) is [@konik_leclair1999; @bcz2005], re-derived in `textbook_code/defect_sg_transmission.py` (window $|n|\le5$, equations imposed on $|n|\le3$, residual $10^{-13}$). Items (2)–(4) were checked there numerically, with $\Phi$ evaluated as a Gamma product. Bowcock, Corrigan and Zambon also write the product (-@eq-sgd-scalar) in a compact form [@bcz2005, eqs. (3.42), (3.47)]. Truncated after $K$ factors, that form has a phase that drifts like $-\frac{\lambda(\theta-\theta_d)}\pi\ln K$; the pairing of factors in (-@eq-sgd-scalar) is needed for convergence. For $s\ne0$ the factor $q^{-s/2}\Phi$ satisfies both conditions (@exr-sgd-crossing).
+
+**Semiclassics.** For $\theta<\theta_d$ the dominant amplitude is diagonal and has the phase of $\Phi$; for $\theta>\theta_d$ it is the converting one, with the same phase. As $\beta_{\rm SG}\to0$ we find $\frac\pi{\lambda+1}\frac{d}{d\theta}\arg\Phi(\theta-\theta_d)\to\ln\big|\coth\frac{\theta-\theta_d}2\big|$, with deviations $0.11$, $0.033$ and $0.0087$ at $\lambda=10,40,160$. Since $\frac{\lambda+1}\pi=\frac8{\beta_{\rm SG}^2}$, this is Wigner's relation with the classical delay $|z|$ of (-@eq-sg-delay) (`textbook_code/defect_sg_transmission.py`).
+
+**From the Lagrangian.** Everything above concerns solutions of the scattering axioms. That (-@eq-sg-transmission-matrix) describes the Lagrangian defect (-@eq-sg-defect-lagrangian) is supported by the classical limits (the delay just described, and the breather factor of @sec-sg-breather-transmission), but it has not been derived. In particular the relation between the quantum $\theta_d$ and the parameter $\sigma$ of the Lagrangian is dynamical, as for the boundary (@sec-bsg-parameters). Bowcock, Corrigan and Zambon suggested that they agree [@bcz2005]. For sinh-Gordon theory Bajnok and Simon fixed the relation by fusing the defect onto a boundary (@sec-sg-breather-transmission), assuming the boundary UV–IR relation of @cnj-bsg-uv-ir, and confirmed its first correction in perturbation theory [@bajnok_simon2008, eqs. (17), (23)].
+
 ::: {#cnj-defect-parameter}
-**[Draft]** To be written.
+## The defect UV–IR relation
+**[Conjecture]** The type-I$_-$ defect (-@eq-sg-defect-lagrangian), with its potential normal-ordered as in perturbed conformal field theory, is described by (-@eq-sg-transmission-matrix) in the even sector, and in sinh-Gordon theory its defect rapidity is
+$$
+\theta_d=\Big(1-\frac B2\Big)\theta_d^{\rm cl},\qquad\sigma=e^{-\theta_d^{\rm cl}},
+$$
+with $B$ the sinh-Gordon coupling of (-@eq-sinh-gordon-smatrix). Continued to sine-Gordon theory by $B\to-2/\lambda$, this reads $\lambda\theta_d=(\lambda+1)\theta_d^{\rm cl}$, that is $y_d=\sigma^{-8\pi/\beta_{\rm SG}^2}$.
 :::
+
+Status, stated carefully:
+
+- The relation is Bajnok and Simon's (17), $M e^{\pm b^2\vartheta/8\pi}=M_{\rm cl}e^{\pm\mu}$, rewritten in our variables: their $\mu=-\theta_d^{\rm cl}$, their transmission factor (16) has $B_{\rm BS}\vartheta=-\theta_d$, and their coupling is $B_{\rm BS}=B/2$. Taking the product of the two signs, it also fixes the coefficient $M_{\rm cl}$ of their defect potential to equal the scale $M$ of their boundary UV–IR relation [@bajnok_simon2008, eq. (14)]. It rests on the conjectured UV–IR relation for the boundary, and their one-loop calculation confirms the correction $\theta_d=\theta_d^{\rm cl}(1-b^2/8\pi+\dots)$ [@bajnok_simon2008, eq. (23)]. The naive identification $\theta_d=\theta_d^{\rm cl}$ is therefore ruled out at one loop.
+- The factor $1-\frac B2$ is the one of the Corrigan–Taormina relation $E,F=(a_0\pm a_1)(1-\frac B2)$ for the boundary (@cnj-shg-e). Fusing the classical defect onto a Dirichlet boundary $\psi=\phi_D$ gives $C_{0,1}=\cosh(\theta_d^{\rm cl}\mp\frac{b\phi_D}2)$, with $b$ the sinh-Gordon coupling, and with $C_j=\cos\pi a_j$ that relation gives $\{E,F\}=\{2i(1-\frac B2)\theta_d^{\rm cl}/\pi,\,-i(1-\frac B2)b\phi_D/\pi\}$. Quantum fusion gives $\{E_D,2i\theta_d/\pi\}$ (@sec-sg-breather-transmission), where $E_D=-i(1-\frac B2)b\phi_D/\pi$ is the continuation of the Dirichlet relation (-@eq-bsg-dirichlet). Since (-@eq-shg-reflection) is symmetric in $E$ and $F$, the two conjectures are consistent exactly when $\theta_d=(1-\frac B2)\theta_d^{\rm cl}$ (`textbook_code/defect_sg_transmission.py`).
+- Penati and Polvara computed the quantum conservation laws of the Lagrangian defect in massless perturbation theory [@penati_polvara2019]. Momentum is conserved only if the whole defect potential is multiplied by $\sqrt{1+\gamma/2}$, with $\gamma=\beta^2/2\pi$ in their normalization, $\gamma/2=\beta_{\rm SG}^2/8\pi$ in ours [@penati_polvara2019, eq. (4.12)]. This renormalizes the overall scale of $\mathcal B_d$, not $\sigma$, so it does not contradict the relation above directly; but it is not the scale renormalization of Bajnok and Simon, and the two calculations use different schemes, which have not been compared. More seriously, they found anomalies in the spin-3 charge of the sinh-Gordon defect that no finite renormalization of $\mathcal B_d$ removes, and concluded that the Lagrangian defect may not be quantum integrable as it stands [@penati_polvara2019, Sec. 5]. Bajnok and Simon's one-loop computation sees only the renormalization of $\mu$. How the two findings fit together is open; @sec-defect-open-problems returns to it.
 
 ## Stable defects and resonances {#sec-sg-defect-spectrum}
 
+**The even sector is stable.** For real $\theta_d$, $\Phi$ has no poles in the physical strip $0<\operatorname{Im}\theta<\frac\pi2$ (@sec-defect-bound-states), as the positions of the poles of the Gamma functions in (-@eq-sgd-scalar) show and a numerical scan confirms: the defect without stored energy has no excited states. Its pole nearest to the real axis is at
+$$
+\theta_P=\theta_d-\frac{i\pi}{2\lambda},
+$$
+in the lower half-plane. At $\theta_P$ the matrix part of $\mathbb T$ has rank one in each sector of fixed total charge, so the residue factorizes through a single intermediate state of odd charge [@bcz2005, eqs. (4.6)–(4.7)].
+
+**A resonance.** The energy and momentum of that state, relative to the even defect, are those of a soliton of complex rapidity $\theta_P$ [@bcz2005, eqs. (4.1), (4.3)–(4.4)]:
+$$
+\Delta E=M\cosh\theta_d\cos\frac\pi{2\lambda}-iM\sinh\theta_d\sin\frac\pi{2\lambda},\qquad\Delta E^2-\Delta P^2=M^2 .
+$$
+For $\theta_d>0$, $\operatorname{Im}\Delta E<0$: the state decays. It is the quantum version of the odd defect of @sec-sg-defect-solitons, which stores a soliton of rapidity $\theta_d$ and can emit it at an undetermined time. As $\beta_{\rm SG}\to0$ the width vanishes and $\Delta E\to M\cosh\theta_d$; classically only absorption is left. For $\theta_d<0$ the decaying pole is in $\bar{\mathbb T}(\theta)=\mathbb T(-\theta)^{-1}$ instead, at $\theta=-\theta_d-\frac{i\pi}{2\lambda}$, matching the classical absorption of solitons arriving from the right when $\theta_d<0$ (`textbook_code/defect_sg_transmission.py`).
+
+**The odd sector.** The bootstrap (-@eq-defect-bootstrap) at $\theta_P$ gives the transmission matrix of the odd defect. Take the excited defect to be the image of the residue in $\mathcal W\otimes V(\theta_P)$, the even defect with the absorbed soliton just to its right, and let a soliton cross the defect and then the absorbed soliton: the transmission matrix is $\check R_{23}(\theta-\theta_P)\,\mathbb T_{12}(\theta)$ restricted to this image. Up to a diagonal change of basis and a scalar factor, it has the form (-@eq-sg-transmission-matrix) with $s=1$ and $\theta_d$ replaced by $\theta_d-i\pi$, the quantum counterpart of the classical $\sigma\to-\sigma$ [@bcz2005, eq. (4.15)]. Since this $\theta_d$ is complex, the odd-sector matrix is not unitary for real $\theta$, as befits an unstable state [@bcz2005, Sec. 4]. (Checked in `textbook_code/defect_sg_transmission.py`; restricting $\mathbb T_{23}\check R_{12}$ to the kernel of the residue in $V(\theta_P)\otimes\mathcal W$ instead gives $\theta_d+i\pi$.)
+
+**Stable excited defects.** A pole on the imaginary axis of the physical strip, a stable excited defect, needs a complex defect rapidity. With $\theta_d=iv$ the pole $\theta_P$ lies in the physical strip for $\frac\pi{2\lambda}<v<\frac\pi2+\frac\pi{2\lambda}$. Then $\sigma$ is a phase and $\Theta$ is broken (@sec-sg-defect-lagrangian), as for the Lee–Yang defect, whose defect rapidity is imaginary (@sec-defect-lee-yang). In $a_2^{(1)}$ the analogous pole describes an unstable state only in a window of couplings (@sec-an-defect-bound-states).
+
 ## Breathers and sinh-Gordon {#sec-sg-breather-transmission}
 
+The breather $B_n$ is the $U_q(\widehat{sl}_2)$-invariant vector of $V(\theta-\frac{iu_n}2)\otimes V(\theta+\frac{iu_n}2)$, $u_n=\pi-\frac{n\pi}\lambda$ (@prp-bsg-breather-k). When it crosses the defect, its two constituents cross one after the other, the one nearer the defect first, so the bulk bootstrap of @sec-defect-bound-states gives $(\mathbb T(\theta-\frac{iu_n}2)\otimes1)(1\otimes\mathbb T(\theta+\frac{iu_n}2))$ on the invariant vector. Since the vector is invariant, the result is a scalar on $\mathcal W$.
+
 ::: {#prp-sg-breather-transmission}
-**[Draft]** To be written.
+**[Numerical]** For (-@eq-sg-transmission-matrix) with $s=0$, the lightest breather crosses the defect with a factor independent of the defect state and of the coupling, equal to the classical factor (-@eq-shg-linear-transmission):
+$$
+\mathbb T_{B_1}(\theta)=\mathbb T^{\rm cl}(\theta)=-i\,\frac{\sinh\big(\frac{\theta-\theta_d}2-\frac{i\pi}4\big)}{\sinh\big(\frac{\theta-\theta_d}2+\frac{i\pi}4\big)} .
+$$
+The higher breathers have
+$$
+\mathbb T_{B_n}(\theta)=\prod_{k=1}^n\mathbb T^{\rm cl}\Big(\theta+\frac{i\pi(n+1-2k)}{2\lambda}\Big),
+$$
+which equals [@bcz2005, eqs. (5.10), (5.12)–(5.13)]; for $n=2$ it is $-1/\big((1+\frac1\lambda)(1-\frac1\lambda)\big)$ in the blocks (-@eq-blocks) with $h=2$ and argument $\theta-\theta_d$. Each $\mathbb T_{B_n}$ is a phase for real $\theta$ and satisfies $\mathbb T_{B_n}(\theta)\mathbb T_{B_n}(\theta+i\pi)=1$.
 :::
+
+We derived $\mathbb T_{B_1}$ and $\mathbb T_{B_2}$ from the soliton matrix by the bootstrap at $\lambda=1.37$ and $2.6$ and for three defect states, and compared the product formula with Bowcock, Corrigan and Zambon's expressions for $n\le4$ (`textbook_code/defect_sg_transmission.py`). That $\mathbb T_{B_1}$ does not depend on the coupling is the result of delicate cancellations in the Gamma products, which Bowcock, Corrigan and Zambon found surprising [@bcz2005, eq. (5.7)]. Konik and LeClair obtained breather factors by the same bootstrap and also found them independent of the defect state [@konik_leclair1999, eqs. (5.30)–(5.37)]. $\mathbb T_{B_2}$ has poles at $\theta-\theta_d=-\frac{i\pi}2(1\pm\frac1\lambda)$, outside the physical strip for $\lambda>1$, whose meaning is unclear [@bcz2005, eq. (5.11)]. @sec-breather-transmission asks whether the coupling independence of the lightest breather factor holds for every affine Toda defect (@prp-lightest-breather-universal).
+
+**Sinh-Gordon.** The sinh-Gordon particle is the continuation of $B_1$ (@sec-sg-breather-particle), and $\mathbb T_{B_1}$ does not depend on the coupling, so the sinh-Gordon defect has the transmission factor $\mathbb T_{\rm shG}(\theta)=\mathbb T^{\rm cl}(\theta)$, with $\bar{\mathbb T}_{\rm shG}(\theta)=\mathbb T^{\rm cl}(i\pi-\theta)$. This is the result of Bajnok and Simon, whose parameter is $B_{\rm BS}\vartheta=-\theta_d$ [@bajnok_simon2008, eq. (16)]. It is a pure defect CDD factor without poles in the physical strip, so the sinh-Gordon defect has no bound states (@exr-defect-cdd). Bajnok and Simon also derived the defect energy $\varepsilon_{\rm def}=m\cosh\theta_d/(2\sin\frac{\pi B}2)$, $m$ the particle mass [@bajnok_simon2008, eq. (18)], whose classical limit $\frac{4m_0}{\beta_{\rm SG}^2}\cosh\theta_d$ is the energy of the defect with Bowcock, Corrigan and Zambon's constant, continued to sinh-Gordon theory: half the mass scale of a soliton, again.
+
+**Fusing a defect onto a boundary.** Place the defect in front of a boundary at which $\psi=\phi_D$, and let the boundary approach it. Classically, $\psi$ is then frozen at $\phi_D$, and the defect conditions for $\phi$ become a boundary condition with boundary potential $\mathcal B_d(\phi,\phi_D)$. This is the Ghoshal–Zamolodchikov potential (-@eq-bsg-boundary) with
+$$
+C_0=\cosh\Big(\theta_d+\frac{i\beta_{\rm SG}\phi_D}2\Big),\qquad C_1=\cosh\Big(\theta_d-\frac{i\beta_{\rm SG}\phi_D}2\Big)
+$$
+in the normalization of (-@eq-bsg-c-dictionary): a Dirichlet boundary dressed by a defect is the general integrable boundary. This is Habibullin's observation that two Bäcklund transformations turn a Dirichlet condition into the general one, as reported by Corrigan and Zambon [@cz2012, Sec. 2], and Bajnok and Simon's classical fusion [@bajnok_simon2008, eq. (4)]. Quantum mechanically the dressed reflection factor is $\bar{\mathbb T}(\theta)K_D(\theta)\mathbb T(\theta)$ (@sec-doubling-trick). For sinh-Gordon theory, with the Dirichlet factor $K_D(\theta;E)$ obtained from (-@eq-shg-reflection) by letting $F\to i\infty$,
+$$
+\bar{\mathbb T}_{\rm shG}(\theta)\,K_D(\theta;E)\,\mathbb T_{\rm shG}(\theta)=K_{\rm shG}\Big(\theta;E,F=\frac{2i\theta_d}\pi\Big)
+$$
+exactly (`textbook_code/defect_sg_transmission.py`). The defect rapidity becomes the second boundary parameter, $\vartheta=2\theta_d/B$ in the parametrization of @sec-bsg-k-matrix, and the defect disappears at $\theta_d\to\infty$, where the boundary becomes Dirichlet again. Bajnok and Simon used this identity in reverse: knowing both reflection factors, they solved for the transmission factor [@bajnok_simon2008, Sec. 3]. Fusing the defect onto a Neumann boundary gives a new, time-dependent integrable boundary, whose reflection factor is the Neumann one times a boundary CDD factor [@bajnok_simon2008, eqs. (5), (19)–(20)]. Corrigan and Zambon carried the construction over to soliton reflection matrices that keep track of the topological charge stored at the boundary [@cz2012]. @sec-defect-boundary-fusion develops defect–boundary fusion in general.
 
 ## Exercises {#sec-defect-sine-gordon-exercises}
 
-To be written.
+::: {#exr-sgd-backlund-vacuum}
+Integrate (-@eq-sg-backlund) with $\phi=0$ for general $a$, and show that $\psi=\frac4{\beta_{\rm SG}}\arctan Y$ with $\partial_+\ln Y=-am_0$, $\partial_-\ln Y=m_0/a$. For which $a$ is the soliton at rest? Show that $a=+e^{-\theta}$ gives $\frac{2\pi}{\beta_{\rm SG}}$ minus a soliton of rapidity $\theta$, an antisoliton on the vacuum $\frac{2\pi}{\beta_{\rm SG}}$, and interpret this as $\theta\to\theta+i\pi$.
+:::
+
+::: {#exr-sgd-bianchi}
+Derive (-@eq-sgd-bianchi) from the $\partial_+$ equations of the four Bäcklund transformations, and check that the $\partial_-$ equations give the same relation. With $\phi_0=0$, $\phi_k=\frac4{\beta_{\rm SG}}\arctan Y_k$, show that $\phi_{12}$ is the two-soliton solution (-@eq-n-soliton) with $A_{11}=\tanh^2\frac{\theta_1-\theta_2}2$. What happens when $a_1=a_2$, and when $a_1=-a_2$?
+:::
+
+::: {#exr-sgd-conservation}
+Show from (-@eq-sg-defect-conditions) that $E+\mathcal B_d$ is conserved for any $\mathcal B_d$, and that $P+P_d$ is conserved exactly when $\partial_\phi^2\mathcal B_d=\partial_\psi^2\mathcal B_d$ and $\frac12(\partial_\phi\mathcal B_d)^2-\frac12(\partial_\psi\mathcal B_d)^2=V(\phi)-V(\psi)$. Verify both for (-@eq-sg-defect-potential), and compute the energy and momentum stored in a jump of $2\pi/\beta_{\rm SG}$ and of $4\pi/\beta_{\rm SG}$.
+:::
+
+::: {#exr-sgd-delay}
+Substitute the soliton and the shifted soliton into the light-cone form of (-@eq-sg-defect-conditions) and derive (-@eq-sg-delay). Show that $z_{\rm I_+}=-z_{\rm I_-}$ follows from $\psi\to-\psi$, and that $z_{\rm odd}=1/z_{\rm I_-}$ follows from $\psi\to\psi+2\pi/\beta_{\rm SG}$. Use the Bianchi coefficient to explain why the delay depends only on $\theta-\theta_d$.
+:::
+
+::: {#exr-sgd-linear}
+Linearize (-@eq-sg-defect-conditions) about $\phi=\psi=0$ and derive (-@eq-shg-linear-transmission), including $R=0$. Repeat for a wave arriving from the right, and show that $\bar{\mathbb T}^{\rm cl}(\theta)=\mathbb T^{\rm cl}(i\pi-\theta)$, that $\mathbb T^{\rm cl}(\theta)\bar{\mathbb T}^{\rm cl}(-\theta)=1$, but that $\mathbb T^{\rm cl}(\theta)\mathbb T^{\rm cl}(-\theta)\ne1$. Which combined transformation of $\theta$, $\theta_d$ and the fields is a symmetry?
+:::
+
+::: {#exr-sgd-crossing}
+For the matrix part of (-@eq-sg-transmission-matrix), compute $\mathbb T(\theta)^{-1}$ in each charge sector and write out the four entries of (-@eq-defect-crossing) with the conjugation $s\leftrightarrow\bar s$. Using $y(\theta+i\pi)=-y(\theta)/q$, show that they reduce to $\Phi(\theta)\Phi(\theta+i\pi)(1+Y^2)=q^{-s}$, and that at $-q$ the diagonal and off-diagonal entries demand opposite signs. Show that $q^{-s/2}\Phi$ is unitary and crossing symmetric when $\Phi$ is the $s=0$ factor.
+:::
+
+::: {#exr-sgd-breather}
+Show that the product formula of @prp-sg-breather-transmission satisfies $\mathbb T_{B_n}(\theta)\mathbb T_{B_n}(\theta+i\pi)=1$ and the bulk bootstrap $\mathbb T_{B_{n+1}}(\theta)=\mathbb T_{B_n}(\theta+\frac{i\pi}{2\lambda})\mathbb T_{B_1}(\theta-\frac{i\pi n}{2\lambda})$. Show that $\mathbb T_{B_1}(\theta)^2=1/f_{1/2}(\theta-\theta_d)$, and verify item 3 of @prp-half-soliton by multiplying two blocks.
+:::
+
+::: {#exr-sgd-fusion}
+Show that $\mathcal B_d(\phi,\phi_D)$ is the boundary potential (-@eq-bsg-boundary) with $C_{0,1}=\cosh(\theta_d\pm\frac{i\beta_{\rm SG}\phi_D}2)$. Then show that $\bar{\mathbb T}_{\rm shG}(\theta)\mathbb T_{\rm shG}(\theta)=(\cosh\theta_d+i\sinh\theta)/(\cosh\theta_d-i\sinh\theta)$, and use the identity for $(1-F)(1+F)$ quoted after (-@eq-shg-reflection) to prove the fusion formula with $F=2i\theta_d/\pi$.
+:::
 
 ## Notes and references {#sec-defect-sine-gordon-notes}
 
-To be written.
+Bäcklund transformations of the sine-Gordon equation and the permutability theorem go back to Bäcklund and Bianchi. Bowcock, Corrigan and Zambon introduced the jump defect, derived it from the spin-3 charge, found its conserved momentum, its linear transmission and its effect on solitons [-@bcz2004], and extended it to affine Toda theory [-@bcz2004b]. Corrigan and Zambon studied solitons and gates [-@cz2004], introduced type-II defects [-@cz2009b], and obtained their quantum transmission matrix as a fused pair [-@cz2010]; their energy–momentum argument [-@cz2009a] is the subject of @sec-defect-momentum. Konik and LeClair found the quantum transmission matrix and its minimal scalar factor for chiral defect perturbations [-@konik_leclair1999]; Bowcock, Corrigan and Zambon re-derived it from the triangle relations, identified it with the jump defect, interpreted its pole as an unstable state, computed the breather factors and studied moving defects [-@bcz2005]. Weston placed the transmission matrices in the representation theory of Borel subalgebras [-@weston2010]. Bajnok and Simon solved the sinh-Gordon defect by fusion onto boundaries and computed its parameter renormalization [-@bajnok_simon2008]; Habibullin and Kundu studied the classical and quantum sine-Gordon model with a defect [-@habibullin_kundu2008]; Corrigan and Zambon fused defects onto sine-Gordon boundaries with charge-carrying reflection matrices [-@cz2012]. Penati and Polvara found quantum anomalies in the conservation laws [-@penati_polvara2019]. Caudrelier gave the defect conditions a systematic Lax and multisymplectic formulation [-@caudrelier2008; -@caudrelier2015], and Avan and Doikou an algebraic one [-@avan_doikou2012b]. The test of "half a soliton" in @prp-half-soliton, the identification of the defect delay with the Bianchi coefficient, and the relation between type I$_+$ and type I$_-$ by $\psi\to-\psi$ are stated here.
+
+Corrections and clarifications to the sources made in this chapter:
+
+- The compact Gamma products of Bowcock, Corrigan and Zambon for the scalar factor [-@bcz2005, eqs. (3.42), (3.47)] do not converge as written: truncated after $K$ factors their phase drifts like $-\frac{\gamma\tilde\theta}\pi\ln K$. The Konik–LeClair pairing of the factors, their (3.44) and our (-@eq-sgd-scalar), converges.
+- Bowcock, Corrigan and Zambon state that two identical defects delay a soliton precisely as an overtaking soliton of rapidity $\eta$ would [-@bcz2005, Sec. 2]. This compares displacements from before to after; as maps from the left to the right side, two defects without jumps give $\coth^2\frac{\theta-\theta_d}2$ and a soliton gives $A_{11}=\tanh^2\frac{\theta-\theta_d}2$, the inverse. The exact statements are those of @prp-half-soliton: the pair behaves as a soliton of rapidity $\theta_d+i\pi$, and a pair of odd defects as one of rapidity $\theta_d$.
+- Bajnok and Simon's coupling is half the book's, $B_{\rm BS}=B/2$, and their UV–IR relation (17) is equivalent to $\theta_d=(1-\frac B2)\theta_d^{\rm cl}$.
+- In the defect Lagrangian of Bowcock, Corrigan and Zambon [-@bcz2005, eq. (2.2)] the defect term must enter with $+\delta(x)$ to give their defect conditions (2.4).
+- For non-diagonal scattering, the excited defect of the bootstrap (-@eq-defect-bootstrap) is the image of the residue of $\mathbb T$ in $\mathcal W\otimes V(iu)$, with the absorbed particle to the right of the defect; this reproduces the odd-sector matrix of Bowcock, Corrigan and Zambon [-@bcz2005, eq. (4.15)].
