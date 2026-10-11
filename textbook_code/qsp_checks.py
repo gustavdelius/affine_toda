@@ -30,10 +30,16 @@ B_i = F_i - c_i E_i K_i^-1 + s_i K_i^-1 for the Satake diagram (X, tau) = (empty
     a_n eps = 0 (standard, K = 1), a_n s = +-1 (generalized q-Onsager, s not in S, K exists),
     d_n eps = 0 (standard, K anti-diagonal), d_n +-eps_* (generalized q-Onsager); classical limit
     of B_0: e_j + f_j fixed by theta(X)(y) = -J X(1/y)^T J^-1 (x loop rotation for n even).
+ 6. Referee additions (2026-10-11): the physical Kolb parameter is c_Kolb = -q^-1 (the obstruction of
+    his Remark 5.12 vanishes at s = eps_* for c = -q^-1, not for c = -q); Regelskis-Vlaar (D.2) is
+    eq-an-k-matrix after the gauge diag(X^i) to the homogeneous gradation, with u = s X^(n+1) and
+    q_RV = q^-1 (n = 2, 3, 4, s = +-1); for d_4 at eps = 0 the twisted K: V(y) -> Vbar(1/y) is the
+    identity and the book's anti-diagonal K is the isomorphism Vbar(1/y) = V(1/y); det of
+    eq-an-k-matrix is X^(-N^2/2) (X^N - s(-q)^N)(X^N - s)^(N-1) up to a constant, N = 3, 4 (sympy).
 """
 import numpy as np
 from boundary_common import (report, q_phys, qnum, sl2_spin, an_vector, dn_vector, cartan_a, cartan_d,
-                             cop, coideal_gen, k_intertwiner, nodes_of, _mk)
+                             cop, coideal_gen, k_intertwiner, nodes_of, _mk, intertwiners)
 
 rng = np.random.default_rng(34)
 kron = np.kron
@@ -374,3 +380,58 @@ for n in (2, 3, 4):
         ok &= np.allclose(th, X)
 report('classical limit: theta fixes e_j + f_j (a_2, a_3, a_4; loop rotation y -> -y needed on node 0 for n even)',
        ok)
+
+# ---------------------------------------------------------------- 6. referee additions
+q = q_phys(0.37)
+es2 = 1/((1 - q)*(1 - 1/q))
+kolb_obs = lambda cK, s2: cK - (1/q - 1)**2*s2            # bracket of Kolb's Remark 5.12, s_i^2 = s2
+report(f'physical Kolb parameter: at s^2 = eps_*^2 the obstruction vanishes for c_Kolb = -q^-1 '
+       f'[{abs(kolb_obs(-1/q, es2)):.0e}], not for c_Kolb = -q [{abs(kolb_obs(-q, es2)):.2f}]',
+       abs(kolb_obs(-1/q, es2)) < 1e-12 and abs(kolb_obs(-q, es2)) > 0.1)
+
+m = np.exp(-1j*np.pi*0.37/2)                              # (-q)^(1/2)
+ep = 1/(m + 1/m)
+worst = 0
+for N in (3, 4, 5):
+    for sg in (1, -1):
+        X = m*np.exp(0.3 + 0.7j)
+        K = np.zeros((N, N), complex)
+        for i in range(N):
+            for j in range(N):
+                K[i, j] = (X**(j - i - N/2) if j > i else sg*X**(j - i + N/2) if j < i
+                           else (m*X**(-N/2) - sg*X**(N/2)/m)/(ep*(1/q - q)))
+        Kh = np.diag(X**np.arange(N)) @ K @ np.diag(X**(-np.arange(N)))*X**(N/2)
+        u, a = sg*X**N, 1j*m
+        R = np.array([[(a*u**(i > j) + u**(i >= j)/a)/(1 - u) for j in range(N)] for i in range(N)])
+        c = np.vdot(R.ravel(), Kh.ravel())/np.vdot(R.ravel(), R.ravel())
+        worst = max(worst, np.linalg.norm(Kh - c*R)/np.linalg.norm(Kh))
+report(f'Regelskis-Vlaar (D.2) = eq-an-k-matrix in the homogeneous gradation, u = s X^N, q_RV = 1/q '
+       f'(N = 3, 4, 5; s = +-1) [{worst:.0e}]', worst < 1e-12)
+
+y = np.exp(0.4 + 0.2j)
+V, Vb, V1 = dn_vector(4, q, y), omega_rep(dn_vector(4, q, y)), dn_vector(4, q, 1/y)
+null_tw, _ = k_intertwiner(V, Vb, [1/q]*5, [0]*5)
+Ktw = null_tw[0]/null_tw[0][0, 0]
+nJ, _ = intertwiners([(Vb[(kd, j)], V1[(kd, j)]) for j in nodes_of(V) for kd in 'efk'], 1e-9)
+J8 = nJ[0]
+nK, _ = k_intertwiner(V, V1, [1/q]*5, [0]*5)
+r = np.vdot(J8.ravel(), nK[0].ravel())/np.vdot(J8.ravel(), J8.ravel())
+ok = (len(null_tw) == 1 and np.allclose(Ktw, np.eye(8), atol=1e-9) and len(nJ) == 1
+      and np.linalg.norm(J8*(1 - np.fliplr(np.eye(8)))) < 1e-9*np.linalg.norm(J8)
+      and np.allclose(nK[0], r*J8, atol=1e-9*np.linalg.norm(nK[0])))
+report('d_4, eps = 0: twisted K: V(y) -> Vbar(1/y) is the identity; the book\'s anti-diagonal K is the '
+       'U_q-isomorphism Vbar(1/y) = V(1/y)', ok)
+
+import sympy as sp
+ms, us = sp.symbols('m u', nonzero=True)
+ok = True
+for N in (3, 4):
+    for sg in (1, -1):
+        Xs = us**2
+        Ks = sp.Matrix(N, N, lambda i, j: Xs**(j - i)*us**(-N) if j > i else sg*Xs**(j - i)*us**N if j < i
+                       else (ms*us**(-N) - sg*us**N/ms)/(ms - 1/ms))
+        ratio = sp.simplify(Ks.det()*us**(N*N)/((Xs**N - sg*ms**(2*N))*(Xs**N - sg)**(N - 1)))
+        ok &= not ratio.has(us)
+report('det of eq-an-k-matrix = const X^(-N^2/2) (X^N - s(-q)^N)(X^N - s)^(N-1), X = (-q)^(1/2) y (N = 3, 4; sympy)',
+       ok)
+
