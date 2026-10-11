@@ -226,6 +226,21 @@ in the blocks (-@eq-blocks) at $B=0$. For Neumann, $K_a^{\rm cl}=1$. This is the
 
 For the solitonic boundary conditions the vacuum is the continued pair (-@eq-vacuum-pair), the linearized problem is no longer diagonal, and the reflection factors were computed by Bowcock [@bowcock1998, (4.21)]. Delius and Gandenberger [@delius_gandenberger1999, (5.7)] report that the classical limits of their solitonic amplitudes reproduce Bowcock's result; we have not checked either computation. The quantum amplitudes themselves are the subject of @sec-solitonic-boundaries.
 
+## Summary: the boundary types {#sec-boundary-types}
+
+@tbl-boundary-types collects, for $a_n^{(1)}$, what this chapter and the neighbouring ones say about each type of boundary. "Breathers" means regular boundary breathers on $x\le0$ (@prp-boundary-breathers), and "classical bound states" means poles of the linearized reflection factor (-@eq-linear-reflection) in the physical strip.
+
+| boundary | soliton returns as | time delay; collision point | breathers | real-coupling vacuum | classical bound states | quantum soliton reflection |
+|---|---|---|---|---|---|---|
+| Neumann, $C\equiv0$ | antisoliton | advance; $d=0$ | yes, for $u^2>\cot^2\frac{\pi a}h$ | $\vec\phi=0$ | none ($K^{\rm cl}=1$) | $s=+1$ (@cnj-neumann-coideal) |
+| uniform, $C\equiv+1$ | antisoliton | delay; behind the wall | none regular (zeros on $x=0$) | $\vec\phi=0$ | none | $\hat\epsilon=0$, $K=1$ (@cnj-neumann-coideal) |
+| $C\equiv-1$ | antisoliton | advance; in front of the wall | none | $\vec\phi=0$; for $h$ even also @prp-self-conjugate-vacuum | for every $a\ne\frac h2$ | for $h$ even a coweight shift of $C\equiv+1$; for $h$ odd not known |
+| solitonic, $\prod_jC_j=1$, not all $+1$ | antisoliton | as for $C\equiv+1$, relative to the boundary vacuum | as for $C\equiv+1$ | continued stationary soliton (@prp-solitonic-vacua), missing for some patterns (@tbl-missing-vacua) | Bowcock's factors (not checked here) | $\hat\epsilon=0$ with a stationary soliton (@sec-solitonic-boundaries) |
+| other $\prod_jC_j=-1$ | antisoliton for $h$ odd | for $h$ odd as for $C\equiv-1$, relative to the boundary vacuum; for $h$ even no image solution known | for $h$ odd none | not known | not known | not known; $s=-1$ is unassigned (@sec-epsilon-constraint) |
+| soliton-preserving (@sec-soliton-preserving) | same soliton | no free parameter (@sec-images-preserving) | not studied | $\operatorname{Re}\vec\phi(0)$ at a vacuum | not studied | diagonal de Vega–González-Ruiz $K$ (@sec-preserving-conjugating) |
+
+: The boundary types of $a_n^{(1)}$ affine Toda theory. Time delays, collision points and breathers refer to the parameters relative to the vacuum at the boundary (@sec-images-boundary). The imaginary-coupling entries for the solitonic and $\prod_jC_j=-1$ patterns follow from the coweight shifts (-@eq-coweight-shift-c). These relate every pattern with $\prod_jC_j=1$ to $C\equiv+1$, and for $h$ odd every pattern with $\prod_jC_j=-1$ to $C\equiv-1$. {#tbl-boundary-types}
+
 ## Exercises {#sec-half-line-solitons-exercises}
 
 ::: {#exr-mirror-neumann}
