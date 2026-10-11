@@ -17,7 +17,12 @@ The whole book is also available as a [PDF](affine-toda.pdf).
 
 ## Presentation and new results {#sec-new-results}
 
-Parts I–IV, Part VII on the half-line, and the introductory chapters of Parts V and VI present established material. We have rewritten it in a common notation and with consistent conventions, and have added exercises, figures and some derivations that the original papers omit, but the results are those of the literature cited in each chapter's *Notes and references*. Parts V, VI and VIII contain original results. We list them here so that a reader can tell what is new. In the book itself, claims beyond the textbook literature carry the status labels of @sec-status-labels.
+Parts I–IV, Part VII on the half-line, and the introductory chapters of Parts V and VI present established material. We have rewritten it in a common notation and with consistent conventions, and have added exercises, figures and some derivations that the original papers omit, but the results are those of the literature cited in each chapter's *Notes and references*. Parts V, VI and VIII contain original results. We list them here so that a reader can tell what is new. From Part V on, claims that go beyond the textbook literature are labelled:
+
+- **[Theorem]**, with a complete proof given here;
+- **[Proposition, sketch]**, with a proof outline that a specialist could complete;
+- **[Established]**, proved or computed in the cited literature;
+- **[Conjecture]**, with the supporting evidence stated.
 
 **Original results.**
 
@@ -135,12 +140,3 @@ The five paths are drawn in @fig-reading-paths.
 We use units with $\hbar=c=1$ and the metric signature $(+,-)$. Rapidities are written $\theta$, and two-particle amplitudes depend on the rapidity difference (@sec-rapidities).
 
 Roots are normalized so that the longest roots of the finite algebra have squared length 2, as in @sec-lie-algebraic-data. Some of the literature instead gives the longest root of a twisted algebra $X_n^{(k)}$ squared length $2k$; its coupling is then $\beta_{\rm lit}^2=\beta^2/k$, and we convert whenever we quote such results. The coupling $\beta$ is always real and positive. "Real coupling" and "imaginary coupling" refer to the two potentials $V_{\rm real}$ and $V_{\rm imag}$ of @sec-why-atft-matters, restated as (-@eq-imaginary-potential), not to the sign of $\beta^2$. For $a_1^{(1)}$ our $\beta$ is related to the conventional sine-Gordon coupling by $\beta_{\rm SG}^2=2\beta^2$ (@sec-sine-gordon).
-
-## Status labels {#sec-status-labels}
-
-From Part V on, claims that go beyond the textbook literature are labelled:
-
-- **[Theorem]**, with a complete proof given here;
-- **[Proposition, sketch]**, with a proof outline that a specialist could complete;
-- **[Established]**, proved or computed in the cited literature;
-- **[Conjecture]**, with the supporting evidence stated.
