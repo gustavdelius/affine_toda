@@ -1,7 +1,7 @@
 """Figure F1b (introduction, sec-reader-guide): the four reading paths.
 
 One row per path; boxes are chapter ranges, coloured by Part. The chapter lists are checked
-against the "Reading paths" bullets of 01-introduction.qmd, so that the figure cannot drift
+against the "Reading paths" bullets of index.qmd, so that the figure cannot drift
 from the text.
 
 Writes figures/intro_f1_reading_paths.svg.
@@ -28,7 +28,7 @@ COLORS = {"I": style.BLUE, "II": style.GREEN, "III": style.ORANGE, "IV": style.R
           "V": style.PURPLE, "VI": style.TEAL, "VII": style.GREY}
 
 # ---- check against the text of the introduction ---------------------------
-text = (ROOT / "01-introduction.qmd").read_text()
+text = (ROOT / "index.qmd").read_text()
 bullets = re.findall(r"^- \*(?:A course on|Non-unitary|For specialists)[^\n]*", text, flags=re.M)
 report("the introduction has four reading-path bullets", len(bullets) == 4)
 

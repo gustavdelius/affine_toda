@@ -22,8 +22,8 @@ Scripts that draw the matplotlib figures of the introduction and of Parts I to V
 
 | Script | Figure id | Book location | What it checks | Runtime |
 |---|---|---|---|---|
-| `figures/intro_f1_reading_paths.py` | `fig-reading-paths` | `sec-reader-guide` | the chapter lists of the four paths agree with the "Reading paths" bullets of `01-introduction.qmd` | seconds |
-| `figures/intro_f2_potentials.py` | `fig-two-regimes` | `01-introduction.qmd` | $\sum_j\vec\alpha_j=0$ and $\vec\alpha_j^2=2$ for $a_2^{(1)}$; $\mathrm{Re}\,V_{\rm imag}$ vanishes exactly at the vacuum lattice and is positive elsewhere; $V_{\rm real}\ge0$ | seconds |
+| `figures/intro_f1_reading_paths.py` | `fig-reading-paths` | `sec-reader-guide` | the chapter lists of the four paths agree with the "Reading paths" bullets of `index.qmd` | seconds |
+| `figures/intro_f2_potentials.py` | `fig-two-regimes` | `index.qmd` | $\sum_j\vec\alpha_j=0$ and $\vec\alpha_j^2=2$ for $a_2^{(1)}$; $\mathrm{Re}\,V_{\rm imag}$ vanishes exactly at the vacuum lattice and is positive elsewhere; $V_{\rm real}\ge0$ | seconds |
 | `figures/ch2_f3_strip_map.py` | `fig-theta-strip` | `eq-mandelstam-s`, `exr-strip` | the map $\theta\mapsto s$ is injective on the open strip and sends its boundary lines to the stated cuts and gap | seconds |
 | `figures/ch2_f4_factorization.py` | `fig-factorization` | `sec-factorization`, `eq-yang-baxter` | the two world-line configurations have collision orders $12,13,23$ and $23,13,12$ | seconds |
 | `figures/ch2_f5_triangle_poles.py` | `fig-bound-state-poles` | `eq-bound-state-mass`, `eq-fx-block`, `sec-lee-yang` | residue of $f_x$ at $i\pi x$ equals $2i\tan\pi x$; $f_{2/3}=f_{1/3}$; the bootstrap identity for $f_{2/3}$; the mass-triangle relation | seconds |

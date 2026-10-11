@@ -8,7 +8,7 @@ colours, grey text, transparent background), and the helpers `save` and `report`
 Figures are written as SVG into the book tree and committed, so that the HTML
 build needs no Python:
 
-  * `figures/`                    for the introduction (01-introduction.qmd),
+  * `figures/`                    for the introduction (index.qmd),
   * `part1-background/figures/`   for chapters 2-4,
   * `part2-algebra/figures/`      for chapters 5-8,
   * `part3-classical/figures/`    for chapters 9-11,
