@@ -56,13 +56,15 @@ $$
 \Delta t_{\rm N}=\frac1{m_a\sinh\theta}\ln(1-s^2)\quad\text{(Neumann)},
 $$ {#eq-boundary-time-delay}
 
-with $\Delta t>0$ a delay. These values were fitted from the numerical solutions, independently of the formula, and agree with Delius's (1.4) and (1.8) [@delius1998a]. Note that $\Delta t_{\rm N}=\frac12(\Delta t_{+1}+\Delta t_{-1})$. The pair can also be read as two whole-line solitons that collide at a **virtual collision point** $x=d$; extrapolating the incoming soliton and the mirror to their meeting point gives
+with $\Delta t>0$ a delay. These values were fitted from the numerical solutions, independently of the formula, and agree with Delius's (1.4) and (1.8) [@delius1998a]. Note that $\Delta t_{\rm N}=\frac12(\Delta t_{+1}+\Delta t_{-1})$. The pair can also be read as two whole-line solitons that collide at a **virtual collision point** $x=d$ (@fig-boundary-time-delay); extrapolating the incoming soliton and the mirror to their meeting point gives
 
 $$
 d=\frac C{2m_a\cosh\theta}\ln\frac{1+s}{1-s},\qquad d_{\rm N}=0,
 $$ {#eq-virtual-collision}
 
 with $d>0$ behind the boundary (also fitted numerically). For $C=+1$ the collision happens behind the wall, the soliton is delayed, and there are boundary breathers, singular only at $x=0$ itself (@sec-boundary-breathers-classical). For $C=-1$ the collision happens in front of the wall, the soliton is advanced, and there are no regular boundary breathers. It is natural to call the $C=+1$ boundary attractive and the $C=-1$ boundary repulsive, as Delius did. The justification is the time delay, the collision point and the breather spectrum. Delius's additional energy argument (the energy of the soliton relative to the boundary vacuum) does not distinguish the two cases: that energy is $M_a\cosh\theta$ for either sign (the difference Delius finds is the boundary energy of the vacuum, $\pm2h/\tilde\beta^2$ in his normalization, which is present without the soliton).
+
+![Reflection of a soliton as its antisoliton in the image picture, for the species $a=1$ of $a_2^{(1)}$ at $\theta=0.6$. Blue: the incoming soliton. Grey dashed: its mirror image on $x>0$, which meets it at the virtual collision point (dot). Red: the outgoing antisoliton. Dotted: the worldlines of a reflection without delay. For $C=+1$ the collision lies behind the wall and the reflected soliton is delayed; for the Neumann and the $C=-1$ boundary it is advanced, and for $C=-1$ the collision lies in front of the wall. Values from (-@eq-boundary-time-delay) and (-@eq-virtual-collision).](figures/ch31_f28_boundary_time_delay.svg){#fig-boundary-time-delay fig-alt="Three space-time diagrams, for C equal to plus one, Neumann and C equal to minus one, each showing a soliton line arriving at a wall, its mirror image behind the wall, and the reflected line, shifted in time relative to a reflection without delay."}
 
 **Coweight shifts.** At imaginary coupling, shifting a solution by $\frac{2\pi}\beta\vec\lambda$, $\vec\lambda\in\Lambda_W^\vee$, maps a solution for the parameters $C_j$ to one for
 
