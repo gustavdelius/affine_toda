@@ -1,0 +1,51 @@
+# Defects meet boundaries {#sec-defect-boundary}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is a skeleton; it is being drafted.*
+
+## The doubled theory {#sec-doubled-theory}
+
+::: {#prp-reflected-copy}
+**[Draft]** To be written.
+:::
+
+## Transparent defects and diagonal symmetric pairs {#sec-diagonal-qsp}
+
+::: {#prp-diagonal-coideal}
+**[Draft]** To be written.
+:::
+
+## Jump defects in the doubled picture {#sec-jump-coideal}
+
+::: {#cnj-twisted-diagonal}
+**[Draft]** To be written.
+:::
+
+::: {#prp-diagonal-borel}
+**[Draft]** To be written.
+:::
+
+## Fusing defects onto boundaries {#sec-defect-boundary-fusion}
+
+::: {#prp-defect-fusion-k}
+**[Draft]** To be written.
+:::
+
+::: {#prp-fused-bdg}
+**[Draft]** To be written.
+:::
+
+## Tensor K-matrices {#sec-tensor-k}
+
+## Boundaries and non-invertible symmetries {#sec-noninvertible-boundaries}
+
+## Exercises {#sec-defect-boundary-exercises}
+
+To be written.
+
+## Notes and references {#sec-defect-boundary-notes}
+
+To be written.

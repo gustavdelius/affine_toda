@@ -72,6 +72,16 @@ book:
         - part7-half-line/33-soliton-reflection.qmd
         - part7-half-line/34-quantum-symmetric-pairs.qmd
         - part7-half-line/35-particle-reflection.qmd
+    - part: part8-defects/part.qmd
+      chapters:
+        - part8-defects/36-defect-scattering.qmd
+        - part8-defects/37-defect-sine-gordon.qmd
+        - part8-defects/38-defect-conditions.qmd
+        - part8-defects/39-defect-solitons.qmd
+        - part8-defects/40-defect-quantum-groups.qmd
+        - part8-defects/41-soliton-transmission.qmd
+        - part8-defects/42-defects-and-boundaries.qmd
+        - part8-defects/43-particle-transmission.qmd
     - part: part8-foundations/part.qmd
       chapters:
         - part8-foundations/36-twelve-gaps.qmd

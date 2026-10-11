@@ -1,0 +1,41 @@
+# Breather and particle transmission amplitudes {#sec-particle-transmission}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is a skeleton; it is being drafted.*
+
+## Breather transmission {#sec-breather-transmission}
+
+::: {#prp-lightest-breather-universal}
+**[Draft]** To be written.
+:::
+
+## Particle transmission in $a_r$ {#sec-an-particle-transmission}
+
+::: {#prp-an-particle-transmission}
+**[Draft]** To be written.
+:::
+
+## Continuation from breathers to particles {#sec-transmission-continuation}
+
+::: {#cnj-transmission-continuation}
+**[Draft]** To be written.
+:::
+
+## Limits and checks {#sec-transmission-limits}
+
+## The defect spectrum {#sec-defect-spectrum}
+
+## Defects in finite volume {#sec-defect-finite-volume}
+
+## Open problems {#sec-defect-open-problems}
+
+## Exercises {#sec-particle-transmission-exercises}
+
+To be written.
+
+## Notes and references {#sec-particle-transmission-notes}
+
+To be written.

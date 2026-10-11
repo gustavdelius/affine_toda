@@ -1,0 +1,51 @@
+# Solitons and particles through a defect {#sec-defect-solitons}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is a skeleton; it is being drafted.*
+
+## Affine Toda solitons through a defect {#sec-an-soliton-defect}
+
+$$
+\text{(to be written)}
+$$ {#eq-an-defect-delay}
+
+::: {#prp-an-defect-delay}
+**[Draft]** To be written.
+:::
+
+## Topological charge stored on the defect {#sec-defect-topological-charge}
+
+::: {#prp-stored-charge}
+**[Draft]** To be written.
+:::
+
+## Absorption and emission {#sec-defect-absorption}
+
+## Several solitons {#sec-defect-multi}
+
+## Complex solitons and reality {#sec-defect-reality}
+
+## Classical transmission factors {#sec-classical-transmission-factors}
+
+$$
+\text{(to be written)}
+$$ {#eq-an-linear-transmission}
+
+::: {#prp-an-linear-transmission}
+**[Draft]** To be written.
+:::
+
+::: {#prp-defect-frozen-soliton}
+**[Draft]** To be written.
+:::
+
+## Exercises {#sec-defect-solitons-exercises}
+
+To be written.
+
+## Notes and references {#sec-defect-solitons-notes}
+
+To be written.

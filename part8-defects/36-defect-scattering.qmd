@@ -1,0 +1,95 @@
+# Integrable scattering with a defect {#sec-defect-scattering}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is a skeleton; it is being drafted.*
+
+## Kinematics and conserved charges {#sec-defect-kinematics}
+
+$$
+\text{(to be written)}
+$$ {#eq-defect-zf}
+
+::: {#prp-defect-elastic}
+**[Draft]** To be written.
+:::
+
+## Reflection, transmission and a no-go theorem {#sec-rt-algebra}
+
+::: {#prp-rt-nogo}
+**[Draft]** To be written.
+:::
+
+## The triangle relations {#sec-triangle-relations}
+
+$$
+\text{(to be written)}
+$$ {#eq-triangle-st}
+
+$$
+\text{(to be written)}
+$$ {#eq-triangle-braid}
+
+$$
+\text{(to be written)}
+$$ {#eq-triangle-rtt}
+
+::: {#prp-triangle-forms}
+**[Draft]** To be written.
+:::
+
+## Defect unitarity and crossing {#sec-defect-unitarity-crossing}
+
+$$
+\text{(to be written)}
+$$ {#eq-defect-unitarity}
+
+$$
+\text{(to be written)}
+$$ {#eq-defect-crossing}
+
+## The doubling trick {#sec-doubling-trick}
+
+$$
+\text{(to be written)}
+$$ {#eq-doubled-k}
+
+::: {#prp-doubling}
+**[Draft]** To be written.
+:::
+
+## Defect bound states and the bootstrap {#sec-defect-bound-states}
+
+$$
+\text{(to be written)}
+$$ {#eq-defect-bootstrap}
+
+## Defects on the circle {#sec-defect-circle}
+
+::: {#prp-twist-defect}
+**[Draft]** To be written.
+:::
+
+## Topological lines and non-invertible symmetries {#sec-topological-lines}
+
+## Defects in finite volume {#sec-defect-finite-size}
+
+## Example: the scaling Lee–Yang model with a defect {#sec-defect-lee-yang}
+
+$$
+\text{(to be written)}
+$$ {#eq-ly-transmission}
+
+::: {#prp-ly-transmission}
+**[Draft]** To be written.
+:::
+
+## Exercises {#sec-defect-scattering-exercises}
+
+To be written.
+
+## Notes and references {#sec-defect-scattering-notes}
+
+To be written.

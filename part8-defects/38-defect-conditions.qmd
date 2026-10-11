@@ -1,0 +1,87 @@
+# Classically integrable defects {#sec-defect-conditions}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is a skeleton; it is being drafted.*
+
+## The defect Lagrangian {#sec-defect-lagrangian}
+
+$$
+\text{(to be written)}
+$$ {#eq-defect-action}
+
+$$
+\text{(to be written)}
+$$ {#eq-defect-conditions}
+
+$$
+\text{(to be written)}
+$$ {#eq-defect-potential}
+
+$$
+\text{(to be written)}
+$$ {#eq-d-matrix}
+
+## Momentum conservation as a criterion {#sec-defect-momentum}
+
+::: {#prp-defect-momentum}
+**[Draft]** To be written.
+:::
+
+::: {#prp-ar-only}
+**[Draft]** To be written.
+:::
+
+::: {#cnj-momentum-integrability}
+**[Draft]** To be written.
+:::
+
+## Lax pairs with a defect {#sec-defect-lax}
+
+$$
+\text{(to be written)}
+$$ {#eq-defect-lax-matrix}
+
+::: {#prp-defect-lax}
+**[Draft]** To be written.
+:::
+
+::: {#prp-spin-two}
+**[Draft]** To be written.
+:::
+
+## The defect monodromy and the classical r-matrix {#sec-defect-r-matrix}
+
+$$
+\text{(to be written)}
+$$ {#eq-defect-monodromy}
+
+::: {#prp-defect-involution}
+**[Draft]** To be written.
+:::
+
+## Defect conditions as Bäcklund transformations {#sec-defect-backlund-an}
+
+## Type-II defects in affine Toda theory {#sec-type-two-atft}
+
+::: {#prp-type-ii-momentum}
+**[Draft]** To be written.
+:::
+
+## Folding defects {#sec-defect-folding}
+
+## Reality and the defect {#sec-defect-theta}
+
+::: {#prp-defect-theta}
+**[Draft]** To be written.
+:::
+
+## Exercises {#sec-defect-conditions-exercises}
+
+To be written.
+
+## Notes and references {#sec-defect-conditions-notes}
+
+To be written.

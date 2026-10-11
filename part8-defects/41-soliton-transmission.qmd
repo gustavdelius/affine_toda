@@ -1,0 +1,47 @@
+# Soliton transmission matrices {#sec-soliton-transmission}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is a skeleton; it is being drafted.*
+
+## The procedure {#sec-t-procedure}
+
+## The $a_r$ transmission matrices {#sec-an-soliton-transmission}
+
+::: {#prp-an-transmission}
+**[Draft]** To be written.
+:::
+
+## Unitarity, crossing and the sign of $q$ {#sec-transmission-unitarity-crossing}
+
+::: {#prp-transmission-crossing}
+**[Draft]** To be written.
+:::
+
+## A type-II defect: $a_2^{(2)}$ {#sec-a22-transmission}
+
+::: {#prp-a22-transmission}
+**[Draft]** To be written.
+:::
+
+## Defect bound states and an unstable state {#sec-an-defect-bound-states}
+
+::: {#prp-a2-unstable}
+**[Draft]** To be written.
+:::
+
+## The semiclassical limit {#sec-transmission-semiclassics}
+
+::: {#prp-transmission-semiclassical}
+**[Draft]** To be written.
+:::
+
+## Exercises {#sec-soliton-transmission-exercises}
+
+To be written.
+
+## Notes and references {#sec-soliton-transmission-notes}
+
+To be written.

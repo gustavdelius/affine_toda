@@ -1,0 +1,95 @@
+# Sine-Gordon and sinh-Gordon with a defect {#sec-defect-sine-gordon}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is a skeleton; it is being drafted.*
+
+## Bäcklund transformations {#sec-backlund}
+
+$$
+\text{(to be written)}
+$$ {#eq-sg-backlund}
+
+::: {#prp-sg-backlund}
+**[Draft]** To be written.
+:::
+
+::: {#prp-bianchi}
+**[Draft]** To be written.
+:::
+
+## The jump defect as a frozen Bäcklund transformation {#sec-sg-defect-lagrangian}
+
+$$
+\text{(to be written)}
+$$ {#eq-sg-defect-lagrangian}
+
+$$
+\text{(to be written)}
+$$ {#eq-sg-defect-potential}
+
+$$
+\text{(to be written)}
+$$ {#eq-sg-defect-conditions}
+
+::: {#prp-sg-defect-classification}
+**[Draft]** To be written.
+:::
+
+::: {#prp-sg-defect-momentum}
+**[Draft]** To be written.
+:::
+
+## Solitons meeting a defect {#sec-sg-defect-solitons}
+
+$$
+\text{(to be written)}
+$$ {#eq-sg-delay}
+
+::: {#prp-sg-delay}
+**[Draft]** To be written.
+:::
+
+::: {#prp-half-soliton}
+**[Draft]** To be written.
+:::
+
+## Linear waves: pure transmission {#sec-sg-defect-linear}
+
+$$
+\text{(to be written)}
+$$ {#eq-shg-linear-transmission}
+
+## Type-II defects and fused pairs {#sec-type-two}
+
+## The quantum transmission matrix {#sec-sg-transmission-matrix}
+
+$$
+\text{(to be written)}
+$$ {#eq-sg-transmission-matrix}
+
+::: {#prp-sg-transmission}
+**[Draft]** To be written.
+:::
+
+::: {#cnj-defect-parameter}
+**[Draft]** To be written.
+:::
+
+## Stable defects and resonances {#sec-sg-defect-spectrum}
+
+## Breathers and sinh-Gordon {#sec-sg-breather-transmission}
+
+::: {#prp-sg-breather-transmission}
+**[Draft]** To be written.
+:::
+
+## Exercises {#sec-defect-sine-gordon-exercises}
+
+To be written.
+
+## Notes and references {#sec-defect-sine-gordon-notes}
+
+To be written.

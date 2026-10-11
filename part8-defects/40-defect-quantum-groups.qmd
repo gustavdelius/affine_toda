@@ -1,0 +1,77 @@
+# Quantum groups, q-oscillators and defects {#sec-defect-qg}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- To be written.
+:::
+
+*This chapter is a skeleton; it is being drafted.*
+
+## Topological defects in conformal field theory {#sec-cft-topological-defects}
+
+## Perturbed defects and their charges {#sec-perturbed-defects}
+
+## Borel subalgebras and q-oscillators {#sec-borel}
+
+$$
+\text{(to be written)}
+$$ {#eq-q-oscillator}
+
+$$
+\text{(to be written)}
+$$ {#eq-weyl-module}
+
+$$
+\text{(to be written)}
+$$ {#eq-fock-module}
+
+## Transmission matrices as intertwiners {#sec-t-intertwiner}
+
+$$
+\text{(to be written)}
+$$ {#eq-borel-intertwiner}
+
+::: {#thm-t-triangle}
+**[Draft]** To be written.
+:::
+
+::: {#prp-sg-t-unique}
+**[Draft]** To be written.
+:::
+
+::: {#prp-two-borels}
+**[Draft]** To be written.
+:::
+
+## The universal R-matrix and L-operators {#sec-universal-r-affine}
+
+$$
+\text{(to be written)}
+$$ {#eq-l-operator}
+
+::: {#prp-l-operator}
+**[Draft]** To be written.
+:::
+
+## Defect operators and Q-operators {#sec-q-operators}
+
+::: {#prp-defect-transfer}
+**[Draft]** To be written.
+:::
+
+::: {#cnj-defect-tq}
+**[Draft]** To be written.
+:::
+
+::: {#prp-defect-twist-limit}
+**[Draft]** To be written.
+:::
+
+## Boundaries and defects compared {#sec-defect-boundary-dictionary}
+
+## Exercises {#sec-defect-qg-exercises}
+
+To be written.
+
+## Notes and references {#sec-defect-qg-notes}
+
+To be written.
