@@ -1,5 +1,6 @@
 project:
   type: book
+  post-render: add-backlinks.py
   output-dir: _site
 
 book:
