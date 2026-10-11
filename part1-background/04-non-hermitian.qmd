@@ -48,7 +48,9 @@ defined so that $[Ax,y]=[x,A^\sharp y]$. An operator with $A^\sharp=A$, equivale
 4. $U(t)^\sharp=e^{iH^\sharp t}=e^{iHt}=U(t)^{-1}$.
 :::
 
-Item 4 of @prp-krein-spectrum says that time evolution is **Krein-unitary**. The total "Krein norm" $[x,x]$ is conserved, but the Hilbert norm $\langle x,x\rangle$ need not be, and it can grow without bound. The S-matrices of Part VII have the same property (@sec-krein-unitarity).
+Item 4 of @prp-krein-spectrum says that time evolution is **Krein-unitary**. The total "Krein norm" $[x,x]$ is conserved, but the Hilbert norm $\langle x,x\rangle$ need not be, and it can grow without bound (@fig-krein-geometry). The S-matrices of Part VII have the same property (@sec-krein-unitarity).
+
+![Why the Hilbert norm can grow. (a) For Hermitian $H$ the evolution $e^{-iHt}$ rotates vectors, and the orbits are circles. (b) For the $J$-self-adjoint, non-Hermitian $H=i\sigma_x$ with $J=\sigma_z$ it is a hyperbolic rotation. Its orbits are the hyperbolas $x^2-y^2=\text{const}$, on which the Krein form $[v,v]=\langle v,Jv\rangle$ is conserved, and the lines $y=\pm x$ are neutral. (c) Along the orbit of $(1,0)$ the Krein norm is constant while the Hilbert norm grows as $\cosh2t$.](figures/ch4_f9_krein_geometry.svg){#fig-krein-geometry fig-alt="Left: concentric circles. Middle: families of hyperbolas on both sides of two crossing dashed lines, blue in the left and right regions and red above and below. Right: an exponentially growing purple curve and a flat blue line against time."}
 
 ## Antilinear symmetries and $PT$ {#sec-antilinear}
 
@@ -103,11 +105,13 @@ $$
 \lambda_\pm=a\pm\sqrt{s^2-g^2} ,
 $$
 
-with eigenvectors $x_\pm=(s,\ \lambda_\pm-a-ig)^{\mathsf T}$. Three regimes appear as $g$ increases.
+with eigenvectors $x_\pm=(s,\ \lambda_\pm-a-ig)^{\mathsf T}$. Three regimes appear as $g$ increases (@fig-dimer-krein).
 
 - **Unbroken, $\lvert g\rvert<s$.** Both eigenvalues are real, and $\Theta x_\pm\propto x_\pm$. The Krein norms are $[x_\pm,x_\pm]=\pm2s\sqrt{s^2-g^2}$, of opposite signs.
 - **Exceptional point, $\lvert g\rvert=s$.** The eigenvalues meet at $a$, the two eigenvectors coincide and become neutral, and $H-a$ is a nonzero nilpotent matrix: a Jordan block of size 2. The evolution $e^{-iHt}=e^{-iat}\big(1-it(H-a)\big)$ grows linearly.
 - **Broken, $\lvert g\rvert>s$.** The eigenvalues form a complex-conjugate pair, both eigenvectors are neutral, and $\Theta$ exchanges them.
+
+![The $PT$-symmetric dimer (-@eq-dimer) with $a=0$, as $g$ increases. For $\lvert g\rvert<s$ the eigenvalues are real and their eigenvectors have Krein norms of opposite sign (blue positive, red negative). At $\lvert g\rvert=s$ they collide at an exceptional point. For $\lvert g\rvert>s$ they form a complex-conjugate pair with neutral eigenvectors (purple).](figures/ch4_f8_dimer.svg){#fig-dimer-krein fig-alt="Two panels against the ratio g over s. Left: the real parts of the two eigenvalues, a blue upper and a red lower branch merging at g equals s into a single purple line at zero. Right: the imaginary parts, zero until g equals s and then two purple branches of opposite sign."}
 
 The pattern is general. Real eigenvalues can leave the real axis only by colliding, and in a Krein space a collision can push them off the axis only if the colliding eigenvectors have *opposite* Krein signature (more precisely, only if the root subspace at the collision is not definite); eigenvalues of the same signature pass through each other and stay real. Krein signature therefore protects reality. In Part VII the finite-volume levels of the imaginary-coupling theories are shown to behave exactly this way: some sectors are $\Theta$-unbroken with real levels, while in others levels have collided and form complex-conjugate pairs (@sec-sector-status).
 
