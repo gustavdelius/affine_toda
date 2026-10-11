@@ -27,6 +27,10 @@ The theories come in two regimes.
 - **Real coupling.** The theory is an ordinary unitary QFT with a unique vacuum and $r$ massive particles.
 - **Imaginary coupling.** The potential is periodic and complex. There are infinitely many degenerate vacua, solitons interpolating between them, and breathers. These are the theories that describe perturbed (W-algebra) minimal models after quantum-group restriction, and they carry the richest physics.
 
+@fig-two-regimes shows the two kinds of potential for $a_1^{(1)}$ and $a_2^{(1)}$.
+
+![The two regimes. (a) For $a_1^{(1)}$, in the sine-Gordon normalization of @sec-sg-dictionary, the real-coupling potential has a single minimum and the imaginary-coupling potential has infinitely many. A kink runs between neighbouring minima. (b) For $a_2^{(1)}$ the vacua of the imaginary-coupling theory form a hexagonal lattice, shown on the real part of $V_{\rm imag}$ (its imaginary part also vanishes at the vacua).](figures/intro_f2_potentials.svg){#fig-two-regimes fig-alt="Left: the cosh potential with one minimum and the cosine potential with infinitely many minima, with an arrow for a kink between adjacent minima. Right: a contour plot of the real part of the imaginary-coupling potential of a_2^(1) over the plane of the two fields, with its minima at the points of a triangular lattice."}
+
 The theories are not only of historical interest. They are rich enough to show generic phenomena of quantum field theory, yet solvable enough that claims about them can be checked exactly. Five features keep them current.
 
 - **A family, not a single model.** There is one theory for each affine algebra, and results come with Lie-theoretic structure: Dorey's fusing rule, Perron–Frobenius masses, Lie duality. A general claim about integrable or massive two-dimensional QFT can therefore be tested across a whole family, not in one example.
@@ -53,10 +57,10 @@ The dependencies between the parts are shown below. Chapter 4 is needed only for
 
 ```{mermaid}
 %%| label: fig-dependencies
-%%| fig-cap: "Dependencies between the parts of the book. An arrow means that the later part uses the earlier one."
+%%| fig-cap: "Dependencies between the parts of the book. An arrow means that the later part uses the earlier one. Chapter 4 of Part I, on non-Hermitian quantum mechanics, is drawn separately because only Parts V and VII use it."
 %%| fig-width: 6
 flowchart LR
-  I["I. Physical background<br/>ch. 2–4"] --> III["III. Classical theory<br/>ch. 9–11"]
+  I["I. Physical background<br/>ch. 2–3"] --> III["III. Classical theory<br/>ch. 9–11"]
   II["II. Algebraic background<br/>ch. 5–8"] --> III
   I --> IV["IV. Real coupling<br/>ch. 12–15"]
   III --> IV
@@ -65,6 +69,8 @@ flowchart LR
   II --> VI
   V --> VI
   V --> VII["VII. Foundations<br/>ch. 28–33"]
+  I4["I. Non-Hermitian QM<br/>ch. 4"] --> V
+  I4 --> VII
   VI --> VII
 ```
 
@@ -74,6 +80,10 @@ flowchart LR
 - *A course on quantum groups in field theory:* chapters 2–3 and 5–8, then 20–22 and 27.
 - *Non-unitary quantum field theory:* chapters 2–4, 9–11, then Part VII, consulting Parts V–VI as needed.
 - *For specialists:* Parts V–VII, which can be read on their own by a reader who already knows affine Toda theory.
+
+The four paths are drawn in @fig-reading-paths.
+
+![The four reading paths, by chapter. An arrow means "then", and the colour of a box is the Part its chapters belong to.](figures/intro_f1_reading_paths.svg){#fig-reading-paths fig-alt="Four rows of boxes joined by arrows. The first row runs through chapters 2 to 3, 5 to 6, 9 to 10, 12 to 14 and 20 to 22. The second runs through chapters 2 to 3, 5 to 8, 20 to 22 and 27. The third runs through chapters 2 to 4, 9 to 11 and Part VII. The fourth is a single box for Parts V to VII."}
 
 **What Part I borrows from Part II.** Part I uses some algebraic terms before Part II defines them. They appear in statements about general affine Toda theories, which a first reading can take on trust, and the sine-Gordon case of @sec-sine-gordon needs none of them in more than its simplest form. In brief:
 

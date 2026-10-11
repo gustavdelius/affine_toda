@@ -75,9 +75,11 @@ $$
 E_b=2M_{\rm cl}\sin u .
 $$ {#eq-sg-breather-energy}
 
-As $u\to0$ the breather becomes a small-amplitude oscillation and its energy tends to zero. As $u\to\pi/2$ it becomes a widely separated soliton–antisoliton pair with energy $2M_{\rm cl}$.
+As $u\to0$ the breather becomes a small-amplitude oscillation and its energy tends to zero. As $u\to\pi/2$ it becomes a widely separated soliton–antisoliton pair with energy $2M_{\rm cl}$. @fig-sg-solutions shows the kink and the breather.
 
 For sine-Gordon all these solutions are real. For every other affine Toda theory at imaginary coupling the soliton solutions are complex, and the question of why such solutions should contribute to a path integral over real fields is one of the main themes of Part V.
+
+![Classical sine-Gordon solutions in units $\beta_{\rm SG}=m_0=1$. (a) Kink and antikink, joining neighbouring vacua. (b) Their energy density, which integrates to $M_{\rm cl}=8m_0/\beta_{\rm SG}^2$ (-@eq-sg-classical-mass). (c) The breather (-@eq-sg-breather) at its turning point, for three values of $u$. (d) The classical breather energy $E_b=2M\sin u$ is a continuous curve. The quantized masses $m_n=2M\sin(n\xi/2)$ of (-@eq-sg-breather-masses), here for $\xi=\pi/4$, lie on it at $u=n\xi/2$.](figures/ch3_f7_kink_breather.svg){#fig-sg-solutions fig-alt="Four panels. Top left: kink and antikink profiles rising and falling between 0 and 2 pi. Top right: a single bell-shaped energy density. Bottom left: three localized bumps of different heights for the breather. Bottom right: a rising sine curve with three marked points and dotted lines to the vertical axis."}
 
 ## Semiclassical quantization {#sec-sg-semiclassics}
 
@@ -175,7 +177,7 @@ Two remarks:
 
 ## Coleman's bound and the free-fermion point {#sec-sg-coleman}
 
-The operator $\cos\beta_{\rm SG}\phi$ has scaling dimension $\beta_{\rm SG}^2/4\pi$ at the free-boson fixed point. The perturbation is relevant for $\beta_{\rm SG}^2<8\pi$. Beyond this bound, found by Coleman [@coleman1975], the theory flows to a massless free boson and has no mass gap. At $\beta_{\rm SG}^2\to8\pi$ one has $\xi\to\infty$ and $\lambda\to0$.
+The operator $\cos\beta_{\rm SG}\phi$ has scaling dimension $\beta_{\rm SG}^2/4\pi$ at the free-boson fixed point. The perturbation is relevant for $\beta_{\rm SG}^2<8\pi$. Beyond this bound, found by Coleman [@coleman1975], the theory flows to a massless free boson and has no mass gap. At $\beta_{\rm SG}^2\to8\pi$ one has $\xi\to\infty$ and $\lambda\to0$. @fig-sg-coupling-axis collects the special couplings of this chapter on one axis.
 
 Below $8\pi$ the ultraviolet divergences are mild but not absent. Normal ordering of $\cos\beta_{\rm SG}\phi$ removes all divergences of the correlation functions for $\beta_{\rm SG}^2<4\pi$ [@frohlich1976]. A neutral cluster of $2k$ charges collapsing to a point diverges for $\beta_{\rm SG}^2\ge8\pi(1-\frac1{2k})$, $k=1,2,\dots$; the first case is a pair, $\int d^2y\,\lvert x-y\rvert^{-\beta_{\rm SG}^2/2\pi}$. In the vacuum energy these divergences require additive counterterms; in correlation functions of $\cos\beta_{\rm SG}\phi$ they also occur when integrated charges collapse onto an inserted one, and are removed by an additive renormalization of that operator. Clusters with nonzero net charge diverge only from $8\pi$ on, so below $8\pi$ finitely many field-independent counterterms suffice [@benfatto1982; @nicolo1986]. In the language of @sec-collapse-thresholds these are the collapse thresholds of a two-dimensional Coulomb gas of positive and negative charges. Part VII proves, for every imaginary-coupling affine Toda theory in finite volume, that normal ordering suffices exactly below the first collapse threshold, and locates the higher thresholds by power counting.
 
@@ -201,6 +203,8 @@ Two examples show both sides of what restriction can do.
 - **The scaling Lee–Yang model.** For $(p,p')=(2,5)$, $\xi=2\pi/3$. There is one breather, of mass $\sqrt3M$, and for $p=2$ the kinks are trivial and drop out. The remaining breather has S-matrix $f_{\xi/\pi}=f_{2/3}$, which is the S-matrix (-@eq-lee-yang-smatrix) of @sec-bootstrap-intro. The model $\mathcal M(2,5)$ is non-unitary, and @sec-lee-yang explains how this shows up in the S-matrix.
 
 The question of which restrictions of which affine Toda theories are unitary is open in general. Part VI answers it for the fundamental kinks of $a_2^{(1)}$ (@sec-rsos).
+
+![The sine-Gordon coupling axis, with $x=\beta_{\rm SG}^2/8\pi$. The breather $B_n$ exists for $n<\lambda=8\pi/\beta_{\rm SG}^2-1$, so the number of breathers jumps at $\beta_{\rm SG}^2=8\pi/(n+1)$, where $\xi=\pi/n$. At $\beta_{\rm SG}^2=4\pi$ ($\lambda=1$, $\xi=\pi$) the last breather disappears and the solitons are free fermions. Coleman's bound is at $8\pi$. The RSOS points $\beta_{\rm SG}^2/8\pi=p/p'$ of @prp-sg-rsos include the scaling Lee–Yang model, $(p,p')=(2,5)$, with exactly one breather, and the unitary series $p'=p+1$, which lies in the repulsive regime.](figures/ch3_f6_coupling_axis.svg){#fig-sg-coupling-axis fig-alt="A horizontal axis for the squared coupling from 0 to 8 pi, shaded blue below 4 pi where breathers exist, with their number increasing towards weak coupling, and shaded orange between 4 pi and 8 pi. Marked points show the scaling Lee-Yang model below 4 pi and a sequence of unitary minimal models above it. Secondary scales show xi and lambda."}
 
 ## What carries over, and what does not {#sec-sg-lessons}
 

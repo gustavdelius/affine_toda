@@ -15,3 +15,21 @@ Scripts behind the symbolic and numerical checks of the textbook material in Par
 | `algebra_data.py` | `tbl-app-masses` | classical masses of every untwisted affine Toda theory, by folding for the non-simply-laced ones; closed forms. Requires `toda_classical.py` | seconds |
 
 What these scripts establish, what was checked only by hand, and what is still unchecked is recorded in `briefs/referee_textbook.md`.
+
+## Figures (`figures/`)
+
+Scripts that draw the matplotlib figures of the introduction and of Part I and check the formulas they plot. Python 3 with numpy, scipy and matplotlib. Each writes an SVG into the book tree (`figures/` for the introduction, `part1-background/figures/` for chapters 2–4) and prints one `PASS` or `FAIL` line per check. The SVGs are committed, so building the book needs no Python. `style.py` holds the shared palette (mid-tone colours and grey text, transparent background, so that the figures read on both the light and the dark theme). Run one script with `python3 figures/<name>.py`, or all of them with `for f in figures/[ic]*.py; do python3 $f; done`.
+
+| Script | Figure id | Book location | What it checks | Runtime |
+|---|---|---|---|---|
+| `figures/intro_f1_reading_paths.py` | `fig-reading-paths` | `sec-reader-guide` | the chapter lists of the four paths agree with the "Reading paths" bullets of `01-introduction.qmd` | seconds |
+| `figures/intro_f2_potentials.py` | `fig-two-regimes` | `01-introduction.qmd` | $\sum_j\vec\alpha_j=0$ and $\vec\alpha_j^2=2$ for $a_2^{(1)}$; $\mathrm{Re}\,V_{\rm imag}$ vanishes exactly at the vacuum lattice and is positive elsewhere; $V_{\rm real}\ge0$ | seconds |
+| `figures/ch2_f3_strip_map.py` | `fig-theta-strip` | `eq-mandelstam-s`, `exr-strip` | the map $\theta\mapsto s$ is injective on the open strip and sends its boundary lines to the stated cuts and gap | seconds |
+| `figures/ch2_f4_factorization.py` | `fig-factorization` | `sec-factorization`, `eq-yang-baxter` | the two world-line configurations have collision orders $12,13,23$ and $23,13,12$ | seconds |
+| `figures/ch2_f5_triangle_poles.py` | `fig-bound-state-poles` | `eq-bound-state-mass`, `eq-fx-block`, `sec-lee-yang` | residue of $f_x$ at $i\pi x$ equals $2i\tan\pi x$; $f_{2/3}=f_{1/3}$; the bootstrap identity for $f_{2/3}$; the mass-triangle relation | seconds |
+| `figures/ch3_f6_coupling_axis.py` | `fig-sg-coupling-axis` | `sec-sg-coleman`, `prp-sg-rsos` | number of breathers against the thresholds $8\pi/(n+1)$; $\xi=\pi/\lambda$; Lee–Yang point $\xi=2\pi/3$ with one breather; unitary series without breathers | seconds |
+| `figures/ch3_f7_kink_breather.py` | `fig-sg-solutions` | `eq-sg-kink`, `eq-sg-breather`, `eq-sg-classical-mass` | kink and breather solve the sine-Gordon equation (finite differences); kink energy $8m_0/\beta^2$; breather energy $2M_{\rm cl}\sin u$ | seconds |
+| `figures/ch4_f8_dimer.py` | `fig-dimer-krein` | `eq-dimer`, `sec-dimer` | $JH^\dagger J=H$; eigenvalues $a\pm\sqrt{s^2-g^2}$; Krein norms $\pm2s\sqrt{s^2-g^2}$; neutral eigenvectors for $g>s$; nilpotent $H-a$ at $g=s$ | seconds |
+| `figures/ch4_f9_krein_geometry.py` | `fig-krein-geometry` | `prp-krein-spectrum` item 4 | $H=i\sigma_x$ is $J$-self-adjoint and not Hermitian; $e^{-iHt}=\cosh t+\sigma_x\sinh t$; Krein norm conserved; Hilbert norm $\cosh2t$ | seconds |
+
+The part-level dependency graph of the introduction (`fig-dependencies`) is a mermaid block drawn from the text of `sec-reader-guide`. The reading-paths figure (`intro_f1_reading_paths.py`) checks its chapter lists against the "Reading paths" bullets of the same section.
