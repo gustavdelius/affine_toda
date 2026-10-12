@@ -12,7 +12,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 | 39 | 2026-10-12 | `defect_solitons_an.py` | 9 PASS (10 s) | no |
 | 40 | 2026-10-12 | `defect_universal_r.py`, `defect_transfer.py` | 14 + 9 PASS (46 s, 15 s) | no |
 | 41 | | `defect_an_transmission.py` | | |
-| 42 | | `defect_doubling.py` | | |
+| 42 | 2026-10-12 | `defect_doubling.py` | 17 PASS (30 s) | no |
 | 43 | | `defect_particle_transmission.py` | | |
 
 ## Chapter 36 (`sec-defect-scattering`)
@@ -370,6 +370,83 @@ The full drafting report is in `briefs/draft_ch39_report.md`: summary, script ou
 - **Ch. 43:**
   - is the I₋I₊ pair a soliton S-matrix times the π-line, and is it a type-II defect?
   - lightest-breather factors equal to T^cl for all a_r.
+
+## Chapter 42 (`sec-defect-boundary`)
+
+The full drafting report is in `briefs/draft_ch42_report.md`, including the proposed row texts for the third column of `tbl-boundary-defect-algebra` and a draft conventions §10. The drafting checkpoint is `briefs/draft_ch42_checkpoint.md`. Re-run on integration: 17 PASS, 30 s.
+
+**Key results.**
+- **`prp-reflected-copy`.** The reflected copy is acted on through Δ^op, so the doubled bulk algebra is U⊗U^cop. Through ω_q the reflected copy is the conjugate multiplet: parity maps solitons to antisolitons.
+- **`prp-diagonal-coideal`.** Every invertible line has a twisted-diagonal symmetry (1⊗ψ)Δ(U): the identity for the transparent defect, a torus twist for the twist line, the node swap τ for the charge-conjugation line. Numerically the largest left coideal inside the commutant of the doubled K is exactly this twisted diagonal.
+- **`cnj-twisted-diagonal` is refuted as stated.** For type I₋ and type I₊ alike, no twisted diagonal is a symmetry; the residuals are 0.93–0.97, stable under window growth.
+- **`prp-diagonal-borel`. What holds instead:**
+  - Δ(U_q(𝔟^∓)), with 𝒲 the Weyl module as a dynamical boundary module. This is the expected outcome.
+  - (1⊗τ)Δ(U_q(𝔟^±)) on a second module structure ρ̃ of 𝒲 (`eq-dbd-second-module`). This was not predicted.
+  - The two halves do not combine: any coideal containing both contains e_j⊗1, which fails.
+  - As θ_d → +∞ the untwisted diagonal is restored, and as θ_d → −∞ the τ-twisted one.
+  - The RTT algebra is the off-diagonal part of the doubled reflection-equation algebra, with 𝕃⁻¹ adjoined.
+- **`prp-defect-fusion-k`.**
+  - A type-I₋ defect fused onto Dirichlet equals Ghoshal–Zamolodchikov with (η, ϑ) = (η_D, λθ_d), sector by sector and with the scalar factor, so no CDD factor appears. With the UV–IR conjecture this gives λθ_d = (λ+1)θ_d^cl, consistent with `cnj-defect-parameter`.
+  - The sinh-Gordon identity (Bajnok–Simon) is re-checked.
+  - The classical dressing is K ↦ σ(L_d(1/λ)⁻¹) K_ψ L_d(λ)⁻¹.
+- **`prp-fused-bdg`.**
+  - The dressing gives conserved generating functions for every a_r boundary in the Durham table, including Neumann, and hence new classical dynamical a_n boundaries. These partly answer Part VII problem 9; involution and quantization are not examined.
+  - The sine-Gordon defect potential equals BDG's H_osc at complex (p̂, q̂).
+  - The fused system is not the BDG boundary.
+- **`sec-tensor-k`.** Appel–Vlaar, with one numerical check. Jump defects fall outside their categories.
+- **`sec-noninvertible-boundaries`.** Shimamori–Yamaguchi; their modified boundary crossing becomes the usual Ghoshal–Zamolodchikov form after kink renormalization (`exr-dbd-boundary-crossing`).
+
+**Verification record.**
+- **By script:** every [Numerical] item (`defect_doubling.py`, 17 checks).
+  - Window sizes: N = 5, 7, 9 for the twisted-diagonal tests and fusion; N = 6, 8 for the diagonal Borel.
+  - The scalar identity agrees only to 3e-9, the accuracy of the Richardson-summed Φ at complex rapidity.
+- **By hand:**
+  - the [Theorem] items;
+  - the ω_q⊗id map;
+  - ρ̃ and the e_j⊗1 obstruction;
+  - the dressing argument;
+  - the Shimamori–Yamaguchi renormalization.
+- **Unchecked or quoted:**
+  - the theorems of Bao–Wang, Wang, Appel–Vlaar and Shimamori–Yamaguchi;
+  - the reading ρ̃ ↔ (ψ → −ψ), flagged as an interpretation;
+  - boundary crossing-unitarity of K_f;
+  - the classical dressing for type I₊;
+  - the a_r expectation;
+  - two uncited CFT remarks.
+- **Scope flag for the referee:** `prp-fused-bdg` (new classical a_n dynamical boundaries) goes slightly beyond "no new research". Check that its label and wording are modest.
+
+**Corrections to sources recorded in the Notes.**
+- Bao–Wang Rem. 4.10(2) is a finite-type remark. Kolb 2014 and Appel–Vlaar 2022 assume an indecomposable Cartan matrix, so affine ĝ⊕ĝ is not covered as stated. Kolb–Yakimov's "diagonal type" is unrelated.
+- cz2012 (2.18) in book conventions is GZ with (η_D, λθ_d); the identity extends to the scalar factor.
+- Shimamori–Yamaguchi's modified crossing is equivalent to conventional crossing after kink renormalization. The Ward–Takahashi identities, not crossing, distinguish the normalizations.
+
+**Pending edits elsewhere.**
+- Ch. 40 `tbl-boundary-defect-algebra`:
+  - the third column and its status entry (row texts in the report §6);
+  - "where it is decided" → "where it is settled".
+- Ch. 40 `sec-perturbed-defects`: "twisted by charge conjugation they survive (@prp-diagonal-borel)".
+- Pointers to `prp-fused-bdg` from:
+  - ch. 35 problem 9;
+  - ch. 29 `sec-bsg-dynamical` or ch. 30 `sec-dynamical-boundary`.
+- Pointers:
+  - ch. 34 `sec-universal-k` → `sec-diagonal-qsp`;
+  - optionally, ch. 37 `sec-sg-breather-transmission` → `prp-defect-fusion-k`.
+- Repository files:
+  - `textbook_code/README.md` row for `defect_doubling.py`;
+  - conventions brief §10 (text in the report);
+  - optional bib entries: Ito–Terwilliger, Kolb 2020, Lusztig's book.
+- The papers 2402.16676 and 2504.08375 have been copied to `~/referee-copy/papers/`.
+
+**Obligations for later chapters.**
+- **Ch. 43 (open problems):**
+  - the a_r expectation Δ(U_q(𝔟⁻)) + (1⊗π)Δ(U_q(𝔟⁺)), tested with the ch. 41 matrices;
+  - the doubled boundaries of type-II defects and of cz2012 (2.19);
+  - quantizing the fused a_n dynamical boundaries, and their involution;
+  - the doubled boundaries of non-invertible lines;
+  - tensor K-matrices with a Borel leg as boundary Q-operators;
+  - the affine diagonal-type QSP, not covered by the published universal-K theorems;
+  - the algebra generated by the two Borel halves;
+  - boundary crossing-unitarity of K_f.
 
 ## Global pending edits
 
