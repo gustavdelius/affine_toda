@@ -64,7 +64,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 
 **Pending edits elsewhere (integration phase):**
 - `textbook_code/README.md` row for `defect_axioms.py`.
-- `part8-foundations/40-scattering.qmd`: pointer from `prp-exchange-twist` and `prp-bloch-sectors` to `prp-twist-defect`, plus one sentence on the common seam.
+- `part9-foundations/48-scattering.qmd`: pointer from `prp-exchange-twist` and `prp-bloch-sectors` to `prp-twist-defect`, plus one sentence on the common seam.
 - `part7-half-line/28-boundary-scattering.qmd` `sec-boundary-lee-yang`: pointer to `sec-defect-lee-yang` (K_b = 𝕋̄_b K_𝟙 𝕋_b).
 - `part6-soliton-smatrices/27-rsos.qmd`: pointer to the modified crossing in `sec-topological-lines`.
 - Conventions brief: record the ZF ordering, the 𝕋/𝕋̄ index rule (𝕋̄ parametrized by θ > 0, depending on θ+θ_d), `eq-defect-crossing`, 𝕃 = P𝕋 with R = PŘ, and that the reflected copy scatters with PŠP.

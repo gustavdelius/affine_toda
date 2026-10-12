@@ -82,15 +82,15 @@ book:
         - part8-defects/41-soliton-transmission.qmd
         - part8-defects/42-defects-and-boundaries.qmd
         - part8-defects/43-particle-transmission.qmd
-    - part: part8-foundations/part.qmd
+    - part: part9-foundations/part.qmd
       chapters:
-        - part8-foundations/36-twelve-gaps.qmd
-        - part8-foundations/37-lattice.qmd
-        - part8-foundations/38-continuum-thresholds.qmd
-        - part8-foundations/39-continuum-window.qmd
-        - part8-foundations/40-scattering.qmd
-        - part8-foundations/41-unitarity.qmd
-    - outlook/42-outlook.qmd
+        - part9-foundations/44-twelve-gaps.qmd
+        - part9-foundations/45-lattice.qmd
+        - part9-foundations/46-continuum-thresholds.qmd
+        - part9-foundations/47-continuum-window.qmd
+        - part9-foundations/48-scattering.qmd
+        - part9-foundations/49-unitarity.qmd
+    - outlook/50-outlook.qmd
     - references.qmd
   appendices:
     - appendices/A-algebra-data.qmd

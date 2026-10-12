@@ -174,7 +174,7 @@ With the *opposite* sign of the potential, $Z(T)$ for $a_2$ at $g=1$ is negative
 
 @fig-zero-mode-spectrum shows the lowest levels of the $a_2$ model at $g=1$ in the complex energy plane for the two signs.
 
-![Lowest 40 levels of the zero-mode Hamiltonian of $a_2$ at $g=1$ in the complex energy plane. Left: physical sign of the potential. The vacuum (circled) is real and has the smallest real part, and excited levels include complex-conjugate pairs. Right: opposite sign. The lowest level is itself a complex pair.](figures/ch37_f31_zero_mode_spectrum.svg){#fig-zero-mode-spectrum fig-alt="Two scatter plots of energy levels in the complex plane. Left: one isolated real level at the far left, circled, then levels along the real axis with a few conjugate pairs off the axis. Right: the leftmost level is a complex conjugate pair away from the real axis."}
+![Lowest 40 levels of the zero-mode Hamiltonian of $a_2$ at $g=1$ in the complex energy plane. Left: physical sign of the potential. The vacuum (circled) is real and has the smallest real part, and excited levels include complex-conjugate pairs. Right: opposite sign. The lowest level is itself a complex pair.](figures/ch45_f31_zero_mode_spectrum.svg){#fig-zero-mode-spectrum fig-alt="Two scatter plots of energy levels in the complex plane. Left: one isolated real level at the far left, circled, then levels along the real axis with a few conjugate pairs off the axis. Right: the leftmost level is a complex conjugate pair away from the real axis."}
 
 ## Exercises {#sec-lattice-exercises}
 

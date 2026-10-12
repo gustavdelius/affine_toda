@@ -8,7 +8,7 @@ The potential shifts p by alpha_1, alpha_2, alpha_0 = -alpha_1 - alpha_2, so H i
 Checks: spectrum closed under complex conjugation; lowest level real with smallest real part (physical sign);
 Z(T) = Tr exp(-T H) > 0 for T = 0.5, 2, 8 (physical sign); the opposite sign has Z(2) < 0 and a complex lowest
 pair; the spectrum does not change with P (8 versus 12); complex levels exist among the lowest 40.
-Writes part8-foundations/figures/ch37_f31_zero_mode_spectrum.svg."""
+Writes part9-foundations/figures/ch45_f31_zero_mode_spectrum.svg."""
 import itertools
 
 import numpy as np
@@ -71,5 +71,5 @@ axs[0].annotate("real vacuum,\nsmallest $\\mathrm{Re}\\,E$", xy=(ev[0].real, 0),
 axs[1].annotate("lowest level is\na complex pair", xy=(evm[0].real, evm[0].imag), xytext=(7.0, 1.0), fontsize=7.5,
                 color=style.RED, arrowprops=dict(arrowstyle="->", color=style.RED, lw=0.9))
 fig.tight_layout()
-style.save(fig, "ch37_f31_zero_mode_spectrum", style.OUT_PART8)
+style.save(fig, "ch45_f31_zero_mode_spectrum", style.OUT_PART9)
 raise SystemExit(0 if style.all_ok() else 1)

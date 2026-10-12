@@ -10,7 +10,7 @@ Right: the (psi, alpha) plane of the Theta-broken region of two a_2^(2) kinks in
 Checks: T_1^dagger = C T_1^{-1} C (part 2); spectrum invariant under s -> 1/conj s; two-colour sector eigenvalues
 have modulus 1; three-colour sector has max||s|-1| > 0.05; R~ Hermiticity and colour-reversal identities (part 1);
 the broken region is empty for |psi| <= pi/2, its largest alpha is pi/3 at |psi| = 2 pi/3, and it vanishes at |psi| = pi.
-Writes part8-foundations/figures/ch40_f34_krein_pairing.svg."""
+Writes part9-foundations/figures/ch48_f34_krein_pairing.svg."""
 import itertools
 
 import numpy as np
@@ -122,5 +122,5 @@ ax2.set_xlim(-1, 1); ax2.set_ylim(-0.6, 0.6)
 ax2.set_xlabel(r"$\psi/\pi$"); ax2.set_ylabel(r"Bloch angle $\alpha/\pi$")
 ax2.set_title(r"$a_2^{(2)}$: two kinks, sector $Q=0$", fontsize=8.5)
 fig.tight_layout()
-style.save(fig, "ch40_f34_krein_pairing", style.OUT_PART8)
+style.save(fig, "ch48_f34_krein_pairing", style.OUT_PART9)
 raise SystemExit(0 if style.all_ok() else 1)

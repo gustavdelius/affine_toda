@@ -1,11 +1,11 @@
 """Figure F33 (chapter 36, sec-summary-results, exr-gap-map): which chapter addresses which of the twelve gaps H1-H12,
 and with what status.  The figure is generated from the text: it parses the table of sec-summary-results in
-part8-foundations/36-twelve-gaps.qmd, resolves every cross-reference (@thm-..., @sec-..., ...) in a row to the
+part9-foundations/44-twelve-gaps.qmd, resolves every cross-reference (@thm-..., @sec-..., ...) in a row to the
 chapter file that defines it, and colours the row by the first words of its status column.
 
 Checks: the table has the twelve rows H1..H12 in order; every cross-reference of every row resolves to exactly one
 definition in a numbered chapter; every status is classified; each gap is addressed by at least one chapter.
-Writes part8-foundations/figures/ch36_f33_gap_map.svg."""
+Writes part9-foundations/figures/ch44_f33_gap_map.svg."""
 import re
 from pathlib import Path
 
@@ -15,7 +15,7 @@ from style import plt, report
 
 style.setup()
 ROOT = style.ROOT
-text = (ROOT / "part8-foundations" / "36-twelve-gaps.qmd").read_text()
+text = (ROOT / "part9-foundations" / "44-twelve-gaps.qmd").read_text()
 table = text.split("## Summary of results")[1].split("## Exercises")[0]
 rows = [r for r in table.splitlines() if re.match(r"\|\s*H\d+\s*\|", r)]
 report("the summary table has the twelve rows H1..H12 in order",
@@ -83,6 +83,6 @@ ax.set_xlim(-2.4, 5.2 + len(cols_ch) - 0.5)
 ax.set_ylim(-1.8, 13.7)
 ax.axis("off")
 fig.tight_layout()
-style.save(fig, "ch36_f33_gap_map", style.OUT_PART8)
+style.save(fig, "ch44_f33_gap_map", style.OUT_PART9)
 print("chapters:", cols_ch, "status:", status)
 raise SystemExit(0 if style.all_ok() else 1)

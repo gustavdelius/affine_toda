@@ -8,7 +8,7 @@ Checks: beta_UV^2 from the definition (minimum over clusters of up to 7 simple a
 4, 4 (units of pi) for a_1, a_2, a_3, d_4, c_2, g_2, and 4(1-1/h) for a_4, a_5; the null vector sum n_j alpha_j
 vanishes; the cluster formula gives 4 pi / |alpha_i.alpha_j| for a pair; beta_UV^2 > 2 pi except for a_1; the
 numerical poles of the Gamma-function factor are at kappa = 1 - 1/(k h), the h = 2 poles at odd xi.
-Writes part8-foundations/figures/ch38_f32_collapse_thresholds.svg."""
+Writes part9-foundations/figures/ch46_f32_collapse_thresholds.svg."""
 import itertools
 
 import numpy as np
@@ -122,5 +122,5 @@ ax2.set_xlabel(r"$\beta^2/\pi$"); ax2.set_ylabel(r"$\Gamma$-function factor of $
 ax2.legend(loc="upper left", fontsize=7.5, ncol=1, handlelength=1.2, columnspacing=1.0)
 ax2.set_title(r"poles at $\beta^2=4\pi(1-\frac{1}{kh})$", fontsize=8.5)
 fig.tight_layout()
-style.save(fig, "ch38_f32_collapse_thresholds", style.OUT_PART8)
+style.save(fig, "ch46_f32_collapse_thresholds", style.OUT_PART9)
 raise SystemExit(0 if style.all_ok() else 1)
