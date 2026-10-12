@@ -56,7 +56,7 @@ The book's own summary of new material is in the introduction, and [Appendix D](
 | `foundations_code/` | Research computations behind Parts V and VIII |
 | `soliton_rmatrix_code/` | Construction of quantum-affine representations and R-matrices, soliton S-matrices and one-loop tests (Part VI) |
 | `briefs/` | Referee reports, reading-fix briefs and open research tasks |
-| `add-backlinks.py`, `part-preamble.lua`, `status-tags.lua`, `theme*.scss` | Quarto build helpers and styling |
+| `add-backlinks.py`, `add-discovery-metadata.py`, `part-preamble.lua`, `status-tags.lua`, `theme*.scss` | Quarto build helpers, discovery metadata and styling |
 | `publish-pdf.sh` | Builds the PDF locally and attaches it to the `pdf-latest` release |
 | `requirements.txt` | Python packages needed by the scripts |
 | `LICENSE` | MIT licence for the code |
@@ -101,6 +101,20 @@ Some scripts take a long time, and a few depend on a sign convention for $q$. Th
 ## Contributing and feedback
 
 The book was produced by an iterative process of drafting, checking and fixing, recorded in `briefs/`. If you find an error, the most useful report is a specific one: the chapter and equation label (`eq-…`, `prp-…`, `sec-…` ids in the source), what is wrong, and, where possible, a script that shows it. Errors in the published literature that the book has found are recorded in Appendix D, and that list should be kept in step with the chapter notes.
+
+## Online publication and discovery plan
+
+The book is a living online publication and is not intended for print publication. The HTML website is the canonical reading edition, while occasional numbered releases will provide stable versions for citation.
+
+The repository is prepared for the following publication process:
+
+1. **Search and sharing.** The build supplies canonical URLs, a description, subject keywords, honest editor-only citation metadata and social-card metadata. The published site includes a sitemap and a `robots.txt` file so that search engines can discover every chapter.
+2. **Stable releases.** Substantial milestones will be tagged with numbered versions. Each release will preserve the PDF and source corresponding to that version.
+3. **DOI and preservation.** The first stable release will be deposited in Zenodo as a *Publication — Book*, with Gustav Delius identified as editor and validators recorded as contributors rather than authors. Zenodo's concept DOI will identify the evolving book; each archived release will also have its own version DOI. The reserved DOI must be added to `_quarto.yml`, the citation page and the PDF before the first deposit is published.
+4. **Scholarly indexes.** After the DOI has been registered, the book will be submitted to INSPIRE as a book. The DOI and book record can also be added to relevant ORCID and institutional-repository records.
+5. **Ongoing validation.** New subject-matter validators and the precise scope and version of each validation will be recorded as the validation programme develops.
+
+The [citation page](citation.qmd) gives the current editor-only citation in several formats. Google Search Console and Bing Webmaster Tools should be connected after deployment and given the generated sitemap; those steps require the site owner's accounts and cannot be configured in this repository alone.
 
 ## License
 
