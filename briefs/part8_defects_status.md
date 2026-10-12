@@ -6,11 +6,11 @@ Working record for Part VIII, kept in the repository because the session scratch
 
 | Ch | Drafted | Script(s) | Checks | Refereed |
 |---|---|---|---|---|
-| 36 | 2026-10-11 | `defect_axioms.py` | 20 PASS (2 s) | Gemini 3.8 Flash, 2026-10-11 (light) |
-| 37 | 2026-10-11 | `defect_classical_sg.py`, `defect_sg_transmission.py` | 27 + 24 PASS (18 s, 103 s) | Gemini 3.8 Flash, 2026-10-11 (light) |
+| 36 | 2026-10-11 | `defect_axioms.py` | 20 PASS (2 s) | Gemini (light) + Codex deep, integrated 2026-10-12 |
+| 37 | 2026-10-11 | `defect_classical_sg.py`, `defect_sg_transmission.py` | 27 + 24 PASS (18 s, 103 s) | Gemini (light) + Codex deep, integrated 2026-10-12 |
 | 38 | 2026-10-12 | `defect_classical_an.py`, `defect_lax_rmatrix.py` | 24 + 6 PASS (57 s, <1 s) | no |
 | 39 | | `defect_solitons_an.py` | | |
-| 40 | | `defect_universal_r.py`, `defect_transfer.py` | | |
+| 40 | 2026-10-12 | `defect_universal_r.py`, `defect_transfer.py` | 14 + 9 PASS (46 s, 15 s) | no |
 | 41 | | `defect_an_transmission.py` | | |
 | 42 | | `defect_doubling.py` | | |
 | 43 | | `defect_particle_transmission.py` | | |
@@ -30,27 +30,36 @@ Working record for Part VIII, kept in the repository because the session scratch
 **By hand (drafting agent):**
 - proofs of `prp-rt-nogo`, `prp-twist-defect` and `prp-doubling` item 3;
 - unitarity with reflection from the ZF algebra;
-- Hermitian analyticity ⇔ Re b = ±3;
+- Hermitian analyticity ⇔ Re b ≡ 3 (mod 6), i.e. Re b = ±3 modulo 12 (rechecked by the Codex deep pass);
 - the kink-rescaling reading of the CCK factor;
 - Bajnok–Holló–Watts μ̂ + μ̄̂ = h(b) of ch. 28;
 - the signs and arguments of the doubled K; 𝕋 depending on θ−θ_d and 𝕋̄ on θ+θ_d.
 
+**Independently checked by the Codex deep referee pass (2026-10-12; scripts in `briefs/referee_defects_36_37_deep_scripts/`):**
+- `prp-doubling` item 3 with the non-diagonal sine-Gordon 𝕋 and its scalar (full doubled K, |n| ≤ 5), with a negative control;
+- `prp-rt-nogo`: both reductions, given label-preserving R, 𝕋 and independent out-states (hypotheses now stated); the direct-sum counterexample to cancelling 𝕋 in CAFG's argument;
+- the CCK (18)/(21) crossing rules on all 14 M₅ faces, YBE and unitarity of both forms, the direction of the factor, and fusion-vertex covariance of the kink rephasing;
+- the Lee–Yang analyticity condition, the |1⁺⟩, |2⁺⟩ bootstrap and Coleman–Thun pole orders at b = 1.6, the TBA driving term and the Lüscher sign; the crossed-channel factor at b = −3 is positive and < 1, not a phase.
+
 **Unchecked:**
-- CAFG's non-diagonal argument (their (22)–(24));
-- the defect TBA and Lüscher formulas (Bajnok–Simon (25), BHW (94)–(96));
-- Bajnok–Simon's |2⁺⟩ state and its Coleman–Thun closure;
+- CAFG's non-diagonal argument beyond the cancellation caveat (their (22)–(24));
 - the BHW TCSA conclusions;
 - Mintchev–Ragoucy–Sorba (cited generally);
 - Jiang and Kormos–Runkel–Watts (cited by abstract);
 - Runkel's T-system statements;
-- "no interacting example known" for the CAFG loophole;
+- "no interacting example known" for the CAFG loophole (two natural sine-Gordon attempts fail; no general argument);
 - that the defect operator, as a trace over 𝒲, commutes with the transfer matrix (left to `defect_transfer.py`, ch. 40);
-- the remarks on unstable states.
+- the remarks on unstable states (the sine-Gordon resonance reading now restricted to λ > 1);
+- the doubled theory's lack of parity invariance (parity combined with copy exchange not examined; Codex 'unverified' list);
+- the general equivalences of pure transmission, momentum conservation, deformability and topological lines (Codex 'unverified' list).
+
+**Book-internal corrections (2026-10-12):** the TBA reliability statement (BHW's phase condition concerns real-rapidity 𝕋 at b = −3 + iα, not the crossed-channel factor); the CCK paragraph no longer claims a comparison with amplitudes printed in ch. 27; the Lee–Yang "fundamental range" is qualified.
 
 **Corrections to sources recorded in the Notes:**
 - DMS (2.12) needs no parity, and their (2.10) is empty only if S_ab = S_ba.
 - The DMS χ branch.
 - CAFG (32) omits a factor S_ba.
+- CAFG (22)–(23): cancelling 𝕋 needs nondegeneracy (direct sum of reflecting and transmitting sectors) — added 2026-10-12.
 - Book-internal: the twist of `prp-bloch-sectors` acts at a common seam.
 
 **Pending edits elsewhere (integration phase):**
@@ -91,22 +100,22 @@ Working record for Part VIII, kept in the repository because the session scratch
 **By hand (drafting agent).**
 - Compatibility and permutability proofs; dE/dt and dP/dt.
 - The crossing condition ΦΦ′(1+Y²) = q^{−s} for general s (only s = 0 is checked numerically); q^{−s/2}Φ for s ≠ 0.
-- No poles of Φ in the physical strip.
+- No poles of Φ in the physical strip (Codex deep pass: none in 0 < Im θ < π).
 - The rational form of 𝕋^cl.
 - The momentum criterion forcing exponential potentials (F‴/F′ = G‴/G′); the boost argument.
 - The KL dictionary ν ↔ −λθ_d.
-- Penati–Polvara normalization γ/2 = β_SG²/8π.
+- Penati–Polvara normalization γ/2 = b²/8π for real sinh-Gordon coupling b, which continues to −β_SG²/8π (corrected 2026-10-12; source text 1902.10690 rechecked: γ ≡ β²/2π, action 1/(2β²), V = e^{√2φ}+e^{−√2φ}).
 - The classical limit of Bajnok–Simon's ε_def; E_D as the continuation of `eq-bsg-dirichlet`.
 - 𝕋̄𝕋 = (cosh θ_d + i sinh θ)/(cosh θ_d − i sinh θ).
 - The stable-pole window for imaginary θ_d.
 
 **Unchecked.**
-- **Type II, quoted only:** all CZ 2009b/2010 type-II statements. In particular their resonance at η_p + iπ/2γ has the opposite sign to BCZ (4.1) and is not reconciled.
+- **Type II, quoted only:** all CZ 2009b/2010 type-II statements. Their resonance at η_p + iπ/2γ is a misprint for η_p − iπ/2γ (Gemini pass, 2026-10-11).
 - **Attributions to sources:**
   - CZ 2004 gates.
   - Weston's identification, including his Borel subalgebra in book conventions.
   - BCZ Sec. 6 (moving defects) and (3.52)–(3.56).
-  - Bajnok–Simon (17), (18), (23).
+  - Bajnok–Simon (18), (23); (17) and its scale (14) were rederived in the Codex deep pass.
   - Penati–Polvara's anomaly statements.
   - KL (5.30)–(5.37).
   - The necessity direction of the BCZ classification.
@@ -114,8 +123,8 @@ Working record for Part VIII, kept in the repository because the session scratch
 - **Citations:** `habibullin_kundu2008` is cited by title only.
 
 **Corrections to sources recorded in the Notes.**
-- BCZ 2005 (3.42), (3.47) diverge; the KL pairing (3.44) converges.
-- BCZ 2005 Sec. 2 two-defect remark: the left-to-right factors are inverse.
+- BCZ 2005 (3.42), (3.47) need an endpoint normalization; the paired product r of (3.44) diverges like K^{(γ+1)/4} on its own, and only the common-cutoff ratio r/r̄ converges (corrected 2026-10-12).
+- BCZ 2005 Sec. 2 two-defect remark: a directional clarification — correct as a temporal comparison for the overtaken soliton; the left-to-right spatial factors are inverse (reworded 2026-10-12).
 - Bajnok–Simon B_BS = B/2; their (17) ⇔ θ_d = (1 − B/2)θ_d^cl.
 - BCZ 2005 (2.2): +δ(x).
 
@@ -225,6 +234,95 @@ Working record for Part VIII, kept in the repository because the session scratch
   - `cnj-momentum-integrability`;
   - time-like Liouville integrability for a_r;
   - the quantum fate of the second chirality (Penati–Polvara assumed Q₋₂ lost).
+
+## Chapter 40 (`sec-defect-qg`)
+
+**By script.**
+- `defect_universal_r.py` (14 checks):
+  - q-oscillator relations on Weyl and Fock modules; Borel relations and q-Serre.
+  - The shift-module classification.
+  - Khoroshkin–Tolstoy ℛ on V⊗V against PŘ, with error O(x⁴); controls without the imaginary-root factor or the height-3 roots fail.
+  - ℛ on V⊗(Weyl or Fock, both Borels) against `eq-l-operator`.
+  - ℛ₂₁⁻¹ on V⊗𝒲⁻ equals c·(ch. 37 matrix) with c → q^{−s/2}.
+  - Fock intertwiners are unique; RTT holds for both Borels and both modules.
+  - The Hom dimensions of hypothesis (ii) of `thm-t-triangle`.
+  - `prp-sg-t-unique` for s = 0, 0.3, 1.
+  - Weston (2.9) intertwines, and its transpose has the 𝔟⁻ invariants.
+  - The ψ → −ψ two-label map gives 𝕋_{I₊} with s₊ = −1−s.
+  - With q^{−s/2}Φ, unitarity and crossing hold for s ≠ 0.
+  - No extension of 𝔟⁻ by e_j acts on 𝒲.
+  - Classical-limit structure: Weyl relations, factorization, RTT.
+- `defect_transfer.py` (9 checks; N ≤ 4, λ = 1.37):
+  - Fock trace stable under window growth at |ω| = 0.8.
+  - Fock commutators vanish, with controls.
+  - Fock TQ with no fitted constant.
+  - Weyl factorization, and the Weyl window trace does not converge.
+  - Weyl commutators need the sector twist ω = q^{−m/2}.
+  - Weyl TQ for N = 2, 3, 4.
+  - Twist limit; T₁ tends to the Bloch-twisted transfer matrix.
+  - The charge-conjugation limit, and 𝒟 → q^{ms/2}.
+
+**By hand (drafting agent).**
+- The proof of `thm-t-triangle`, and the 𝔟⁻ uniqueness proof.
+- q-Serre via Z.
+- `eq-dq-massless-defect`, and the chirality of the two defect-potential terms.
+- The τ anti-isomorphism argument.
+- The Weyl factorization.
+- The Poisson brackets {u, w±} and the dictionary to L_d.
+- The Ising and Lee–Yang eigenvalues.
+- The train argument.
+
+**Exploratory only (scratchpad).** The fit that produced the TQ coefficients; that ±iy_F both work; that the TQ coefficients do not depend on ω.
+
+**Unchecked.**
+- The Fock exact sequence in book conventions.
+- The Lee–Yang eigenvalue assignment against BHW.
+- Hernandez–Jimbo and Frenkel–Hernandez (cited qualitatively).
+- Runkel and Petkova–Zuber (quoted).
+- KL's same-chirality terms not surviving exactly: inferred from check 13, not derived.
+- The duality q̂ vs q (a structural remark).
+- Cyclicity of the averaged Weyl trace (sketch).
+
+**Results to note.**
+- The universal-R direction is the opposite of the plan's guess: 𝕋_{I₊} ∝ P(π⊗ρ⁺)(ℛ) and 𝕋_{I₋} ∝ P(π⊗ρ⁻)(ℛ₂₁⁻¹), with ℛ ∈ U_q(𝔟⁻)⊗U_q(𝔟⁺).
+- Defect operators need inverse L-operators.
+- Weyl traces converge for no twist; they factorize by charge sector.
+
+**Corrections to sources recorded in the Notes.**
+- Weston's 𝔟⁺ is the book's 𝔟⁻ via his transposition.
+- Weston's "regularized trace" fails for r₁ = r₂ = 0 at |q| = 1.
+- BCZ (3.57)–(3.59): 𝕋_{I₊} ≠ (1⊗C)𝕋_{I₋} in the same labels.
+- BGKNR's ℛ is the book's ℛ₂₁⁻¹; BLZ III's B₋ is the book's U_q(𝔟⁺) with q → 1/q.
+
+**Pending edits elsewhere.**
+- Ch. 36 `sec-defect-circle`: the product is of 𝕃⁻¹ for t_ω; for Weyl modules the trace is a distribution in the twist, supported at ω² = q^{−m}; "Baxter's Q-operators" applies to Fock modules.
+- `textbook_code/README.md` rows for `defect_universal_r.py` (14 checks, ~50 s) and `defect_transfer.py` (9 checks, ~15 s), plus the new `defect_common` helpers (`q_oscillator_module`, `fock_module_b`, `borel_l_operator`, `flip_VW`).
+- Docstring trap in `defect_common.sg_tmatrix`: its Weyl module uses μ = 1, not the module the matrix intertwines.
+- Conventions brief §6:
+  - Fock modules are done;
+  - the 𝕃± closed forms and the universal-R direction;
+  - the universal-R normalization q^{±s/2};
+  - the defect operator with inverses, and the sector twist;
+  - the BGKNR/BLZ translation rules;
+  - the massless defect.
+- Optional bib: Verlinde 1988.
+- The ch. 37 items now resolved: q^{−s/2}Φ is checked numerically, and Weston's Borel is identified.
+
+**Obligations for later chapters.**
+- **Ch. 41:**
+  - the a_r Borel modules (CZ 2011) and hypothesis (ii) of `thm-t-triangle` for them;
+  - fix the s-dependence of the scalars through the universal-R normalization;
+  - keep q-sign statements convention-qualified.
+- **Ch. 42:**
+  - decide `cnj-twisted-diagonal`, including how the RTT algebra sits in the doubled reflection-equation algebra;
+  - 𝒲 as a dynamical boundary module;
+  - the third column of `tbl-boundary-defect-algebra`.
+- **Ch. 43 (open problems):**
+  - a proof of `cnj-defect-tq` for all N;
+  - the meaning of ω = q^{−m/2};
+  - KL's same-chirality terms beyond first order;
+  - q̂ vs q;
+  - convergence of Runkel's defect operators.
 
 ## Global pending edits
 
