@@ -484,6 +484,24 @@ report(f'BPTT a_n: a(u+nu_n)a(u-nu_n)/(a(u+nu_0)a(u-nu_0)) = prod_(l=1)^n {{2(et
        f'[{float(dev_ratio):.0e}]; bootstrap a(u - nu_n) Q(eta) b(u + nu_n) = Q(etabar) a_n for n = 0, 1, 2 '
        f'[{float(dev_boot):.0e}]', dev_ratio < 1e-15 and dev_boot < 1e-15)
 
+# 12b. The shift identity behind prp-bsg-excited for every n (half-line open problem 12(b)):
+# a(u - pi/lam) = tan(u/2) tan(pi/(2lam) - u/2) a(u). Hence the ratio form of a_n telescopes to the product form
+# (step n-1 -> n is the identity at x = nu_(n-1)), and since lam nu_n = lam nu_0 - n pi the sines in b/a cancel,
+# so the n-th bootstrap follows from the n = 0 one. Checked here on the Gamma product and up to n = 6.
+dev_shift = 0
+for u in (mp.mpc('0.3', '0.2'), mp.mpc('0.9', '-0.15'), mp.mpc('-0.5', '0.1')):
+    dev_shift = max(dev_shift, abs(a_gz(1j*(u - mp.pi/L))/(mp.tan(u/2)*mp.tan(mp.pi/(2*L) - u/2)*a_gz(1j*u)) - 1))
+dev_ratio6, dev_boot5 = 0, 0
+for u in (mp.mpc('0.3', '0.2'),):
+    av = {(n, s): a_gz(1j*(u + s*nu(n))) for n in range(7) for s in (1, -1)}
+    dev_ratio6 = max(abs(av[(n, 1)]*av[(n, -1)]/(av[(0, 1)]*av[(0, -1)])/a_n(n, u) - 1) for n in range(1, 7))
+    Qrat = mp.exp(log_sigma(eta, u) - log_sigma(etab, u))*mp.cos(etab)/mp.cos(eta)
+    bv = lambda n: mp.sin(L*(u + nu(n)))/mp.sin(L*(mp.pi - u - nu(n)))*av[(n, 1)]
+    dev_boot5 = max(abs(av[(n, -1)]*bv(n)*Qrat/a_n(n, u) - 1) for n in range(6))
+report(f'a(u - pi/lam) = tan(u/2) tan(pi/2lam - u/2) a(u) [{float(dev_shift):.0e}]; hence ratio = product form for all n '
+       f'(n <= 6: {float(dev_ratio6):.0e}) and the bootstrap for all n from n = 0 (n <= 5: {float(dev_boot5):.0e})',
+       dev_shift < 1e-15 and dev_ratio6 < 1e-14 and dev_boot5 < 1e-14)
+
 # ---------------------------------------------------------------- 13. breathers on the excited boundaries |0>, |1>
 # Soliton K on |k> = sigma_x K(etabar) sigma_x a_k (eq-bsg-excited-k); the full matrix bootstrap for B_m gives
 # K_{B_m}(etabar) b_mk with b_mk = a_k(u + pi/2 - m pi/2lam) a_k(u - pi/2 + m pi/2lam) (BPTT (3.9)), m = 1, 2, k = 0, 1.
