@@ -1,0 +1,2 @@
+Borel 1 loop-commutant rank 15 dimension 1 det raising A0 2401/6561
+Borel -1 loop-commutant rank 15 dimension 1 det raising A0 256/2401

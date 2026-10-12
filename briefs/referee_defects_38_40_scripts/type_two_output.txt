@@ -1,0 +1,7 @@
+SG momentum residual: 0
+Tz momentum residual: 0
+Tz printed-f control: (0.14658002327624908+0j)
+SG tanh sector: corrected residual= 2.3835586492959992e-11 printed control= 7.239138005341517 lambda(E=0)= -0.6636366741809404
+SG coth sector: residual= 9.181850523649601e-11 lambda(E~0)= (0.663636674124263+9.572649686082385e-06j) expected +vacuum= 0.6636366741809404
+Tz sectors residuals= [7.424055183647854e-11, 9.028471070017035e-11, 6.561422468033857e-11] product-1= 6.684427777288335e-16
+CZ(4.9) z2 minus book z2= 1.1443916996305594e-16 CZ(4.11) minus z3= 0.0

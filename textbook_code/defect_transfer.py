@@ -18,12 +18,13 @@ Checks:
     control: the shifts q^{+-2} fail.  (N = 4.)
  4. Weyl (b^-): in the sector of soliton charge m = sum sigma_j, <n|M|n>_W = q^{mn} <0|M|0>_W (M = the monodromy), so
     the window trace sum_{|n|<=K} w^{2n+s} <n|M|n> is a sector-dependent scalar times D_W := <0|M|0>; for |w| != 1
-    this scalar grows without bound as K increases, the normalized operator does not change.
+    this scalar grows without bound as K increases, the normalized operator does not change.  For the b^+ Weyl module
+    the exponent is -mn instead (formal support w^2 = q^m).
  5. Weyl: [D_W(y_d), D_W(y_d')] = 0; in the sector m, D_W commutes with t_w for w = q^{-m/2} (the support of the
     formal sum sum_n (w^2 q^m)^n), and not with the untwisted t for m != 0.
  6. cnj-defect-tq (Weyl), no fitted constants, every sector m with w_m = q^{-m/2}:
       t_{w_m}(i y_d) D_W(y_d) = q^{-N/2} D_W(q y_d) + prod_j q^{1/2} (q z_j^2 + q^-1)/(z_j^2 + 1) D_W(y_d/q),  z_j = y_j/y_d;
-    checked for N = 2, 3, 4; for N = 4 the family {D_W(y_d)} spans 3 dimensions in the sector m = 0 (dimension 6), so
+    checked for N = 2, ..., 6; for N = 4 the family {D_W(y_d)} spans 3 dimensions in the sector m = 0 (dimension 6), so
     the test is not empty (for N <= 3 it is weaker); control: the shifts q^{+-2} fail.
  7. prp-defect-twist-limit: (a) the full T (Phi included, eq-sg-transmission-matrix) tends to T_inf:
     v_+-|n> -> q^{s/2} q^{-+(2n+s)/2} |n> v_+- as theta - theta_d -> -infinity, with error ~ e^{min(1,lambda)(theta-theta_d)};
@@ -31,7 +32,7 @@ Checks:
     q^{s/2} times the Bloch-twisted bulk T_1 of prp-twist-defect with e^{i alpha_n} = q^{-(2n+s)/2};
     (c) as theta - theta_d -> +infinity, T/(Phi Y) tends to the charge-conjugating limit v_+|n> -> -i q^-n |n+1> v_-,
     v_-|n> -> -i q^{n+s} |n-1> v_+; (d) D_W tends to q^{ms/2}, a function of the charge alone.
-Windows: Fock n = 0..40 (80 for check 1), Weyl n = -6..6 (D_W) and -4..4 (T_1).  Runtime about 10 seconds.
+Windows: Fock n = 0..40 (80 for check 1), Weyl n = -6..6 (D_W) and -4..4 (T_1).  Runtime about 30 seconds.
 """
 import numpy as np
 from boundary_common import report, q_phys, sl2_spin, rcheck, prop_residual
@@ -168,6 +169,14 @@ fac = 0
 for k, n in enumerate(Wm['n']):
     if abs(n) <= 3:
         fac = max(fac, np.abs(M4[:, k, :, k] - DW*q**(np.outer(np.ones(D16), mag4)*n)).max())
+# the b^+ Weyl module: exponent -mn (and the b^- exponent +mn fails there)
+Mp, Wp_ = monodromy(1, 'weyl', yd, ys4, S, K=6)
+Mp4 = Mp.reshape(D16, Wp_['dim'], D16, Wp_['dim']); ip0 = list(Wp_['n']).index(0)
+facp, facp_bad = 0, 0
+for k, n in enumerate(Wp_['n']):
+    if 0 < abs(n) <= 3:
+        facp = max(facp, np.abs(Mp4[:, k, :, k] - Mp4[:, ip0, :, ip0]*q**(-np.outer(np.ones(D16), mag4)*n)).max())
+        facp_bad = max(facp_bad, np.abs(Mp4[:, k, :, k] - Mp4[:, ip0, :, ip0]*q**(np.outer(np.ones(D16), mag4)*n)).max())
 w2 = 0.8
 tr = {}
 for Kw in (2, 3):
@@ -176,9 +185,11 @@ for Kw in (2, 3):
 m0 = mag4 == 2
 grow = np.abs(tr[3][np.ix_(m0, m0)]).max()/np.abs(tr[2][np.ix_(m0, m0)]).max()
 norm_dev = prop_residual(tr[3][np.ix_(m0, m0)], DW[np.ix_(m0, m0)])[0]
-report(f'Weyl defect operator: in the sector of charge m, <n|M|n> = q^(mn) <0|M|0> [{fac:.0e}]; the window trace with '
+report(f'Weyl defect operator: in the sector of charge m, <n|M|n> = q^(mn) <0|M|0> for W^- [{fac:.0e}] and q^(-mn) <0|M|0> '
+       f'for W^+ [{facp:.0e}; the exponent +mn fails there: {facp_bad:.2f}]; the window trace with '
        f'|w| = 0.8 changes by a factor {grow:.2f} from |n| <= 2 to |n| <= 3 (no convergence), while the normalized operator '
-       f'is D_W = <0|M|0> in every window [{norm_dev:.0e}]', fac < 1e-12 and grow > 1.3 and norm_dev < 1e-12)
+       f'is D_W = <0|M|0> in every window [{norm_dev:.0e}]',
+       fac < 1e-12 and facp < 1e-12 and facp_bad > 1e-2 and grow > 1.3 and norm_dev < 1e-12)
 
 # ---------------------------------------------------------------- 5. Weyl: commutation
 DW2 = D_weyl(0.6*np.exp(-0.3j), ys4, S)[0]
@@ -216,8 +227,9 @@ def tq_weyl(shift, ys, s=S):
 fam = np.array([D_weyl(yd*np.exp(0.3*k + 0.2j*k), ys4, S)[0][np.ix_(mag4 == 0, mag4 == 0)].ravel() for k in range(5)])
 sv = np.linalg.svd(fam, compute_uv=False)
 rank0 = int((sv/sv[0] > 1e-10).sum())
-r_w, r_w_bad = max(tq_weyl(q, ys4[:k]) for k in (2, 3, 4)), tq_weyl(q**2, ys4)
-report(f'cnj-defect-tq (Weyl, N = 2, 3, 4): in every sector m, t_w(i y_d) D_W(y_d) = q^(-N/2) D_W(q y_d) + prod_j q^(1/2)'
+ys6 = np.exp(LAM*np.array([0.31, -0.42, 0.77, 0.05, -0.2, 0.55]))          # first four as ys4
+r_w, r_w_bad = max(tq_weyl(q, ys6[:k]) for k in (2, 3, 4, 5, 6)), tq_weyl(q**2, ys4)
+report(f'cnj-defect-tq (Weyl, N = 2, ..., 6): in every sector m, t_w(i y_d) D_W(y_d) = q^(-N/2) D_W(q y_d) + prod_j q^(1/2)'
        f'(q z_j^2 + q^-1)/(z_j^2 + 1) D_W(y_d/q), w = q^(-m/2), no fitted constant [{r_w:.0e}]; family rank {rank0} in the '
        f'6-dimensional sector m = 0; control: shifts q^(+-2) [{r_w_bad:.2f}]', r_w < 1e-10 and rank0 == 3 and r_w_bad > 1e-2)
 

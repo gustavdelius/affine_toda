@@ -15,7 +15,8 @@ Checks (book ids they support):
     L_d = exp(-b H.(E phi + D psi)/2) Ltilde exp(b H.(D^T phi - E psi)/2), on the defect conditions, defining rep,
     a_1, a_2, a_3, both couplings: one-dimensional; type I_- Ltilde = 1 + sigma lambda^{-1} sum_j E_{-alpha_j} (c = 1, i.e.
     BCZ (3.39) with d = sigma and their lambda = the book's lambda); type I_+ (B_d^{I+}(sigma) = B_d^{I-}(1/sigma))
-    Ltilde^{-1} ~ 1 - sigma^{-1} lambda sum_j E_{alpha_j} (Ltilde = sum_k (lambda/sigma)^k P^k); a non-integrable D has none.
+    Ltilde^{-1} ~ 1 - sigma^{-1} lambda sum_j E_{alpha_j} (Ltilde = sum_k (lambda/sigma)^k P^k); the mirror image (D^T, -E)
+    (the same defect after relabelling j -> -j) also has a one-dimensional space; a non-integrable D has none.
     For a soliton of rapidity theta the vacuum Lax solutions give lambda = -e^{-theta}.                                [eq-defect-lax-matrix, prp-defect-lax]
  5. Spin +-2 charges of a_2^(1) (sympy + Euler operator in t, and closed-loop integrals): with Q = int (T - Theta) dx
     built from d_eps = d_t + eps d_x (T = A(u,u,u) + w.Bu, u = d_eps phi; bulk current checked on shell; density not a total
@@ -46,10 +47,11 @@ Chapter 38 additions (sec-defect-conditions):
 10. Type II (cz2009b units): sine-Gordon (3.2) and Tzitzeica (3.7) conserve E + D and P + Omega (Omega = f - g); solitons pass
     with the delays (4.3) [z1 = tanh tanh in the sector e^lam -> -1/(sqrt2 cosh tau), z2 = coth coth for +1/(sqrt2 cosh tau);
     corrected (4.4)] and (4.9) [(4.11) as printed is z3].                                                 [prp-type-ii-momentum]
-11. prp-spin-two for all r: BCZ (5.5) with B = 1 - D is solved by A = (2/3) sum_k (mu_k.u)^3, and (5.11) vanishes for
-    r = 2..8 (cot identity, h = 3..11); explicit B_{+2}, B_{-2} for a_2 type I_- (homotopy formula; linear in velocities plus
-    exponentials), dB/dt = defect flux.                                                                   [prp-spin-two]
-Runtime: about 55 seconds (checks 5 and 11 dominate).
+11. prp-spin-two for all r: BCZ (5.5) with B = 1 - D is solved by A_abc = 2 sum_k mu_ka mu_kb mu_kc, i.e.
+    A(u,u,u) = 2 sum_k (mu_k.u)^3 (their density (5.2) is (1/3) A(u,u,u) = (2/3) sum_k (mu_k.u)^3), and (5.11) vanishes for
+    r = 2..8 (cot identity, h = 3..11); explicit B_{+2}, B_{-2} for a_2, types I_- and I_+, with sigma symbolic (homotopy
+    formula; linear in velocities plus exponentials): defect flux - dB/dt simplifies to 0 EXACTLY (sympy).   [prp-spin-two]
+Runtime: about 100 seconds (checks 5 and 11 dominate).
 """
 import itertools
 import numpy as np
@@ -199,8 +201,18 @@ def _bad(rr, typ=1):
 dc.dmatrix = _bad
 globals()['dmatrix'] = _bad
 nbad = [len(ltilde_space(r, 0.7 + 0.3j, 0.83, 'real', 1)) for r in (2, 3)]
+# the mirror image D -> D^T, E -> 1 - D^T = -E (prp-ar-only: the same defect after relabelling j -> -j) does have an Ltilde;
+# defect_potential reads dmatrix, so the patched exponents are those of the mirror defect
+def _mirror(rr, typ=1):
+    D, E = _orig(rr, 1)
+    return (D.T, -E) if typ == 1 else (-D.T, E)
+dc.dmatrix = _mirror
+globals()['dmatrix'] = _mirror
+nmir = [len(ltilde_space(r, 0.7 + 0.3j, 0.83, c, t)) for r in (2, 3) for c in ('real', 'imag') for t in (1, -1)]
 dc.dmatrix = _orig; globals()['dmatrix'] = _orig
-report('control: with E -> 0.6 E (D = 1 - E, still D + D^T = 2) there is no Ltilde (a_2, a_3)', all(n == 0 for n in nbad))
+report(f'control: with E -> 0.6 E (D = 1 - E, still D + D^T = 2) there is no Ltilde (a_2, a_3); the mirror image (D^T, -E) '
+       f'has a one-dimensional space (a_2, a_3; both couplings and types: dimensions {nmir})',
+       all(n == 0 for n in nbad) and all(n == 1 for n in nmir))
 
 # lambda of a soliton: the vacuum Lax pair gives E = Psi_1/Psi_0 = exp(m0(x cosh theta - t sinh theta)) at lambda = -e^{-theta}
 th0 = 0.37; lam_s = -np.exp(-th0); mm = 1.1
@@ -253,11 +265,12 @@ def Dt(e):
     return sum(Q[k + 1][a]*sp.diff(e, Q[k][a]) for k in range(4) for a in range(4))
 
 
-def boundary_G(eps, typ, spin, Dbase=None):
+def boundary_G(eps, typ, spin, Dbase=None, sig=None):
     Dm_ = Dm if Dbase is None else Dbase
     Em_ = sp.eye(2) - Dm_
     D_, E_ = (Dm_, Em_) if typ == 1 else (-Dm_, -Em_)
-    s = SIG if typ == 1 else 1/SIG
+    sig = SIG if sig is None else sig
+    s = sig if typ == 1 else 1/sig
     phi, psi = sp.Matrix(q0[:2]), sp.Matrix(q0[2:]); phid, psid = sp.Matrix(q1[:2]), sp.Matrix(q1[2:])
     phidd, psidd = sp.Matrix(q2[:2]), sp.Matrix(q2[2:])
     B = sum(s*(sp.exp((aj.T*(Dm_.T*phi + Dm_*psi))[0]/2) - 1) + (sp.exp((aj.T*Dm_*(phi - psi))[0]/2) - 1)/s for aj in al)
@@ -823,8 +836,10 @@ report(f'type II, Tzitzeica a_2^(2) (cz2009b (3.7), e^eta = sqrt2 sigma): E + D 
 
 
 # ---------------------------------------------------------------- 11. prp-spin-two: the cubic obstruction for all r, and B_{+-2} for a_2
-# BCZ (5.5) with B = 1 - D = E (their (5.6)) is solved by A(u,u,u) = (2/3) sum_k (mu_k.u)^3, mu_k the weights of the defining
-# representation (H_k = e_kk); their obstruction (5.11), A(Dv)^3 + A(D^T v)^3, vanishes identically although each term does not.
+# BCZ (5.5) with B = 1 - D = E (their (5.6)), contracted with w_a w_b: A(w, w, alpha) = -2 (alpha.E w)(alpha.w), is solved by
+# A_abc = 2 sum_k mu_ka mu_kb mu_kc, mu_k the weights of the defining representation (H_k = e_kk); BCZ's density (5.2) has
+# (1/3) A_abc u_a u_b u_c, so its cubic term is (2/3) sum_k (mu_k.u)^3 (= the T of check 5).  Their obstruction (5.11),
+# A(Dv)^3 + A(D^T v)^3, vanishes identically although each term does not (the overall normalization of A is irrelevant there).
 ok55 = True; obs = 0; single = np.inf
 for r in range(2, 9):
     d = an_data(r); mu = d['U']; al_r = d['alpha']; D, E = dmatrix(r)
@@ -841,7 +856,7 @@ for h in range(3, 12):
         c1, c2, c3 = [1/np.tan(np.pi*k/h) for k in (k1, k2, k3)]
         d1, d2, d3 = 1 + 1j*c1, 1 + 1j*c2, 1 + 1j*c3                  # D on the Fourier modes
         cot_ok &= np.isclose(c1*c2 + c2*c3 + c3*c1, 1) and np.isclose(d1*d2*d3 + np.conj(d1*d2*d3), 0)
-report(f'BCZ (5.5) with B = 1 - D is solved by A = (2/3) sum_k (mu_k.u)^3 and the obstruction (5.11) A(Dv)^3 + A(D^T v)^3 '
+report(f'BCZ (5.5) with B = 1 - D is solved by A(u,u,u) = 2 sum_k (mu_k.u)^3 (density (1/3)A) and the obstruction (5.11) A(Dv)^3 + A(D^T v)^3 '
        f'vanishes for r = 2..8 [relative {obs:.0e}; single terms >= {single:.2f}]; on Fourier modes D = 1 + i cot(pi k/h) and '
        f'Re(d1 d2 d3) = 1 - (c1c2 + c2c3 + c3c1) = 0 for k1 + k2 + k3 = 0 mod h (h = 3..11)', ok55 and obs < 1e-12 and cot_ok)
 
@@ -866,23 +881,25 @@ def construct_B2(G):
         cvec = [sp.diff(lin, q0[a]) for a in range(4)]
         a0 = next(a for a in range(4) if cvec[a] != 0)
         kap = co[a0]/cvec[a0]
-        mism += sum(abs(complex(sp.N(co[a] - kap*cvec[a]))) for a in range(4))
+        mism += sum(1 for a in range(4) if sp.simplify(co[a] - kap*cvec[a]) != 0)      # exact match of the gradient
         F0 += kap*sp.exp(lin)
     return F1, F0, mism
 
 
-ok_b2 = True; worst_b2 = 0; shapes = []
-allv = [v for qq in Q for v in qq]
-for eps in (-1, 1):
-    G2 = boundary_G(eps, 1, 2)
-    F1, F0, mism = construct_B2(G2)
-    f = sp.lambdify(allv, [G2, Dt(F1 + F0)], 'numpy', cse=True)
-    for _ in range(4):
-        vals = rng.normal(size=len(allv))*0.5
-        g_, df_ = f(*vals); worst_b2 = max(worst_b2, abs(g_ - df_)/(1 + abs(g_)))
-    deg = max(sum(mo) for mo in sp.Poly(sp.expand(F1), *q1).monoms())
-    shapes.append((len(sp.Add.make_args(sp.expand(F1))), deg, len(sp.Add.make_args(sp.powsimp(sp.expand(F0), combine='exp')))))
-    ok_b2 &= mism < 1e-10 and deg == 1
-report(f'explicit defect corrections B_(+2) (eps = -1) and B_(-2) (eps = +1) of a_2, type I_-, built by the homotopy formula: '
-       f'B = (terms linear in phi_t, psi_t) + (exponentials) with dB/dt equal to the defect flux [rel. res {worst_b2:.0e}; '
-       f'(velocity terms, degree, exponentials) = {shapes}]', ok_b2 and worst_b2 < 1e-12)
+ok_b2 = True; shapes = []; nonzero = []
+sigma_s = sp.Symbol('sigma', positive=True)
+for typ in (1, -1):
+    for eps in (-1, 1):
+        G2 = boundary_G(eps, typ, 2, sig=sigma_s)
+        F1, F0, mism = construct_B2(G2)
+        # exact: flux - d/dt (F1 + F0) collects to 0 (sympy, sigma symbolic)
+        resid = sp.expand(sp.powsimp(sp.expand(G2 - Dt(F1 + F0)), combine='exp'))
+        nonzero.append(len(sp.Add.make_args(resid)) if resid != 0 else 0)
+        deg = max(sum(mo) for mo in sp.Poly(sp.expand(F1), *q1).monoms())
+        if typ == 1:
+            shapes.append((len(sp.Add.make_args(sp.expand(F1))), deg,
+                           len(sp.Add.make_args(sp.powsimp(sp.expand(F0), combine='exp')))))
+        ok_b2 &= mism == 0 and deg == 1 and resid == 0
+report(f'explicit defect corrections B_(+2) (eps = -1) and B_(-2) (eps = +1) of a_2, types I_- and I_+, sigma symbolic, built by '
+       f'the homotopy formula: B = (terms linear in phi_t, psi_t) + (exponentials) and defect flux - dB/dt = 0 EXACTLY '
+       f'[nonzero terms left: {nonzero}; type I_- (velocity terms, degree, exponentials) = {shapes}]', ok_b2)

@@ -37,12 +37,18 @@ Checks:
     y_d and offset s_+ = -1 - s.  (c) s != 0: with the s-independent scalar factor Phi in the universal-R normalization
     q^{-s/2} * (ch. 37 matrix), unitarity and defect crossing hold for s = 0.3 and s = 1; without q^{-s/2} crossing fails.
  9. The type-I_- matrix intertwines no extension of U_q(b^-) by operators E_j on W with the Hopf coproduct
-    e_j (x) 1 + k_j (x) E_j (best least-squares residual 0.88): the symmetry of the defect is the Borel subalgebra.
+    e_j (x) 1 + k_j (x) E_j (best least-squares residual 0.88).  (The exact statement, that the generic Weyl module of b^-
+    does not extend to U_q(sl2^), is proved in the text from [e_1, f_0] = 0 and [e_1, f_1] = (k_1 - k_1^-1)/kappa.)
 10. Classical limit: on a Weyl module U = q^{h/2} and W_+- = q^{-+h/2} kappa a_+- q^{-+h/2} obey U W_+- = q^{+-1} W_+- U,
     W_+ W_- = 1, and L^- = diag(U^-1, U)[1 - i x (E_21 W_+ + E_12 W_-)]: the form of the type-I_- defect matrix L_d of
     ch. 38 (eq-defect-lax-matrix) with U^-1 <-> e^{b(phi - psi)/2sqrt2}, W_+- <-> e^{+-b phi/sqrt2}, -ix <-> sigma/lambda;
     RTT holds for generic q (q = e^{0.05i}, e^{0.6i}), so q -> 1 gives the classical Sklyanin bracket of L_d.
-Windows: Weyl n = -6..6 (equations on |n| <= 5), Fock n = 0..12 (n <= 9 for check 6); 14 checks, runtime about 75 seconds.
+11. thm-t-triangle (ii) without truncation (exact, sympy, generic rational point): End(V(y1) (x) V(y2) (x) W) = scalars for
+    the bilateral Weyl modules of both Borels (raising generators invertible; loops raise-then-lower transported to the block
+    of total charge 0 leave a one-dimensional commutant) and for F^+ (its one-dimensional lowest block generates the module).
+12. prp-sg-t-unique needs q not a root of unity: at q = e^{i pi/3} (q^4 != 1) the shift S^3 commutes with the W^- generators,
+    so (S^3 (x) 1) T is a second intertwiner.
+Windows: Weyl n = -6..6 (equations on |n| <= 5), Fock n = 0..12 (n <= 9 for check 6); 16 checks, runtime about 85 seconds.
 """
 import numpy as np
 from boundary_common import report, q_phys, sl2_spin, rcheck, prop_residual, cop
@@ -503,7 +509,7 @@ def extension_res(j, th=0.4, s_=0.0):
 
 ext = min(extension_res(j) for j in (0, 1))
 report(f'the type-I_- matrix intertwines no extension of U_q(b^-) by e_j acting on W with the Hopf coproduct '
-       f'e_j (x) 1 + k_j (x) E_j (best least-squares residual {ext:.2f}): the symmetry is the Borel subalgebra alone', ext > 0.1)
+       f'e_j (x) 1 + k_j (x) E_j (best least-squares residual {ext:.2f}); the exact no-extension argument for generic q is in sec-perturbed-defects', ext > 0.1)
 
 # ---------------------------------------------------------------- 10. classical limit: Weyl-type structure of L^-
 # On a Weyl module, U = q^{h/2}, W_+- = q^{-+h/2} kappa a_+- q^{-+h/2}:  U W_+- = q^{+-1} W_+- U,  W_+ W_- = 1, and
@@ -546,3 +552,89 @@ report(f'classical limit: on a Weyl module U = q^(h/2), W_+- = q^(-+h/2) kappa a
        f'W_+ W_- = 1 [{max(c[0] for c in cl):.0e}], and L^- = diag(U^-1, U)[1 - ix(E_21 W_+ + E_12 W_-)], the form of L_d '
        f'(ch. 38) [{max(c[1] for c in cl):.0e}]; RTT holds for generic q = e^(0.05i), e^(0.6i) [{rg:.0e}], so q -> 1 gives '
        f'the classical L-operator', max(c[0] for c in cl) < 1e-12 and max(c[1] for c in cl) < 1e-12 and rg < 1e-10)
+
+
+# ---------------------------------------------------------------- 11. thm-t-triangle (ii) on the infinite modules (exact)
+def hom_exact():
+    """Exact Hom-dimension argument without truncation (sympy, generic rational point q = 2, y1 = 3/2, y2 = 5/4, y_W = 7/6,
+    s = 0).  Hom(V1 (x) V2 (x) W, W (x) V2 (x) V1) = End(V1 (x) V2 (x) W) (compose with an invertible product of local
+    intertwiners).  An endomorphism X preserves the total charge l; block l of the Weyl modules has the four states (a1, a2),
+    n = l - (a1 + a2)/2.  The raising generator A_l (e_1 for b^+, f_0 for b^-; iterated Part VI coproduct) is invertible
+    between blocks, so X_{l+1} = A_l X_l A_l^-1, and X_l commutes with the loop B_{l+1} A_l (B: e_0, resp. f_1).  Transported
+    to l = 0, three loops leave a one-dimensional commutant: X is a scalar.  Fock F^+: the one-dimensional lowest block
+    (l = -1) generates the blocks l = 0, 1 (ranks 3, 4) and A_l is invertible for l >= 1, so X is again a scalar."""
+    import itertools
+    import sympy as sp
+    qq, ys, yw = sp.Integer(2), (sp.Rational(3, 2), sp.Rational(5, 4)), sp.Rational(7, 6)
+    mu, kp = sp.I/(qq - 1/qq), qq - 1/qq
+    pairs = list(itertools.product((1, -1), repeat=2))
+
+    def gen(sign, node, kind, l):
+        t = 1 if node == 1 else -1                     # k_node = q^{t h}
+        step = t*sign                                  # e_1 and f_0 raise l, e_0 and f_1 lower it
+        ok = lambda l_, a: kind == 'weyl' or l_ - sum(a)//2 >= 0
+        src = [a for a in pairs if ok(l, a)]; dst = [a for a in pairs if ok(l + step, a)]
+        M = sp.zeros(len(dst), len(src))
+        for c, a in enumerate(src):
+            n = l - sum(a)//2
+            for i in range(2):                         # particle i: e_j = y E_12 / y E_21, f_j = E_21/y / E_12/y
+                if a[i] == -step:
+                    b = list(a); b[i] = step
+                    amp = ys[i]*qq**(t*sum(a[:i])) if sign == 1 else qq**(-t*(sum(a[i + 1:]) + 2*n))/ys[i]
+                    M[dst.index(tuple(b)), c] += amp
+            if sign == 1:                              # e_1|n> = mu y|n+1>, e_0|n> = mu y|n-1> (Weyl); i y a_+-/kappa (Fock)
+                if kind == 'weyl':
+                    amp = mu*yw*qq**(t*sum(a))
+                elif step == 1:
+                    amp = sp.I*yw/kp*qq**(t*sum(a))
+                elif n > 0:
+                    amp = sp.I*yw/kp*(1 - qq**(2*n))*qq**(t*sum(a))
+                else:
+                    continue
+            else:                                      # f_1|n> = mu/y |n-1>, f_0|n> = mu/y |n+1>
+                amp = mu/yw
+            M[dst.index(tuple(a)), c] += amp
+        return M
+
+    dims, dets = [], []
+    for sign in (1, -1):
+        up, down = (1, 0) if sign == 1 else (0, 1)
+        A = lambda l: gen(sign, up, 'weyl', l); B = lambda l: gen(sign, down, 'weyl', l)
+        T = sp.eye(4); cons = []
+        for l in range(3):
+            C = T.inv()*B(l + 1)*A(l)*T
+            cons.append(sp.kronecker_product(C.T, sp.eye(4)) - sp.kronecker_product(sp.eye(4), C))
+            T = A(l)*T
+        dims.append(16 - sp.Matrix.vstack(*cons).rank())
+        dets += [A(l).det() for l in (-2, 0, 3)]
+    A = lambda l: gen(1, 1, 'fock', l); B = lambda l: gen(1, 0, 'fock', l)
+    low = A(-1); loop0 = B(1)*A(0)
+    reach0 = sp.Matrix.hstack(low, loop0*low, loop0**2*low)
+    seed = A(0)*reach0; loop1 = B(2)*A(1)
+    ranks = (reach0.rank(), sp.Matrix.hstack(seed, loop1*seed).rank())
+    dets += [A(l).det() for l in (1, 2, 3)]
+    return dims, ranks, all(d != 0 for d in dets)
+
+
+hdims, hranks, hdet = hom_exact()
+report(f'thm-t-triangle (ii) without truncation, exactly at a generic rational point: End(V(y1) (x) V(y2) (x) W) is the scalars '
+       f'for the bilateral Weyl modules of b^+ and b^- (commutant of three transported loops: dimensions {hdims}) and for the '
+       f'Fock module F^+ (lowest block generates: ranks {hranks} = (3, 4)); raising generators invertible: {hdet}',
+       hdims == [1, 1] and hranks == (3, 4) and hdet)
+
+# ---------------------------------------------------------------- 12. prp-sg-t-unique fails at a root of unity
+q6 = np.exp(1j*np.pi/3)                                # q^4 != 1, q^6 = 1
+dev6, dev_gen = 0, 0
+for qq_, store in ((q6, 'root'), (q, 'generic')):
+    W6 = fock_module_b(-1, qq_, 1.3, NW, S, 'weyl')
+    n = W6['n']; d6 = W6['dim']
+    S3 = np.zeros((d6, d6)); S3[np.arange(3, d6), np.arange(d6 - 3)] = 1        # |n> -> |n+3>
+    cols = np.abs(n) <= NW - 4
+    res = max(np.abs((S3 @ W6[g] - W6[g] @ S3)[:, cols]).max() for g in (('f', 0), ('f', 1), ('k', 0), ('k', 1)))
+    if store == 'root':
+        dev6 = res
+    else:
+        dev_gen = res
+report(f'prp-sg-t-unique needs q not a root of unity: at q = e^(i pi/3) (q^4 != 1, q^6 = 1) the shift S^3 commutes with f_0, f_1, '
+       f'k_0, k_1 on W^- [{dev6:.0e}], so (S^3 (x) 1) T is a second, independent intertwiner; control: at q_phys [S^3, k_1] != 0 '
+       f'[{dev_gen:.2f}]', dev6 < 1e-12 and dev_gen > 1e-2)

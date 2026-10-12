@@ -1,0 +1,21 @@
+Ising epsilon eigenvalues= [1, 1, -1] sigma= [sqrt(2), -sqrt(2), 0]
+epsilon-twisted Hilbert sectors: [('1', 'epsilon'), ('epsilon', '1'), ('sigma', 'sigma')]
+sigma-twisted Hilbert sectors: [('1', 'sigma'), ('epsilon', 'sigma'), ('sigma', '1'), ('sigma', 'epsilon')]
+Lee-Yang eigenvalues= [-0.618033988750, 1.61803398875] ; each d^2-d-1= [0, 0]
+massless gluing: {psiL: phiL, psiR: -phiR}
+compact-boson same-radius lattice: (n,w)->(R^2 w,n/R^2); R^2=2 sends (1,0) to (0,1/2)
+Poisson ratio sign 1 = b**2/4
+Poisson ratio sign -1 = -b**2/4
+W+W- and W-W+ = (0.9999999999999999+0j) (0.9999999999999999+0j)
+L factorization offdiag residuals: 3.3306690738754696e-16 1.1102230246251565e-16
+tau coproduct residual= Matrix([[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]])
+unitarity s= 0.3 residual= 1.3597399555105182e-16
+unitarity s= (0.3+0.2j) residual= 0.20199941933865284
+lambda 0.73 Phi(-6),Phi(-10) errors= [0.002877239933180289, 5.405386012683949e-05]
+lambda 0.73 positive Phi*Y / exp(i*pi*lambda/2) error= 5.405386012662025e-05
+lambda 1.37 Phi(-6),Phi(-10) errors= [0.002719911211993756, 4.981316734021234e-05]
+lambda 1.37 positive Phi*Y / exp(i*pi*lambda/2) error= 4.981316734053693e-05
+lambda 2.6 Phi(-6),Phi(-10) errors= [0.004363514940769767, 7.99175041390329e-05]
+lambda 2.6 positive Phi*Y / exp(i*pi*lambda/2) error= 7.991750413952018e-05
+twist limit delta= -6 full charge-block residual= 0.003865331485668093
+twist limit delta= -10 full charge-block residual= 7.04643388715671e-05

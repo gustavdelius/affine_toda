@@ -8,9 +8,9 @@ Working record for Part VIII, kept in the repository because the session scratch
 |---|---|---|---|---|
 | 36 | 2026-10-11 | `defect_axioms.py` | 20 PASS (2 s) | Gemini (light) + Codex deep, integrated 2026-10-12 |
 | 37 | 2026-10-11 | `defect_classical_sg.py`, `defect_sg_transmission.py` | 27 + 24 PASS (18 s, 103 s) | Gemini (light) + Codex deep, integrated 2026-10-12 |
-| 38 | 2026-10-12 | `defect_classical_an.py`, `defect_lax_rmatrix.py` | 24 + 6 PASS (57 s, <1 s) | no |
+| 38 | 2026-10-12 | `defect_classical_an.py`, `defect_lax_rmatrix.py` | 24 + 6 PASS (114 s, 2 s) | Codex deep, integrated 2026-10-12 |
 | 39 | 2026-10-12 | `defect_solitons_an.py` | 9 PASS (10 s) | no |
-| 40 | 2026-10-12 | `defect_universal_r.py`, `defect_transfer.py` | 14 + 9 PASS (46 s, 15 s) | no |
+| 40 | 2026-10-12 | `defect_universal_r.py`, `defect_transfer.py` | 16 + 9 PASS (92 s, 29 s) | Codex deep, integrated 2026-10-12 |
 | 41 | 2026-10-12 | `defect_an_transmission.py` | 21 PASS (100–176 s) | no |
 | 42 | 2026-10-12 | `defect_doubling.py` | 17 PASS (30 s) | no |
 | 43 | | `defect_particle_transmission.py` | | |
@@ -169,11 +169,13 @@ Working record for Part VIII, kept in the repository because the session scratch
     - the a₁, a₂, a₃ delays (formula, an independent fit, and validity at several x) and their identities;
     - Θ maps σ to σ̄;
     - the type-II conditions for sine-Gordon and Tzitzéica;
+    - BCZ (5.5) with B = 1 − 𝖣 is solved by A = 2Σ(μ·u)³ (their density (5.2) has ⅓A; the drafted "A = ⅔Σ" was a factor-3 slip, corrected 2026-10-12);
     - the cubic spin-2 obstruction vanishes for r = 2–8;
-    - explicit B₊₂ and B₋₂ for a₂ (dB/dt equals the flux to 1e-15).
+    - explicit B₊₂ and B₋₂ for a₂, both types, σ symbolic: flux − dB/dt = 0 exactly (sympy; since 2026-10-12);
+    - the mirror defect (𝖣ᵀ, −E) has a one-dimensional space of L̃ (since 2026-10-12).
 - `defect_lax_rmatrix.py` (6 checks):
   - the Dirac bracket K⁻¹ on the defect values;
-  - {L_d ⊗ L_d} = +[r, L_d⊗L_d] for a₁–a₃, both types and couplings, with coefficient exactly 1;
+  - {L_d ⊗ L_d} = +[r, L_d⊗L_d] for a₁–a₄, both types and couplings, with coefficient exactly 1;
   - the bulk sign c = −1;
   - involution of τ_d, with controls;
   - regularity of L̃ at λ → 0 and λ → ∞.
@@ -187,7 +189,9 @@ Working record for Part VIII, kept in the repository because the session scratch
 - The Penati–Polvara dictionary row (their Euclidean orientation not checked).
 - The time-like canonical transformation, derived in the text and not scripted.
 
-**Not in the repo.** The a₃ spin-±2 run (about 6 min per case, from the phase-0 session).
+**Not in the repo.** The a₃ spin-±2 run (about 6 min per case, from the phase-0 session); not independently reproduced (Codex deep referee).
+
+**Referee (Codex deep, 2026-10-12).** Report `briefs/referee_defects_38_40_report.md` (items 1–6, 15–17 for ch. 38), scripts in `briefs/referee_defects_38_40_scripts/` (rerun, outputs identical); integrated the same day, see its "Integration (2026-10-12)" section. All items accepted or correct; none rejected. Main changes: the tensor normalization A = 2Σμ³; `prp-spin-two` label (Theorem for (1) and for a₂ in (3), exact; Numerical a₃; sketch (2)), "every spin of the bulk hierarchy", vacuum-plus-analyticity argument for nonzero leading diagonal entries; `prp-defect-lax` mirror; `prp-defect-involution` is now **[Numerical for a₁–a₄]** and explicitly about independent defect values (the step to involution exact); ch. 30 `prp-sklyanin` transport sign fixed; `prp-defect-theta` scope (massive, β ≠ 0, σ ∈ ℂ^×); PP dictionary γ/2 = b_SG²/8π → −β_SG²/8π; corrected CZ 2009b (4.5); no priority claimed for the spin-two cancellation.
 
 **Unchecked, quoted only.**
 - Bristow–Bowcock's b_n, c_n, d_n potentials and d₄ delays; Bristow's Lax matrices.
@@ -205,9 +209,13 @@ Working record for Part VIII, kept in the repository because the session scratch
 4. cz2009b (4.4): the corrected e^{λ₁} form, with the consequent change to (4.5).
 5. cz2009b (3.7): 1/σ multiplies all of f.
 6. cz2009b (4.11): the printed z₂ is z₃.
+7. cz2009b (4.5) (added 2026-10-12, from the referee): with the corrected (4.4), e^{2i Im λ₁} has its last two factors inverted, so the phase of e^{λ₁} winds by 2π when ρ, ρ̃ > 0, not when both are negative as CZ state.
 
 **Pending edits elsewhere.**
-- **Ch. 30 `prp-sklyanin` and its proof:** with ∂_{x₊}T = −a_xT, the transport satisfies {T⊗T} = −[r, T⊗T]; the text implies +. To verify before editing. Involution is unaffected, and `boundary_classical.py`'s `tau_bracket` uses +, which is harmless.
+- **Ch. 30 `prp-sklyanin`: DONE 2026-10-12** (re-derived: local {a_x⊗a_x} = +[r, a₁+a₂]δ, four-site lattice transport c = −1). Still open: `boundary_classical.py`'s `tau_bracket` docstring says {T⊗T} = +[r, TT]; harmless (homogeneous), but the docstring could note the sign (file outside the integration list).
+- **Appendix D (literature corrections; not on this branch):** when the Part VIII corrections are added, include corrections 1–7 above (7: CZ 2009b (4.5) winding reversal) and state BCZ's tensor as A = 2Σ(μ·u)³ (density ⅓A), not ⅔Σ.
+- **Conventions brief:** BCZ's A_abc = 2Σμμμ (density ⅓A); {T⊗T} = −[r, T⊗T] for ∂_xT = −a_xT while {a_x⊗a_x} = +[r, a₁+a₂]δ; PP γ/2 = b_SG²/8π (sinh-Gordon); the defect bracket is for independent defect values.
+- **Pending (ch. 38):** retain a reproducible a₃ spin-±2 run (e.g. a separate slow script).
 - `textbook_code/README.md` rows: `defect_classical_an.py` (24 checks, ~55 s), `defect_lax_rmatrix.py` (6 checks, <1 s).
 - **Conventions brief:**
   - the monodromy T₊L_d⁻¹T₋ and the bracket results;
@@ -233,32 +241,35 @@ Working record for Part VIII, kept in the repository because the session scratch
   - e₆–e₈ defects;
   - `cnj-momentum-integrability`;
   - time-like Liouville integrability for a_r;
-  - the quantum fate of the second chirality (Penati–Polvara assumed Q₋₂ lost).
+  - the quantum fate of the second chirality (Penati–Polvara assumed Q₋₂ lost);
+  - the equal-time reduction: can the defect values be treated as independent coordinates Poisson-commuting with the bulk (for a_r; Caudrelier's time-like route for sine-Gordon)?
+  - the all-rank Drinfeld–Sokolov argument of `prp-spin-two` (2): infinite-line regularization, exceptional defect values;
+  - priority of the spin-two correction is not established (bounded literature search).
 
 ## Chapter 40 (`sec-defect-qg`)
 
 **By script.**
-- `defect_universal_r.py` (14 checks):
+- `defect_universal_r.py` (16 checks):
   - q-oscillator relations on Weyl and Fock modules; Borel relations and q-Serre.
   - The shift-module classification.
   - Khoroshkin–Tolstoy ℛ on V⊗V against PŘ, with error O(x⁴); controls without the imaginary-root factor or the height-3 roots fail.
   - ℛ on V⊗(Weyl or Fock, both Borels) against `eq-l-operator`.
   - ℛ₂₁⁻¹ on V⊗𝒲⁻ equals c·(ch. 37 matrix) with c → q^{−s/2}.
   - Fock intertwiners are unique; RTT holds for both Borels and both modules.
-  - The Hom dimensions of hypothesis (ii) of `thm-t-triangle`.
-  - `prp-sg-t-unique` for s = 0, 0.3, 1.
+  - The Hom dimensions of hypothesis (ii) of `thm-t-triangle` on windows, and (since 2026-10-12) exactly without truncation: End(V⊗V⊗𝒲) = scalars for the Weyl modules of 𝔟± (transported loop commutant) and for ℱ⁺ (lowest-block cyclicity), sympy at a rational point.
+  - `prp-sg-t-unique` for s = 0, 0.3, 1; (since 2026-10-12) at q = e^{iπ/3} the shift S³ commutes with the 𝒲⁻ generators, so uniqueness needs q not a root of unity.
   - Weston (2.9) intertwines, and its transpose has the 𝔟⁻ invariants.
   - The ψ → −ψ two-label map gives 𝕋_{I₊} with s₊ = −1−s.
-  - With q^{−s/2}Φ, unitarity and crossing hold for s ≠ 0.
+  - With q^{−s/2}Φ, unitarity (real s) and crossing hold for s ≠ 0.
   - No extension of 𝔟⁻ by e_j acts on 𝒲.
   - Classical-limit structure: Weyl relations, factorization, RTT.
-- `defect_transfer.py` (9 checks; N ≤ 4, λ = 1.37):
+- `defect_transfer.py` (9 checks; N ≤ 6 for the Weyl TQ, λ = 1.37):
   - Fock trace stable under window growth at |ω| = 0.8.
   - Fock commutators vanish, with controls.
   - Fock TQ with no fitted constant.
-  - Weyl factorization, and the Weyl window trace does not converge.
+  - Weyl factorization, q^{mn} for 𝒲⁻ and q^{−mn} for 𝒲⁺ (since 2026-10-12), and the Weyl window trace does not converge.
   - Weyl commutators need the sector twist ω = q^{−m/2}.
-  - Weyl TQ for N = 2, 3, 4.
+  - Weyl TQ for N = 2, …, 6 (N = 5, 6 added 2026-10-12).
   - Twist limit; T₁ tends to the Bloch-twisted transfer matrix.
   - The charge-conjugation limit, and 𝒟 → q^{ms/2}.
 
@@ -279,9 +290,11 @@ Working record for Part VIII, kept in the repository because the session scratch
 - The Lee–Yang eigenvalue assignment against BHW.
 - Hernandez–Jimbo and Frenkel–Hernandez (cited qualitatively).
 - Runkel and Petkova–Zuber (quoted).
-- KL's same-chirality terms not surviving exactly: inferred from check 13, not derived.
+- KL's same-chirality terms not surviving exactly: inferred from check 13, not derived. (2026-10-12: the exact statement that the generic Weyl module of 𝔟⁻ does not extend to U_q(ŝl₂) is now proved in the text; the all-orders massive charges are still not constructed.)
 - The duality q̂ vs q (a structural remark).
-- Cyclicity of the averaged Weyl trace (sketch).
+- Cyclicity of the averaged Weyl trace (sketch; the text now calls it a formal twisted trace).
+
+**Referee (Codex deep, 2026-10-12).** Report `briefs/referee_defects_38_40_report.md` (items 7–17 for ch. 40), integrated the same day (see its Integration section). All accepted or correct; none rejected. Main changes: global scope "q not a root of unity, q^s fixed"; `thm-t-triangle` (iii) needs a nonzero matrix element, and Hopf closure is called sufficient, not necessary; hypothesis (ii) now also proved exactly on the infinite modules; `prp-sg-t-unique` hypotheses corrected (q⁴ ≠ 1 was insufficient: q = e^{iπ/3} counterexample), level-zero argument written out; `prp-two-borels` (4) unitarity only for real s; `prp-defect-transfer` (1) domain |q| = 1, (2) restricted to 𝒲⁻ (𝒲⁺ has exponent −mn, support ω² = q^m), formal twisted trace, ω = ±q^{−m/2}; `cnj-defect-tq` numerical for N ≤ 6; bootstrap reading qualified (image/kernel identification not established); `prp-defect-twist-limit` scope (λ > 0, real rapidities, real s) and the Gamma ratio tends to e^{−iπ(1+λ)/4}, not 1; Schur needs the full chiral algebras; compact-boson lattice caveat; exact no-extension argument; Ising disorder field sits in the ε-twisted sector (`exr-dq-verlinde` fixed); BLZ trace convergence domain and analytic continuation; Rossi–Weston credited for the delta factor, stripped Baxter matrix, neutral-sector TQ (to N = 10) and commutation.
 
 **Results to note.**
 - The universal-R direction is the opposite of the plan's guess: 𝕋_{I₊} ∝ P(π⊗ρ⁺)(ℛ) and 𝕋_{I₋} ∝ P(π⊗ρ⁻)(ℛ₂₁⁻¹), with ℛ ∈ U_q(𝔟⁻)⊗U_q(𝔟⁺).
@@ -290,15 +303,18 @@ Working record for Part VIII, kept in the repository because the session scratch
 
 **Corrections to sources recorded in the Notes.**
 - Weston's 𝔟⁺ is the book's 𝔟⁻ via his transposition.
-- Weston's "regularized trace" fails for r₁ = r₂ = 0 at |q| = 1.
+- Weston's "regularized trace" for r₁ = r₂ = 0 at |q| = 1: now worded as a clarification (no ordinary convergent twist; formal delta factor), credited to Rossi–Weston 2002 §4.3, (5.5)–(5.10), not as an error.
 - BCZ (3.57)–(3.59): 𝕋_{I₊} ≠ (1⊗C)𝕋_{I₋} in the same labels.
 - BGKNR's ℛ is the book's ℛ₂₁⁻¹; BLZ III's B₋ is the book's U_q(𝔟⁺) with q → 1/q.
 
 **Pending edits elsewhere.**
-- Ch. 36 `sec-defect-circle`: the product is of 𝕃⁻¹ for t_ω; for Weyl modules the trace is a distribution in the twist, supported at ω² = q^{−m}; "Baxter's Q-operators" applies to Fock modules.
-- `textbook_code/README.md` rows for `defect_universal_r.py` (14 checks, ~50 s) and `defect_transfer.py` (9 checks, ~15 s), plus the new `defect_common` helpers (`q_oscillator_module`, `fock_module_b`, `borel_l_operator`, `flip_VW`).
+- Ch. 36 `sec-defect-circle`: DONE 2026-10-12 (inverse L-operators, convergent twisted trace, Fock = Q-operators, Weyl → `prp-defect-transfer`).
+- `textbook_code/README.md` rows for `defect_universal_r.py` (16 checks, ~90 s) and `defect_transfer.py` (9 checks, ~30 s), plus the new `defect_common` helpers (`q_oscillator_module`, `fock_module_b`, `borel_l_operator`, `flip_VW`); `defect_classical_an.py` is now 24 checks, ~110 s; `defect_lax_rmatrix.py` 6 checks, ~2 s.
 - Docstring trap in `defect_common.sg_tmatrix`: its Weyl module uses μ = 1, not the module the matrix intertwines.
 - Conventions brief §6:
+  - q generic (not a root of unity) unless stated; at q = e^{iπ/3} extra intertwiners (S³⊗1)𝕋;
+  - Weyl factorization exponents: +mn for 𝒲⁻, −mn for 𝒲⁺ (supports ω² = q^{∓m});
+  - the Gamma ratio of `eq-sgd-scalar` tends to e^{−iπ(1+λ)/4} as θ → −∞ (cancels the prefactor);
   - Fock modules are done;
   - the 𝕃± closed forms and the universal-R direction;
   - the universal-R normalization q^{±s/2};
@@ -322,7 +338,12 @@ Working record for Part VIII, kept in the repository because the session scratch
   - the meaning of ω = q^{−m/2};
   - KL's same-chirality terms beyond first order;
   - q̂ vs q;
-  - convergence of Runkel's defect operators.
+  - convergence of Runkel's defect operators;
+  - a proof of `cnj-defect-tq` via Weston's exact sequence (Sec. 2.4.1) in book conventions, with the scalar factors, and the image/kernel identification of the bootstrap reading; a detailed comparison with Rossi–Weston's stripped Q-matrix and their q^n = 1 condition in charged sectors;
+  - analytic control of the Fock Q-operators at physical q (auxiliary–auxiliary intertwiners, mutual commutation) and a canonical regularization of the bilateral Weyl trace;
+  - defects at roots of unity (q rational in λ): reducible Weyl modules and extra intertwiners;
+  - the compact-boson realization of the massless defect gluing (T-duality interface vs a line of one theory);
+  - whether every transmitting-defect symmetry must be a Hopf subalgebra (only sufficiency is shown).
 
 ## Chapter 39 (`sec-defect-solitons`)
 
