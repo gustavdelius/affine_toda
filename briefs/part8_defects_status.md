@@ -450,5 +450,6 @@ The full drafting report is in `briefs/draft_ch42_report.md`, including the prop
 
 ## Global pending edits
 
+- Harmonize theorem titles: Part VII and ch. 40, 42 put a `## Title` inside every `::: {#prp-…}` block; ch. 36, 38, 39 have none and ch. 37 has one.
 - Rewrite Part VII open problem 10 (`sec-boundary-open-problems`, ch. 35): integrable interacting defects are purely transmitting.
 - Naming: the conventions scripts call the two signs of 𝖣 "types I, II"; the book's names are type I₊ and type I₋ (type II is the Corrigan–Zambon defect with an auxiliary field).
