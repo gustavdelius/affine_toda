@@ -356,3 +356,73 @@ def invariant_vector(ya, yb, q):
     M = np.vstack([cop(A, B, kd, j) - (np.eye(4) if kd == 'k' else 0) for j in (0, 1) for kd in 'efk'])
     _, sv, Vh = np.linalg.svd(M)
     return sv[-1]/sv[0], Vh[-1].conj()
+
+
+# ======================================================================== ch. 40: q-oscillators, Fock modules, L-operators
+# (appended for ch. 40; checked in defect_universal_r.py and defect_transfer.py)
+def q_oscillator_module(kind, q, N, s=0.0):
+    """Representations of the q-oscillator algebra eq-q-oscillator (BLZ hep-th/9604044 (2.27) normalization, book q):
+         q a+ a- - q^-1 a- a+ = 1/(q - q^-1),   q^h a+- q^-h = q^(+-2) a+-,    q^h |n> = q^(2n+s) |n>,
+      'weyl': n = -N..N,  a+ |n> = |n+1>/(q-q^-1),  a- |n> = |n-1>/(q-q^-1)            (Z = a+ a- - (q-q^-1)^-2 = 0),
+      'fock': n = 0..N,   a+ |n> = |n+1>/(q-q^-1),  a- |n> = (1 - q^(2n)) |n-1>/(q-q^-1)  (a- |0> = 0, Z |n> = -q^(2n)/(q-q^-1)^2).
+    Returns dict ap, am, h (array, the eigenvalues of h), n (labels), interior (labels unaffected by the truncation:
+    |n| <= N-1 for 'weyl', n <= N-1 for 'fock'), kind."""
+    kap = q - 1/q
+    ns = np.arange(-N, N + 1) if kind == 'weyl' else np.arange(0, N + 1)
+    d = len(ns)
+    ap = np.zeros((d, d), complex); am = np.zeros((d, d), complex)
+    for i in range(d - 1):
+        ap[i + 1, i] = 1/kap
+        am[i, i + 1] = (1/kap) if kind == 'weyl' else (1 - q**(2*ns[i + 1]))/kap
+    interior = (np.abs(ns) <= N - 1) if kind == 'weyl' else (ns <= N - 1)
+    return dict(ap=ap, am=am, h=2.0*ns + s, n=ns, interior=interior, kind=kind)
+
+
+def fock_module_b(sign, q, yW, N, s=0.0, kind='fock'):
+    """U_q(b^+) (sign=+1) or U_q(b^-) (sign=-1) module obtained from q_oscillator_module through the homomorphisms
+         b^+:  e_1 = i yW a+,  e_0 = i yW a-,      b^-:  f_1 = (i/yW) a-,  f_0 = (i/yW) a+,      k_1 = q^h = k_0^-1
+    (eq-weyl-module, eq-fock-module).  kind='fock': the Fock module (BLZ's Q-operators); kind='weyl' reproduces
+    weyl_module_b(sign, q, yW, N, s) exactly (mu = i/(q - q^-1)).  Dict in the boundary_common format plus the keys
+    n, interior, sign, h, ap, am, yW, q."""
+    O = q_oscillator_module(kind, q, N, s)
+    K1 = np.diag(q**O['h']).astype(complex)
+    g = {('k', 1): K1, ('k', 0): np.linalg.inv(K1)}
+    if sign == 1:
+        g[('e', 1)] = 1j*yW*O['ap']; g[('e', 0)] = 1j*yW*O['am']
+    else:
+        g[('f', 1)] = 1j*O['am']/yW; g[('f', 0)] = 1j*O['ap']/yW
+    g.update(dim=len(O['n']), hw=None, n=O['n'], interior=O['interior'], sign=sign, h=O['h'], ap=O['ap'], am=O['am'],
+             yW=yW, q=q)
+    return g
+
+
+def borel_l_operator(sign, y, W):
+    """Closed-form L-operator on V(y) (x) W (V index slow), W from fock_module_b (Weyl or Fock), up to a scalar
+    (eq-l-operator):  sign=+1: (pi_y (x) rho)(R), the U_q(b^+) intertwiner;  sign=-1: (pi_y (x) rho)(R_21^-1), U_q(b^-).
+    With kappa = q - q^-1 and Z = a+ a- - kappa^-2 (Z = 0 on Weyl modules):
+      b^+:  [[q^(h/2), i kappa x q^(h/2) a-], [i kappa x q^(-h/2) a+, q^(-h/2) (1 - kappa^2 x^2 Z)]],         x = yW/y,
+      b^-:  [[(1 - kappa^2 x^2 q^2 Z) q^(-h/2), -i kappa x a- q^(h/2)], [-i kappa x a+ q^(-h/2), q^(h/2)]],     x = y/yW.
+    On Weyl modules these are q^(+-s/2) times the matrices of weyl-module intertwiners in sg_tmatrix / the conventions
+    brief; T = flip . L : V (x) W -> W (x) V is the transmission matrix."""
+    q = W['q']; kap = q - 1/q
+    ap, am = W['ap'], W['am']
+    I = np.eye(W['dim'])
+    Z = ap @ am - I/kap**2
+    qh, qhi = np.diag(q**(W['h']/2)), np.diag(q**(-W['h']/2))
+    if sign == 1:
+        x = W['yW']/y
+        blocks = [[qh, 1j*kap*x*qh @ am], [1j*kap*x*qhi @ ap, qhi @ (I - kap**2*x**2*Z)]]
+    else:
+        x = y/W['yW']
+        blocks = [[(I - kap**2*x**2*q**2*Z) @ qhi, -1j*kap*x*am @ qh], [-1j*kap*x*ap @ qhi, qh]]
+    E = lambda a, b: np.outer(np.eye(2)[a], np.eye(2)[b])
+    return sum(kron(E(a, b), blocks[a][b]) for a in range(2) for b in range(2))
+
+
+def flip_VW(dV, dW):
+    """The flip V (x) W -> W (x) V (V index slow on the input, W index slow on the output)."""
+    P = np.zeros((dW*dV, dV*dW))
+    for a in range(dV):
+        for k in range(dW):
+            P[k*dV + a, a*dW + k] = 1
+    return P
