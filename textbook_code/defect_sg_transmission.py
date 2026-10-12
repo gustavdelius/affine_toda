@@ -227,7 +227,8 @@ grid = [abs(Phi(a + 1j*b, LAM)) for a in (-1.5, -0.4, 0, 0.6, 1.8) for b in np.l
 report(f'Phi has a simple pole at theta = theta_d - i pi/(2 lambda) (residue {abs(r2):.3f}), is regular at theta_d + i pi/(2 lambda) '
        f'(|Phi| = {reg:.3f}), and is bounded on a grid of the physical strip 0 < Im theta < pi/2 (max {max(grid):.2f})',
        abs(r1 - r2) < 1e-4*abs(r2) and reg < 10 and max(grid) < 10)
-# BCZ (3.42)/(3.47) as printed: the k-product has a divergent phase -(lambda D/pi) log K; (3.44) pairs the factors and converges
+# BCZ (3.42)/(3.47) as printed: the k-product has a divergent phase -(lambda D/pi) log K. The paired product r of (3.44)
+# diverges on its own (like K^((lambda+1)/4)); what converges is the ratio r/rbar of (3.43) with a common cutoff, used here
 from scipy.special import loggamma as LG
 D = 0.6; w = LAM*D/np.pi
 ref = np.log(Phi(D, LAM)*(1 + 1j*np.exp(LAM*D))) - 1j*np.pi*(1 + LAM)/4      # log r/rbar from (3.44)
@@ -242,7 +243,7 @@ def part347(K):
 drift = [np.imag(part347(K) - ref) for K in (100, 400, 1600)]
 slope = (drift[2] - drift[0])/np.log(16)
 report(f'BCZ (3.47) truncated at K: phase of r/rbar drifts like -(lambda theta~/pi) log K (slope {slope:.4f} vs {-w:.4f}); '
-       '(3.42)/(3.47) need the pairing of (3.44)', abs(slope + w) < 2e-3)
+       '(3.42)/(3.47) need an endpoint normalization; the ratio r/rbar of (3.43) with a common cutoff converges', abs(slope + w) < 2e-3)
 
 # ---------------------------------------------------------------- 8. unitarity and crossing of the full T; the sign of q
 NW = 5

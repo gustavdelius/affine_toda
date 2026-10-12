@@ -10,14 +10,12 @@ Never touch `referee_scratch/` or `briefs/referee_defects_*`. Do not push. Do no
 
 - Tasks 3–4: index.qmd (status, Part VIII sentence, "Defects" original-results entry, Part VIII bullet, mermaid node VIII with edges from II, III, VI, VII and no edge to IX, Part II needed for VI–VIII, VIII/IX meet at ch. 48, reading path "Integrable defects: chapters 2–3, 7–11 and 20–21, then 28–32, then Part VIII", conventions sentence, alt text); intro_f1_reading_paths.py (six paths, VIII colour #8f9a1f, regex) 7 PASS, svg regenerated. Commit 418d192 "Part VIII integration: index and reading paths".
 
-- Tasks 5–7 (uncommitted at time of writing, commit "Part VIII integration: appendices, READMEs and conventions brief"): outlook defects bullets; Appendix D Part VIII entries (+ kind "clarification"); Appendix C section sec-app-code-defects; textbook_code/README rows; briefs/README Part VIII section; root README; conventions brief §5/§6/§8/§9 edits and new §10–§13; status file marks + "Global integration" section; defect_common.sg_tmatrix docstring trap (verified numerically); boundary_classical.tau_bracket sign note (43 PASS).
+- Tasks 5–7 (commit ac0410f "Part VIII integration: appendices, READMEs and conventions brief"): outlook defects bullets; Appendix D Part VIII entries (+ kind "clarification"); Appendix C section sec-app-code-defects; textbook_code/README rows; briefs/README Part VIII section; root README; conventions brief §5/§6/§8/§9 edits and new §10–§13; status file marks + "Global integration" section; defect_common.sg_tmatrix docstring trap (verified numerically); boundary_classical.tau_bracket sign note (43 PASS).
+
+- Final checks (2026-10-12): all 11 defect_*.py rerun after the defect_common docstring change, all PASS (axioms 20, classical_sg 27, sg_transmission 24, classical_an 24, lax_rmatrix 6, solitons_an 9, universal_r 16, transfer 9, an_transmission 21, doubling 17, particle_transmission 8; 11 in parallel, so runtimes inflated); boundary_classical.py 43 PASS; intro_f1_reading_paths.py 7 PASS; reference checker over all book .qmd: 0 unresolved refs, 0 duplicate ids, 0 missing citation keys. Stale BCZ (3.44) comment/label in defect_sg_transmission.py refreshed, rerun 24 PASS (commit "Part VIII integration: final checks").
 
 ## In progress
-- Final checks: all defect_*.py rerun in parallel (defect_common docstring changed); ref checker 0 problems.
-
-## Remaining
-- Optional: refresh the stale comment/label about BCZ (3.44) in defect_sg_transmission.py (the r of (3.44) diverges on its own; the ratio r/rbar with common cutoff converges), then rerun it.
-- Final report.
+- None. Only the final report remains.
 
 ## Original task list
 1. Pending edits in chapters (pointers, ch. 35 problems 9–10, a₂ window, ch. 38 absorption restriction, ch. 42 → prp-dpt-doubled, ch. 37 → prp-lightest-breather-universal, ch. 40 sec-perturbed-defects, tbl-boundary-defect-algebra third column, optional pointers).
