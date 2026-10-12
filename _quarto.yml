@@ -98,6 +98,8 @@ book:
 
 bibliography: references.bib
 csl: aps.csl
+nocite: |
+  @*
 lang: en-GB
 keywords:
   - affine Toda field theory
