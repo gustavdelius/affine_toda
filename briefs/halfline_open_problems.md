@@ -31,6 +31,31 @@ Feasibility here means the likelihood that one focused agent session (or a few) 
 - **Problem 9 with the defects Part.** It shares the dressing construction and the anomaly caveat (Penati–Polvara).
 - Per the subagent lessons, run at most two or three agents at a time, and follow every result with an adversarial referee pass before any status label changes.
 
+## Status (2026-10-12): solving paused, integration under way
+
+On 2026-10-12 the user asked to stop attacking further open problems and to consolidate and integrate the solutions into the book.
+
+**Reports in hand:**
+
+| Tag | Problem | Report |
+|---|---|---|
+| 03 | Neumann from the soliton side | `briefs/halfline_open_03_report.md` |
+| 12a | rank one, lead and part (a) | `briefs/halfline_open_12a_report.md` |
+| 12b | rank one, part (b) | `briefs/halfline_open_12b_report.md` |
+| 06_01 | missing vacua; classical part of problem 1 | `briefs/halfline_open_06_01_report.md` |
+| 07 | non-unitary half-line, parts (a) and (b) | `briefs/halfline_open_07_report.md` |
+| 11 | soliton-preserving scalar factors | `briefs/halfline_open_11_report.md` |
+| 02 | beyond $a_n$: $d_n$, $\hat\epsilon=0$, and the map | `briefs/halfline_open_02_report.md` |
+| 08 | masked bound states: the $a_2$ pole | `briefs/halfline_open_08_report.md` |
+
+Each report has a Gemini verdict (`*_referee.md`), except 08, whose prompt is pending.
+
+**Opus follow-ups:** run for 03 + 12a and for 12b + 06_01. The follow-up prompts for 07, 11 and 02 (`*_opus_prompt.md`) were not launched. Their items are verified by the integrating agent instead.
+
+**Not started:** problems 5, 4, 9, 7(c) and the problem 1 amplitudes.
+
+**Integration rule** (see the repo's practice): re-derive or recompute every finding before it enters the book, and record verdicts in an "Integration" section appended to each report.
+
 ## Instructions for a coordinating agent
 
 You coordinate work on these briefs. You delegate; you do not solve the problems yourself. The repository is `/home/gustav/Git/affine_toda`.
@@ -49,13 +74,14 @@ You coordinate work on these briefs. You delegate; you do not solve the problems
 
 If an Opus worker reports that it is blocked on an idea rather than a computation, start a second, fresh Opus agent at `max`. Give it the brief, the first worker's report, and the instruction to attack the blocking point from a different angle. Do not retry for runtime or convention errors.
 
-**Reports.** Workers report in their final message. Save each report verbatim as `briefs/halfline_open_NN_report.md`, with the date, model and effort in a header line. Large reports may arrive as a persisted tool-results file; read them from there.
+**Reports.** Workers report in their final message. Save each report verbatim as `briefs/halfline_open_<tag>_report.md`, with the date, model and effort in a header line. `<tag>` is the zero-padded problem number, with a suffix when a problem is split or two are combined (`03`, `12a`, `12b`, `06_01`). Large reports may arrive as a persisted tool-results file; read them from there. Copy the worker's scripts from its scratch directory to `briefs/halfline_open_<tag>_scripts/`, because scratch directories do not last and the referees must rerun the scripts.
 
-**Referee passes.** For every report that claims a solved problem, a new [Theorem] or [Numerical] statement, or a correction to the literature:
-- Start an independent adversarial referee as a fresh agent: Opus at `max` when a [Theorem] is claimed, otherwise Opus at `xhigh`. Author and referee are then the same model, so tell the referee to distrust steps that merely look plausible and to recheck every one.
-- For [Numerical] claims, also start a Sonnet agent at `high` that reruns the scripts from its own scratch copy and recomputes the key numbers independently. This is a cheap second check by a different model.
-- Give it the original brief, the report, and the instruction to re-derive or recompute every claim, to rerun the worker's scripts from its own scratch copy, and to check prior art. It must not spawn subagents.
-- Save its verdicts as `briefs/halfline_open_NN_referee.md`.
+**Referee passes (changed 2026-10-11: Gemini referees, to save Claude quota for the workers).** The referees run on Gemini (High) in Antigravity, under a separate Gemini coordinator that follows `briefs/halfline_referee_coordinator.md`. The two coordinators communicate only through files; that brief defines the protocol. For every report that claims a solved problem, a new [Theorem] or [Numerical] statement, or a correction to the literature:
+- Write `briefs/halfline_open_<tag>_referee_prompt.md` in the format given in the Gemini brief: tier, brief, report and scripts paths, the claims as a numbered list with their claimed labels, and coordinator notes on suspected weak points. Do not start a Claude referee or Sonnet rerun agent.
+- **Tier A** (no [Theorem] claim, no correction to the literature): the Gemini verdict is the referee pass.
+- **Tier B** (a [Theorem] or a literature correction): after the Gemini verdict `briefs/halfline_open_<tag>_referee.md` appears, read it critically and choose the Opus items yourself. Gemini's "Items for an Opus pass" is input, not the list (on 12a it missed the real weak points). Look especially for claims it confirmed although its description differs from the worker's, for qualitative claims it confirmed loosely, and for label upgrades. Write the items to `briefs/halfline_open_<tag>_opus_prompt.md` and start a fresh Opus agent at `max` on them. Give it the brief, the report, the Gemini verdict, and the instruction to attack those items, to distrust steps that merely look plausible, and not to spawn subagents. Save its verdicts as `briefs/halfline_open_<tag>_referee_opus.md`.
+- A Gemini verdict file is complete when it exists; it ends with "Referee pass complete." When no more prompts will come, create the empty file `briefs/halfline_referees_done` so that the Gemini coordinator stops.
+- The Gemini model is newer than Claude's training data and has not yet been calibrated on this project. Read its verdicts critically too. Where it and the worker disagree, settle the point before anything moves toward the book.
 
 **What you do not do.**
 - Do not edit book chapters, `references.bib` or the scripts. Integration into the book happens later, with each finding verified first.
