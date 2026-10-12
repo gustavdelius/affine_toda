@@ -1,51 +1,236 @@
 # Solitons and particles through a defect {#sec-defect-solitons}
 
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
-- To be written.
+- Send an $a_r^{(1)}$ soliton of any species through a defect of either type, and obtain its delay from the linearized defect conditions.
+- Understand the class of the jump that a defect carries, why it acts as an imaginary shift of the defect rapidity, and what energy and momentum it stores.
+- State the classical selection rule: how far a soliton can move along its cycle of topological charges, and which charges it never reaches.
+- Find the rapidities at which solitons are absorbed and emitted, and know when they are real.
+- See that several solitons pass independently, and that the delays obey the classical bootstrap.
+- Compute the classical transmission factors of the particles, and compare them with the soliton delays and with the factors $X_{ab}$ of Part V.
+- Decide in which sense a pair of defects is a frozen soliton.
 :::
 
-*This chapter is a skeleton; it is being drafted.*
+@sec-defect-conditions found the integrable defects of $a_r^{(1)}$ and showed that their conditions are a Bäcklund transformation frozen at $x=0$. This chapter asks what the solutions look like, as @sec-half-line-solitons did for the half-line. There a reflected soliton was a whole-line solution with a mirror image; here a transmitted soliton is the second member of a Bäcklund pair, and everything follows from one function, the delay $z_a$ of (-@eq-dc-ar-delay). Three features are new compared with sine-Gordon theory. The delay is complex, and its phase can change the topological charge of the soliton. The jump of a defect carries a class in $\mathbb Z_h$, which acts on everything as an imaginary shift of the defect rapidity. And a soliton that is not self-conjugate is absorbed only at a complex rapidity, unless the defect carries a suitable jump. The last section linearizes the theory and compares the particle factors with the soliton delays.
+
+Throughout, the fields are at imaginary coupling and in the Hirota form (-@eq-hirota-ansatz), $\vec\phi=\frac i\beta\sum_j\vec\alpha_j\ln\tau_j$ on $x<0$ and $\vec\psi=\frac i\beta\sum_j\vec\alpha_j\ln\tau'_j$ on $x>0$. A soliton of species $a$ has $\tau_j=1+\omega^{ja}E$ with $E=\exp(m_a(x\cosh\theta-t\sinh\theta)+\xi)$ (-@eq-an-soliton), $\omega=e^{2\pi i/h}$. We write
+$$
+\gamma_a=\frac{\pi a}h,\qquad m_a=2m\sin\gamma_a,\qquad M_a=\frac{2hm_a}{\beta^2}=2\hat M\sin\gamma_a,\qquad\hat M=\frac{2hm}{\beta^2},
+$$
+so that $M_a$ is the soliton mass (-@eq-soliton-mass); $\gamma_a$ is not the coupling of the sources. A soliton of species $a$ at rapidity $\theta+i\pi$ is the soliton of species $\bar a=h-a$ at $\theta$ with its profile reversed, so complex rapidities are taken in the strip $|\operatorname{Im}\theta|<\frac\pi2$, where $\operatorname{Re}\cosh\theta>0$, as in @prp-hirota-energy. The defect is (-@eq-defect-conditions) with (-@eq-d-matrix) and (-@eq-defect-potential), $\sigma=e^{-\theta_d}$. All checks are in `textbook_code/defect_solitons_an.py`.
 
 ## Affine Toda solitons through a defect {#sec-an-soliton-defect}
 
+**The class of a jump.** The defect conditions see the fields at $x=0$ only through their derivatives and the exponentials $f_j$, $g_j$ of (-@eq-defect-potential). For Hirota fields these are ratios of $\tau$-functions, $f_j=\tau_{j+1}\tau'_{j-1}/(\tau_j\tau'_j)$ and $g_j=\tau_{j-1}\tau'_j/(\tau_j\tau'_{j-1})$ (@exr-dc-delay), so the branches of the logarithms do not matter. A constant jump does matter. The static configurations $(\vec\phi,\vec\psi)=\frac{2\pi}\beta(\vec\lambda,\vec\lambda')$, with $\vec\lambda,\vec\lambda'$ in the weight lattice $\Lambda_W$ (the coweight lattice, since $a_r$ is simply laced), all solve the conditions. Call the image of $\vec\lambda'-\vec\lambda$ in $\Lambda_W/\Lambda_R\cong\mathbb Z_h$ the **class** $p$ of the jump; $\vec\lambda_p$ has class $p$. From $\vec\alpha_j\cdot\mathsf D\vec\lambda_p=2(\vec\lambda_p\cdot\vec\lambda_j-\vec\lambda_p\cdot\vec\lambda_{j-1})$, which is $2-\frac{2p}h$ for $1\le j\le p$ and $-\frac{2p}h$ otherwise, a shift $\vec\psi\to\vec\psi+\frac{2\pi}\beta\vec\lambda$ multiplies every $f_j$ by $\omega^{-p}$ and every $g_j$ by $\omega^p$. Hence
+
 $$
-\text{(to be written)}
+\mathcal B_d\Big(\vec\phi,\vec\psi+\frac{2\pi}\beta\vec\lambda;\sigma\Big)=\mathcal B_d\big(\vec\phi,\vec\psi;\sigma\omega^{\mp p}\big)+\text{const}\qquad(\text{type I}_\mp),
+$$ {#eq-ds-class-shift}
+
+and a defect whose jump has class $p$ acts on passing fields as a defect without jump at the rapidity $\theta_d\pm\frac{2\pi ip}h$. Jumps in the root lattice are invisible. For sine-Gordon theory the class $p=1$ is the odd sector of @prp-half-soliton, $\theta_d\to\theta_d+i\pi$.
+
+**The delay.** Send a soliton of species $a$ and rapidity $\theta$ towards a defect of class $p$, and look for $\vec\psi$ of the same species with $E\to zE$, plus the jump. The answer is
+
+$$
+z^{\rm I_-}_{a,p}(\theta)=z_a\Big(\theta-\theta_d-\frac{2\pi ip}h\Big),\qquad
+z^{\rm I_+}_{a,p}(\theta)=z_a\Big(\theta_d-\frac{2\pi ip}h-\theta\Big),\qquad
+z_a(u)=\frac{e^{-u}-ie^{i\gamma_a}}{e^{-u}-ie^{-i\gamma_a}}=e^{i\gamma_a}\frac{\sinh\frac12\big(u+\frac{i\pi}2+i\gamma_a\big)}{\sinh\frac12\big(u+\frac{i\pi}2-i\gamma_a\big)},
 $$ {#eq-an-defect-delay}
 
+where $z_a$ is the delay (-@eq-dc-ar-delay) of @sec-defect-backlund-an.
+
 ::: {#prp-an-defect-delay}
-**[Draft]** To be written.
+**[Established; numerically checked for $a_2$ and $a_3$, all species, both types and all classes]** Let the soliton of species $a$, with any complex $\theta$ and $\xi$, occupy $x<0$, and let $\vec\psi$ be the same soliton with $E\to zE$, plus a constant jump of class $p$. The pair satisfies the conditions of the type-I$_\mp$ defect for all $t$ exactly when $z$ is given by (-@eq-an-defect-delay). Moreover:
+
+1. For type I$_-$ and $p=0$ this is [@cz2009a, eq. (4.10)], [@bcz2004b, eq. (6.2)] after $\theta\to-\theta$, and [@cz2007, eq. (2.20)] after $a\to h-a$. For the self-conjugate species $a=h/2$ it gives the sine-Gordon delays $z_{\rm I_\mp}=\mp\coth\frac{\theta-\theta_d}2$ of (-@eq-sg-delay).
+2. For real $\theta$, $\theta_d$ and $p=0$, $|z|>1$ for every species and both types: the soliton is always delayed, by $\Delta x=-\ln|z|/(m_a\cosh\theta)$.
+3. For type I$_-$, $z\to1$ as $\theta-\theta_d\to-\infty$ and $z\to\omega^a$ as $\theta-\theta_d\to+\infty$; for type I$_+$ the two limits are exchanged. Since $E\to\omega^aE$ turns $\tau_j$ into $\tau_{j+1}$, a fast soliton emerges as $\vec\psi=\pi\vec\phi$, rotated by the diagram automorphism.
+4. The pair is a Bäcklund pair: it satisfies the conditions at every $x$, not only at $x=0$.
 :::
+
+::: {.proof}
+For $p=0$ and type I$_-$ the delay is (-@eq-dc-ar-delay), checked in `textbook_code/defect_classical_an.py`. Its form can be read off at first order in $E$. There the soliton is the linear wave $\vec\phi\simeq\frac i\beta\big(\sum_j\omega^{ja}\vec\alpha_j\big)E$, whose vector is the eigenvector of $\pi$ with eigenvalue $\omega^a$, the mode of particle $a$, and $E=e^{-i(\nu t-px)}$ with $(\nu,p)=m_a(\cosh,\sinh)(\theta-\frac{i\pi}2)$. So $z_a(\theta-\theta_d)=\mathbb T^{\rm cl}_a(\theta-\frac{i\pi}2)$, with the linear factor (-@eq-an-linear-transmission); the higher orders in $E$ hold identically, as they must for a Bäcklund pair. The classes follow from (-@eq-ds-class-shift). Type I$_+$ follows by time reversal: $t\to-t$ maps a type-I$_-$ solution with parameter $\sigma$ to a type-I$_+$ solution with $1/\sigma$, and the soliton $(a,\theta,\xi)$ to $(a,-\theta,\xi)$. Item 2: with $x=e^{-u}$, $|z_a|^2=\frac{(x+\sin\gamma_a)^2+\cos^2\gamma_a}{(x-\sin\gamma_a)^2+\cos^2\gamma_a}$. Item 3 is the limit $x\to0$ or $\infty$. The script checks the delays for $a_2$ and $a_3$, all species, both types and all classes, at seven times with real and complex rapidities, to $10^{-13}$; it fits $z$ by least squares, independently of the formula; and it checks (-@eq-ds-class-shift) at random points, the time reversal, and the dictionary.
+:::
+
+Two facts stand out. First, type I$_-$ acts mainly on fast solitons and type I$_+$ on slow ones, as for sine-Gordon theory, but the conversion of a soliton into an antisoliton is replaced by a rotation. Limit 3 says more: as $\theta_d\to-\infty$ the type-I$_-$ defect becomes the invertible line of the $\mathbb Z_h$ symmetry $\pi$ of the Dynkin diagram, which acts on solitons by $\tau_j\to\tau_{j+1}$ and on particles by $\omega^k$ (@sec-classical-transmission-factors). This is the $a_r$ version of the sine-Gordon NOT gate [@cz2004] and of item (3) of @prp-defect-twist-limit, where $\pi=-1$ is charge conjugation. Second, the phase of $z$ shifts $\operatorname{Im}\xi$, and with it the topological charge of the soliton.
 
 ## Topological charge stored on the defect {#sec-defect-topological-charge}
 
+**Stored energy.** The static configurations with a jump of class $p$ carry, by (-@eq-defect-potential) and the momentum of @prp-defect-momentum,
+
+$$
+\mathcal B_d=\hat M\Big[\cosh\theta_d-\cosh\Big(\theta_d\pm\frac{2\pi ip}h\Big)\Big],\qquad
+P_d=\hat M\Big[\sinh\theta_d-\sinh\Big(\theta_d\pm\frac{2\pi ip}h\Big)\Big]\qquad(\text{type I}_\mp).
+$$ {#eq-ds-class-energy}
+
+In the normalization of Corrigan and Zambon, whose defect potential has no constants $-1$, one subtracts $\hat M(\cosh\theta_d,\sinh\theta_d)$, and every class lies on the mass shell of mass $\hat M$ at the rapidity $\theta_d+i\pi\pm\frac{2\pi ip}h$ [@cz2007, eqs. (2.17)–(2.18)] [@cz2009a, eq. (4.8)]. For sine-Gordon theory $\hat M=M/2$, the half soliton of @prp-half-soliton. The energy is real exactly when $2p\equiv0$ mod $h$; the other classes carry complex energies in conjugate pairs $p$, $h-p$.
+
+**Charge bookkeeping.** A transmitted soliton carries the charge $\vec\lambda_{\rm in}$ on the left and $\vec\lambda_{\rm out}$ on the right, both weights of the fundamental representation $\Lambda^a\mathbb C^h$ (@sec-topological-charges). Before it arrives the jump at $x=0$ is $\frac{2\pi}\beta(\vec\lambda_{\rm out}-\vec\lambda_{\rm in})$ relative to its final value. So the defect stores the difference, a root-lattice vector; the total charge is conserved, and the class and the energy of the defect are unchanged. The charge of the outgoing soliton follows from the phase of the delay,
+
+$$
+\arg z_a=\arg\big(e^{-2(\theta-\theta_d)}+e^{2i\gamma_a}\big),\qquad\tan\arg z_a=\frac{\sin2\gamma_a}{e^{-2(\theta-\theta_d)}+\cos2\gamma_a},
+$$ {#eq-ds-delay-phase}
+
+for type I$_-$ and $p=0$, the book form of [@cz2007, eq. (2.22)]. As $\theta$ increases, the point $e^{-2(\theta-\theta_d)}+e^{2i\gamma_a}$ moves along a horizontal line from $+\infty$ to $e^{2i\gamma_a}$, so $\arg z_a$ increases monotonically from $0$ to $2\gamma_a$ when $a<h/2$, decreases from $0$ to $-2\gamma_{\bar a}$ when $a>h/2$, and jumps from $0$ to $\pi$ at $\theta=\theta_d$ when $a=h/2$.
+
 ::: {#prp-stored-charge}
-**[Draft]** To be written.
+**[Established; numerically checked]** Let a soliton of species $a$ and real rapidity $\theta$, with charge $\vec\lambda_{\rm in}$, cross a type-I$_\mp$ defect with real $\theta_d$ and $p=0$. Let $g=\gcd(a,h)$.
+
+1. The jump lies in $\frac{2\pi}\beta\Lambda_W$ before and after the passage and changes by $\frac{2\pi}\beta(\vec\lambda_{\rm in}-\vec\lambda_{\rm out})\in\frac{2\pi}\beta\Lambda_R$; the defect keeps its class and energy.
+2. The outgoing charge is the charge of a soliton with $\operatorname{Im}\xi$ shifted by $\arg z$. As $\operatorname{Im}\xi$ runs over a period, the charge runs through the $h/g$ weights of the orbit of $\vec\lambda_{\rm in}$ under $\pi$, with boundaries $2\pi g/h$ apart; the rotation $\pi$ is $a/g$ steps.
+3. **(Selection rule)** So $\vec\lambda_{\rm out}$ is $\vec\lambda_{\rm in}$ moved $k$ steps along this cycle, with $0\le k\le a/g$ in the direction of $\pi$ for $a<h/2$, and $0\le k\le\bar a/g$ in the opposite direction for $a>h/2$. Both bounds are attained, the upper one by fast solitons for type I$_-$ and by slow ones for type I$_+$, and $k=a/g$ is $\vec\lambda_{\rm out}=\pi\vec\lambda_{\rm in}$.
+4. The outgoing charge always lies on the $\pi$-orbit of the incoming one. The defect does not create the missing charges of @sec-missing-charges.
 :::
+
+::: {.proof}
+(1) Continue $\vec\phi(0,t)$ and $\vec\psi(0,t)$ in $t$: long before the passage both sit on the right of their solitons, long after on the left, so the jump changes by the difference of the two topological charges. (2) By @sec-topological-charges, the charge is $-\frac1{2\pi}\sum_j\vec\alpha_j[2\pi ja/h+\operatorname{Im}\xi]_{(-\pi,\pi)}$; the shift $\operatorname{Im}\xi\to\operatorname{Im}\xi+2\pi a/h$ relabels $j\to j+1$, which is the action of $\pi$, and the boundaries are where some reduced phase passes $\pm\pi$. (3) follows from (2) and (-@eq-ds-delay-phase). (4) is (2). The script compares the charges obtained by continuation in $x$ with the formula, and the change of the jump obtained by continuation in $t$ at $x=0$ with $\vec\lambda_{\rm in}-\vec\lambda_{\rm out}$, to $10^{-15}$; it confirms the spacing and finds the maximal number of steps, $a/g$ or $\bar a/g$, for all species of $a_2$, $a_3$ and $a_4$.
+:::
+
+For species 1 the rule says that the charge either stays or moves to the next weight of the defining representation, $\vec\lambda_{\rm out}\in\{\vec\lambda_{\rm in},\pi\vec\lambda_{\rm in}\}$. Corrigan and Zambon's quantum transmission matrix for the vector solitons of $a_r$ has exactly these two kinds of entries [@cz2009a, eq. (5.8)]. In their earlier $a_2$ matrices only one of the two species shows the zeros of the selection rule, and they read the other as tunnelling to the classically forbidden neighbour [@cz2007, Sec. 6]. For the species of a central node the defect can move the charge further, two steps for species 2 of $a_4^{(1)}$. Corrigan and Zambon first compared $\arg z_a$ with a spacing $2\gamma_a$ [@cz2007, Sec. 2], which holds only when $a$ divides $h$, and corrected it to $2\pi/\tilde n_a$ with $\tilde n_a=h/g$ [@cz2009a, Sec. 4]; item 3 makes their remark about central nodes quantitative. The charge changes when $\operatorname{Im}\xi+\arg z$ crosses a boundary, and at the crossing the outgoing soliton is the non-generic solution with a curve of zeros of some $\tau_j$ (@sec-singular-solutions). Classically, therefore, the charge changes only through a singular solution, which is the shadow of the suppressed matrix elements that Corrigan and Zambon anticipated in the quantum theory.
 
 ## Absorption and emission {#sec-defect-absorption}
 
+For sine-Gordon theory a soliton with $\theta=\theta_d$ is absorbed: the delay diverges, and the defect keeps a jump that stores the soliton's energy and momentum (@prp-sg-delay). For $a_r$ the delay (-@eq-an-defect-delay) diverges at
+
+$$
+\theta_{\rm abs}=\theta_d\mp i\Big(\frac\pi2-\frac{\pi(a+2p)}h\Big)\qquad(\text{type I}_\mp,\ \text{mod }2\pi i),
+$$ {#eq-ds-absorption}
+
+which for $p=0$ is the pole $\theta_d-i(\frac\pi2-\gamma_a)$ found by Corrigan and Zambon [@cz2007, eq. (2.23)] [@cz2009a, Sec. 4].
+
+::: {#prp-ds-absorption}
+**[Theorem]** Consider a type-I$_\mp$ defect of class $p$ and a soliton of species $a$.
+
+1. At $\theta=\theta_{\rm abs}$ two configurations solve the defect conditions for all $t$: the soliton on $x<0$ with $\vec\psi$ constant, and $\vec\phi$ constant with the soliton on $x>0$. In both, $|E|$ moves with the velocity $\tanh\theta_d$. For $\theta_d>0$ they describe absorption from the left and emission to the right; for $\theta_d<0$, emission to the left and absorption from the right. Absorbed and emitted solitons move in the direction of $\operatorname{sign}\theta_d$, for every species and class.
+2. $\operatorname{Re}\cosh\theta_{\rm abs}=\cosh\theta_d\,\sin\frac{\pi(a+2p)}h$. If this is positive, the object is the species-$a$ soliton at $\theta_{\rm abs}$, absorption changes the class from $p$ to $p+a$, and the defect stores $M_a(\cosh\theta_{\rm abs},\sinh\theta_{\rm abs})$. If it is negative, the object is the soliton of species $\bar a$ at $\theta_{\rm abs}+i\pi$, absorbed by the class $p+a$; a soliton of species $a$ is then never absorbed by a defect of class $p$.
+3. $\theta_{\rm abs}$ is real, and then equal to $\theta_d$, exactly when $a+2p\equiv h/2$ mod $2h$. This requires $h$ even and $a\equiv h/2$ mod 2: the species $h/2-2q$ is absorbed at real rapidity by the class $q$. Without a charged jump only the self-conjugate species is absorbed at real rapidity, but, for example, species 1 of $a_5^{(1)}$ is absorbed at $\theta=\theta_d$ by a defect of class 1.
+:::
+
+::: {.proof}
+At the pole of $z$, $\tau'_j=1+z\omega^{ja}E\simeq z\omega^{ja}E$, so $\vec\psi$ tends to the constant right asymptote of the soliton; letting $\xi\to-\infty$ with $zE$ fixed instead gives the second configuration. With $\theta_{\rm abs}=\theta_d+i\chi$, $|E|=\exp\big(m_a\cos\chi\cosh\theta_d(x-t\tanh\theta_d)+\operatorname{Re}\xi\big)$, which gives the velocity and, through the sign of $\cos\chi$, the orientation of the profile. The stored energy is the identity
+$$
+\hat M\Big[\cosh\Big(\theta_d\pm\frac{2\pi ip}h\Big)-\cosh\Big(\theta_d\pm\frac{2\pi i(p+a)}h\Big)\Big]=M_a\cosh\theta_{\rm abs},
+$$
+from (-@eq-ds-class-energy), and similarly for the momentum. Item 3 is the condition $\chi\in2\pi\mathbb Z$. The script checks both configurations for $a_2$, $a_3$ and $a_5$, both types and both signs of $\theta_d$, to $10^{-14}$; the stored energy and momentum from the solution at $t=\pm T$; and conservation of $E+\mathcal B_d$ and $P+P_d$, by quadrature over $x<0$, through the real absorptions of species 2 of $a_3$ in class 0 and of species 1 of $a_5$ in class 1, to $10^{-9}$.
+:::
+
+So the $a_r$ analogue of "a jump stores a soliton of rapidity $\theta_d$" is: a jump of class $a$ stores the energy and momentum of a species-$a$ soliton at the complex rapidity $\theta_d-i(\frac\pi2-\gamma_a)$. Its energy $M_a(\cosh\theta_d\sin\gamma_a-i\sinh\theta_d\cos\gamma_a)$ is real only for $a=h/2$. Corrigan and Zambon matched this pole with the unstable defect states of their quantum transmission matrices, whose poles approach it in the classical limit [@cz2009a, eqs. (6.13)–(6.15)]; @sec-an-defect-bound-states takes this up.
+
+The real absorptions by charged defects do not appear in the sources. In $a_5^{(1)}$ a defect of class 1 stores the complex energy $\hat M[\cosh\theta_d-\cosh(\theta_d+\frac{i\pi}3)]$, absorbs a species-1 soliton of rapidity $\theta_d$, and moves to class 2, whose energy is larger by exactly the real $M_1\cosh\theta_d$. As for sine-Gordon theory, the classical equations do not say when the defect re-emits the soliton: the position constant of the emitted soliton is free [@bcz2005, Sec. 2].
+
 ## Several solitons {#sec-defect-multi}
+
+Multi-soliton solutions pass through the defect as their constituents do. In the $N$-soliton $\tau$-functions (-@eq-n-soliton) on $x<0$, replace each $E_k$ by $z_k E_k$, with $z_k$ the delay (-@eq-an-defect-delay) of soliton $k$, and keep the interaction coefficients $A_{ab}$. The result satisfies the defect conditions for all $t$. We checked this for two solitons of $a_2^{(1)}$ (species 1 and 2, and 1 and 1) and of $a_3^{(1)}$ (1 and 2, 2 and 3), both types and classes 0 and 1, with one rapidity above and one below $\theta_d$, to $10^{-13}$. The general statement follows from the Bäcklund property of @prp-an-defect-delay and Bianchi permutability (@prp-bianchi), which we have not written out for $a_r$.
+
+**Classical factorization.** Since the delays and the interaction coefficients multiply $E_k$, the total displacement of a soliton is the sum of its displacement at the defect and its displacements in collisions, $-\ln|z_k\prod_lA_{a_ka_l}|/(m_{a_k}\cosh\theta_k)$, whatever the order of the events. This is the classical form of the triangle relation (-@eq-triangle-braid). In the same way, two defects in a row, of either types and classes, multiply the delays; we checked a type-I$_-$ defect followed by a type-I$_+$ defect. A further consistency check is the fusion of solitons. At $\theta_1=\theta+i\gamma_b$, $\theta_2=\theta-i\gamma_a$ two solitons of species $a$ and $b$ fuse into one of species $a+b$ (@sec-multi-solitons), and the fused soliton must pass with the product of the constituent delays. It does:
+
+$$
+z_a(u+i\gamma_b)\,z_b(u-i\gamma_a)=z_{a+b}(u),\qquad a+b<h,
+$$ {#eq-ds-bootstrap}
+
+the classical bootstrap of [@cz2007, eq. (2.25)] in book form. In the sinh form of (-@eq-an-defect-delay) the two inner factors cancel. The same identity holds for the linear factors (-@eq-an-linear-transmission), and it is the classical limit of the bulk bootstrap for transmission amplitudes (@exr-ds-bootstrap).
 
 ## Complex solitons and reality {#sec-defect-reality}
 
-## Classical transmission factors {#sec-classical-transmission-factors}
+**$\Theta$ and the delays.** By @prp-defect-theta the antilinear map $\Theta:(\vec\phi,\vec\psi)\mapsto(-\bar{\vec\phi},-\bar{\vec\psi})$ maps the defect with parameter $\sigma$ to the one with $\bar\sigma$. It maps a jump of class $p$ to one of class $-p$, and a soliton $(a,\theta,\xi)$ to $(\bar a,\bar\theta,\bar\xi)$ (-@eq-theta-data). The delays transform accordingly,
 
 $$
-\text{(to be written)}
+z^{\rm I_\mp}_{\bar a,-p}(\bar\theta;\bar\theta_d)=\overline{z^{\rm I_\mp}_{a,p}(\theta;\theta_d)}.
+$$
+
+For real $\sigma$ and $p=0$ a soliton and an antisoliton of real rapidity are delayed by conjugate factors, as Corrigan and Zambon noted [@cz2007, Sec. 2]. A single soliton is not $\Theta$-invariant, and its complex delay changes its charge (@prp-stored-charge); its energy $M_a\cosh\theta$ is nevertheless real, the weaker reality condition of @sec-reality-energy-momentum. A breather, with $\Theta$-invariant data $(a,\theta_0+iu)$, $(\bar a,\theta_0-iu)$, passes a defect with real $\sigma$ with conjugate factors $z$ and $\bar z$. The transmitted breather is again $\Theta$-invariant, it is displaced by the real factor $|z_a(\theta_0+iu-\theta_d)|^2$ in its centre-of-mass exponent, and it carries no charge; we checked this for an $a_2^{(1)}$ breather, to $10^{-13}$. So the defect with real $\sigma$ respects the physical sector: $\Theta$-invariant data go to $\Theta$-invariant data, with real energy and momentum.
+
+**Charged classes.** Classes $p\not\equiv0,h/2$ are not $\Theta$-invariant: their energies (-@eq-ds-class-energy) are complex and come in conjugate pairs. They behave like complex solitons. A soliton of real rapidity is delayed ($|z|>1$) if $\cos\frac{2\pi p}h>0$ and advanced if $\cos\frac{2\pi p}h<0$. Linear waves cross with the factors (-@eq-an-linear-transmission) at $\theta_d\pm\frac{2\pi ip}h$, which are not unimodular (@prp-an-linear-transmission). In the quantum theory such sectors would be the analogue of the complex-energy sectors of @sec-reality-energy-momentum, which $\Theta$ excludes.
+
+**The odd sector.** For $h$ even the class $p=h/2$ is $\Theta$-invariant and has real energy, and (-@eq-ds-class-shift) is $\sigma\to-\sigma$, that is $\theta_d\to\theta_d+i\pi$, as for the odd sector of sine-Gordon theory (@prp-half-soliton). Since $z_a(u+i\pi)=1/z_{\bar a}(u)$, the odd-sector delay of species $a$ is the inverse of the even-sector delay of $\bar a$; for sine-Gordon theory this is $z_{\rm odd}=1/z_{\rm I_-}$. For $h$ odd there is no such class, and $\sigma\to-\sigma$ is a different defect, not a sector of the same one. In general (-@eq-ds-class-shift) replaces $\sigma\to-\sigma$ by $\sigma\to\sigma\omega^{\mp p}$, which preserves real $\sigma$ only for $2p\equiv0$ mod $h$. Imaginary $\theta_d$, which @sec-sg-defect-spectrum needs for stable excited defects, breaks $\Theta$ in every class.
+
+## Classical transmission factors {#sec-classical-transmission-factors}
+
+Linearize the defect conditions about $\vec\phi=\vec\psi=0$. At real and at imaginary coupling the quadratic parts of $V$ and $\mathcal B_d$ are the same, so the result applies to both. All matrices commute with $\pi$, so the problem is diagonal in the eigenvectors $\vec\rho_k$ of $\pi$, $\pi\vec\rho_k=\omega^k\vec\rho_k$, which carry the particles of mass $m_k$. On $\vec\rho_k$, $\mathsf D=1+i\cot\gamma_k$ and $\mathsf D^{\mathsf T}=1-i\cot\gamma_k$. With $\vec\phi=\vec\rho_ke^{-i\nu t}(e^{ipx}+R_ke^{-ipx})$ on $x<0$ and $\vec\psi=\mathbb T_k^{\rm cl}\vec\rho_ke^{-i(\nu t-px)}$ on $x>0$, $(\nu,p)=m_k(\cosh\theta,\sinh\theta)$ (we write $\nu$ for the frequency, since $\omega=e^{2\pi i/h}$), the conditions become two linear equations for $R_k$ and $\mathbb T^{\rm cl}_k$ (@exr-ds-linear). Their solution is
+
+$$
+R_k=0,\qquad
+\mathbb T^{\rm cl}_k(\theta)=\frac{e^{-(\theta-\theta_d)}+e^{i\gamma_k}}{e^{-(\theta-\theta_d)}+e^{-i\gamma_k}}=e^{i\gamma_k}\,\frac{\cosh\frac12(\theta-\theta_d+i\gamma_k)}{\cosh\frac12(\theta-\theta_d-i\gamma_k)}=z_k\Big(\theta-\theta_d+\frac{i\pi}2\Big)
 $$ {#eq-an-linear-transmission}
 
+for type I$_-$, and $\mathbb T^{\rm cl}_k(\theta)=z_k(\theta_d-\theta-\frac{i\pi}2)=\frac{e^{\theta-\theta_d}-e^{i\gamma_k}}{e^{\theta-\theta_d}-e^{-i\gamma_k}}$ for type I$_+$.
+
 ::: {#prp-an-linear-transmission}
-**[Draft]** To be written.
+**[Numerical]** For the $a_r^{(1)}$ defects linearized about the vacuum, for $r=1,\dots,4$, both types and every particle $k$:
+
+1. Waves are not reflected and do not change species, and $\mathbb T^{\rm cl}_k$ is (-@eq-an-linear-transmission). It is unimodular for real $\theta$. For type I$_-$ it equals $e^{i\gamma_k}$ at $\theta=\theta_d$ and has a zero at $\theta_d+i(\pi-\gamma_k)$ and a pole at $\theta_d-i(\pi-\gamma_k)$; for type I$_+$ it equals $-e^{i\gamma_k}$ there, with the zero at $\theta_d+i\gamma_k$ and the pole at $\theta_d-i\gamma_k$. For real $\theta_d$ there is no pole in the physical strip, so linear waves have no bound states at the defect. For $r=1$ it is (-@eq-shg-linear-transmission).
+2. A wave of particle $k$ arriving from the right with rapidity $-\theta$ crosses with $\bar{\mathbb T}^{\rm cl}_k(\theta)=\mathbb T^{\rm cl}_{\bar k}(i\pi-\theta)$, a function of $\theta+\theta_d$, which is the crossing relation (-@eq-defect-crossing) for diagonal transmission. Unitarity (-@eq-defect-unitarity) holds in the form $\mathbb T^{\rm cl}_k(\theta)\,\mathbb T^{\rm cl}_{\bar k}(\theta+i\pi)=1$.
+3. For type I$_-$, $\mathbb T^{\rm cl}_k\to1$ as $\theta_d\to+\infty$ and $\mathbb T^{\rm cl}_k\to\omega^k$, the eigenvalue of $\pi$, as $\theta_d\to-\infty$.
+4. About a defect of class $p$ at imaginary coupling, the factor is (-@eq-an-linear-transmission) with $\theta_d\to\theta_d\pm\frac{2\pi ip}h$, unimodular only for $2p\equiv0$ mod $h$.
+5. Corrigan and Zambon's $\mathbb T_k$ of [@cz2007, eq. (7.11)], with $e^{-\theta}$ in the denominator, is $\mathbb T^{\rm cl}_{h-k}$, and for $a_2^{(1)}$ it equals their lightest-breather factors [@cz2007, eq. (7.5)].
 :::
 
-::: {#prp-defect-frozen-soliton}
-**[Draft]** To be written.
+::: {.proof}
+The script solves the linearized conditions for the amplitudes of all modes, with a wave incident from either side, and compares with the closed forms, to $10^{-15}$. The quadratic part of $\mathcal B_d$ is checked against finite differences of its gradient, and about a class-$p$ jump it is computed by finite differences. Item 5 uses their conventions: $\mathsf D^{\mathsf T}$ for $\mathsf D$, $\vec\rho_k=-\sum_l\omega^{lk}\vec\alpha_l$ [@cz2007, eq. (7.10)], and $m=1$. Their linearized system gives (7.11) with $ie^{-\theta}m_k$ in the denominator; the printed $ie^{\theta}m_k$ misses by at least $0.5$, is not unimodular and does not depend on $\theta-\theta_d$ alone. The closed form follows by hand from the two equations of @exr-ds-linear.
 :::
+
+The lightest-breather factors of the quantum $a_2$ transmission matrix do not depend on the coupling [@cz2007, Sec. 7], as for sine-Gordon theory (@prp-sg-breather-transmission), so they are the classical factors. @prp-lightest-breather-universal returns to this.
+
+**A frozen soliton?** @prp-half-soliton found that for sine-Gordon theory two odd defects act on solitons and on linear waves as one soliton of rapidity $\theta_d$. Before comparing for $a_r$, we stated the test. Is there a pair of defects, of any types, classes and parameters, whose combined delays equal the soliton interaction coefficients $A_{cb}(\theta-\theta_c)$ (-@eq-interaction-coefficient) for every species $b$, whose combined linear factors equal Part V's $X_{cb}$ (-@eq-an-transmission), and whose energy and momentum are $M_c(\cosh\theta_c,\sinh\theta_c)$? The structure of the answer is already visible in (-@eq-an-linear-transmission): $\mathbb T^{\rm cl}_b(\theta)=z_b(\theta-\theta_d+\frac{i\pi}2)$, exactly as $X_{cb}(i\sinh u)=A_{cb}(u+\frac{i\pi}2)$ for a wave crossing a soliton at relative rapidity $u$ (@sec-dhn-an). In both cases the linear factor is the soliton factor continued to the point where the soliton becomes a linear wave.
+
+::: {#prp-defect-frozen-soliton}
+**[Theorem]** Let $\omega^b=e^{2i\gamma_b}$.
+
+1. Two defects of the same type delay species $b$ by $\kappa A_{cb}(\theta-\theta_c)^{\pm1}$, for some constant $\kappa$ and some parameters, classes and $\theta_c$, only if $b=h/2$. So for $r\ge2$ no pair of defects of one type is a frozen soliton.
+2. A type-I$_-$ defect with parameter $\vartheta=\theta_c+i(\frac\pi2+\gamma_c)$ and a type-I$_+$ defect with parameter $\bar\vartheta$ delay every species $b$ by
+$$
+z_b(\theta-\vartheta)\,z_b(\bar\vartheta-\theta)=\omega^bA_{cb}(\theta-\theta_c),
+$$
+and transmit particle $b$ with $\omega^bX_{cb}(i\sinh(\theta-\theta_c))$. In the normalization of Corrigan and Zambon they carry together exactly $M_c(\cosh\theta_c,\sinh\theta_c)$.
+3. If $h+2c\equiv0$ mod 4, the pair is realized with real $\sigma$: both defects at $\theta_d=\theta_c$, both of class $p$ with $4p\equiv h+2c$ mod $4h$.
+:::
+
+::: {.proof}
+Put $u=\theta-\theta_c$ and $y=e^{-u}$. $A_{cb}$ is a ratio of two quadratics in $y$, with its zeros at the angles $\pm(\gamma_c-\gamma_b)$ and its poles at $\pm(\gamma_c+\gamma_b)$ on the unit circle. A type-I$_-$ factor $z_b(u-v)$ has one zero and one pole, at $y=e^{-v}e^{i(\frac\pi2\pm\gamma_b)}$; to reach the unit circle $\operatorname{Re}v=0$, and then the angles differ by $+2\gamma_b$. A type-I$_+$ factor gives a pair differing by $-2\gamma_b$. A match pairs each zero of $A_{cb}$ with a pole. The pairings give the differences $\{-2\gamma_b,+2\gamma_b\}$ or $\{2\gamma_c,-2\gamma_c\}$. Equal signs, as two factors of one type require, force $4\gamma_b\equiv0$ mod $2\pi$, so $b=h/2$; opposite signs always work, with the parameters stated. The constant $\omega^b$ follows from the sinh form of (-@eq-an-defect-delay), and the linear factors from $\mathbb T^{\rm cl}_b(\theta)=z_b(\theta-\theta_d+\frac{i\pi}2)$. The energy is $-\hat M(\cosh\vartheta+\cosh\bar\vartheta)=-2\hat M\cos(\frac\pi2+\gamma_c)\cosh\theta_c=M_c\cosh\theta_c$ by (-@eq-ds-class-energy), and the same for the momentum. Item 3 is (-@eq-ds-class-shift). The script runs the zero–pole matching for $h\le8$, a grid search over two parameters for $a_2$ (best relative deviation 1.6), the identities for $h\le8$, and the field configuration with both defects for $a_3$ ($c=2$, $p=2$) and $a_5$ ($c=1,3$).
+:::
+
+The outcome of the test is a qualified yes, in a twisted form. A single type of defect is never half of an $a_r$ soliton, except as seen by the self-conjugate species; this is why the sine-Gordon statement of @prp-half-soliton looks like a property of one defect type. What survives is a factorization: the interaction coefficient $A_{cb}$ is the product of one type-I$_-$ and one type-I$_+$ Bianchi factor, at complex-conjugate parameters, up to the rotation $\pi$ of the charges, which is itself the invertible line found in @prp-an-defect-delay. The pair also carries the right energy and momentum, but only with the constants of Corrigan and Zambon; in the realization of item 3, with the book's normalization $\mathcal B_d(0,0)=0$, it carries an extra $2\hat M(\cosh\theta_c,\sinh\theta_c)$. For sine-Gordon theory ($h=2$, $c=1$, $p=1$) the pair is an odd type-I$_-$ and an odd type-I$_+$ defect, and since $z_{\rm I_+}=-z_{\rm I_-}$ for $a_1$ this is @prp-half-soliton, with $\omega=-1$ the charge conjugation. For $h$ odd, and for $h+2c\not\equiv0$ mod 4, the parameters are complex and the pair breaks $\Theta$. Whether a fused I$_-$I$_+$ pair is one of the type-II defects of @sec-type-two-atft, and whether its quantum transmission matrix contains the soliton S-matrix, as for sine-Gordon theory [@cz2010, Sec. 4], is open (@sec-an-soliton-transmission).
 
 ## Exercises {#sec-defect-solitons-exercises}
 
-To be written.
+::: {#exr-ds-class}
+Using $\vec\lambda_i\cdot\vec\lambda_j=\min(i,j)\,(h-\max(i,j))/h$, show that $\vec\alpha_j\cdot\mathsf D\vec\lambda_p\equiv-2p/h$ mod 2 for every $j$, and derive (-@eq-ds-class-shift) for both types. Compute the stored energy and momentum (-@eq-ds-class-energy), show that the classes lie on the mass shell of mass $\hat M$ in the normalization of Corrigan and Zambon, and that the classes $p$ and $h-p$ carry conjugate energies. For which classes is the energy real?
+:::
+
+::: {#exr-ds-linear}
+On the eigenvector $\vec\rho_k$ of $\pi$, show that the quadratic part of $\mathcal B_d$ gives $\nabla_{\vec\phi}\mathcal B_d=m\big[\sigma(\vec\phi-e^{-2i\gamma_k}\vec\psi)+\sigma^{-1}(\vec\phi-\vec\psi)\big]$ and $\nabla_{\vec\psi}\mathcal B_d=m\big[\sigma(\vec\psi-e^{2i\gamma_k}\vec\phi)-\sigma^{-1}(\vec\phi-\vec\psi)\big]$ for type I$_-$. Derive the two equations for $R_k$ and $\mathbb T^{\rm cl}_k$ and solve them to obtain (-@eq-an-linear-transmission). Then continue to $\theta-\frac{i\pi}2$ and explain why the result is the delay (-@eq-an-defect-delay) of species $k$.
+:::
+
+::: {#exr-ds-time-reversal}
+Show that $(\vec\phi,\vec\psi)(x,-t)$ solves the type-I$_+$ conditions with parameter $1/\sigma$ whenever $(\vec\phi,\vec\psi)(x,t)$ solves the type-I$_-$ conditions with $\sigma$. Derive $z^{\rm I_+}_{a,p}$ of (-@eq-an-defect-delay), including the sign of the class shift, and check it against $z_{\rm I_+}=\coth\frac{\theta-\theta_d}2$ for sine-Gordon theory. Which solitons does a type-I$_+$ defect rotate?
+:::
+
+::: {#exr-ds-selection}
+Derive (-@eq-ds-delay-phase) from $z_a=(x-ie^{i\gamma_a})/(x-ie^{-i\gamma_a})$ and compare it with [@cz2007, eq. (2.22)]. For the species-2 soliton of $a_4^{(1)}$, list the five charges of its cycle, find the boundaries in $\operatorname{Im}\xi$, and find a rapidity and an $\operatorname{Im}\xi$ for which the soliton moves two steps. Show that the sector boundaries are $2\gamma_a$ apart if and only if $a$ divides $h$, and that a soliton can move at most one step if and only if $\min(a,h-a)$ divides $h$.
+:::
+
+::: {#exr-ds-absorption}
+Prove the energy identity in the proof of @prp-ds-absorption, and the corresponding one for the momentum. List the real-rapidity absorptions (species and class) for $a_3^{(1)}$, $a_5^{(1)}$ and $a_7^{(1)}$, and show that there are none for $h$ odd. For species 1 of $a_5^{(1)}$, compute the energies of the classes 1 and 2 and check that their difference is $M_1\cosh\theta_d$. What happens when $a+2p\equiv0$ mod $h$?
+:::
+
+::: {#exr-ds-bootstrap}
+Prove (-@eq-ds-bootstrap) and the same identity for $\mathbb T^{\rm cl}$. Show that it is what the fusion limit of @sec-multi-solitons requires of the two-soliton solution passing the defect. Interpret the identity for $\mathbb T^{\rm cl}$ as the classical limit of the bulk bootstrap $\mathbb T_c(\theta)=\mathbb T_a(\theta+i\bar u)\,\mathbb T_b(\theta-i\bar u')$ for transmission factors, and compare with the breather bootstrap of @exr-sgd-breather.
+:::
+
+::: {#exr-ds-breather}
+Show that $z_a(u+i\pi)=1/z_{\bar a}(u)$, and deduce the odd-sector delays for $h$ even. For the $a_2^{(1)}$ breather $(1,\theta_0+iu,\xi)$, $(2,\theta_0-iu,\bar\xi)$, show that a defect with real $\sigma$ preserves the $\Theta$-invariance of the data, and compute the displacement of the breather. What changes for complex $\sigma$?
+:::
+
+::: {#exr-ds-frozen}
+Using the sinh form of (-@eq-an-defect-delay), prove item 2 of @prp-defect-frozen-soliton. For sine-Gordon theory, show that it reduces to $z_{\rm odd}^2=A_{11}$ of @prp-half-soliton. For $a_3^{(1)}$ and $c=2$, find the class $p$ of item 3 and check the energy of the pair. Why can no pair of type-I$_-$ defects reproduce $A_{11}$ for $a_2^{(1)}$?
+:::
 
 ## Notes and references {#sec-defect-solitons-notes}
 
-To be written.
+Bowcock, Corrigan and Zambon computed the delay of an $a_r$ soliton at a type-I defect and noticed that self-conjugate solitons can be absorbed [-@bcz2004b, Sec. 6]. Corrigan and Zambon developed the classical picture in their study of the $a_2$ defect [-@cz2007]: the complex delays and their selection rule, the static configurations with complex energies on a common mass shell, the pole of the delay and the absence of real absorption for other species, the classical bootstrap, and the linear transmission factors, which they matched with the lightest-breather factors of their quantum transmission matrix. They extended these observations to all $a_r$, corrected the spacing of the charge sectors, and related the pole of the delay to unstable defect states [-@cz2009a]. Their sine-Gordon NOT gate [-@cz2004] is the rank-one shadow of the rotation limit of @prp-an-defect-delay. The class shift (-@eq-ds-class-shift) and the delays in all classes, the type-I$_+$ delays and linear factors, the quantitative selection rule of @prp-stored-charge, the absorption rule of @prp-ds-absorption including the real absorptions by charged defects, the relation $\mathbb T^{\rm cl}_k(\theta)=z_k(\theta-\theta_d+\frac{i\pi}2)$, and @prp-defect-frozen-soliton are stated here.
+
+Corrections and clarifications to the sources made in this chapter:
+
+- [@cz2007, eq. (7.11)]: the denominator is $ie^{-\theta}m_k+\sigma(1-\omega^k)$, not $ie^{\theta}m_k+\sigma(1-\omega^k)$; only then is $\mathbb T_k$ unimodular, a function of $\theta-\eta$, and equal to their (7.5) for $a_2$. The formula also assumes $m=1$; otherwise $\sigma$ must be replaced by $m\sigma$.
+- [@cz2007, Sec. 2], after (2.22): the boundaries between the charge sectors in $\operatorname{Im}\xi$ are $2\pi\gcd(a,h)/h$ apart, not $2\gamma_a$, as [@cz2009a, Sec. 4] already notes. The two agree only when $a$ divides $h$. A soliton can therefore move up to $a/\gcd(a,h)$ steps along its cycle, two for species 2 of $a_4$.
+- [@cz2007, Sec. 2], after (2.23), and [@cz2009a, Sec. 4], after (4.10): a soliton with real rapidity is absorbed only if it is self-conjugate holds for defects whose jump lies in the root lattice. A defect whose jump has class $p$ absorbs species $a$ at real rapidity whenever $a+2p\equiv h/2$ mod $2h$, for example species 1 of $a_5$ in class 1.
+- [@cz2009a, Sec. 4], after (4.8): the static energies are real not only when the two weights lie in the same representation, but also when $h$ is even and their classes differ by $h/2$.

@@ -9,7 +9,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 | 36 | 2026-10-11 | `defect_axioms.py` | 20 PASS (2 s) | Gemini (light) + Codex deep, integrated 2026-10-12 |
 | 37 | 2026-10-11 | `defect_classical_sg.py`, `defect_sg_transmission.py` | 27 + 24 PASS (18 s, 103 s) | Gemini (light) + Codex deep, integrated 2026-10-12 |
 | 38 | 2026-10-12 | `defect_classical_an.py`, `defect_lax_rmatrix.py` | 24 + 6 PASS (57 s, <1 s) | no |
-| 39 | | `defect_solitons_an.py` | | |
+| 39 | 2026-10-12 | `defect_solitons_an.py` | 9 PASS (10 s) | no |
 | 40 | 2026-10-12 | `defect_universal_r.py`, `defect_transfer.py` | 14 + 9 PASS (46 s, 15 s) | no |
 | 41 | | `defect_an_transmission.py` | | |
 | 42 | | `defect_doubling.py` | | |
@@ -323,6 +323,53 @@ Working record for Part VIII, kept in the repository because the session scratch
   - KL's same-chirality terms beyond first order;
   - q̂ vs q;
   - convergence of Runkel's defect operators.
+
+## Chapter 39 (`sec-defect-solitons`)
+
+The full drafting report is in `briefs/draft_ch39_report.md`: summary, script output, verification record, corrections and requests.
+
+**Key results.**
+- **Jump classes.** A jump in class p ∈ Λ_W/Λ_R acts like a jump-free defect at θ_d ± 2πip/h.
+- **The general delay** `eq-an-defect-delay` covers both types and all classes. The type-I₊ delays are new, derived by time reversal and confirmed by a fit. As θ_d → −∞, type I₋ becomes the π-rotation line.
+- **`prp-stored-charge` and the selection rule.** The outgoing charge moves at most a/gcd(a,h) steps along the π-orbit, and the defect never produces the missing charges.
+- **`prp-ds-absorption` [Theorem].**
+  - Absorption occurs at θ_d ∓ i(π/2 − π(a+2p)/h).
+  - The absorbed or emitted envelope moves with velocity tanh θ_d.
+  - Absorption at real rapidity happens iff a + 2p ≡ h/2 mod 2h.
+- **Linear transmission.** T_k = z_k(θ−θ_d+iπ/2).
+- **`prp-defect-frozen-soliton` [Theorem], in a twisted form.** A type-I₋/I₊ pair at conjugate complex parameters gives ω^b A_cb and ω^b X_cb, with the soliton's energy-momentum.
+
+**Corrections to sources recorded in the Notes.**
+- cz2007 (7.11): the denominator, and the implicit m = 1.
+- cz2007 §2: sector boundaries are 2π·gcd(a,h)/h apart.
+- "Only self-conjugate solitons are absorbed at real rapidity" (cz2007, cz2009a) holds only for root-lattice jumps.
+- cz2009a after (4.8): static energies are also real for h even with classes differing by h/2.
+
+**Unchecked.**
+- Multi-soliton passage beyond two solitons (argued from the Bäcklund property).
+- The charge change through the singular soliton (argued).
+- The quantum statements of cz2007 §6 and cz2009a (5.8).
+
+**Pending edits elsewhere.**
+- `textbook_code/README.md` row for `defect_solitons_an.py`.
+- Ch. 38, end of `sec-defect-backlund-an`: restrict "no absorption at real rapidity except self-conjugate" to class 0, and point to `prp-ds-absorption`.
+- Optional pointers: ch. 37 `prp-half-soliton`, ch. 10 `sec-topological-charges`, ch. 16 `eq-an-transmission`, ch. 36 `sec-topological-lines`.
+- Conventions brief:
+  - jump classes;
+  - the I₊ delays and linear factors;
+  - T = z continued;
+  - the strip convention for complex rapidities;
+  - notation: γ_a = πa/h, M̂ = 2hm/β², ν for frequency.
+
+**Obligations for later chapters.**
+- **Ch. 41:**
+  - the selection rule in the quantum a_r matrices;
+  - the Wigner test with |z| and arg z;
+  - charged sectors at θ_d ± 2πip/h;
+  - absorption poles in charged classes against cz2009a's unstable-state windows.
+- **Ch. 43:**
+  - is the I₋I₊ pair a soliton S-matrix times the π-line, and is it a type-II defect?
+  - lightest-breather factors equal to T^cl for all a_r.
 
 ## Global pending edits
 
