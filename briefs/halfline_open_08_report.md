@@ -117,3 +117,19 @@ All in `/tmp/claude-1000/-home-gustav-Git-affine-toda/0e38a99d-702a-40fb-99b7-74
 - `p08_identity.py`: the identity Res = ½g²Γ²K₂′(θ_R) and the order of the zero.
 - `p08_calib_ly.py`: Lee–Yang normalization test.
 - `p08_threshold.py`: threshold crossing of b₋ₙ₊₁,ₙ.
+
+## Integration (branch half-line-open-problems-integration)
+
+Basis: the worker report, the Gemini verdict (tier A, which gives an analytic proof of the residue identity), and the coordinator's checks. New section 9 in `textbook_code/particle_reflection.py` uses the book's own `K1nm`, `S`, `Prod`; all 47 checks PASS.
+
+| Claims | Verdict | How it was checked | Book change |
+|---|---|---|---|
+| 1, 2 (residue signs; sign change at $B=\frac1{2n-1}$) | **Verified** | Section 9: $-i\,\mathrm{Res}>0$ below and $<0$ inside the window for $n=2,3,4$; $-1.18749$ at $B=\frac9{20}$ (Gemini's contour integral agrees). The sign convention $K\simeq\frac i2g^2/(\theta-iv)$ was confirmed in ch. 28. | ch. 35 paragraph rewritten |
+| 3 (threshold, virtual state) | **Accepted** (worker and Gemini, independent code) | not in the book script | ch. 35 bullet |
+| 4 (D1 realizable in the window; order $2\to1$) | **Accepted** (geometry re-derived by Gemini) | | ch. 35 bullet |
+| 5 (exact identity $\mathrm{Res}=\frac12g^2\Gamma^2K_2'(\theta_R)$) | **Verified**, and it is a consequence of the bootstraps (Gemini's proof; the coordinator checked the zero-derivative step $2i/g^2$) | Section 9 at generic $B$, $\le3\times10^{-21}$. At $B=\frac12$, a level crossing, the formula degenerates; the first sampling hit it. | ch. 35 |
+| 6 (Lee–Yang calibration) | **Not integrated** | | — |
+| 7 ("naive rule incomplete; collapsed configurations") | **Not integrated as a mechanism** (Gemini: unverified hypothesis; the sign of the worker's loop evaluation is not cross-checked). The book says only that the naive rule has not been derived. | | open problem 8 |
+| 8 (coincidence at $B=\frac14$) | **Not integrated** | | — |
+| 9 (DG spectrum stands) | **Integrated** | | ch. 35; Appendix D DG §6.2 entry updated (still *Incomplete*: their attribution of the pole) |
+| 10 (text) | Integrated as modified (Gemini's refined open-problem text, shortened) | | |

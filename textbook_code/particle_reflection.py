@@ -534,3 +534,48 @@ vals = [inertia(lo + t*2*PI/3) for t in (0.1, 0.5, 0.9)]
 report(f'a_2 vacuum modulus: beta^2 I(chi) = {[mp.nstr(v, 8) for v in vals]} = 6/m_1 = {mp.nstr(6/m1, 8)} for all chi '
        f'(rotor reading of b_(n,-n): n^2/2I = m_1 (pi B/6) n^2)', all(abs(v - 6/m1) < 1e-10 for v in vals))
 
+
+# ---------------------------------------------------------------- 9. the a_2 pole p = 1/2 + (2n-1)B/2 on b_{-n,n} (half-line
+# open problem 8). Bound-state poles have K ~ (i/2) g^2/(theta - iv) with g^2 > 0 at real coupling (sec-boundary-bound-states),
+# so -i Res K > 0. Here: -i Res K_1 at p_1 is positive below the window 1/(2n-1) < B < 2/(2n-1) and negative in it; at
+# B = 9/20 it is -1.18749 on b_{-2,2}; and Res = (1/2) g^2 Gamma^2 K_2^alpha'(theta_R) exactly, alpha = b_{-n+1,n-1},
+# with g^2 from the pole of K_1^alpha at p_v = 3/2 - (2n-1)B/2, Gamma^2 from S_11 at 2 pi i/3, and theta_R the zero of
+# K_2^alpha at i pi/3 ((2n-1)B/2 - 1/2) (the double-triangle Coleman-Thun diagram reflecting at a zero). Generic B only:
+# at the level crossings B = 1/2k two diagrams contribute to the same pole.
+def _res(f, th0, eps=mp.mpf('1e-12')):
+    return (f(th0 + eps) - f(th0 - eps))*eps/2
+
+
+mp.mp.dps = 30
+signs_ok, idents, res920 = True, [], None
+for n in (2, 3, 4):
+    lo, hi = Fr(1, 2*n - 1), Fr(2, 2*n - 1)
+    Kb = K1nm(-n, n)
+    for BF in (lo*Fr(5, 9), lo + (hi - lo)*Fr(3, 11), lo + (hi - lo)*Fr(6, 11), lo + (hi - lo)*Fr(9, 11)):   # generic, avoiding B = 1/2k
+        Bv = mp.mpf(BF.numerator)/BF.denominator
+        p1 = Fr(1, 2) + (2*n - 1)*BF/2
+        th1 = I*PI*mp.mpf(p1.numerator)/p1.denominator/3
+        r = -I*_res(lambda t: Kb(t, Bv), th1)
+        inside = lo < BF < hi
+        signs_ok &= abs(mp.im(r)) < 1e-15 and (mp.re(r) < 0 if inside else mp.re(r) > 0)
+        if n == 2 and BF == Fr(9, 20):
+            res920 = r
+        if inside:
+            Ka, K2a = K1nm(-n + 1, n - 1), K1nm(n - 1, -n + 1)
+            pv = Fr(3, 2) - (2*n - 1)*BF/2
+            thv = I*PI*mp.mpf(pv.numerator)/pv.denominator/3
+            g2 = _res(lambda t: Ka(t, Bv), thv)/(I/2)
+            G2 = _res(lambda t: S(1, 1, 2)(t, Bv), 2*PI*I/3)/I
+            pR = (2*n - 1)*BF/2 - Fr(1, 2)
+            thR = I*PI*mp.mpf(pR.numerator)/pR.denominator/3
+            K2p = mp.diff(lambda t: K2a(t, Bv), thR)
+            idents.append(abs(_res(lambda t: Kb(t, Bv), th1)/(g2*G2*K2p/2) - 1))
+for BF in (Fr(9, 20),):
+    Bv = mp.mpf(BF.numerator)/BF.denominator
+    if res920 is None:
+        th1 = I*PI*mp.mpf(47)/40/3
+        res920 = -I*_res(lambda t: K1nm(-2, 2)(t, Bv), th1)
+report(f'a_2 pole p = 1/2 + (2n-1)B/2 on b_(-n,n), n = 2, 3, 4: -i Res K_1 > 0 below the window 1/(2n-1) < B < 2/(2n-1) '
+       f'and < 0 in it (not a bound state); at B = 9/20 it is {mp.nstr(mp.re(res920), 6)}; exact identity '
+       f'Res = (1/2) g^2 Gamma^2 K_2^alpha\'(theta_R) [{mp.nstr(max(idents), 2)}]',
+       signs_ok and abs(mp.re(res920) + mp.mpf('1.187489724')) < 1e-8 and max(idents) < 1e-15)
