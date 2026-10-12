@@ -174,3 +174,20 @@ All are in `/tmp/claude-1000/-home-gustav-Git-affine-toda/0e38a99d-702a-40fb-99b
 **Superseded:** `sym_vac.py`, `t8.py`, `t9.py`, `fix_prof.py`, `fix2.py`.
 
 **Downloaded sources:** `dl_caf/` (CAF TeX) and `dl_fo/` (FO TeX, arXiv abstracts).
+
+## Integration (branch half-line-open-problems-integration)
+
+The Opus follow-up prompt `halfline_open_02_opus_prompt.md` was not launched; the coordinator verified instead. New script `textbook_code/dn_uniform.py` (5 checks, all PASS, about 30 s).
+
+| Claims | Verdict | How it was checked | Book change |
+|---|---|---|---|
+| 1 ($K=AJ$, $J$ antidiagonal $\pm1$, unitarity $A(\theta)A(-\theta)=1$) | **Verified** | Check 1 (coideal intertwiner, $n=4,5$) | ch. 33 new paragraph and `prp-dn-scalar` |
+| 2 (crossing factor 1 on $L(2\omega_1)$) | **Verified by argument**: the boundary vector has only extremal weights $-2\epsilon_i$, which lie in $L(2\omega_1)$ where the book's `eq-dn-vector-r` is 1. The generic `rcheck` was too slow for $d_n$ to test numerically. | | ch. 33 |
+| 3, 4 ($F$, $A$, no $(-T/2)_I$ prefactor) | **Verified** (check 2, 3; own Stirling/Hurwitz products, $\le10^{-26}$). The crossing factor $c(\mu)$ is the worker's formula; the chain is validated end to end by check 4. The "with prefactor crossing fails" statement was not tested; the text says only that there is no prefactor. | | `prp-dn-scalar`, `eq-dn-scalar` |
+| 5 (breather amplitude closed form) | **Verified** (check 3). The singlet coefficient 1 was not recomputed; it is stated as an assumption ("with the matrix part acting trivially on the singlet") and supported by check 4. | | `eq-dn-breather` |
+| 6 ($K_1$; axioms; equals CAF $\hat R_1$) | **Verified**: check 4 uses the book's $d_n$ S-matrix (`smatrix_simply_laced.setup`), independent of the worker's hand-coded `S_dn`; check 5 recomputes CAF's $\hat R_1$ from their block definition (blockw). Only $a=1$ checked, not all vector-like $a$. | | ch. 35 new `sec-dn-uniform` |
+| 7 (CAF spinor (dn2) violates (cuR) for odd $n$; Appendix D candidate) | **REFUTED** | CAF's (dn2) with their own block satisfies (cuR) with $S_{ss}$ for $n=4,\dots,7$ to $10^{-15}$ (check 5). The worker's `dn_particle.S_dn` swaps $S_{ss}=\prod\{4k-3\}$ and $S_{ss'}=\prod\{4k-1\}$ for odd $n$. The book's S-matrix has $S_{ss}=\prod\{4k-3\}$ for all $n$, and for odd $n$ particle $n-1$ is the antiparticle of $n-2$ ($S_{33}(i\pi-\theta)=S_{34}(\theta)$). Gemini's "confirmation" ran the worker's script, so it was not independent. | Nothing in Appendix D. The odd-$n$ "spinor caveat" is dropped; open problem 2 just lists spinor amplitudes as open. |
+| 8 (classical identification with $C\equiv+1$ via $d_4$, $d_5$ kinks) | **Not integrated**: no independent check (Gemini checked the reductions and the boundary condition, but the linearization numbers come from the worker's script only) | | `sec-dn-uniform` says the identification is open and expected by analogy |
+| 9 (FO match) | **Not integrated** | | — |
+| 10 (corrections to the brief) | Accepted for the brief; the folding remark is in open problem 2 | | open problem 2 |
+| 11 (step-4 table) | **Not integrated** (literature map, CAF coverage unverified) | | Open problem 2 rewritten more briefly |

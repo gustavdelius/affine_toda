@@ -195,6 +195,29 @@ $$ {#eq-dn-vector-r}
 in the homogeneous gradation, with $q\to q^{-1}$ in $\langle a\rangle$ for the Part VI coproduct. The poles of $\langle1\rangle$ and $\langle n-1\rangle$ are the bound states $1+1\to2$ (the antisymmetric tensor) and $1+1\to0$ (a breather in the singlet).
 
 ::: {#prp-dn-r}
+**The scalar factor at $\hat\epsilon=0$.** At $\hat\epsilon=0$ the reflection matrix is $K=A(\theta)J$ with $J$ antidiagonal, with entries $\pm1$, independent of $\theta$, and $J^2=1$ (`textbook_code/dn_uniform.py`). Since $\bar V\cong V$, the same matrix reflects the whole multiplet, and boundary unitarity is $A(\theta)A(-\theta)=1$. In crossing-unitarity the boundary-state vector $\sum_{ab}J_{ba}v_a\otimes v_b=\sum_i\pm v_{-i}\otimes v_{-i}$ has the weights $-2\epsilon_i$. These occur in $V\otimes V$ only in $L(2\omega_1)$, where (-@eq-dn-vector-r) is 1, so the matrix part contributes no factor. With $T=(n-1)\omega=\frac h2\omega$, $\mu=-iT\theta/\pi$ and $g(\mu,c)=\Gamma(\mu+c)/\Gamma(-\mu+c)$, the scalar factor therefore satisfies
+$$
+A(\mu)A(-\mu)=1,\qquad \frac{A(\frac T2-\mu)}{A(\frac T2+\mu)}=F(2\mu),
+$$
+where $F$ is the scalar factor of the vector–vector S-matrix, normalized to 1 on $L(2\omega_1)$:
+$$
+F=\frac{B_{1+T}\,B_{1+\omega}}{B_0\,B_{T-\omega}},\qquad B_a(\mu)=\prod_{k=0}^\infty\frac{g(\mu,a+2Tk)}{g(\mu,a+T+2Tk)} .
+$$
+
+::: {#prp-dn-scalar}
+## The scalar factor of the $d_n$ matrix at $\hat\epsilon=0$
+**[Numerical]** For $n=4,5,6$: $F$ is unitary and satisfies $F(T-\mu)=F(\mu)\,c(-\mu)$ with $c(\mu)=\frac{\sin\pi\mu\,\sin\pi(\mu+T-\omega)}{\sin\pi(\mu+\omega)\,\sin\pi(\mu+T)}$; and
+$$
+A(\mu)=\prod_{k=0}^\infty\frac{g(2\mu,1+3T+4Tk)\,g(2\mu,1+\omega+2T+4Tk)\,g(2\mu,T+4Tk)\,g(2\mu,2T-\omega+4Tk)}{g(2\mu,1+2T+4Tk)\,g(2\mu,1+\omega+T+4Tk)\,g(2\mu,2T+4Tk)\,g(2\mu,3T-\omega+4Tk)}
+$$ {#eq-dn-scalar}
+solves both equations, with $A(0)=1$. Unlike (-@eq-an-diagonal-scalar) it has no prefactor $(-\frac T2)_I$. With the matrix part acting trivially on the singlet, the lowest-breather amplitude is
+$$
+A\Big(\mu-\frac T2+\frac12\Big)F(2\mu)A\Big(\mu+\frac T2-\frac12\Big)=\Big(\frac\omega2-T\Big)_I\Big(\frac12-T\Big)_I\Big(-\frac\omega2-\frac12\Big)_I\,\frac{(\frac T2-\frac\omega2)_I\,(\frac T2+\frac\omega2+\frac12)_I}{(\frac T2)_I\,(\frac T2+\frac12)_I} .
+$$ {#eq-dn-breather}
+:::
+
+Checked in `textbook_code/dn_uniform.py` to $10^{-26}$. The particle amplitude that (-@eq-dn-breather) continues to is in @sec-dn-uniform.
+
 ## The $d_n$ vector R-matrix
 **[Numerical]** For $n=4,5$ the intertwiner $V(z)\otimes V(1)\to V(1)\otimes V(z)$ has eigenvalues $1$, $\langle1\rangle$ and $\langle1\rangle\langle n-1\rangle$ with multiplicities $n(2n+1)-1$, $n(2n-1)$ and 1, as in (-@eq-dn-vector-r).
 :::
