@@ -3,6 +3,7 @@
 Conventions: defect_common.py (phi on x < 0, psi on x > 0, sigma = e^{-theta_d}; type I_- is BCZ's defect, type I_+ its
 time reverse with B_d^{I+}(sigma) = B_d^{I-}(1/sigma)).  Solitons at imaginary coupling (b = i beta), eq-an-soliton and
 eq-n-soliton: phi = (i/beta) sum_j alpha_j ln tau_j, tau_j = 1 + omega^{ja} E, E = exp(m_a(x cosh th - t sinh th) + xi),
+omega = e^{2 pi i/h} (the root of unity of Part III; in ch. 41 and 43 omega is the coupling 4 pi/beta^2 - 1),
 m_a = 2 m sin(pi a/h), soliton mass M_a = 2 h m_a/beta^2; Mhat = 2 h m/beta^2.  The basic delay is eq-dc-ar-delay,
     z_a(u) = (e^{-u} - i e^{i pi a/h})/(e^{-u} - i e^{-i pi a/h})     (cz2009a (4.10); defect_classical_an.py check 8).
 Jump class p in Z_h: (beta/2pi)(psi(0) - phi(0)) = lambda_p mod the root lattice (lambda_p a fundamental weight).

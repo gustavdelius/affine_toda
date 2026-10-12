@@ -235,6 +235,8 @@ For the physics coideals this means:
 - **Sine-Gordon (all $\hat\epsilon$) and the diagonal coideals $B_0$ of $a_n$, $d_n$.** A universal K-matrix exists. Its image on the soliton multiplets is the reflection matrix, and the reflection equation holds by (-@eq-universal-k-coproduct), independently of @thm-k-reflection.
 - **$a_n$ and $d_n$ with $\hat\epsilon_j=\pm\epsilon_*$.** These generalized q-Onsager coideals are outside all published constructions. No universal K-matrix is known for them. Regelskis and Vlaar list the study of their reflection matrices as future work [@regelskis_vlaar2016, Rem. 9.2].
 
+The quasi-K-matrix generalizes the quasi-R-matrix: for the quantum symmetric pair of diagonal type, $U_q(\mathfrak g)$ embedded in $U_q(\mathfrak g)\otimes U_q(\mathfrak g)$ by the coproduct twisted with the Chevalley involution, it is Lusztig's quasi-R-matrix twisted by $\omega\otimes1$, in finite type [@bao_wang2018b]. Under the doubling trick a defect becomes a boundary of two copies of the theory, and its symmetry is a coideal of this kind (@sec-diagonal-qsp).
+
 ## Trigonometric K-matrices {#sec-trigonometric-k}
 
 On a finite-dimensional representation of $U_q(\hat g)$ the universal K-matrix does not act directly. As for the universal R-matrix, one introduces a spectral parameter by the grading shift $\Sigma_z$ and obtains a formal series in $z$.

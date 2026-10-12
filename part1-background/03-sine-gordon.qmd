@@ -61,7 +61,7 @@ $$
 
 This is the simplest case of Hirota's construction (@sec-classical-solitons), which writes every affine Toda soliton through $\tau$-functions $\tau_0,\dots,\tau_r$, one for each node of the affine Dynkin diagram (the graph with one node per simple root, @sec-affine-dynkin), each a finite sum of exponentials. Multi-soliton solutions are obtained by multiplying the exponentials, and the $N$-soliton $\tau$-functions are polynomials of degree $N$ in them.
 
-**Scattering and time delays.** In a two-soliton solution the solitons pass through each other and emerge with the same velocities. The only effect of the collision is a time delay, which is the classical limit of the derivative of the S-matrix phase. That the shape and velocity are preserved is the classical counterpart of elastic, factorized scattering.
+**Scattering and time delays.** In a two-soliton solution the solitons pass through each other and emerge with the same velocities. The only effect of the collision is a time delay, which is the classical limit of the derivative of the S-matrix phase. That the shape and velocity are preserved is the classical counterpart of elastic, factorized scattering. Multi-soliton solutions can also be built one soliton at a time by a Bäcklund transformation, and the same transformation imposed at a single point is an integrable defect (@sec-backlund).
 
 **Breathers.** Continuing a soliton–antisoliton solution to the complex-conjugate rapidities $\pm i(\frac\pi2-u)$ gives the **breather**
 

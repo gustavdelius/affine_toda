@@ -30,6 +30,7 @@ $$
 If the jump is a total time derivative, $J_s(0^-)-J_s(0^+)=-\frac{d}{dt}\Sigma_s$ with $\Sigma_s$ a function of the fields and their derivatives at $x=0$, then $Q_s+\Sigma_s$ is conserved. At a boundary only the combination $Q_s+Q_{-s}$ can survive (@sec-half-line-kinematics). At a defect the charges of spin $s$ and $-s$ can survive separately. For $s=\pm1$ this is the question whether a modified momentum is conserved. For the Lagrangian defects of this part it is (@prp-defect-momentum), and their defect conditions are frozen Bäcklund transformations (@sec-backlund) [@bcz2004; @bcz2004b].
 
 ::: {#prp-defect-elastic}
+## Elastic scattering off a defect
 **[Established]** Suppose that infinitely many charges $Q_s+Q_{-s}+\Sigma_s$ of odd spin survive, with nonzero eigenvalues $\chi_a^{(s)}$, and that the defect states have discrete energies. Then scattering off the defect is elastic: in the out-state of an $N$-particle in-state every particle has been either reflected, with rapidity $-\theta_i$, or transmitted, with rapidity $\theta_i$, and labels can change only within a multiplet of equal mass. The amplitude factorizes into one-particle reflections and transmissions and two-particle scatterings [@delfino_mussardo_simonetti1994; @cafg2002]. If also $Q_1+\Sigma_1$ and $Q_{-1}+\Sigma_{-1}$ survive separately, so that a modified momentum is conserved, and the defect states have discrete momenta, then no particle is reflected.
 :::
 
@@ -67,6 +68,7 @@ $$
 and the same with the bars exchanged [@delfino_mussardo_simonetti1994, eq. (2.8)] [@cafg2002, eqs. (5)–(6)].
 
 ::: {#prp-rt-nogo}
+## Pure reflection or pure transmission
 **[Theorem]** Let the bulk S-matrix on the left of the defect be diagonal, $S_{ab}^{cd}=\delta_a^c\delta_b^dS_{ab}$, let the defect have no internal states, and let reflection and transmission preserve each particle label, $R_a^{\ b}=\delta_a^bR_a$ and $\mathbb T_a^{\ b}=\delta_a^b\mathbb T_a$. Assume that the exchange relations (-@eq-zf-algebra) and (-@eq-defect-zf) are associative, that the asymptotic out-states are linearly independent, and that all amplitudes are meromorphic. If $R_b\not\equiv0$ and $\mathbb T_a\not\equiv0$, then $S_{ab}(\theta)$ is constant. If $R_a\not\equiv0$ and $\mathbb T_b\not\equiv0$, then $S_{ab}(\theta_1-\theta_2)\,S_{ba}(\theta_1+\theta_2)=1$. In particular a particle that is both reflected and transmitted has $S_{aa}=\pm1$, and if every $S_{ab}$ depends on the rapidity, the defect is either purely reflecting or purely transmitting.
 :::
 
@@ -114,6 +116,7 @@ $$ {#eq-triangle-rtt}
 Writing $\mathbb L$ as a matrix in $V$ whose entries $\mathbb L_a^{\ b}(\theta)$, $\mathbb L_a^{\ b}w_\alpha=\sum_\beta\mathbb T_{a\alpha}^{\beta b}w_\beta$, are operators on $\mathcal W$, (-@eq-triangle-rtt) is the defining relation of the Yang–Baxter algebra of $R$. So $\mathbb L$ is a quantum L-operator with auxiliary space $V$ and quantum space $\mathcal W$, as Bajnok and George noted [-@bajnok_george2006]. The compact form $R_{12}\mathbb T_1\mathbb T_2=\mathbb T_2\mathbb T_1R_{12}$ found in the literature is (-@eq-triangle-rtt) with $\mathbb T_i$ standing for $\mathbb L_{i3}$.
 
 ::: {#prp-triangle-forms}
+## Three forms of the triangle relation
 **[Established]** The forms (-@eq-triangle-st), (-@eq-triangle-braid) and (-@eq-triangle-rtt) are the same equation: for any $\mathbb T$, their residuals agree entry by entry after the tensor factors are relabelled. The relations for $\bar{\mathbb T}$, with two particles arriving from the right, have the same form. The mixed relation, with one particle from each side, follows from (-@eq-triangle-braid) and defect unitarity (-@eq-defect-unitarity) by continuing $\theta_2$ to negative values [@cafg2002].
 :::
 
@@ -162,6 +165,7 @@ $$ {#eq-doubled-k}
 where the flips $P$ move $\mathcal W$ to the right, so that $P\,\mathbb T:V\otimes\mathcal W\to V'\otimes\mathcal W$ and $\bar{\mathbb T}P:V'\otimes\mathcal W\to V\otimes\mathcal W$. A defect that also reflects has $R$ and $P\bar RP$ on the diagonal [@bajnok_george2006, eq. (10)].
 
 ::: {#prp-doubling}
+## The doubling trick
 **[Established]** For a purely transmitting defect and its doubled boundary (-@eq-doubled-k):
 
 1. The reflection equation (-@eq-reflection-braid) of the doubled theory, with $\mathcal W$ on the right, holds if and only if $\mathbb T$ and $\bar{\mathbb T}$ satisfy their triangle relations and the two mixed relations. Its block from two $V$-particles to two $V'$-particles is (-@eq-triangle-braid), entry by entry.
@@ -204,7 +208,7 @@ $$
 
 for diagonal scattering [@konik_leclair1999] [@cafg2002, eq. (27)] [@bajnok_simon2008, eq. (21)]. There is no scattering factor, unlike in (-@eq-boundary-bootstrap-bulk), because the constituents meet the defect at the same point and do not meet each other. Konik and LeClair, and Bowcock, Corrigan and Zambon, obtained the sine-Gordon breather transmission factors in this way (@sec-sg-breather-transmission).
 
-**Unstable states.** For a momentum-conserving defect with real $\theta_d$, a pole of $\mathbb T$ at $\theta=\theta_d+iu$ lies off the imaginary axis when $\theta_d\ne0$, and the corresponding state has the complex energy $m_a\cosh(\theta_d+iu)$. Poles in the lower half-plane carry complex energy too. Bowcock, Corrigan and Zambon interpreted such a pole of the sine-Gordon transmission matrix as an unstable excited state of the defect [@bcz2005, Sec. 4] (@sec-sg-defect-spectrum), and Corrigan and Zambon found the analogous $a_2^{(1)}$ state, with $\operatorname{Re}E>0$ and $\operatorname{Im}E<0$, only in a window of couplings [@cz2007] (@sec-an-defect-bound-states). For the free boson with a $\delta$-function defect, a strong repulsive coupling gives a pair of resonance poles at $\operatorname{Im}\theta=-\pi/2$ [@delfino_mussardo_simonetti1994, Sec. 4].
+**Unstable states.** For a momentum-conserving defect with real $\theta_d$, a pole of $\mathbb T$ at $\theta=\theta_d+iu$ lies off the imaginary axis when $\theta_d\ne0$, and the corresponding state has the complex energy $m_a\cosh(\theta_d+iu)$. Poles in the lower half-plane carry complex energy too. Bowcock, Corrigan and Zambon interpreted such a pole of the sine-Gordon transmission matrix as an unstable excited state of the defect [@bcz2005, Sec. 4] (@sec-sg-defect-spectrum), and Corrigan and Zambon found an analogous $a_2^{(1)}$ state, with $\operatorname{Re}E>0$ and $\operatorname{Im}E<0$, in a window of couplings [@cz2007]. In the book's labels that window belongs to species 2; species 1 has an unstable state at all couplings $\beta^2<2\pi$, including the classical limit (@sec-an-defect-bound-states). For the free boson with a $\delta$-function defect, a strong repulsive coupling gives a pair of resonance poles at $\operatorname{Im}\theta=-\pi/2$ [@delfino_mussardo_simonetti1994, Sec. 4].
 
 ## Defects on the circle {#sec-defect-circle}
 
@@ -227,6 +231,7 @@ on $V^{\otimes N}\otimes\mathcal W$, with $\mathbb L_j$ acting on the factor $j$
 The simplest defect operators have already appeared, as the Bloch twists of @prp-bloch-sectors.
 
 ::: {#prp-twist-defect}
+## Twist defects
 **[Theorem]** Let the particles carry topological charges $\mu$ that the bulk S-matrix conserves, and let $\alpha$ be a vector of angles. The defect with $\mathcal W=\mathbb C$ and
 
 $$
@@ -246,7 +251,7 @@ We checked this for three $a_2^{(1)}$ vector solitons, with the defect at each p
 
 A defect is **topological** if it conserves energy and momentum, so that it can be moved without changing anything except where it crosses other insertions. In conformal field theory this means that it commutes with both Virasoro algebras, and in rational theories such defects are described by the representation theory of the chiral algebra (@sec-cft-topological-defects) [@petkova_zuber2001; @ffrs2004; @ffrs2007]. By @sec-rt-algebra, the transmitting integrable defects of interacting theories are topological in this sense. Topological lines can be fused, and they are the generalized symmetries of a two-dimensional theory. A line that implements an ordinary symmetry $g$ is **invertible**: it fuses with the line of $g^{-1}$ to the trivial line. Lines whose fusion is not a group law, such as $\Phi\times\Phi=\mathbb 1+\Phi$, are **non-invertible**, and the fusion rules together with the associated $F$-symbols form a fusion category [@cck2024].
 
-**Invertible lines.** The transmission matrix of an invertible line is independent of $\theta$: it is the action of a symmetry on the particles, which commutes with the S-matrix. The twist defects of @prp-twist-defect are of this kind, for the $U(1)^r$ symmetry generated by the topological charge. Their fusion is addition of the angles $\alpha$.
+**Invertible lines.** The transmission matrix of an invertible line is independent of $\theta$: it is the action of a symmetry on the particles, which commutes with the S-matrix. The twist defects of @prp-twist-defect are of this kind, for the $U(1)^r$ symmetry generated by the topological charge. Their fusion is addition of the angles $\alpha$. The integrable defects of this part interpolate between invertible lines: classically, the type-I$_-$ defect of $a_r^{(1)}$ becomes transparent as $\theta_d\to+\infty$ and the invertible line of the rotation $\pi$ of the affine Dynkin diagram as $\theta_d\to-\infty$ (@prp-an-defect-delay); In the quantum sine-Gordon theory the two limits are twist lines, one for each defect charge, and charge conjugation dressed by a shift of the defect charge (@prp-defect-twist-limit).
 
 **Perturbed defects.** The transmitting defects of this part have transmission matrices that depend on $\theta-\theta_d$. Where a conformal description is available, they are topological defects of the conformal theory perturbed by defect fields chosen so that energy and momentum stay conserved [@konik_leclair1999; @runkel2008; @bhw2014]. In the minimal-model cases studied by Runkel, the perturbed defect operators commute for different values of the perturbing parameter and satisfy functional relations, T-systems, in place of fusion rules [@runkel2008; @runkel2010]. @sec-perturbed-defects describes them, and @sec-defect-lee-yang gives the simplest example.
 
@@ -283,6 +288,7 @@ $$ {#eq-ly-transmission}
 Bajnok and Simon write $\mathbb T_b=[b+1][b-1]$ and $\bar{\mathbb T}_b=[5-b][-5-b]$, with the block $[x]=i\sinh(\frac\theta2+\frac{i\pi x}{12})/\sinh(\frac\theta2+\frac{i\pi x}{12}-\frac{i\pi}2)$, and these agree with (-@eq-ly-transmission). The defect thus transmits exactly like a particle of rapidity $\theta_b=i\pi(3-b)/6$ [@bhw2014]: the parameter $b$ is an imaginary defect rapidity. The family is invariant under $b\to b+12$, and $b\to6-b$ exchanges $\mathbb T_b$ and $\bar{\mathbb T}_b$ [@bajnok_simon2008, Sec. 6].
 
 ::: {#prp-ly-transmission}
+## The Lee–Yang defect
 **[Numerical]** The factors (-@eq-ly-transmission) satisfy defect unitarity, crossing and the bootstrap for all $b$, and $\bar{\mathbb T}_b\,K_{(\mathbb 1)}\,\mathbb T_b=K_b$ with $K_b$ of (-@eq-ly-reflection) at the same $b$. They are pure phases for real $\theta$ on the lines $\operatorname{Re}b=\pm3$, modulo $12$. The factor $\bar{\mathbb T}_b$ has a pole at $\theta=i\pi(b+1)/6$, and by (-@eq-defect-bootstrap) the excited defect has the transmission factors $\mathbb T_{b+2}$ and $\bar{\mathbb T}_{b+2}$. (`textbook_code/defect_axioms.py`)
 :::
 

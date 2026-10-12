@@ -12,7 +12,7 @@
 
 @sec-defect-conditions found the integrable defects of $a_r^{(1)}$ and showed that their conditions are a Bäcklund transformation frozen at $x=0$. This chapter asks what the solutions look like, as @sec-half-line-solitons did for the half-line. There a reflected soliton was a whole-line solution with a mirror image; here a transmitted soliton is the second member of a Bäcklund pair, and everything follows from one function, the delay $z_a$ of (-@eq-dc-ar-delay). Three features are new compared with sine-Gordon theory. The delay is complex, and its phase can change the topological charge of the soliton. The jump of a defect carries a class in $\mathbb Z_h$, which acts on everything as an imaginary shift of the defect rapidity. And a soliton that is not self-conjugate is absorbed only at a complex rapidity, unless the defect carries a suitable jump. The last section linearizes the theory and compares the particle factors with the soliton delays.
 
-Throughout, the fields are at imaginary coupling and in the Hirota form (-@eq-hirota-ansatz), $\vec\phi=\frac i\beta\sum_j\vec\alpha_j\ln\tau_j$ on $x<0$ and $\vec\psi=\frac i\beta\sum_j\vec\alpha_j\ln\tau'_j$ on $x>0$. A soliton of species $a$ has $\tau_j=1+\omega^{ja}E$ with $E=\exp(m_a(x\cosh\theta-t\sinh\theta)+\xi)$ (-@eq-an-soliton), $\omega=e^{2\pi i/h}$. We write
+Throughout, the fields are at imaginary coupling and in the Hirota form (-@eq-hirota-ansatz), $\vec\phi=\frac i\beta\sum_j\vec\alpha_j\ln\tau_j$ on $x<0$ and $\vec\psi=\frac i\beta\sum_j\vec\alpha_j\ln\tau'_j$ on $x>0$. A soliton of species $a$ has $\tau_j=1+\omega^{ja}E$ with $E=\exp(m_a(x\cosh\theta-t\sinh\theta)+\xi)$ (-@eq-an-soliton), $\omega=e^{2\pi i/h}$. As in Part III, $\omega$ is this root of unity throughout the chapter; in @sec-soliton-transmission and @sec-particle-transmission, as in Part VI, it is the coupling $4\pi/\beta^2-1$ instead. We write
 $$
 \gamma_a=\frac{\pi a}h,\qquad m_a=2m\sin\gamma_a,\qquad M_a=\frac{2hm_a}{\beta^2}=2\hat M\sin\gamma_a,\qquad\hat M=\frac{2hm}{\beta^2},
 $$
@@ -39,6 +39,7 @@ $$ {#eq-an-defect-delay}
 where $z_a$ is the delay (-@eq-dc-ar-delay) of @sec-defect-backlund-an.
 
 ::: {#prp-an-defect-delay}
+## The $a_r$ soliton delay
 **[Established; numerically checked for $a_2$ and $a_3$, all species, both types and all classes]** Let the soliton of species $a$, with any complex $\theta$ and $\xi$, occupy $x<0$, and let $\vec\psi$ be the same soliton with $E\to zE$, plus a constant jump of class $p$. The pair satisfies the conditions of the type-I$_\mp$ defect for all $t$ exactly when $z$ is given by (-@eq-an-defect-delay). Moreover:
 
 1. For type I$_-$ and $p=0$ this is [@cz2009a, eq. (4.10)], [@bcz2004b, eq. (6.2)] after $\theta\to-\theta$, and [@cz2007, eq. (2.20)] after $a\to h-a$. For the self-conjugate species $a=h/2$ it gives the sine-Gordon delays $z_{\rm I_\mp}=\mp\coth\frac{\theta-\theta_d}2$ of (-@eq-sg-delay).
@@ -73,6 +74,7 @@ $$ {#eq-ds-delay-phase}
 for type I$_-$ and $p=0$, the book form of [@cz2007, eq. (2.22)]. As $\theta$ increases, the point $e^{-2(\theta-\theta_d)}+e^{2i\gamma_a}$ moves along a horizontal line from $+\infty$ to $e^{2i\gamma_a}$, so $\arg z_a$ increases monotonically from $0$ to $2\gamma_a$ when $a<h/2$, decreases from $0$ to $-2\gamma_{\bar a}$ when $a>h/2$, and jumps from $0$ to $\pi$ at $\theta=\theta_d$ when $a=h/2$.
 
 ::: {#prp-stored-charge}
+## Topological charge and the selection rule
 **[Established; numerically checked]** Let a soliton of species $a$ and real rapidity $\theta$, with charge $\vec\lambda_{\rm in}$, cross a type-I$_\mp$ defect with real $\theta_d$ and $p=0$. Let $g=\gcd(a,h)$.
 
 1. The jump lies in $\frac{2\pi}\beta\Lambda_W$ before and after the passage and changes by $\frac{2\pi}\beta(\vec\lambda_{\rm in}-\vec\lambda_{\rm out})\in\frac{2\pi}\beta\Lambda_R$; the defect keeps its class and energy.
@@ -98,6 +100,7 @@ $$ {#eq-ds-absorption}
 which for $p=0$ is the pole $\theta_d-i(\frac\pi2-\gamma_a)$ found by Corrigan and Zambon [@cz2007, eq. (2.23)] [@cz2009a, Sec. 4].
 
 ::: {#prp-ds-absorption}
+## Absorption and emission
 **[Theorem]** Consider a type-I$_\mp$ defect of class $p$ and a soliton of species $a$.
 
 1. At $\theta=\theta_{\rm abs}$ two configurations solve the defect conditions for all $t$: the soliton on $x<0$ with $\vec\psi$ constant, and $\vec\phi$ constant with the soliton on $x>0$. In both, $|E|$ moves with the velocity $\tanh\theta_d$. For $\theta_d>0$ they describe absorption from the left and emission to the right; for $\theta_d<0$, emission to the left and absorption from the right. Absorbed and emitted solitons move in the direction of $\operatorname{sign}\theta_d$, for every species and class.
@@ -155,6 +158,7 @@ $$ {#eq-an-linear-transmission}
 for type I$_-$, and $\mathbb T^{\rm cl}_k(\theta)=z_k(\theta_d-\theta-\frac{i\pi}2)=\frac{e^{\theta-\theta_d}-e^{i\gamma_k}}{e^{\theta-\theta_d}-e^{-i\gamma_k}}$ for type I$_+$.
 
 ::: {#prp-an-linear-transmission}
+## Classical particle transmission
 **[Numerical]** For the $a_r^{(1)}$ defects linearized about the vacuum, for $r=1,\dots,4$, both types and every particle $k$:
 
 1. Waves are not reflected and do not change species, and $\mathbb T^{\rm cl}_k$ is (-@eq-an-linear-transmission). It is unimodular for real $\theta$. For type I$_-$ it equals $e^{i\gamma_k}$ at $\theta=\theta_d$ and has a zero at $\theta_d+i(\pi-\gamma_k)$ and a pole at $\theta_d-i(\pi-\gamma_k)$; for type I$_+$ it equals $-e^{i\gamma_k}$ there, with the zero at $\theta_d+i\gamma_k$ and the pole at $\theta_d-i\gamma_k$. For real $\theta_d$ there is no pole in the physical strip, so linear waves have no bound states at the defect. For $r=1$ it is (-@eq-shg-linear-transmission).
@@ -173,6 +177,7 @@ The lightest-breather factors of the quantum $a_2$ transmission matrix do not de
 **A frozen soliton?** @prp-half-soliton found that for sine-Gordon theory two odd defects act on solitons and on linear waves as one soliton of rapidity $\theta_d$. Before comparing for $a_r$, we stated the test. Is there a pair of defects, of any types, classes and parameters, whose combined delays equal the soliton interaction coefficients $A_{cb}(\theta-\theta_c)$ (-@eq-interaction-coefficient) for every species $b$, whose combined linear factors equal Part V's $X_{cb}$ (-@eq-an-transmission), and whose energy and momentum are $M_c(\cosh\theta_c,\sinh\theta_c)$? The structure of the answer is already visible in (-@eq-an-linear-transmission): $\mathbb T^{\rm cl}_b(\theta)=z_b(\theta-\theta_d+\frac{i\pi}2)$, exactly as $X_{cb}(i\sinh u)=A_{cb}(u+\frac{i\pi}2)$ for a wave crossing a soliton at relative rapidity $u$ (@sec-dhn-an). In both cases the linear factor is the soliton factor continued to the point where the soliton becomes a linear wave.
 
 ::: {#prp-defect-frozen-soliton}
+## A pair of defects as a frozen soliton
 **[Theorem]** Let $\omega^b=e^{2i\gamma_b}$.
 
 1. Two defects of the same type delay species $b$ by $\kappa A_{cb}(\theta-\theta_c)^{\pm1}$, for some constant $\kappa$ and some parameters, classes and $\theta_c$, only if $b=h/2$. So for $r\ge2$ no pair of defects of one type is a frozen soliton.
@@ -188,7 +193,7 @@ and transmit particle $b$ with $\omega^bX_{cb}(i\sinh(\theta-\theta_c))$. In the
 Put $u=\theta-\theta_c$ and $y=e^{-u}$. $A_{cb}$ is a ratio of two quadratics in $y$, with its zeros at the angles $\pm(\gamma_c-\gamma_b)$ and its poles at $\pm(\gamma_c+\gamma_b)$ on the unit circle. A type-I$_-$ factor $z_b(u-v)$ has one zero and one pole, at $y=e^{-v}e^{i(\frac\pi2\pm\gamma_b)}$; to reach the unit circle $\operatorname{Re}v=0$, and then the angles differ by $+2\gamma_b$. A type-I$_+$ factor gives a pair differing by $-2\gamma_b$. A match pairs each zero of $A_{cb}$ with a pole. The pairings give the differences $\{-2\gamma_b,+2\gamma_b\}$ or $\{2\gamma_c,-2\gamma_c\}$. Equal signs, as two factors of one type require, force $4\gamma_b\equiv0$ mod $2\pi$, so $b=h/2$; opposite signs always work, with the parameters stated. The constant $\omega^b$ follows from the sinh form of (-@eq-an-defect-delay), and the linear factors from $\mathbb T^{\rm cl}_b(\theta)=z_b(\theta-\theta_d+\frac{i\pi}2)$. The energy is $-\hat M(\cosh\vartheta+\cosh\bar\vartheta)=-2\hat M\cos(\frac\pi2+\gamma_c)\cosh\theta_c=M_c\cosh\theta_c$ by (-@eq-ds-class-energy), and the same for the momentum. Item 3 is (-@eq-ds-class-shift). The script runs the zero–pole matching for $h\le8$, a grid search over two parameters for $a_2$ (best relative deviation 1.6), the identities for $h\le8$, and the field configuration with both defects for $a_3$ ($c=2$, $p=2$) and $a_5$ ($c=1,3$).
 :::
 
-The outcome of the test is a qualified yes, in a twisted form. A single type of defect is never half of an $a_r$ soliton, except as seen by the self-conjugate species; this is why the sine-Gordon statement of @prp-half-soliton looks like a property of one defect type. What survives is a factorization: the interaction coefficient $A_{cb}$ is the product of one type-I$_-$ and one type-I$_+$ Bianchi factor, at complex-conjugate parameters, up to the rotation $\pi$ of the charges, which is itself the invertible line found in @prp-an-defect-delay. The pair also carries the right energy and momentum, but only with the constants of Corrigan and Zambon; in the realization of item 3, with the book's normalization $\mathcal B_d(0,0)=0$, it carries an extra $2\hat M(\cosh\theta_c,\sinh\theta_c)$. For sine-Gordon theory ($h=2$, $c=1$, $p=1$) the pair is an odd type-I$_-$ and an odd type-I$_+$ defect, and since $z_{\rm I_+}=-z_{\rm I_-}$ for $a_1$ this is @prp-half-soliton, with $\omega=-1$ the charge conjugation. For $h$ odd, and for $h+2c\not\equiv0$ mod 4, the parameters are complex and the pair breaks $\Theta$. Whether a fused I$_-$I$_+$ pair is one of the type-II defects of @sec-type-two-atft, and whether its quantum transmission matrix contains the soliton S-matrix, as for sine-Gordon theory [@cz2010, Sec. 4], is open (@sec-an-soliton-transmission).
+The outcome of the test is a qualified yes, in a twisted form. A single type of defect is never half of an $a_r$ soliton, except as seen by the self-conjugate species; this is why the sine-Gordon statement of @prp-half-soliton looks like a property of one defect type. What survives is a factorization: the interaction coefficient $A_{cb}$ is the product of one type-I$_-$ and one type-I$_+$ Bianchi factor, at complex-conjugate parameters, up to the rotation $\pi$ of the charges, which is itself the invertible line found in @prp-an-defect-delay. The pair also carries the right energy and momentum, but only with the constants of Corrigan and Zambon; in the realization of item 3, with the book's normalization $\mathcal B_d(0,0)=0$, it carries an extra $2\hat M(\cosh\theta_c,\sinh\theta_c)$. For sine-Gordon theory ($h=2$, $c=1$, $p=1$) the pair is an odd type-I$_-$ and an odd type-I$_+$ defect, and since $z_{\rm I_+}=-z_{\rm I_-}$ for $a_1$ this is @prp-half-soliton, with $\omega=-1$ the charge conjugation. For $h$ odd, and for $h+2c\not\equiv0$ mod 4, the parameters are complex and the pair breaks $\Theta$. Whether a fused I$_-$I$_+$ pair is one of the type-II defects of @sec-type-two-atft, and whether its quantum transmission matrix contains the soliton S-matrix, as for sine-Gordon theory [@cz2010, Sec. 4], is open (@sec-defect-open-problems).
 
 ## Exercises {#sec-defect-solitons-exercises}
 
