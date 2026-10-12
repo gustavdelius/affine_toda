@@ -62,3 +62,23 @@ Open problems are items of numbered lists, not labelled objects. Use the first w
 
 - Former Part I open problems, now in `outlook/50-outlook.qmd`: item 3 is the one that begins with a reference to `cnj-counting-rule` ("… in general"); item 6 is "The sector classification for self-conjugate theories" (its former sub-item "Exchange statistics" is now "Bloch sectors").
 - Former Part II open problems, now in `part6-soliton-smatrices/26-f4-solitons.qmd` (section `sec-sm-discussion`): item 4 is "Crossing convention".
+
+## Part VIII: integrable defects (2026-10-11 to 2026-10-12)
+
+Part VIII (`part8-defects/`, chapters 36–43) was planned, drafted, refereed and integrated with the files below. Drafting is done by Claude only; other models referee (Gemini through `run_referee_agy.sh`, Codex for the deep passes).
+
+| File | What it is |
+|---|---|
+| `part8_defects_conventions.md` | The conventions, names and id registry of Part VIII, with the source dictionary and the conventions added by each chapter (§§1–11). Read it first |
+| `part8_defects_status.md` | Working record: the chapter status table, the verification record of every chapter (by script, by hand, unchecked), the corrections to the sources, the pending edits elsewhere (each marked done or not needed) and the obligations between chapters |
+| `part8_defects_sources.md` | Digests of the defect literature (2026-10-11), with equation numbers of the sources; working notes, not checked results |
+| `draft_ch39.md` | Drafting brief for chapter 39 (the other chapters were briefed in their sessions) |
+| `draft_ch39_report.md`, `draft_ch41_report.md`, `draft_ch42_report.md`, `draft_ch43_report.md` | Drafting reports: summary, script output, verification record, corrections, requests for edits elsewhere and proposed conventions text. Not briefs |
+| `draft_ch41_checkpoint.md`, `draft_ch42_checkpoint.md`, `draft_ch43_checkpoint.md`, `integration_38_40_checkpoint.md`, `global_integration_part8_checkpoint.md` | Checkpoints that let a fresh agent resume a drafting or integration task after an interruption |
+| `referee_defects_36_37.md`, `referee_defects_36_37_report.md` | Light referee brief for chapters 36–37 (run on Gemini) and its report |
+| `referee_defects_36_37_deep.md`, `referee_defects_36_37_deep_report.md` | Deep referee brief for the high-risk claims of chapters 36–37 (Codex) and its report; scripts in `referee_defects_36_37_deep_scripts/` |
+| `referee_defects_38_40.md`, `referee_defects_38_40_report.md` | Deep referee brief for chapters 38 and 40 and its report, with the integration notes of 2026-10-12 at the end; scripts and outputs in `referee_defects_38_40_scripts/` |
+| `referee_defects_39.md`, `referee_defects_41.md`, `referee_defects_42.md`, `referee_defects_43.md` | Deep referee briefs for chapters 39, 41, 42 and 43; their reports are `referee_defects_<n>_report.md` when present |
+| `run_referee_agy.sh` | Runs a referee brief with a non-Claude model through the Antigravity CLI, in a throwaway copy of the repository; writes `briefs/<brief>_report.md` |
+
+The book cites only the scripts in `textbook_code/` (`defect_*.py`, listed in `textbook_code/README.md` and in appendix C, `appendices/C-code.qmd`); the referee scripts are kept for reproducibility.

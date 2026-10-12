@@ -338,7 +338,9 @@ def sg_S0(theta, lam, K=2000):
 def sg_tmatrix(theta, lam, q, theta_d, N, s=0.0, scalar=True):
     """The U_q(b^-) transmission matrix (type I_-, eq-sg-transmission-matrix) on the window n = -N..N:
     A_n = q^-n, D_n = q^(n+s), C_n = -i Y q^-n, B_n = -i Y q^(n+s), Y = e^{lam(theta - theta_d)}, times Phi (s = 0 form)
-    if scalar.  Returns (T, V, W)."""
+    if scalar.  Returns (T, V, W).  Note: W is weyl_module_b(-1, q, yd, N, s) with the default mu = 1, which is NOT
+    the module that T intertwines (that one has mu = i/(q - 1/q), eq-weyl-module); use W only for its labels and its
+    k-action, or build weyl_module_b(-1, q, yd, N, s, mu=1j/(q - 1/q)) for the intertwining property."""
     from boundary_common import sl2_spin
     y, yd = np.exp(lam*theta), np.exp(lam*theta_d)
     V = sl2_spin(1, q, y)
