@@ -5,11 +5,13 @@ Brief: the task message of 2026-10-12 (global integration of Part VIII, ch. 36�
 Never touch `referee_scratch/` or `briefs/referee_defects_*`. Do not push. Do not run `quarto render`.
 
 ## Done
-- Task 1 (pending edits in chapters) and task 2 (theorem titles in ch. 36–39; ω clash decided: Parts III and VI already use both meanings, so one clarifying sentence in ch. 39 and its script docstring, no rename; "type II" naming in scripts: not needed, the scripts already say I_-/I_+ and every remaining "type II" is the Corrigan–Zambon defect or Weston's module). Commit: see git log "Part VIII integration: pointers and pending edits".
+- Task 1 (pending edits in chapters) and task 2 (theorem titles in ch. 36–39; ω clash decided: Parts III and VI already use both meanings, so one clarifying sentence in ch. 39 and its script docstring, no rename; "type II" naming in scripts: not needed, the scripts already say I_-/I_+ and every remaining "type II" is the Corrigan–Zambon defect or Weston's module). Commit 1834767 "Part VIII integration: pointers and pending edits".
   Edits: ch. 35 problems 9 (→ prp-fused-bdg) and 10 (rewritten: purely transmitting, prp-rt-nogo, sec-defect-open-problems); ch. 48 twist/seam paragraph after prp-bloch-sectors; ch. 28 LY → sec-defect-lee-yang; ch. 27 notes → sec-topological-lines (cck2024); ch. 3 → sec-backlund; ch. 10 → prp-bianchi and prp-stored-charge; ch. 16 → eq-an-linear-transmission; ch. 29 Dirichlet bullet → sec-sg-breather-transmission, sec-bsg-dynamical → prp-fused-bdg, cnj-shg-e bullet → cnj-defect-parameter; ch. 34 → sec-diagonal-qsp; ch. 36 unstable a₂ window + π-line limits in sec-topological-lines; ch. 37 a₂ window, → prp-lightest-breather-universal, → prp-defect-fusion-k, → prp-defect-frozen-soliton; ch. 38 absorption restriction (→ prp-ds-absorption, prp-stored-charge); ch. 39 → sec-defect-open-problems, ω sentence; ch. 40 sec-perturbed-defects → prp-diagonal-borel, tbl-boundary-defect-algebra third column + status + "settled"; ch. 41 breather result; ch. 42 → prp-dpt-doubled.
 
+- Tasks 3–4: index.qmd (status, Part VIII sentence, "Defects" original-results entry, Part VIII bullet, mermaid node VIII with edges from II, III, VI, VII and no edge to IX, Part II needed for VI–VIII, VIII/IX meet at ch. 48, reading path "Integrable defects: chapters 2–3, 7–11 and 20–21, then 28–32, then Part VIII", conventions sentence, alt text); intro_f1_reading_paths.py (six paths, VIII colour #8f9a1f, regex) 7 PASS, svg regenerated. Commit: "Part VIII integration: index and reading paths".
+
 ## In progress
-- (next) index.qmd, figure script.
+- (next) outlook, appendices C and D, READMEs, conventions brief, status-file marks.
 
 ## Remaining
 1. Pending edits in chapters (pointers, ch. 35 problems 9–10, a₂ window, ch. 38 absorption restriction, ch. 42 → prp-dpt-doubled, ch. 37 → prp-lightest-breather-universal, ch. 40 sec-perturbed-defects, tbl-boundary-defect-algebra third column, optional pointers).
