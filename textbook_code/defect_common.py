@@ -426,3 +426,254 @@ def flip_VW(dV, dW):
         for k in range(dW):
             P[k*dV + a, a*dW + k] = 1
     return P
+
+
+# ======================================================================== ch. 41: a_r Weyl modules and soliton transmission
+# (appended for ch. 41; checked in defect_an_transmission.py)
+#  Labels: root-lattice vectors N in Z^h (sum N = 0) plus an offset s (a weight; s = lambda_p = e_1+..+e_p - p/h gives class p).
+#  alpha_j = e_j - e_{j+1} (j = 1..r), alpha_0 = e_h - e_1, as in boundary_common.an_vector; V has weights e_i, Vbar weights -e_i.
+#  Matrices T: V (x) W -> W (x) V with the index conventions of tmatrix_from_elements (input a*dW + k, output k*dV + b).
+def an_root_window(h, R2):
+    """Root-lattice labels N (sum N = 0, |N|^2 <= R2) with masks 'interior' (all neighbours N + e_a - e_b in the window)
+    and 'deep' (all neighbours interior).  Returns (labels, lookup dict, interior, deep)."""
+    import itertools
+    L = int(np.floor(np.sqrt(R2)))
+    pts = []
+    for N in itertools.product(range(-L, L + 1), repeat=h - 1):
+        Nf = list(N) + [-sum(N)]
+        if sum(x*x for x in Nf) <= R2:
+            pts.append(Nf)
+    labs = np.array(pts, dtype=float)
+    look = {tuple(map(int, N)): i for i, N in enumerate(labs)}
+    I = np.eye(h, dtype=int)
+    nbrs = [I[a] - I[b] for a in range(h) for b in range(h) if a != b]
+    inter = np.array([all(tuple(map(int, N + v)) in look for v in nbrs) for N in labs])
+    look_in = {k: i for k, i in look.items() if inter[i]}
+    deep = np.array([inter[i] and all(tuple(map(int, N + v)) in look_in for v in nbrs) for i, N in enumerate(labs)])
+    return labs, look, inter, deep
+
+
+def an_weyl_module(r, sign, q, yd, R2, s=None, mu=1.0, orient=1):
+    """Weyl module of U_q(b^-) (sign=-1) or U_q(b^+) (sign=+1) of U_q(a_r^(1)), r >= 2, on the window an_root_window(h, R2):
+         k_j |N> = q^{alpha_j.(N+s)} |N>,
+         b^-:  f_j |N> = (mu/yd) q^{orient (N+s)_{j+1}} |N - alpha_j>,     b^+:  e_j |N> = mu yd q^{orient (N+s)_{j+1}} |N + alpha_j>,
+    where (N+s)_{j+1} is the component on the second end e_{j+1} of alpha_j = e_j - e_{j+1} (indices mod h, so e_1 for j = 0).
+    Then f_j f_{j+1} = q^{-orient} f_{j+1} f_j and f_i f_j = f_j f_i otherwise, so the q-Serre relations hold for orient = +-1.
+    orient = +1 gives the book's defects (rotation pi); orient = 0 is the failing control.  Book normalization (ch. 41):
+    mu = -e^{-i pi omega/2}/(q - q^-1), so that X = e^{omega(theta - theta_d - i pi/2)} (Corrigan-Zambon's xhat)."""
+    h = r + 1
+    labs, look, inter, deep = an_root_window(h, R2)
+    s = np.zeros(h) if s is None else np.asarray(s, float)
+    d = len(labs)
+    I = np.eye(h)
+    alpha = [I[(j - 1) % h] - I[j % h] for j in range(h)]
+    g = {}
+    for j in range(h):
+        g[('k', j)] = np.diag(q**((labs + s) @ alpha[j])).astype(complex)
+        M = np.zeros((d, d), complex)
+        for i, N in enumerate(labs):
+            t = tuple(map(int, N + sign*alpha[j]))
+            if t in look:
+                M[look[t], i] = (mu/yd if sign == -1 else mu*yd)*q**(orient*(N + s)[j])
+        g[('f' if sign == -1 else 'e', j)] = M
+    g.update(dim=d, hw=None, labels=labs, look=look, interior=inter, deep=deep, sign=sign, h=h, s=s, q=q, yd=yd, mu=mu)
+    return g
+
+
+def an_vweights(h, conj):
+    """Weights of V (e_i) or Vbar (-e_i) as vectors in R^h."""
+    I = np.eye(h)
+    return [(-1.0 if conj else 1.0)*I[i] for i in range(h)]
+
+
+def an_solve_intertwiner(Pin, Pout, W, win, wout, tol=1e-6):
+    """All X: Pin (x) W -> W (x) Pout intertwining the Borel generators of W (Part VI coproduct), with charge conservation
+    built in (X (u_a (x) |N>) lies in the span of |N + win_a - wout_b> (x) u'_b).  Equations are imposed on interior labels;
+    the null space is restricted to unknowns with deep input and output labels.
+    Returns (dimension on deep labels, X restricted to deep labels (or None), smallest relative singular values)."""
+    import scipy.sparse as sps
+    dI, dO, dW = Pin['dim'], Pout['dim'], W['dim']
+    labs, look = W['labels'], W['look']
+    din = dI*dW
+    r0s, c0s = [], []
+    for a in range(dI):
+        for k, N in enumerate(labs):
+            for b in range(dO):
+                t = tuple(map(int, np.round(N + win[a] - wout[b])))
+                if t in look:
+                    r0s.append(look[t]*dO + b); c0s.append(a*dW + k)
+    r0s, c0s = np.array(r0s), np.array(c0s)
+    nu = len(r0s)
+    kind = 'f' if W['sign'] == -1 else 'e'
+    rowmask = np.repeat(W['interior'], dO); colmask = np.tile(W['interior'], dI)
+    blocks = []
+    for j in range(W['h']):
+        # unknown u = X[r0, c0] enters (X A - B X)[r0, c] with A[c0, c] and (X A - B X)[r, c0] with -B[r, r0]
+        A = sps.csr_matrix(cop(Pin, W, kind, j))[c0s].tocoo()
+        B = sps.csr_matrix(cop(W, Pout, kind, j).T)[r0s].tocoo()
+        ok1 = rowmask[r0s[A.row]] & colmask[A.col]
+        ok2 = rowmask[B.col] & colmask[c0s[B.row]]
+        R = np.concatenate([r0s[A.row[ok1]]*din + A.col[ok1], B.col[ok2]*din + c0s[B.row[ok2]]])
+        C = np.concatenate([A.row[ok1], B.row[ok2]])
+        Vv = np.concatenate([A.data[ok1], -B.data[ok2]])
+        blocks.append(sps.csr_matrix((Vv, (R, C)), shape=(dW*dO*din, nu)))
+    M = sps.vstack(blocks).tocsr()
+    M = M[np.unique(M.nonzero()[0])].tocsc()
+    used = np.unique(M.nonzero()[1])                 # unknowns in no equation are free and never deep: drop them
+    M, r0s, c0s = M[:, used], r0s[used], c0s[used]
+    G = (M.conj().T @ M).toarray()
+    ev, U = np.linalg.eigh(G)
+    rel = np.sqrt(np.clip(ev, 0, None)/ev[-1])
+    null = U[:, rel < tol]
+    dmask = W['deep'][r0s // dO] & W['deep'][c0s % dW]
+    if null.shape[1] == 0:
+        return 0, None, rel[:4]
+    Uu, sv, _ = np.linalg.svd(null[dmask], full_matrices=False)
+    rank = int((sv > 1e-6*sv[0]).sum()) if sv[0] > 1e-8 else 0
+    T = np.zeros((dW*dO, din), complex)
+    T[r0s[dmask], c0s[dmask]] = Uu[:, 0]
+    return rank, T, rel[:4]
+
+
+def an_T_vector(W, X, conj=False):
+    """Closed forms (universal-R normalization; ch. 41) of the U_q(b^-) intertwiners on an_weyl_module(r, -1, ...), orient = +1:
+      V    (conj=False):  T (v_i (x) |N>) = q^{-(N+s)_i} |N> (x) v_i + X |N + e_i - e_{i-1}> (x) v_{i-1},
+      Vbar (conj=True):   T (vb_i (x) |N>) = sum_{j=0}^{h-1} X^j q^{(N+s).(e_i + ... + e_{i+j})} |N - e_i + e_{i+j}> (x) vb_{i+j},
+    indices mod h, X = -(q - q^-1) mu y/yd.  Entries leaving the window are dropped."""
+    h = W['h']; q = W['q']; s = W['s']
+    labs, look = W['labels'], W['look']; dW = W['dim']
+    I = np.eye(h)
+    T = np.zeros((dW*h, h*dW), complex)
+    for k, N in enumerate(labs):
+        Ns = N + s
+        for i in range(h):
+            if not conj:
+                T[k*h + i, i*dW + k] = q**(-Ns[i])
+                b = (i - 1) % h
+                t = tuple(map(int, N + I[i] - I[b]))
+                if t in look:
+                    T[look[t]*h + b, i*dW + k] = X
+            else:
+                kk = np.zeros(h)
+                for j in range(h):
+                    b = (i + j) % h
+                    kk = kk + I[b]
+                    t = tuple(map(int, N - I[i] + I[b]))
+                    if t in look:
+                        T[look[t]*h + b, i*dW + k] = X**j*q**(Ns @ kk)
+    return T
+
+
+def an_T_plus_vbar(W, Xp):
+    """Closed form of the U_q(b^+) (type I_+) intertwiner for Vbar on an_weyl_module(r, +1, ...), orient = +1:
+      T (vb_i (x) |N>) = q^{-(N+s)_i} |N> (x) vb_i + Xp q^{(N+s)_i - (N+s)_{i-1} - 1} |N - e_i + e_{i-1}> (x) vb_{i-1},
+    Xp = (q - q^-1) mu yd/y."""
+    h = W['h']; q = W['q']; s = W['s']
+    labs, look = W['labels'], W['look']; dW = W['dim']
+    I = np.eye(h)
+    T = np.zeros((dW*h, h*dW), complex)
+    for k, N in enumerate(labs):
+        Ns = N + s
+        for i in range(h):
+            T[k*h + i, i*dW + k] = q**(-Ns[i])
+            b = (i - 1) % h
+            t = tuple(map(int, N - I[i] + I[b]))
+            if t in look:
+                T[look[t]*h + b, i*dW + k] = Xp*q**(Ns[i] - Ns[b] - 1)
+    return T
+
+
+def an_block_inverse(T, W, dV, wV):
+    """Inverse of a charge-conserving T: V (x) W -> W (x) V, block by block over the sectors of fixed total charge
+    N + w_a that lie entirely in the window.  Returns (Tinv: W (x) V -> V (x) W, mask of complete input indices)."""
+    dW = W['dim']; labs = W['labels']
+    Tinv = np.zeros((dV*dW, dW*dV), complex)
+    done = np.zeros(dV*dW, bool)
+    sectors = {}
+    for a in range(dV):
+        for k, N in enumerate(labs):
+            sectors.setdefault(tuple(np.round(N + wV[a], 6)), []).append((a, k))
+    for members in sectors.values():
+        if len(members) < dV:
+            continue
+        ins = [a*dW + k for a, k in members]
+        outs = [k*dV + a for a, k in members]
+        Tinv[np.ix_(ins, outs)] = np.linalg.inv(T[np.ix_(outs, ins)])
+        done[ins] = True
+    return Tinv, done
+
+
+def defect_crossing_residual(T, Tshift_inv, done, labels_ok, dW, dV, C):
+    """Matrix part of defect crossing eq-defect-crossing:  T[(N',b),(a,N)] = c sum_{c,d} C[b,d] Tbar[(c,N'),(N,d)] C^{-1}[c,a],
+    with Tbar = (T of the conjugate particle at theta - i pi)^{-1} (W (x) Vbar -> Vbar (x) W), C the matrix of the
+    isomorphism V* -> Vbar (columns: dual basis of V, rows: Vbar basis) used transposed as written.  Compared on input and
+    output labels in labels_ok whose conjugate sectors are complete (done).  Returns (residual, c)."""
+    Cm = C.T; Ci = np.linalg.inv(Cm)
+    T4 = T.reshape(dW, dV, dV, dW)                       # [N', b, a, N]
+    Ti4 = Tshift_inv.reshape(dV, dW, dW, dV)             # [c, N', N, d]
+    R4 = np.einsum('ac,cxyd,db->xbay', Ci, Ti4, Cm)      # [N', b, a, N]
+    dn = done.reshape(dV, dW)                            # [c, N']
+    ok_a = np.array([[all(dn[c, x] for c in range(dV) if Ci[a, c] != 0) for a in range(dV)] for x in range(dW)])
+    m = labels_ok[:, None, None, None] & ok_a[:, None, :, None] & labels_ok[None, None, None, :]
+    m = np.broadcast_to(m, T4.shape)
+    return prop_residual(T4[m], R4[m])
+
+
+def an_tensor_rep(A, B):
+    """A (x) B as a representation dict (Part VI coproduct), for intertwiner searches with several particles."""
+    g = {}
+    for j in sorted(key[1] for key in A if isinstance(key, tuple) and key[0] == 'e'):
+        for kd in 'efk':
+            g[(kd, j)] = cop(A, B, kd, j)
+    g.update(dim=A['dim']*B['dim'], hw=None)
+    return g
+
+
+def an_triangle_residual(R, T1, T2, W, d1, d2):
+    """Triangle relation (eq-triangle-braid) on V1(y1) (x) V2(y2) (x) W -> W (x) V2 (x) V1 with sparse matrices:
+         (1 (x) R)(T1 (x) 1)(1 (x) T2)  ~  (T2 (x) 1)(1 (x) T1)(R (x) 1),   R: V1 (x) V2 -> V2 (x) V1,
+    compared up to a scalar on deep input and output labels of W.  Returns (residual, scalar)."""
+    import scipy.sparse as sps
+    dW = W['dim']
+    I1, I2, IW = (sps.identity(d, format='csr') for d in (d1, d2, dW))
+    R, T1, T2 = (sps.csr_matrix(M) for M in (R, T1, T2))
+    L = sps.kron(IW, R) @ sps.kron(T1, I2) @ sps.kron(I1, T2)
+    Rr = sps.kron(T2, I1) @ sps.kron(I2, T1) @ sps.kron(R, IW)
+    cols = np.where(np.tile(W['deep'], d1*d2))[0]
+    rows = np.where(np.repeat(W['deep'], d1*d2))[0]
+    Ls, Rs = L.tocsc()[:, cols].tocsr()[rows].toarray(), Rr.tocsc()[:, cols].tocsr()[rows].toarray()
+    return prop_residual(Ls, Rs)
+
+
+def an_scalar_g(D, r, gam, K=400, c=1.0):
+    """Minimal scalar factor of the a_r vector-soliton transmission matrix (ch. 41), D = theta - theta_d, gam = omega:
+         g = c xhat^{-1/2} prod_{k>=0} F_k(z)/F_k(0),  xhat = e^{gam (D - i pi/2)},  z = i h gam (D - i pi/2)/(2 pi),
+         F_k(z) = G(a_k + z) G(a_k - z)/(G(a_k + gam + z) G(a_k + gam - z)),  a_k = 1/2 + r gam/2 + k h gam  (G = Gamma),
+    summed with Richardson extrapolation.  It is Corrigan-Zambon's (6.9)-(6.10) with the factors paired at equal k, so the
+    product converges.  The constant c (real, > 0) is fixed by crossing (an_scalar_constant)."""
+    from scipy.special import loggamma as LG
+    h = r + 1
+    u = D - 1j*np.pi/2
+    z = 1j*h*gam*u/(2*np.pi)
+    k = np.arange(4*K)
+    a = 0.5 + r*gam/2 + k*h*gam; b = a + gam
+    t = LG(a + z) + LG(a - z) - LG(b + z) - LG(b - z) - 2*LG(a) + 2*LG(b)
+    return c*np.exp(-gam*u/2 + richardson_sum(t, K))
+
+
+def an_scalar_gbar(D, r, gam, K=400, c=1.0):
+    """Scalar factor of the conjugate (species r) matrix by the bootstrap: prod_{m=0}^{r-1} g(D + i pi (2m - r + 1)/h)."""
+    h = r + 1
+    out = 1.0
+    for m in range(r):
+        out = out*an_scalar_g(D + 1j*np.pi*(2*m - r + 1)/h, r, gam, K, c)
+    return out
+
+
+def an_scalar_constant(r, gam, q, D0=0.17, K=400):
+    """The real positive constant c for which gbar(D) g(D - i pi)(1 - q X^h) = 1 (crossing for the conjugate solitons)."""
+    h = r + 1
+    X = np.exp(gam*(D0 - 1j*np.pi/2))
+    val = an_scalar_gbar(D0, r, gam, K)*an_scalar_g(D0 - 1j*np.pi, r, gam, K)*(1 - q*X**h)
+    c = (1/val)**(1/h)
+    return abs(c) if abs(np.angle(c)) < 1e-6 else c

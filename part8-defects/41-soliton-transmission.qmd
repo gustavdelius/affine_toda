@@ -1,47 +1,275 @@
 # Soliton transmission matrices {#sec-soliton-transmission}
 
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
-- To be written.
+- Construct soliton transmission matrices by a fixed procedure: Borel module, intertwiner, crossing, scalar factor, poles, semiclassical test.
+- Know the transmission matrices of the $a_r^{(1)}$ vector solitons and their conjugates for both defect types, and see how the classical selection rule of @sec-defect-solitons appears in them.
+- Derive the crossing relations and the minimal scalar factor, and see what crossing says about the sign of $q$.
+- Locate the unstable defect states, the windows of coupling in which they exist, and the change of class that the absorption of a soliton causes.
+- Know what has and has not been done for the type-II defect of the Tzitzéica theory $a_2^{(2)}$.
 :::
 
-*This chapter is a skeleton; it is being drafted.*
+@sec-defect-qg showed that a transmission matrix is an intertwiner of a Borel subalgebra $U_q(\mathfrak b^\pm)$, and that every such intertwiner solves the triangle relation once a uniqueness hypothesis holds (@thm-t-triangle). This chapter turns that observation into a procedure, as @sec-soliton-reflection did for reflection, and applies it to the $a_r^{(1)}$ defects of @sec-defect-conditions and @sec-defect-solitons and to the Tzitzéica defect. For sine-Gordon theory the procedure gives back @sec-sg-transmission-matrix.
+
+We work in the conventions of Part VI: $\Delta(e_j)=e_j\otimes1+k_j\otimes e_j$, $\Delta(f_j)=f_j\otimes k_j^{-1}+1\otimes f_j$, $q=-e^{-i\pi\omega}$ (-@eq-q-physical) with $\omega=\frac{4\pi}{\beta^2}-1$ as in @sec-an-example, and the principal-gradation variable $y=e^{\omega\theta}$. In this chapter $\omega$ is always this coupling, which Corrigan and Zambon call $\gamma$; the root of unity of @sec-defect-solitons is written $e^{2\pi i/h}$. The vector solitons (species 1) form $V(\theta)$ with basis $v_1,\dots,v_h$ and weights $e_i$, and their conjugates (species $r$) form $\bar V(\theta)$ with basis $\bar v_i$ and weights $-e_i$, in the representations of `boundary_common.an_vector`. A transmission matrix maps $V(\theta)\otimes\mathcal W\to\mathcal W\otimes V(\theta)$, with tensor order equal to spatial order. All checks are in `textbook_code/defect_an_transmission.py` (21 checks, about two minutes).
 
 ## The procedure {#sec-t-procedure}
 
+The steps parallel those of @sec-k-procedure.
+
+1. **Borel module.** Choose the symmetry, $U_q(\mathfrak b^-)$ for type I$_-$ and $U_q(\mathfrak b^+)$ for type I$_+$ (@prp-two-borels), and a module $\mathcal W$ whose labels are the topological charges that the defect can store. It must have level zero, or there is no intertwiner (@prp-sg-t-unique).
+2. **Intertwiner.** Solve the linear equations (-@eq-borel-intertwiner) for each soliton multiplet. If the solution is unique, and hypothesis (ii) of @thm-t-triangle holds, it satisfies the triangle relation (-@eq-triangle-braid). We check both on finite windows of $\mathcal W$.
+3. **Crossing.** Unitarity (-@eq-defect-unitarity) defines $\bar{\mathbb T}(\theta)=\mathbb T(-\theta)^{-1}$, and crossing (-@eq-defect-crossing) then relates the matrices of conjugate multiplets. The matrix parts satisfy it only up to scalar functions, which become functional equations for the scalar factors. The bulk bootstrap relates the species.
+4. **Scalar factor.** Solve the functional equations by a convergent product of Gamma functions; it is unique up to defect CDD factors (@sec-defect-unitarity-crossing).
+5. **Poles.** Read off the unstable and excited defect states (@sec-defect-bound-states), and the transmission matrices of the excited defects by the bootstrap.
+6. **Semiclassical test.** Compare the phase of the scalar factor with the classical delay through Wigner's relation, as in @sec-sg-transmission-matrix.
+
+**The Borel module for $a_r$.** The defect stores topological charge in the weight lattice, and a passing soliton changes it by a root (@prp-stored-charge). So label the basis of $\mathcal W$ by $N+s$, with $N\in\mathbb Z^h$, $\sum_iN_i=0$, in the root lattice and a fixed offset $s\in\mathbb R^h$, $\sum_is_i=0$. The offset $s=\vec\lambda_p=e_1+\dots+e_p-\frac ph(1,\dots,1)$ describes a jump of class $p$ (@sec-an-soliton-defect). With $\alpha_j=e_j-e_{j+1}$ for $j=1,\dots,r$ and $\alpha_0=e_h-e_1$, as in `an_vector`, let
+
+$$
+k_j|N\rangle=q^{\alpha_j\cdot(N+s)}|N\rangle,\qquad
+f_j|N\rangle=\frac\mu{y_d}\,q^{(N+s)_{j+1}}\,|N-\alpha_j\rangle,\qquad
+e_j|N\rangle=\mu\,y_d\,q^{(N+s)_{j+1}}\,|N+\alpha_j\rangle ,
+$$ {#eq-dt-weyl}
+
+with $k_j$ and $f_j$ for $U_q(\mathfrak b^-)$ and $k_j$ and $e_j$ for $U_q(\mathfrak b^+)$. Here $(N+s)_{j+1}$ is the component along $e_{j+1}$, the second end of $\alpha_j$, with $e_{h+1}=e_1$; $y_d=e^{\omega\theta_d}$; and $\mu=-e^{-i\pi\omega/2}/(q-q^{-1})$. This value of $\mu$ identifies $\theta_d$ with the classical defect rapidity, through the poles of @sec-an-defect-bound-states. The level $k_0k_1\cdots k_r=q^{\sum_j\alpha_j\cdot(N+s)}$ is 1. The $q$-powers are needed for the $q$-Serre relations. For $r\ge2$ the shift $f_{j+1}$ lowers the $(j+1)$-th component of $N$ by one, so $f_jf_{j+1}=q^{-1}f_{j+1}f_j$, while $f_i$ and $f_j$ commute for non-adjacent nodes. If $f_jf_k=cf_kf_j$, then $f_j^2f_k-(q+q^{-1})f_jf_kf_j+f_kf_j^2=(c-q)(c-q^{-1})f_kf_j^2$, so the $q$-Serre relations hold exactly when $c=q^{\pm1}$. Plain shifts, with $c=1$, violate them (@exr-dt-serre). The module (-@eq-dt-weyl) is the $a_r$ analogue of the Weyl module (-@eq-weyl-module). Corrigan and Zambon built $U_q(\mathfrak b^+)$-modules of $a_2^{(1)}$ from three $q$-oscillators, with one label for each of the three components of the charge [@cz2011, eqs. (5.7)–(5.9)]; (-@eq-dt-weyl) uses one label in the root lattice.
+
+The sign of the exponent is an orientation. With $q^{-(N+s)_{j+1}}$ the relations hold as well, since then $c=q$. That module belongs to the charge-conjugate defect, in which the rotation $\pi$ of @sec-defect-solitons is replaced by $\pi^{-1}$ and species $a$ by $h-a$. This is the convention of [@cz2007], whose defect matrix is the transpose of the book's (@tbl-defect-dictionary).
+
+**Uniqueness and the triangle relation.** We impose the intertwining equations on the labels of a ball $|N|^2\le R^2$ whose neighbours all lie in the ball, and discard the unknowns that occur in no equation. For $a_2$ and $a_3$ the remaining null space is one-dimensional on the whole window (37 and 177 labels, with a gap of 0.02 to the next singular value). Hypothesis (ii) of @thm-t-triangle, one-dimensionality of the intertwiners $V(y_1)\otimes V(y_2)\otimes\mathcal W\to\mathcal W\otimes V(y_2)\otimes V(y_1)$, holds for $a_2$ at a generic offset (window of 31 labels). For larger $r$ we have checked the triangle relation directly instead (@prp-an-transmission).
+
+**The Lagrangian caveat.** Everything in this chapter concerns solutions of the scattering axioms of @sec-defect-scattering. That they describe the Lagrangian defects of @sec-defect-conditions is supported by their classical limits: the selection rule, the delays and the absorption poles below. It has not been derived. Penati and Polvara found that the spin-3 charge of the $a_r$ Lagrangian defect, $r>1$, acquires quantum anomalies that no finite renormalization of the defect potential removes, and concluded that its quantum integrability is doubtful [@penati_polvara2019, Sec. 5.2]. So each $a_r$ matrix of this chapter is established, or numerically checked, as a solution of the axioms, but its identification with the transmission matrix of the Lagrangian defect is a conjecture, as is the corresponding statement @cnj-defect-parameter for sine-Gordon theory.
+
 ## The $a_r$ transmission matrices {#sec-an-soliton-transmission}
 
+Write $X=e^{\omega(\theta-\theta_d-i\pi/2)}$ and $\mathbb T_V=g\,M_V$, $\mathbb T_{\bar V}=\bar g\,M_{\bar V}$ for the matrices of the two multiplets through a type-I$_-$ defect, with scalar factors $g$, $\bar g$ and matrix parts
+
+$$
+M_V(\theta)\,(v_i\otimes|N\rangle)=q^{-(N+s)_i}\,|N\rangle\otimes v_i+X\,|N+e_i-e_{i-1}\rangle\otimes v_{i-1},
+$$ {#eq-dt-tv}
+
+$$
+M_{\bar V}(\theta)\,(\bar v_i\otimes|N\rangle)=\sum_{j=0}^{h-1}X^j\,q^{(N+s)\cdot(e_i+e_{i+1}+\dots+e_{i+j})}\,|N-e_i+e_{i+j}\rangle\otimes\bar v_{i+j},
+$$ {#eq-dt-tvbar}
+
+indices mod $h$. For type I$_+$, with $X_+=-e^{\omega(\theta_d-\theta-i\pi/2)}$, the matrix part for $\bar V$ is
+
+$$
+M^+_{\bar V}(\theta)\,(\bar v_i\otimes|N\rangle)=q^{-(N+s)_i}\,|N\rangle\otimes\bar v_i+X_+\,q^{(N+s)_i-(N+s)_{i-1}-1}\,|N-e_i+e_{i-1}\rangle\otimes\bar v_{i-1}.
+$$ {#eq-dt-tplus}
+
 ::: {#prp-an-transmission}
-**[Draft]** To be written.
+## The $a_r$ soliton transmission matrices
+**[Established; numerical re-derivation]** Let $r\ge2$, $\mathcal W$ the module (-@eq-dt-weyl) and $s$ any offset.
+
+1. **Type I$_-$.** The $U_q(\mathfrak b^-)$-intertwiners $V(\theta)\otimes\mathcal W\to\mathcal W\otimes V(\theta)$ and $\bar V(\theta)\otimes\mathcal W\to\mathcal W\otimes\bar V(\theta)$ are unique up to scalars and given by (-@eq-dt-tv) and (-@eq-dt-tvbar). They are Corrigan and Zambon's matrices [@cz2009a, eqs. (5.8), (5.11)], in the same gauge.
+2. **Type I$_+$.** The $U_q(\mathfrak b^+)$-intertwiners are unique; for $\bar V$ the intertwiner is (-@eq-dt-tplus), and for $V$ it has all $h$ entries for each incoming state.
+3. **Triangle relation.** These matrices satisfy (-@eq-triangle-braid) with the R-matrices $\check R$ of Part VI, for $VV$, $\bar V\bar V$ and $V\bar V$.
+4. **Selection rule.** $M_V$ keeps the charge of the soliton or moves it by $\pi$, $e_i\to e_{i-1}$, exactly as the classical rule of @prp-stored-charge allows for species 1. $M_{\bar V}$ moves $-e_i$ to $-e_{i+j}$ with an amplitude of modulus $|X|^j$ for real $\theta$, $\theta_d$ and $s$. The classical rule for species $r$ allows only $j=0$ and $j=h-1$, which is $\pi$. The forbidden entries, $1\le j\le h-2$, are at most $\min(|X|^j,|X|^{j-h+1})$ times the largest one, which tends to zero as $\omega\to\infty$ at fixed $\theta\ne\theta_d$; at $\theta=\theta_d$ all $h$ entries have modulus 1. For type I$_+$ the roles of $V$ and $\bar V$ are exchanged.
 :::
+
+::: {.proof}
+Uniqueness was found numerically for $a_2$ and $a_3$ with a generic offset (type I$_-$), and for $a_2$ with $s=0$ and a generic offset (type I$_+$). The closed forms (-@eq-dt-tv), (-@eq-dt-tvbar) and (-@eq-dt-tplus) satisfy the intertwining equations for $a_2$, $a_3$ and $a_4$ with $s=0$, $\vec\lambda_1$ and a generic offset, to $10^{-15}$. The triangle relation was checked with `boundary_common.rcheck` for $a_2$ ($VV$, $\bar V\bar V$, $V\bar V$) and $a_3$ ($VV$, $\bar V\bar V$), to $10^{-15}$; the matrices built at $-q$ fail it with the R-matrix at $q$ (residual 0.89). With $k_0\to1.3\,k_0$ there is no intertwiner. The comparison with [@cz2009a] is by hand: their labels $\alpha$ and $l_i$ are $N+s$ and $e_i$ projected to $\sum_i=0$, their $Q$ is $q^{-1}$ and their $\hat x=e^{\gamma(\theta-\Delta)}$ with $\Delta=\eta+\frac{i\pi}2$ [@cz2009a, eq. (6.13)] is $X$ with $\eta=\theta_d$. Then (5.8) is (-@eq-dt-tv) and (5.11), stripped of its scalar factor, is (-@eq-dt-tvbar). Item 4 is read off from the closed forms, using $\pi(-e_i)=-e_{i-1}$ and the bounds of @prp-stored-charge for $a=1$ and $a=r$.
+:::
+
+**Two kinds of entries.** Corrigan and Zambon noticed that (5.8) has the zeros of the classical selection rule, while the matrix of the conjugate solitons has none [@cz2009a, Sec. 5]. In their earlier $a_2$ paper, with the transposed defect matrix, the roles of the two species were exchanged, and they read the extra entries as tunnelling to a classically forbidden neighbour [@cz2007, Sec. 6]. Item 4 makes this quantitative. The species-$r$ solitons tunnel to every weight of their multiplet, with an amplitude that interpolates between the two classically allowed ones, $1$ for slow solitons and $X^{h-1}$, the rotation $\pi$, for fast ones. The tunnelling is a quantum effect of width $\Delta\theta\sim1/\omega$ around $\theta_d$, which vanishes semiclassically. As $\theta_d\to-\infty$, $M_V$ and $M_{\bar V}$ both become the rotation $\pi$, the quantum form of the invertible line of @prp-an-defect-delay.
+
+**The type-I$_+$ matrices.** For $U_q(\mathfrak b^+)$ the roles of the two multiplets are exchanged: $\bar V$ has the linear matrix (-@eq-dt-tplus), which rotates slow solitons, $|X_+|>1$ for $\theta<\theta_d$, and $V$ has all $h$ entries. We have not written the latter in closed form. Whether the fused pair of a type-I$_-$ and a type-I$_+$ defect contains the soliton S-matrix, as @prp-defect-frozen-soliton suggests classically and as Corrigan and Zambon found for sine-Gordon theory [@cz2010, Sec. 4], is open (@sec-defect-open-problems). Robertson studied the fusing rules of $a_r$ defects and the transmission matrices of fused defects [@robertson2014b]; we have not checked his fused $a_3$ matrix.
 
 ## Unitarity, crossing and the sign of $q$ {#sec-transmission-unitarity-crossing}
 
+**Unitarity.** (-@eq-defect-unitarity) defines $\bar{\mathbb T}(\theta)=\mathbb T(-\theta)^{-1}$. For $r\ge2$ the matrix part is not unitary for real $\theta$: in a block of fixed total charge, $M_V$ is a diagonal matrix of phases plus $X$ times a cyclic shift, and $M_V^\dagger M_V$ has off-diagonal entries proportional to $X$ (relative size 0.35 or more in the blocks tested). This is no defect of the construction. The complex $a_r$ theories are not unitary, and sine-Gordon theory is the only one in the series for which $\bar{\mathbb T}(-\theta)=\mathbb T(\theta)^\dagger$ [@cz2009a, after eq. (5.10)].
+
+**Crossing.** At $q=-e^{-i\pi\omega}$ the dual of $V(y)$ is $\bar V(ye^{i\pi\omega})=\bar V(-y/q)$, with the conjugation $C=1$, $v_i^*\mapsto\bar v_i$; in rapidity, the antiparticle of $V(\theta)$ is $\bar V(\theta+i\pi)$. In the index notation of (-@eq-defect-crossing), lower indices incoming and upper outgoing, the matrix parts satisfy
+
+$$
+(M_V)_{iN}^{N'j}(\theta)=c_{\rm I}(\theta)\,\big[M_{\bar V}(\theta-i\pi)^{-1}\big]_{N\bar j}^{\bar iN'},\qquad
+(M_{\bar V})_{\bar iN}^{N'\bar j}(\theta)=c_{\rm II}(\theta)\,\big[M_V(\theta-i\pi)^{-1}\big]_{Nj}^{iN'},\qquad
+c_{\rm I}=1+(-q)^rX^h,\quad c_{\rm II}=1-qX^h .
+$$ {#eq-dt-crossing}
+
+Crossing for $\mathbb T$ then requires
+
+$$
+g(\theta)\,\bar g(\theta-i\pi)\,c_{\rm I}(\theta)=1,\qquad\bar g(\theta)\,g(\theta-i\pi)\,c_{\rm II}(\theta)=1 .
+$$
+
+The factor $c_{\rm II}$ is the denominator $1-\hat x^hQ^{-1}$ of [@cz2009a, eq. (5.11)]. Eliminating $\bar g$, and using $X(\theta+i\pi)^h=(-q)^{-h}X^h$, gives
+$g(\theta+2\pi i)/g(\theta)=\big(1+(-q^{-1})^rX^h\big)/\big(1+(-q^{-1})^{r+2}X^h\big)$, which is [@cz2009a, eq. (6.8)] (@exr-dt-crossing).
+
+**The offset.** The diagonal entries $q^{\mp(N+s)_i}$ of (-@eq-dt-tv)–(-@eq-dt-tvbar) are the Cartan factor $q^{-\mathrm{wt}\cdot(N+s)}$ of the universal R-matrix. So the matrices are in the universal-R normalization of @prp-two-borels, although we have not evaluated the universal R-matrix of $U_q(a_r^{(1)})$ on $\mathcal W$. In this normalization $c_{\rm I}$ and $c_{\rm II}$ do not depend on $s$, as for sine-Gordon theory (@prp-two-borels, item 4). So one pair $g$, $\bar g$ serves every class.
+
+**The bootstrap.** The species-$r$ solitons are bound states of $r$ vector solitons, $\bar V=\Lambda^rV$, at the rapidities $\theta+i\pi(2m-r+1)/h$, $m=0,\dots,r-1$, which differ by the fusing angle $2\pi/h$ of @sec-an-example. Letting the $r$ constituents cross the defect one after the other, the rightmost first, reproduces $M_{\bar V}(\theta)$ exactly, with ratio 1. Hence
+
+$$
+\bar g(\theta)=\prod_{m=0}^{r-1}g\Big(\theta+\frac{i\pi(2m-r+1)}h\Big),
+$$ {#eq-dt-bootstrap}
+
+which is [@cz2009a, eqs. (6.6)–(6.7)], and the second crossing relation becomes a functional equation for $g$ alone. Its minimal solution, in a form whose infinite product converges, is
+
+$$
+g(\theta)=c_r\,X^{-1/2}\prod_{k=0}^\infty\frac{F_k(z)}{F_k(0)},\qquad
+F_k(z)=\frac{\Gamma(a_k+z)\,\Gamma(a_k-z)}{\Gamma(a_k+\omega+z)\,\Gamma(a_k+\omega-z)},\qquad
+a_k=\frac12+\frac{r\omega}2+kh\omega,\qquad z=\frac{ih\omega}{2\pi}\Big(\theta-\theta_d-\frac{i\pi}2\Big),
+$$ {#eq-dt-g}
+
+with $X^{-1/2}=e^{-\omega(\theta-\theta_d-i\pi/2)/2}$ and a real positive constant $c_r$ fixed by crossing ($c_2=0.3983$, $c_3=0.3933$, $c_4=0.3910$ at $\omega=1.37$). Each factor is $1+O(k^{-2})$. This is Corrigan and Zambon's solution [@cz2009a, eqs. (6.9)–(6.10)], with the Gamma functions paired at equal $k$.
+
 ::: {#prp-transmission-crossing}
-**[Draft]** To be written.
+## Crossing and the scalar factor
+**[Numerical]** For $r=2,3,4$:
+
+1. The matrix parts satisfy (-@eq-dt-crossing) with $C=1$, for $s=0$, $\vec\lambda_1$ and a generic offset, with the same $c_{\rm I}$ and $c_{\rm II}$.
+2. The fused matrix of $r$ vector solitons equals $M_{\bar V}$ (checked for $a_2$ and $a_3$), so (-@eq-dt-bootstrap) holds.
+3. $g$ of (-@eq-dt-g) and $\bar g$ of (-@eq-dt-bootstrap) satisfy both crossing relations and [@cz2009a, eq. (6.8)], for $\omega=1.37$ and $0.6$.
+4. **The sign of $q$.** At $-q$ the dual of $V(\theta)$ is $\bar V(\theta+i\pi)$ only up to $y\to-y$. For $h$ odd this is not an isomorphism, so there is no conjugation at the physical crossing point, and crossing fails with $C=1$ and with $C'=\mathrm{diag}\big((-1)^i\big)$ ($a_2$, $a_4$). For $h$ even, $y\to-y$ is implemented by $C'$; crossing fails with $C=1$ and holds with $C'$ ($a_3$).
 :::
+
+::: {.proof}
+The script fits the scalar of item 1 at four rapidities, finds $c=a(1+bX^h)$ with $a=1$ and $b=(-q)^r$ or $-q$ to $10^{-14}$, and the residual of the matrix relation is $10^{-14}$. Item 2: the fusion map $\bar V(\theta)\to V\otimes\dots\otimes V$ is unique, and the product of the $r$ transmission matrices on its image equals $M_{\bar V}(\theta)$ to $10^{-15}$. Item 3 holds to $4\times10^{-9}$, with $g$ summed by Richardson extrapolation. Item 4: the intertwiners from the dual of $V(y)$ to $\bar V(ye^{i\pi\omega})$ are computed at $\pm q$; at $-q$ none exists for $h=3,5$, and for $h=4$ the intertwiner is $C'$. The crossing residuals at $-q$ are 1.00 and 0.76 ($a_2$), 0.96 and 0.52 ($a_4$) for $C=1$ and $C'$, and 1.00 and $2\times10^{-15}$ ($a_3$).
+:::
+
+**What crossing says about $q$.** Item 4 extends the sine-Gordon finding of @sec-sg-transmission-matrix. There, at $-q$, crossing failed with the conjugation $\sigma_x$ and was restored by the antisymmetric one. Here the same happens for $h$ even, and $C'$ is the graded conjugation, the analogue of the crossing sign $\kappa=-1$ of @sec-crossing-sign. For $h$ odd no constant conjugation helps, because the crossed matrix lives at the wrong spectral parameter: $x=y^h$ changes sign. So crossing selects $q=-e^{-i\pi\omega}$ for every $C$ when $h$ is odd, and only together with $C=1$ when $h$ is even. Both statements refer to the book's fixed exchange and crossing conventions, including the physical shift $y(\theta-i\pi)=-qy$ and the bulk $\check R$ at $q$. We have not examined whether, for $h$ odd, a redefinition of the exchange algebra of the kind discussed in @sec-sg-transmission-matrix relates the two signs.
+
+**The printed product.** In [@cz2009a, eq. (6.10)] the $\Gamma(\cdot-z)$ numerator with index $k$ is paired with the $\Gamma(\cdot+z)$ numerator and the denominators with index $k-1$. The product is the same, but its partial products $\prod_{k=1}^K$ behave like $K^{-z}$ times a convergent product, a $\theta$-dependent drift like that of [@bcz2005, eqs. (3.42), (3.47)] in @sec-sg-transmission-matrix. Between $K=2000$ and $4000$ the $z$-dependent part of its logarithm changes by $-z\ln2$, about 0.7, against $3\times10^{-5}$ for (-@eq-dt-g). As printed, (6.10) therefore needs a $K$-dependent normalization.
 
 ## A type-II defect: $a_2^{(2)}$ {#sec-a22-transmission}
 
+The Tzitzéica theory $a_2^{(2)}$ has no type-I defect (@prp-ar-only), but it has the type-II defect of @sec-type-two-atft. Corrigan and Zambon obtained its transmission matrix twice: by solving the triangle relation with Smirnov's S-matrix [@cz2011, Sec. 3], and as an intertwiner of a Borel subalgebra of $U_q(a_2^{(2)})$ on a generalized $q$-oscillator module [@cz2011, Sec. 4]. We redid the second construction in the conventions of Part VI.
+
+Their algebra has the Cartan matrix with $a_{01}=-1$, $a_{10}=-4$, symmetrized by $d=(4,1)$, so $q_i=q^{d_i}$, and the coproduct $\Delta(X_i^\pm)=X_i^\pm\otimes K_i^{-1}+K_i\otimes X_i^\pm$ [@cz2011, eqs. (4.1)–(4.4)]. With $e_i=K_iX_i^+$, $f_i=X_i^-K_i^{-1}$ and $k_i=K_i^2$ this becomes the Part VI coproduct. The particle multiplet is three-dimensional [@cz2011, eqs. (4.5)–(4.6)], in the homogeneous gradation with the spectral parameter $x$ on node 0 [@cz2011, eq. (4.10)]. The defect module is $X_1^+=\mathsf a^\dagger$, $X_0^+=\mathsf a\mathsf a$, $K_1=q^{\mathsf N}$, $K_0=q^{-2\mathsf N}$ on states $|j\rangle$, $j\in\mathbb Z$ the topological charge, with $\mathsf a^\dagger|j\rangle=|j+1\rangle$, $\mathsf a|j\rangle=F(j)|j-1\rangle$ and
+
+$$
+F(N)=f_1q^{-2N-1}+f_2q^{2N+1}
+$$
+
+[@cz2011, eqs. (4.7)–(4.9)]. The two $q$-Serre relations, of orders $1-a_{01}=2$ and $1-a_{10}=5$, restrict $F$ to a family [@cz2011, eq. (4.8)], of which this is the part without signs $(-1)^N$. A constant $F$, the analogue of a Weyl module, violates them, and so does $F=(-1)^N$, in line with the absence of type-I defects.
+
 ::: {#prp-a22-transmission}
-**[Draft]** To be written.
+## The Tzitzéica transmission matrix from its symmetry
+**[Numerical]** In Part VI conventions and at a generic $q$:
+
+1. The three-dimensional representation satisfies the relations of $U_q(a_2^{(2)})$, and the module above satisfies those of $U_q(\mathfrak b^+)$, including the quintic $q$-Serre relation (checked for four choices of $f_1$, $f_2$).
+2. For each of four choices of $(f_1,f_2)$, including $f_1f_2=0$, the $U_q(\mathfrak b^+)$-intertwiner $V(x)\otimes\mathcal W\to\mathcal W\otimes V(x)$ is unique, and it satisfies the triangle relation (-@eq-triangle-braid) with the R-matrix $\check R$ of $V(x_1)\otimes V(x_2)$.
+3. The dual of $V(x)$ is $V(x\,x_c)$, $x_c=-q^{-6}$, with an antidiagonal conjugation $C$. Crossing (-@eq-defect-crossing) holds at this algebraic crossing point, $x(\theta-i\pi)=x/x_c$, with $C$. At $-q$ it holds with the conjugation computed at $-q$ and fails with that computed at $q$.
 :::
+
+::: {.proof}
+The relations hold to $10^{-15}$, and the controls fail by 2.0. The intertwiners are unique on a window $|j|\le9$ (rank 1 on $|j|\le6$). The triangle relation holds to $5\times10^{-15}$ on $|j|\le6$, and fails by 0.10 when $\check R$ is perturbed. Crossing holds to $10^{-14}$, and fails by 1.00 with the wrong conjugation. For the antidiagonal $C$ the conjugation enters (-@eq-defect-crossing) through its transpose; for the symmetric conjugations of $a_r$ and of sine-Gordon theory the distinction is invisible.
+:::
+
+As for sine-Gordon theory and $h$ even, the sign of $q$ is detected only relative to a fixed conjugation. Not done here: the comparison of gauge invariants with [@cz2011, eqs. (3.11), (4.14)]; the scalar factor [@cz2011, eq. (3.12)]; the dictionary between $x$, $q$ and the physical rapidity and coupling; the semiclassical comparison with the three delays of @sec-type-two-atft, whose labels are corrected there. Corrigan and Zambon find two poles of their scalar factor, which approach the classical absorption poles as their effective coupling $\xi\to0$ when $\nu=\eta+\frac{i\pi}2$, and which describe unstable states for $\frac\pi6<\xi<\frac{2\pi}3$ and for $-\frac\pi6<\xi<\frac\pi3$ respectively [@cz2011, eqs. (3.12)–(3.13) and after]; we have not checked them. Their lightest-breather factor equals the classical one [@cz2011, eqs. (3.14)–(3.15)]; @sec-breather-transmission takes this up.
 
 ## Defect bound states and an unstable state {#sec-an-defect-bound-states}
 
+**The poles.** The factor $\Gamma(a_0-z)$ of (-@eq-dt-g) has poles at $z=a_0+n$, that is at $\theta=\theta_1-\frac{2\pi in}{h\omega}$, $n\ge0$, with
+
+$$
+\theta_1=\theta_d+\frac{i\pi}2-i\Big(\frac{\pi r}h+\frac\pi{h\omega}\Big),\qquad
+\det\big(M_V\big)_Q=q^r\big(1+(-q^{-1})^rX^h\big),
+$$ {#eq-dt-pole}
+
+where $(M_V)_Q$ is the block of total charge $Q$, with basis $v_i\otimes|Q-e_i\rangle$ (@exr-dt-det). At $\theta_1$, $(-q^{-1})^rX^h=-1$, so every block is singular. Its kernel is one-dimensional, and the residue of $\mathbb T_V$ has rank $h-1$ in every sector, not rank 1 as for sine-Gordon theory, where $h-1=1$. By (-@eq-dt-bootstrap), the factor $m=0$ gives $\bar g$ a pole at $\theta_d+\frac{i\pi}2-i(\frac\pi h+\frac\pi{h\omega})$. In general the species-$a$ pole is at $\theta_a=\theta_d+\frac{i\pi}2-i\vartheta_a$, $\vartheta_a=\frac{\pi(h-a)}h+\frac\pi{h\omega}$ [@cz2009a, eq. (6.13)]; we have checked $a=1$ and $a=r$. For real $\theta_d$ the species-1 pole lies in the lower half-plane.
+
+**Unstable states.** The state at $\theta_a$ carries the complex energy $E_a=M_a\cosh\theta_a=M_a(\cosh\theta_d\sin\vartheta_a+i\sinh\theta_d\cos\vartheta_a)$. Following Corrigan and Zambon we take $\theta_d>0$ and call the state unstable when $\operatorname{Re}E_a>0$ and $\operatorname{Im}E_a<0$, that is $\frac\pi2\le\vartheta_a<\pi$ [@cz2009a, eqs. (6.14)–(6.15)]. This is the window
+
+$$
+\max\Big(0,\,a-\frac h2\Big)\le\frac1\omega<a .
+$$ {#eq-dt-window}
+
+For $a<\frac h2$ it contains the classical limit, where $\theta_a\to\theta_d-i(\frac\pi2-\frac{\pi a}h)$, the classical absorption rapidity (-@eq-ds-absorption). For $a>\frac h2$ it does not, and the state has no classical counterpart.
+
 ::: {#prp-a2-unstable}
-**[Draft]** To be written.
+## Unstable states of the $a_2$ defect
+**[Numerical; the windows Established]** For the type-I$_-$ defect of $a_2^{(1)}$ with $\theta_d>0$:
+
+1. In the book's labels the species-1 pole, at $\theta_d-\frac{i\pi}6-\frac{i\pi}{3\omega}$, describes an unstable state for $\omega>1$, which includes the classical limit, where it tends to the absorption pole of @prp-ds-absorption. The species-2 pole, at $\theta_d+\frac{i\pi}6-\frac{i\pi}{3\omega}$, describes one for $\frac12<\omega\le2$, that is $\frac{4\pi}3\le\beta^2<\frac{8\pi}3$. The second window is the one found by Corrigan and Zambon [@cz2007, Sec. 6] for the species they call 1, which is the book's species 2, since their defect matrix is the transpose of the book's (@tbl-defect-dictionary).
+2. At $\theta_1$ the residue of $\mathbb T_V$ has rank 2 in every charge sector (rank $h-1$ for $a_3$ and $a_4$).
+3. The kernel of $M_V(\theta_1)$ in $V(\theta_1)\otimes\mathcal W$ is one-dimensional in each sector, and it is invariant under $\check R_{12}$ followed by $\mathbb T_{23}$, the transmission through the soliton at $\theta_1$ and then the defect. On it this transmission is, up to a diagonal change of basis and a scalar, the matrix (-@eq-dt-tv) with offset $s+\vec\lambda_1$ and with $X^h\to q^2X^h$, that is $\theta_d\to\theta_d+\frac{2\pi i}h$ modulo $\frac{2\pi i}{h\omega}$. Checked for $s=0$ and $s=\vec\lambda_1$.
 :::
+
+::: {.proof}
+Item 1: the pole positions are those of $g$ and of $\bar g=g(\theta-\frac{i\pi}3)g(\theta+\frac{i\pi}3)$, checked as simple poles. The windows follow from (-@eq-dt-window) with $a=1,2$, $h=3$; the script confirms (-@eq-dt-window) against (6.13)–(6.15) for $h=3,\dots,6$ on a grid of couplings. Item 2: the determinant formula holds to $10^{-15}$, and the smallest singular value of each block at $\theta_1$ is $10^{-16}$ of the largest, the next one at least 0.6 of it ($a_2$, $a_3$, $a_4$). Item 3: the invariance holds to $10^{-15}$. The restricted transmission has only the entries $v_i\to v_i$ and $v_i\to v_{i-1}$, and its gauge invariants are those of the class-$(p+1)$ matrix: the diagonal ratios equal $q^{-(Q+s)_i+(Q+s)_j}$, and the product of off-diagonal over diagonal entries around a cycle is $q^2$ times that of (-@eq-dt-tv) at the same $\theta_d$, to $10^{-15}$.
+:::
+
+**Corrected windows.** For $a<\frac h2$, Corrigan and Zambon state the window as $\frac1\omega<\frac h2-1$ for $h$ even and $\frac1\omega<\frac{h-1}2$ for $h$ odd [@cz2009a, Sec. 6]. By their own (6.13) and (6.15) it is $\frac1\omega<a$, and the two agree only for the largest $a<\frac h2$. For $a_4$ and $a=1$, couplings with $1\le\frac1\omega<2$ give no unstable state.
+
+**Absorption changes the class.** Item 3 is the quantum form of (-@eq-ds-class-shift). A defect of class 0 that absorbs a vector soliton becomes a defect of class 1 (@prp-ds-absorption), and its transmission matrix is the class-1 matrix at the defect rapidity $\theta_d+\frac{2\pi i}h$. Classically, a jump of class $p$ acts as a jump-free defect at $\theta_d+\frac{2\pi ip}h$ (type I$_-$). Quantum mechanically, the class enters twice: in the offset $s=\vec\lambda_p$, which carries the stored charge into the diagonal phases, and in the shift of $\theta_d$, which carries the stored energy into the scalar factor. Since the matrix part sees $\theta_d$ only through $X^h$, the shift is fixed modulo $\frac{2\pi i}{h\omega}$; the classical limit selects $\frac{2\pi i}h$. Iterating, and using one $g$ for all offsets, we expect a class-$p$ defect to transmit vector solitons with $g(\theta-\frac{2\pi ip}h)\,M_V$ and offset $\vec\lambda_p$; its semiclassical delay is then $z_1(\theta-\theta_d-\frac{2\pi ip}h)$, as in (-@eq-an-defect-delay). This is checked for the matrix part with $p\le2$. We have not computed the scalar factor of the excited defect from the bootstrap, and the type-I$_+$ case, where the classical shift is $-\frac{2\pi ip}h$, has not been checked.
+
+**The image of the residue.** @sec-defect-bound-states takes the excited defect to be the image of the residue in $\mathcal W\otimes V(\theta_1)$. Here the image has dimension $h-1$ in each sector, and it is not a module of the form (-@eq-dt-weyl); the kernel, its complement, is. For sine-Gordon theory both are one-dimensional and give $\theta_d\mp i\pi$ (@sec-sg-defect-spectrum). What the $(h-1)$-dimensional image describes is open.
+
+**Charged classes.** The class shift moves the poles. By the representative above, the species-$a$ pole of a class-$p$ defect lies at
+
+$$
+\theta_d-i\Big(\frac\pi2-\frac{\pi(a+2p)}h\Big)-\frac{i\pi}{h\omega},
+$$
+
+the classical absorption rapidity (-@eq-ds-absorption) shifted by $-\frac{i\pi}{h\omega}$, and the window (-@eq-dt-window) holds with $a$ replaced by $a+2p$, for $0<a+2p\le h$ (by hand, for $a=1,r$ from (-@eq-dt-g), for other $a$ from [@cz2009a, eq. (6.12)]). In particular, the real absorptions of @prp-ds-absorption, $a+2p\equiv\frac h2$ mod $2h$, become poles at $\theta_d-\frac{i\pi}{h\omega}$, with $E=M_a\big(\cosh\theta_d\cos\frac\pi{h\omega}-i\sinh\theta_d\sin\frac\pi{h\omega}\big)$. These are decaying resonances for $\theta_d>0$ and $\frac1\omega<\frac h2$, which includes the classical limit, exactly like the sine-Gordon resonance at $\theta_d-\frac{i\pi}{2\lambda}$ (@sec-sg-defect-spectrum). So species 1 of $a_5^{(1)}$, absorbed at real rapidity by a defect of class 1, is a resonance of the quantum defect.
+
+**Poles in the physical strip.** The species-$a$ pole has $\operatorname{Im}\theta_a=\frac\pi2-\vartheta_a$, which lies in the physical strip $0<\operatorname{Im}\theta<\frac\pi2$ when $\frac1\omega<a-\frac h2$: for $a>\frac h2$, below the window (-@eq-dt-window), for example species 2 of $a_2$ when $\omega>2$. For $\theta_d\ne0$ the pole lies off the imaginary axis, and for $\theta_d>0$ its energy has $\operatorname{Im}E_a>0$, the wrong sign for a decaying state; as for sine-Gordon theory at small $\lambda$ (@sec-sg-defect-spectrum), its interpretation needs a separate analysis. For $\theta_d=0$ the pole lies on the imaginary axis, with the real energy $M_a\sin\vartheta_a<M_a$, and it is a candidate for a stable excited defect; classically it corresponds to the absorption of species $a$ at the imaginary rapidity $i(\frac{\pi a}h-\frac\pi2)$. We have not checked that it survives in $\mathbb T_{\bar V}$, nor computed its residue and bootstrap. For sine-Gordon theory, $a=1=\frac h2$ and there is no such pole, in agreement with @sec-sg-defect-spectrum.
 
 ## The semiclassical limit {#sec-transmission-semiclassics}
 
+For $\theta<\theta_d$ the dominant entry of $M_V$ is diagonal, and for $\theta>\theta_d$ it is the converting one. Both have rapidity-independent phases, since $X=e^{-i\pi\omega/2}e^{\omega(\theta-\theta_d)}$, so the phase shift is that of $g$. A soliton of mass $M_1=2hm_1/\beta^2$ displaced by the classical delay $\Delta x=-\ln|z_1|/(m_1\cosh\theta)$ (@prp-an-defect-delay) has, by Wigner's relation, $\frac{d\delta}{d\theta}=-M_1\cosh\theta\,\Delta x$, so we expect
+
+$$
+\frac{2\pi}{h(\omega+1)}\,\frac{d}{d\theta}\arg g(\theta)\;\longrightarrow\;\ln\big|z_1(\theta-\theta_d)\big|\qquad(\omega\to\infty),
+$$
+
+with $\frac{2\pi}{h(\omega+1)}=\frac{\beta^2}{2h}$ and $z_1$ of (-@eq-dc-ar-delay). For sine-Gordon theory this is the relation found in @sec-sg-transmission-matrix.
+
 ::: {#prp-transmission-semiclassical}
-**[Draft]** To be written.
+## The semiclassical limit of the scalar factor
+**[Numerical]** For $a_2$ and $a_3$, the limit above holds for $g$, and for $\bar g$ with $|z_r|=|z_1|$. At $\theta-\theta_d=-0.7,\ 0.5,\ 1.1$ the largest deviations at $\omega=10$, $40$, $160$ are $0.092$, $0.025$, $0.0063$ for $a_2$ and $0.067$, $0.018$, $0.0046$ for $a_3$, decreasing like $1/\omega$, and the same for $\bar g$.
 :::
+
+The script computes the derivative by finite differences of $\arg g$ from (-@eq-dt-g). The equality $|z_r|=|z_1|$ for real rapidities is the second identity after (-@eq-dc-ar-delay).
+
+**The phase of $z$.** Classically the charge of the outgoing soliton is fixed by $\arg z_1$, which increases from 0 to $\frac{2\pi}h$ as $\theta$ passes $\theta_d$, with $\arg z_1(\theta_d)=\frac\pi h$ (-@eq-ds-delay-phase). A soliton whose $\operatorname{Im}\xi$ lies at the centre of its charge sector, which has width $\frac{2\pi}h$, therefore changes its charge if and only if $\theta>\theta_d$. In the quantum matrix (-@eq-dt-tv) the charge changes with relative weight $|X|^2/(1+|X|^2)$, which tends to a step function, jumping from 0 to 1 at $\theta_d$, as $\omega\to\infty$. The quantum amplitude carries no $\operatorname{Im}\xi$, and it reproduces the classical rule for a soliton at the centre of its sector (by hand). For $\bar V$ the forbidden entries, which carry the charge to the classically missing weights, vanish in the same limit (@prp-an-transmission).
+
+**Lightest breathers.** Corrigan and Zambon found that the lightest-breather factors of the $a_2$ transmission matrices do not depend on the coupling and equal the classical linear factors [@cz2007, Sec. 7] (@prp-an-linear-transmission). @sec-breather-transmission and @prp-lightest-breather-universal take this up for all $a_r$.
 
 ## Exercises {#sec-soliton-transmission-exercises}
 
-To be written.
+::: {#exr-dt-serre}
+Show that on the module (-@eq-dt-weyl) $f_jf_{j+1}=q^{-1}f_{j+1}f_j$ for $r\ge2$, and that $f_i$ and $f_j$ commute for non-adjacent nodes. Deduce the $q$-Serre relations, and show that they fail without the $q$-powers. Show that the orientation $q^{-(N+s)_{j+1}}$ also satisfies them. What happens for $r=1$, where nodes 0 and 1 are joined twice, and how is (-@eq-weyl-module) consistent with it?
+:::
+
+::: {#exr-dt-intertwiner}
+Verify by hand that the matrix part of (-@eq-dt-tv) intertwines $\Delta(f_j)$ for $U_q(\mathfrak b^-)$, using $f_jv_j=v_{j+1}/y$ on $V(y)$. Show that the $k_j$-equations force conservation of the total charge, and use the $f_j$-equations to show that $M_V$ has no entries other than those of (-@eq-dt-tv). Which entry is fixed by which equation?
+:::
+
+::: {#exr-dt-det}
+Compute the determinant of the block $(M_V)_Q$ and derive (-@eq-dt-pole). Show that at $\theta_1$ its kernel is spanned by a vector with all $h$ components non-zero, and that for $h=2$ the residue has rank one, as in @sec-sg-defect-spectrum.
+:::
+
+::: {#exr-dt-crossing}
+Derive [@cz2009a, eq. (6.8)] from the two scalar crossing relations and $X(\theta+i\pi)=-X/q$. Show that rescaling $M_V$ by $\varphi(s)$ and $M_{\bar V}$ by $\bar\varphi(s)$ multiplies $c_{\rm I}$ and $c_{\rm II}$ by $\varphi\bar\varphi$, so that $s$-independent crossing scalars fix the $s$-dependence of the normalization up to $\varphi\bar\varphi=1$. Compare with item 4 of @prp-two-borels.
+:::
+
+::: {#exr-dt-gamma}
+Show that each factor $F_k(z)/F_k(0)$ of (-@eq-dt-g) is $1+O(k^{-2})$. Show that the partial products of [@cz2009a, eq. (6.10)] differ from those of (-@eq-dt-g) by a factor $\Gamma(A_K-z)/\Gamma(A_K)$ with $A_K=\frac12+(hK+\frac r2)\omega$, and that this behaves like $K^{-z}$. Check that the shifts in (-@eq-dt-bootstrap) are those of [@cz2009a, eqs. (6.6)–(6.7)] for $r$ even and odd.
+:::
+
+::: {#exr-dt-window}
+Derive (-@eq-dt-window) from $\vartheta_a$ and the conditions $\operatorname{Re}E_a>0$, $\operatorname{Im}E_a<0$. List the windows for $a_2$, $a_3$ and $a_4$ in book labels, and convert those of $a_2$ to $\beta^2$. For a defect of class $p$, show that the window is (-@eq-dt-window) with $a\to a+2p$. For $a_3^{(1)}$ and $a_5^{(1)}$, list the species and classes whose poles tend to the real axis in the classical limit, and show that they are the real absorptions of @prp-ds-absorption.
+:::
+
+::: {#exr-dt-qsign}
+Show that $y\to-y$ on $V(y)$ in the principal gradation is implemented by a diagonal matrix if and only if $h$ is even, and that the matrix is then $\mathrm{diag}\big((-1)^i\big)$. Deduce item 4 of @prp-transmission-crossing from the fact that the dual of $V(y)$ at $-q$ is $\bar V(-ye^{i\pi\omega})$. For $h=2$, relate $C'$ to the antisymmetric conjugation of @sec-sg-transmission-matrix.
+:::
+
+::: {#exr-dt-semiclassical}
+Derive the factor $\frac{2\pi}{h(\omega+1)}$ in the semiclassical limit from $M_1=2hm_1/\beta^2$ and Wigner's relation. Using (-@eq-ds-delay-phase), show that $\arg z_1(\theta_d)=\frac\pi h$, and that a soliton at the edge of its charge sector changes its charge classically for all $\theta$ above some $\theta_*<\theta_d$. Why can the quantum matrix not see this?
+:::
 
 ## Notes and references {#sec-soliton-transmission-notes}
 
-To be written.
+Konik and LeClair, and Bowcock, Corrigan and Zambon, found the sine-Gordon transmission matrices [@konik_leclair1999; @bcz2005]. Corrigan and Zambon solved the triangle relations for $a_2^{(1)}$, found the zeros of the classical selection rule in one species and tunnelling in the other, fixed the scalar factor by crossing and the bootstrap, and found the unstable state with its window of couplings [@cz2007]. They extended the vector-soliton matrix to all $a_r^{(1)}$, obtained the conjugate matrix by crossing and the bootstrap, solved for the scalar factor, and listed the unstable states [@cz2009a]. They then recognized the transmission matrices as intertwiners of Borel subalgebras on $q$-oscillator modules, following Weston for sine-Gordon theory [@weston2010], and treated $a_2^{(2)}$ and $a_2^{(1)}$ in this way [@cz2011]. Robertson studied the fusing of $a_r$ defects [@robertson2014b]. Penati and Polvara questioned the quantum integrability of the Lagrangian defects [@penati_polvara2019]. The single-label module (-@eq-dt-weyl) and its orientation, the uniqueness of the intertwiners, the type-I$_+$ matrices, the independence of the crossing scalars from the class, the sign-of-$q$ test, the convergent form (-@eq-dt-g), the rank of the residue, the kernel bootstrap with the quantum class shift, the windows in charged classes, and the resonances from real absorptions are stated here.
+
+Corrections and clarifications to the sources made in this chapter:
+
+- [@cz2009a, eq. (6.10)]: the infinite product pairs Gamma functions with different $k$, and its partial products drift like $K^{-z}$; it converges only with a $K$-dependent normalization. Paired at equal $k$ it converges (-@eq-dt-g).
+- [@cz2009a, Sec. 6], after (6.15): for the "soliton" representations $a<\frac h2$ the window is $\frac1\gamma<a$, not $\frac1\gamma<\frac h2-1$ ($h$ even) or $\frac1\gamma<\frac{h-1}2$ ($h$ odd); the two agree only for the largest such $a$.
+- [@cz2007, Sec. 6]: the species with the window $\frac12<\gamma<2$ is species 1 in their conventions and species 2 in the book's, because their defect matrix is the transpose of the book's. In book labels species 1 has the window $\gamma>1$, which contains the classical limit.
+- [@cz2007, eq. (6.14)]: with $\Delta=\eta+\frac{i\pi}2$ and $q=-e^{-i\pi\gamma}$, $\hat x=e^{\gamma(\theta-\Delta)}=(-q)^{1/2}e^{\gamma(\theta-\eta)}$ with $(-q)^{1/2}=e^{-i\pi\gamma/2}$, not $(-q)^{-1/2}e^{\gamma(\theta-\eta)}$. With this sign the off-diagonal entries coincide with those of the sine-Gordon matrix quoted just before it.
+- [@cz2009a, Sec. 5]: the observation that the conjugate matrix (5.11) has no zeros is made quantitative by item 4 of @prp-an-transmission: the forbidden entries are suppressed by powers of $X$ and vanish semiclassically away from $\theta=\theta_d$.

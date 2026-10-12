@@ -11,7 +11,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 | 38 | 2026-10-12 | `defect_classical_an.py`, `defect_lax_rmatrix.py` | 24 + 6 PASS (57 s, <1 s) | no |
 | 39 | 2026-10-12 | `defect_solitons_an.py` | 9 PASS (10 s) | no |
 | 40 | 2026-10-12 | `defect_universal_r.py`, `defect_transfer.py` | 14 + 9 PASS (46 s, 15 s) | no |
-| 41 | | `defect_an_transmission.py` | | |
+| 41 | 2026-10-12 | `defect_an_transmission.py` | 21 PASS (100–176 s) | no |
 | 42 | 2026-10-12 | `defect_doubling.py` | 17 PASS (30 s) | no |
 | 43 | | `defect_particle_transmission.py` | | |
 
@@ -371,6 +371,92 @@ The full drafting report is in `briefs/draft_ch39_report.md`: summary, script ou
   - is the I₋I₊ pair a soliton S-matrix times the π-line, and is it a type-II defect?
   - lightest-breather factors equal to T^cl for all a_r.
 
+## Chapter 41 (`sec-soliton-transmission`)
+
+The full drafting report is in `briefs/draft_ch41_report.md`. The exploration checkpoint is `briefs/draft_ch41_checkpoint.md`. The first agent was cut off by the quota, and a second agent finished from the checkpoint.
+
+**Re-run on integration.**
+- `defect_an_transmission.py`: 21 PASS in 176 s, run in parallel with five other scripts.
+- `defect_common.py` gained 251 appended lines and no other change. The other scripts that import it still pass: axioms 20, doubling 17, transfer 9, universal_r 14, sg_transmission 24.
+
+**Convention.** In this chapter ω = 4π/β² − 1, as in Part VI (Corrigan–Zambon's γ), and X = e^{ω(θ−θ_d−iπ/2)}, which is CZ's x̂. The chapter writes ch. 39's root of unity as e^{2πi/h}. See the clash noted under the global pending edits.
+
+**Key results.**
+- **`prp-an-transmission` [Established; numerical re-derivation].**
+  - The a_r Weyl module `eq-dt-weyl` (offset s = λ_p for class p) has unique intertwiners.
+  - Closed forms `eq-dt-tv`, `eq-dt-tvbar`, `eq-dt-tplus` agree with cz2009a (5.8), (5.11) in the same gauge.
+  - The triangle relation holds.
+  - **Selection rule.** M_V obeys the classical rule exactly. M_V̄ tunnels to the forbidden weights with relative size min(|X|^j, |X|^{j−h+1}).
+- **`prp-transmission-crossing` [Numerical].**
+  - The matrices are not unitary for r ≥ 2.
+  - Crossing holds with C = 1, c_I = 1 + (−q)^r X^h and c_II = 1 − qX^h, independently of s.
+  - The bootstrap gives ḡ = ∏g. The scalar factor is given in the convergent form `eq-dt-g`.
+  - **The q-sign, in the book's conventions.** At −q crossing fails for h odd with both C and C′, and for h even it holds with C′ = diag((−1)^i).
+- **`prp-a22-transmission` [Numerical].** Algebra, unique intertwiners, the triangle relation, and crossing at x_c = −q^{−6} with an antidiagonal C. What remains is listed in the chapter.
+- **`prp-a2-unstable` [Numerical; windows Established].**
+  - The residue has rank h−1 per sector (`eq-dt-pole`).
+  - The window is `eq-dt-window`.
+  - In book labels, species 1 is unstable for ω > 1, which includes the classical limit; species 2 for 1/2 < ω ≤ 2 (cz2007's window).
+  - **Kernel bootstrap.** It gives the class-1 module with θ_d → θ_d + 2πi/h, the quantum form of `eq-ds-class-shift`.
+  - Classical real absorptions become resonances at θ_d − iπ/(hω).
+- **`prp-transmission-semiclassical` [Numerical].** Wigner test against `eq-dc-ar-delay`: deviations 0.092/0.025/0.0063 (a₂) at ω = 10/40/160.
+
+**Verification record.**
+- **By script:** all items above (21 checks); window sizes are in the report.
+- **By hand:**
+  - q-Serre;
+  - the gauge match with cz2009a;
+  - (6.8) from the crossing relations;
+  - the universal-R reading of the diagonal entries (the U_q(a_r^(1)) universal R was not evaluated on 𝒲);
+  - the class-p poles and windows;
+  - the resonance claim;
+  - the physical-strip statement.
+- **Unchecked:**
+  - Robertson's fused a₃ matrix;
+  - cz2007's a₂ matrices entry by entry;
+  - uniqueness for r ≥ 4, and hypothesis (ii) for r ≥ 3;
+  - the scalar factors of species 1 < a < r;
+  - the excited-defect scalar;
+  - the type-I₊ species-1 closed form and the I₊ class shift;
+  - the θ_d = 0 candidate poles;
+  - most of a₂^(2): gauge invariants, scalar, dictionary, pole positions, semiclassics;
+  - a Klein-type ±q relation for h odd.
+
+**Corrections to sources recorded in the Notes.**
+- cz2009a (6.10): the Gamma functions are paired across different k, so the partial products drift like K^{−z}. The equal-k pairing converges.
+- cz2009a §6: for a < h/2 the window is 1/γ < a, not "h/2 − 1 or (h−1)/2".
+- cz2007 §6: their species 1 is the book's species 2, because of the transposed defect matrix.
+- cz2007 (6.14): (−q)^{+1/2}.
+- cz2009a §5: the tunnelling in (5.11) is made quantitative.
+
+**Pending edits elsewhere.**
+- `textbook_code/README.md` row for `defect_an_transmission.py` and the ch. 41 helpers.
+- Ch. 36 `sec-defect-bound-states` and ch. 37 `sec-sg-defect-spectrum`: "the a₂ unstable state exists only in a window of couplings" holds only for species 2; species 1 is unstable for ω > 1.
+- Optional: ch. 39, after `prp-defect-frozen-soliton`, a pointer to `sec-defect-open-problems`.
+- Conventions brief:
+  - the a_r Weyl module, μ and X;
+  - orientation −1 = the charge-conjugate defect;
+  - C and C′ for the q-sign test;
+  - c_I and c_II are independent of s;
+  - the quantum class shift;
+  - `defect_crossing_residual` uses Cᵀ.
+
+**Obligations for later chapters.**
+- **Ch. 43:**
+  - `prp-lightest-breather-universal`: bootstrap the lightest breather from these matrices (cz2007 §7 for a₂); the a₂^(2) breather is unchecked.
+- **Ch. 43 open problems:**
+  - the (h−1)-dimensional image of the residue;
+  - candidate stable states at θ_d = 0;
+  - the I₊ species-1 closed form and the class shift;
+  - the fused I₋I₊ pair versus the soliton S-matrix;
+  - the remaining a₂^(2) work;
+  - Robertson's fused matrices;
+  - Penati–Polvara versus the axiomatic matrices;
+  - the q-sign for h odd;
+  - hypothesis (ii) for r ≥ 3;
+  - the U_q(a_r^(1)) universal R on 𝒲;
+  - the a_r doubled-boundary expectation of ch. 42, testable with these matrices.
+
 ## Chapter 42 (`sec-defect-boundary`)
 
 The full drafting report is in `briefs/draft_ch42_report.md`, including the proposed row texts for the third column of `tbl-boundary-defect-algebra` and a draft conventions §10. The drafting checkpoint is `briefs/draft_ch42_checkpoint.md`. Re-run on integration: 17 PASS, 30 s.
@@ -450,6 +536,7 @@ The full drafting report is in `briefs/draft_ch42_report.md`, including the prop
 
 ## Global pending edits
 
+- **Notation clash ω.** Ch. 39 uses ω = e^{2πi/h}; ch. 41 uses ω = 4π/β² − 1, Part VI's coupling. Decide globally, e.g. by renaming ch. 39's root of unity.
 - Harmonize theorem titles: Part VII and ch. 40, 42 put a `## Title` inside every `::: {#prp-…}` block; ch. 36, 38, 39 have none and ch. 37 has one.
 - Rewrite Part VII open problem 10 (`sec-boundary-open-problems`, ch. 35): integrable interacting defects are purely transmitting.
 - Naming: the conventions scripts call the two signs of 𝖣 "types I, II"; the book's names are type I₊ and type I₋ (type II is the Corrigan–Zambon defect with an auxiliary field).
