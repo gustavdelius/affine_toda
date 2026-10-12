@@ -64,7 +64,9 @@ for ax, (title, arrows, foot) in zip(axs, panels):
         ax.plot([x0 + 0.15 * dx / L_, x1 - 0.15 * dx / L_], [y0 + 0.15 * dy / L_, y1 - 0.15 * dy / L_], color=style.GREY, lw=1.4, zorder=1)
     for j in range(h):
         x, y = pos[j]
-        ax.add_patch(Circle((x, y), 0.15, fc="none" if j else style.LIGHTGREY, ec=style.GREY, lw=1.4, zorder=3))
+        ax.add_patch(Circle((x, y), 0.15, fc="white", ec=style.GREY, lw=1.4, zorder=3))
+        if j == 0:                                      # affine node: double ring (all nodes are white in Satake terms)
+            ax.add_patch(Circle((x, y), 0.105, fc="none", ec=style.GREY, lw=1.0, zorder=4))
         ax.text(1.0 * x * 1.38, y * 1.38, str(j), ha="center", va="center", fontsize=8.5)
     if arrows:
         for j, k, rad in ((1, 5, 0.0), (2, 4, 0.0)):

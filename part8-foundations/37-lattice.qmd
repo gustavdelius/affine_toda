@@ -159,18 +159,22 @@ $$
 H=\tfrac12\lvert\vec p\rvert^2-g\sum_jn_je^{i\vec\alpha_j\cdot\vec x},\qquad \vec p\in\text{root lattice},\quad g>0.
 $$
 
-Here $\vec x\in\mathbb R^r/(2\pi\Lambda^\vee)$. For $a_2$ the roots have squared length 4, and for $c_2$ the long roots do. This $H$ has the same $\Theta$-symmetry, and its partition function has the same positive Coulomb-gas expansion. Diagonalizing in the plane-wave basis $\vec p=\sum_ic_i\vec\alpha_i$ with $\lvert c_i\rvert\le P$ gives the following at $P=16$. The levels shown do not change for $P$ from 8 to 20.
+Here $\vec x\in\mathbb R^r/(2\pi\Lambda^\vee)$. For $a_2$ the roots have squared length 4, and for $c_2$ the long roots do. This $H$ has the same $\Theta$-symmetry, and its partition function has the same positive Coulomb-gas expansion. Diagonalizing in the plane-wave basis $\vec p=\sum_ic_i\vec\alpha_i$ with $\lvert c_i\rvert\le P$ gives the following at $P=16$. The levels shown do not change for $P$ from 8 to 20. The script is `foundations_code/zero_mode.py`.
 
 | algebra | $g$ | lowest level | complex levels among the lowest 40 | $Z(T)$ for $T=0.5,2,8$ |
 |---|---|---|---|---|
-| $a_2$ | 0.5 | $-0.1625$ (real) | 12 | 3.66, 1.48, 3.67 |
-| $a_2$ | 1.0 | $-0.8077$ (real) | 14 | 3.91, 5.12, 640.2 |
+| $a_2$ | 0.5 | $-0.1638$ (real) | 24 | 3.67, 1.48, 3.71 |
+| $a_2$ | 1.0 | $-0.8308$ (real) | 27 | 3.99, 5.38, 769.9 |
 | $c_2$ | 0.5 | $-0.4823$ (real) | 20 | 6.32, 2.88, 47.4 |
 | $c_2$ | 1.0 | $-1.7542$ (real) | 20 | 6.90, 34.3, $1.24\times10^6$ |
 
 As Theorems [-@thm-coulomb-gas] and [-@thm-vacuum-energy] require, $Z(T)>0$ and the lowest level is real. Excited levels include complex-conjugate pairs: $\Theta$ is broken in parts of the finite-volume spectrum, while the vacuum is protected.
 
-With the *opposite* sign of the potential, $Z(T)$ for $a_2$ at $g=1$ is negative at $T=2$ ($-0.72$), and the lowest level is the complex pair $0.410\pm1.327\,i$. A shift $\vec x\mapsto\vec x+\vec s$ multiplies each term of the potential by $e^{i\vec\alpha_j\cdot\vec s}$, and a shift that flips the sign of every term exists if and only if $\sum_jn_j$ is even (@exr-zero-mode-sign). So for $c_2$ ($\sum_jn_j=4$) the two signs give the same spectrum, while for $a_2$ ($\sum_jn_j=3$) only the physical sign gives a positive $Z(T)$ and a real ground state. Positivity of the fugacity is the mechanism that protects the vacuum.
+With the *opposite* sign of the potential, $Z(T)$ for $a_2$ at $g=1$ is negative at $T=2$ ($-0.66$), and the lowest level is the complex pair $0.473\pm1.338\,i$. A shift $\vec x\mapsto\vec x+\vec s$ multiplies each term of the potential by $e^{i\vec\alpha_j\cdot\vec s}$, and a shift that flips the sign of every term exists if and only if $\sum_jn_j$ is even (@exr-zero-mode-sign). So for $c_2$ ($\sum_jn_j=4$) the two signs give the same spectrum, while for $a_2$ ($\sum_jn_j=3$) only the physical sign gives a positive $Z(T)$ and a real ground state. Positivity of the fugacity is the mechanism that protects the vacuum.
+
+@fig-zero-mode-spectrum shows the lowest levels of the $a_2$ model at $g=1$ in the complex energy plane for the two signs.
+
+![Lowest 40 levels of the zero-mode Hamiltonian of $a_2$ at $g=1$ in the complex energy plane. Left: physical sign of the potential. The vacuum (circled) is real and has the smallest real part, and excited levels include complex-conjugate pairs. Right: opposite sign. The lowest level is itself a complex pair.](figures/ch37_f31_zero_mode_spectrum.svg){#fig-zero-mode-spectrum fig-alt="Two scatter plots of energy levels in the complex plane. Left: one isolated real level at the far left, circled, then levels along the real axis with a few conjugate pairs off the axis. Right: the leftmost level is a complex conjugate pair away from the real axis."}
 
 ## Exercises {#sec-lattice-exercises}
 

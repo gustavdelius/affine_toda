@@ -96,6 +96,7 @@ book:
     - appendices/A-algebra-data.qmd
     - appendices/B-numerics.qmd
     - appendices/C-code.qmd
+    - appendices/D-corrections.qmd
 
 bibliography: references.bib
 csl: aps.csl
