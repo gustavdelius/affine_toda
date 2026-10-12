@@ -6,10 +6,7 @@ project:
 book:
   title: "Affine Toda field theory"
   subtitle: "A graduate introduction, leading into current research"
-  author:
-    - Gustav Delius
-    - Niall MacKay
-    - Gerard Watts
+  editor: Gustav Delius
   repo-url: https://github.com/gustavdelius/affine_toda
   output-file: affine-toda
   downloads: [pdf]
