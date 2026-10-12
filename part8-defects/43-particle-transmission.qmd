@@ -1,41 +1,266 @@
 # Breather and particle transmission amplitudes {#sec-particle-transmission}
 
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
-- To be written.
+- Derive the transmission factors of the lowest breathers of $a_r^{(1)}$ from the soliton transmission matrices by the bootstrap, and see that they equal the classical linear factors at every coupling.
+- Know the particle transmission factors of the real-coupling $a_r^{(1)}$ theory with a type-I defect, and check them against unitarity, crossing, the bootstrap and the classical limit.
+- State precisely what has to be assumed to identify them with the amplitudes of the Lagrangian defect, and what supports the identification.
+- Use the limits of the factors: classical, one loop for sinh-Gordon theory, free, and $\theta_d\to\pm\infty$.
+- Survey the excited and unstable defect states found in this part, and the finite-volume methods that test transmission factors.
+- Know the open problems of affine Toda theory with defects.
 :::
 
-*This chapter is a skeleton; it is being drafted.*
+In Part VII the reflection amplitudes of the real-coupling particles came from the solitons: bootstrap the soliton reflection matrix to the lowest breather, then continue in the coupling (@sec-particle-reflection). This chapter takes the same route for defects, from the soliton transmission matrices of @sec-sg-transmission-matrix and @sec-soliton-transmission. The outcome differs in one striking way. The lowest-breather factors do not depend on the coupling at all; they are the classical linear transmission factors of @sec-classical-transmission-factors. For sine-Gordon theory Bowcock, Corrigan and Zambon found this surprising [@bcz2005, Sec. 5], and Corrigan and Zambon found it again for $a_2^{(1)}$ [@cz2007, Sec. 7]. We show that it holds for every species of $a_2^{(1)}$, $a_3^{(1)}$ and $a_4^{(1)}$. The continuation to real coupling is then trivial, and the only quantum effect left in particle transmission is the renormalization of the defect rapidity. The chapter closes Part VIII, so its last section collects the open problems of the whole part.
+
+Conventions are those of @sec-soliton-transmission: $q=-e^{-i\pi\omega}$ with the coupling $\omega=\frac{4\pi}{\beta^2}-1$ of Part VI, the principal gradation $y=e^{\omega\theta}$, the Weyl module (-@eq-dt-weyl) of $U_q(\mathfrak b^-)$, and type I$_-$ unless stated otherwise. The letter $\omega$ always means this coupling; the root of unity of @sec-defect-solitons is written $e^{2\pi i/h}$, and $\gamma_a=\frac{\pi a}h$. Every check is in `textbook_code/defect_particle_transmission.py` (8 checks, about one minute). As in @sec-soliton-transmission, the $a_r$ amplitudes below are solutions of the scattering axioms. That they describe the Lagrangian defects of @sec-defect-conditions is a conjecture, because of the quantum anomalies found by Penati and Polvara [@penati_polvara2019].
 
 ## Breather transmission {#sec-breather-transmission}
 
+**Sine-Gordon theory.** The breather $B_n$ is the singlet of $V(\theta-\frac{iu_n}2)\otimes V(\theta+\frac{iu_n}2)$, $u_n=\pi-\frac{n\pi}\lambda$, and it crosses the defect as its two constituents do, the right one first (@sec-defect-bound-states). By @prp-sg-breather-transmission the result is a scalar on $\mathcal W$, independent of the defect state and of the coupling, and for $B_1$ it is the classical factor (-@eq-shg-linear-transmission). Konik and LeClair found the independence of the defect state [@konik_leclair1999, eqs. (5.30)–(5.37)], and Bowcock, Corrigan and Zambon the independence of the coupling [@bcz2005, eq. (5.7)]. The type-II defect has the same property: its lightest-breather factor is the product of two classical type-I factors [@cz2010, eq. (3.19)].
+
+**The lowest breathers of $a_r^{(1)}$.** The soliton of species $a$ and that of species $\bar a=h-a$ bind into towers of breathers, whose lowest members scatter as the particles of the real-coupling theory continued to imaginary coupling (@sec-breather-test) [@gandenberger1995]. The lowest pole of the soliton–antisoliton amplitude lies at relative rapidity $i\pi-\frac{2\pi i}{h\omega}$ [@cz2007, eq. (7.1)], so the constituents of a breather of rapidity $\theta$ have rapidities $\theta\mp i\bar u$ with
+$$
+\bar u=\frac\pi2-\frac\pi{h\omega},
+$$
+and its mass is $2M_a\sin\frac\pi{h\omega}$, which tends to $m_a$ as $\beta\to0$. Which constituent sits on which side is fixed by the symmetry. The breather is a $U_q(a_r^{(1)})$-singlet, and a singlet exists in $(\text{species }h-a)(\theta-i\bar u)\otimes(\text{species }a)(\theta+i\bar u)$; for $a=1,r$ we checked that there is none with the imaginary shifts reversed. We call it $B^{(a)}_1$. For $a=1$ it is the singlet of $\bar V\otimes V$, and $B^{(r)}_1$ is that of $V\otimes\bar V$. The other species are bound states of vector solitons (-@eq-dt-bootstrap), so $B^{(a)}_1$ is a singlet of $h$ vector solitons at the rapidities
+$$
+\theta-i\bar u+\frac{i\pi(2m-h+a+1)}h\quad(0\le m<h-a),\qquad\theta+i\bar u+\frac{i\pi(2m-a+1)}h\quad(0\le m<a).
+$$
+For $\bar u=\frac\pi2$ this is, up to a common shift, the string $\theta'+\frac{i\pi(2m-h+1)}h$ that carries the trivial representation $\Lambda^hV$. The breather is that string with its two halves pulled together by $\frac{2\pi}{h\omega}$ in imaginary rapidity, which is where the coupling enters.
+
+The constituents cross the defect one after the other, the rightmost first, so the bootstrap gives the product of $h$ transmission matrices (-@eq-dt-tv), each with its scalar factor $g$ of (-@eq-dt-g), acting on the singlet tensored with a defect state.
+
 ::: {#prp-lightest-breather-universal}
-**[Draft]** To be written.
+## The lightest breathers see the classical defect
+**[Numerical]** Let $2\le r\le4$, let $\mathbb T_V=g\,M_V$ and $\mathbb T_{\bar V}=\bar g\,M_{\bar V}$ be the type-I$_-$ matrices of @prp-an-transmission with the scalar factors (-@eq-dt-g) and (-@eq-dt-bootstrap), at any offset $s$.
+
+1. For every species $a$, the singlet $B^{(a)}_1$ is unique in the weight-zero subspace of the $h$ vector solitons. For $a=1,r$ there is no singlet with the imaginary shifts reversed.
+2. $B^{(a)}_1$ crosses the defect with the factor
+$$
+\mathbb T_{B^{(a)}_1}(\theta)=\mathbb T^{\rm cl}_a(\theta)=\frac{e^{-(\theta-\theta_d)}+e^{i\gamma_a}}{e^{-(\theta-\theta_d)}+e^{-i\gamma_a}},
+$$
+times the identity on $\mathcal W$: the factor depends neither on the coupling $\omega$ nor on the defect state, and it is the classical factor (-@eq-an-linear-transmission) of particle $a$. Computed directly from (-@eq-dt-tv) and (-@eq-dt-tvbar), the singlet of $\bar V\otimes V$ gives $\mathbb T^{\rm cl}_1$ and that of $V\otimes\bar V$ gives $\mathbb T^{\rm cl}_r$.
+3. The factor does not depend on the offset $s$. For the class-$p$ offsets $s=\vec\lambda_p$, $p=0,1,2$, of $a_3$ it is again $\mathbb T^{\rm cl}_a(\theta)$.
+4. For $a_2^{(1)}$ the two factors are Corrigan and Zambon's [@cz2007, eq. (7.5)]: their $T^{b_1}_1$ is $\mathbb T^{\rm cl}_2$ and their $T^{b_1}_2$ is $\mathbb T^{\rm cl}_1$.
 :::
+
+::: {.proof}
+The singlet is the common null vector of $\Delta(e_j)$, $\Delta(f_j)$ and $\Delta(k_j)-1$. For two particles it was computed directly; for $h$ vector solitons it was computed in the space of weight zero, spanned by the $h!$ permutations of $v_1\otimes\dots\otimes v_h$. Its null space is one-dimensional. With the shifts reversed, the smallest relative singular value is at least $0.09$. Item 2 for $V$ and $\bar V$ was checked on the windows of @sec-soliton-transmission for $a_2$, $a_3$ and $a_4$ at $\omega=1.37$. For all species, the vector solitons were propagated through (-@eq-dt-tv) exactly, on the labels $N$ they reach, with no truncation. This was done for $h=3,4,5$, $\omega=0.6$, $1.37$, $3.1$, and real and complex $\theta$. The output is proportional to $|N\rangle\otimes(\text{singlet})$ to $3\times10^{-14}$, and the factor agrees with $\mathbb T^{\rm cl}_a$ to $2\times10^{-8}$, the accuracy of the Richardson-summed $g$. For item 3, the offsets $s=0$, $\vec\lambda_1$, $\vec\lambda_2$ and other labels $N$ of $a_3$ give the same factor to $2\times10^{-9}$. Item 4 is an identity of hyperbolic functions, checked to $10^{-15}$. It uses the labels of @prp-an-linear-transmission (item 5): Corrigan and Zambon's defect matrix is the transpose of the book's, so their species 1 is the book's species 2 (`textbook_code/defect_particle_transmission.py`, checks (b1), (b2)).
+:::
+
+For $a_5^{(1)}$ a separate run of the same code, at $\omega=1.37$ and one complex rapidity, gives $\mathbb T^{\rm cl}_a$ for all five species to $5\times10^{-9}$; it takes about ten minutes and is not in the script. We expect @prp-lightest-breather-universal for every $r$. A proof is open (@sec-defect-open-problems, problem 9).
+
+**What the result means.** Each constituent carries the scalar factor $g$, an infinite product of Gamma functions that depends on $\omega$ through $z\propto\omega(\theta-\theta_d)$. Each also carries a matrix part in which the conjugate species tunnel to classically forbidden charges (@prp-an-transmission, item 4). All of this cancels on the singlet, and what remains is a rational function of $e^{\theta-\theta_d}$ with one zero and one pole. The pole sits at $\theta_d-i(\pi-\gamma_a)$, outside the physical strip, and the factor does not see the unstable defect states of @sec-an-defect-bound-states. This is a statement about the soliton matrices, and it holds whatever their relation to a Lagrangian. Corrigan and Zambon, who found it for $a_2$, used it as evidence that their matrices describe the jump defect [@cz2007, Sec. 7]. In the book's blocks (-@eq-blocks), with argument $\theta-\theta_d$,
+$$
+\mathbb T^{\rm cl}_a=-\frac{e^{i\pi a/h}}{(h-a)},\qquad\mathbb T^{\rm cl}_{+,a}=\frac{e^{i\pi a/h}}{(a)},
+$$
+the second for type I$_+$ (@exr-dpt-telescope). The defect therefore acts on each breather as a single block, a defect CDD factor in the sense of @sec-defect-unitarity-crossing.
+
+**Defects of class $p$.** By item 3 the offset drops out. By @sec-an-defect-bound-states, a defect of class $p$ is expected to transmit vector solitons with $g(\theta-\frac{2\pi ip}h)M_V$, the shift of $\theta_d$ carrying the stored energy. Its breather factor is then $\mathbb T^{\rm cl}_a(\theta-\frac{2\pi ip}h)$. This is the classical factor about a class-$p$ jump (@prp-an-linear-transmission, item 4), and it is a phase only for $2p\equiv0$ mod $h$. The scalar factor of a class-$p$ defect has not been derived, so this last step is not checked.
+
+**Higher breathers.** For sine-Gordon theory the bulk bootstrap gives $\mathbb T_{B_n}$ as a product of $n$ shifted copies of $\mathbb T_{B_1}$ (@prp-sg-breather-transmission). For $a_r$ the same holds if $B^{(a)}_n$ is a bound state of $B^{(a)}_{n-1}$ and $B^{(a)}_1$ at the angles that give the masses $2M_a\sin\frac{n\pi}{h\omega}$. The factors are then $\prod_{k=1}^n\mathbb T^{\rm cl}_a\big(\theta+\frac{i\pi(n+1-2k)}{h\omega}\big)$, which do depend on the coupling. We have not checked this against the soliton matrices.
 
 ## Particle transmission in $a_r$ {#sec-an-particle-transmission}
 
+At real coupling the particles of $a_r^{(1)}$ are the lowest breathers continued in the coupling (@sec-breather-test). Under $\beta^2\to-\beta^2$, $\omega\to-2/B$ (@sec-continuation-assumptions), and a factor that does not depend on $\omega$ continues to itself. The candidate particle transmission factors are therefore
+$$
+\mathbb T_a(\theta)=\frac{e^{-(\theta-\theta_d)}+e^{i\pi a/h}}{e^{-(\theta-\theta_d)}+e^{-i\pi a/h}},\qquad
+\bar{\mathbb T}_a(\theta)=\mathbb T_{\bar a}(i\pi-\theta),
+$$ {#eq-dpt-particle}
+for type I$_-$, with $\theta_d$ the quantum defect rapidity, and $\mathbb T^+_a(\theta)=\frac{e^{\theta-\theta_d}-e^{i\pi a/h}}{e^{\theta-\theta_d}-e^{-i\pi a/h}}$ for type I$_+$. For $a_1^{(1)}$ (-@eq-dpt-particle) is the sinh-Gordon factor of Bajnok and Simon (@sec-sg-breather-transmission). At real coupling there is a single vacuum and no topological charge, so the defect has no internal states; with the diagonal bulk S-matrix the triangle relations are then empty (@sec-triangle-relations). The conditions are defect unitarity (-@eq-defect-unitarity), crossing (-@eq-defect-crossing), which exchanges $a$ and $\bar a$, and the bulk bootstrap of @sec-defect-bound-states,
+$$
+\mathbb T_c(\theta)=\mathbb T_a(\theta+i\bar u_a)\,\mathbb T_b(\theta-i\bar u_b),
+$$
+with no scattering factor. Particles $a$ and $b$ of $a_r^{(1)}$ fuse in two ways (@sec-an-smatrix). For $a+b<h$ they fuse to $a+b$ with $\bar u_a=\frac{\pi b}h$, $\bar u_b=\frac{\pi a}h$. For $a+b>h$ they fuse to $a+b-h$ with $\bar u_a=\frac{\pi(h-b)}h$, $\bar u_b=\frac{\pi(h-a)}h$.
+
 ::: {#prp-an-particle-transmission}
-**[Draft]** To be written.
+## Particle transmission factors of $a_r^{(1)}$
+**[Numerical]** For $h=2,\dots,8$ and both types, the factors (-@eq-dpt-particle) and $\mathbb T^+_a$:
+
+1. satisfy defect unitarity and crossing, in the combined form $\mathbb T_a(\theta)\,\mathbb T_{\bar a}(\theta+i\pi)=1$;
+2. satisfy the bulk bootstrap at every fusing of $a_r^{(1)}$; the fusing angles $\frac{\pi(a+b)}h$ and $\frac{\pi(2h-a-b)}h$ are poles of (-@eq-an-smatrix);
+3. are phases for real $\theta$ and real $\theta_d$, and satisfy Hermitian analyticity $\bar{\mathbb T}_a(\theta)=\overline{\mathbb T_a(-\theta)}$ for real $\theta$;
+4. have no pole in the physical strip for real $\theta_d$. The pole of $\mathbb T_a$ is at $\theta_d-i(\pi-\gamma_a)$ and that of $\mathbb T^+_a$ at $\theta_d-i\gamma_a$;
+5. are, at every coupling, the linear transmission factors of the classical defect about $\vec\phi=\vec\psi=0$, with no reflection.
+
+That they are the amplitudes of the real-coupling Lagrangian defect is @cnj-transmission-continuation.
 :::
+
+::: {.proof}
+Items 1–4 hold to $10^{-14}$ at sample rapidities (`textbook_code/defect_particle_transmission.py`, check (c)). By hand, the bootstrap telescopes: $\cosh\frac12(D-i\gamma_a+i\gamma_b)$ cancels between the two factors (@exr-dpt-telescope). For item 5, the script linearizes the defect conditions (-@eq-defect-conditions) with the potential of `defect_common.py`. On the eigenvector of $\pi$ with eigenvalue $e^{2\pi ia/h}$, where $\mathsf D=1+i\cot\gamma_a$, it finds $R=0$ and $\mathbb T^{\rm cl}_a$ for type I$_-$ and $\mathbb T^{\rm cl}_{+,a}$ for type I$_+$, for $r=2,3,4$, to $3\times10^{-15}$ (check (d)). This re-derives @prp-an-linear-transmission independently.
+:::
+
+**Unitarity.** The real-coupling theory is unitary, and so is its defect: by item 3, $\mathbb T_a$ is a phase, and Hermitian analyticity holds as in @sec-defect-unitarity-crossing. The soliton matrices of the imaginary-coupling theory are not unitary for $r\ge2$ (@sec-transmission-unitarity-crossing). On the breather singlets the non-unitary parts cancel.
+
+**CDD ambiguities.** The axioms fix (-@eq-dpt-particle) only up to defect CDD factors $\Phi_a$ with $\Phi_a(\theta)\Phi_{\bar a}(\theta+i\pi)=1$ that satisfy the bootstrap. Three kinds are easy to write down:
+
+- a type-I factor at another rapidity $\theta_d'$, which describes two defects side by side;
+- a bulk amplitude $S_{ae}(\theta-\theta_0)$ of (-@eq-an-smatrix), a standing particle of species $e$ at rapidity $\theta_0$ [@bajnok_george2006] (check (c));
+- coupling-dependent factors, such as the shifted bulk CDD factors of @sec-defect-unitarity-crossing.
+
+The soliton route removes this freedom in the same way as on the half-line, by assuming that the soliton scalar factor $g$ is the minimal solution (-@eq-dt-g). A soliton defect CDD factor $f(\theta-\theta_d)$ with $f(\theta)f(\theta+i\pi)=1$ multiplies the breather factor by a product of $h$ shifted copies of $f$. In general that product depends on the coupling, and @prp-lightest-breather-universal would fail. Minimality is therefore part of @cnj-transmission-continuation, as it was of @cnj-reflection-continuation.
+
+**No bound states.** By item 4, a particle never binds to the defect when $\theta_d$ is real; the only defect state at real coupling is the ground state. All the excited and unstable defects of @sec-sg-defect-spectrum and @sec-an-defect-bound-states are made from solitons, and they have no counterpart in the real-coupling theory. For imaginary $\theta_d$ the factors do have bound-state poles (@sec-defect-spectrum).
 
 ## Continuation from breathers to particles {#sec-transmission-continuation}
 
-::: {#cnj-transmission-continuation}
-**[Draft]** To be written.
+On the half-line, three things had to continue besides the amplitude: the boundary condition, the vacuum and the identification of the soliton matrix with the boundary (@sec-continuation-assumptions). The same three enter here, and a fourth, the quantum integrability of the defect itself.
+
+1. **Minimality.** The scalar factor $g$ is the minimal solution (-@eq-dt-g), with no soliton CDD factor (above).
+2. **Vacuum.** The particles scatter about $\vec\phi=\vec\psi=0$. For real $\sigma>0$ this is the unique vacuum (@prp-dpt-vacuum). For $\sigma<0$, the classical counterpart of the odd sine-Gordon defect $\theta_d\to\theta_d+i\pi$, the real-coupling energy is unbounded below. For complex $\sigma$, $\Theta$ is broken (@prp-defect-theta).
+3. **Parameter.** The quantum $\theta_d$ is a function of $\sigma$ and $\beta$. For sinh-Gordon theory @cnj-defect-parameter gives $\theta_d=(1-\frac B2)\theta_d^{\rm cl}$, $\sigma=e^{-\theta_d^{\rm cl}}$.
+4. **Integrability.** The Lagrangian defect must define an integrable quantum theory. Penati and Polvara found spin-3 anomalies for $a_r$, $r>1$, and spin-4 anomalies for sinh-Gordon theory, which no finite renormalization of $\mathcal B_d$ removes [@penati_polvara2019, Sec. 5].
+
+::: {#prp-dpt-vacuum}
+## The vacuum of the real-coupling defect
+**[Theorem]** At real coupling and for real fields, $\mathcal B_d^{\rm I_\mp}(\vec\phi,\vec\psi;\sigma)\ge0$ for $\sigma>0$, with equality only at $\vec\phi=\vec\psi=0$. So $\vec\phi=\vec\psi=0$ is the unique minimum of the static energy. For $\sigma<0$, $\mathcal B_d$ is unbounded below.
 :::
+
+::: {.proof}
+In $\mathcal B_d=\frac m{\beta^2}\sum_j[\sigma(f_j-1)+\sigma^{-1}(g_j-1)]$ the exponents of $f_j$ and of $g_j$ sum to zero over $j$, since $\sum_j\vec\alpha_j=0$. By convexity, $\sum_j(f_j-1)\ge\sum_j\log f_j=0$, with equality only if every $f_j=1$, and likewise for the $g_j$. All $g_j=1$ means $\mathsf D(\vec\phi-\vec\psi)=0$, so $\vec\phi=\vec\psi$ because $\mathsf D$ is invertible. Then all $f_j=1$ means $(\mathsf D+\mathsf D^{\mathsf T})\vec\phi=2\vec\phi=0$. Type I$_+$ is $\sigma\to1/\sigma$. The bulk energy is non-negative and vanishes only on constant zero fields. For $\sigma<0$ both terms come with negative coefficients and grow without bound. Check (g) samples random fields for $r=2,3$ and both types (`textbook_code/defect_particle_transmission.py`).
+:::
+
+::: {#cnj-transmission-continuation}
+## Continuation of transmission amplitudes
+**[Conjecture]** Suppose the type-I$_-$ defect (-@eq-defect-potential) of the real-coupling $a_r^{(1)}$ theory with real $\sigma>0$ defines an integrable quantum field theory. Then its particles cross the defect without reflection, with the transmission factors of the breathers $B^{(a)}_1$ obtained from the minimal soliton transmission matrices of @sec-soliton-transmission (or @sec-sg-transmission-matrix for $r=1$) and continued by $\omega\to-2/B$. These factors are (-@eq-dpt-particle), with a defect rapidity $\theta_d(\sigma,\beta)$ that tends to $-\ln\sigma$ as $\beta\to0$. The same holds for type I$_+$ with $\mathbb T^+_a$.
+:::
+
+The evidence, in decreasing order of strength:
+
+- **Sinh-Gordon theory.** For $r=1$ the conjecture gives Bajnok and Simon's factor. They obtained it independently, by fusing the defect onto a boundary and assuming the boundary UV–IR relation [@bajnok_simon2008, eqs. (16)–(17)]. Their one-loop calculation confirms both its form and the renormalization of the parameter, and finds no reflection at $O(b^2)$ [@bajnok_simon2008, Sec. 4.2]. The ultraviolet limit of their defect TBA reproduces the defect energy [@bajnok_simon2008, Sec. 5].
+- **Classical limit.** For every $r$ and both types, the factors equal the linearized factors of the classical defect (item 5 of @prp-an-particle-transmission). This is exact at every coupling, so beyond the classical limit it tests nothing except the parameter.
+- **Consistency.** The factors satisfy every axiom, and their poles need no explanation, since there are none in the physical strip. The same was the a posteriori justification on the half-line (@sec-boundary-spectrum-a2).
+- **The soliton route.** @prp-lightest-breather-universal derives the factors from the soliton matrices for $r\le4$, for type I$_-$. Those matrices are themselves tied to the Lagrangian only through their classical limits (@sec-soliton-transmission). For type I$_+$ the breather factors have not been computed (@sec-defect-open-problems, problem 7), and only the classical limit and the axioms support the conjecture.
+
+What is not tested is everything quantum for $r\ge2$. No one-loop, TBA or truncated-space calculation exists for an $a_r$ defect. The conjecture makes a sharp prediction for such a calculation. At one loop the corrections to all the factors are $\delta\theta_d\,\partial_{\theta_d}\mathbb T_a$, with one $\delta\theta_d$ for all species, and there is no reflection and no change of species. A species-dependent shift, or reflection, would signal the anomaly of Penati and Polvara in a scattering observable.
+
+**Comparison with reflection.** On the half-line the continuation changed the amplitudes, since the breather factors depended on $\omega$ (@sec-continuation-assumptions), and the boundary parameters $C_j$ of $a_n^{(1)}$, $n\ge2$, were discrete and did not renormalize. For the defect it is the other way round. The amplitude does not change, and all the quantum information sits in the continuous parameter $\theta_d(\sigma,\beta)$. For sinh-Gordon theory this is $(1-\frac B2)\theta_d^{\rm cl}$. For $a_r$ the natural guess is the same, which is $\omega\theta_d=(\omega+1)\theta_d^{\rm cl}$ at imaginary coupling, as in @cnj-defect-parameter, but nothing tests it.
 
 ## Limits and checks {#sec-transmission-limits}
 
+**The classical limit.** As $\beta\to0$ at fixed $\sigma$, (-@eq-dpt-particle) tends to the linear factor with $\theta_d=\theta_d^{\rm cl}$. At imaginary coupling the breather factors equal the linear factors at every $\omega$, so the classical limit of the quantum soliton matrices, taken through the breathers, is exactly @prp-an-linear-transmission (check (d)). The soliton matrices themselves reach their classical limit only as $\omega\to\infty$, through the semiclassical phase of $g$ (@prp-transmission-semiclassical).
+
+**One loop: sinh-Gordon theory.** Bajnok and Simon's classical factor, $-(m\sinh\mu-i\omega_k)/(m\cosh\mu-ik)$ with $(\omega_k,k)=m(\cosh\theta,\sinh\theta)$, is $\mathbb T^{\rm cl}$ with $\mu=-\theta_d^{\rm cl}$; write it $\mathbb T^{\rm cl}(\theta;\mu)$. At one loop they find [@bajnok_simon2008, Sec. 4.2]
+$$
+\mathbb T(\theta)=\mathbb T^{\rm cl}(\theta;\mu)+\frac{\mu b^2}{8\pi}\,\frac1{1-i\sinh(\theta+\mu)}+O(b^4),
+$$
+with $b$ the sinh-Gordon coupling. This is exactly the $O(b^2)$ term of $\mathbb T^{\rm cl}\big(\theta-(1-\frac B2)\theta_d^{\rm cl}\big)$, with $\frac B2=\frac{b^2}{8\pi+b^2}$, because $\partial_\mu\mathbb T^{\rm cl}(\theta;\mu)=-1/(1-i\sinh(\theta+\mu))$ (@exr-dpt-bs; check (e)). So at one loop the whole quantum correction is the renormalization of $\theta_d$, and the naive $\theta_d=\theta_d^{\rm cl}$ is ruled out, as stated in @cnj-defect-parameter. For $r\ge2$ there is no perturbative calculation.
+
+**The free limit.** As $\beta\to0$ the bulk S-matrix tends to 1, but $\mathbb T_a$ does not. The limit is a free massive field with the quadratic defect obtained by linearizing (-@eq-defect-potential), and that defect is itself integrable and transmits with $\mathbb T^{\rm cl}_a$. In the same way the uniform reflection amplitude tends to the linear reflection factor, not to 1 (@prp-uniform-amplitude, item (iv)).
+
+**Weak–strong duality.** The bulk amplitudes are invariant under $B\to2-B$ (@sec-strong-weak), and so is (-@eq-dpt-particle) at fixed $\theta_d$. Unlike the uniform boundary, which duality maps to the Neumann boundary (@sec-neumann-duality), the defect family is mapped to itself. If the parameter renormalizes as for sinh-Gordon theory, the defect with parameter $\sigma$ at coupling $\beta$ is dual to the defect with $\theta_d'^{\rm cl}=\frac{2-B}B\,\theta_d^{\rm cl}$ at $4\pi/\beta$. This is a consequence of @cnj-transmission-continuation and @cnj-defect-parameter, not an independent check.
+
+**$\theta_d\to\pm\infty$.** For type I$_-$, $\mathbb T_a\to1$ as $\theta_d\to+\infty$ and $\mathbb T_a\to e^{2\pi ia/h}$ as $\theta_d\to-\infty$; for type I$_+$ the two limits are exchanged (check (d)). These are the transparent line and the invertible line of the rotation $\pi$, which acts on particle $a$ by its $\mathbb Z_h$ charge (@prp-an-linear-transmission, item 3). This is the particle form of @prp-defect-twist-limit. For $\theta-\theta_d\to-\infty$ the soliton matrices become a superposition of twist lines, one for each value of the stored charge; the particles are neutral, so they see only the trivial twist. For $\theta-\theta_d\to+\infty$ the soliton matrices become the rotation $\pi$ dressed by a shift of the defect charge (@sec-an-soliton-transmission), and the particles see its eigenvalue.
+
 ## The defect spectrum {#sec-defect-spectrum}
+
+The poles of the transmission amplitudes found in this part fall into two classes. A particle pole would describe a particle bound to the defect, with energy $e_\alpha+m_a\cos u$ (@sec-defect-bound-states). A soliton pole describes a defect that has absorbed a soliton; its energy is that of a soliton at a complex rapidity, so for real $\theta_d$ it is complex.
+
+| Theory and defect | Stable excited defects | Unstable states, resonances | Status, where |
+|---|---|---|---|
+| Lee–Yang, $\mathbb T_b$ | $\lvert1^+\rangle$ for $-1<b<2$, $\lvert2^+\rangle$ for $1<b<2$; the defect rapidity $\frac{i\pi(3-b)}6$ is imaginary | — | [Established] [@bajnok_simon2008]; @sec-defect-lee-yang |
+| sinh-Gordon, real $\theta_d$ | none: $\mathbb T$ is a pure CDD factor | none | [Established]; @sec-sg-breather-transmission |
+| sine-Gordon, type I, real $\theta_d$ | none in $0<\operatorname{Im}\theta<\pi$ | $\theta_d-\frac{i\pi}{2\lambda}$, decaying for $\lambda>1$, $\theta_d>0$; the bootstrap gives the odd defect at $\theta_d-i\pi$ | [Numerical]; @sec-sg-defect-spectrum |
+| sine-Gordon, type I, $\theta_d=iv$ | pole in the strip for $\frac\pi{2\lambda}<v<\frac\pi2+\frac\pi{2\lambda}$; $\Theta$ broken | — | by hand; @sec-sg-defect-spectrum |
+| sine-Gordon, type II | — | $\theta_d\pm\tau-\frac{i\pi}{2\lambda}$ | quoted [@cz2010]; @sec-type-two |
+| $a_r$ solitons, type I$_-$, class $p$, $0<a+2p\le h$ | candidates at $\theta_d=0$ for $a+2p>\frac h2$ and $\frac1\omega<a+2p-\frac h2$ | species $a$ at $\theta_d-i(\frac\pi2-\frac{\pi(a+2p)}h)-\frac{i\pi}{h\omega}$, unstable for $\max(0,a+2p-\frac h2)\le\frac1\omega<a+2p$; residue of rank $h-1$; absorption of a vector soliton takes class $p$ to $p+1$ | [Numerical] for $p=0$, $a=1,r$ ($a_2$–$a_4$); by hand otherwise; @sec-an-defect-bound-states |
+| $a_2^{(2)}$, type II | — | two poles, unstable for $\frac\pi6<\xi<\frac{2\pi}3$ and $-\frac\pi6<\xi<\frac\pi3$ | quoted [@cz2011]; @sec-a22-transmission |
+| $a_r$ particles, real $\theta_d$ | none | none | [Numerical]; @prp-an-particle-transmission |
+| $a_r$ particles, $\theta_d=iv$ | particle $a$ at $i(v-\pi+\gamma_a)$ for $\pi-\gamma_a<v<\frac{3\pi}2-\gamma_a$; $\Theta$ broken | — | by hand; @exr-dpt-imaginary |
+
+: Excited and unstable defect states found in Part VIII, for type-I$_-$ defects unless stated. Rapidities are pole positions of $\mathbb T$ for a particle or soliton arriving from the left; $\bar{\mathbb T}$ has the mirror poles. {#tbl-dpt-spectrum}
+
+**Reading the table.** At real $\theta_d$ no affine Toda defect has a stable excited state. The real-coupling particles do not bind. The imaginary-coupling solitons are absorbed at complex rapidities, so the absorbed state decays, or has the wrong sign of $\operatorname{Im}E$ and needs a separate analysis (@sec-an-defect-bound-states). These states are the quantum form of the classical absorption of @prp-ds-absorption. Their windows of coupling and the change of class are in @prp-a2-unstable. Stable excited states need either $\theta_d=0$, where some species-$a$ soliton poles of $a_r$ reach the imaginary axis, or an imaginary $\theta_d$. An imaginary $\theta_d$ makes $\sigma$ a phase, which breaks $\Theta$ (@prp-defect-theta). That is the situation of the Lee–Yang defect, which is non-unitary to begin with (@sec-defect-lee-yang). For the real-coupling particles with $\theta_d=iv$, the energy of the bound state is $m_a\cos(v-\pi+\gamma_a)$. By (-@eq-defect-bootstrap) the excited defect then transmits particle $b$ with $S_{ba}(\theta-iu)\,\mathbb T_b(\theta)$, $u=v-\pi+\gamma_a$, which depends on the coupling. We have not analysed its poles.
+
+**Defects in front of boundaries.** Fused onto a Dirichlet boundary, the sine-Gordon type-I defect becomes the Ghoshal–Zamolodchikov boundary with $\vartheta=\lambda\theta_d$ (@prp-defect-fusion-k). Its boundary bound states (@sec-bsg-spectrum) are therefore the excited states of the fused system. For $a_r$ the fused systems are new dynamical boundaries, and their quantum spectra are not known (@prp-fused-bdg).
 
 ## Defects in finite volume {#sec-defect-finite-volume}
 
+@sec-defect-finite-size described three methods that compute finite-volume quantities from transmission factors, or test them. Here is what has been done with each, and what the factors of this chapter would add.
+
+- **The defect TBA.** Bajnok and Simon wrote the ground-state TBA on a circle with a sinh-Gordon or Lee–Yang defect. The defect enters through the driving term $-\log\bar{\mathbb T}(\frac{i\pi}2-\theta)$, and the ultraviolet limit reproduces the bulk and defect energies, $\varepsilon_{\rm def}=m\cosh\theta_d/(2\sin\frac{\pi B}2)$ for sinh-Gordon theory [@bajnok_simon2008, Sec. 5, eq. (18)]. With (-@eq-dpt-particle), the $a_r$ defect TBA would have the driving terms $-\log\mathbb T_{\bar a}(\frac{i\pi}2+\theta)$. For real $\theta_d$ these are complex conjugate for $a$ and $\bar a$, so the ground-state energy would be real. This TBA has not been written down or solved.
+- **The defect truncated conformal space approach.** Bajnok, Holló and Watts treated the scaling Lee–Yang model as a conformal theory with a topological defect, perturbed in the bulk and on the defect. They compared the finite-volume spectra with the defect TBA and the Lüscher correction, including the defect bound states [@bhw2014]. For affine Toda theory this would need the perturbed-defect description of @sec-perturbed-defects, with defect fields of both chiralities whose couplings are tied to $\sigma$. It has not been attempted.
+- **Perturbed defects in minimal models.** Kormos, Runkel and Watts studied the renormalization-group flows of perturbed topological defects with the truncated conformal space approach [@kormos_runkel_watts2009].
+- **Entanglement.** Using the form-factor bootstrap, Jiang found that a purely transmitting defect leaves the entanglement entropy of an integrable theory unchanged in the ultraviolet limit, and changes only the leading infrared corrections, for unitary and non-unitary theories alike [@jiang2017] (from the abstract).
+
+These methods are how the boundary amplitudes of @sec-particle-reflection were tested beyond perturbation theory [@akr2002]. For defects they are the obvious tests of @cnj-transmission-continuation and of the UV–IR relation $\theta_d(\sigma,\beta)$.
+
 ## Open problems {#sec-defect-open-problems}
+
+One question left open in @sec-jump-coideal can be settled here with the matrices of @sec-soliton-transmission, before the list. Write the type-I$_-$ matrices of @sec-an-soliton-transmission in the doubled picture of @sec-jump-coideal. A generator $x$ of a twisted diagonal $(1\otimes\psi)\Delta(U_q(\mathfrak b^\pm))$ acts on $\mathcal W$ through unknown operators $Y=\chi(x)$ and $\kappa$. By (-@eq-dbd-coproduct) the block $P\mathbb T$ of the doubled K-matrix intertwines $x$ exactly when
+$$
+\mathbb T\big[\pi(e_j)\otimes1+\pi(k_j)\otimes Y\big]=\big[Y\otimes1+\kappa\otimes\pi(e_{\psi(j)})\big]\mathbb T,\qquad
+\mathbb T\big[\pi(f_j)\otimes\kappa+1\otimes Y\big]=\big[Y\otimes\pi(k_{\psi(j)})^{-1}+1\otimes\pi(f_{\psi(j)})\big]\mathbb T,
+$$
+for $e$- and $f$-type generators (@exr-dpt-doubled).
+
+::: {#prp-dpt-doubled}
+## Two Borel symmetries of the $a_r$ jump defect
+**[Numerical]** For the type-I$_-$ matrices (-@eq-dt-tv) and (-@eq-dt-tvbar) of $a_2$ and $a_3$ at a generic offset, the $f$-type equations with $\psi=\mathrm{id}$ and the $e$-type equations with $\psi(e_j)=e_{j-1}$, the rotation $\pi$ of @sec-defect-solitons, have solutions $Y$, $\kappa$ that do not depend on $\theta$ and are common to $V$ and $\bar V$. The $e$-type equations with $\psi=\mathrm{id}$ or $\pi^{-1}$, and the $f$-type equations with $\psi=\pi^{\pm1}$, have none. So the doubled boundary keeps $\Delta(U_q(\mathfrak b^-))$ and $(1\otimes\pi)\Delta(U_q(\mathfrak b^+))$, as @sec-jump-coideal expected.
+:::
+
+::: {.proof}
+The equations are linear and inhomogeneous in $Y$ and $\kappa$, whose weights are fixed by charge conservation: $\alpha_j$ and $\alpha_j-\alpha_{\psi(j)}$ for the $e$-type equations, $-\alpha_{\psi(j)}$ and $\alpha_j-\alpha_{\psi(j)}$ for the $f$-type equations. They were solved by least squares on the windows of @sec-soliton-transmission, for $V$ and $\bar V$ together. For $a_2$ every node and three rapidities were used; for $a_3$, nodes 0 and 1 and two rapidities. The residuals are $6\times10^{-15}$ for the two symmetries and at least $0.67$ for the others (`textbook_code/defect_particle_transmission.py`, check (f)). A scratch run over all nodes of $a_3$ gives the same pattern. The $f$-type case with $\psi=\mathrm{id}$ is @prp-diagonal-borel (1). As for sine-Gordon theory, the $e$-type solution leaves free constants. We have not checked that some choice of them makes $Y$ and $\kappa$ a module of $U_q(\mathfrak b^+)$.
+:::
+
+This list covers the whole of Part VIII. Problems 1–4 concern the Lagrangian and its integrability; 5–6 other algebras and the fusion of defects; 7–10 the transmission matrices, the breather result of this chapter and the spectrum; 11–13 the algebraic structures of @sec-defect-qg and @sec-defect-boundary; 14–15 reality and finite volume. Problem 10 of @sec-boundary-open-problems, on defects, is the subject of this part.
+
+1. **Anomalies and quantum integrability.** Penati and Polvara found that the spin-3 charge of the $a_r$ Lagrangian defect, $r>1$, and the spin-4 charge of the sinh-Gordon defect acquire anomalies that no finite renormalization of $\mathcal B_d$ removes. Momentum conservation, in contrast, is restored by rescaling $\mathcal B_d$ by $\sqrt{1+\gamma/2}$ [@penati_polvara2019, Secs. 4–5]. Bajnok and Simon's one-loop calculation sees only a renormalization of $\theta_d$ and no reflection [@bajnok_simon2008, Sec. 4.2]. The axiomatic matrices of @sec-sg-transmission-matrix and @sec-soliton-transmission, and the factors (-@eq-dpt-particle), are consistent solutions of the axioms. What is missing is a quantum Lagrangian, perhaps with an auxiliary field as Penati and Polvara suggest, or with further defect counterterms, that is integrable and has these amplitudes. Also missing is a calculation that decides whether the anomalies appear in an observable. The one-loop $a_2$ transmission factors are the simplest such test (@sec-transmission-continuation).
+2. **The second chirality.** Classically both spin-$\pm2$ charges survive for both types (@prp-spin-two); Penati and Polvara assumed that the spin $-2$ charge is lost [@penati_polvara2019, App. B]. In the quantum theory the type-I$_-$ defect keeps $U_q(\mathfrak b^-)$ untwisted and the same-chirality half $U_q(\mathfrak b^+)$ only twisted by a diagram automorphism, $\tau$ for sine-Gordon theory and the rotation $\pi$ for $a_r$ (@prp-diagonal-borel, @prp-dpt-doubled). At first order, Konik and LeClair's argument produces defect terms for the same-chirality charges that change the defect state (@sec-perturbed-defects). Whether the local charges of both chiralities survive quantization, in which twisted form, and what happens to the same-chirality terms beyond first order, is open.
+3. **The defect UV–IR relation.** For sinh-Gordon theory, $\theta_d=(1-\frac B2)\theta_d^{\rm cl}$ (@cnj-defect-parameter) rests on the conjectured boundary UV–IR relation and is confirmed at one loop. Its continuation to sine-Gordon theory, $\lambda\theta_d=(\lambda+1)\theta_d^{\rm cl}$, agrees with the Dirichlet fusion of @prp-defect-fusion-k and the continued Zamolodchikov relation (@cnj-bsg-uv-ir), which is itself conjectural. A direct test is still needed, for example a defect TBA or truncated-space calculation, or the semiclassical quantization of the resonance. For $a_r$ the same factor is a guess (@sec-transmission-continuation). The scale renormalizations of Bajnok and Simon and of Penati and Polvara have not been matched; that needs a two-loop calculation in one scheme.
+4. **Classical integrability.** Prove or refute @cnj-momentum-integrability, that momentum conservation implies a defect Lax matrix and infinitely many charges, also for defects with auxiliary fields. Carry Caudrelier's proof of Liouville integrability in the time-like bracket [@caudrelier2015] over to the $a_r^{(1)}$ type-I defects (@sec-defect-r-matrix). Explain the discrepancies that Avan and Doikou report between the algebraic and Lagrangian charges [@avan_doikou2012b].
+5. **Beyond $a_r^{(1)}$.** Type-I defects exist only for $a_r^{(1)}$ (@prp-ar-only). Type-II defects are known for $a_n^{(1)}$, $b_n^{(1)}$, $c_n^{(1)}$, $d_n^{(1)}$ and $a_2^{(2)}$, and others come from folding [@bristow_bowcock2017; @cz2009b; @robertson2014a] (@sec-type-two-atft, @sec-defect-folding). No defect is known for $e_6^{(1)}$, $e_7^{(1)}$, $e_8^{(1)}$. Quantum transmission matrices exist only for $a_2^{(2)}$ [@cz2011]. For that case, what remains is the comparison of gauge invariants with [@cz2011, eqs. (3.11), (4.14)], the scalar factor, the dictionary to rapidity and coupling, the unstable poles, the semiclassical test and the lightest-breather factor. Corrigan and Zambon find that factor equal to the classical one [@cz2011, eqs. (3.14)–(3.15)], quoted in @sec-a22-transmission. With the type-II sine-Gordon result [@cz2010, eq. (3.19)] this suggests that @prp-lightest-breather-universal holds for every integrable jump defect.
+6. **Fusing defects: the frozen soliton.** Classically, a type-I$_-$ and a type-I$_+$ defect at complex-conjugate parameters act as a soliton of species $c$ followed by the rotation $\pi$ (@prp-defect-frozen-soliton). Is the quantum transmission matrix of the fused pair the soliton S-matrix times the $\pi$-line, as Corrigan and Zambon found for sine-Gordon theory [@cz2010, Sec. 4]? Is the pair one of the $a_r$ type-II defects of [@cz2011]? At the breather level the test is a scalar identity: the product of a type-I$_-$ and a type-I$_+$ breather factor at shifted, coupling-dependent rapidities should equal $e^{2\pi ib/h}$ times the breather–soliton amplitude, which does not depend on the member of the soliton multiplet [@gandenberger1998]. This also needs the type-I$_+$ breather factors (problem 7). Robertson's fusing rules and his fused $a_3$ matrix [@robertson2014b] have not been checked.
+7. **The type-I$_+$ matrices and the universal R-matrix.** For type I$_+$ the matrix of the vector solitons, its scalar factor, the class shift $-\frac{2\pi ip}h$ and the breather factors, which we expect to be $\mathbb T^{\rm cl}_{+,a}$, are not known in closed form (@sec-an-soliton-transmission). Hypothesis (ii) of @thm-t-triangle has been checked only for $a_2$, and uniqueness only for $r\le3$. The diagonal entries of (-@eq-dt-tv) are read as the Cartan factor of the universal R-matrix, but the universal R-matrix of $U_q(a_r^{(1)})$ has not been evaluated on $\mathcal W$ (@sec-transmission-unitarity-crossing).
+8. **The sign of $q$ for $h$ odd.** In the book's conventions crossing selects $q=-e^{-i\pi\omega}$, for $h$ odd with every constant conjugation (@prp-transmission-crossing). For sine-Gordon theory and $h$ even, a Klein-factor redefinition of the exchange algebra relates the two signs (@sec-sg-transmission-matrix). Whether an analogous redefinition exists for $h$ odd is open.
+9. **Why are the breathers classical?** Prove @prp-lightest-breather-universal for all $r$, and find the mechanism. On the singlet, the Gamma functions of $h$ shifted scalar factors cancel against the matrix parts, leaving a single block. A proof might come from the Q-operator picture of problem 11, in which the breather singlet should act on the defect operator by a scalar. It should also say why only the lowest breathers are independent of the coupling.
+10. **The defect spectrum.** At the species-$a$ pole the residue of $\mathbb T_V$ has rank $h-1$. Its kernel is the class-shifted defect, but what does the $(h-1)$-dimensional image describe (@sec-an-defect-bound-states)? The candidate stable states at $\theta_d=0$ for $a>\frac h2$ (@tbl-dpt-spectrum) need their residues in $\mathbb T_{\bar V}$, their bootstrap and their energies. For imaginary $\theta_d$, stable excited defects exist for sine-Gordon solitons and for $a_r$ particles (@tbl-dpt-spectrum). Do they define consistent non-unitary theories, as the Lee–Yang defect does, and what are their Coleman–Thun diagrams? The scalar factors of the excited defects, and the meaning of the poles with $\operatorname{Im}E>0$, are also open.
+11. **Q-operators and the TQ relation.** The Weyl-module defect operator satisfies the TQ relation of @cnj-defect-tq for $N\le6$. The mechanism is not new. The divergent Weyl trace, its delta factor and the matrix that remains after removing it are in Rossi and Weston, who also checked a TQ relation in the neutral sector up to $N=10$ [@rossi_weston2002, Secs. 4.3–5]. The functional relations come from exact sequences of Borel modules [@blz1997; @weston2010, Sec. 2.4.1]. What is missing is the translation of that construction into the book's inhomogeneous inverse-L normalization with the sector twist $\omega_m=q^{-m/2}$ (here $\omega_m$ is a twist, not the coupling), with the scalar factors and the physical residues, and a proof for all $N$. Also open: the physical meaning of tying the twist to the charge sector; the relation between the quantum-group $q$ and the deformation parameter $\hat q$ of the quantized defect values, which tends to 1 classically while $q$ does not (@sec-universal-r-affine); and the convergence of Runkel's perturbed defect operators [@runkel2008; @runkel2010], which are formal power series, and their relation to these Q-operators in the massive theory.
+12. **The doubled picture.** The $a_r$ expectation of @sec-jump-coideal holds in the sense of @prp-dpt-doubled above, for type I$_-$. Still open are the module relations of the second structure $\tilde\rho$ for $a_r$, the type-I$_+$ case, and the algebra generated by the two Borel halves, which do not combine into one coideal (@prp-diagonal-borel). The affine quantum symmetric pair of diagonal type is not covered by the published universal-K theorems, which assume an indecomposable Cartan matrix [@kolb2014; @appel_vlaar2022]. The doubled boundaries of type-II defects, of Corrigan and Zambon's charge-dependent reflection matrices [@cz2012, eq. (2.19)] and of the non-invertible lines of @sec-noninvertible-boundaries have not been worked out.
+13. **Defects meeting boundaries.** The fused $a_n$ systems of @prp-fused-bdg give new classical dynamical boundaries; their involution and quantization are open. So is boundary crossing-unitarity of the fused K-matrix $K_f$ (@sec-defect-boundary-fusion), and the interpretation of tensor K-matrices with a Borel leg as boundary Q-operators (@sec-tensor-k).
+14. **Reality, Krein structure and vacua.** For real $\sigma$, $\Theta$ is a symmetry of the defect (@prp-defect-theta). Is there a Krein structure (@sec-krein-unitarity) for which defect unitarity of the non-unitary $a_r$ soliton matrices is pseudo-unitarity, and are the defect Bethe–Yang spectra real for real $\theta_d$? At real coupling, $\vec\phi=\vec\psi=0$ is the unique vacuum for $\sigma>0$ (@prp-dpt-vacuum). For $\sigma<0$, the real-coupling image of the odd sector, the energy is unbounded below. For complex $\sigma$ there is no $\Theta$. Whether these define quantum theories at all is open.
+15. **Finite volume.** No defect TBA, truncated-space or Lüscher calculation exists for an affine Toda defect beyond sinh-Gordon theory (@sec-defect-finite-volume). Such calculations would test @cnj-transmission-continuation and the parameter $\theta_d(\sigma,\beta)$, as Ahn, Kim and Rim's boundary TBA tested the reflection amplitudes [@akr2002].
 
 ## Exercises {#sec-particle-transmission-exercises}
 
-To be written.
+::: {#exr-dpt-telescope}
+Show that $\mathbb T^{\rm cl}_a(\theta)=e^{i\gamma_a}\cosh\frac12(D+i\gamma_a)/\cosh\frac12(D-i\gamma_a)$, $D=\theta-\theta_d$, equals $-e^{i\pi a/h}/(h-a)$ in the blocks (-@eq-blocks), and that the type-I$_+$ factor is $e^{i\pi a/h}/(a)$. Verify $\mathbb T_a(\theta)\mathbb T_{\bar a}(\theta+i\pi)=1$, and the bootstrap at both kinds of fusing of @sec-an-particle-transmission. *Hint:* for $c=a+b$ the factor $\cosh\frac12(D+i\gamma_b-i\gamma_a)$ cancels; for $c=a+b-h$ use $\cosh(x\pm\frac{i\pi}2)=\pm i\sinh x$.
+:::
+
+::: {#exr-dpt-cz}
+Corrigan and Zambon's lightest-breather factors for $a_2^{(1)}$ are $T^{b_1}_1=e^{-i\pi/3}\sinh(\frac D2-\frac{i\pi}6)/\sinh(\frac D2+\frac{i\pi}6)$ and $T^{b_1}_2=e^{i\pi/3}\sinh(\frac D2+\frac{2i\pi}3)/\sinh(\frac D2+\frac{i\pi}3)$ [@cz2007, eq. (7.5)]. Show that they are $\mathbb T^{\rm cl}_2$ and $\mathbb T^{\rm cl}_1$. Explain the exchange of labels by the transposed defect matrix, and check that their assignment of rapidities in [@cz2007, eq. (7.3)] is the book's $V(\theta-i\bar u)\otimes\bar V(\theta+i\bar u)$.
+:::
+
+::: {#exr-dpt-vacuum}
+Prove @prp-dpt-vacuum. *Hint:* $\sum_j\vec\alpha_j=0$ and $e^x-1\ge x$. Why does the argument fail at imaginary coupling, and how is the even sector of sine-Gordon theory, with its degenerate vacua $\psi-\phi\in\frac{4\pi}{\beta_{\rm SG}}\mathbb Z$, consistent with it?
+:::
+
+::: {#exr-dpt-bs}
+Show that $\partial_\mu\big[-i\sinh(\frac\theta2-\frac{i\pi}4+\frac\mu2)/\sinh(\frac\theta2+\frac{i\pi}4+\frac\mu2)\big]=-1/(1-i\sinh(\theta+\mu))$. Deduce that Bajnok and Simon's one-loop factor is the expansion of $\mathbb T^{\rm cl}(\theta-\theta_d)$ with $\theta_d=\theta_d^{\rm cl}(1-\frac{b^2}{8\pi})$. Show that the $O(b^2)$ term does not distinguish $1-\frac B2$ from $e^{-B/2}$, and propose an observable that does.
+:::
+
+::: {#exr-dpt-limits}
+Compute the limits of $\mathbb T_a$ and $\mathbb T^+_a$ as $\theta_d\to\pm\infty$, and identify them with the transparent line and with the line of the rotation $\pi$ acting on the eigenvector $\vec\rho_a$. For sine-Gordon solitons, compare with @prp-defect-twist-limit: why do the particles not see the twist phases $q^{\mp(2n+s)/2}$ of the stored charge?
+:::
+
+::: {#exr-dpt-imaginary}
+Let $\theta_d=iv$. Show that $\mathbb T_a$ has a pole at $\theta=i(v-\pi+\gamma_a)$, which lies in the physical strip for $\pi-\gamma_a<v<\frac{3\pi}2-\gamma_a$. Compute the energy of the bound state, and show that $\mathbb T_a$ is no longer a phase for real $\theta$. For sinh-Gordon theory, compare with the Lee–Yang defect of @sec-defect-lee-yang, whose defect rapidity is also imaginary.
+:::
+
+::: {#exr-dpt-cdd}
+Show that $S_{ae}(\theta-\theta_0)$ of (-@eq-an-smatrix) satisfies the defect unitarity, crossing and bootstrap conditions of @prp-an-particle-transmission. Interpret it as a particle of species $e$ standing at rapidity $\theta_0$ [@bajnok_george2006]. Then show that multiplying the soliton scalar factor $g$ by a function $\varphi(\theta-\theta_d)$ multiplies the factor of $B^{(a)}_1$ by the product of $\varphi$ over the $h$ constituent rapidities of @sec-breather-transmission. Why is this product in general a function of $\omega$, and why does @cnj-transmission-continuation therefore need minimality?
+:::
+
+::: {#exr-dpt-doubled}
+Derive the two intertwining equations before @prp-dpt-doubled from (-@eq-dbd-coproduct): compute $\Delta_A$ of $e_j\otimes1+k_j\otimes\psi(e_j)$ and of $f_j\otimes\psi(k_j)^{-1}+1\otimes\psi(f_j)$, and let the result act on $M(\theta)\otimes\mathcal W$. Show by charge conservation that $Y$ and $\kappa$ must have the weights stated in the proof. For sine-Gordon theory recover @prp-diagonal-borel (2).
+:::
 
 ## Notes and references {#sec-particle-transmission-notes}
 
-To be written.
+Konik and LeClair computed breather transmission factors by the bootstrap from their soliton matrices and found them independent of the defect state [@konik_leclair1999]. Bowcock, Corrigan and Zambon found that the lightest sine-Gordon breather sees the classical defect at every coupling [@bcz2005]. Corrigan and Zambon found the same for $a_2^{(1)}$ [@cz2007, Sec. 7], for the sine-Gordon type-II defect [@cz2010], and for the Tzitzéica defect [@cz2011]. Bajnok and Simon derived the sinh-Gordon and Lee–Yang transmission factors by fusion with boundaries. They confirmed the sinh-Gordon factor and the renormalization of its parameter at one loop, and wrote the defect TBA [@bajnok_simon2008]. Bajnok and George derived defect crossing and introduced the standing-particle factors [@bajnok_george2006]. Bajnok, Holló and Watts tested the Lee–Yang defect with the truncated conformal space approach [@bhw2014], and Penati and Polvara computed the quantum anomalies of the Lagrangian defects [@penati_polvara2019]. The breather test that identifies the lowest breathers with the particles is Gandenberger's [@gandenberger1995], and the continuation strategy is that of Part VII [@delius_gandenberger1999]. New here: the all-species check of @prp-lightest-breather-universal for $r\le4$ and the ordering of the constituents; the particle factors (-@eq-dpt-particle) as solutions of the axioms, with their bootstrap and limits; @cnj-transmission-continuation with its assumptions; @prp-dpt-vacuum; the duality remark; and the test of the $a_r$ expectation of @sec-jump-coideal (@prp-dpt-doubled).
+
+Corrections and clarifications to the sources made in this chapter:
+
+- [@cz2007, eqs. (7.3)–(7.5)]: their defect matrix is the transpose of the book's. Their $T^{b_1}_1$ is the factor of particle $2$ in book labels and their $T^{b_1}_2$ that of particle 1. Their assignment of rapidities in (7.3), with their species 2 at $\theta-i\bar u$, is the book's $V(\theta-i\bar u)\otimes\bar V(\theta+i\bar u)$. Their remark that the factors "appear to depend on the coupling constant β only via the parameter η" holds exactly, and for every species of $a_2^{(1)}$, $a_3^{(1)}$ and $a_4^{(1)}$ (@prp-lightest-breather-universal).
+- Clarification: [@cz2007, Sec. 7] expect $\eta$ to tend to the classical parameter as $\beta\to0$. That is correct, but for sinh-Gordon theory the two differ at $O(\beta^2)$ [@bajnok_simon2008, eq. (23)], and the same is expected for $a_r$ (@sec-transmission-continuation).
+- Clarification, [@bajnok_simon2008, Sec. 4.2]: their one-loop factor is exactly the $O(b^2)$ term of the exact factor with $\theta_d=(1-\frac B2)\theta_d^{\rm cl}$, with $\frac B2=\frac{b^2}{8\pi+b^2}$ in the book's normalization (check (e)).
+- Book-internal, @sec-jump-coideal: the "rotation-twisted" Borel symmetry of the $a_r$ defect is $(1\otimes\pi)\Delta(U_q(\mathfrak b^+))$ with $\pi(e_j)=e_{j-1}$, the direction of $\pi\vec\alpha_j=\vec\alpha_{j-1}$ (@prp-dpt-doubled); the opposite rotation fails.
