@@ -5,7 +5,7 @@
 - State the verdict on the criteria (C1)–(C6).
 :::
 
-This chapter collects the conclusions of Part VIII. It lists precisely which consequences of unitarity are lost, and gives the verdict on whether the imaginary-coupling theories are valid quantum field theories. Their connections to current research and the open problems are in the closing @sec-outlook.
+This chapter collects the conclusions of Part IX. It lists precisely which consequences of unitarity are lost, and gives the verdict on whether the imaginary-coupling theories are valid quantum field theories. Their connections to current research and the open problems are in the closing @sec-outlook.
 
 ## What unitarity would give, and what cannot be rescued {#sec-unitarity-loss}
 

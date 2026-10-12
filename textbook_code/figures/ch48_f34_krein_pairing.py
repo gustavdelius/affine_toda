@@ -1,4 +1,4 @@
-"""Figure F34 (chapter 40, prp-krein-fundamental, sec-sector-status): eigenvalues of the Bethe-Yang transfer matrix
+"""Figure F34 (chapter 48, prp-krein-fundamental, sec-sector-status): eigenvalues of the Bethe-Yang transfer matrix
 T_1 of three fundamental solitons of a_2^(1) (Jimbo R-matrix, q = e^{i mu}, real rapidities), and the breaking
 region of two kinks of a_2^(2).
 

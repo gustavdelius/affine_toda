@@ -35,9 +35,10 @@ The record of what has been checked, and how, is in [`briefs/`](briefs/) (for ex
 | V. Semiclassics | 16–19 | Semiclassical quantization of complex solitons (Picard–Lefschetz, one-loop masses) |
 | VI. Soliton S-matrices | 20–27 | Exact soliton S-matrices, including $c_n^{(1)}$, $a_{2n-1}^{(2)}$, $e_6^{(2)}$ and the open case $f_4^{(1)}$ |
 | VII. Half-line | 28–35 | Integrable boundaries, boundary solitons, boundary quantum groups, quantum symmetric pairs, reflection amplitudes |
-| VIII. Foundations | 36–41 | Whether the imaginary-coupling theories exist as quantum field theories (in progress) |
+| VIII. Defects | 36–43 | Integrable defects: transmission of particles and solitons, defect conditions, the underlying quantum-group structure, relation to boundaries |
+| IX. Foundations | 44–49 | Whether the imaginary-coupling theories exist as quantum field theories (in progress) |
 
-Chapter 1 is the introduction and reader's guide, and the outlook is chapter 42. The guide sets out five reading paths: a course on integrable field theory, a course on quantum groups in field theory, integrable boundaries, non-unitary quantum field theory, and a path for specialists through Parts V–VIII.
+Chapter 1 is the introduction and reader's guide, and the outlook is chapter 50. The guide sets out five reading paths: a course on integrable field theory, a course on quantum groups in field theory, integrable boundaries, non-unitary quantum field theory, and a path for specialists through Parts V–IX.
 
 The book's own summary of new material is in the introduction, and [Appendix D](appendices/D-corrections.qmd) lists every correction the book makes to published papers.
 
@@ -49,7 +50,7 @@ The book's own summary of new material is in the introduction, and [Appendix D](
 | `figures/`, `part*/figures/` | The committed SVG figures |
 | `textbook_code/` | Symbolic and numerical checks of the textbook material, Parts I–VII and appendix A |
 | `textbook_code/figures/` | Scripts that draw the figures and check the formulas they plot |
-| `foundations_code/` | Research computations behind Parts V and VIII |
+| `foundations_code/` | Research computations behind Parts V and IX |
 | `soliton_rmatrix_code/` | Construction of quantum-affine representations and R-matrices, soliton S-matrices and one-loop tests (Part VI) |
 | `briefs/` | Referee reports, reading-fix briefs and open research tasks |
 | `add-backlinks.py`, `part-preamble.lua`, `status-tags.lua`, `theme*.scss` | Quarto build helpers and styling |

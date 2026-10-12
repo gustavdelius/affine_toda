@@ -1,4 +1,4 @@
-"""Zero-mode model of sec-solvable-check (chapter 37): H = |p|^2/2 - sign*g sum_j n_j exp(i alpha_j.x) on the field-space
+"""Zero-mode model of sec-solvable-check (chapter 45): H = |p|^2/2 - sign*g sum_j n_j exp(i alpha_j.x) on the field-space
 torus, in the plane-wave basis p = c_1 alpha_1 + c_2 alpha_2 with |c_i| <= P.  The potential shifts p by the simple
 affine roots, so H is real and not symmetric.
 

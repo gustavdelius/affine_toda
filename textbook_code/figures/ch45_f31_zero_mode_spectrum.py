@@ -1,4 +1,4 @@
-"""Figure F31 (chapter 37, sec-solvable-check): spectrum of the a_2 zero-mode reduction
+"""Figure F31 (chapter 45, sec-solvable-check): spectrum of the a_2 zero-mode reduction
 H = |p|^2/2 - g sum_j e^{i alpha_j.x} on the field-space torus, in the complex energy plane, for the physical
 sign of the potential and for the opposite sign.
 

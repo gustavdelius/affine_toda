@@ -20,13 +20,13 @@ PATHS = [
     ("Integrable field theory", [(2, 3), (5, 6), (9, 10), (12, 14), (20, 22)]),
     ("Quantum groups in field theory", [(2, 3), (5, 8), (20, 22), (27, 27)]),
     ("Integrable boundaries", [(2, 3), (7, 8), (9, 10), (13, 13), "VII"]),
-    ("Non-unitary field theory", [(2, 4), (9, 11), "VIII"]),
-    ("For specialists", ["V–VIII"]),
+    ("Non-unitary field theory", [(2, 4), (9, 11), "IX"]),
+    ("For specialists", ["V–IX"]),
 ]
 PART_OF = lambda c: ("I" if c <= 4 else "II" if c <= 8 else "III" if c <= 11 else "IV" if c <= 15
-                     else "V" if c <= 19 else "VI" if c <= 27 else "VII" if c <= 35 else "VIII")
+                     else "V" if c <= 19 else "VI" if c <= 27 else "VII" if c <= 35 else "VIII" if c <= 43 else "IX")
 COLORS = {"I": style.BLUE, "II": style.GREEN, "III": style.ORANGE, "IV": style.RED,
-          "V": style.PURPLE, "VI": style.TEAL, "VII": "#c2569b", "VIII": style.GREY}
+          "V": style.PURPLE, "VI": style.TEAL, "VII": "#c2569b", "IX": style.GREY}
 
 # ---- check against the text of the introduction ---------------------------
 text = (ROOT / "index.qmd").read_text()
@@ -49,7 +49,7 @@ for (name, boxes), bullet in zip(PATHS[:4], bullets[:4]):
         if isinstance(b, tuple):
             mine.update(range(b[0], b[1] + 1))
     report(f"chapters of '{name}' agree with the text", mine == chapters_in(bullet))
-report("'For specialists' is Parts V-VIII in the text", "Parts V–VIII" in bullets[4])
+report("'For specialists' is Parts V-IX in the text", "Parts V–IX" in bullets[4])
 
 # ---- figure ---------------------------------------------------------------
 fig, ax = plt.subplots(figsize=(7.0, 3.3))
@@ -67,8 +67,8 @@ for r, (name, boxes) in enumerate(PATHS):
             lab = f"ch. {b[0]}–{b[1]}" if b[0] != b[1] else f"ch. {b[0]}"
             part = PART_OF(b[0])
         else:
-            lab = f"Part {b}" if b in ("VII", "VIII") else f"Parts {b}"
-            part = b if b in ("VII", "VIII") else "V"
+            lab = f"Part {b}" if b in ("VII", "IX") else f"Parts {b}"
+            part = b if b in ("VII", "IX") else "V"
         w = W if len(lab) < 11 else 1.35
         ax.add_patch(FancyBboxPatch((x, y - H / 2), w, H, boxstyle="round,pad=0.02,rounding_size=0.08",
                                     fc=COLORS[part] + "33", ec=COLORS[part], lw=1.4))
@@ -79,7 +79,7 @@ for r, (name, boxes) in enumerate(PATHS):
         x += w + GAP
 # legend of parts
 lx = 0.0
-for part in ("I", "II", "III", "IV", "V", "VI", "VII", "VIII"):
+for part in ("I", "II", "III", "IV", "V", "VI", "VII", "IX"):
     ax.add_patch(FancyBboxPatch((lx, -0.12), 0.28, 0.2, boxstyle="round,pad=0.01,rounding_size=0.04",
                                 fc=COLORS[part] + "33", ec=COLORS[part], lw=1.2))
     ax.text(lx + 0.38, -0.02, part, ha="left", va="center", fontsize=7.5)

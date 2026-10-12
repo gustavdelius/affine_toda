@@ -1,4 +1,4 @@
-"""Figure F33 (chapter 36, sec-summary-results, exr-gap-map): which chapter addresses which of the twelve gaps H1-H12,
+"""Figure F33 (chapter 44, sec-summary-results, exr-gap-map): which chapter addresses which of the twelve gaps H1-H12,
 and with what status.  The figure is generated from the text: it parses the table of sec-summary-results in
 part9-foundations/44-twelve-gaps.qmd, resolves every cross-reference (@thm-..., @sec-..., ...) in a row to the
 chapter file that defines it, and colours the row by the first words of its status column.

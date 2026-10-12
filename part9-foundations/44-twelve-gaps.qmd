@@ -3,10 +3,10 @@
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
 - Know the three standard objections to the imaginary-coupling theories.
 - Know the twelve gaps between what the literature uses and what it establishes.
-- Know which chapter of Part VIII (or Parts V and VI) addresses each gap, and with what status.
+- Know which chapter of Part IX (or Parts V and VI) addresses each gap, and with what status.
 :::
 
-Part VIII asks whether the imaginary-coupling affine Toda theories exist as quantum field theories, in the operational sense of @sec-valid-qft. This chapter states the problem: the objections usually raised, the twelve specific gaps in the literature, and a summary of what the rest of the part establishes.
+Part IX asks whether the imaginary-coupling affine Toda theories exist as quantum field theories, in the operational sense of @sec-valid-qft. This chapter states the problem: the objections usually raised, the twelve specific gaps in the literature, and a summary of what the rest of the part establishes.
 
 ## Three objections {#sec-three-objections}
 
@@ -44,7 +44,7 @@ We list the gaps between what the literature uses and what it establishes. In ea
 
 **H12. Unitary subtheories.** RSOS restriction sometimes yields unitary theories and sometimes not, depending on the coupling, the gradation, and whether breathers survive. There is no general criterion.
 
-## What Part VIII establishes {#sec-summary-overview}
+## What Part IX establishes {#sec-summary-overview}
 
 ::: {.callout-note appearance="simple" icon=false title="Abstract"}
 Affine Toda field theories (ATFTs) are a family of two-dimensional integrable quantum field theories, one for each affine Kac–Moody algebra $\hat g$. With real coupling they are unitary theories of $\operatorname{rank}(g)$ scalar particles. Their exact S-matrices are known for every $\hat g$ and have been checked perturbatively and numerically.
@@ -69,7 +69,7 @@ The resulting picture is that imaginary-coupling ATFTs are valid **non-unitary**
 
 @fig-gap-map shows the same table at a glance: for each gap, the chapters that its status column cites, coloured by how far the gap is closed. The only gap coloured red, H11, is the one that remains open.
 
-![Which chapter addresses which of the twelve gaps. A filled square marks a chapter that the status column of the table below cites for that gap. Rows are coloured by status: closed (green), partly closed (orange), open (red).](figures/ch44_f33_gap_map.svg){#fig-gap-map fig-alt="Matrix with twelve rows for the gaps H1 to H12 and eleven columns for the chapters that address them. Coloured squares mark which chapters address each gap. Most gaps are addressed in chapters 37 to 41 or 17 to 19. Row H11 is red, H3, H7, H9, H10 and H12 are orange, the rest green."}
+![Which chapter addresses which of the twelve gaps. A filled square marks a chapter that the status column of the table below cites for that gap. Rows are coloured by status: closed (green), partly closed (orange), open (red).](figures/ch44_f33_gap_map.svg){#fig-gap-map fig-alt="Matrix with twelve rows for the gaps H1 to H12 and eleven columns for the chapters that address them. Coloured squares mark which chapters address each gap. Most gaps are addressed in chapters 45 to 49 or 17 to 19. Row H11 is red, H3, H7, H9, H10 and H12 are orange, the rest green."}
 
 | Gap | Content | Status |
 |---|---|---|

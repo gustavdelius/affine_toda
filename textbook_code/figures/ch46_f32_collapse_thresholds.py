@@ -1,4 +1,4 @@
-"""Figure F32 (chapter 38, sec-collapse-thresholds, sec-threshold-sharp): where the Coulomb-gas continuum limit holds.
+"""Figure F32 (chapter 46, sec-collapse-thresholds, sec-threshold-sharp): where the Coulomb-gas continuum limit holds.
 Left: the first collapse threshold beta_UV^2 of several affine algebras on the axis of beta^2/pi, with the regions
 of Theorem below-2pi (nearest-neighbour bound), Theorem window (cluster bound) and Proposition uv-divergence
 (counterterms needed).  Right: the factor of the continued bulk free energy that carries the poles, for h = 2, 3, 6;

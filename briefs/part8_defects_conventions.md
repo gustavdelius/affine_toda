@@ -6,7 +6,7 @@ The plan of the part is recorded in the memory note `defects-part` and in the pl
 
 ## Placement and numbering
 
-- Part VIII sits between Part VII (the half-line, ch. 28–35) and Foundations. When the part is complete, Foundations becomes Part IX (`part9-foundations/`, ch. 44–49) and the outlook becomes chapter 50; until then the old numbers remain.
+- Part VIII sits between Part VII (the half-line, ch. 28–35) and Foundations. On 2026-10-12 Foundations became Part IX (`part9-foundations/`, ch. 44–49) and the outlook chapter 50.
 - Chapters mirror Part VII: 36 ↔ 28 (axioms), 37 ↔ 29 (rank one), 38 ↔ 30 (classical conditions), 39 ↔ 31 (solitons), 40 ↔ 32 (quantum groups), 41 ↔ 33 (soliton matrices), 42 ↔ 34 (quantum symmetric pairs), 43 ↔ 35 (particles and open problems).
 
 ## Names and symbols (clash table)
