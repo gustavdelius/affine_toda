@@ -8,7 +8,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 |---|---|---|---|---|
 | 36 | 2026-10-11 | `defect_axioms.py` | 20 PASS (2 s) | Gemini 3.8 Flash, 2026-10-11 (light) |
 | 37 | 2026-10-11 | `defect_classical_sg.py`, `defect_sg_transmission.py` | 27 + 24 PASS (18 s, 103 s) | Gemini 3.8 Flash, 2026-10-11 (light) |
-| 38 | | `defect_classical_an.py` (conventions part), `defect_lax_rmatrix.py` | | |
+| 38 | 2026-10-12 | `defect_classical_an.py`, `defect_lax_rmatrix.py` | 24 + 6 PASS (57 s, <1 s) | no |
 | 39 | | `defect_solitons_an.py` | | |
 | 40 | | `defect_universal_r.py`, `defect_transfer.py` | | |
 | 41 | | `defect_an_transmission.py` | | |
@@ -148,6 +148,83 @@ Working record for Part VIII, kept in the repository because the session scratch
 - **Ch. 43:**
   - `prp-lightest-breather-universal`;
   - open problems: Penati–Polvara vs Bajnok–Simon; the sine-Gordon continuation of `cnj-defect-parameter`; stable defects at imaginary θ_d.
+
+## Chapter 38 (`sec-defect-conditions`)
+
+**By script.**
+- `defect_classical_an.py` (24 checks):
+  - **Momentum-conservation scan:** 23 affine diagrams of rank ≤ 4 (untwisted and twisted) with 78 automorphisms. Only π^{±1} of a_r⁽¹⁾ pass. The failures: 64 automorphisms fix a node, 5 leave 1−P singular, and π^{±2} of a₄⁽¹⁾ fails by cross terms.
+  - **Further checks:**
+    - cz2009a's gradient form of the momentum condition;
+    - the Bäcklund transformation reproduces both field equations, and a non-integrable 𝖣 fails;
+    - the a₁, a₂, a₃ delays (formula, an independent fit, and validity at several x) and their identities;
+    - Θ maps σ to σ̄;
+    - the type-II conditions for sine-Gordon and Tzitzéica;
+    - the cubic spin-2 obstruction vanishes for r = 2–8;
+    - explicit B₊₂ and B₋₂ for a₂ (dB/dt equals the flux to 1e-15).
+- `defect_lax_rmatrix.py` (6 checks):
+  - the Dirac bracket K⁻¹ on the defect values;
+  - {L_d ⊗ L_d} = +[r, L_d⊗L_d] for a₁–a₃, both types and couplings, with coefficient exactly 1;
+  - the bulk sign c = −1;
+  - involution of τ_d, with controls;
+  - regularity of L̃ at λ → 0 and λ → ∞.
+
+**By hand (drafting agent).**
+- The automorphism/orbit argument behind `prp-ar-only`; the cot identity.
+- The spin assignment at the two ends of the λ-plane.
+- Dirac bracket = K⁻¹.
+- Θ for type II.
+- The type-II rescaling prefactors (sine-Gordon, Tzitzéica).
+- The Penati–Polvara dictionary row (their Euclidean orientation not checked).
+- The time-like canonical transformation, derived in the text and not scripted.
+
+**Not in the repo.** The a₃ spin-±2 run (about 6 min per case, from the phase-0 session).
+
+**Unchecked, quoted only.**
+- Bristow–Bowcock's b_n, c_n, d_n potentials and d₄ delays; Bristow's Lax matrices.
+- Robertson's folded defects and fusing rules.
+- cz2011's a_n type II.
+- Habibullin–Kundu's lattice construction; Avan–Doikou's discrepancy claim; Doikou's gl_N defects.
+- Caudrelier's Liouville-integrability proof.
+- The Fordy–Gibbons attribution.
+- cz2009a's "partner must be a neighbour" step ((2.30)–(2.35)).
+
+**Corrections to sources recorded in the Notes (script-checked).**
+1. BCZ 2004 §5 and Penati–Polvara App. B: both spin-±2 charges survive. The obstruction (5.11), and the cubic terms of PP (B.4), vanish identically by the cot identity.
+2. BCZ 2004 (5.43) is the transpose of their (3.28).
+3. cz2007 (2.21): the self-conjugate delay is −coth, not +coth.
+4. cz2009b (4.4): the corrected e^{λ₁} form, with the consequent change to (4.5).
+5. cz2009b (3.7): 1/σ multiplies all of f.
+6. cz2009b (4.11): the printed z₂ is z₃.
+
+**Pending edits elsewhere.**
+- **Ch. 30 `prp-sklyanin` and its proof:** with ∂_{x₊}T = −a_xT, the transport satisfies {T⊗T} = −[r, T⊗T]; the text implies +. To verify before editing. Involution is unaffected, and `boundary_classical.py`'s `tau_bracket` uses +, which is harmless.
+- `textbook_code/README.md` rows: `defect_classical_an.py` (24 checks, ~55 s), `defect_lax_rmatrix.py` (6 checks, <1 s).
+- **Conventions brief:**
+  - the monodromy T₊L_d⁻¹T₋ and the bracket results;
+  - λ → ∞ goes with negative spins; B₊ₛ carries σ⁻¹g_j and B₋ₛ carries σf_j;
+  - the a_r delay `eq-dc-ar-delay` with its identities;
+  - the type-II sectors and normalizations;
+  - corrections 2–6.
+- **Optional bib:** Fordy–Gibbons; Aguirre–Araujo–Gomes–Zimerman.
+
+**Obligations for later chapters.**
+- **Ch. 39:**
+  - use `eq-dc-ar-delay`;
+  - the poles of z_a at θ = θ_d − i(π/2 − πa/h);
+  - the selection rule;
+  - the type-I₊ a_r delays (not yet derived);
+  - charged and odd sectors.
+- **Ch. 40:** the classical limit of the Borel L-operator should reproduce L_d and its Weyl-type Poisson algebra.
+- **Ch. 41:**
+  - `eq-dc-ar-delay` for the semiclassical test;
+  - the corrected Tzitzéica delay labels.
+- **Ch. 42:** the K-matrix dressed by L_d.
+- **Ch. 43 (open problems):**
+  - e₆–e₈ defects;
+  - `cnj-momentum-integrability`;
+  - time-like Liouville integrability for a_r;
+  - the quantum fate of the second chirality (Penati–Polvara assumed Q₋₂ lost).
 
 ## Global pending edits
 

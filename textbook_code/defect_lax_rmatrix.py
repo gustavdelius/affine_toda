@@ -1,0 +1,214 @@
+"""The defect matrix, its Poisson brackets and the defect monodromy (Part VIII, ch. 38: sec-defect-lax, sec-defect-r-matrix).
+
+Conventions: defect_common.py (fields phi on x < 0, psi on x > 0; type I_-: D = 2(1 - pi)^{-1}, E = 1 - D; type I_+: (D, E) -> -(D, E);
+L_d = exp(-b H.(E phi + D psi)/2) Ltilde exp(b H.(D^T phi - E psi)/2), defining representation, b = beta or i beta).
+Book r-matrix (prp-sklyanin): r(z) = b^2/(4(z^h - 1)) [(z^h + 1) sum_a H_a (x) H_a + 2 sum_{alpha>0} (z^ht E_alpha (x) E_-alpha
++ z^(h-ht) E_-alpha (x) E_alpha)], as in boundary_classical.r_toda (copied here, since importing that script runs its checks).
+
+Checks (book ids they support):
+ 1. Poisson brackets of the defect values: the defect term 1/2 phi.E phi_t + phi.D psi_t + 1/2 psi.E psi_t equals 1/2 z.K z_t
+    (z = (phi, psi), K = [[E, D], [-D^T, E]]) up to a total time derivative, so {z_I, z_J} = (K^-1)_IJ in the convention
+    {phi(x), pi(y)} = delta(x - y) of the bulk; a_1: {phi(0), psi(0)} = -1.  K^-1 explicitly for a_r.         [sec-defect-r-matrix]
+ 2. L_d = exp(b H.(phi - psi)/2) [1 + (sigma/lambda) sum_j exp(b alpha_j.w/2) E_-alpha_j], w = D^T phi - E psi (type I_-).    [eq-defect-lax-matrix]
+ 3. {L_d(l1) (x), L_d(l2)} = [r(l1/l2), L_d(l1) (x) L_d(l2)] EXACTLY (coefficient 1) with the bracket of check 1, for a_1, a_2,
+    a_3, types I_- and I_+, real and imaginary coupling, real and complex l1, l2; a non-integrable D fails.     [prp-defect-involution]
+ 4. Sign of the bulk bracket: for the one-site transport T = exp(-Delta a_x) with {phi_a, pi_b} = delta_ab/Delta,
+    {T(l1) (x), T(l2)} = -[r(l1/l2), T T] + O(Delta) (book transport convention d_x T = -a_x T).
+ 5. Involution: with tau_d(l) = tr(T_+(l) L_d(l)^-1 T_-(l)) (eq-defect-monodromy), T_+-, L_d mutually Poisson commuting,
+    {T_+-(l1) (x), T_+-(l2)} = -[r, T T] (assumed, random T's) and the computed bracket of L_d^-1, {tau_d(l1), tau_d(l2)} = 0;
+    controls: L_d in place of L_d^-1, and the bracket of check 1 with the wrong sign, give nonzero results.     [prp-defect-involution]
+ 6. Regularity of the defect matrix at both ends of the spectral plane (the structural argument of prp-spin-two):
+    sum_j E_-alpha_j is a permutation matrix (invertible); Ltilde_I-(lambda) = (sigma/lambda) S^T (1 + (lambda/sigma) S) with
+    S = sum_j E_alpha_j; det Ltilde = 1 - (-sigma/lambda)^h; so L_d(lambda) and L_d(lambda)^-1 have Laurent expansions with
+    invertible leading coefficients at lambda -> infinity and lambda -> 0 (after removing a scalar factor).     [prp-spin-two]
+Runtime: about 5 seconds.
+"""
+import numpy as np
+import scipy.linalg as sla
+from defect_common import an_data, dmatrix, an_lax_rep
+
+
+def report(name, ok):
+    print(('PASS ' if ok else 'FAIL ') + name)
+
+
+rng = np.random.default_rng(23)
+
+
+def eij(N, i, j):
+    M = np.zeros((N, N)); M[i, j] = 1.0
+    return M
+
+
+def r_toda(N, z, b2):
+    """The book's r-matrix (boundary_classical.r_toda with beta^2 -> b^2)."""
+    Hs = []
+    for k in range(1, N):
+        d = np.zeros(N); d[:k] = 1; d[k] = -k; Hs.append(np.diag(d/np.sqrt(k*(k + 1))))
+    r = (z**N + 1)*sum(np.kron(H, H) for H in Hs)
+    for i in range(N):
+        for k in range(i + 1, N):
+            r = r + 2*(z**(k - i)*np.kron(eij(N, i, k), eij(N, k, i)) + z**(N - k + i)*np.kron(eij(N, k, i), eij(N, i, k)))
+    return b2/(4*(z**N - 1))*r
+
+
+def Kmat(D, E):
+    return np.block([[E, D], [-D.T, E]])
+
+
+def Ltilde(lam, r, sigma, typ):
+    h = r + 1; S = sum(an_lax_rep(r))
+    if typ == 1:
+        return np.eye(h) + (sigma/lam)*S.T
+    return sum(np.linalg.matrix_power((lam/sigma)*S, k) for k in range(h))
+
+
+def Ld_and_grads(lam, z, r, sigma, b, typ, DE=None):
+    """L_d and dL_d/dz_I (z = (phi, psi)) in the defining representation."""
+    U = an_data(r)['U']
+    D, E = dmatrix(r, typ) if DE is None else DE
+    M1, M2 = np.hstack([E, D]), np.hstack([D.T, -E])
+    A = np.diag(np.exp(-b*(U @ (M1 @ z))/2)); B = np.diag(np.exp(b*(U @ (M2 @ z))/2)); Lt = Ltilde(lam, r, sigma, typ)
+    L = A @ Lt @ B
+    grads = [A @ np.diag(-b*(U @ M1[:, I])/2) @ Lt @ B + A @ Lt @ B @ np.diag(b*(U @ M2[:, I])/2) for I in range(2*r)]
+    return L, grads
+
+
+def bracket_LL(l1, l2, z, r, sigma, b, typ, DE=None, inverse=False, sign=1.0):
+    """{X(l1) (x), X(l2)} from Pi = sign K^-1, X = L_d or L_d^-1."""
+    D, E = dmatrix(r, typ) if DE is None else DE
+    Pi = sign*np.linalg.inv(Kmat(D, E))
+    L1, g1 = Ld_and_grads(l1, z, r, sigma, b, typ, DE); L2, g2 = Ld_and_grads(l2, z, r, sigma, b, typ, DE)
+    if inverse:
+        L1i, L2i = np.linalg.inv(L1), np.linalg.inv(L2)
+        g1 = [-L1i @ g @ L1i for g in g1]; g2 = [-L2i @ g @ L2i for g in g2]; L1, L2 = L1i, L2i
+    br = sum(Pi[I, J]*np.kron(g1[I], g2[J]) for I in range(2*r) for J in range(2*r))
+    return br, L1, L2
+
+
+# ---------------------------------------------------------------- 1. the Poisson bracket of the defect values
+ok = True
+for r in (1, 2, 3):
+    for typ in (1, -1):
+        D, E = dmatrix(r, typ); K = Kmat(D, E)
+        ok &= np.allclose(K, -K.T)
+        # 1/2 z.K z_t - (1/2 phi.E phi_t + phi.D psi_t + 1/2 psi.E psi_t) = -(1/2) d/dt(phi.D psi): check on a random path
+        z, zt = rng.normal(size=2*r), rng.normal(size=2*r)
+        ph, ps, pht, pst = z[:r], z[r:], zt[:r], zt[r:]
+        kin = ph @ E @ pht/2 + ph @ D @ pst + ps @ E @ pst/2
+        ok &= np.isclose(z @ K @ zt/2 - kin, -(pht @ D @ ps + ph @ D @ pst)/2)
+Pi1 = np.linalg.inv(Kmat(*dmatrix(1)))
+report(f'defect term = 1/2 z.K z_t + total derivative, K = [[E, D], [-D^T, E]] antisymmetric and invertible (a_1..a_3, both types); '
+       f'{{z_I, z_J}} = (K^-1)_IJ, so for a_1 {{phi(0), psi(0)}} = {Pi1[0, 1]:+.0f} (type I_-)', ok and np.isclose(Pi1[0, 1], -1))
+
+# ---------------------------------------------------------------- 2. simplified form of L_d
+ok = True
+for r in (1, 2, 3):
+    U = an_data(r)['U']; al = an_data(r)['alpha']; D, E = dmatrix(r); Es = an_lax_rep(r)
+    for b in (0.8, 0.8j):
+        z = rng.normal(size=2*r)*0.5; ph, ps = z[:r], z[r:]; lam, sig = 0.7 + 0.2j, 0.9
+        L, _ = Ld_and_grads(lam, z, r, sig, b, 1)
+        w = D.T @ ph - E @ ps
+        L2 = np.diag(np.exp(b*(U @ (ph - ps))/2)) @ (np.eye(r + 1) + (sig/lam)*sum(np.exp(b*(a @ w)/2)*Ej.T for a, Ej in zip(al, Es)))
+        ok &= np.allclose(L, L2)
+report('L_d = exp(b H.(phi - psi)/2) [1 + (sigma/lambda) sum_j exp(b alpha_j.w/2) E_-alpha_j], w = D^T phi - E psi (a_1..a_3, '
+       'both couplings): the Cartan factor depends only on the jump', ok)
+
+# ---------------------------------------------------------------- 3. {L_d (x), L_d} = [r, L_d (x) L_d]
+worst = 0; cs = []
+for r in (1, 2, 3):
+    for typ in (1, -1):
+        for b in (0.8, 0.8j):
+            for l1, l2 in ((0.7, 1.3), (1.1 + 0.4j, -0.6 + 0.2j)):
+                z = rng.normal(size=2*r)*0.5 + (0.2j*rng.normal(size=2*r) if np.iscomplexobj(b) else 0)
+                br, L1, L2 = bracket_LL(l1, l2, z, r, 0.83, b, typ)
+                R = r_toda(r + 1, l1/l2, b**2); LL = np.kron(L1, L2); comm = R @ LL - LL @ R
+                c = np.vdot(comm.ravel(), br.ravel())/np.vdot(comm.ravel(), comm.ravel()); cs.append(c)
+                worst = max(worst, np.linalg.norm(br - comm)/np.linalg.norm(br))
+D2, E2 = dmatrix(2); bad = (np.eye(2) - 0.6*E2, 0.6*E2)
+z = rng.normal(size=4)*0.5
+br, L1, L2 = bracket_LL(0.7, 1.3, z, 2, 0.83, 0.8, 1, DE=bad)
+R = r_toda(3, 0.7/1.3, 0.64); LL = np.kron(L1, L2); comm = R @ LL - LL @ R
+cbad = np.vdot(comm.ravel(), br.ravel())/np.vdot(comm.ravel(), comm.ravel())
+badres = np.linalg.norm(br - cbad*comm)/np.linalg.norm(br)
+report(f'{{L_d(l1) (x), L_d(l2)}} = [r(l1/l2), L_d(l1) (x) L_d(l2)] with the book r-matrix and coefficient exactly 1 '
+       f'(a_1, a_2, a_3; I_-, I_+; real and imaginary coupling; real and complex l) [rel. res {worst:.0e}, '
+       f'max |c - 1| = {max(abs(np.array(cs) - 1)):.0e}]; non-integrable D: best fit leaves {badres:.2f}',
+       worst < 1e-12 and badres > 1e-2)
+
+# ---------------------------------------------------------------- 4. sign of the bulk bracket of the transport matrix
+def a_x(lam, phi, pi, r, b, m=1.1):
+    d = an_data(r); U = d['U']
+    out = (b/2)*np.diag(U @ pi).astype(complex)
+    for a, E in zip(d['alpha'], an_lax_rep(r)):
+        out = out + (m/2)*np.exp(b*(a @ phi)/2)*(lam*E + E.T/lam)
+    return out
+
+
+def one_site_ratio(r, b, Delta, l1=0.7, l2=1.3):
+    phi, pi = rng.normal(size=r)*0.5, rng.normal(size=r)*0.5
+    def T_and_grads(lam):
+        X = -Delta*a_x(lam, phi, pi, r, b); T = sla.expm(X); gphi, gpi = [], []
+        for k in range(r):
+            e = np.zeros(r); e[k] = 1e-6
+            for vec, lst in ((0, gphi), (1, gpi)):
+                Xp = -Delta*(a_x(lam, phi + e, pi, r, b) if vec == 0 else a_x(lam, phi, pi + e, r, b))
+                lst.append(sla.expm_frechet(X, (Xp - X)/1e-6, compute_expm=False))
+        return T, gphi, gpi
+    T1, f1, p1 = T_and_grads(l1); T2, f2, p2 = T_and_grads(l2)
+    br = sum(np.kron(f1[k], p2[k]) - np.kron(p1[k], f2[k]) for k in range(r))/Delta
+    R = r_toda(r + 1, l1/l2, b**2); TT = np.kron(T1, T2); comm = R @ TT - TT @ R
+    c = np.vdot(comm.ravel(), br.ravel())/np.vdot(comm.ravel(), comm.ravel())
+    return c, np.linalg.norm(br - c*comm)/np.linalg.norm(br)
+
+
+cs4 = [one_site_ratio(r, b, Dl) for r in (1, 2) for b in (0.8, 0.8j) for Dl in (1e-3,)]
+report(f'bulk: one-site transport T = exp(-Delta a_x), {{phi_a, pi_b}} = delta_ab/Delta: {{T (x), T}} = c [r, T (x) T] with '
+       f'c = {np.mean([c for c, _ in cs4]).real:+.4f} (Delta = 1e-3; a_1, a_2; both couplings), i.e. {{T (x), T}} = -[r, T (x) T] '
+       f'for d_x T = -a_x T', all(abs(c + 1) < 1e-2 for c, _ in cs4))
+
+
+# ---------------------------------------------------------------- 5. involution of the defect generating functions
+def tau_bracket_defect(r, b, typ, l1, l2, inverse=True, sign=1.0):
+    """{tau(l1), tau(l2)}, tau(l) = tr(T_+(l) X(l) T_-(l)), X = L_d^-1 (or L_d); T_+-(l) random with {T (x) T} = -[r, T (x) T],
+    the defect bracket from Pi = sign K^-1; the three factors Poisson commute."""
+    N = r + 1
+    z = rng.normal(size=2*r)*0.5
+    Tp = {l: rng.normal(size=(N, N)) + 1j*rng.normal(size=(N, N)) for l in (l1, l2)}
+    Tm = {l: rng.normal(size=(N, N)) + 1j*rng.normal(size=(N, N)) for l in (l1, l2)}
+    br_X, X1, X2 = bracket_LL(l1, l2, z, r, 0.83, b, typ, inverse=inverse, sign=sign)
+    X = {l1: X1, l2: X2}
+    R = r_toda(N, l1/l2, b**2)
+    total = 0
+    # d tau / d A_ij for A = T_+, X, T_-:  (X T_-)^T, (T_- T_+)^T, (T_+ X)^T
+    grad = {'p': lambda l: (X[l] @ Tm[l]).T, 'x': lambda l: (Tm[l] @ Tp[l]).T, 'm': lambda l: (Tp[l] @ X[l]).T}
+    for key, mats in (('p', Tp), ('m', Tm)):
+        AA = np.kron(mats[l1], mats[l2]); brA = -(R @ AA - AA @ R)
+        total += np.einsum('ij,kl,ikjl->', grad[key](l1), grad[key](l2), brA.reshape(N, N, N, N))
+    total += np.einsum('ij,kl,ikjl->', grad['x'](l1), grad['x'](l2), br_X.reshape(N, N, N, N))
+    scale = abs(np.trace(Tp[l1] @ X1 @ Tm[l1])*np.trace(Tp[l2] @ X2 @ Tm[l2]))
+    return abs(total)/scale
+
+
+good = max(tau_bracket_defect(r, b, typ, *ls) for r in (1, 2, 3) for b in (0.8, 0.8j) for typ in (1, -1)
+           for ls in ((0.7, 1.3), (1.1 + 0.4j, -0.6 + 0.2j)))
+wrong_X = min(tau_bracket_defect(r, 0.8, 1, 0.7, 1.3, inverse=False) for r in (1, 2))
+wrong_sign = min(tau_bracket_defect(r, 0.8, 1, 0.7, 1.3, sign=-1.0) for r in (1, 2))
+report(f'{{tau_d(l1), tau_d(l2)}} = 0 for tau_d = tr(T_+ L_d^-1 T_-) (a_1..a_3, both types and couplings) [{good:.0e}]; '
+       f'controls: L_d in place of L_d^-1 [{wrong_X:.2f}], defect bracket with the wrong sign [{wrong_sign:.2f}]',
+       good < 1e-12 and wrong_X > 1e-3 and wrong_sign > 1e-3)
+
+# ---------------------------------------------------------------- 6. regularity at lambda -> 0 and lambda -> infinity
+ok = True
+for r in range(1, 7):
+    h = r + 1; S = sum(an_lax_rep(r))
+    ok &= np.allclose(S @ S.T, np.eye(h)) and np.allclose(np.linalg.matrix_power(S, h), np.eye(h))
+    for lam, sig in ((0.37 + 0.2j, 0.8), (2.3, 1.7)):
+        Lt = Ltilde(lam, r, sig, 1)
+        ok &= np.allclose(Lt, (sig/lam)*S.T @ (np.eye(h) + (lam/sig)*S))
+        ok &= np.isclose(np.linalg.det(Lt), 1 - (-sig/lam)**h)
+        Lp = Ltilde(lam, r, sig, -1)
+        ok &= np.allclose(np.linalg.inv(Lp)*(1 - (lam/sig)**h), np.eye(h) - (lam/sig)*S)
+report('sum_j E_alpha_j = S is a cyclic permutation matrix (S^h = 1); Ltilde_I- = (sigma/lambda) S^T (1 + (lambda/sigma) S), '
+       'det = 1 - (-sigma/lambda)^h; Ltilde_I+^-1 (1 - (lambda/sigma)^h) = 1 - (lambda/sigma) S (r = 1..6): both defect matrices '
+       'have invertible leading coefficients at lambda -> 0 and lambda -> infinity', ok)
