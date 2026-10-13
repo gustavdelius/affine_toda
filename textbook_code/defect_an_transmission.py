@@ -13,7 +13,7 @@ Windows: root-lattice balls |N|^2 <= R2 (defect_common.an_root_window); equation
 'deep' labels.  Window sizes (labels/interior/deep): a_2 R2=18: 37/19/7; a_2 R2=14: 31/13/1; a_3 R2=18: 177/55/13;
 a_3 R2=14: 135/43/1; a_4 R2=8: 171/21/1; a_4 R2=12: 331/51/1.
 
-Checks (book ids; 27 PASS lines):
+Checks (book ids; 28 PASS lines):
  (a) eq-dt-weyl: Cartan relations, q-Serre relations and level zero on the Weyl modules of U_q(b^-) and U_q(b^+) for
      a_2, a_3 (orientations +1 and -1, generic s); without the q-powers (orient = 0) q-Serre fails (control).
  (b) prp-an-transmission (1)-(2), eq-dt-tv, eq-dt-tvbar, eq-dt-tplus: the U_q(b^-) intertwiners V (x) W -> W (x) V and
@@ -56,7 +56,10 @@ Checks (book ids; 27 PASS lines):
      the structure of Omega_j used in the proof for every r (h = 3..6); the sector determinants, independent of sector and s;
      eq-dt-reversed (exact) and its coefficient qX in the basis q^{-|n|^2/2}|n> (cz2007 (5.10)); the type-I_+ intertwiner for
      V as the inverse of eq-dt-reversed with offset -s, labels -N, X -> -X_+ (Chevalley involution; exact, h = 3..6); at
-     q^5 = 1 the shift by 5 alpha_1 commutes with W, and charge-conserving intertwiners are still unique (q^5 = 1, gamma = 1.37).
+     q^5 = 1 the shift by 5 alpha_1 commutes with W, and charge-conserving intertwiners are still unique (q^5 = 1, gamma = 1.37);
+     prp-an-transmission (4) for every r: the terms of order 0 and 1 of the universal R-matrix, R = q^t(1 + (q - q^-1)
+     sum f_j (x) e_j + ...) for type I_+ and R_21^-1 for type I_-, on V, Vbar (x) W equal the matrix parts (h = 3, 4, 5);
+     eq-triangle-braid for a_4 on complete charge sectors, both types, VV, VbarVbar, VVbar, VbarV (control: -q).
  (j) cz2011 (3.12): with z = i(theta - nu)/xi and the Gamma functions grouped at equal k, rho-hat solves (3.8) and (3.10);
      its outside Gamma functions have poles at nu - i(xi/2 + pi/3), nu - i(xi/2 + 2 pi/3), not at the printed xi; the
      decaying-energy windows pi/3 < xi < 4 pi/3 and -pi/3 < xi < 2 pi/3; as printed the products drift like K^{-2z}.
@@ -1108,6 +1111,84 @@ report(f'roots of unity: at q^5 = 1 (gamma = 0.6) the shift |N> -> |N + 5 alpha_
        f'dimension at q^5 = 1 and at gamma = 1.37 (q^200 = 1), h = 3, 4, both types, V and Vbar (smallest relative singular value '
        f'{max(x[0] for x in sv5):.0e}, next {min(x[1] for x in sv5):.2f})',
        sres < 1e-14 and max(x[0] for x in sv5) < 1e-12 and min(x[1] for x in sv5) > 0.05)
+# prp-an-transmission (4) for every r: the universal R-matrix.  First-order terms: R = q^t (1 + (q - q^-1) sum_j f_j (x) e_j
+# + ...) on Vbar/V (x) W^+ (type I_+) and R_21^{-1} = (1 - (q - q^-1) sum_j e_j (x) f_j + ...) q^{-t} on V/Vbar (x) W^- (type
+# I_-) agree exactly with the matrix parts at orders 0 and 1 (so the scalar series is 1 + O(x^2)); and a direct check of
+# eq-triangle-braid for a_4 on complete charge sectors, both types, VV, VbarVbar, VVbar, VbarV.
+def tri_block(h, qq, m, t, yy, typ, conj, Q):
+    """Sector block of the type-I_-+ matrix part for V or Vbar (basis p (x) |Q - wt_p> -> |Q - wt_p'> (x) p')."""
+    kap = qq - 1/qq
+    if typ == '-':
+        return np.array(closed_block(h, qq, -kap*m*yy, t, Q, 'Vbar' if conj else 'V'), complex)
+    if conj:
+        return np.array(closed_block(h, qq, kap*m/yy, t, Q, 'Vbar+'), complex)
+    return np.linalg.inv(np.array(closed_block(h, qq, -kap*m/yy, tuple(1/x for x in t), tuple(-c for c in Q), 'rev'), complex))
+
+
+rng = np.random.default_rng(3); fo = 0
+for h in (3, 4, 5):
+    qc = np.exp(1j*rng.uniform(.3, 1.2))*rng.uniform(.8, 1.2); kc = qc - 1/qc
+    sc = rng.normal(size=h); sc -= sc.mean(); tc = tuple(qc**x for x in sc)
+    mc, yc = complex(*rng.normal(size=2)), complex(*rng.normal(size=2))
+    for typ in '-+':
+        for conj in (False, True):
+            sg = -1 if conj else 1; wt = [tuple(sg*(c == i) for c in range(h)) for i in range(h)]
+            P = prep(h, qc, yc, conj); Q = tuple([2 + sg, -1] + [0]*(h - 2)); Q = Q[:-1] + (Q[-1] - sum(Q) + sg,)
+            qn = lambda N, c: tc[c]*qp(qc, N[c])
+            cart = lambda p, N: qn(N, p)**(-sg if typ == '-' else sg)      # q^{-+wt.(N+s)}: the Cartan factor q^{-+t}
+            Z = np.zeros((h, h), complex); O = np.zeros((h, h), complex)
+            for p_ in range(h):
+                N = tuple(c - w for c, w in zip(Q, wt[p_])); Z[p_, p_] = cart(p_, N)
+                for j in range(h):
+                    al = alph(h, j); c2 = al.index(-1)
+                    A_ = P[('e', j)] if typ == '-' else P[('f', j)]
+                    for p2 in range(h):
+                        if A_[p2][p_] != 0:
+                            if typ == '-':
+                                O[p2, p_] += -kc*A_[p2][p_]*mc*qn(N, c2)*cart(p_, N)
+                            else:
+                                O[p2, p_] += kc*A_[p2][p_]*mc*qn(N, c2)*cart(p2, tuple(n + a for n, a in zip(N, al)))
+            ep = 1e-6
+            T1 = (tri_block(h, qc, mc*ep, tc, yc, typ, conj, Q) - tri_block(h, qc, -mc*ep, tc, yc, typ, conj, Q))/(2*ep)
+            T0_ = tri_block(h, qc, mc*1e-300, tc, yc, typ, conj, Q)
+            fo = max(fo, np.abs(T0_ - Z).max()/np.abs(Z).max(), np.abs(T1 - O).max()/np.abs(O).max())
+
+
+def tri_sector(h, qq, m, t, ya, yb, typ, ca, cb, Q, R):
+    """|LHS - RHS|/|LHS| of eq-triangle-braid on the sector Q of V_a(ya) (x) V_b(yb) (x) W; R = R-check V_a (x) V_b."""
+    wa = [tuple((-1 if ca else 1)*(c == i) for c in range(h)) for i in range(h)]
+    wb = [tuple((-1 if cb else 1)*(c == i) for c in range(h)) for i in range(h)]
+    sub = lambda Q_, w: tuple(x - y for x, y in zip(Q_, w))
+    TA = {i: tri_block(h, qq, m, t, ya, typ, ca, sub(Q, wb[i])) for i in range(h)}    # V_a crossing, V_b = v_i aside
+    TB = {i: tri_block(h, qq, m, t, yb, typ, cb, sub(Q, wa[i])) for i in range(h)}
+    d = h*h; L = np.zeros((d, d), complex); Rm = np.zeros((d, d), complex)
+    for i in range(h):
+        for k in range(h):
+            st = np.zeros((h, h), complex)                       # (1 x T_b), then (T_a x 1): W (x) V_a (x) V_b
+            for k1 in range(h):
+                st[:, k1] += TB[i][k1, k]*TA[k1][:, i]
+            L[:, i*h + k] = R @ st.reshape(d)                    # then (1 x R)
+            st1 = R[:, i*h + k].reshape(h, h)                    # (R x 1): V_b (x) V_a (x) W, (k', i')
+            st2 = np.array([TA[k1] @ st1[k1] for k1 in range(h)])                    # (1 x T_a)
+            Rm[:, i*h + k] = np.array([TB[i2] @ st2[:, i2] for i2 in range(h)]).T.reshape(d)   # (T_b x 1)
+    return np.linalg.norm(L - Rm)/np.linalg.norm(L)
+
+
+t1 = time.time(); h5 = 5; ya, yb = 0.7, 1.9*np.exp(0.2j); s5 = s_generic(h5); trs = []; ctr5 = []; nul5 = set()
+qm = -q; mum = -np.exp(-1j*np.pi*LAM/2)/(qm - 1/qm)
+for ca, cb in ((False, False), (True, True), (False, True), (True, False)):
+    R5, n5 = rcheck(an_vector(h5 - 1, q, ya, conj=ca), an_vector(h5 - 1, q, yb, conj=cb)); nul5.add(n5)
+    for typ in '-+':
+        m5 = MU/1.3 if typ == '-' else MU*1.3; mm = mum/1.3 if typ == '-' else mum*1.3
+        for Q in ((1, 0, 0, 0, 0), (2, -1, 1, 0, -2)):
+            Q = Q[:-1] + (Q[-1] + (-1 if ca else 1) + (-1 if cb else 1) - sum(Q),)
+            trs.append(tri_sector(h5, q, m5, tuple(q**x for x in s5), ya, yb, typ, ca, cb, Q, R5))
+        ctr5.append(tri_sector(h5, qm, mm, tuple(qm**x for x in s5), ya, yb, typ, ca, cb, Q, R5))
+report(f'prp-an-transmission (4) for every r: the terms of order 0 and 1 of R (type I_+) and R_21^-1 (type I_-) on '
+       f'V, Vbar (x) W are exactly those of the matrix parts (h = 3, 4, 5, random complex parameters) [{fo:.0e}]; a_4 on '
+       f'complete charge sectors: eq-triangle-braid holds for both types and VV, VbarVbar, VVbar, VbarV, generic s '
+       f'[{max(trs):.0e}], R-check nullity {nul5}; control: matrices at -q with R at q [{min(ctr5):.2f}] '
+       f'({time.time() - t1:.0f} s)', fo < 1e-9 and max(trs) < 1e-12 and nul5 == {1} and min(ctr5) > 0.1)
 print(f'# (i) done after {time.time() - T0:.0f} s')
 
 

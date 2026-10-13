@@ -430,11 +430,11 @@ The full drafting report is in `briefs/draft_ch41_report.md`. The exploration ch
 **Convention.** In this chapter ω = 4π/β² − 1, as in Part VI (Corrigan–Zambon's γ), and X = e^{ω(θ−θ_d−iπ/2)}, which is CZ's x̂. The chapter writes ch. 39's root of unity as e^{2πi/h}. See the clash noted under the global pending edits.
 
 **Key results.**
-- **`prp-an-transmission` [Established (1); Theorem (2), (3), (5); Numerical (4)]** (relabelled 2026-10-13; items renumbered, the selection rule is now item 5).
+- **`prp-an-transmission` [Established (1); Theorem (2)–(5)]** (relabelled 2026-10-13; items renumbered, the selection rule is now item 5; item 4 upgraded from [Numerical] the same day, see below).
   - (1) Closed forms `eq-dt-tv`, `eq-dt-tvbar` agree with cz2009a (5.8), (5.11) in the same gauge.
   - (2) Type I₊: `eq-dt-tplus` for V̄; for V the inverse of the reversed-orientation two-entry matrix `eq-dt-reversed` (sector −Q, offset −s, X → −X₊), via the Chevalley involution ϖ (e↔f, k→k⁻¹, (ϖ⊗ϖ)Δ = Δ^op ϖ). New, proved in the integration.
   - (3) **Uniqueness for every r ≥ 2** among charge-conserving maps, θ off the (sector- and s-independent) determinant zeros; for q not a root of unity (ω irrational) every intertwiner conserves charge. Proof: Ω_j = Δ(f_j)Δ(f_{j+1}) − q⁻¹Δ(f_{j+1})Δ(f_j) has no pure-𝒲 term; its image (V) or kernel (V̄) is a coordinate line/hyperplane, so End is diagonal, then scalar. New proof, not refereed. At q⁵ = 1 (ω = 3/5) the shift by 5α₁ gives non-charge-conserving extra intertwiners. Note ω = 1.37 is rational too (q²⁰⁰ = 1).
-  - (4) The triangle relation: numerical (a₂, a₃); hypothesis (ii) proved for a₂ at generic parameters (exact rank certificate).
+  - (4) **The triangle relation for every r ≥ 2**, both types, pairs VV, V̄V̄, VV̄, V̄V (2026-10-13, checkpoint `briefs/triangle_all_r_checkpoint.md`). Proof: ℛ ∈ U_q(𝔟⁻)⊗̂U_q(𝔟⁺) = q^t(1 + (q−q⁻¹)Σ f_j⊗e_j + …) (type I₊) and ℛ₂₁⁻¹ = (1 − (q−q⁻¹)Σ e_j⊗f_j + …)q^{−t} (type I₋), evaluated on V⊗𝒲, are formal power series in y_d/y resp. y/y_d with finite coefficients, charge-conserving intertwiners over ℂ((x)); the uniqueness proof of (3) is field-theoretic, so P·(evaluated ℛ) = φ·M with φ = 1 + O(x²) (orders 0 and 1 agree exactly, all four cases); on V⊗V it is ψ·Ř (generic uniqueness of Ř, rank argument); the YBE on V(y₁)⊗V(y₂)⊗𝒲 is a series in u, uv, v and gives the triangle relation times ψφφ, invertible in ℂ((u))((v)); rational ⇒ identical; one q throughout. Hypothesis (ii) is not used; it remains proved only for a₂ (exact rank certificate).
   - (5) **Selection rule.** M_V obeys the classical rule exactly. M_V̄ has entries to every weight; the ones forbidden for that incoming soliton have relative size min(|X|^j, |X|^{j−h+1}).
 - **`prp-transmission-crossing` [Numerical].**
   - The matrices are not unitary for r ≥ 2.
@@ -456,14 +456,14 @@ The full drafting report is in `briefs/draft_ch41_report.md`. The exploration ch
   - q-Serre;
   - the gauge match with cz2009a;
   - (6.8) from the crossing relations;
-  - the universal-R reading of the diagonal entries (the U_q(a_r^(1)) universal R was not evaluated on 𝒲);
+  - the universal-R reading of the diagonal entries; since 2026-10-13 the evaluated universal R is φ·M with φ = 1 + O(x²) (proof of item 4), φ not computed; the first-order terms are also checked by script;
   - the class-p poles and windows;
   - the resonance claim;
   - the physical-strip statement.
 - **Unchecked:**
   - Robertson's fused a₃ matrix;
   - cz2007's a₂ matrices entry by entry;
-  - hypothesis (ii) for r ≥ 3 (uniqueness itself is proved for every r since 2026-10-13);
+  - hypothesis (ii) for r ≥ 3 (no longer needed: uniqueness and the triangle relation are proved for every r since 2026-10-13);
   - the scalar factors of species 1 < a < r;
   - the excited-defect scalar (bootstrap on the image of the residue) and the class-p scalar (conjecture);
   - the I₊ scalar factor and class shift (the I₊ V matrix is now known as an inverse, item 2);
@@ -505,8 +505,8 @@ The full drafting report is in `briefs/draft_ch41_report.md`. The exploration ch
   - Robertson's fused matrices;
   - Penati–Polvara versus the axiomatic matrices;
   - the q-sign for h odd;
-  - hypothesis (ii) for r ≥ 3;
-  - the U_q(a_r^(1)) universal R on 𝒲;
+  - hypothesis (ii) for r ≥ 3 (not needed for the triangle relation since 2026-10-13);
+  - the scalar series φ of the universal R evaluated on V⊗𝒲, and its relation to g (open problem 7, updated 2026-10-13);
   - the a_r doubled-boundary expectation of ch. 42, testable with these matrices.
 
 **Referee (Codex deep, 2026-10-12/13; integrated 2026-10-13).** Report `briefs/referee_defects_41_report.md`, scripts and outputs in `briefs/referee_defects_41_scripts/` (rerun, outputs reproduced byte for byte), integration scripts `integration_*.py` there; checkpoint `briefs/integration_41_checkpoint.md`; record in the report's "Integration (2026-10-13)" section. Items 1–8 accepted or accepted with modification; none rejected. Main changes:
@@ -519,7 +519,7 @@ The full drafting report is in `briefs/draft_ch41_report.md`. The exploration ch
 - Lagrangian caveat rewritten; Notes; exercises serre (cubic for r = 1), intertwiner, crossing (φφ̄ constant), gamma, window ((5,5) representative p = −1), semiclassical (regular soliton, threshold formula).
 - Script: 21 → 27 checks, about 200 s.
 
-**Status upgrades without an independent second referee pass (2026-10-13).** `prp-an-transmission` (2) existence of the I₊ V intertwiner for every r, and (3) uniqueness for every r, both [Theorem] with proofs written in the integration; (5) selection rule labelled [Theorem] (read off the closed forms). Hypothesis (ii) for a₂ was certified independently by the referee as well.
+**Status upgrades without an independent second referee pass (2026-10-13).** `prp-an-transmission` (2) existence of the I₊ V intertwiner for every r, and (3) uniqueness for every r, both [Theorem] with proofs written in the integration; (5) selection rule labelled [Theorem] (read off the closed forms). Hypothesis (ii) for a₂ was certified independently by the referee as well. Item (4), the triangle relation for every r, upgraded [Numerical] → [Theorem] the same day by the universal-R argument (proof written by a Claude agent, no referee pass; supporting checks: a₄ on complete sectors and the first-order terms in `defect_an_transmission.py`, a₂–a₅ in a scratch check).
 
 **Pending edits elsewhere (2026-10-13).**
 - `appendices/C-code.qmd` row for `defect_an_transmission.py`: 27 checks, about 200 s (was 21, 100–180 s) — DONE 2026-10-13 (coordinator, after the integration).
