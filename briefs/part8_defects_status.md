@@ -173,6 +173,12 @@ Working record for Part VIII, kept in the repository because the session scratch
     - the cubic spin-2 obstruction vanishes for r = 2–8;
     - explicit B₊₂ and B₋₂ for a₂, both types, σ symbolic: flux − dB/dt = 0 exactly (sympy; since 2026-10-12);
     - the mirror defect (𝖣ᵀ, −E) has a one-dimensional space of L̃ (since 2026-10-12).
+- `defect_spin_two_a3.py` (9 checks; new 2026-10-13): generalizes check 5/11's a₂ construction to general r via an
+  exact (sympy) Gram–Schmidt root-data basis, matching `defect_common.an_data`/`dmatrix` for r = 1..4; the closed-form
+  A_abc = 2Σμ_kμ_kμ_k solves the BCZ (5.5) matching equation exactly for a₂ and a₃; the cubic obstruction (5.11) and
+  the on-shell bulk conservation are exact (sympy) for a₃; explicit B₊₂, B₋₂ for a₃, both types, σ symbolic: flux −
+  dB/dt = 0 EXACTLY (sympy), with the same velocity structure as a₂; controls (spin ±1 passes, a non-integrable 𝖣
+  fails). Runtime about 162 s (2.7 min), dominated by the non-integrable-𝖣 control.
 - `defect_lax_rmatrix.py` (6 checks):
   - the Dirac bracket K⁻¹ on the defect values;
   - {L_d ⊗ L_d} = +[r, L_d⊗L_d] for a₁–a₄, both types and couplings, with coefficient exactly 1;
@@ -189,7 +195,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 - The Penati–Polvara dictionary row (their Euclidean orientation not checked).
 - The time-like canonical transformation, derived in the text and not scripted.
 
-**Not in the repo.** The a₃ spin-±2 run (about 6 min per case, from the phase-0 session); not independently reproduced (Codex deep referee).
+**Not in the repo.** (Resolved 2026-10-13: see `defect_spin_two_a3.py` above. The old a₃ spin-±2 run from the phase-0 session, about 6 min per case, numerical only and not reproducible, is superseded by the new script's exact construction.)
 
 **Referee (Codex deep, 2026-10-12).** Report `briefs/referee_defects_38_40_report.md` (items 1–6, 15–17 for ch. 38), scripts in `briefs/referee_defects_38_40_scripts/` (rerun, outputs identical); integrated the same day, see its "Integration (2026-10-12)" section. All items accepted or correct; none rejected. Main changes: the tensor normalization A = 2Σμ³; `prp-spin-two` label (Theorem for (1) and for a₂ in (3), exact; Numerical a₃; sketch (2)), "every spin of the bulk hierarchy", vacuum-plus-analyticity argument for nonzero leading diagonal entries; `prp-defect-lax` mirror; `prp-defect-involution` is now **[Numerical for a₁–a₄]** and explicitly about independent defect values (the step to involution exact); ch. 30 `prp-sklyanin` transport sign fixed; `prp-defect-theta` scope (massive, β ≠ 0, σ ∈ ℂ^×); PP dictionary γ/2 = b_SG²/8π → −β_SG²/8π; corrected CZ 2009b (4.5); no priority claimed for the spin-two cancellation.
 
@@ -215,7 +221,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 - **Ch. 30 `prp-sklyanin`: DONE 2026-10-12** (re-derived: local {a_x⊗a_x} = +[r, a₁+a₂]δ, four-site lattice transport c = −1). Still open: `boundary_classical.py`'s `tau_bracket` docstring says {T⊗T} = +[r, TT]; harmless (homogeneous), but the docstring could note the sign (file outside the integration list). — Docstring note DONE 2026-10-12 (global integration; `boundary_classical.py` rerun, 43 PASS).
 - **Appendix D (literature corrections; not on this branch):** when the Part VIII corrections are added, include corrections 1–7 above (7: CZ 2009b (4.5) winding reversal) and state BCZ's tensor as A = 2Σ(μ·u)³ (density ⅓A), not ⅔Σ — DONE 2026-10-12 (global integration).
 - **Conventions brief:** BCZ's A_abc = 2Σμμμ (density ⅓A); {T⊗T} = −[r, T⊗T] for ∂_xT = −a_xT while {a_x⊗a_x} = +[r, a₁+a₂]δ; PP γ/2 = b_SG²/8π (sinh-Gordon); the defect bracket is for independent defect values — DONE 2026-10-12 (global integration). (§5, and the PP sign corrected in §9.)
-- **Pending (ch. 38):** retain a reproducible a₃ spin-±2 run (e.g. a separate slow script) — NOT DONE: needs a new slow script (about 6 min per case); out of scope of the integration. Still open.
+- **Pending (ch. 38):** retain a reproducible a₃ spin-±2 run (e.g. a separate slow script) — DONE 2026-10-13: `textbook_code/defect_spin_two_a3.py` (9 checks, about 162 s), generalizing check 5/11's a₂ construction to general r; the result is now EXACT (sympy) for a₃, not just numerical, so `prp-spin-two` item (3) and its label were upgraded to [Theorem] for a₃ too (`part8-defects/38-defect-conditions.qmd`). Verification: ran the new script to completion (all 9 PASS) and reran `defect_classical_an.py` (24 PASS, docstring-only change) in this session (label upgrade not independently refereed).
 - `textbook_code/README.md` rows: `defect_classical_an.py` (24 checks, ~55 s), `defect_lax_rmatrix.py` (6 checks, <1 s) — DONE 2026-10-12 (global integration).
 - **Conventions brief** (all items DONE 2026-10-12, §5 and §8):
   - the monodromy T₊L_d⁻¹T₋ and the bracket results;

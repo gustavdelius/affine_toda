@@ -20,6 +20,7 @@ The checks of Part VIII are in `textbook_code/` and share the helper `defect_com
 | `defect_classical_sg.py` | 36–37 | 27 | 20 s | the Bäcklund transformation and Bianchi permutability, the sine-Gordon defect conditions and potential, soliton delays, absorption and emission, linear transmission, fusion onto a Dirichlet boundary |
 | `defect_sg_transmission.py` | 37, 40 | 24 | 100–160 s | the sine-Gordon transmission matrix and its scalar factor: unitarity, crossing and the sign of $q$, the resonance, the odd sector, breather transmission, the semiclassical limit |
 | `defect_classical_an.py` | 38 | 24 | 60–115 s | the momentum scan over affine diagrams, the $a_r^{(1)}$ defect conditions and potential, the defect Lax matrix, the delays, both spin-two charges, type-II defects |
+| `defect_spin_two_a3.py` | 38 | 9 | about 3 min | both spin-$\pm2$ charges of $a_3^{(1)}$, exactly, $\sigma$ symbolic, both types (the $a_2$ construction generalized to a general-$r$ exact root-data basis), with controls |
 | `defect_lax_rmatrix.py` | 38 | 6 | 2 s | the Dirac bracket of the defect values and the classical r-matrix bracket of $L_d$ |
 | `defect_solitons_an.py` | 39 | 9 | 10 s | $a_r^{(1)}$ delays for every species, type and jump class, the stored charge and the selection rule, absorption, multi-soliton passage, linear transmission, the frozen soliton |
 | `defect_universal_r.py` | 40 | 16 | 50–95 s | q-oscillator, Weyl and Fock modules, the universal R-matrix on them, uniqueness of the intertwiners, the two Borel subalgebras |

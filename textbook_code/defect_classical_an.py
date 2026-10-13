@@ -24,8 +24,8 @@ Checks (book ids they support):
     function of phi(0,t), psi(0,t) and their t-derivatives for BOTH eps = +1 (spin -2) and eps = -1 (spin +2), for both
     types.  This contradicts BCZ hep-th/0401020 sec. 5 (and Penati-Polvara 1902.10690 App. B): their obstruction (5.11),
     A(Dv)^3 + A(D^T v)^3, vanishes identically because cot a cot b + cot b cot c + cot c cot a = 1 for a + b + c = 0 mod pi
-    (D = 1 + i cot(pi k/h) on the Fourier mode k).  Controls: spin +-1; a non-integrable D fails.  (The same holds for
-    a_3, checked separately at about 6 minutes per case.)  Book spin convention: spin s = e^{s theta} on a soliton of
+    (D = 1 + i cot(pi k/h) on the Fourier mode k).  Controls: spin +-1; a non-integrable D fails.  (The same holds
+    EXACTLY for a_3, reproduced in defect_spin_two_a3.py.)  Book spin convention: spin s = e^{s theta} on a soliton of
     rapidity theta (sec-qg-gradation), so E + P has spin +1 and spin +s densities are built from d_- = d_t - d_x.  [prp-spin-two]
 Chapter 38 additions (sec-defect-conditions):
  6. prp-ar-only: every affine Dynkin diagram of rank <= 4 (a_1..a_4, b_3, b_4, c_2..c_4, d_4, f_4, g_2; a_2, a_4, a_6, a_8,
