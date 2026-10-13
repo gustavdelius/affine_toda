@@ -1,0 +1,17 @@
+exact transported-loop commutant h,bar,plus: dim/rank/nullity 3 False False (3, 8, 1)
+exact transported-loop commutant h,bar,plus: dim/rank/nullity 3 False True (3, 8, 1)
+exact transported-loop commutant h,bar,plus: dim/rank/nullity 3 True False (3, 8, 1)
+exact transported-loop commutant h,bar,plus: dim/rank/nullity 3 True True (3, 8, 1)
+exact transported-loop commutant h,bar,plus: dim/rank/nullity 4 False False (4, 15, 1)
+exact transported-loop commutant h,bar,plus: dim/rank/nullity 4 False True (4, 15, 1)
+exact transported-loop commutant h,bar,plus: dim/rank/nullity 4 True False (4, 15, 1)
+exact transported-loop commutant h,bar,plus: dim/rank/nullity 4 True True (4, 15, 1)
+exact hypothesis(ii) h3 V tensor V: dim/rank/nullity (9, 80, 1)
+orientation-minus closed form residual 1.5283217378740643e-15
+classical-equivalent representatives k,pole,E,matrix-cycle 0 (0.7-0.3821888872980286j) (1.1646092000023904-0.282915552602188j) (-0.684547105928688-0.7289686274214122j)
+classical-equivalent representatives k,pole,E,matrix-cycle 1 (0.7+0.38218888729802813j) (1.1646092000023909+0.28291555260218765j) (-0.6845471059286891-0.7289686274214112j)
+sector boundary distance, theta_star - theta_d 0.03 -1.6897970627615433
+sector boundary distance, theta_star - theta_d 0.2 -0.7814076302773292
+sector boundary distance, theta_star - theta_d 1.0471975511965976 -0.0
+CZ2011 m,corrected Gamma argument,printed Gamma argument 1 -2.220446049250313e-16 -0.5
+CZ2011 m,corrected Gamma argument,printed Gamma argument 2 0.0 -0.5000000000000004

@@ -1,0 +1,11 @@
+I+ V h,nullity,entries/column,intertwining,triangle 3 1 [3 3 3] 2.932521790948834e-14 1.5190493651839744e-13
+I+ V h,nullity,entries/column,intertwining,triangle 4 1 [4 4 4 4] 6.335873208540831e-15 2.3008247045582145e-14
+CZ2007 h,D transpose and delay relabelling residual 3 0.0 2.68415933375018e-15
+CZ2007 h,D transpose and delay relabelling residual 4 0.0 2.450675568920239e-15
+CZ2007 h,D transpose and delay relabelling residual 5 0.0 2.2644195468014703e-15
+COMPARISON ONLY PartVI R h,b1,b2,error 3 False False 7.379877804389917e-16
+COMPARISON ONLY PartVI R h,b1,b2,error 3 True True 6.084153469528476e-16
+COMPARISON ONLY PartVI R h,b1,b2,error 3 False True 7.289685028881629e-16
+COMPARISON ONLY PartVI R h,b1,b2,error 4 False False 8.070345858086587e-16
+COMPARISON ONLY PartVI R h,b1,b2,error 4 True True 8.076588649925867e-16
+COMPARISON ONLY PartVI R h,b1,b2,error 4 False True 7.839561289275116e-16
