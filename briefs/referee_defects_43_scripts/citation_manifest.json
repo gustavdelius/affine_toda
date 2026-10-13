@@ -1,0 +1,296 @@
+[
+  {
+    "key": "akr2002",
+    "url": "https://arxiv.org/abs/hep-th/0110218",
+    "source": "referee_scratch/defects_43/sources/hep-th_0110218.txt",
+    "cited_lines": [
+      185,
+      221
+    ],
+    "sha256": "1ab1222c9059758eb946942261294282e908c36399d90e87c1d9dbab4b592cc7"
+  },
+  {
+    "key": "appel_vlaar2022",
+    "url": "https://arxiv.org/abs/2007.09218",
+    "source": "referee_scratch/defects_43/sources/2007.09218.txt",
+    "cited_lines": [
+      218
+    ],
+    "sha256": "67e300a817d5caefe9de9e3dd415ef6305cb1c7f4e42365b51b5176d4695f76a"
+  },
+  {
+    "key": "avan_doikou2012b",
+    "url": "https://arxiv.org/abs/1205.1661",
+    "source": "referee_scratch/defects_43/sources/1205.1661.txt",
+    "cited_lines": [
+      210
+    ],
+    "sha256": "fdd2d108b6b33bc44cbf3d24685f05ee54271eff071fb94b14576a205dc4dcb7"
+  },
+  {
+    "key": "bajnok_george2006",
+    "url": "https://arxiv.org/abs/hep-th/0404199",
+    "source": "referee_scratch/defects_43/sources/hep-th_0404199.txt",
+    "cited_lines": [
+      97,
+      250,
+      259
+    ],
+    "sha256": "004a84070d3175842bc1c77c258c17d39abaddbf626720dd27124e66516398f6"
+  },
+  {
+    "key": "bajnok_simon2008",
+    "url": "https://arxiv.org/abs/0712.4292",
+    "source": "referee_scratch/defects_43/sources/0712.4292.txt",
+    "cited_lines": [
+      129,
+      142,
+      160,
+      180,
+      207,
+      259,
+      264,
+      265
+    ],
+    "sha256": "dab53057eaf719cf6c126444b86831666f0d22a5a8707b31d1fcb9165f6059e9"
+  },
+  {
+    "key": "bcz2005",
+    "url": "https://arxiv.org/abs/hep-th/0506169",
+    "source": "referee_scratch/defects_43/sources/hep-th_0506169.txt",
+    "cited_lines": [
+      12,
+      18,
+      259
+    ],
+    "sha256": "5489c575642e1e0879582fb027783bb6b11df1b75fe73fc4985be93177f525b2"
+  },
+  {
+    "key": "bhw2014",
+    "url": "https://arxiv.org/abs/1307.4536",
+    "source": "referee_scratch/defects_43/sources/1307.4536.txt",
+    "cited_lines": [
+      181,
+      259
+    ],
+    "sha256": "84860f36cc876260d20a6701cbe57aaa950b8208f20fd7c2c0dcf94e4de7aef5"
+  },
+  {
+    "key": "blz1997",
+    "url": "https://arxiv.org/abs/hep-th/9604044",
+    "source": "referee_scratch/defects_43/sources/hep-th_9604044.txt",
+    "cited_lines": [
+      217
+    ],
+    "sha256": "1cc8831120059f55a207cfd5a7ca71e49de4f71b9f2a8872a4cee3651faaae09"
+  },
+  {
+    "key": "bristow_bowcock2017",
+    "url": "https://arxiv.org/abs/1612.03002",
+    "source": "referee_scratch/defects_43/sources/1612.03002.txt",
+    "cited_lines": [
+      211
+    ],
+    "sha256": "836e8ba8476c062861bc2c700ec359a6969e75ffac3a4864d3d68b25b94324f5"
+  },
+  {
+    "key": "caudrelier2015",
+    "url": "https://arxiv.org/abs/1411.5171",
+    "source": "referee_scratch/defects_43/sources/1411.5171.txt",
+    "cited_lines": [
+      210
+    ],
+    "sha256": "4bed2284a18c75901230b8b36aaecd1c559c653ee162a58790d507a5725de7f9"
+  },
+  {
+    "key": "cz2007",
+    "url": "https://arxiv.org/abs/0705.1066",
+    "source": "referee_scratch/defects_43/sources/0705.1066.txt",
+    "cited_lines": [
+      12,
+      20,
+      43,
+      52,
+      230,
+      259,
+      263,
+      264
+    ],
+    "sha256": "29d590e4c29afb1a8ef766f8f68f9a1e88484fdafbe56880eb7f8d4a75bb11d9"
+  },
+  {
+    "key": "cz2009b",
+    "url": "https://arxiv.org/abs/0908.3126",
+    "source": "referee_scratch/defects_43/sources/0908.3126.txt",
+    "cited_lines": [
+      211
+    ],
+    "sha256": "9be4a0f634d08ff4b17a7f18a6b8fc945c12dd9e444e660a9145db86f488d276"
+  },
+  {
+    "key": "cz2010",
+    "url": "https://arxiv.org/abs/1006.0939",
+    "source": "referee_scratch/defects_43/sources/1006.0939.txt",
+    "cited_lines": [
+      18,
+      164,
+      211,
+      212,
+      259
+    ],
+    "sha256": "03e2f6982965d455fcf619361c2a29935cd65e5cc71330121034958f5f7fd1c6"
+  },
+  {
+    "key": "cz2011",
+    "url": "https://arxiv.org/abs/1012.4186",
+    "source": "referee_scratch/defects_43/sources/1012.4186.txt",
+    "cited_lines": [
+      166,
+      211,
+      212,
+      259
+    ],
+    "sha256": "797c3e7cc5c9fa7302b764a3752410de850d4e90ef280cbc883ef4e4714a261c"
+  },
+  {
+    "key": "cz2012",
+    "url": "https://arxiv.org/abs/1202.6016",
+    "source": "referee_scratch/defects_43/sources/1202.6016.txt",
+    "cited_lines": [
+      218
+    ],
+    "sha256": "478f2296dfcf7fa79432b4b93f134ddaa6ced64c2828535247b1ab6359f90dae"
+  },
+  {
+    "key": "delius_gandenberger1999",
+    "url": "https://arxiv.org/abs/hep-th/9904002",
+    "source": "referee_scratch/defects_43/sources/hep-th_9904002.txt",
+    "cited_lines": [
+      259
+    ],
+    "sha256": "296ad88e460138a955a35fba3c0ea380a619d48a43c8b78fee1bbd1d1ccbb3cf"
+  },
+  {
+    "key": "gandenberger1995",
+    "url": "https://arxiv.org/abs/hep-th/9501136",
+    "source": "referee_scratch/defects_43/sources/hep-th_9501136.txt",
+    "cited_lines": [
+      20,
+      259
+    ],
+    "sha256": "c612ffb1770398e3138c609cb3323b32d9c523c33b5ec493a0eb8ee24a7fdba9"
+  },
+  {
+    "key": "gandenberger1998",
+    "url": "https://arxiv.org/abs/hep-th/9703158",
+    "source": "referee_scratch/defects_43/sources/hep-th_9703158.txt",
+    "cited_lines": [
+      212
+    ],
+    "sha256": "8bec65c3436a4ce75dbfd137260c3641270e27a2758ddaad44b318b356d7ce8b"
+  },
+  {
+    "key": "jiang2017",
+    "url": "https://arxiv.org/abs/1703.03562",
+    "source": "referee_scratch/defects_43/sources/1703.03562.txt",
+    "cited_lines": [
+      183
+    ],
+    "sha256": "77e75c8ce207d210c9f2de4c14667527f6a71552b65fe2970bd0221417d73bcb"
+  },
+  {
+    "key": "kolb2014",
+    "url": "https://arxiv.org/abs/1207.6036",
+    "source": "referee_scratch/defects_43/sources/1207.6036.txt",
+    "cited_lines": [
+      218
+    ],
+    "sha256": "9b8fabad9560ac4ccea2a79b725a908eee4c35ad28cab1391695f5c8fb1a558f"
+  },
+  {
+    "key": "konik_leclair1999",
+    "url": "https://arxiv.org/abs/hep-th/9703085",
+    "source": "referee_scratch/defects_43/sources/hep-th_9703085.txt",
+    "cited_lines": [
+      18,
+      259
+    ],
+    "sha256": "ccb8bb2bc11f47a2a12d7a516b61bce94287436102893d7e54b4d97f5b1aa777"
+  },
+  {
+    "key": "kormos_runkel_watts2009",
+    "url": "https://arxiv.org/abs/0907.1497",
+    "source": "referee_scratch/defects_43/sources/0907.1497.txt",
+    "cited_lines": [
+      182
+    ],
+    "sha256": "6de249c4220b0d03109191c4d1b881b1588f12c4cd2363138e32f6c65480d389"
+  },
+  {
+    "key": "penati_polvara2019",
+    "url": "https://arxiv.org/abs/1902.10690",
+    "source": "referee_scratch/defects_43/sources/1902.10690.txt",
+    "cited_lines": [
+      14,
+      111,
+      207,
+      208,
+      259
+    ],
+    "sha256": "dea4601a81f9cb868544da7907e820b87fc89de123a38037c42594ff337dc582"
+  },
+  {
+    "key": "robertson2014a",
+    "url": "https://arxiv.org/abs/1304.3129",
+    "source": "referee_scratch/defects_43/sources/1304.3129.txt",
+    "cited_lines": [
+      211
+    ],
+    "sha256": "621d527f727cc509dd8e2f65c09fa63bd7c49ce4e5a17d408c4df48e2e8a8e89"
+  },
+  {
+    "key": "robertson2014b",
+    "url": "https://arxiv.org/abs/1408.1960",
+    "source": "referee_scratch/defects_43/sources/1408.1960.txt",
+    "cited_lines": [
+      212
+    ],
+    "sha256": "0005efa393d39a9db116a437502a84239255f114a816345ffea484f6cc993d54"
+  },
+  {
+    "key": "rossi_weston2002",
+    "url": "https://arxiv.org/abs/math-ph/0207004",
+    "source": "referee_scratch/defects_43/sources/math-ph_0207004.txt",
+    "cited_lines": [
+      217
+    ],
+    "sha256": "d15e8387ebbea226810026bf56efb957c8d71e16c50f2b64c66dbab5b2b7a34b"
+  },
+  {
+    "key": "runkel2008",
+    "url": "https://arxiv.org/abs/0711.0102",
+    "source": "referee_scratch/defects_43/sources/0711.0102.txt",
+    "cited_lines": [
+      217
+    ],
+    "sha256": "c1039f4ca7fe6d58904318ae80a56bc3257c93ec69126516c1ca6fdbb43fef7d"
+  },
+  {
+    "key": "runkel2010",
+    "url": "https://arxiv.org/abs/1004.1909",
+    "source": "referee_scratch/defects_43/sources/1004.1909.txt",
+    "cited_lines": [
+      217
+    ],
+    "sha256": "902e2007e172df9320bb2d94962f16c5987f340d7fac33c6308e2af42e1423d8"
+  },
+  {
+    "key": "weston2010",
+    "url": "https://arxiv.org/abs/1006.1555",
+    "source": "referee_scratch/defects_43/sources/1006.1555.txt",
+    "cited_lines": [
+      217
+    ],
+    "sha256": "d513e2eab79cc13aa3ec77d092d68acf38579bb5a889e9eb83990756d3b0b3ed"
+  }
+]

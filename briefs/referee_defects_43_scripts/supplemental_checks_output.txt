@@ -1,0 +1,11 @@
+exact type-I-minus bootstrap residuals: 0 0
+exact type-I-plus bootstrap residuals: 0 0
+conjugate scalar simple pole h=3: epsilon*gbar=[(0.06174288348840928-0.24463595886394043j), (0.06174186405597291-0.24463912552273961j)], relative change=1.318e-05
+conjugate scalar simple pole h=4: epsilon*gbar=[(0.06907855438652956-0.08704378934953193j), (0.06907882337640296-0.08704595505893321j)], relative change=1.964e-05
+conjugate scalar simple pole h=5: epsilon*gbar=[(0.04532843595955463-0.034159391792059166j), (0.045328996072242826-0.034160757386040665j)], relative change=2.600e-05
+LY b=.5 epsilon=1e-05: eps*T=(-2.6794919235695576e-06+8.038475772450343e-11j), eps*Tbar=(3.999983319299017e-05-3.4641016148202137j)
+LY b=.5 epsilon=5e-06: eps*T=(-1.339745962062905e-06+2.009618943203212e-11j), eps*Tbar=(1.9999724301445196e-05-3.4641016150583703j)
+citation keys: 29 missing bibliography keys: []
+theorem labels: [(115, '**[Theorem]** At real coupling and for real fields, $\\mathcal B_d^{\\rm I_\\mp}(\\vec\\phi,\\vec\\psi;\\sigma)\\ge0$ for $\\sigma>0$, with equality only at $\\vec\\phi=\\vec\\psi=0$. So $\\vec\\phi=\\vec\\psi=0$ is the unique minimum of the static energy. For $\\sigma<0$, $\\mathcal B_d$ is unbounded below.')]
+exercise count: 8
+all cited primary texts present; manifest written
