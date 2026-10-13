@@ -1,0 +1,18 @@
+tensor K theta/residual/intertwiner dimension: 0.37 7.836639297966387e-16 1
+tensor K theta/residual/intertwiner dimension: (-0.28+0.13j) 9.174417666627183e-16 1
+tensor K reflection equation: 1.194450451901036e-15
+CZ 2.19 0 printed h relative full-block error 0.26040770233492144
+CZ 2.19 0 substitution h relative full-block error 0.2584131052132281
+CZ 2.19 2 printed h relative full-block error 0.1749505088407776
+CZ 2.19 2 substitution h relative full-block error 0.173196055790588
+CZ 2.19 4 printed h relative full-block error 0.560129157366662
+CZ 2.19 4 substitution h relative full-block error 0.5565116585638562
+diagonal limit required chi(k) chi(k^-1) at s=0: q**(-4*n)
+offdiagonal limit: chi(k) shifts +2; independently fitted chi(k^-1) also shifts +2
+all-entry minus graded residual: -1 e 0 0.0
+all-entry minus graded residual: -1 f 1 0.0
+all-entry minus graded residual: 1 f 0 0.0
+all-entry minus graded residual: 1 e 1 0.0
+CZ 2.19 corrected h and -s-minus, label/residual: 0 1.7566135121474616e-16
+CZ 2.19 corrected h and -s-minus, label/residual: 2 2.6265806150277097e-16
+CZ 2.19 corrected h and -s-minus, label/residual: 4 1.9272137593121512e-16

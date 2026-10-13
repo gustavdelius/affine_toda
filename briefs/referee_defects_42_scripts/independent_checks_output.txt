@@ -1,0 +1,30 @@
+doubled LS sign/kind/twist N=5,7,9: -1 e 0 ['0.89380819', '0.90523961', '0.91021183']
+doubled LS sign/kind/twist N=5,7,9: -1 e 1 ['2.9478607e-15', '1.4126945e-14', '3.2326286e-15']
+doubled LS sign/kind/twist N=5,7,9: -1 f 0 ['4.1218849e-14', '2.8452272e-12', '2.4969095e-12']
+doubled LS sign/kind/twist N=5,7,9: -1 f 1 ['0.92009736', '0.92249802', '0.9235945']
+doubled LS sign/kind/twist N=5,7,9: 1 e 0 ['5.02661e-14', '7.4813377e-12', '1.0726819e-12']
+doubled LS sign/kind/twist N=5,7,9: 1 e 1 ['0.85715741', '0.86583498', '0.86974016']
+doubled LS sign/kind/twist N=5,7,9: 1 f 0 ['0.90264335', '0.91332098', '0.91796032']
+doubled LS sign/kind/twist N=5,7,9: 1 f 1 ['1.7819771e-13', '2.671621e-12', '5.920787e-12']
+unrestricted ALL entries N=3: -1 e 0 0.8798419924853168
+unrestricted ALL entries N=3: -1 f 1 0.9173737328223108
+unrestricted ALL entries N=3: 1 f 0 0.8895766556780134
+unrestricted ALL entries N=3: 1 e 1 0.8471377493906136
+limits sign/kind/twist/direction: -1 e 0 1 [0.1574341326469643, 0.010299794835743385, 0.0006650982275436388]
+limits sign/kind/twist/direction: -1 f 1 -1 [0.09107168252217226, 0.005902761814114233, 0.00038115009719075243]
+limits sign/kind/twist/direction: 1 e 1 -1 [0.9930312796849644, 0.9936033453647445, 0.9936057355529622]
+limits sign/kind/twist/direction: 1 f 0 1 [0.9992699755508186, 0.9999969521748342, 0.9999999872925406]
+second-module relations/Serre: 1.4130832128153977e-15
+explicit diagonal b-minus and twisted b-plus intertwining: 3.3893637946200148e-15
+fusion symbolic block: True
+GZ invariants: correct/max, negative-sign/min, no-lambda/min: 4.976001675505238e-16 0.13538785109921941 0.01724498153264757
+sinh-Gordon fusion: 1.5700924586837752e-16
+sinh-Gordon fusion: 2.482534153247273e-16
+sinh-Gordon fusion: 1.1102230246251565e-16
+classical rank/C/inv(h=1e-4,1e-5,1e-6),direct,bare: 1 [0.61, -1.17] ['5.98e-09', '9.66e-11', '9.07e-10', '5.63', '1']
+classical rank/C/inv(h=1e-4,1e-5,1e-6),direct,bare: 1 [0, 0] ['1.79e-10', '1.01e-10', '2.64e-09', '1.77', '1']
+classical rank/C/inv(h=1e-4,1e-5,1e-6),direct,bare: 2 [1, -1, 1] ['1.14e-08', '1.2e-10', '9.31e-11', '2.07', '1']
+classical rank/C/inv(h=1e-4,1e-5,1e-6),direct,bare: 2 [0, 0, 0] ['2.3e-10', '6.21e-11', '5.26e-10', '1.86', '1']
+BDG potential exact: True
+BDG flow of p-q at beta=m0=1: (-0.31666677343857025+0j)
+boundary crossing gauge identity/control: 1.1123893155135927e-16 0.029384811435051547
