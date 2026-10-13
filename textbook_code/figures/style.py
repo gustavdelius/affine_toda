@@ -1,4 +1,4 @@
-"""Shared style for the figures of the introduction and Parts I to VIII.
+"""Shared style for the figures of the introduction and Parts I to IX.
 
 Every figure script imports this module. Figures are designed for a canvas about 7 inches wide: the book
 shows them at text width (about 5.4 inches in the PDF), so text of 8-9 pt stays readable. It fixes the matplotlib backend, one
@@ -16,7 +16,8 @@ build needs no Python:
   * `part5-semiclassics/figures/`  for chapters 16-19,
   * `part6-soliton-smatrices/figures/` for chapters 20-27,
   * `part7-half-line/figures/` for chapters 28-35,
-  * `part8-foundations/figures/` for chapters 36-41.
+  * `part8-defects/figures/` for chapters 36-43,
+  * `part9-foundations/figures/` for chapters 44-49.
 
 Each script also prints one PASS or FAIL line per formula it plots, like the
 other scripts in textbook_code/.
@@ -37,7 +38,8 @@ OUT_PART4 = ROOT / "part4-real-coupling" / "figures"
 OUT_PART5 = ROOT / "part5-semiclassics" / "figures"
 OUT_PART6 = ROOT / "part6-soliton-smatrices" / "figures"
 OUT_PART7 = ROOT / "part7-half-line" / "figures"
-OUT_PART8 = ROOT / "part8-foundations" / "figures"
+OUT_PART8 = ROOT / "part8-defects" / "figures"
+OUT_PART9 = ROOT / "part9-foundations" / "figures"
 
 GREY = "#868b94"          # text, axes: readable on white and on the dark theme
 LIGHTGREY = "#868b9455"   # grid lines, light fills

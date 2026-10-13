@@ -4,8 +4,29 @@ Every numerical or symbolic claim in this book that is not a textbook result is 
 
 | Directory | Parts | What it contains |
 |---|---|---|
-| `textbook_code/` | I–VII (textbook chapters), appendix A | Checks of the formulas presented as textbook material: the sine-Gordon S-matrix and breather, the six-vertex R-matrix and its crossing data, the universal R-matrix, the tensor-product graph, the classical Toda theory (Lax pair, masses, Dorey's rule, Hirota solitons), the simply-laced S-matrices, the semiclassical mass formulas, quantum dimensions, and the data of appendix A. Each script prints `PASS`/`FAIL` lines. |
-| `foundations_code/` | V, VIII | Research computations behind Parts V and VIII: Hirota fluctuations, transmission factors and Jordan types (`hirota/`), one-loop masses of all folded solitons (`oneloop/`), the thimble decomposition of the reduced model and topological charges (`thimbles/`), Krein-unitarity and sector classification (`krein_bethe.py`, `sectors/`), RSOS face weights of $a_2^{(1)}$ (`irf/`), the continuum-limit lemmas (`nested_check.py`, `review614/`), the bulk-energy poles (`bulk_poles.py`), and the comparison with the lattice model of Vernier, Jacobsen and Saleur (`vernier/`). |
+| `textbook_code/` | I–VIII (textbook chapters), appendix A | Checks of the formulas presented as textbook material: the sine-Gordon S-matrix and breather, the six-vertex R-matrix and its crossing data, the universal R-matrix, the tensor-product graph, the classical Toda theory (Lax pair, masses, Dorey's rule, Hirota solitons), the simply-laced S-matrices, the semiclassical mass formulas, quantum dimensions, and the data of appendix A. Each script prints `PASS`/`FAIL` lines. |
+| `foundations_code/` | V, IX | Research computations behind Parts V and IX: Hirota fluctuations, transmission factors and Jordan types (`hirota/`), one-loop masses of all folded solitons (`oneloop/`), the thimble decomposition of the reduced model and topological charges (`thimbles/`), Krein-unitarity and sector classification (`krein_bethe.py`, `sectors/`), RSOS face weights of $a_2^{(1)}$ (`irf/`), the continuum-limit lemmas (`nested_check.py`, `review614/`), the bulk-energy poles (`bulk_poles.py`), and the comparison with the lattice model of Vernier, Jacobsen and Saleur (`vernier/`). |
 | `soliton_rmatrix_code/` | VI, appendix B | Construction of representations and R-matrices of quantum affine algebras from their defining relations, scalar factors, fusion, pole scans and breather tests for $c_n^{(1)}$, $a_{2n-1}^{(2)}$, $e_6^{(2)}$, $f_4^{(1)}$, $g_2^{(1)}$ and $d_4^{(3)}$, and the one-loop comparisons with the Toda Lagrangian. |
 
-The status of every claim checked only by hand, and of every claim not yet checked, is recorded for the textbook chapters in `briefs/referee_textbook.md`, and the other files in `briefs/` describe open research tasks.
+The status of every claim checked only by hand, and of every claim not yet checked, is recorded for the textbook chapters in `briefs/referee_textbook.md`, for Part VIII in `briefs/part8_defects_status.md`, and the other files in `briefs/` describe open research tasks.
+
+## Part VIII: defects {#sec-app-code-defects}
+
+The checks of Part VIII are in `textbook_code/` and share the helper `defect_common.py`, whose module docstring states the conventions of the part: the fields $\vec\phi$ on $x<0$ and $\vec\psi$ on $x>0$, the matrices $\mathsf D$ and $E$ of both types, the defect potential, $\sigma=e^{-\theta_d}$, the Weyl and Fock modules and the $a_r^{(1)}$ transmission matrices. Each script prints `PASS`/`FAIL` lines; the runtimes are approximate and depend on the load of the machine.
+
+| Script | Chapters | Checks | Runtime | What it checks |
+|---|---|---|---|---|
+| `defect_axioms.py` | 36 | 20 | 3 s | the three forms of the triangle relation, the no-go reductions, the Ising and Lee–Yang defects, the doubling trick, twist defects, the Copetti–Córdova–Komatsu crossing rules |
+| `defect_classical_sg.py` | 36–37 | 27 | 20 s | the Bäcklund transformation and Bianchi permutability, the sine-Gordon defect conditions and potential, soliton delays, absorption and emission, linear transmission, fusion onto a Dirichlet boundary |
+| `defect_sg_transmission.py` | 37, 40 | 24 | 100–160 s | the sine-Gordon transmission matrix and its scalar factor: unitarity, crossing and the sign of $q$, the resonance, the odd sector, breather transmission, the semiclassical limit |
+| `defect_classical_an.py` | 38 | 24 | 60–115 s | the momentum scan over affine diagrams, the $a_r^{(1)}$ defect conditions and potential, the defect Lax matrix, the delays, both spin-two charges, type-II defects |
+| `defect_spin_two_a3.py` | 38 | 9 | about 3 min | both spin-$\pm2$ charges of $a_3^{(1)}$, exactly, $\sigma$ symbolic, both types (the $a_2$ construction generalized to a general-$r$ exact root-data basis), with controls |
+| `defect_lax_rmatrix.py` | 38 | 6 | 2 s | the Dirac bracket of the defect values and the classical r-matrix bracket of $L_d$ |
+| `defect_solitons_an.py` | 39 | 9 | 10 s | $a_r^{(1)}$ delays for every species, type and jump class, the stored charge and the selection rule, absorption, multi-soliton passage, linear transmission, the frozen soliton |
+| `defect_universal_r.py` | 40 | 16 | 50–95 s | q-oscillator, Weyl and Fock modules, the universal R-matrix on them, uniqueness of the intertwiners, the two Borel subalgebras |
+| `defect_transfer.py` | 40 | 9 | 15–35 s | Fock and Weyl traces, commutation with the transfer matrices, the TQ relations, the twist and charge-conjugation limits |
+| `defect_an_transmission.py` | 41 | 28 | about 200 s | the $a_r^{(1)}$ and $a_2^{(2)}$ transmission matrices: uniqueness, triangle relation, crossing and the sign of $q$, scalar factors, poles and unstable windows, the semiclassical limit |
+| `defect_doubling.py` | 42 | 17 | 30–60 s | the doubled theory, diagonal coideals, the refutation of @cnj-twisted-diagonal and the two Borel symmetries, defect–boundary fusion, the classical dressing, tensor K-matrices |
+| `defect_particle_transmission.py` | 43 | 8 | 60 s | lightest-breather transmission for $a_2^{(1)}$–$a_4^{(1)}$, the particle transmission factors and their bootstrap, the one-loop sinh-Gordon factor, the doubled $a_r^{(1)}$ boundary, the real-coupling defect vacuum |
+
+The scripts of the referee passes on Part VIII are kept with their reports in `briefs/referee_defects_*_scripts/`; the book does not depend on them.

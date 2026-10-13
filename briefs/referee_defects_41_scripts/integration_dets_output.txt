@@ -1,0 +1,12 @@
+h=3 M_V  (I-): det = X**3 + q**2   matches guess: True
+h=3 M_Vb (I-): det = (-X**3 + q)**2
+h=3 M+_Vb(I+): det = (X**3*q**2 + 1)/q**2   matches guess: True
+h=3 M-_Vb(rev): det = q**2*(X**3*q + 1)
+h=4 M_V  (I-): det = -X**4 + q**3   matches guess: True
+h=4 M_Vb (I-): det = (-X**4 + q)**3
+h=4 M+_Vb(I+): det = -(X**4*q**3 - 1)/q**3   matches guess: True
+h=4 M-_Vb(rev): det = -q**3*(X**4*q - 1)
+h=5 M_V  (I-): det = X**5 + q**4   matches guess: True
+h=5 M_Vb (I-): det = (-X**5 + q)**4
+h=5 M+_Vb(I+): det = (X**5*q**4 + 1)/q**4   matches guess: True
+h=5 M-_Vb(rev): det = q**4*(X**5*q + 1)

@@ -643,7 +643,9 @@ def durham_K(N, C, lam):
 
 def tau_bracket(N, rf, Kp, Km, l1, l2):
     """{tau(l1), tau(l2)}, tau(l) = tr(K_+(l) T(l) K_-(1/l) T(1/l)^T), by the chain rule from {T(a) (x), T(b)} = [r(a/b), T(a) (x) T(b)]
-    alone, with random T's."""
+    alone, with random T's.  The book's transport matrix (d_x T = -a_x T) has the opposite sign, {T (x) T} = -[r, T (x) T]
+    (prp-sklyanin; defect_lax_rmatrix.py check 3); the sign is harmless here, because the reflection equations and the
+    involution are homogeneous in r."""
     lams = [l1, 1 / l1, l2, 1 / l2]
     Ts = [rng.normal(size=(N, N)) + 1j * rng.normal(size=(N, N)) for _ in range(4)]
     def grads(lam, T, Tp):

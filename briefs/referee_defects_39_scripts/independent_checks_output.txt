@@ -1,0 +1,28 @@
+1 direct exponentials, exact one-soliton profiles: 216 samples, residual 1.315e-13
+2 pole limits: 768 configurations, residual 5.380e-13
+2 real poles h=4: [(2, 0)]
+2 real poles h=6: [(1, 1), (3, 0), (5, 5)]
+2 real poles h=8: [(2, 1), (4, 0), (6, 7)]
+2 zero-envelope counterexample: h=4 a=2 p=1 theta=.6+i*pi/2; cos(Im theta)=0
+2 h=6 a=1 p=1 type=-1: stored EP=[14.22558262+0.00000000e+00j  7.63984299-3.55271368e-15j], error=3.662e-15
+2 h=6 a=1 p=1 type=1: stored EP=[14.22558262+0.00000000e+00j  7.63984299+3.55271368e-15j], error=3.662e-15
+3 static counterexample h=3 p=1 td=0: EP=[9.+0.j         0.-5.19615242j]
+3 mass shell residual 1.449e-13; 2 absorption EP identity 4.632e-14
+3/6 sectors h=3 a=1: count=3, spacing/pi=0.666667, attainable |steps|=[0, 1]
+3/6 sectors h=3 a=2: count=3, spacing/pi=0.666667, attainable |steps|=[0, 1]
+3/6 sectors h=4 a=2: count=2, spacing/pi=1, attainable |steps|=[0, 1]
+3/6 sectors h=5 a=2: count=5, spacing/pi=0.4, attainable |steps|=[0, 1, 2]
+9 exercise charges h=5,a=2 (ambient coordinates): [[-0.4, 0.6, -0.4, -0.4, 0.6], [-0.4, 0.6, -0.4, 0.6, -0.4], [0.6, -0.4, -0.4, 0.6, -0.4], [0.6, -0.4, 0.6, -0.4, -0.4], [-0.4, -0.4, 0.6, -0.4, 0.6]]
+9 exercise example phase=.55, u=3: [-0.4 -0.4  0.6 -0.4  0.6] -> [-0.4  0.6 -0.4  0.6 -0.4]
+3/6 sectors h=6 a=2: count=3, spacing/pi=0.666667, attainable |steps|=[0, 1]
+3/6 sectors h=8 a=3: count=8, spacing/pi=0.25, attainable |steps|=[0, 1, 2, 3]
+4 mixed pair h=2..10: soliton 8.465e-16, particle 1.643e-14, EP 1.599e-14
+4 real-sigma realizations h<=8: [(2, 1, 1), (4, 2, 2), (6, 1, 2), (6, 3, 3), (6, 5, 4), (8, 2, 3), (8, 4, 4), (8, 6, 5)]
+5 Hessian scattering: R/residual 3.238e-13, T 1.045e-14, crossing 3.878e-15, algebraic unitarity 1.724e-15, source system 2.483e-15
+5 source a2 k=1: corrected-(7.5)=1.665e-16; printed |T|=0.327943516
+5 source a2 k=2: corrected-(7.5)=5.933e-16; printed |T|=0.381619961
+7 leading constraint D*pi=-D^T: 2.859e-15; z_limit=omega^a algebraically
+8 Theta residual 3.202e-15; advanced samples 216
+8 real negative sigma counterexample: theta_d=i*pi, p=0, h=3, energies [0.+0.j 0.+0.j]
+9 two-soliton residual 1.013e-13; bootstrap printed 2.809e-15; reversed shifts 2.809e-15
+independent_checks 1.67s

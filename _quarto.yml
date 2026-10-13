@@ -1,15 +1,22 @@
 project:
   type: book
-  post-render: add-backlinks.py
+  post-render:
+    - add-backlinks.py
+    - add-discovery-metadata.py
   output-dir: _site
 
 book:
   title: "Affine Toda field theory"
   subtitle: "A graduate introduction, leading into current research"
-  author:
-    - Gustav Delius
-    - Niall MacKay
-    - Gerard Watts
+  editor: Gustav Delius
+  description: >-
+    An AI-drafted graduate textbook and research monograph, with scoped
+    subject-matter validation, on affine Toda field theory, integrable quantum
+    field theory, solitons, quantum groups, exact S-matrices and integrable
+    boundaries.
+  site-url: https://gustavdelius.github.io/affine_toda/
+  open-graph: true
+  twitter-card: true
   repo-url: https://github.com/gustavdelius/affine_toda
   output-file: affine-toda
   downloads: [pdf]
@@ -72,15 +79,26 @@ book:
         - part7-half-line/33-soliton-reflection.qmd
         - part7-half-line/34-quantum-symmetric-pairs.qmd
         - part7-half-line/35-particle-reflection.qmd
-    - part: part8-foundations/part.qmd
+    - part: part8-defects/part.qmd
       chapters:
-        - part8-foundations/36-twelve-gaps.qmd
-        - part8-foundations/37-lattice.qmd
-        - part8-foundations/38-continuum-thresholds.qmd
-        - part8-foundations/39-continuum-window.qmd
-        - part8-foundations/40-scattering.qmd
-        - part8-foundations/41-unitarity.qmd
-    - outlook/42-outlook.qmd
+        - part8-defects/36-defect-scattering.qmd
+        - part8-defects/37-defect-sine-gordon.qmd
+        - part8-defects/38-defect-conditions.qmd
+        - part8-defects/39-defect-solitons.qmd
+        - part8-defects/40-defect-quantum-groups.qmd
+        - part8-defects/41-soliton-transmission.qmd
+        - part8-defects/42-defects-and-boundaries.qmd
+        - part8-defects/43-particle-transmission.qmd
+    - part: part9-foundations/part.qmd
+      chapters:
+        - part9-foundations/44-twelve-gaps.qmd
+        - part9-foundations/45-lattice.qmd
+        - part9-foundations/46-continuum-thresholds.qmd
+        - part9-foundations/47-continuum-window.qmd
+        - part9-foundations/48-scattering.qmd
+        - part9-foundations/49-unitarity.qmd
+    - outlook/50-outlook.qmd
+    - citation.qmd
     - references.qmd
   appendices:
     - appendices/A-algebra-data.qmd
@@ -90,6 +108,31 @@ book:
 
 bibliography: references.bib
 csl: aps.csl
+nocite: |
+  @*
+lang: en-GB
+
+# A DOI will be added here after the first versioned book release is archived.
+citation:
+  type: book
+  title: "Affine Toda field theory: A graduate introduction, leading into current research"
+  editor:
+    - given: Gustav
+      family: Delius
+  issued: 2026
+  url: https://gustavdelius.github.io/affine_toda/
+  pdf-url: https://gustavdelius.github.io/affine_toda/affine-toda.pdf
+  language: en
+  abstract: >-
+    An AI-drafted graduate textbook and research monograph, with scoped
+    subject-matter validation, covering integrable quantum field theory,
+    solitons, quantum groups, exact S-matrices, integrable boundaries and the
+    foundations of the imaginary-coupling theories.
+  keyword: >-
+    affine Toda field theory; integrable quantum field theory; solitons;
+    quantum groups; exact S-matrices; integrable boundaries; integrable defects;
+    non-unitary
+appendix-cite-as: false
 
 format:
   html:

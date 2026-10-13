@@ -1,0 +1,13 @@
+type I-: exact sewing root-coefficient residuals = [0, 0]
+  a_2: all 2 species x 3 classes, 12 identities are specializations of zero
+  a_3: all 3 species x 4 classes, 24 identities are specializations of zero
+type I+: exact sewing root-coefficient residuals = [0, 0]
+  a_2: all 2 species x 3 classes, 12 identities are specializations of zero
+  a_3: all 3 species x 4 classes, 24 identities are specializations of zero
+a_2: exact alpha_j D lambda_p + 2p/h is even for every j,p
+a_3: exact alpha_j D lambda_p + 2p/h is even for every j,p
+charged |numerator|^2-|denominator|^2 = 4*B*c*r
+same-type asymptotic obstruction: v^4=1; 0<b<h implies b=h/2
+Im(class energy) = -M*sin(q0)*sinh(d0)
+Im(class momentum) = -M*sin(q0)*cosh(d0)
+exact_checks 44.17s

@@ -85,7 +85,7 @@ $$
 X_{ab}(z)=\frac{z-\cos(\vartheta_a-\vartheta_b)}{z-\cos(\vartheta_a+\vartheta_b)},\qquad z=\kappa_b/m_b .
 $$ {#eq-an-transmission}
 
-This is the classical two-soliton interaction coefficient (-@eq-interaction-coefficient), continued to the rapidity at which the second soliton becomes a linear wave (@sec-example-an1-zeros-alone). Apply (-@eq-dhn-psi) channel by channel. In channel $b$ the fluctuations have mass $m_b$, so $m_b$ replaces the prefactor $m$:
+This is the classical two-soliton interaction coefficient (-@eq-interaction-coefficient), continued to the rapidity at which the second soliton becomes a linear wave (@sec-example-an1-zeros-alone). In the same way, the factor with which an integrable defect transmits a particle is the soliton delay through the defect, continued (-@eq-an-linear-transmission). Apply (-@eq-dhn-psi) channel by channel. In channel $b$ the fluctuations have mass $m_b$, so $m_b$ replaces the prefactor $m$:
 
 $$
 \Delta M_a=\frac12\sum_bm_b\sum_w\operatorname{ord}_w(X_{ab})\,\varpi(\arcsin w) .

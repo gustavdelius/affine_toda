@@ -1,0 +1,9 @@
+independent R versus boundary_common.rcheck: 1.5185901272323812e-16 nullity 1
+independent R versus boundary_common.rcheck: 1.040256822147276e-15 nullity 1
+Fock+ lowest-weight cyclicity: block0 rank 3 block1 rank 4 det A1 2401/6561
+Weyl+ inverse n-shift equals column factor q^(-a): 1.1631705747361534e-16
+N=1 W+ diagonal <1|M|1>/<0|M|0>: (0.758361875990508-0.6518337710215365j) expected q^-1: (0.7583618759905082-0.6518337710215366j) book unqualified q: (0.7583618759905082+0.6518337710215366j)
+level c= 1 finite necessary-equation nullity 1
+level c= -1 finite necessary-equation nullity 0
+level c= 4 finite necessary-equation nullity 0
+level c= 1/4 finite necessary-equation nullity 0

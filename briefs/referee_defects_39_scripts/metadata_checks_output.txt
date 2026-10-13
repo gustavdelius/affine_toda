@@ -1,0 +1,5 @@
+distinct references/citations=62; unresolved=[]
+citation keys=bcz2004b, bcz2005, cz2004, cz2007, cz2009a, cz2010
+chapter sha256=b378c80b1a3fc9c8c507e2180aa58ef84e8a56ebce3523273673f4e2d1b6db49
+The naive scanner in supplemental_checks.py includes sentence-final periods; this scanner removes them.
+metadata_checks 0.05s

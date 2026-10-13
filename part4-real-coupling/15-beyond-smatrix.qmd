@@ -8,7 +8,7 @@
 - Know what has been proved rigorously about the real-coupling theories.
 :::
 
-An exact S-matrix determines much more than scattering. Combined with the methods of integrability it gives the finite-volume spectrum, thermodynamics, correlation functions and the relation between Lagrangian parameters and physical masses. This chapter surveys these results for affine Toda theory. It is a map rather than a treatment, and each section points to the literature. Several of these tools are used in Parts V, VI and VIII at imaginary coupling, where they test the non-unitary theories.
+An exact S-matrix determines much more than scattering. Combined with the methods of integrability it gives the finite-volume spectrum, thermodynamics, correlation functions and the relation between Lagrangian parameters and physical masses. This chapter surveys these results for affine Toda theory. It is a map rather than a treatment, and each section points to the literature. Several of these tools are used in Parts V, VI and IX at imaginary coupling, where they test the non-unitary theories.
 
 ## The thermodynamic Bethe ansatz {#sec-tba}
 
@@ -55,7 +55,7 @@ The ODE/IM (ordinary differential equation / integrable model) correspondence re
 
 ## Rigorous constructions {#sec-rigorous-real}
 
-The real-coupling potentials are real and bounded below. Albeverio and Høegh-Krohn [-@albeverio1974] constructed a class of two-dimensional theories of a single scalar field whose interaction is a superposition, with positive weights, of Wick-ordered exponentials $:e^{\alpha\phi}:$ with $\lvert\alpha\rvert$ below a fixed bound (the precise range is in their paper), added to a free field of positive mass. For these they proved the **Wightman axioms**, the standard axioms of relativistic quantum field theory (fields as operator-valued distributions, Poincaré covariance, positivity of the energy, a unique vacuum and locality), and a mass gap. The sinh-Gordon interaction is of this exponential type, but there it is added to a free field of positive mass, whereas in the Toda Lagrangian the whole mass term comes from the exponentials. That the real-coupling Toda theories, with one field or several, can be constructed by the same methods is expected, but to our knowledge it has not been written down. Nothing comparable existed for the imaginary-coupling theories, and Part VIII supplies what can be done.
+The real-coupling potentials are real and bounded below. Albeverio and Høegh-Krohn [-@albeverio1974] constructed a class of two-dimensional theories of a single scalar field whose interaction is a superposition, with positive weights, of Wick-ordered exponentials $:e^{\alpha\phi}:$ with $\lvert\alpha\rvert$ below a fixed bound (the precise range is in their paper), added to a free field of positive mass. For these they proved the **Wightman axioms**, the standard axioms of relativistic quantum field theory (fields as operator-valued distributions, Poincaré covariance, positivity of the energy, a unique vacuum and locality), and a mass gap. The sinh-Gordon interaction is of this exponential type, but there it is added to a free field of positive mass, whereas in the Toda Lagrangian the whole mass term comes from the exponentials. That the real-coupling Toda theories, with one field or several, can be constructed by the same methods is expected, but to our knowledge it has not been written down. Nothing comparable existed for the imaginary-coupling theories, and Part IX supplies what can be done.
 
 ## Exercises {#sec-beyond-smatrix-exercises}
 
