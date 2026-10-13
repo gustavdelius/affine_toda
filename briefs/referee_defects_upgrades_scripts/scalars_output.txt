@@ -1,0 +1,20 @@
+linear type=+1, left: R=0; transmission difference=0
+linear type=+1, right: R=0; transmission difference=0
+linear type=-1, left: R=0; transmission difference=0
+linear type=-1, right: R=0; transmission difference=0
+particle type=minus: crossing and both fusing identities = [0,0,0]
+particle type=plus: crossing and both fusing identities = [0,0,0]
+TBA |F|^2 = (x^2+1-2x sin(gamma))/(x^2+1+2x sin(gamma)); F_half=(x-1)/(x+1)
+h=3 CDD product: f=Tcl_1 error 1.26e-15; simple sinh factor 0.5920002778-0.8059377588j
+h=4 CDD product: f=Tcl_1 error 5.98e-16; simple sinh factor 1.0000000000-0.0000000000j
+h=5 CDD product: f=Tcl_1 error 6.68e-16; simple sinh factor 0.8719750087-0.4895503899j
+h=6 CDD product: f=Tcl_1 error 9.93e-16; simple sinh factor 1.0000000000-0.0000000000j
+h=8 CDD product: f=Tcl_1 error 4.00e-16; simple sinh factor 1.0000000000+0.0000000000j
+B1^(2) multiplier, omega=1.4142135624: -0.2199993795-0.9755000118j
+B1^(2) multiplier, omega=2.2360679775: 0.2004425131-0.9797054654j
+CZ2011 xi=0.93, K=256, common C=0.024134629+0j: full bootstrap error=3.24e-09, crossing error=4.34e-09
+CZ2011 xi=0.93, K=1024, common C=0.0241346292+0j: full bootstrap error=1.39e-08, crossing error=1.59e-08
+CZ2011 xi=1.73, K=256, common C=0.121702325+0j: full bootstrap error=1.39e-09, crossing error=9.41e-10
+CZ2011 xi=1.73, K=1024, common C=0.121702325+0j: full bootstrap error=3.85e-09, crossing error=1.51e-08
+CZ2009a: exact finite-product identity including Gamma(A_K-z), h=3,4,7; K=1,4,9
+PASS. Algebraic derivations for all h and the Gamma endpoint are in the report.
