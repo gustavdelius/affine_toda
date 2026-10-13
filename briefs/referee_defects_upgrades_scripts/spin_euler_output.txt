@@ -1,0 +1,7 @@
+bulk coefficient identities: 4 exact zeros; B=E control fails
+type=+1, epsilon=-1, spin=+2: six Euler derivatives = 0; flux has 156 Laurent monomials; 7.1s
+type=+1, epsilon=+1, spin=-2: six Euler derivatives = 0; flux has 156 Laurent monomials; 12.6s
+type=-1, epsilon=-1, spin=+2: six Euler derivatives = 0; flux has 156 Laurent monomials; 19.2s
+type=-1, epsilon=+1, spin=-2: six Euler derivatives = 0; flux has 156 Laurent monomials; 26.2s
+nonintegrable D: Euler derivative 0 is nonzero; value at rational point = -1745615841528721/30240000000
+PASS: independent exact a3 flux test, both types/chiralities, symbolic nonzero sigma.

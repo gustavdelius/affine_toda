@@ -1,0 +1,9 @@
+PASS [   0.4s] exact Gram-Schmidt root data (general r, closed-form coordinates) agrees with defect_common.an_data/dmatrix for r = 1..4
+PASS [   0.6s] A_abc = 2 sum_k mu_ka mu_kb mu_kc solves 3 A(w,w,alpha) = -2(alpha.B.w)(alpha.w) with B = 3(1 - D) EXACTLY (sympy, symbolic w), for a_2 and a_3 (the same relation as check 11, with B = E, scaled by 3)
+PASS [   0.7s] a_3: BCZ (5.11) cubic obstruction A(Dv)^3 + A(D^T v)^3 vanishes identically EXACTLY (sympy, symbolic v)
+PASS [   0.8s] a_3 spin-2 bulk current conserved on shell: d_(-eps)T = d_eps Theta vanishes EXACTLY (sympy identity, not a numerical residual)
+PASS [  58.7s] a_3 spin +-2 charges, sigma symbolic: defect flux - dB_(+-2)/dt = 0 EXACTLY, for type I_- AND type I_+ (results {(1, -1): True, (1, 1): True, (-1, -1): True, (-1, 1): True})
+PASS [  58.7s] a_3, type I_-: B_(+2) (eps = -1) contains the velocities only multiplied by sigma^-1 times an exponential, B_(-2) (eps = +1) only by sigma times an exponential (as for a_2)
+PASS [  61.7s] control: a_3 spin +-1 (E +- P) defect contributions are likewise exact total time derivatives, sigma symbolic, both types (results {(1, -1): True, (1, 1): True, (-1, -1): True, (-1, 1): True})
+PASS [ 150.6s] control: non-integrable D (one off-diagonal entry of E changed) spoils the a_3 spin-2 construction [mismatch count 79, residual != 0]
+PASS [ 150.6s] DONE in 150.6s total

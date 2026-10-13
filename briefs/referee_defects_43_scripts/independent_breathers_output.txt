@@ -1,0 +1,25 @@
+scalar h=3 omega=1.41421356237 crossing=3.643e-16 cutoff32/64=2.393e-32
+all species h=3 omega=1.41421356237: kernel=2.328e-16 gap=7.071e-01 leakage=8.218e-16 factor_error=6.684e-16
+scalar h=3 omega=2.2360679775 crossing=4.855e-31 cutoff32/64=1.831e-31
+all species h=3 omega=2.2360679775: kernel=3.354e-16 gap=7.071e-01 leakage=1.722e-15 factor_error=1.196e-15
+scalar h=3 omega=0.6 crossing=1.607e-16 cutoff32/64=1.094e-33
+all species h=3 omega=0.6: kernel=2.005e-16 gap=7.071e-01 leakage=7.434e-16 factor_error=5.979e-16
+two modules h=3 a=1: kernel=4.244e-16 reversed=2.608e-01 leakage=5.567e-16 factor_error=3.511e-16
+two modules h=3 a=2: kernel=4.381e-16 reversed=2.608e-01 leakage=4.298e-16 factor_error=2.618e-16
+scalar h=4 omega=1.41421356237 crossing=3.601e-32 cutoff32/64=9.323e-33
+all species h=4 omega=1.41421356237: kernel=2.644e-16 gap=5.000e-01 leakage=2.148e-14 factor_error=9.305e-16
+scalar h=4 omega=2.2360679775 crossing=1.902e-31 cutoff32/64=5.156e-32
+all species h=4 omega=2.2360679775: kernel=2.176e-16 gap=5.000e-01 leakage=1.022e-14 factor_error=1.546e-15
+scalar h=4 omega=0.6 crossing=7.305e-33 cutoff32/64=1.706e-33
+all species h=4 omega=0.6: kernel=2.033e-16 gap=5.000e-01 leakage=1.342e-14 factor_error=7.850e-16
+two modules h=4 a=1: kernel=1.657e-16 reversed=2.762e-01 leakage=5.567e-16 factor_error=4.003e-16
+two modules h=4 a=3: kernel=1.318e-16 reversed=2.762e-01 leakage=4.694e-16 factor_error=2.238e-16
+scalar h=5 omega=1.41421356237 crossing=3.242e-16 cutoff32/64=4.854e-33
+all species h=5 omega=1.41421356237: kernel=8.881e-16 gap=3.717e-01 leakage=4.428e-15 factor_error=1.290e-15
+scalar h=5 omega=2.2360679775 crossing=1.062e-31 cutoff32/64=2.245e-32
+all species h=5 omega=2.2360679775: kernel=4.441e-16 gap=3.717e-01 leakage=3.132e-15 factor_error=2.665e-15
+scalar h=5 omega=0.6 crossing=1.147e-16 cutoff32/64=1.377e-33
+all species h=5 omega=0.6: kernel=4.441e-16 gap=3.717e-01 leakage=3.829e-15 factor_error=9.930e-16
+two modules h=5 a=1: kernel=2.792e-16 reversed=4.631e-02 leakage=5.031e-16 factor_error=2.483e-16
+two modules h=5 a=4: kernel=2.996e-16 reversed=4.631e-02 leakage=6.081e-16 factor_error=1.570e-16
+max scalar validation error=3.643e-16

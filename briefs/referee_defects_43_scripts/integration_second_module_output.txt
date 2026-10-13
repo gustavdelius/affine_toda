@@ -1,0 +1,7 @@
+h=3: e-type psi=pi, c=0: V 8.1e-16, Vbar 9.4e-16; kappa eq 7.4e-16; with c_j=0.3: V 1.6e-15, Vbar 1.5e-15; with rho~ the e-type psi=id, pi^-1 fail by >= 1.00
+h=4: e-type psi=pi, c=0: V 9.1e-16, Vbar 9.3e-16; kappa eq 4.0e-16; with c_j=0.3: V 1.2e-15, Vbar 1.3e-15; with rho~ the e-type psi=id, pi^-1 fail by >= 1.93
+h=5: e-type psi=pi, c=0: V 9.7e-16, Vbar 1.7e-15; kappa eq 1.2e-15; with c_j=0.3: V 1.0e-15, Vbar 1.7e-15; with rho~ the e-type psi=id, pi^-1 fail by >= 1.93
+h=3: Cartan conj 3.7e-16; c_j=0.3 breaks it by 0.38; quadratic relations 2.4e-16; q-Serre 4.0e-16; prod kappa = 1 0e+00
+h=4: Cartan conj 4.7e-16; c_j=0.3 breaks it by 0.43; quadratic relations 3.0e-16; q-Serre 5.2e-16; prod kappa = 1 0e+00
+h=5: Cartan conj 4.7e-16; c_j=0.3 breaks it by 0.43; quadratic relations 3.5e-16; q-Serre 4.4e-16; prod kappa = 1 0e+00
+h=2: q^(s/2) M_V in the basis d_n|n> = eq-sg-transmission-matrix [8.4e-16]; rho~ = eq-dbd-second-module, shifts +1, +2, -1, -2 [3.7e-15]

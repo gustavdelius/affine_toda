@@ -1,0 +1,11 @@
+lam=2.6 B_1: bootstrap -0.129272584+0.991609096j  product formula -0.129272584+0.991609096j  |diff| 9.6e-14  fit 7e-16
+lam=2.6 B_2: bootstrap -0.951042862-0.309059015j  product formula -0.951042862-0.309059015j  |diff| 4.2e-14  fit 6e-16
+lam=3.1 B_1: bootstrap -0.129272584+0.991609096j  product formula -0.129272584+0.991609096j  |diff| 1.0e-13  fit 6e-16
+lam=3.1 B_2: bootstrap -0.956504391-0.291717928j  product formula -0.956504391-0.291717928j  |diff| 1.6e-14  fit 6e-16
+B_1 coupling dependence 1.9536453112431836e-13
+B_2 coupling dependence 0.01818080299526028
+h=3 omega=0.6: h*omega=1.80, 2 ub = -0.349, physical: False
+h=3 omega=1.37: h*omega=4.11, 2 ub = 1.613, physical: True
+h=4 omega=0.6: h*omega=2.40, 2 ub = 0.524, physical: True
+h=5 omega=0.6: h*omega=3.00, 2 ub = 1.047, physical: True
+h=2 omega=1.0: h*omega=2.00, 2 ub = 0.000, physical: False

@@ -1,0 +1,19 @@
+(a) |Phi|^2 (1+Y^2):
+   D =  -3.0: 1.000000000000
+   D =  -1.0: 1.000000000000
+   D =   0.0: 1.000000000000
+   D =   0.7: 1.000000000000
+   D =   2.0: 1.000000000000
+   D =   4.0: 1.000000000000
+(b) Phi -> 1 as D -> -inf:
+   D =  -2.0: |Phi - 1| = 1.50e-01
+   D =  -4.0: |Phi - 1| = 2.01e-02
+   D =  -6.0: |Phi - 1| = 2.72e-03
+(c) entries of L/Y as D -> +inf (n = 0, s = 0.3):
+   D =  1.0: |diag/Y| = 6.258e-02, |converting/Y| = 2.463e-01  (1/sqrt(1+Y^2) = 2.463e-01)
+   D =  2.0: |diag/Y| = 4.161e-03, |converting/Y| = 6.444e-02  (1/sqrt(1+Y^2) = 6.444e-02)
+   D =  4.0: |diag/Y| = 1.738e-05, |converting/Y| = 4.169e-03  (1/sqrt(1+Y^2) = 4.169e-03)
+   D =  6.0: |diag/Y| = 7.248e-08, |converting/Y| = 2.692e-04  (1/sqrt(1+Y^2) = 2.692e-04)
+   while the matrix part P M / Y has converting entries -i q^-n, -i q^(n+s) of modulus 1.0 1.0
+(e) the e_1 equation with T = phi*M equals phi times the equation for M: True
+PASS : item 8 - the limit in (5) holds for the matrix part P M; with Phi, L/(y/y_d) -> 0

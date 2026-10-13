@@ -1,0 +1,8 @@
+(A) gauge maps h=2 eq-dt-tv x q^(s/2) to eq-sg-transmission-matrix: max rel. error 4.14e-15
+(B) gauge maps h=2 second module to eq-dbd-second-module: max rel. error 5.54e-15
+(C) h=3 free constant c=0.0: max violation of k_j Y_j k_j^-1 = q^2 Y_j: 3.17e-16
+(C) h=3 free constant c=0.3: max violation of k_j Y_j k_j^-1 = q^2 Y_j: 2.28e-01
+(C) h=4 free constant c=0.0: max violation of k_j Y_j k_j^-1 = q^2 Y_j: 2.86e-16
+(C) h=4 free constant c=0.3: max violation of k_j Y_j k_j^-1 = q^2 Y_j: 2.43e-01
+(C) h=5 free constant c=0.0: max violation of k_j Y_j k_j^-1 = q^2 Y_j: 6.34e-16
+(C) h=5 free constant c=0.3: max violation of k_j Y_j k_j^-1 = q^2 Y_j: 2.47e-01

@@ -172,9 +172,14 @@ def Dt(e):
 
 
 def boundary_G(eps, typ, spin, Dbase=None, sig=None):
-    """T(phi) - T(psi) - [Theta(phi) - Theta(psi)], the defect flux of the spin eps*(-2) [spin=2] or
-    eps*(-1) [spin=1] charge, as a function of phi(0,t), psi(0,t) and their t-derivatives (q0, q1, q2).
-    Same construction as defect_classical_an.py's boundary_G, generalized from r = 2 to general r."""
+    """G = (T + Theta)(phi) - (T + Theta)(psi) at x = 0, after eliminating the x-derivatives by the defect
+    conditions and the field equations, as a function of phi(0,t), psi(0,t) and their t-derivatives (q0, q1,
+    q2).  The bulk conservation law d_(-eps) T = d_eps Theta (check 4) is d_t(T - Theta) = eps d_x(T + Theta),
+    so for Q_bulk = int_(x<0) (T - Theta)(phi) + int_(x>0) (T - Theta)(psi), dQ_bulk/dt = eps * G.  A local
+    primitive F with D_t F = G therefore gives the conserved Q_bulk - eps * F: the defect contribution is
+    -eps * F.  The charge has spin -eps * spin (spin = 2, or 1 for the E +- P control), since the book's
+    spin +s densities are built from d_t - d_x.  Same construction as defect_classical_an.py's boundary_G,
+    generalized from r = 2 to general r."""
     Dm_ = Dm if Dbase is None else Dbase
     Em_ = sp.eye(r) - Dm_
     D_, E_ = (Dm_, Em_) if typ == 1 else (-Dm_, -Em_)

@@ -1,0 +1,15 @@
+exact rational coideal dimensions: [17, 5] final 5 span equality True
+CZ (2.18) source-convention invariant differences: [0, 0]
+CZ map eps=-i q/d diagonal coefficient identity: True
+CZ type-II charge-dependent diagonal ratios: [(0.992459963372467-0.12256925023316875j), (0.9434540699587078+0.33150326978530537j), (0.909352046907035+0.41602746878780256j), (0.998338768018425-0.05761687488447315j)]
+I-plus CORRECT limit f 0 -1 [0.15648631570300964, 0.010299526184221827, 0.0006650981552028077]
+I-plus CORRECT limit e 1 1 [0.1394199254183855, 0.009092407942226575, 0.0005871245050202243]
+scalar coupling/theta/td: 1.37 0.33 0.21
+  cutoff residuals: ['0.0013347', '0.00066739', '0.00033371', '0.00016686', '8.3429e-5']
+  extrap4,extrap5,stability: 3.87184e-14 3.0057e-15 3.969134e-14
+scalar coupling/theta/td: 1.37 (0.21 + 0.17j) 0.21
+  cutoff residuals: ['0.0010932', '0.00054653', '0.00027325', '0.00013662', '6.8308e-5']
+  extrap4,extrap5,stability: 2.402631e-14 2.388562e-15 2.327742e-14
+scalar coupling/theta/td: .73 (0.29 + 0.11j) -0.38
+  cutoff residuals: ['0.0012535', '0.00062668', '0.00031332', '0.00015665', '7.8326e-5']
+  extrap4,extrap5,stability: 1.011213e-13 3.38015e-14 9.62023e-14

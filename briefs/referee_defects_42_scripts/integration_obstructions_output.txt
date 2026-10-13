@@ -1,0 +1,18 @@
+PASS I_- e/id: y^2 coefficient = [-t*kappa*Co, 0, 0, Co]; its (v-,v-) block is Co alone, so no operators Y, kappa solve it
+PASS I_- f/tau: y^-1 coefficient = [0, -D0/t, D0*kappa, 0]; its (v+,v-) block is -D0/t alone
+PASS I_+ f/id: y^-2 coefficient = [Bo*kappa, 0, 0, -Bo/t]; its (v-,v-) block is -Bo/t alone
+PASS I_+ e/tau: y^1 coefficient = [0, A, -t*kappa*A, 0]; its (v+,v-) block is A alone
+PASS (4) I_-: e_1 (x) 1 has y^2 coefficient [0, 0, 0, Co]: (v-,v-) block Co
+PASS (4) I_+: 1 (x) f_0 has y^-2 coefficient [-Co, 0, 0, 0]: (v+,v+) block -Co
+PASS e_1 (x) 1 = (G x G^-1 - q^-2 x)/(q^2 - q^-2), x = e_1 (x) 1 + k_1 (x) e_0;  1 (x) f_0 likewise from x = f_1 (x) k_0^-1 + 1 (x) f_0  (G = k_1 (x) k_1, in pi (x) pi)
+PASS rho~: k_0 k_1 = k_1 k_0 = 1, k e k^-1 = q^(+-2) e, e_1 e_0 = e_0 e_1 = a b q^2 (central; so q-Serre), all n
+PASS rho~: L intertwines (sigma (x) chi)Delta_A of (1 (x) tau)Delta(e_j), (1 (x) tau)Delta(k_j), j = 0, 1, exactly
+PASS e_1 equation leaves an additive constant c in Y_n; k_1 Y k_1^-1 = q^2 Y holds iff c (1 - q^4) = 0
+PASS rho(k_1) rho~(k_1) = q^4 rho~(k_1) rho(k_1)
+PASS I_-: off-diagonal entries are exactly (y/y_d) times theta-independent operators; I_+: (y_d/y) times; so the diagonal limit is theta_d -> +inf for I_- and theta_d -> -inf for I_+
+PASS I_-, theta_d -> +inf: the e_1 and f_1 equations force chi(Delta k_1) = q**(-2*n - s)/t, chi(Delta k_1^-1) = q**(-2*n - s)/t (the same operator); product q**(-4*n - 2*s)/t**2 != 1 for generic q
+PASS I_+, theta_d -> -inf: the e_1 and f_1 equations force chi(Delta k_1) = q**(2*n + s)/t, chi(Delta k_1^-1) = q**(2*n + s)/t (the same operator); product q**(4*n + 2*s)/t**2 != 1 for generic q
+PASS on each charge sector C|n> the I_- diagonal limit is the twist line with t_1 = 1/t_0 = q^(-2n-s) (kappa = 1)
+PASS B^-1 is the inverse of B
+PASS I_-, theta_d -> -inf, tau-twisted: chi(k_1 (x) k_0) = [(2, q**(-n - 1)*q**(-n - s - 1)/t)], chi(k_1^-1 (x) k_0^-1) = [(2, q**(-n - s - 2)/(q**n*t))]: both raise n by 2, so their product raises it by 4 and is not 1
+ALL PASS

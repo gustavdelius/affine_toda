@@ -1,0 +1,7 @@
+PASS (a) sine-Gordon: the singlet of V(theta - iu/2) (x) V(theta + iu/2) crosses eq-sg-transmission-matrix as a scalar, independent of the defect label, equal to T^cl (eq-shg-linear-transmission) = T^cl_1 at h = 2, for lambda = 1.37, 2.6 [2e-13; proportionality 8e-16]
+PASS (b1) prp-lightest-breather-universal from eq-dt-tv, eq-dt-tvbar with g, gbar: the singlet of Vbar(theta - i ub) (x) V(theta + i ub) crosses as T^cl_1 times the identity on W, that of V (x) Vbar as T^cl_r, a_2, a_3, a_4, omega = 1.37, generic offset [max dev 4e-09, proportionality 1e-15]; with the shifts reversed there is no singlet [smallest rel. sv 0.09]; cz2007 (7.5) = (T^cl_2, T^cl_1) in book labels [8e-16]
+# (a), (b1) done after 2 s
+PASS (b2) prp-lightest-breather-universal, every species: B^(a)_1 from h vector solitons (singlet unique in the weight-zero subspace) crosses the type-I_- defect as T^cl_a(theta - theta_d) times the identity, h = 3, 4, 5, all a, omega = 0.6, 1.37, 3.1, real and complex theta [dev 2e-08, proportionality 3e-14]; the same for the classes p = 0, 1, 2 (offset s = lambda_p) and other defect labels (a_3) [2e-09]
+# (b2) done after 7 s
+PASS (b3) optional (DPT_A5=1): a_5, all five species, omega = 1.37, theta = -0.3 + 0.2i: B^(a)_1 crosses as T^cl_a [dev 4e-09, proportionality 1e-14], singlet unique
+# (b3) done after 145 s

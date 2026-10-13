@@ -1,0 +1,13 @@
+(a) |string - 1| and |f(D) f(D + i pi) - 1|:
+   h = 2: sinh-type string 2.61e-16; T^cl_1 string 3.51e-16, T^cl_1 simple 4.16e-16
+   h = 3: sinh-type string 9.03e-01; T^cl_1 string 1.12e-15, T^cl_1 simple 1.72e+00
+   h = 4: sinh-type string 5.07e-16; T^cl_1 string 7.39e-16, T^cl_1 simple 2.00e+00
+   h = 5: sinh-type string 5.06e-01; T^cl_1 string 8.17e-16, T^cl_1 simple 1.98e+00
+   h = 6: sinh-type string 3.78e-16; T^cl_1 string 1.03e-15, T^cl_1 simple 2.00e+00
+   h = 7: sinh-type string 1.92e-01; T^cl_1 string 7.55e-16, T^cl_1 simple 1.95e+00
+   h = 8: sinh-type string 2.58e-16; T^cl_1 string 4.44e-16, T^cl_1 simple 1.87e+00
+   sinh-type simple condition: 2.2e-16; its string value at h = 3, D = 0.41: 0.5920002778-0.8059377588j
+(b) h = 3: all 2x2 minors of the Vbar sector block vanish at X^h = q: True; all entries nonzero: True
+(b) h = 4: all 2x2 minors of the Vbar sector block vanish at X^h = q: True; all entries nonzero: True
+(b) h = 5: all 2x2 minors of the Vbar sector block vanish at X^h = q: True; all entries nonzero: True
+PASS : item 11 - even h: simpler condition sufficient (not necessary); odd h: not sufficient; rank 1 per sector

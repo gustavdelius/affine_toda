@@ -1,0 +1,5 @@
+65 files, 1164 ids, 3694 cross-references, 1984 citations
+duplicates: {}
+unresolved: []
+unknown citation keys: []
+PASS
