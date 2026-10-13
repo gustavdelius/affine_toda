@@ -69,7 +69,7 @@ $$
 \omega_q(e_j)=f_j,\qquad\omega_q(f_j)=e_j,\qquad\omega_q(k_j)=k_j^{-1},\qquad \Delta\circ\omega_q=(\omega_q\otimes\omega_q)\circ\Delta^{\rm op}
 $$ {#eq-omega-map}
 
-is an algebra automorphism and a coalgebra anti-automorphism. It therefore maps right coideals to left coideals. It is also the map that defines the conjugate multiplet: $\bar V=V\circ\omega_q$ (@sec-an-diagonal-k). (We write $\omega_q$ to distinguish it from the Lie algebra involution $\omega$ of @sec-symmetric-pairs, which carries signs.)
+is an algebra automorphism and a coalgebra anti-automorphism. It therefore maps right coideals to left coideals. It is also the map that defines the conjugate multiplet: $\bar V(y)=V(1/y)\circ\omega_q$ in the principal gradation (@sec-an-diagonal-k). (We write $\omega_q$ to distinguish it from the Lie algebra involution $\omega$ of @sec-symmetric-pairs, which carries signs.)
 
 ::: {#prp-omega-dictionary}
 ## Dictionary with Kolb's coideals

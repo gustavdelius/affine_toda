@@ -69,7 +69,7 @@ Checked in `textbook_code/reflection_matrices.py`, where the embeddings $V_1\to 
 
 ## Diagonal a_n reflection matrices {#sec-an-diagonal-k}
 
-For the vector solitons of $a_n^{(1)}$, $n\ge2$, the antisoliton is in the conjugate multiplet $\bar V$, and a soliton-conjugating boundary maps $V(\theta)\to\bar V(-\theta)$. In the principal gradation, at the physical $q$, $\bar V(y)$ is $V(y)$ composed with $e_j\leftrightarrow f_j$, $k_j\to k_j^{-1}$. It is the antisoliton at the same rapidity, $V(z)^*\cong\bar V(-z/q)$ (@sec-boundary-qg; checked in `textbook_code/boundary_coideal.py`).
+For the vector solitons of $a_n^{(1)}$, $n\ge2$, the antisoliton is in the conjugate multiplet $\bar V$, and a soliton-conjugating boundary maps $V(\theta)\to\bar V(-\theta)$. In the principal gradation $V(y)$ has $e_j=yE_j$, $f_j=F_j/y$ and $k_j=q^{H_j}$, with $E_j$ the elementary matrix of the simple root $\alpha_j$, $F_j=E_j^{\rm T}$ and $H_j=[E_j,F_j]$, while $\bar V(y)$ has $e_j=yF_j$, $f_j=E_j/y$ and $k_j=q^{-H_j}$: it is $V(1/y)$ composed with $e_j\leftrightarrow f_j$, $k_j\to k_j^{-1}$. At the physical $q$ it is the antisoliton at the same rapidity, $V(z)^*\cong\bar V(-z/q)$ (@sec-boundary-qg; checked in `textbook_code/boundary_coideal.py`).
 
 By @prp-an-k-existence there are three solutions. The simplest is $\hat\epsilon=0$, where
 
