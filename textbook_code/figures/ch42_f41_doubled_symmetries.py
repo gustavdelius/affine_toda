@@ -3,7 +3,8 @@ boundary of sine-Gordon lines, and how the type-I_- jump defect interpolates bet
 
 Top: as theta_d -> +infinity the transmission matrix tends, on each defect charge n, to a twist line, whose doubled
 boundary keeps the twisted diagonal (1 (x) t_n) Delta(U); the transparent line is the twist line with t = 1.  As
-theta_d -> -infinity it tends to a charge conjugation dressed by a shift of the defect charge; the charge-conjugation
+theta_d -> -infinity it becomes proportional to a charge conjugation dressed by a shift of the defect charge (the
+matrix part tends to it after division by Y; with the scalar factor, |Phi| = (1 + Y^2)^-1/2); the charge-conjugation
 line C itself keeps (1 (x) tau) Delta(U).  At finite theta_d the doubled boundary keeps one Borel half of each:
 Delta(U_q(b^-)) on the Weyl module rho and (1 (x) tau) Delta(U_q(b^+)) on the second module rho~
 (eq-dbd-second-module); no twisted diagonal survives, and the other halves do not return in the limits on all of W

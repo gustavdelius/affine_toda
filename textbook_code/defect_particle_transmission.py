@@ -63,12 +63,16 @@ Checks (PASS lines):
      solves the e-type equation (psi = pi) and the Cartan equation T(pi(k_j) (x) kappa) = (kappa (x) pi(k_{j-1})) T for V
      and Vbar, h = 3, 4, 5, every node, three rapidities; adding c_j q^{(N+s)_j} to rho~(e_j) still solves them but breaks
      k_j e_j k_j^-1 = q^2 e_j; the U_q(b^+) relations (Cartan conjugation, q-commutation, q-Serre, prod k_j = 1);
-     for h = 2, in the basis tau^-n q^{n(n-1)/2 + ns/2}|n>, tau = -i e^{i pi omega/2}, q^{s/2} M_V is
+     the sparse inverse of eq-dt-tvbar used in the all-rank proof of the Vbar half, H M_Vbar = 1 - X^h/q with
+     H|i,N> = q^{-(N+s)_i}|i,N> - (X/q)|i+1, N - e_i + e_{i+1}>; for h = 2, in the basis tau^-n q^{n(n-1)/2 + ns/2}|n>, tau = -i e^{i pi omega/2}, q^{s/2} M_V is
      eq-sg-transmission-matrix and rho~ is eq-dbd-second-module; the y-power obstructions of the other twists.
  (i) the soliton CDD condition eq-dpt-soliton-cdd: with g -> g f and gbar from eq-dt-bootstrap, the two crossing
-     relations of ch. 41 are prod_{k<h} f(D - i pi + 2 pi i k/h) = 1 (at D and at a shifted D); T^cl_1 satisfies it for
-     h = 2..8 but not f(D) f(D + i pi) = 1 for h > 2; (sinh D + 0.3i)/(sinh D - 0.3i) satisfies the latter but fails
-     it at h = 3; the multiplier of B^(2)_1 of a_3 for f = T^cl_1 differs at omega = sqrt2 and sqrt5.
+     relations of ch. 41 are prod_{k<h} f(D - i pi + 2 pi i k/h) = 1 (at D and at a shifted D); the simpler condition
+     f(D) f(D + i pi) = 1 is not necessary for h > 2 (T^cl_1 satisfies the string condition for h = 2..8 but not the
+     simpler one), it is sufficient for even h (the string pairs k with k + h/2, arguments i pi apart:
+     (sinh D + 0.3i)/(sinh D - 0.3i), which satisfies the simpler condition, passes the string condition at h = 4, 6),
+     and it is not sufficient for odd h (the same factor fails at h = 3, 5); the multiplier of B^(2)_1 of a_3 for
+     f = T^cl_1 differs at omega = sqrt2 and sqrt5.
  (j) tbl-dpt-spectrum: on every charge sector the residue of T_V at the species-1 pole has rank h - 1 and that of
      T_Vbar at the species-r pole (X^h = q) rank 1, h = 3..6, random offsets; the pole of gbar there is simple and not
      cancelled; the Lee-Yang bound-state poles are in Tbar_b (eq-ly-transmission), not in T_b; for theta_d = i v the
@@ -665,12 +669,28 @@ def _opdiff(A, B, labels, scale=None):
     return w
 
 
+def _H_dict(h, s, X, state):
+    """The sparse inverse of eq-dt-tvbar up to its scalar (proof of prp-dpt-doubled): H = A^-1 (1 - X U),
+    H|i, N> = q^{-(N+s)_i}|i, N> - (X/q)|i+1, N - e_i + e_{i+1}>, on {(N, i): amp} of W (x) Vbar; returns {(i, N): amp}."""
+    out = {}
+    for (N, i), c in state.items():
+        Nv = np.array(N)
+        _acc(out, (i, N), c*QH**(-(Nv + s)[i]))
+        _acc(out, ((i + 1) % h, tuple(Nv - _u(h, i) + _u(h, i + 1))), -c*X/QH)
+    return out
+
+
 rngh = np.random.default_rng(431)
 thsH = (-0.32, 0.41, 0.82 + 0.11j)
-resV = resVb = resC = cartc = rels = 0; obstr_ok = True
+resV = resVb = resC = cartc = rels = devH = 0; obstr_ok = True
 for h in (3, 4, 5):
     s = rngh.normal(size=h)*0.3; s -= s.mean()
     labs = [tuple(np.zeros(h, dtype=int)), tuple(_u(h, 0) - _u(h, 2)), tuple(2*_u(h, 1) - 2*_u(h, h - 1))]
+    for th in thsH:                                    # H M_Vbar = 1 - X^h/q on every input
+        X = np.exp(OMH*(th - TD - 1j*np.pi/2))
+        for N in labs:
+            for i in range(h):
+                devH = max(devH, _rel(_H_dict(h, s, X, _T_dict(h, s, X, True, {(i, N): 1.0})), {(i, N): 1 - X**h/QH}))
     for j in range(h):
         jp = (j - 1) % h
         for th in thsH:
@@ -730,11 +750,12 @@ for n in range(-3, 4):
     shifts_ok &= tuple(o[0][0] - n for o in (e1, k1, e0, k0)) == (1, 2, -1, -2)
     devR2 = max(devR2, max(abs(u_ - v_)/abs(v_) for u_, v_ in zip(got, want)))
 report(f'(h) eq-dpt-second-module solves the e-type (psi = pi) and Cartan equations for V [{resV:.0e}] and Vbar '
-       f'[{resVb:.0e}], h = 3, 4, 5, every node, 3 rapidities, exact labels; with c_j q^(N+s)_j added it still solves them '
+       f'[{resVb:.0e}], h = 3, 4, 5, every node, 3 rapidities, exact labels; the sparse inverse of eq-dt-tvbar used in '
+       f'the all-rank proof, H M_Vbar = 1 - X^h/q [{devH:.0e}]; with c_j q^(N+s)_j added it still solves them '
        f'[{resC:.0e}] but breaks k_j e_j k_j^-1 = q^2 e_j [{cartc:.2f}]; U_q(b^+) relations [{rels:.0e}]; the other twists '
        f'have a block free of unknowns [{obstr_ok}]; h = 2: q^(s/2) M_V = eq-sg-transmission-matrix [{devT2:.0e}] and '
        f'rho~ = eq-dbd-second-module [{devR2:.0e}] in the basis tau^-n q^(n(n-1)/2 + ns/2)|n>',
-       resV < 1e-13 and resVb < 1e-13 and resC < 1e-13 and cartc > 0.1 and rels < 1e-13 and obstr_ok
+       resV < 1e-13 and resVb < 1e-13 and devH < 1e-13 and resC < 1e-13 and cartc > 0.1 and rels < 1e-13 and obstr_ok
        and devT2 < 1e-13 and devR2 < 1e-13 and shifts_ok)
 
 
@@ -759,7 +780,9 @@ for h in range(2, 9):
         okI &= abs(Tcl(DsI, 1, h)*Tcl(DsI + 1j*np.pi, 1, h) - 1).max() > 0.1
 sinhf = lambda D: (np.sinh(D) + 0.3j)/(np.sinh(D) - 0.3j)
 fail3 = abs(_string(sinhf, DsI, 3) - 1).max()
-okI &= abs(sinhf(DsI)*sinhf(DsI + 1j*np.pi) - 1).max() < 1e-14 and fail3 > 0.1
+fail5 = abs(_string(sinhf, DsI, 5) - 1).max()
+pass46 = max(abs(_string(sinhf, DsI, 4) - 1).max(), abs(_string(sinhf, DsI, 6) - 1).max())
+okI &= abs(sinhf(DsI)*sinhf(DsI + 1j*np.pi) - 1).max() < 1e-14 and fail3 > 0.1 and fail5 > 0.1 and pass46 < 1e-12
 
 
 def _constituents(h, a, om, D):
@@ -772,8 +795,9 @@ mult = [np.prod([Tcl(c, 1, 4) for c in _constituents(4, 2, om, 0.41)]) for om in
 okI &= abs(mult[0] - (-0.2200 - 0.9755j)) < 1e-4 and abs(mult[1] - (0.2004 - 0.9797j)) < 1e-4
 report(f'(i) eq-dpt-soliton-cdd: with g -> g f, both crossing relations of ch. 41 are the string condition '
        f'prod_k f(D - i pi + 2 pi i k/h) = 1 [{devI:.0e}]; T^cl_1 satisfies it for h = 2..8 but not f(D) f(D + i pi) = 1 '
-       f'for h > 2; (sinh D + 0.3i)/(sinh D - 0.3i) satisfies the latter and fails the string condition at h = 3 by '
-       f'{fail3:.2f}; f = T^cl_1 multiplies the factor of B^(2)_1 of a_3 at D = 0.41 by {mult[0]:.4f} at omega = sqrt2 and '
+       f'for h > 2 (the simpler condition is not necessary); (sinh D + 0.3i)/(sinh D - 0.3i) satisfies the latter, passes '
+       f'the string condition at h = 4, 6 [{pass46:.0e}] (sufficient for even h) and fails it at h = 3, 5 by {fail3:.2f}, '
+       f'{fail5:.2f} (not sufficient for odd h); f = T^cl_1 multiplies the factor of B^(2)_1 of a_3 at D = 0.41 by {mult[0]:.4f} at omega = sqrt2 and '
        f'{mult[1]:.4f} at sqrt5', okI and devI < 1e-12)
 
 

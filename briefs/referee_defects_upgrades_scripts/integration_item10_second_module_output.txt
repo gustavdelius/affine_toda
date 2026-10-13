@@ -1,0 +1,10 @@
+  h = 3: U^h = 1/q, M_Vbar = sum (XU)^d A, H M_Vbar = 1 - X^h/q: True
+  h = 3: Vbar e-type equation (direct and with H) for every node, controls (opposite rotation, c -> -c) fail: True; Cartan-element equation, V and Vbar: True; V e-type equation, and the free constant solves V but breaks the Cartan relation: True
+  h = 3: rho~ relations (prod kappa = 1, Cartan conjugation q^a_ij, q-commutation, q-Serre): True
+  h = 4: U^h = 1/q, M_Vbar = sum (XU)^d A, H M_Vbar = 1 - X^h/q: True
+  h = 4: Vbar e-type equation (direct and with H) for every node, controls (opposite rotation, c -> -c) fail: True; Cartan-element equation, V and Vbar: True; V e-type equation, and the free constant solves V but breaks the Cartan relation: True
+  h = 4: rho~ relations (prod kappa = 1, Cartan conjugation q^a_ij, q-commutation, q-Serre): True
+  h = 5: U^h = 1/q, M_Vbar = sum (XU)^d A, H M_Vbar = 1 - X^h/q: True
+  h = 5: Vbar e-type equation (direct and with H) for every node, controls (opposite rotation, c -> -c) fail: True; Cartan-element equation, V and Vbar: True; V e-type equation, and the free constant solves V but breaks the Cartan relation: True
+  h = 5: rho~ relations (prod kappa = 1, Cartan conjugation q^a_ij, q-commutation, q-Serre): True
+PASS : item 10 - sparse inverse, Vbar half, Cartan equations and module relations, h = 3, 4, 5, exact

@@ -1,0 +1,7 @@
+h = 3, symbolic X: nonzero components 6, distinct residual factors: {(X*q + c*q**2*y - c*y)/(q*y), -z0*(X*q + c*q**2*y - c*y)/(q*y*z1), -z0*z1**2*(X*q + c*q**2*y - c*y)/(q*y), -(X*q + c*q**2*y - c*y)/(q*y*z0**2*z1)}
+h = 3, X = -(q - 1/q) c y = -(q - 1/q) mu y/y_d: nonzero components 0
+h = 4, symbolic X: nonzero components 8, distinct residual factors: {-(X*q + c*q**2*y - c*y)/(q*y*z0**2*z1*z2), -z0*z1*z2**2*(X*q + c*q**2*y - c*y)/(q*y), -z0*(X*q + c*q**2*y - c*y)/(q*y*z1), (X*q + c*q**2*y - c*y)/(q*y), -z1*(X*q + c*q**2*y - c*y)/(q*y*z2)}
+h = 4, X = -(q - 1/q) c y = -(q - 1/q) mu y/y_d: nonzero components 0
+h = 5, symbolic X: nonzero components 10, distinct residual factors: {-z0*z1*z2*z3**2*(X*q + c*q**2*y - c*y)/(q*y), -z0*(X*q + c*q**2*y - c*y)/(q*y*z1), (X*q + c*q**2*y - c*y)/(q*y), -z2*(X*q + c*q**2*y - c*y)/(q*y*z3), -z1*(X*q + c*q**2*y - c*y)/(q*y*z2), -(X*q + c*q**2*y - c*y)/(q*y*z0**2*z1*z2*z3)}
+h = 5, X = -(q - 1/q) c y = -(q - 1/q) mu y/y_d: nonzero components 0
+PASS : item 2 - eq-dt-reversed intertwines exactly iff X/y + c q = c/q (h = 3, 4, 5)

@@ -1,0 +1,1 @@
+PASS : item 9 - type-I_+ factors in x: crossing, both fusings (cancelling 1 - xu/v and 1 + xv/u), Hermitian analyticity, pole at x = u

@@ -31,14 +31,16 @@ Checks:
     twisted diagonal (1 (x) psi)Delta(U), psi in {torus, tau o torus} (all Hopf automorphisms, Kolb 1207.6036 Thm. 3.2),
     a least-squares search over theta-independent weight-graded operators on W (three rapidities, windows N = 5, 7, 9)
     finds: type I_-: e/id and f/tau fail, f/id and e/tau hold; type I_+: the mirror image.  Exactly (sympy,
-    noncommutative symbols for arbitrary operators on W): with L = P T = D + y O (I_-) or D + O/y (I_+), one power of y
+    noncommutative symbols for arbitrary operators on W): with the matrix part L^ = P T / Phi = D + y O (I_-) or
+    D + O/y (I_+) (the scalar Phi cancels from every intertwining equation), one power of y
     in a single generator equation has a block that contains no unknown and does not vanish (prp-diagonal-borel (3)).
     The second Borel survives twisted by tau, with an explicit second module structure rho~ on W (relations and the
     intertwining of all four generators checked numerically on windows and exactly for symbolic n).  The two Borel
     symmetries do not combine: rho(k_1) and rho~(k_1) q^4-commute although k_1 (x) k_1 and k_1 (x) k_0 commute, and any
     coideal containing both contains e_1 (x) 1 (type I_-) or 1 (x) f_0 (type I_+), which are not symmetries (numerically,
     and exactly by a power of y).
-    Limits (prp-diagonal-borel (5)): the off-diagonal part of L is (y/y_d) x const for I_- and (y_d/y) x const for I_+,
+    Limits (prp-diagonal-borel (5), matrix part): the off-diagonal part of L^ is (y/y_d) x const for I_- and (y_d/y) x
+    const for I_+ (with Phi, |Phi| = (1 + Y^2)^-1/2, so only the matrix part has the off-diagonal limit),
     so the diagonal limit is theta_d -> +inf for I_- and theta_d -> -inf for I_+ (single-generator residuals decay like
     e^{-lambda |theta_d|} in these directions and tend to 1 in the opposite ones).  In neither limit is there a twisted
     diagonal on all of W: the e_1 and f_1 equations force chi(Delta k_1) and chi(Delta k_1^-1) to be the same operator
@@ -462,7 +464,8 @@ report('what holds instead (same test): type I_- keeps f/id (diagonal b^-) and e
        f'e/id and f/tau [{max(max(table[k]) for k in hold):.0e}, all windows]', ok_hold)
 
 # exact obstruction (prp-diagonal-borel (3), (4), (5)): arbitrary operators on W as noncommuting symbols.
-# Basis v_+ (x) W, v_- (x) W; L = P T = Dg + y Og (I_-) or Dg + Og/y (I_+), Dg = diag(A, D), Og = [[0, B], [C, 0]],
+# Basis v_+ (x) W, v_- (x) W; matrix part L^ = P T / Phi = Dg + y Og (I_-) or Dg + Og/y (I_+) (the scalar factor Phi
+# cancels from the homogeneous intertwining equations), Dg = diag(A, D), Og = [[0, B], [C, 0]],
 # with A, B, C, D theta-independent and invertible.  pi_y(e_1) = y E+, pi_y(f_1) = E-/y, pi_y(e_0) = y E-,
 # pi_y(f_0) = E+/y, pi(k_1) = diag(q, 1/q) = pi(k_0)^-1; the reflected copy at -theta carries pi_y as well.
 nA, nB, nC, nD, nY, nK, nZ = sp.symbols('A B C D Y kappa Z', commutative=False)
