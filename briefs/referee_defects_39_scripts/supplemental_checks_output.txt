@@ -1,0 +1,15 @@
+3 theta=+0.8: jump=[ 0. -1.  1. -1.  1.], lambda_left-lambda_right=[ 0. -1.  1. -1.  1.]
+  residual with sign(theta)=1.665e-16
+3 theta=-0.8: jump=[-0.  1. -1.  1. -1.], lambda_left-lambda_right=[ 0. -1.  1. -1.  1.]
+  residual with sign(theta)=1.665e-16
+2 degenerate envelope x=0,t=-1: |E|=1.0000000000000000
+2 degenerate envelope x=0,t=2: |E|=0.9999999999999999
+2 degenerate envelope x=0.7,t=0.3: |E|=1.0000000000000000
+2 complex-pole singularity h=3 a=1: x=-2.309523725, t=-4.300392118, |tau_0|=5.666e-16
+1 negative control correct charged delay: sewing residual=4.14813554e-15
+1 negative control wrong class-zero delay: sewing residual=6.67418564
+9 metadata: 67 distinct chapter targets/citations; unresolved=['exr-ds-linear.', 'exr-sgd-breather.', 'prp-an-defect-delay.', 'prp-defect-frozen-soliton.', 'prp-half-soliton.', 'prp-hirota-energy.', 'sec-defect-backlund-an.', 'sec-missing-charges.', 'sec-reality-energy-momentum.']
+9 chapter citation keys: bcz2004b, bcz2005, cz2004, cz2007, cz2009a, cz2010
+9 chapter sha256: b378c80b1a3fc9c8c507e2180aa58ef84e8a56ebce3523273673f4e2d1b6db49
+9 exercises: ['exr-ds-class', 'exr-ds-linear', 'exr-ds-time-reversal', 'exr-ds-selection', 'exr-ds-absorption', 'exr-ds-bootstrap', 'exr-ds-breather', 'exr-ds-frozen']
+supplemental_checks 0.18s

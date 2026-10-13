@@ -7,7 +7,7 @@
 - Understand the missing-charge problem.
 :::
 
-The solitons of @sec-classical-solitons are complex fields, yet their energies are real. The literature established this case by case, and also found complex solutions with complex or negative energies. This chapter shows that a single symmetry decides which solutions have real conserved charges. It is the classical counterpart of the Krein-space structure of the quantum theory (Part VIII).
+The solitons of @sec-classical-solitons are complex fields, yet their energies are real. The literature established this case by case, and also found complex solutions with complex or negative energies. This chapter shows that a single symmetry decides which solutions have real conserved charges. It is the classical counterpart of the Krein-space structure of the quantum theory (Part IX).
 
 ## $\Theta$ on solutions {#sec-theta-classical}
 
@@ -46,7 +46,7 @@ On Hirota data, $\Theta$ acts as $\tau_j\mapsto\bar\tau_j$. That is, $(a,\theta,
 - **A weaker condition for $E$ and $P$.** By @prp-hirota-energy, $E$ and $P$ depend on the data only through the multiset $\{(M_{a_i},\theta_i)\}$. Since $M_{\bar a}=M_a$, they are real whenever this multiset is mapped to itself by $\theta\mapsto\bar\theta$, whether or not the species are conjugated as well. This covers every solution with real rapidities, for instance a single soliton with $\bar a\ne a$, which is not $\Theta$-invariant. Charges that are odd under charge conjugation $a\leftrightarrow\bar a$ need full $\Theta$-invariance. In $a_2^{(1)}$ the spin-2 charge of a single soliton is $q_ae^{2\theta}$, where by Freeman's computation [@freeman1995] the $q_a$ form the eigenvector of the $A_2$ Cartan matrix with eigenvalue $3$, so $q_2=-q_1$, and they can be normalized to be real. If the charge is additive over the constituents, as $E$ and $P$ are, a breather $\{(1,\theta_0+iu),(2,\theta_0-iu)\}$ has spin-2 charge $q_1\big(e^{2(\theta_0+iu)}-e^{2(\theta_0-iu)}\big)=2iq_1e^{2\theta_0}\sin2u$, which is imaginary. This agrees with the selection rule with $\epsilon_Q=-1$. Freeman treats single solitons only, so additivity at complex rapidities is assumed here.
 - **Complex energies.** The complex-energy solutions of Khastgir and Sasaki have asymptotic data that are not $\Theta$-invariant. They are not in the physical sector, for the same reason that complex eigenvalues of a $\Theta$-symmetric operator are not $\Theta$-invariant states (@sec-antilinear).
 
-This closes gap H6 of @sec-critique, apart from the question of singularities. The restriction to "good" solutions, previously ad hoc, is the classical shadow of @thm-krein-transfer, which is proved in Part VIII for the lattice transfer matrix; Part III uses it only as motivation.
+This closes gap H6 of @sec-critique, apart from the question of singularities. The restriction to "good" solutions, previously ad hoc, is the classical shadow of @thm-krein-transfer, which is proved in Part IX for the lattice transfer matrix; Part III uses it only as motivation.
 
 
 **Examples.**

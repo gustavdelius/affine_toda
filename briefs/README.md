@@ -1,12 +1,12 @@
 # Agent briefs
 
-Self-contained task briefs for follow-up work on the book. On 2026-10-10 a new Part VII (the half-line, chapters 28–35, `part7-half-line/`) was inserted, and the Foundations part became Part VIII with chapters 36–41 (`part8-foundations/`, formerly `part7-foundations/28–33`); dated reports keep the numbering they were written with. The first two were written when the book had two parts; their "Part I" is now Parts V and VIII and their "Part II" is Part VI, and the files they name under `foundations/` and `smatrices/` have moved (use the id table below). Each brief can be given verbatim as the prompt of a background agent, or pasted into a fresh Claude Code session started in this repository.
+Self-contained task briefs for follow-up work on the book. On 2026-10-10 a new Part VII (the half-line, chapters 28–35, `part7-half-line/`) was inserted, and the Foundations part became Part VIII with chapters 36–41 (`part8-foundations/`, formerly `part7-foundations/28–33`); dated reports keep the numbering they were written with. On 2026-10-12 a new Part VIII (integrable defects, chapters 36–43, `part8-defects/`) was inserted: Foundations moved from Part VIII (ch. 36–41) to Part IX (ch. 44–49, `part9-foundations/`) and the outlook from ch. 42 to ch. 50 (`outlook/50-outlook.qmd`); dated reports from before that date use the old numbers. The first two were written when the book had two parts; their "Part I" is now Parts V and IX and their "Part II" is Part VI, and the files they name under `foundations/` and `smatrices/` have moved (use the id table below). Each brief can be given verbatim as the prompt of a background agent, or pasted into a fresh Claude Code session started in this repository.
 
 | Brief | Task | Paper location |
 |---|---|---|
 | `exchange_statistics.md` | Decide which exchange of soliton labels the Bethe–Yang equations require, and hence which multi-soliton sectors are $\Theta$-broken. **Answered 2026-10-10:** a graded exchange is a Bloch twist, and the global form selects the twists; integrated as Propositions `prp-exchange-twist` and `prp-bloch-sectors` (scripts in `foundations_code/sectors/bloch/`). Refereed on 2026-10-10 (below); the fixes are in PR #2, merged. | Section `sec-sector-status` (paragraph "Exchange statistics and Bloch sectors"), open problem 6 (see below) |
 | `referee_exchange_statistics.md` | Adversarial referee pass on the answer to `exchange_statistics.md`: the proofs of `prp-exchange-twist` and `prp-bloch-sectors`, the scope claim "in every global form", the numerics in `foundations_code/sectors/bloch/`, and prior art. **Run 2026-10-10** (items 1–5, partly 6); its findings are integrated in PR #2 | Section `sec-sector-status`, open problem 6, `sec-crossing-sign` |
-| `referee_exchange_statistics_report.md` | Report of the referee pass on PR #2 (2026-10-10), with the integration notes and the open items; scripts in `referee_exchange_statistics_scripts/`. Not a brief | `part8-foundations/40-scattering.qmd`, `foundations_code/sectors/bloch/` |
+| `referee_exchange_statistics_report.md` | Report of the referee pass on PR #2 (2026-10-10), with the integration notes and the open items; scripts in `referee_exchange_statistics_scripts/`. Not a brief | `part9-foundations/48-scattering.qmd`, `foundations_code/sectors/bloch/` |
 | `referee_textbook.md` | Referee the textbook chapters 1–16 and 20, and the textbook framing of 17–27: what was verified, and a prioritized list of unverified formulas, conventions, claims and references | `part1-background/`, `part2-algebra/`, `part3-classical/`, `part4-real-coupling/`, `part5-semiclassics/`, `part6-soliton-smatrices/`, `textbook_code/` |
 | `referee_textbook_report.md` | Report of the referee pass of 2026-10-10 on `referee_textbook.md`: a verdict per item, with replacement text for each error; scripts in `referee_textbook_scripts/`. Not a brief: it records findings to be integrated. Item 2 (the sign of $q$, crossing sign) was integrated on 2026-10-10, with the dependent results recomputed at the physical $q$; the other items on branch `textbook-referee-fixes`, except those listed at the top of the report | all parts, `references.bib` |
 | `referee_half_line_28_29.md` | Referee chapters 28–29 of Part VII: scattering axioms with a boundary, boundary Lee–Yang, boundary sine-Gordon and sinh-Gordon; the corrections to Ghoshal–Zamolodchikov, the status of the UV–IR and $E(\varepsilon,\beta)$ relations, the unreproduced BPTT factor | `part7-half-line/28-boundary-scattering.qmd`, `29-boundary-sine-gordon.qmd`, `textbook_code/boundary_axioms.py`, `boundary_sine_gordon.py`, `shg_boundary_breathers.py` |
@@ -38,8 +38,8 @@ The papers are chapters of a Quarto book, and Quarto renumbers sections and theo
 | `sec-counting-rule-transmission-factors` | `part5-semiclassics/18-jordan-chains.qmd` | 8.5 | 8.5 |
 | `sec-hirota-form-dn1-en1` | `part5-semiclassics/18-jordan-chains.qmd` | 8.8 | 8.8 |
 | `sec-one-loop-masses-folded` | `part5-semiclassics/19-one-loop-masses.qmd` | 8.9 | 8.9 |
-| `sec-krein-unitarity` | `part8-foundations/40-scattering.qmd` | 9.2 | 9.2 |
-| `sec-sector-status` | `part8-foundations/40-scattering.qmd` | 9.3 | 9.3 |
+| `sec-krein-unitarity` | `part9-foundations/48-scattering.qmd` | 9.2 | 9.2 |
+| `sec-sector-status` | `part9-foundations/48-scattering.qmd` | 9.3 | 9.3 |
 | `prp-net-count` | `part5-semiclassics/18-jordan-chains.qmd` | Proposition 8.3 | Proposition 8.5 |
 | `lem-wronskian` | `part5-semiclassics/18-jordan-chains.qmd` | Lemma 8.1 | Lemma 8.4 |
 | `thm-hirota-factorization` | `part5-semiclassics/18-jordan-chains.qmd` | Theorem 8.2 | Theorem G |
@@ -50,16 +50,36 @@ The papers are chapters of a Quarto book, and Quarto renumbers sections and theo
 | `eq-one-loop-mass` | `part5-semiclassics/17-thimbles.qmd` | (8.1) | (8.1) |
 | `eq-net-factorization` | `part5-semiclassics/18-jordan-chains.qmd` | (8.2) | (F) |
 | `eq-one-loop-mellin` | `part5-semiclassics/17-thimbles.qmd` | new (2026-10-10) | — |
-| `prp-krein-unitarity` | `part8-foundations/40-scattering.qmd` | Proposition 9.1 | Proposition 9.1 |
-| `prp-krein-fundamental` | `part8-foundations/40-scattering.qmd` | Proposition 9.3 | Proposition 9.3 |
-| `prp-scalar-breathers` | `part8-foundations/40-scattering.qmd` | Proposition 9.4 | Proposition 9.4 |
-| `prp-exchange-twist` | `part8-foundations/40-scattering.qmd` | (new, 2026-10-10) | — |
-| `prp-bloch-sectors` | `part8-foundations/40-scattering.qmd` | (new, 2026-10-10) | — |
+| `prp-krein-unitarity` | `part9-foundations/48-scattering.qmd` | Proposition 9.1 | Proposition 9.1 |
+| `prp-krein-fundamental` | `part9-foundations/48-scattering.qmd` | Proposition 9.3 | Proposition 9.3 |
+| `prp-scalar-breathers` | `part9-foundations/48-scattering.qmd` | Proposition 9.4 | Proposition 9.4 |
+| `prp-exchange-twist` | `part9-foundations/48-scattering.qmd` | (new, 2026-10-10) | — |
+| `prp-bloch-sectors` | `part9-foundations/48-scattering.qmd` | (new, 2026-10-10) | — |
 | `sec-crossing-sign` | `part6-soliton-smatrices/21-construction.qmd` | 14.6 | Section 2.6 of the S-matrix note |
 
 The numbers in the third column may drift as chapters change; the ids will not.
 
 Open problems are items of numbered lists, not labelled objects. Use the first words of the item:
 
-- Former Part I open problems, now in `part8-foundations/41-outlook.qmd`: item 3 is the one that begins with a reference to `cnj-counting-rule` ("… in general"); item 6 is "The sector classification for self-conjugate theories" (its former sub-item "Exchange statistics" is now "Bloch sectors").
+- Former Part I open problems, now in `outlook/50-outlook.qmd`: item 3 is the one that begins with a reference to `cnj-counting-rule` ("… in general"); item 6 is "The sector classification for self-conjugate theories" (its former sub-item "Exchange statistics" is now "Bloch sectors").
 - Former Part II open problems, now in `part6-soliton-smatrices/26-f4-solitons.qmd` (section `sec-sm-discussion`): item 4 is "Crossing convention".
+
+## Part VIII: integrable defects (2026-10-11 to 2026-10-12)
+
+Part VIII (`part8-defects/`, chapters 36–43) was planned, drafted, refereed and integrated with the files below. Drafting is done by Claude only; other models referee (Gemini through `run_referee_agy.sh`, Codex for the deep passes).
+
+| File | What it is |
+|---|---|
+| `part8_defects_conventions.md` | The conventions, names and id registry of Part VIII, with the source dictionary and the conventions added by each chapter (§§1–11). Read it first |
+| `part8_defects_status.md` | Working record: the chapter status table, the verification record of every chapter (by script, by hand, unchecked), the corrections to the sources, the pending edits elsewhere (each marked done or not needed) and the obligations between chapters |
+| `part8_defects_sources.md` | Digests of the defect literature (2026-10-11), with equation numbers of the sources; working notes, not checked results |
+| `draft_ch39.md` | Drafting brief for chapter 39 (the other chapters were briefed in their sessions) |
+| `draft_ch39_report.md`, `draft_ch41_report.md`, `draft_ch42_report.md`, `draft_ch43_report.md` | Drafting reports: summary, script output, verification record, corrections, requests for edits elsewhere and proposed conventions text. Not briefs |
+| `draft_ch41_checkpoint.md`, `draft_ch42_checkpoint.md`, `draft_ch43_checkpoint.md`, `integration_38_40_checkpoint.md`, `global_integration_part8_checkpoint.md` | Checkpoints that let a fresh agent resume a drafting or integration task after an interruption |
+| `referee_defects_36_37.md`, `referee_defects_36_37_report.md` | Light referee brief for chapters 36–37 (run on Gemini) and its report |
+| `referee_defects_36_37_deep.md`, `referee_defects_36_37_deep_report.md` | Deep referee brief for the high-risk claims of chapters 36–37 (Codex) and its report; scripts in `referee_defects_36_37_deep_scripts/` |
+| `referee_defects_38_40.md`, `referee_defects_38_40_report.md` | Deep referee brief for chapters 38 and 40 and its report, with the integration notes of 2026-10-12 at the end; scripts and outputs in `referee_defects_38_40_scripts/` |
+| `referee_defects_39.md`, `referee_defects_41.md`, `referee_defects_42.md`, `referee_defects_43.md` | Deep referee briefs for chapters 39, 41, 42 and 43; their reports are `referee_defects_<n>_report.md` when present |
+| `run_referee_agy.sh` | Runs a referee brief with a non-Claude model through the Antigravity CLI, in a throwaway copy of the repository; writes `briefs/<brief>_report.md` |
+
+The book cites only the scripts in `textbook_code/` (`defect_*.py`, listed in `textbook_code/README.md` and in appendix C, `appendices/C-code.qmd`); the referee scripts are kept for reproducibility.

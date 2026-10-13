@@ -2,12 +2,13 @@
 
 Re-deriving the literature in one set of conventions, with the key formulas checked by script, turned up errors in a number of published papers. Each is corrected where it arises, in the text or in the chapter notes. This appendix collects them, paper by paper, in order of publication. Each item gives the place in the paper, what the paper prints or claims, the correction, the evidence, and the section of this book where the details are.
 
-The items are of four kinds:
+The items are of five kinds:
 
 - a *misprint* is a slip that the paper's own equations or argument show to be unintended;
 - an *error* is a formula, table or claim that is wrong as it stands, so that a result changes;
 - a list is *incomplete* when it misses cases;
-- a claim is *disputed* when we contradict it with a conjecture rather than a proof.
+- a claim is *disputed* when we contradict it with a conjecture rather than a proof;
+- a *clarification* supplies a hypothesis, a branch or a direction that a statement needs, where the statement is right once it is supplied.
 
 Differences of convention are not listed; the dictionaries between conventions are in the chapters. Corrections that others made first are in @sec-app-corrections-known. @sec-app-corrections-confirmed lists formulas that look suspicious but that we checked and found correct as printed.
 
@@ -21,6 +22,11 @@ Differences of convention are not listed; the dictionaries between conventions a
 
 - **(5.9).** All four operators on the right-hand sides should carry rapidity $-\theta$, as in their (3.22). *Misprint* (@sec-boundary-qg-notes).
 - **(5.23)–(5.24), the normalization of the soliton reflection matrix.** The normalizing factor $\Pi^2(x,\frac\pi2)\Pi^2(-x,\frac\pi2)$ diverges: $\log\Pi(x,\frac\pi2)$ grows like $\frac\lambda4\log l_{\max}$ with the cutoff $l_{\max}$ of the product. With the normalization printed in (5.24), their (5.22) violates their (5.20) by the factor $k^2/\cos^2\xi_B$. The convergent normalization is that of Bajnok, Palla, Takács and Tóth [@bptt2002], $\sigma(x,u)\sigma(x,-u)=\cos^2x/(\cos(x+\lambda u)\cos(x-\lambda u))$, and it is also the one that GZ's own prefactors in (5.22) and (5.26) require. The same divergent factor appears in Ghoshal's (2.19) [@ghoshal1994]. *Error* (@sec-bsg-k-matrix; `textbook_code/boundary_sine_gordon.py`).
+
+**Delfino, Mussardo and Simonetti 1994** [@delfino_mussardo_simonetti1994], scattering off a line defect.
+
+- **(2.10)–(2.12), parity.** The no-go result for simultaneous reflection and transmission needs no parity: only the exchange relation for particles arriving from the left enters its proof (@prp-rt-nogo). Their statement that the both-reflected equation (2.10) holds identically for diagonal scattering needs $S_{ab}=S_{ba}$, which parity provides. *Clarification* (@sec-defect-scattering-notes).
+- **After (3.4), the angle $\chi$.** It is defined through $\sin\chi=-g/(1+g^2/4)$ only. The duality (3.12) and the purely reflecting points require the continuous branch $\cos\chi=(1-g^2/4)/(1+g^2/4)$, that is $\chi=-2\arctan\frac g2$; with the principal branch of $\arcsin$ the duality fails for $\lvert g\rvert>2$. *Clarification* (@sec-rt-algebra; `textbook_code/defect_axioms.py`).
 
 **Bowcock, Corrigan, Dorey and Rietdijk 1995** [@bcdr1995], Appendix D. The conditions listed there come from the order-$\lambda^2$ terms of $K(\lambda)$ alone, so they are necessary but not sufficient. Solving the full equation (-@eq-boundary-k-equation) in a faithful representation (@prp-durham, `textbook_code/boundary_classical.py`) changes three entries of the classification (@tbl-durham):
 
@@ -66,6 +72,11 @@ Differences of convention are not listed; the dictionaries between conventions a
 
 - **Tables 6 and 7, pole orders.** On a charge-1 state with labels $n_1,\dots,n_{2k-1}$, the reflection factors have a pole of order $2k-\delta_{n_1,0}$ at $\nu_0$, not $k$, and of order $1+\sum_{i\ \rm even}c_j(n_i)$ at $\nu_{-j}$, with $c_j(n)=2,1,0$ for $j<n$, $j=n$, $j>n$, not 1. Their own §5.3 has the double pole at $\nu_0$ on $|1;1\rangle$. Table 6 omits the poles at $\nu_0$ and $\nu_{-j}$. *Error*; the orders were measured from their Gamma-product formulas at two parameter points and 13 states (@sec-bsg-spectrum).
 
+**Castro-Alvaredo, Fring and Göhmann 2002** [@cafg2002], reflection and transmission at an impurity.
+
+- **(22)–(23), eliminating the transmission matrix.** This needs a nondegeneracy assumption. A direct sum of a purely reflecting and a purely transmitting defect sector satisfies their commutativity condition (22), with $R\ne0\ne\mathbb T$, for any bulk S-matrix. The argument applies where the transmission matrix can be cancelled; the genuinely mixed case is reflection and transmission within one communicating defect sector. *Error in the argument* (@prp-rt-nogo).
+- **(32), the transmission bootstrap.** $T_{b\beta}=T_{b\alpha}$ omits the factor $S_{ba}(\theta-i\eta)$ that the transmitted particle picks up from the bound particle (-@eq-defect-bootstrap). Their conclusion that a transmitting impurity has no excited states therefore does not extend to purely transmitting defects in interacting theories, and the Lee–Yang defect has such states [@bajnok_simon2008]. *Error* (@sec-defect-bound-states, @sec-defect-lee-yang).
+
 **Delius and Nepomechie 2002** [@delius_nepomechie2002].
 
 - **(3.8), the spin-$j$ reflection matrix.** The square root covers only the first product; read otherwise, the formula fails their own equations for $m\ge2$. At imaginary $\eta$, which includes the physical $q$, the closed form with principal-branch square roots fails for $j\ge1$, as their footnote anticipates. Their linear equations (3.6)–(3.7) remain correct there. *Misprint and restricted validity* (@prp-xxz-spin-j).
@@ -97,15 +108,72 @@ Differences of convention are not listed; the dictionaries between conventions a
 
 - **(Bfugacity).** The factor $\cosh\theta-\cos(\eta_ap)$ should be $\cosh\theta-\cosh(p\eta_a)$, as their reflection factor (R1) gives. Only the corrected form reproduces their Table 1. *Misprint* (@cnj-bsg-uv-ir; `textbook_code/shg_boundary_tba.py`).
 
+**Bowcock, Corrigan and Zambon 2004** [@bcz2004b], affine Toda field theories with defects.
+
+- **Section 5, the spin-$\pm2$ charges.** Both the spin $+2$ and the spin $-2$ charges of $a_r^{(1)}$ survive a type-I defect of either type. The obstruction (5.11), built from the symmetric tensor $A=2\sum_k(\vec\mu_k\cdot\vec u)^3$ of the cubic term (the density (5.2) carries $\frac13A$), vanishes identically. Their inference from $\mathsf D=2-\mathsf D^{\mathsf T}$ (3.20) to a nonzero (5.11) overlooks that the cubic invariant couples only Fourier modes with $k_1+k_2+k_3\equiv0$ mod $h$, on which the cotangent identity cancels the two terms. The two types differ in their Borel subalgebra, not in a surviving charge. *Error* (@prp-spin-two; `textbook_code/defect_classical_an.py`).
+- **(5.43).** The matrix is printed as $2\sum_i\vec\lambda_i(\vec\lambda_i-\vec\lambda_{i+1})^{\mathsf T}$, the transpose of their (3.28); with their $E$ of (5.42), $1-E$ is the matrix of (3.28). *Misprint* (@sec-defect-conditions-notes).
+
+**Bowcock, Corrigan and Zambon 2005** [@bcz2005], jump defects in the quantum sine-Gordon model.
+
+- **(2.2), the defect Lagrangian.** The defect term must enter with $+\delta(x)$ to give their defect conditions (2.4). *Misprint* (@sec-sg-defect-lagrangian).
+- **Section 2, the two-defect remark.** It compares temporal delays. A soliton overtaken by a faster soliton of rapidity $\eta$ acquires the before-to-after factor $1/A_{11}=\coth^2\frac{\theta-\eta}2$, which agrees with two identical defects without jumps; a soliton that overtakes acquires $A_{11}$ instead. A spatial passage from left to right across a soliton has the factor $A_{11}=\tanh^2\frac{\theta-\eta}2$, so the spatial factors of a soliton and of the pair are inverse. The remark stands for the overtaken soliton. *Clarification* (@prp-half-soliton).
+- **(3.42)–(3.47), the scalar factor.** The compact Gamma products (3.42) and (3.47) do not converge without an endpoint normalization: truncated after $K$ factors their phase drifts like $-\frac{\gamma\tilde\theta}\pi\ln K$. The paired product $r(x)$ of (3.44) does not converge on its own either; it diverges like $K^{(\gamma+1)/4}$. What converges is the ratio $r/\bar r$ of (3.43) with both products cut off at the same $K$, which is how (-@eq-sgd-scalar) defines it. *Error* (@sec-sg-transmission-matrix; `textbook_code/defect_sg_transmission.py`).
+- **(3.57)–(3.59), the two labels $(a,b)$.** They are what relates the two defect types: $\psi\to-\psi$ exchanges the jump $b-a$ with $a+b$ up to sign, so $\mathbb T_{{\rm I}_+}$ is not $(1\otimes C)\mathbb T_{{\rm I}_-}$ in the original labels. Their remark that the dependence on $\nu$ can be removed in the two-label basis is the statement that the offset $s_+=-1-s$ of the image can be changed by the residual gauge freedom. *Clarification* (@prp-two-borels; `textbook_code/defect_universal_r.py`).
+
+**Corrigan and Zambon 2007** [@cz2007], purely transmitting defects in affine Toda theory.
+
+- **(2.21), the delay of a self-conjugate soliton.** Their (2.20) gives $z=-\coth\frac{\theta-\eta}2$, not $+\coth\frac{\theta-\eta}2$; the sign is that of the sine-Gordon delay (-@eq-sg-delay) and of [@bcz2004b, eq. (6.2)]. *Misprint* (@sec-defect-backlund-an; `textbook_code/defect_classical_an.py`).
+- **Section 2, after (2.23), absorption at real rapidity.** That a soliton with real rapidity is absorbed only if it is self-conjugate, also stated in [@cz2009a, Sec. 4] after (4.10), holds for defects whose jump lies in the root lattice, the setting of their delay (2.20). A defect whose jump has class $p$ absorbs species $a$ at real rapidity whenever $a+2p\equiv h/2$ mod $2h$, for example species 1 of $a_5^{(1)}$ in class 1. *Clarification* (@prp-ds-absorption; `textbook_code/defect_solitons_an.py`).
+- **(6.14).** With $\Delta=\eta+\frac{i\pi}2$ and $q=-e^{-i\pi\gamma}$, $\hat x=e^{\gamma(\theta-\Delta)}=(-q)^{1/2}e^{\gamma(\theta-\eta)}$ with $(-q)^{1/2}=e^{-i\pi\gamma/2}$, not $(-q)^{-1/2}e^{\gamma(\theta-\eta)}$. With this sign the off-diagonal entries coincide with those of the sine-Gordon matrix quoted just before it. *Misprint* (@sec-soliton-transmission-notes).
+- **(7.11), the linear transmission factors.** The denominator is $ie^{-\theta}m_k+\sigma(1-\omega^k)$, not $ie^{\theta}m_k+\sigma(1-\omega^k)$, with $\omega=e^{2\pi i/h}$; only then is $\mathbb T_k$ unimodular, a function of $\theta-\eta$, and equal to their (7.5) for $a_2^{(1)}$. The formula also assumes $m=1$; otherwise $\sigma$ must be replaced by $m\sigma$. *Misprint* (@prp-an-linear-transmission; `textbook_code/defect_solitons_an.py`).
+
+**Corrigan and Zambon 2009a** [@cz2009a], defects in the $a_r$ Toda theories.
+
+- **(6.10), the scalar factor.** The infinite product pairs Gamma functions with different $k$. Divided by its value at $z=0$, its partial product up to $K$ equals the partial product of the equal-$k$ form (-@eq-dt-g) times $\Gamma(A_K-z)/\Gamma(A_K)$, $A_K=\frac12+(hK+\frac r2)\gamma$, which drifts like $(h\gamma K)^{-z}$. So it converges only after this normalization and the removal of the endpoint factor; paired at equal $k$ it converges. *Error* (@sec-transmission-unitarity-crossing; `textbook_code/defect_an_transmission.py`).
+- **(6.15) and after, the unstable windows.** At $\vartheta_a=\frac\pi2$ the energy (6.14) is real, so an unstable state needs $\frac\pi2<\vartheta_a<\pi$, for the pole in the strip next to the real axis, and the windows exclude both ends; (6.15) and the range $(a-h/2)\le1/\gamma<a$ include the lower one. For the "soliton" representations $a<\frac h2$ the window is $\frac1\gamma<a$, not $\frac1\gamma<\frac h2-1$ ($h$ even) or $\frac1\gamma<\frac{h-1}2$ ($h$ odd); the two agree only for the largest such $a$. *Error* (@sec-an-defect-bound-states; `textbook_code/defect_an_transmission.py`).
+
+**Corrigan and Zambon 2009b** [@cz2009b], a new class of integrable defects.
+
+- **(3.7).** $1/\sigma$ multiplies both terms of $f$, as their (4.6) requires. *Misprint* (@sec-type-two-atft).
+- **(4.4), the defect field.** In the sector of the delay $z_1$ it is $e^{\lambda_1}=-\frac1{\sqrt2\cosh\tau}\frac{(1+E_0)(1+z_1E_0)}{(1-\rho E_0)(1-\tilde\rho E_0)}$; the printed form, with the opposite overall sign and $1+\rho E_0$, $1+\tilde\rho E_0$, violates the defect conditions (3.3). Their $z_1$ is the sector $e^\lambda\to-1/(\sqrt2\cosh\tau)$. *Error* (@sec-type-two-atft; `textbook_code/defect_classical_an.py`).
+- **(4.5) and the remark after it.** With the corrected (4.4), for imaginary $E_0$ and real parameters, $e^{2i\operatorname{Im}\lambda_1}=\frac{1+E_0}{1-E_0}\,\frac{1+z_1E_0}{1-z_1E_0}\,\frac{1+\rho E_0}{1-\rho E_0}\,\frac{1+\tilde\rho E_0}{1-\tilde\rho E_0}$, with the last two factors inverted. The phase of $e^{\lambda_1}$ therefore winds by $2\pi$ when $\rho$ and $\tilde\rho$ are both positive, not when both are negative. *Error*, by hand from the corrected (4.4) (@sec-type-two-atft).
+- **(4.11).** Their $z_2$ is the complex conjugate of the $z_2$ of their (4.9), that is their $z_3$. *Misprint* (@sec-type-two-atft; `textbook_code/defect_classical_an.py`).
+
+**Corrigan and Zambon 2010** [@cz2010], a fused pair of defects in sine-Gordon theory.
+
+- **(3.17), the type-II resonance poles.** They lie at $\theta=\eta_p-i\pi/2\gamma$, not $\eta_p+i\pi/2\gamma$: the pole of $\Gamma(1/2-z_p)$ with $z_p=i\gamma(\theta-\eta_p)/\pi$ (their (3.16)) is at $z_p=1/2$. This agrees with [@bcz2005, eq. (4.1)]. *Misprint* (@sec-type-two).
+
+**Weston 2010** [@weston2010], defects in the XXZ and sine-Gordon models.
+
+- **(2.6) and (4.15), the Borel subalgebra.** Weston calls the type-I defect algebra $U_q(\mathfrak b^+)$, with the coproduct of Part VI. His identification (4.15) includes a transposition (his footnote 10), and transposition exchanges the two Borel subalgebras. In a fixed reading the type-I$_-$ matrix of Bowcock, Corrigan and Zambon intertwines $U_q(\mathfrak b^-)$, and the type-I$_+$ matrix $U_q(\mathfrak b^+)$. *Clarification* (@sec-t-intertwiner, @exr-dq-transpose).
+- **Section 2.4.1, Q-operators as regularized traces.** For the type-I module, $r_1=r_2=0$, at $|q|=1$, the case of sine-Gordon theory, no ordinary twist makes the trace over $\mathbb Z$ converge; it factorizes into a formal series in the twist and the matrix element $\langle0|\cdot|0\rangle$, as Rossi and Weston had found for their bilateral module [@rossi_weston2002, Sec. 4.3, eqs. (5.5)–(5.10)]. This does not affect the existence of formal Q-operators. *Clarification* (@prp-defect-transfer; `textbook_code/defect_transfer.py`).
+
+**Corrigan and Zambon 2011** [@cz2011], the $a_2^{(2)}$ transmission matrix.
+
+- **After (3.12), the poles of the scalar factor.** With $z=i(\theta-\nu)/\xi$, the two Gamma functions $\Gamma(\frac12-z+\frac\pi{3\xi})\Gamma(\frac12-z+\frac{2\pi}{3\xi})$ outside the products have their poles at $\nu-i(\frac\xi2+\frac\pi3)$ and $\nu-i(\frac\xi2+\frac{2\pi}3)$, not at the printed $\nu-i(\xi+\frac\pi3)$ and $\nu-i(\xi+\frac{2\pi}3)$, where their arguments are $-\frac12$. With its Gamma functions grouped at equal $k$, (3.12) solves their crossing and bootstrap conditions (3.8) and (3.10) with this $z$, so the slip is in the pole positions. The windows of unstable states derived from them after (3.13), $\frac\pi6<\xi<\frac{2\pi}3$ and $-\frac\pi6<\xi<\frac\pi3$, become $\frac\pi3<\xi<\frac{4\pi}3$ and $-\frac\pi3<\xi<\frac{2\pi}3$. As printed, the products of (3.12) pair Gamma functions with different $k$ and drift like $K^{-2z}$, as in [@cz2009a, eq. (6.10)]. Whether (3.12) is the physical scalar factor has not been checked. *Error* (@sec-a22-transmission; `textbook_code/defect_an_transmission.py`).
+
 **Vernier, Jacobsen and Saleur 2016** [@vernier2016].
 
 - **(98), the soliton masses of the $a_{2n-1}^{(2)}$ vertex model.** The general formula has $a\pi$ where their cases $n=2$ and $n=3$, (66) and (92), require $(a-1)\pi$. *Misprint.* The corrected closed form agrees to $10^{-30}$ for $n\le8$ with the spectrum of the spinor-soliton S-matrix of Part VI (@sec-a2n-lattice; `foundations_code/vernier/`).
+
+**Bao and Wang 2018** [@bao_wang2018b], quantum symmetric pairs of diagonal type.
+
+- **Remark 4.10(2).** It is made in the finite-type setting of the paper, with "one checks" for the coideal property. Kolb [@kolb2014] and Appel and Vlaar [@appel_vlaar2022] assume an indecomposable Cartan matrix, so their universal K-matrices do not cover the diagonal type of affine algebras, whose Cartan matrix is that of $\hat g\oplus\hat g$. *Clarification* (@sec-diagonal-qsp).
+
+**Penati and Polvara 2019** [@penati_polvara2019].
+
+- **Appendix B, (B.4).** The cubic terms vanish identically, for the reason given above for Bowcock, Corrigan and Zambon 2004, so both spin-$\pm2$ charges of $a_r^{(1)}$ survive a classical type-I defect. *Error* (@prp-spin-two).
+
+**Shimamori and Yamaguchi 2026** [@shimamori_yamaguchi2025], boundaries and non-invertible symmetries.
+
+- **(3.29), the modified boundary crossing.** It is equivalent to the conventional crossing of Ghoshal and Zamolodchikov for amplitudes renormalized by the same rapidity-dependent kink factors that relate the two normalizations of the bulk S-matrix (their (2.32)). What distinguishes the normalizations is the Ward–Takahashi identities, not crossing. *Clarification*, by hand (@sec-noninvertible-boundaries, @exr-dbd-boundary-crossing).
 
 ## Corrections made earlier by others {#sec-app-corrections-known}
 
 - **Ghoshal and Zamolodchikov (3.51).** The overall sign of the boundary Lee–Yang factor $R_{(1)}$ should be $+$. Dorey, Pocklington, Tateo and Watts print $+$ without comment [@dptw1998, eq. (2.8)]. We add that with the printed sign the factor still satisfies unitarity and crossing-unitarity but violates the bootstrap (3.50) of [@gz1994], and that the value of $g$ in their (3.54) belongs to the $+$ sign (@prp-ly-reflection).
 - **The $g$-function of LeClair, Mussardo, Saleur and Skorik** [@lmss1995]. Their proposal for the exact $g$-function of a massive theory was corrected by Dorey, Fioravanti, Rim and Tateo [@dfrt2004] (@sec-boundary-finite-size). We have not rechecked it.
 - **Self-dual reflection factors.** Kim's exact Neumann amplitudes [@kim1995], built by assuming weak–strong self-duality, agree with the Neumann amplitude (-@eq-neumann-amplitude) at one loop, which is all his calculation could test, but not beyond. The same holds for the self-dual proposals of Fring and Köberle [@fring_koberle1994a] and Sasaki [@sasaki1993], as Delius and Gandenberger point out [@delius_gandenberger1999]. We have checked this for $n=2,\dots,6$; the Neumann amplitude is itself @cnj-neumann-amplitude (@sec-neumann-duality).
+- **Corrigan and Zambon 2007, Section 2, after (2.22).** The boundaries between the charge sectors in $\operatorname{Im}\xi$ are $2\pi\gcd(a,h)/h$ apart, not $2\gamma_a$, as Corrigan and Zambon note themselves [@cz2009a, Sec. 4]; the two agree only when $a$ divides $h$. We add that a soliton can therefore move up to $\min(a,h-a)/\gcd(a,h)$ steps along its cycle of charges, two for species 2 of $a_4^{(1)}$ (@prp-stored-charge; `textbook_code/defect_solitons_an.py`).
 
 ## Formulas confirmed as printed {#sec-app-corrections-confirmed}
 

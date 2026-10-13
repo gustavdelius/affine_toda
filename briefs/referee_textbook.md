@@ -1,5 +1,7 @@
 # Brief: referee the textbook material of the book
 
+> *Note (2026-10-12):* Foundations is now Part IX, chapters 44–49 (`part9-foundations/`), and the outlook chapter 50; where this brief says "now Part VIII" or "now 36–41", read Part IX, chapters 44–49.
+
 You are a mathematical-physics referee. The repository is `/home/gustav/Git/affine_toda`, a Quarto book on affine Toda field theory. Do not edit any file in it. Work in your own scratch directory and deliver your full report in your final message: subagents may be unable to write report files.
 
 ## Context

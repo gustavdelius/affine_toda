@@ -1,0 +1,13 @@
+N= 2 homogeneous= True closed formula residual= 2.748447815056545e-17
+N= 2 homogeneous= False closed formula residual= 4.336815722590742e-17
+N= 3 homogeneous= True closed formula residual= 3.5684750364456724e-17
+N= 3 homogeneous= False closed formula residual= 4.0505884844839114e-17
+N= 4 homogeneous= True closed formula residual= 3.621315419214798e-17
+N= 4 homogeneous= False closed formula residual= 4.081547720432681e-17
+N= 5 homogeneous= True closed formula residual= 3.616588388585283e-17
+N= 5 homogeneous= False closed formula residual= 3.7108580520447066e-17
+N= 6 homogeneous= True closed formula residual= 3.0983908901027586e-17
+N= 6 homogeneous= False closed formula residual= 3.8828539350606114e-17
+Rossi--Weston (5.5): q_RW=q^-1, s0=q^-s, z_RW/w_RW=-(y/y_d)^2,
+rho_tilde=(1+(y/y_d)^2)^-1 and sqrt(z_RW*q_RW/w_RW)=i*(y/y_d)*q^-1/2.
+With delta(q_RW^m) removed, (5.5) is the homogeneous closed formula above.

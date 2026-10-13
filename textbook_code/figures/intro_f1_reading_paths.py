@@ -1,4 +1,4 @@
-"""Figure F1b (introduction, sec-reader-guide): the five reading paths.
+"""Figure F1b (introduction, sec-reader-guide): the six reading paths.
 
 One row per path; boxes are chapter ranges, coloured by Part. The chapter lists are checked
 against the "Reading paths" bullets of index.qmd, so that the figure cannot drift
@@ -20,46 +20,48 @@ PATHS = [
     ("Integrable field theory", [(2, 3), (5, 6), (9, 10), (12, 14), (20, 22)]),
     ("Quantum groups in field theory", [(2, 3), (5, 8), (20, 22), (27, 27)]),
     ("Integrable boundaries", [(2, 3), (7, 8), (9, 10), (13, 13), "VII"]),
-    ("Non-unitary field theory", [(2, 4), (9, 11), "VIII"]),
-    ("For specialists", ["V–VIII"]),
+    ("Integrable defects", [(2, 3), (7, 8), (9, 11), (20, 21), (28, 32), "VIII"]),
+    ("Non-unitary field theory", [(2, 4), (9, 11), "IX"]),
+    ("For specialists", ["V–IX"]),
 ]
 PART_OF = lambda c: ("I" if c <= 4 else "II" if c <= 8 else "III" if c <= 11 else "IV" if c <= 15
-                     else "V" if c <= 19 else "VI" if c <= 27 else "VII" if c <= 35 else "VIII")
+                     else "V" if c <= 19 else "VI" if c <= 27 else "VII" if c <= 35 else "VIII" if c <= 43 else "IX")
 COLORS = {"I": style.BLUE, "II": style.GREEN, "III": style.ORANGE, "IV": style.RED,
-          "V": style.PURPLE, "VI": style.TEAL, "VII": "#c2569b", "VIII": style.GREY}
+          "V": style.PURPLE, "VI": style.TEAL, "VII": "#c2569b", "VIII": "#8f9a1f",
+          "IX": style.GREY}
 
 # ---- check against the text of the introduction ---------------------------
 text = (ROOT / "index.qmd").read_text()
-bullets = re.findall(r"^- \*(?:A course on|Integrable boundaries|Non-unitary|For specialists)[^\n]*", text, flags=re.M)
-report("the introduction has five reading-path bullets", len(bullets) == 5)
+bullets = re.findall(r"^- \*(?:A course on|Integrable boundaries|Integrable defects|Non-unitary|For specialists)[^\n]*", text, flags=re.M)
+report("the introduction has six reading-path bullets", len(bullets) == 6)
 
 
 def chapters_in(bullet):
     seg = bullet.split("chapters", 1)[1].split(".", 1)[0] if "chapters" in bullet else ""
-    seg = seg.split("Part VII")[0]
+    seg = re.split(r"Part V?I+X?", seg)[0]
     out = set()
     for a, b in re.findall(r"(\d+)(?:–(\d+))?", seg):
         out.update(range(int(a), int(b or a) + 1))
     return out
 
 
-for (name, boxes), bullet in zip(PATHS[:4], bullets[:4]):
+for (name, boxes), bullet in zip(PATHS[:5], bullets[:5]):
     mine = set()
     for b in boxes:
         if isinstance(b, tuple):
             mine.update(range(b[0], b[1] + 1))
     report(f"chapters of '{name}' agree with the text", mine == chapters_in(bullet))
-report("'For specialists' is Parts V-VIII in the text", "Parts V–VIII" in bullets[4])
+report("'For specialists' is Parts V-IX in the text", "Parts V–IX" in bullets[5])
 
 # ---- figure ---------------------------------------------------------------
-fig, ax = plt.subplots(figsize=(7.0, 3.3))
-ax.set_xlim(0, 11.6)
-ax.set_ylim(-0.2, 5.3)
+fig, ax = plt.subplots(figsize=(7.4, 3.9))
+ax.set_xlim(0, 12.3)
+ax.set_ylim(-0.2, 6.3)
 ax.axis("off")
 W, H, GAP = 1.05, 0.58, 0.38
 x0 = 3.45
 for r, (name, boxes) in enumerate(PATHS):
-    y = 4.55 - r
+    y = 5.55 - r
     ax.text(0.0, y, name, ha="left", va="center", fontsize=8.5)
     x = x0
     for i, b in enumerate(boxes):
@@ -67,8 +69,8 @@ for r, (name, boxes) in enumerate(PATHS):
             lab = f"ch. {b[0]}–{b[1]}" if b[0] != b[1] else f"ch. {b[0]}"
             part = PART_OF(b[0])
         else:
-            lab = f"Part {b}" if b in ("VII", "VIII") else f"Parts {b}"
-            part = b if b in ("VII", "VIII") else "V"
+            lab = f"Part {b}" if b in ("VII", "VIII", "IX") else f"Parts {b}"
+            part = b if b in ("VII", "VIII", "IX") else "V"
         w = W if len(lab) < 11 else 1.35
         ax.add_patch(FancyBboxPatch((x, y - H / 2), w, H, boxstyle="round,pad=0.02,rounding_size=0.08",
                                     fc=COLORS[part] + "33", ec=COLORS[part], lw=1.4))
@@ -79,7 +81,7 @@ for r, (name, boxes) in enumerate(PATHS):
         x += w + GAP
 # legend of parts
 lx = 0.0
-for part in ("I", "II", "III", "IV", "V", "VI", "VII", "VIII"):
+for part in ("I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"):
     ax.add_patch(FancyBboxPatch((lx, -0.12), 0.28, 0.2, boxstyle="round,pad=0.01,rounding_size=0.04",
                                 fc=COLORS[part] + "33", ec=COLORS[part], lw=1.2))
     ax.text(lx + 0.38, -0.02, part, ha="left", va="center", fontsize=7.5)

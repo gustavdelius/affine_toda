@@ -1,0 +1,51 @@
+(A) exact loop certificates at q = 2, m = mu/y_d or mu y_d = 3/7, y = 5/4 (offsets t_i = q^{s_i}):
+  h=3 t=s=0 b- V   : unknowns 9, rank 8, nullity 1
+  h=3 t=s=0 b- Vbar: unknowns 9, rank 8, nullity 1
+  h=3 t=s=0 b+ V   : unknowns 9, rank 8, nullity 1
+  h=3 t=s=0 b+ Vbar: unknowns 9, rank 8, nullity 1
+  h=3 t=generic b- V   : unknowns 9, rank 8, nullity 1
+  h=3 t=generic b- Vbar: unknowns 9, rank 8, nullity 1
+  h=3 t=generic b+ V   : unknowns 9, rank 8, nullity 1
+  h=3 t=generic b+ Vbar: unknowns 9, rank 8, nullity 1
+  h=4 t=s=0 b- V   : unknowns 16, rank 15, nullity 1
+  h=4 t=s=0 b- Vbar: unknowns 16, rank 15, nullity 1
+  h=4 t=s=0 b+ V   : unknowns 16, rank 15, nullity 1
+  h=4 t=s=0 b+ Vbar: unknowns 16, rank 15, nullity 1
+  h=4 t=generic b- V   : unknowns 16, rank 15, nullity 1
+  h=4 t=generic b- Vbar: unknowns 16, rank 15, nullity 1
+  h=4 t=generic b+ V   : unknowns 16, rank 15, nullity 1
+  h=4 t=generic b+ Vbar: unknowns 16, rank 15, nullity 1
+  hypothesis (ii), a_2, b-, s=0: V(y1)V(y2)W -> W V(y2)V(y1): unknowns 81, rank 80, nullity 1  (2.1 s)
+  hypothesis (ii), a_2, b-, generic: V(y1)V(y2)W -> W V(y2)V(y1): unknowns 81, rank 80, nullity 1  (6.1 s)
+(A') closed forms eq-dt-tv, eq-dt-tvbar (b-) and eq-dt-tplus (b+) satisfy the sector equations exactly, h = 3, 4, 5, generic offset: True   [X = -(q - 1/q) m y for b-, X_+ = (q - 1/q) m/y for b+]
+(B) Omega_j on sectors (rank 1; image rows / acting columns, 0-based, j = node):
+  h=3 b- V   : rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [1], cols [0, 2]
+  h=3 b- Vbar: rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [0, 2], cols [1]
+  h=3 b+ V   : rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [0, 2], cols [1]
+  h=3 b+ Vbar: rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [1], cols [0, 2]
+  h=4 b- V   : rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [1], cols [0, 3]
+  h=4 b- Vbar: rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [0, 3], cols [1]
+  h=4 b+ V   : rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [0, 3], cols [1]
+  h=4 b+ Vbar: rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [1], cols [0, 3]
+  h=5 b- V   : rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [1], cols [0, 4]
+  h=5 b- Vbar: rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [0, 4], cols [1]
+  h=5 b+ V   : rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [0, 4], cols [1]
+  h=5 b+ Vbar: rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [1], cols [0, 4]
+  h=6 b- V   : rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [1], cols [0, 5]
+  h=6 b- Vbar: rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [0, 5], cols [1]
+  h=6 b+ V   : rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [0, 5], cols [1]
+  h=6 b+ Vbar: rank 1 and coordinate image/kernel as predicted: True   e.g. j=0: rows [1], cols [0, 5]
+(C) determinants of the closed forms on the sector Q (symbolic q, X, offsets t_i, prod t_i = 1):
+  h=3 V    : {X**3 + q**2}
+  h=3 Vbar : {q**4*(X**3*q - 1)**2}
+  h=3 Vbar+: {(X**3*q**4 + 1)/q**4}
+  h=4 V    : {-X**4 + q**3}
+  h=4 Vbar : {-q**5*(X**4*q - 1)**3}
+  h=4 Vbar+: {-(X**4*q**5 - 1)/q**5}
+(D) q = e^(2 pi i/5) (omega = 0.6 gives q = -e^(-0.6 i pi) = 0.3090+0.9511j): S|N> = |N + 5 alpha_1> commutes with k_j and f_j [4.0e-16]; (S x 1) T is a second intertwiner
+(E) orientation -1 (f_j|n> = m q^{-n_{j+1}}|n - alpha_j>): Vbar intertwiner and its CZ2007 gauge
+  h=3: M^-_Vbar(vb_i|n>) = q^(n_i)|n>vb_i + X q^(n_i - n_(i+1))|n - alpha_i>vb_(i+1) intertwines exactly: True
+  h=4: M^-_Vbar(vb_i|n>) = q^(n_i)|n>vb_i + X q^(n_i - n_(i+1))|n - alpha_i>vb_(i+1) intertwines exactly: True
+  h=5: M^-_Vbar(vb_i|n>) = q^(n_i)|n>vb_i + X q^(n_i - n_(i+1))|n - alpha_i>vb_(i+1) intertwines exactly: True
+  in the basis q^(-|n|^2/2)|n> the converting coefficient is q X (exponent identity checked for h = 3, 4, all i); the diagonal q^(n_i) = Q_CZ^(-alpha.l_i) is unchanged: CZ2007 (5.10) with xhat = q X.  To keep xhat = X: mu -> mu/q.
+total 10.9 s

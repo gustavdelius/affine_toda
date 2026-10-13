@@ -1,0 +1,20 @@
+PASS (3) P_K(z)/P_K(0) = H_K(z) Gamma(A_K - z)/Gamma(A_K), A_K = 1/2 + (hK + r/2) omega, r = 1..4, two couplings, three z, K = 3, 17, 60: [4.0e-27] (30 digits)
+PASS (3) Gamma(A_K - z)/Gamma(A_K) (h omega K)^z -> 1: log at K = 1000, 2000, 4000: -1.8e-04-1.6e-04j, -9.2e-05-8.2e-05j, -4.6e-05-4.1e-05j
+PASS (4) for theta_d = 0.7 and the pole in -pi/2 < Im(theta_a - theta_d) < 0: Re E > 0, Im E < 0 iff max(0, a - h/2) < 1/omega < a (strict); h = 3..8, all a, 81024 couplings
+PASS (4) endpoint theta_a = pi/2 (h = 3, a = 2, omega = 2): E/M = 1.255169005631+0.000000000000j, Im E = 0 (zero width)
+PASS (4) remote strip: h = 3, a = 1, omega = 1/6.5: pole 0.70000-7.33038j, E/M = 0.627585-0.656953j has the decaying signs although 1/omega = 6.5 is outside (0, 1)
+PASS (4) a_2 species 2: omega in (1/2, 2) <=> beta^2/pi in (1.333333, 2.666667); species 1: omega > 1 <=> beta^2 < 2.0 pi
+PASS (4) every delta_k = 2 pi i/h + 2 pi i k/(h omega) gives X^h -> q^2 X^h (h = 3, 4, 6; three couplings; k = -2..2), and delta_k -> 2 pi i/h as omega -> oo for each fixed k
+     h = 6, a = p = 1, omega = 1.37, theta_d = 0.7: k=0: pole 0.700000-0.382189j, E/M 1.164609-0.282916j; k=1: pole 0.700000+0.382189j, E/M 1.164609+0.282916j
+PASS (4) the two representatives k = 0, 1 give poles theta_d -+ i pi/(h omega) and opposite signs of Im E
+PASS (4d) a + 2p = h/2 mod 2h: a_3 [(2, 0)], a_5 [(1, 1), (3, 0), (5, 5)]
+PASS (5) arg z_1(u) = arg(e^(-2u) + e^(2 i pi/h)) is increasing; the threshold u_* = -1/2 log(sin(2pi/h)/tan eps - cos(2pi/h)) solves arg z_1(u_*) = eps, u_* <= 0 (h = 3, 4, 5, 8); h = 3, eps = 0.03, 0.2, pi/6, pi/3: -1.68979706, -0.78140763, -0.34657359, -0.00000000
+PASS (6) CZ2011 (3.12), xi = 0.9: equal-k grouped rho-hat solves (3.10) [6.5e-13] and (3.8) [1.6e-10] up to constants with z = i(theta - nu)/xi; control with doubled shifts fails [2.59]
+PASS (6) CZ2011 (3.12), xi = 1.7: equal-k grouped rho-hat solves (3.10) [4.4e-12] and (3.8) [1.5e-10] up to constants with z = i(theta - nu)/xi; control with doubled shifts fails [10.28]
+     theta_1: Gamma pole at nu - i(0.450 + 1.0472) = 0.30000+0.07360j; printed 0.30000-0.37640j, where the Gamma argument is -0.500+0.000j
+     theta_2: Gamma pole at nu - i(0.450 + 2.0944) = 0.30000-0.97360j; printed 0.30000-1.42360j, where the Gamma argument is -0.500+0.000j
+PASS (6) the outside Gamma functions have poles at nu - i(xi/2 + pi/3), nu - i(xi/2 + 2 pi/3); at the printed positions their argument is -1/2
+PASS (6) decaying-energy windows from the Gamma poles: pole 1 (0.3333 pi, 1.3333 pi), pole 2 (-0.3333 pi, 0.6666 pi): pi/3 < xi < 4 pi/3 and -pi/3 < xi < 2 pi/3, twice the printed ones
+PASS (6) CZ2011 (3.12) as printed: doubling the cutoff 1000 -> 2000 changes the z-dependent part of log rho-hat by -0.41581-0.69302j, against -2z ln 2 = -0.41589-0.69315j: a drift like K^(-2z), as for cz2009a (6.10)
+PASS (7) CZ2007 (6.14): xhat = (-q)^(1/2) e^(gamma(theta - eta)) with the branch (-q)^(1/2) = e^(-i pi gamma/2), not (-q)^(-1/2) (gamma = 0.37, 1.37, 2.6, 3.9)
+16/16 PASS

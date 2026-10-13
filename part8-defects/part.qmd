@@ -1,0 +1,5 @@
+---
+title: "Part VIII: Affine Toda theory with defects"
+---
+
+Affine Toda theory with an integrable defect: the scattering axioms when a line of discontinuity transmits particles, sine-Gordon and sinh-Gordon as the rank-one template, defects as frozen Bäcklund transformations and the reason only $a_r^{(1)}$ admits the simplest kind, solitons that are delayed, absorbed or emitted by a defect, the Borel subalgebras and q-oscillator representations that underlie the transmission matrices, the transmission matrices themselves, the relation between defects and boundaries, and the transmission amplitudes of breathers and particles.
