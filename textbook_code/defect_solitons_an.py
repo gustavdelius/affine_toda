@@ -14,22 +14,29 @@ Checks (book ids they support):
  1. Delays, a_2 and a_3, all species, both types, jump classes p: the soliton on x < 0 and the soliton with E -> z E on
     x > 0 satisfy the defect conditions at 7 times (real and complex rapidities, complex xi) with
        type I_-: z = z_a(theta - theta_d - 2 pi i p/h),   type I_+: z = z_a(theta_d - 2 pi i p/h - theta);
-    independent least-squares fits of z (type I_+, class 1); time reversal maps I_-(sigma) solutions to I_+(1/sigma)
+    all orders in E: the residual times prod tau_j tau'_j is a polynomial of degree <= 2h in E and vanishes at 2h + 4
+    arbitrary complex E (so identically, at every x); independent least-squares fits of z (type I_+, class 1); time reversal maps I_-(sigma) solutions to I_+(1/sigma)
     solutions; B_d(phi, psi + 2pi lambda_p/beta; sigma) = B_d(phi, psi; sigma e^{-+2 pi i p/h}) + const (root shifts:
     invariant); dictionary: BCZ hep-th/0401020 (6.2) at theta -> -theta, cz2007 (2.20) at a -> h - a.
                                                                               [eq-an-defect-delay, prp-an-defect-delay]
  2. Stored charge and selection rule: static coweight jumps solve the conditions, class-p energy and momentum
     Mhat[(cosh, sinh) theta_d - (cosh, sinh)(theta_d +- 2 pi i p/h)] (= cz2007 (2.17)-(2.18), cz2009a (4.8) with their
-    constants; mass shell Mhat; real iff 2p = 0 mod h); a transmitted soliton changes the jump by lambda_in - lambda_out
-    (continuation in t at x = 0 vs. continuation in x), jumps lie in the weight lattice; arg z_a is monotone with range
+    constants; mass shell Mhat; energy and momentum real iff 2p = 0 mod h, energy alone also at theta_d = 0); a
+    transmitted soliton changes the jump by sign(theta)(lambda_L - lambda_R) = lambda_in - lambda_out (continuation in t
+    at x = 0 vs. continuation in x; theta of both signs), jumps lie in the weight lattice; arg z_a is monotone with range
     (0, 2 pi a/h) [a < h/2] or (-2 pi abar/h, 0) [a > h/2]; charge boundaries in Im xi are 2 pi gcd(a,h)/h apart (cz2009a;
-    cz2007's 2 gamma_a only if a | h); the outgoing charge is k steps along the cycle, 0 <= k <= a/gcd(a,h), maximum
-    attained (a_2, a_3, a_4); theta - theta_d -> +inf: lambda_out = pi lambda_in.              [prp-stored-charge]
+    cz2007's 2 gamma_a only if a | h); the outgoing charge is k steps along the cycle, 0 <= k <= min(a,h-a)/gcd(a,h),
+    maximum attained over all theta - theta_d (a_2, a_3, a_4); at fixed theta_d with theta > 0 fewer steps may occur
+    (a_4, a = 2: {0, 1} for I_+ at theta_d = 0, {1, 2} for I_- at theta_d = -3); a = h/2: k = 1 iff theta > theta_d
+    (I_-), theta < theta_d (I_+); theta - theta_d -> +inf: lambda_out = pi lambda_in.          [prp-stored-charge]
  3. Absorption and emission: at theta_abs = theta_d -+ i pi/2 +- i pi (a + 2p)/h (types I_-+), (soliton, const) and
     (const, soliton) solve the conditions (theta_d of both signs; a_2, a_3, a_5); Re cosh theta_abs has the sign of
     sin(pi(a + 2p)/h): if positive the class changes p -> p + a and the defect stores (Delta B_d, Delta P_d) =
     M_a (cosh, sinh) theta_abs; if negative the profile is inverted (species abar at theta_abs - i pi, classes p + a -> p);
-    real theta_abs iff a + 2p = h/2 mod 2h (h <= 8);
+    the energy test excludes a + 2p = 0 mod h, where cos(Im theta_abs) = 0 and |E| is constant (checked: a_2 a = 1 p = 1,
+    a_3 a = 2 p = 1; the configurations still solve the conditions); a complex pole configuration has a zero of tau_0 at
+    a point of real spacetime with x < 0 (a_2, a = 1, p = 0); real theta_abs iff a + 2p = h/2 mod 2h (h <= 8), exactly
+    one class per species a = h/2 mod 2; class-p energy ~ (Mhat/2) e^{-theta_d}(1 - e^{-2 pi i p/h}) as theta_d -> -inf;
     E + B_d and P + P_d constant by quadrature through real-rapidity absorptions (a_3 a = 2 p = 0; a_5 a = 1 p = 1);
     envelope velocity tanh theta_d; theta_d -> -inf limit of type I_- is the rotation psi = pi phi.     [prp-ds-absorption]
  4. Several solitons: two-soliton solutions (a_2, a_3; both types; class 1) pass with E_k -> z(theta_k) E_k and A_ab
@@ -38,7 +45,8 @@ Checks (book ids they support):
  5. Reality: z_abar(conj theta; conj theta_d) = conj z_a; a Theta-invariant a_2 breather passes a real-sigma defect and
     stays Theta-invariant; the Theta-image of a class-p solution solves the conditions in class -p (h - p); class-p
     and class-(h-p) energies are conjugate; h even, p = h/2 is sigma -> -sigma; at real rapidity |z| > 1 iff
-    cos(2 pi p/h) > 0.                                                                               [sec-defect-reality]
+    cos(2 pi p/h) > 0, |z| = 1 if cos = 0; class-1 breather delays are not conjugate (control); theta_d = i pi
+    (sigma = -1) is Theta-symmetric.                                                                  [sec-defect-reality]
  6. Linear waves (real coupling), a_1..a_4, both types, every particle k: R = 0, no mixing, |T| = 1,
     T^{I-}_k(theta) = (e^{-u} + e^{i pi k/h})/(e^{-u} + e^{-i pi k/h}) = z_k(u + i pi/2), u = theta - theta_d,
     T^{I+}_k(theta) = z_k(theta_d - theta - i pi/2); from the right Tbar_k(theta) = T_kbar(i pi - theta), and
@@ -47,19 +55,22 @@ Checks (book ids they support):
     theta_d -+ i pi k/h (I_+); cz2007 in their conventions
     (D -> D^T, rho_k = -sum alpha_l omega^{lk}, m = 1): the corrected (7.11) (e^{-theta} in the denominator) is their
     result and equals (7.5) for a_2, the printed (7.11) is not; about a class-p defect at imaginary coupling the factor is
-    T_k at theta_d + 2 pi i p/h, unimodular only for 2p = 0 mod h.    [eq-an-linear-transmission, prp-an-linear-transmission]
+    T_k at theta_d + 2 pi i p/h, unimodular only for 2p = 0 mod h; exact sympy elimination of the two scalar equations
+    of exr-ds-linear for every gamma_k (both types, both sides).     [eq-an-linear-transmission, prp-an-linear-transmission]
  7. Frozen soliton (pre-registered: does a pair of defects act on every species as a soliton does?):
     X_ab(i sinh u) = A_ab(u + i pi/2) and T_b(u) = z_b(u + i pi/2) (the same continuation); two defects of the same type
-    reproduce kappa A_cb^{+-1} (any parameters) iff b = h/2 (zero/pole matching, h = 2..8, and a grid search);
+    reproduce kappa A_cb^{+-1} (any parameters) iff b = h/2 (limits 1 and omega^b of each factor, h = 2..8; two I_-
+    factors give A_c,h/2; zero/pole matching and a grid search as corroboration);
     the mixed pair I_- at theta_c + i(pi/2 + pi c/h), I_+ at theta_c - i(pi/2 + pi c/h) gives omega^b A_cb(theta - theta_c)
     and omega^b X_cb for every b and c, carries M_c (cosh, sinh) theta_c with BCZ's constants, and is realized at real
     sigma by the classes 4p = h + 2c mod 4h when h + 2c = 0 mod 4.                          [prp-defect-frozen-soliton]
-Runtime: about 10 seconds.
+Runtime: about 45 seconds.
 """
 import itertools
 import time
 from math import gcd
 import numpy as np
+import sympy as sp
 from scipy.optimize import least_squares
 from scipy.integrate import simpson
 from defect_common import an_data, dmatrix, defect_potential, defect_dx
@@ -172,6 +183,27 @@ for r in (2, 3):
                     if p % h:
                         F, G = pair(r, a, theta, xi, zdelay(a, h, theta, thd, typ, 0), p)
                         worst_bad = min(worst_bad, resid(r, F, G, thd, typ))
+# all orders in E: the conditions see (x, t) only through E; times prod_j tau_j tau'_j the residual is a polynomial of
+# degree <= 2h in E, so vanishing at 2h + 4 arbitrary complex E (not on the curve E(0, t)) proves it vanishes identically.
+def fields_E(r, a, theta, E, shift=None):
+    h = r + 1; al = an_data(r)['alpha']; w = np.exp(2j*np.pi*np.arange(h)*a/h); tau = 1 + w*E; dl = w*E/tau
+    ph = (1j/BETA)*(al.T @ np.log(tau)) + (0 if shift is None else (2*np.pi/BETA)*np.asarray(shift))
+    return ph, (1j/BETA)*(al.T @ (mass(a, h)*np.cosh(theta)*dl)), (1j/BETA)*(al.T @ (-mass(a, h)*np.sinh(theta)*dl))
+
+
+worst_E = 0.0
+for r in (2, 3):
+    h = r + 1
+    for a in range(1, h):
+        for typ in (1, -1):
+            for p in range(h):
+                theta, thd = 0.7 + 0.4j, -0.3
+                z = zdelay(a, h, theta, thd, typ, p)
+                for E in np.exp(rng.uniform(-4, 4, 2*h + 4) + 1j*rng.uniform(-np.pi, np.pi, 2*h + 4)):
+                    ph, phx, pht = fields_E(r, a, theta, E); ps, psx, pst = fields_E(r, a, theta, z*E, lam(r, p))
+                    _, gp, gq, _ = defect_potential(ph, ps, np.exp(-thd), r, BETA, M, 'imag', typ)
+                    px, sx = defect_dx(pht, pst, gp, gq, r, typ)
+                    worst_E = max(worst_E, np.abs(phx - px).max(), np.abs(psx - sx).max())
 # independent determination of z by least squares (type I_+, class 1, and type I_-, class 2 of a_3)
 for r, a, typ, p in ((2, 1, -1, 1), (3, 2, -1, 0), (3, 1, 1, 2)):
     h = r + 1; theta, thd, xi = 0.7, -0.2, 0.3 + 0.5j
@@ -227,10 +259,11 @@ for h in (3, 4, 5):
             dic = max(dic, abs(bcz - zdel(a, h, theta - thd)), abs(cz7 - zdel(a, h, theta - thd)))
 report(f'delays (a_2, a_3, all species, both types, every class p): psi = soliton with E -> z E, '
        f'z = z_a(theta - theta_d - 2 pi i p/h) (I_-), z_a(theta_d - 2 pi i p/h - theta) (I_+), at 7 times [res {worst:.0e}; '
-       f'class-0 delay in class p != 0: >= {worst_bad:.2f}]; least-squares z agrees to {fitdev:.0e}; time reversal '
+       f'class-0 delay in class p != 0: >= {worst_bad:.2f}]; as rational functions of E: zero at 2h + 4 arbitrary complex '
+       f'E, degree <= 2h, so all orders in E and every x [{worst_E:.0e}]; least-squares z agrees to {fitdev:.0e}; time reversal '
        f'I_-(sigma) -> I_+(1/sigma) [{tr:.0e}]; B_d(phi, psi + 2 pi lambda_p/beta; sigma) = B_d(phi, psi; sigma e^(-+2 pi i p/h)) '
        f'+ const, root shifts invariant [{cw:.0e}]; = BCZ (6.2) at theta -> -theta = cz2007 (2.20) at a -> h - a [{dic:.0e}]',
-       worst < 1e-11 and worst_bad > 1e-2 and fitdev < 1e-8 and tr < 1e-11 and cw < 1e-10 and dic < 1e-13)
+       worst < 1e-11 and worst_bad > 1e-2 and worst_E < 1e-11 and fitdev < 1e-8 and tr < 1e-11 and cw < 1e-10 and dic < 1e-13)
 
 
 # ======================================================================== 2. stored charge, selection rule
@@ -259,6 +292,9 @@ for r in (2, 3, 4, 5):
             if typ == 1:     # cz2009a (4.8): (u, v) = 2pi(lambda_a, lambda_b)/beta, P_CZ = -P, here a = 0, b = p
                 ok_cz &= np.isclose(E0, -Mh*np.cosh(thd - 2*(0 - p)*np.pi*1j/h)) and np.isclose(-P0, Mh*np.sinh(thd - 2*(0 - p)*np.pi*1j/h))
             ok_real &= (abs(np.imag(B)) < 1e-9) == ((2*p) % h == 0)
+            # at theta_d = 0 the energy is real in every class; the momentum only for 2p = 0 mod h
+            B0, _, _, Pd0 = defect_potential(np.zeros(r), ps, 1.0, r, BETA, M, 'imag', typ)
+            ok_real &= abs(np.imag(B0)) < 1e-9 and (abs(np.imag(Pd0)) < 1e-9) == ((2*p) % h == 0)
 # charges of transmitted solitons: continuation in x (charge) and in t at x = 0 (jump)
 ok_charge = True; jump_dev = 0.0; ok_lat = True
 
@@ -315,14 +351,47 @@ for r in (2, 3, 4):
         for imxi in (0.3, 1.7):
             ok_pi &= np.allclose(charge(r, a, imxi + 2*np.pi*a/h), pim @ charge(r, a, imxi))
 ok_steps = all(v[0] == v[1] for v in steps.values())
+
+
+# fixed theta_d, incidence from the left (theta > 0): sector index floor((phase - pi)/delta), boundaries pi + delta Z
+def steps_set(h, a, typ, thd, ths=np.linspace(0.01, 8, 200), phs=np.linspace(0, 2*np.pi, 300, endpoint=False) + 1e-3):
+    dl = 2*np.pi*gcd(a, h)/h
+    out = set()
+    for th in ths:
+        ph = np.angle(zdelay(a, h, th, thd, typ))
+        out |= set((np.floor((phs + ph - np.pi)/dl) - np.floor((phs - np.pi)/dl)).astype(int).tolist())
+    return out
+
+
+inc = (steps_set(5, 2, -1, 0.0), steps_set(5, 2, 1, -3.0), steps_set(5, 2, 1, 0.0, ths=np.linspace(-8, 8, 400)))
+ok_inc = inc[0] == {0, 1} and inc[1] == {1, 2} and inc[2] == {0, 1, 2}
+# a = h/2: k = 1 iff theta > theta_d (I_-), iff theta < theta_d (I_+)
+for h in (2, 4, 6):
+    for typ in (1, -1):
+        for th in (-0.9, 0.9):
+            s = {k % 2 for k in steps_set(h, h//2, typ, 0.0, ths=[th])}      # two sectors: k mod 2
+            ok_inc &= s == ({1} if typ*th > 0 else {0})
+# theta < 0 (incidence from the right): the jump changes by sign(theta) (lambda_L - lambda_R)
+for r, a, theta, imxi in ((4, 2, -0.8, 0.55), (2, 1, -1.3, 0.4)):
+    h = r + 1; al = an_data(r)['alpha']; thd = 0.2; xi = 0.1 + 1j*imxi; z = zdelay(a, h, theta, thd)
+    om = np.exp(2j*np.pi*np.arange(h)*a/h)
+    T = 60/(mass(a, h)*abs(np.sinh(theta))); ts = np.linspace(-T, T, 40001)
+    E = np.exp(-mass(a, h)*ts*np.sinh(theta) + xi)
+    Lphi = unwrap_log(1 + np.outer(om, E)); Lpsi = unwrap_log(1 + np.outer(om, z*E))
+    dphi = (1j/BETA)*(al.T @ (Lphi[:, -1] - Lphi[:, 0])); dpsi = (1j/BETA)*(al.T @ (Lpsi[:, -1] - Lpsi[:, 0]))
+    lL, lR = charge(r, a, imxi), charge(r, a, imxi + np.angle(z))
+    jump_dev = max(jump_dev, np.abs((BETA/(2*np.pi))*(dpsi - dphi) + (lL - lR)).max())
 report(f'stored charge: static coweight jumps solve the conditions; class p stores Mhat[(cosh, sinh)theta_d - (cosh, sinh)'
        f'(theta_d +- 2 pi i p/h)], with BCZ constants -Mhat (cosh, sinh)(theta_d +- 2 pi i p/h) on the mass shell Mhat '
-       f'(= cz2009a (4.8)), real iff 2p = 0 mod h (a_2..a_5, both types); transmitted solitons: charges by x-continuation '
-       f'= phase formula, jump change (t-continuation at x = 0) = lambda_in - lambda_out [{jump_dev:.0e}], jumps in the weight '
+       f'(= cz2009a (4.8)), energy real iff 2p = 0 mod h at theta_d = 0.45, every class at theta_d = 0 (momentum iff '
+       f'2p = 0) (a_2..a_5, both types); transmitted solitons: charges by x-continuation = phase formula, jump change '
+       f'(t-continuation at x = 0) = sign(theta) (lambda_L - lambda_R) [{jump_dev:.0e}], jumps in the weight '
        f'lattice; arg z_a monotone in (0, 2 pi a/h) or (-2 pi abar/h, 0); sector boundaries 2 pi gcd(a,h)/h apart; max steps '
-       f'along the cycle = a/gcd(a,h) {sorted(steps.items())}; theta >> theta_d: lambda_out = pi lambda_in',
+       f'along the cycle = min(a, h-a)/gcd(a,h) over all theta - theta_d {sorted(steps.items())}; a_4, a = 2, theta > 0: '
+       f'steps {sorted(inc[0])} (I_+, theta_d = 0), {sorted(inc[1])} (I_-, theta_d = -3), {sorted(inc[2])} (all theta); '
+       f'a = h/2: k = 1 iff theta > theta_d (I_-); theta >> theta_d: lambda_out = pi lambda_in',
        ok_static and ok_cz and ok_shell and ok_real and ok_charge and jump_dev < 1e-6 and ok_lat and ok_arg and ok_steps
-       and ok_pi and spacing_ok)
+       and ok_pi and spacing_ok and ok_inc)
 report('cz2007 (2.22): the sector boundaries are 2 gamma_a apart only when a divides h (e.g. a_4, a = 2: spacing 2 pi/5, '
        'not 4 pi/5; a species-2 soliton can move two steps)', steps[(5, 2)] == (2, 2) and steps[(3, 1)] == (1, 1))
 
@@ -347,8 +416,8 @@ for r, a, p in ((2, 1, 0), (2, 2, 1), (3, 1, 0), (3, 2, 0), (3, 3, 2), (5, 1, 1)
             worst_ae = max(worst_ae, resid(r, F2, G2, thd, typ))                   # (const, soliton)
             # stored energy and momentum: B_d(+T) - B_d(-T) = M_a (cosh, sinh) theta_abs (for theta_d > 0 the
             # soliton arrives from the left; the envelope moves with velocity tanh theta_d)
-            if thd > 0:
-                T = 40/(mass(a, h)*np.sinh(thd)*abs(np.cos(np.imag(ta))) + 1e-300)
+            if thd > 0 and (a + 2*p) % h != 0:     # a + 2p = 0 mod h: cos chi = 0, no envelope (checked below)
+                T = 40/(mass(a, h)*np.sinh(thd)*abs(np.cos(np.imag(ta))))
                 Bm, _, _, Pm = defect_potential(F(0.0, -T)[0], G(0.0, -T)[0], np.exp(-thd), r, BETA, M, 'imag', typ)
                 Bp, _, _, Pp = defect_potential(F(0.0, T)[0], G(0.0, T)[0], np.exp(-thd), r, BETA, M, 'imag', typ)
                 # orientation: Re cosh theta_abs has the sign of sin(pi(a + 2p)/h).  If it is positive the object is a
@@ -364,6 +433,32 @@ for r, a, p in ((2, 1, 0), (2, 2, 1), (3, 1, 0), (3, 2, 0), (3, 3, 2), (5, 1, 1)
                 bal = max(bal, abs(Bm - cls(pin))/Ma, abs(Bp - cls(pout))/Ma)
             # the zero of the class-(p+a) delay sits at the same rapidity
             ok_conf &= abs(zdelay(a, h, ta, thd, typ, p + a)) < 1e-12
+# cos chi = 0 exactly when a + 2p = 0 mod h; then |E| = e^{Re xi} everywhere (a_2: a = 1, p = 1; a_3: a = 2, p = 1),
+# although the two configurations still solve the conditions
+ok_flat = all((abs(np.cos(np.imag(theta_abs(a, h, p, 0.6, typ)))) < 1e-12) == ((a + 2*p) % h == 0)
+              for h in range(2, 11) for a in range(1, h) for p in range(h) for typ in (1, -1))
+for r, a, p in ((2, 1, 1), (3, 2, 1)):
+    h = r + 1
+    for typ in (1, -1):
+        ta = theta_abs(a, h, p, 0.6, typ); xi = 0.2 + 0.5j
+        ok_flat &= all(abs(abs(np.exp(mass(a, h)*(x*np.cosh(ta) - t*np.sinh(ta)) + xi)) - np.exp(0.2)) < 1e-12
+                       for x, t in ((-3.0, -5.0), (0.0, 0.0), (-1.0, 7.0), (-0.2, 40.0)))
+        F = field(r, soliton_terms(h, [(a, ta, xi)])); G = field(r, const_terms(h, a), lam(r, p))
+        worst_ae = max(worst_ae, resid(r, F, G, 0.6, typ))
+# complex absorption rapidity: the configuration is meromorphic, with zeros of tau_j on real spacetime
+# (a_2, a = 1, p = 0, I_-, theta_d = 0.6, xi = 0: on x = t tanh theta_d, Im ln E = -m_a sin chi t/cosh theta_d)
+ta = theta_abs(1, 3, 0, 0.6); chi = np.imag(ta) - 0.0
+tz = np.pi*np.cosh(0.6)/(mass(1, 3)*np.sin(chi)); xz = tz*np.tanh(0.6)
+tau0 = 1 + np.exp(mass(1, 3)*(xz*np.cosh(ta) - tz*np.sinh(ta)))
+ok_flat &= abs(tau0) < 1e-12 and xz < 0
+# real absorption: exactly one class for each species a = h/2 mod 2 (h even), none otherwise
+ok_one = all(len([p for p in range(h) if (a + 2*p - h//2) % (2*h) == 0 and h % 2 == 0]) == (1 if h % 2 == 0 and
+             (a - h//2) % 2 == 0 else 0) for h in range(2, 11) for a in range(1, h))
+# theta_d -> -inf (I_-): the class-p energy diverges like (Mhat/2) e^{-theta_d}(1 - e^{-2 pi i p/h}), p != 0
+div = 0.0
+for h, p in ((3, 1), (4, 2), (5, 3)):
+    thd = -12.0; Bp = np.cosh(thd) - np.cosh(thd + 2j*np.pi*p/h)
+    div = max(div, abs(Bp/(0.5*np.exp(-thd)*(1 - np.exp(-2j*np.pi*p/h))) - 1))
 # envelope velocity
 ok_vel = True
 for (a, h, p, thd) in ((1, 3, 0, 0.7), (2, 5, 1, -0.4)):
@@ -418,10 +513,14 @@ report(f'absorption/emission at theta_abs = theta_d -+ i pi/2 +- i pi(a + 2p)/h 
        f'sign of sin(pi(a + 2p)/h); if positive class p -> p + a with (Delta B_d, Delta P_d) = M_a (cosh, sinh) theta_abs, if '
        f'negative the abar soliton at theta_abs + i pi, classes p + a -> p [rel {bal:.0e}]; same rapidity = zero of the '
        f'class-(p+a) delay; '
-       f'envelope velocity tanh theta_d; theta_abs real iff a + 2p = h/2 mod 2h (h <= 8); E + B_d, P + P_d constant by '
+       f'envelope velocity tanh theta_d; cos chi = 0 iff a + 2p = 0 mod h (h <= 10), then |E| constant (a_2 a = 1 p = 1; '
+       f'a_3 a = 2 p = 1) and the stored-energy test is excluded; complex pole a_2 a = 1: tau_0 = 0 at '
+       f'(x, t) = ({xz:.2f}, {tz:.2f}); theta_abs real iff a + 2p = h/2 mod 2h (h <= 8), one class per species; class-p '
+       f'energy as theta_d -> -inf ~ (Mhat/2) e^-theta_d (1 - e^(-2 pi i p/h)) [{div:.0e}]; E + B_d, P + P_d constant by '
        f'quadrature through the real absorptions a_3 (a = 2, p = 0), a_5 (a = 1, p = 1) [rel {cons:.0e}]; '
        f'theta - theta_d -> +inf: z_a -> omega^a, psi = pi phi (the rotation line)',
-       ok_conf and worst_ae < 1e-11 and bal < 1e-9 and ok_vel and ok_rule and cons < 1e-6 and ok_twist)
+       ok_conf and worst_ae < 1e-11 and bal < 1e-9 and ok_vel and ok_rule and cons < 1e-6 and ok_twist and ok_flat
+       and ok_one and div < 1e-8)
 
 # ======================================================================== 4. several solitons
 w2 = 0.0
@@ -486,17 +585,25 @@ ok_adv = True
 for h in (3, 4, 5, 6, 7):
     for a in range(1, h):
         for p in range(h):
-            if abs(np.cos(2*np.pi*p/h)) < 1e-12:
+            if abs(np.cos(2*np.pi*p/h)) < 1e-12:            # no displacement, |z| = 1 (h = 4, p = 1, 3)
+                ok_adv &= all(abs(abs(zdelay(a, h, th, 0.1, typ, p)) - 1) < 1e-12 for th in (-2.0, 0.4) for typ in (1, -1))
                 continue
             for th in (-2.0, -0.3, 0.4, 1.9):
                 ok_adv &= (abs(zdelay(a, h, th, 0.1, 1, p)) > 1) == (np.cos(2*np.pi*p/h) > 0)
                 ok_adv &= (abs(zdelay(a, h, th, 0.1, -1, p)) > 1) == (np.cos(2*np.pi*p/h) > 0)
+# the breather in class 1 is not passed with conjugate delays (control), and theta_d = i pi (sigma = -1) is Theta-symmetric
+zb1c, zb2c = zdelay(1, 3, th1, thd, 1, 1), zdelay(2, 3, np.conj(th1), thd, 1, 1)
+ok_th &= abs(zb2c - np.conj(zb1c)) > 1e-2
+F, G = pair(2, 1, 0.9, 0.3 + 0.2j, zdelay(1, 3, 0.9, 1j*np.pi), 0)
+Th = lambda H: (lambda x, t: tuple(-np.conj(v) for v in H(x, t)))
+res_t = max(res_t, resid(2, Th(F), Th(G), 1j*np.pi, 1))
 # h even, p = h/2: sigma -> -sigma
 ok_odd = all(np.isclose(np.exp(-(0.3 + 2j*np.pi*(h//2)/h)), -np.exp(-0.3)) for h in (2, 4, 6))
 report(f'reality: z_abar(conj theta; conj theta_d) = conj z_a in class h - p; a Theta-invariant a_2 breather passes a '
        f'real-sigma defect with conjugate delays [res {res_b:.0e}]; Theta-image of a class-p solution solves the conditions '
        f'(class -p) [{res_t:.0e}]; class h - p stores the conjugate energy; h even, p = h/2 is sigma -> -sigma; real '
-       f'rapidities: delayed (|z| > 1) iff cos(2 pi p/h) > 0, advanced otherwise',
+       f'rapidities: delayed (|z| > 1) iff cos(2 pi p/h) > 0, advanced if < 0, |z| = 1 if = 0; class-1 breather delays not '
+       f'conjugate; theta_d = i pi (real sigma = -1) is Theta-symmetric',
        ok_th and res_b < 1e-10 and res_t < 1e-11 and ok_conj and ok_odd and ok_adv)
 
 
@@ -611,6 +718,27 @@ u = 0.37
 a1 = abs(T_closed(1, 2, u + 0.2, 0.2) - (-1j*np.sinh(u/2 - 1j*np.pi/4)/np.sinh(u/2 + 1j*np.pi/4)))
 lim = max(abs(T_closed(k, h, 0.3, 30.0) - 1) + abs(T_closed(k, h, 0.3, -30.0) - np.exp(2j*np.pi*k/h))
           for h in (3, 4, 5) for k in range(1, h))
+# exact elimination of the two scalar equations of exr-ds-linear on rho_k, for every gamma_k (so every a_r and k):
+# c = e^{i gamma_k}, X = e^theta, Y = e^theta_d; D = 1 + i cot gamma_k, D^T = 1 - i cot gamma_k, E = 1 - D on rho_k
+c_, X_, Y_, m_ = sp.symbols('c X Y m', nonzero=True); R_, T_ = sp.symbols('R T')     # R = 0 must be allowed
+cot_ = sp.I*(c_**2 + 1)/(c_**2 - 1); d_ = 1 + sp.I*cot_; dT_ = 1 - sp.I*cot_; e_ = 1 - d_
+mk_ = m_*(c_ - 1/c_)/sp.I; nu_ = mk_*(X_ + 1/X_)/2; mom_ = mk_*(X_ - 1/X_)/2
+sym_lin = []
+for typ in (1, -1):
+    sg_ = 1/Y_ if typ == 1 else Y_                                    # B_d^{I+}(sigma) = B_d^{I-}(1/sigma)
+    gphi = lambda ph, ps: m_*(sg_*(ph - ps/c_**2) + (ph - ps)/sg_)
+    gpsi = lambda ph, ps: m_*(sg_*(ps - c_**2*ph) - (ph - ps)/sg_)
+    Tw = (Y_/X_ + c_)/(Y_/X_ + 1/c_) if typ == 1 else (X_/Y_ - c_)/(X_/Y_ - 1/c_)
+    for side in ('L', 'R'):
+        if side == 'L':      # phi = e^{ipx} + R e^{-ipx}, psi = T e^{ipx}
+            ph, phx, pht = 1 + R_, sp.I*mom_*(1 - R_), -sp.I*nu_*(1 + R_); ps, psx, pst = T_, sp.I*mom_*T_, -sp.I*nu_*T_
+        else:                # psi = e^{-ipx} + R e^{ipx}, phi = T e^{-ipx}: rapidity -theta
+            ph, phx, pht = T_, -sp.I*mom_*T_, -sp.I*nu_*T_; ps, psx, pst = 1 + R_, -sp.I*mom_*(1 - R_), -sp.I*nu_*(1 + R_)
+        eqs = [phx - typ*(e_*pht + d_*pst) + gphi(ph, ps), psx - typ*(dT_*pht - e_*pst) - gpsi(ph, ps)]
+        so = sp.solve(eqs, [R_, T_], dict=True)[0]
+        want = Tw if side == 'L' else 1/Tw.subs(X_, 1/X_)
+        sym_lin += [sp.cancel(so[R_]), sp.cancel(so[T_] - want)]
+ok_sym = all(v == 0 for v in sym_lin)
 # cz2007 conventions: D -> D^T, E -> 1 - D^T, potential with D^T, rho_k = -sum alpha_l omega^{lk}, m = 1
 czv = 0.0; czprint = np.inf; cz75 = 0.0
 for r in (2, 3):
@@ -655,9 +783,10 @@ report(f'linear waves (real coupling; a_1..a_4, both types, all particles): R = 
        f'T_k(theta) T_kbar(theta + i pi) = 1 [{cross:.0e}]; a_1 = eq-shg-linear-transmission [{a1:.0e}]; limits 1 '
        f'(theta_d -> +inf) and omega^k (theta_d -> -inf) [{lim:.0e}]; T_k(theta_d) = e^(i pi k/h), pole at theta_d - '
        f'i(pi - pi k/h), zero at theta_d + i(pi - pi k/h) (I_-), -e^(i pi k/h), poles/zeros at theta_d -+ i pi k/h (I_+) '
-       f'[{pz:.0e}]; Hessian vs finite differences [{hd:.0e}]',
+       f'[{pz:.0e}]; Hessian vs finite differences [{hd:.0e}]; exact (sympy) elimination of the two scalar equations '
+       f'for every gamma_k, both types, both sides: R = 0, T and Tbar(theta) = 1/T(-theta) [{ok_sym}]',
        max(refl, mix, unim) < 1e-10 and lin < 1e-10 and cross < 1e-10 and a1 < 1e-14 and lim < 1e-10 and hd < 1e-7
-       and pz < 1e-12)
+       and pz < 1e-12 and ok_sym)
 report(f'cz2007 in their conventions (D^T, rho_k, m = 1): their linearized system gives the corrected (7.11) with e^-theta '
        f'in the denominator [{czv:.0e}], = book T_(h-k), = (7.5) for a_2 [{cz75:.0e}]; the printed (7.11) misses by '
        f'>= {czprint:.2f}; about a class-p defect (imaginary coupling) T_k at theta_d + 2 pi i p/h [{chg:.0e}], unimodular '
@@ -699,6 +828,20 @@ for h in range(2, 9):
         for c in range(1, h):
             ok_same &= match(h, b, c, (1, 1)) == (2*b == h) and match(h, b, c, (-1, -1)) == (2*b == h)
             ok_mixed &= match(h, b, c, (1, -1))
+# the proof: an I_- factor tends to 1 (theta -> -inf) and omega^b (theta -> +inf) for any finite parameter, so two of
+# them have the ratio omega^(2b) between the two limits, while kappa A_cb^(+-1) has ratio 1; for b = h/2 two I_- factors
+# (parameters theta_c +- i(pi/2 + pi c/h)) give A_cb exactly
+ok_asym = True
+for h in range(2, 9):
+    for b in range(1, h):
+        for v in (0.3 + 0.7j, -1.1 - 2.0j, 0.4 + 2j*np.pi*3/h):
+            ok_asym &= abs(zdel(b, h, 40 - v) - np.exp(2j*np.pi*b/h)) < 1e-12 and abs(zdel(b, h, -40 - v) - 1) < 1e-12
+    if h % 2 == 0:
+        for c in range(1, h):
+            vm = 0.37 + 1j*(np.pi/2 + np.pi*c/h)
+            for th in (-1.2, 0.3, 2.1):
+                ok_asym &= abs(zdelay(h//2, h, th, vm, 1)*zdelay(h//2, h, th, np.conj(vm), 1)
+                               - Aint(c, h//2, h, th - 0.37)) < 1e-12
 # grid search confirmation for a_2, b = c = 1, same type: no constant ratio
 h, b, c = 3, 1, 1
 us = np.linspace(-3, 3, 60)                 # avoids the zero of A_11 at u = 0
@@ -751,10 +894,11 @@ for r, c in ((1, 1), (3, 2), (5, 1), (5, 3)):
         fld = max(fld, resid(r, F, C, thc, 1), resid(r, C, G, thc, -1, x=L),
                   abs(z1*z2 - np.exp(2j*np.pi*b/h)*Aint(c, b, h, th - thc)))
 report(f'frozen soliton: X_ab(i sinh u) = A_ab(u + i pi/2) and T_b(u) = z_b(u + i pi/2) [{cont:.0e}]; two defects of '
-       f'the same type give kappa A_cb^(+-1) iff b = h/2 (zero/pole matching, h = 2..8; a_2 grid search: best deviation '
+       f'the same type give kappa A_cb^(+-1) iff b = h/2 (limits 1 and omega^b of each factor, h = 2..8, and two I_- '
+       f'factors give A_c,h/2; zero/pole matching; a_2 grid search: best deviation '
        f'{best:.2f}); the mixed pair I_-(theta_c + i(pi/2 + pi c/h)) I_+(theta_c - i(pi/2 + pi c/h)) gives omega^b A_cb and '
        f'omega^b X_cb for all b, c [{mixed:.0e}] and carries M_c (cosh, sinh) theta_c with BCZ constants [{en:.0e}]; at real '
        f'sigma via classes 4p = h + 2c mod 4h (a_1 c = 1, a_3 c = 2, a_5 c = 1, 3) [{real_cls:.0e}], on fields [{fld:.0e}]',
-       cont < 1e-12 and ok_same and ok_mixed and 0.05 < best < np.inf and mixed < 1e-12 and en < 1e-12 and real_cls < 1e-10
+       cont < 1e-12 and ok_same and ok_mixed and ok_asym and 0.05 < best < np.inf and mixed < 1e-12 and en < 1e-12 and real_cls < 1e-10
        and fld < 1e-10)
 print(f'   runtime {time.time() - T_START:.0f} s')

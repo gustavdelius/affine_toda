@@ -9,7 +9,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 | 36 | 2026-10-11 | `defect_axioms.py` | 20 PASS (2 s) | Gemini (light) + Codex deep, integrated 2026-10-12 |
 | 37 | 2026-10-11 | `defect_classical_sg.py`, `defect_sg_transmission.py` | 27 + 24 PASS (18 s, 103 s) | Gemini (light) + Codex deep, integrated 2026-10-12 |
 | 38 | 2026-10-12 | `defect_classical_an.py`, `defect_lax_rmatrix.py` | 24 + 6 PASS (114 s, 2 s) | Codex deep, integrated 2026-10-12 |
-| 39 | 2026-10-12 | `defect_solitons_an.py` | 9 PASS (10 s) | no |
+| 39 | 2026-10-12 | `defect_solitons_an.py` | 9 PASS (48 s) | Codex deep, integrated 2026-10-13 |
 | 40 | 2026-10-12 | `defect_universal_r.py`, `defect_transfer.py` | 16 + 9 PASS (92 s, 29 s) | Codex deep, integrated 2026-10-12 |
 | 41 | 2026-10-12 | `defect_an_transmission.py` | 21 PASS (100–176 s) | no |
 | 42 | 2026-10-12 | `defect_doubling.py` | 17 PASS (30 s) | no |
@@ -352,22 +352,23 @@ The full drafting report is in `briefs/draft_ch39_report.md`: summary, script ou
 **Key results.**
 - **Jump classes.** A jump in class p ∈ Λ_W/Λ_R acts like a jump-free defect at θ_d ± 2πip/h.
 - **The general delay** `eq-an-defect-delay` covers both types and all classes. The type-I₊ delays are new, derived by time reversal and confirmed by a fit. As θ_d → −∞, type I₋ becomes the π-rotation line.
-- **`prp-stored-charge` and the selection rule.** The outgoing charge moves at most a/gcd(a,h) steps along the π-orbit, and the defect never produces the missing charges.
+- **`prp-stored-charge` and the selection rule.** For θ > 0 (incidence from the left) the outgoing charge moves at most min(a, h−a)/gcd(a,h) steps along the π-orbit; for a = h/2 one step iff θ > θ_d (I₋). One-soliton transmission never produces the missing charges.
 - **`prp-ds-absorption` [Theorem].**
-  - Absorption occurs at θ_d ∓ i(π/2 − π(a+2p)/h).
-  - The absorbed or emitted envelope moves with velocity tanh θ_d.
-  - Absorption at real rapidity happens iff a + 2p ≡ h/2 mod 2h.
-- **Linear transmission.** T_k = z_k(θ−θ_d+iπ/2).
+  - Absorption occurs at θ_d ∓ i(π/2 − π(a+2p)/h), real θ_d; meromorphic configurations (zeros of τ_j on real spacetime at complex θ_abs).
+  - The absorbed or emitted envelope moves with velocity tanh θ_d, provided a + 2p ≢ 0 mod h; for a + 2p ≡ 0 mod h there is no localized envelope (since 2026-10-13).
+  - Absorption at real rapidity happens iff a + 2p ≡ h/2 mod 2h (one class per species).
+- **Linear transmission.** T_k = z_k(θ−θ_d+iπ/2); `prp-an-linear-transmission` is a [Theorem] for every r since 2026-10-13 (exact elimination).
 - **`prp-defect-frozen-soliton` [Theorem], in a twisted form.** A type-I₋/I₊ pair at conjugate complex parameters gives ω^b A_cb and ω^b X_cb, with the soliton's energy-momentum.
 
 **Corrections to sources recorded in the Notes.**
 - cz2007 (7.11): the denominator, and the implicit m = 1.
 - cz2007 §2: sector boundaries are 2π·gcd(a,h)/h apart.
-- "Only self-conjugate solitons are absorbed at real rapidity" (cz2007, cz2009a) holds only for root-lattice jumps.
-- cz2009a after (4.8): static energies are also real for h even with classes differing by h/2.
+- "Only self-conjugate solitons are absorbed at real rapidity" (cz2007, cz2009a) holds only for root-lattice jumps, the setting of their delay — now a *Clarification*, not *Incomplete* (2026-10-13).
+- cz2009a after (4.8): removed from the corrections on 2026-10-13. CZ state a sufficient condition (same representation ⇒ real), which is correct; the h/2 classes and θ_d = 0 are now an addition in the Notes paragraph, and the Appendix D entry is deleted.
+- cz2007 §2 bullet: the step bound is min(a, h−a)/gcd(a,h), not a/gcd(a,h) (Notes and Appendix D, 2026-10-13).
 
 **Unchecked.**
-- Multi-soliton passage beyond two solitons (argued from the Bäcklund property).
+- Multi-soliton passage beyond two solitons (expected from the Bäcklund property and Bianchi permutability, not written out; the text now says it is unproved beyond two).
 - The charge change through the singular soliton (argued).
 - The quantum statements of cz2007 §6 and cz2009a (5.8).
 
@@ -381,6 +382,32 @@ The full drafting report is in `briefs/draft_ch39_report.md`: summary, script ou
   - T = z continued;
   - the strip convention for complex rapidities;
   - notation: γ_a = πa/h, M̂ = 2hm/β², ν for frequency — DONE 2026-10-12 (conventions brief §10).
+
+**Referee (Codex deep, 2026-10-12; integrated 2026-10-13).** Report `briefs/referee_defects_39_report.md`, scripts and outputs in `briefs/referee_defects_39_scripts/` (rerun, all numbers reproduced). See its "Integration (2026-10-13)" section; checkpoint `briefs/integration_39_checkpoint.md`. Items 1–9 accepted or partially accepted; none rejected.
+
+**Independently checked (referee scripts, rerun; integration scratch with own code).** Exact rational sewing identity for both types at all orders in E (arbitrary rapidity, class phase and v = e^{iπa/h}); weight congruence α_j·Dλ_p ≡ −2p/h (exact, a₂, a₃); direct-exponential sewing with negative control; pole limits (768 configurations); class energies, algebraic mass shell, absorption EP identity (h ≤ 9); real-pole lists h = 4, 6, 8; zero-envelope and τ-zero examples; sign(θ) charge bookkeeping; selection-rule enumeration incl. (8,3) three steps; mixed-pair factorization, particle factor and EP (h ≤ 10), real-σ realizations; Hessian scattering both directions and the CZ (7.11) source system; D π = −Dᵀ; Θ on delays; two-soliton passage (h = 3, 4, classes 0, 1); bootstrap with either shift order. Integration: degree-argument residual at arbitrary complex E, exact sympy elimination of the linear system, step sets at fixed θ_d, θ_d → −∞ class energy, class-1 breather control.
+
+Main changes:
+- `prp-an-defect-delay`: meromorphic scope at complex θ; the all-orders argument is now a degree argument (residual × ∏τ_jτ'_j is a polynomial of degree ≤ 2h in E), not "as they must for a Bäcklund pair".
+- `prp-ds-absorption`: real θ_d; the case a + 2p ≡ 0 mod h (cos χ = 0, no envelope) excluded from absorption; θ_d = 0 stationary; meromorphic configurations with τ-zeros (example a₂, a = 1: τ₀ = 0 at (−2.31, −4.30), m = 1); one class per species for real absorption; stored-energy reality at θ_d = 0.
+- Class energies: "energy real iff 2p ≡ 0" was wrong at θ_d = 0; now energy and momentum both real iff 2p ≡ 0, energy alone also at θ_d = 0.
+- `prp-stored-charge`: θ > 0, incidence from the left, phases off the boundaries; a = h/2 case; attainability over the full family, fixed-θ_d restriction (a₄, a = 2, I₊, θ_d = 0: only k ≤ 1); θ < 0 paragraph; "one-soliton transmission does not create the missing charges".
+- `prp-defect-frozen-soliton`: hypotheses (1 ≤ b,c < h, real θ_c, finite nonzero effective parameters); proof of item 1 by the limits 1 and ω^b of each factor (covers coincident zeros/poles); two I₋ factors give A for b = h/2.
+- `prp-an-linear-transmission`: [Numerical, r ≤ 4] → [Theorem] for every r (exact sympy elimination, both types and sides).
+- Rotation limit: only on the class-0 branch; class-p energy diverges.
+- Reality section: Θ-symmetry iff σ real (θ_d ∈ ℝ + iπℤ), class-0/h/2 breather, |z| = 1 when cos(2πp/h) = 0, energy-only reality at θ_d = 0.
+- Exercises `exr-ds-class`, `exr-ds-breather`; multi-soliton text ("unproved beyond two").
+- Notes: cz2007 spacing bullet (min(a, h−a)/gcd), absorption bullet (setting of their delay), cz2009a (4.8) bullet moved to the Notes paragraph as an addition.
+- Script `defect_solitons_an.py`: check 3's energy test had used (a₂, a = 1, p = 1), the zero-envelope case, and passed only because cos χ = 6×10⁻¹⁷ in floating point (T = 5×10¹⁷); now excluded and checked separately. New: degree-argument check at arbitrary complex E; θ_d = 0 reality; sign(θ) bookkeeping; fixed-θ_d step sets; a = h/2; cos χ = 0 cases; τ-zero; one class per species; θ_d → −∞ class energy; |z| = 1 at cos = 0; class-1 breather control; θ_d = iπ Θ-symmetry; sympy elimination; asymptotic obstruction. 9 PASS, 48 s.
+- Minimal consistency edits: ch. 38 (imaginary θ_d ∉ iπℤ breaks Θ), ch. 43 (soliton-pole energy complex for real θ_d ≠ 0 except real absorptions; imaginary θ_d ∉ iπℤ). Appendix D: cz2007 (2.23) entry relabelled *Clarification*; cz2009a (4.8) entry removed; known-corrections cz2007 (2.22) entry min(a, h−a)/gcd. Conventions brief §10 updated.
+
+**Open problems and pending items from the referee pass (2026-10-13).**
+- Not verified: the identification of the charged complex classes with quantum sectors excluded by Θ (classical conjugation only).
+- Not verified: global regularity, integration contours and conserved integrated energies through the τ-zeros of complex-rapidity absorption configurations; the book now calls them meromorphic and states no prescription.
+- Not verified: whether the I₋I₊ pair has the auxiliary degrees of freedom of a fused type-II defect (already an open question in ch. 43).
+- Not verified: priority of the class-shifted and time-reversed observations beyond the cited papers.
+- Noticed, not pursued: for θ_d ∈ ℝ + i(π/h)ℤ a coweight translation composed with Θ, (φ, ψ) ↦ (−φ̄, −ψ̄ + 2πλ_q/β), maps the σ-theory to itself (σ̄ω^{±q} = σ). Whether this twisted antilinear map is a usable reality structure (the constant in `eq-ds-class-shift`, the bulk) is open; relevant to stable excited defects at imaginary θ_d (ch. 37, 43).
+- Multi-soliton passage for N ≥ 3: write out Bianchi permutability for a_r (open).
 
 **Obligations for later chapters.**
 - **Ch. 41:**
