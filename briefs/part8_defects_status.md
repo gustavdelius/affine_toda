@@ -522,7 +522,7 @@ The full drafting report is in `briefs/draft_ch41_report.md`. The exploration ch
 **Status upgrades without an independent second referee pass (2026-10-13).** `prp-an-transmission` (2) existence of the I₊ V intertwiner for every r, and (3) uniqueness for every r, both [Theorem] with proofs written in the integration; (5) selection rule labelled [Theorem] (read off the closed forms). Hypothesis (ii) for a₂ was certified independently by the referee as well.
 
 **Pending edits elsewhere (2026-10-13).**
-- `appendices/C-code.qmd` row for `defect_an_transmission.py`: 27 checks, about 200 s (was 21, 100–180 s); outside the integration's allowed files.
+- `appendices/C-code.qmd` row for `defect_an_transmission.py`: 27 checks, about 200 s (was 21, 100–180 s) — DONE 2026-10-13 (coordinator, after the integration).
 - Ch. 42: nothing found that repeats a corrected claim.
 
 ## Chapter 42 (`sec-defect-boundary`)
