@@ -3,8 +3,9 @@
 Book ids supported:
   prp-sg-breather-transmission (re-check, a), prp-lightest-breather-universal (b), prp-an-particle-transmission and
   eq-dpt-particle (c, d), cnj-transmission-continuation and sec-transmission-limits (d, e), prp-dpt-vacuum (g),
-  prp-dpt-doubled (f: the ch. 42 expectation for a_r, sec-jump-coideal), tbl-dpt-spectrum (a_r particle rows, c);
-  exercises exr-dpt-telescope, exr-dpt-cz, exr-dpt-vacuum, exr-dpt-bs, exr-dpt-limits, exr-dpt-cdd, exr-dpt-doubled.
+  prp-dpt-doubled and eq-dpt-second-module (f, h: the ch. 42 expectation for a_r, sec-jump-coideal), eq-dpt-soliton-cdd
+  (i), tbl-dpt-spectrum and sec-defect-spectrum (c, j); exercises exr-dpt-telescope, exr-dpt-cz, exr-dpt-vacuum,
+  exr-dpt-bs, exr-dpt-limits, exr-dpt-imaginary, exr-dpt-cdd, exr-dpt-doubled.
 
 Conventions (briefs/part8_defects_conventions.md; ch. 41): Part VI coproduct Delta(e) = e (x) 1 + k (x) e,
 Delta(f) = f (x) k^-1 + 1 (x) f; q = q_phys = -e^{-i pi omega}, omega = 4 pi/beta^2 - 1 (the coupling, Corrigan and
@@ -29,13 +30,18 @@ Checks (PASS lines):
           solitons at theta_c + i pi(2m - n + 1)/h (Lambda^n V, eq-dt-bootstrap), so that h vector solitons cross with
           scalar g each: the singlet is unique in the weight-zero subspace of V^{(x) h}; exact propagation through
           eq-dt-tv (no window); factor = T^cl_a for h = 3, 4, 5, all a, omega = 0.6, 1.37, 3.1, real and complex theta;
-          independent of the defect label N and of the offset s (classes p = 0, 1, 2).
+          independent of the defect label N and of the offset s (classes p = 0, 1, 2).  The lowest breather is a physical
+          bound state only for h omega > 2; h = 3, omega = 0.6 tests the algebraic identity only.
+     (b3) optional, off by default (environment variable DPT_A5=1, two to three minutes): (b2) for a_5 (h = 6), all five
+          species, omega = 1.37, one complex rapidity.
  (c) prp-an-particle-transmission: T^cl_a (both types) satisfy defect unitarity and crossing,
      T_a(theta) T_abar(theta + i pi) = 1, |T_a| = 1 for real theta and theta_d, Hermitian analyticity
      Tbar_a(theta) = conj T_a(-theta) with Tbar_a(theta) = T_abar(i pi - theta), and the bulk bootstrap
-     T_c(theta) = T_a(theta + i ub_a) T_b(theta - i ub_b) at every fusing of a_r^(1), r <= 7, with the fusing angles
-     located as poles of eq-an-smatrix; defect CDD factors: S_ab(theta - theta_0) (a standing particle) and a second
-     defect satisfy the same equations; the factors have no pole in the physical strip for real theta_d.
+     T_c(theta) = T_a(theta + i ub_a) T_b(theta - i ub_b) at every fusing of a_r^(1): exactly with sympy, for symbolic
+     u = e^{i gamma_a}, v = e^{i gamma_b} (both fusings, both types; every h), and numerically for r <= 7, with the
+     fusing angles located as poles of eq-an-smatrix; defect CDD factors: S_ae(theta - theta_0) (a particle of species e
+     at rapidity theta_0, standing for theta_0 = 0) satisfies the same equations; the factors have no pole in the
+     physical strip for real theta_d.
  (d) classical limit: the linearized defect conditions (defect_common.defect_potential, dmatrix) about phi = psi = 0
      give R = 0 and T^cl_k (I_-) and T^cl_{+,k} (I_+) on the eigenvectors of pi (D = 1 + i cot gamma_k), r = 2, 3, 4;
      limits theta_d -> +-infinity: 1 and e^{2 pi i k/h} (type I_-), the reverse for I_+.
@@ -50,9 +56,27 @@ Checks (PASS lines):
      rapidities by least squares: e-type with psi(e_j) = e_{j-1} (the rotation pi) and f-type with psi = id hold;
      e-type with psi = id, pi^-1 and f-type with psi = pi, pi^-1 fail (a_2 all nodes, a_3 nodes 0, 1).
  (g) real-coupling vacuum: B_d^real >= 0 for real fields and sigma > 0 (both types), with equality only at
-     phi = psi = 0; for sigma < 0 it is unbounded below (r = 2, 3).
-Runtime: about one minute (62 s alone, 120 s under load; check f takes most of it).
+     phi = psi = 0; for sigma < 0 it is unbounded below (r = 2, 3), along random directions and along phi = psi = t v,
+     where it equals (m sigma/beta^2)(sum_j e^{t beta alpha_j.v} - h).
+ (h) the second module eq-dpt-second-module (proof of prp-dpt-doubled), on exactly propagated labels (no window):
+     rho~(e_j)|N> = e^{omega(theta_d + i pi/2)}/(q - q^-1) q^{-(N+s)_j}|N + alpha_j>, rho~(k_j)|N> = |N + alpha_j - alpha_{j-1}>
+     solves the e-type equation (psi = pi) and the Cartan equation T(pi(k_j) (x) kappa) = (kappa (x) pi(k_{j-1})) T for V
+     and Vbar, h = 3, 4, 5, every node, three rapidities; adding c_j q^{(N+s)_j} to rho~(e_j) still solves them but breaks
+     k_j e_j k_j^-1 = q^2 e_j; the U_q(b^+) relations (Cartan conjugation, q-commutation, q-Serre, prod k_j = 1);
+     for h = 2, in the basis tau^-n q^{n(n-1)/2 + ns/2}|n>, tau = -i e^{i pi omega/2}, q^{s/2} M_V is
+     eq-sg-transmission-matrix and rho~ is eq-dbd-second-module; the y-power obstructions of the other twists.
+ (i) the soliton CDD condition eq-dpt-soliton-cdd: with g -> g f and gbar from eq-dt-bootstrap, the two crossing
+     relations of ch. 41 are prod_{k<h} f(D - i pi + 2 pi i k/h) = 1 (at D and at a shifted D); T^cl_1 satisfies it for
+     h = 2..8 but not f(D) f(D + i pi) = 1 for h > 2; (sinh D + 0.3i)/(sinh D - 0.3i) satisfies the latter but fails
+     it at h = 3; the multiplier of B^(2)_1 of a_3 for f = T^cl_1 differs at omega = sqrt2 and sqrt5.
+ (j) tbl-dpt-spectrum: on every charge sector the residue of T_V at the species-1 pole has rank h - 1 and that of
+     T_Vbar at the species-r pole (X^h = q) rank 1, h = 3..6, random offsets; the pole of gbar there is simple and not
+     cancelled; the Lee-Yang bound-state poles are in Tbar_b (eq-ly-transmission), not in T_b; for theta_d = i v the
+     particle factor is a phase for real theta iff v in pi Z, and at v = pi (inside the window for a < h/2) it is a
+     phase with its pole at i gamma_a.
+Runtime: about one minute (check f takes most of it).
 """
+import os
 import time
 import itertools
 import numpy as np
@@ -256,6 +280,15 @@ report(f'(b2) prp-lightest-breather-universal, every species: B^(a)_1 from h vec
        f'the classes p = 0, 1, 2 (offset s = lambda_p) and other defect labels (a_3) [{devS:.0e}]',
        nullB and devB < 1e-7 and resB < 1e-12 and devS < 1e-7)
 print(f'# (b2) done after {time.time() - T0:.0f} s')
+if os.environ.get('DPT_A5'):
+    devA5, resA5, nullA5 = 0, 0, True
+    for a in range(1, 6):
+        rel, res, val = breather_species(6, 1.37, -0.3 + 0.2j, a, s=np.linspace(-0.3, 0.3, 6))
+        devA5 = max(devA5, abs(val - Tcl(-0.3 + 0.2j - TD, a, 6))); resA5 = max(resA5, res)
+        nullA5 &= rel[-1] < 1e-12 and rel[-2] > 1e-3
+    report(f'(b3) optional (DPT_A5=1): a_5, all five species, omega = 1.37, theta = -0.3 + 0.2i: B^(a)_1 crosses as '
+           f'T^cl_a [dev {devA5:.0e}, proportionality {resA5:.0e}], singlet unique', nullA5 and devA5 < 1e-7 and resA5 < 1e-12)
+    print(f'# (b3) done after {time.time() - T0:.0f} s')
 
 
 # ---------------------------------------------------------------- (c) the particle factors
@@ -322,12 +355,28 @@ for h in range(2, 9):
                     cdd = lambda t, x: S_an(x, e, h, 0.37, t - t0)
                     devCDD = max(devCDD, abs(cdd(th + 1j*ua, a)*cdd(th - 1j*ub_, b) - cdd(th, c)),
                                  abs(cdd(th, a)*cdd(th + 1j*np.pi, h - a) - 1))
-report(f'(c) prp-an-particle-transmission: T^cl_a of both types, h = 2..8: T_a(theta) T_abar(theta + i pi) = 1 and '
+# exact identities (proof of prp-an-particle-transmission): x = e^{-(theta - theta_d)} (I_-), y = e^{theta - theta_d} (I_+),
+# u = e^{i gamma_a}, v = e^{i gamma_b}; theta -> theta + i c multiplies x by e^{-ic} and y by e^{ic}
+import sympy as sp
+xs, ys, ws = sp.symbols('x y w', positive=True)
+us, vs = sp.symbols('u v', nonzero=True)
+Tm = lambda X, U: (X + U)/(X + 1/U)
+Tp = lambda Y, U: (Y - U)/(Y - 1/U)
+exact = [Tm(xs/vs, us)*Tm(xs*us, vs) - Tm(xs, us*vs),          # I_-, a + b < h, e^{i gamma_c} = u v
+         Tm(-xs*vs, us)*Tm(-xs/us, vs) - Tm(xs, -us*vs),       # I_-, a + b > h, e^{i gamma_c} = -u v
+         Tp(ys*vs, us)*Tp(ys/us, vs) - Tp(ys, us*vs),          # I_+, a + b < h
+         Tp(-ys/vs, us)*Tp(-ys*us, vs) - Tp(ys, -us*vs),       # I_+, a + b > h
+         Tm(xs, us)*Tm(-xs, -1/us) - 1, Tp(ys, us)*Tp(-ys, -1/us) - 1,     # unitarity/crossing, e^{i gamma_abar} = -1/u
+         Tm(-ws, -1/us) - Tm(ws, 1/us), Tp(-1/ws, -1/us) - Tp(1/ws, 1/us)]  # Hermitian analyticity, w = e^{theta+theta_d}
+exact_ok = all(sp.simplify(e) == 0 for e in exact)
+report(f'(c) prp-an-particle-transmission: the bootstrap at both fusings, unitarity/crossing and Hermitian analyticity '
+       f'are exact rational identities in u = e^(i gamma_a), v = e^(i gamma_b), both types (sympy: {exact_ok}); '
+       f'numerically, T^cl_a of both types, h = 2..8: T_a(theta) T_abar(theta + i pi) = 1 and '
        f'|T_a| = 1 for real theta [{devU:.0e}], Hermitian analyticity Tbar_a(theta) = conj T_a(-theta) [{devH:.0e}], the '
        f'bulk bootstrap at every fusing a b -> a+b, a+b-h [{devF:.0e}] (fusing angles are poles of eq-an-smatrix, '
        f'masses close); defect CDD factors S_ae(theta - theta_0) satisfy the same equations [{devCDD:.0e}]; no pole in '
-       f'the physical strip for real theta_d', devU < 1e-12 and devH < 1e-12 and devF < 1e-12 and devCDD < 1e-10
-       and poles_ok)
+       f'the physical strip for real theta_d', exact_ok and devU < 1e-12 and devH < 1e-12 and devF < 1e-12
+       and devCDD < 1e-10 and poles_ok)
 print(f'# (c) done after {time.time() - T0:.0f} s')
 
 
@@ -485,7 +534,301 @@ for r in (2, 3):
                 vals.append(min(defect_potential(t*v[:r], t*v[r:], -sig, r, 1.0, 1.0, 'real', typ)[0].real
                                 for t in (5.0, 10.0)))
             minneg = min(minneg, min(vals))
+            # the explicit direction of the proof: phi = psi = t v gives (m sigma'/beta^2)(sum_j e^{t beta alpha_j.v} - h)
+            al = an_data(r)['alpha']; v = rng.normal(size=r); v = v/max(al @ v)     # max_j alpha_j.v = 1
+            for t in (3.0, 12.0):
+                Bt = defect_potential(t*v, t*v, -sig, r, 1.0, 1.0, 'real', typ)[0].real
+                sp_ = -sig if typ == 1 else -1/sig
+                okG &= abs(Bt - sp_*(np.exp(t*(al @ v)).sum() - (r + 1))) < 1e-9*abs(Bt)
+            okG &= Bt < -1e4
 report(f'(g) real-coupling vacuum: B_d^real(phi, psi) >= 0 for real fields and sigma > 0, both types, r = 2, 3, with '
        f'B_d/|fields|^2 >= {minpos:.2e} on random samples and B_d(0, 0) = 0; for sigma < 0 it is unbounded below '
-       f'(min sample {minneg:.1e})', okG and minpos > 0 and minneg < -1e3)
+       f'(min sample {minneg:.1e}; along phi = psi = t v it is (m sigma/beta^2)(sum_j e^(t beta alpha_j.v) - h))',
+       okG and minpos > 0 and minneg < -1e3)
+
+
+# ---------------------------------------------------------------- (h) the second module eq-dpt-second-module
+# Exact propagation on dicts of labels (0-based: alpha_j = e_{j-1} - e_j, first end a = j-1, second end b = j).
+OMH = np.sqrt(2); QH = q_phys(OMH); TH = np.exp(OMH*(TD + 1j*np.pi/2))
+
+
+def _u(h, i):
+    v = np.zeros(h, dtype=int); v[i % h] = 1; return v
+
+
+def _alpha(h, j):
+    return _u(h, j - 1) - _u(h, j)
+
+
+def _acc(d, k, v):
+    d[k] = d.get(k, 0) + v
+
+
+def _e_rep(h, conj, y, j, i):
+    """pi(e_j) on v_i: V: e_j v_j = y v_{j-1}; Vbar: e_j vb_{j-1} = y vb_j (an_vector)."""
+    a, b = (j - 1) % h, j % h
+    if not conj:
+        return [(a, y)] if i == b else []
+    return [(b, y)] if i == a else []
+
+
+def _k_rep(h, conj, j, i):
+    a, b = (j - 1) % h, j % h
+    H = (i == a) - (i == b)
+    return QH**(-H if conj else H)
+
+
+def _T_dict(h, s, X, conj, state):
+    """eq-dt-tv / eq-dt-tvbar on a dict {(i, N): amp} of V (x) W; returns {(N, i): amp} on W (x) V."""
+    out = {}
+    for (i, N), c in state.items():
+        Nv = np.array(N); Ns = Nv + s
+        if not conj:
+            _acc(out, (N, i), c*QH**(-Ns[i]))
+            _acc(out, (tuple(Nv + _u(h, i) - _u(h, i - 1)), (i - 1) % h), c*X)
+        else:
+            kk = np.zeros(h)
+            for jj in range(h):
+                b = (i + jj) % h
+                kk[b] += 1
+                _acc(out, (tuple(Nv - _u(h, i) + _u(h, b)), b), c*X**jj*QH**(Ns @ kk))
+    return out
+
+
+def _Y(h, s, j, c=0.0):
+    """rho~(e_j) of eq-dpt-second-module, plus c q^{(N+s)_j} (the free constant of the y^1 equations)."""
+    a = (j - 1) % h
+    return lambda N: [(tuple(np.array(N) + _alpha(h, j)), TH/(QH - 1/QH)*QH**(-(N[a] + s[a])) + c*QH**(N[a] + s[a]))]
+
+
+def _K(h, j, sign=1):
+    w = _alpha(h, j) - _alpha(h, j - 1)
+    return lambda N: [(tuple(np.array(N) + sign*w), 1.0)]
+
+
+def _rel(d1, d2):
+    keys = set(d1) | set(d2)
+    num = max([abs(d1.get(k, 0) - d2.get(k, 0)) for k in keys] + [0])
+    return num/max([abs(v) for v in list(d1.values()) + list(d2.values())] + [1e-300])
+
+
+def e_type_residual(h, s, th, conj, j, jpsi, c, labels):
+    """max relative residual of T[pi(e_j) (x) 1 + pi(k_j) (x) Y] = [Y (x) 1 + kappa (x) pi(e_psi(j))] T and of the
+    Cartan equation T(pi(k_j) (x) kappa) = (kappa (x) pi(k_psi(j))) T on v_i (x) |N>."""
+    y = np.exp(OMH*th); X = np.exp(OMH*(th - TD - 1j*np.pi/2))
+    Y, K = _Y(h, s, j, c), _K(h, j)
+    worst = 0
+    for N in labels:
+        for i in range(h):
+            L = {}
+            for (i2, v) in _e_rep(h, conj, y, j, i):
+                _acc(L, (i2, N), v)
+            for (N2, v) in Y(N):
+                _acc(L, (i, N2), _k_rep(h, conj, j, i)*v)
+            L = _T_dict(h, s, X, conj, L)
+            R = {}
+            for (N2, i2), c0 in _T_dict(h, s, X, conj, {(i, N): 1.0}).items():
+                for (N3, v) in Y(N2):
+                    _acc(R, (N3, i2), c0*v)
+                for (i3, v) in _e_rep(h, conj, y, jpsi, i2):
+                    _acc(R, (K(N2)[0][0], i3), c0*v)
+            worst = max(worst, _rel(L, R))
+            Lk = _T_dict(h, s, X, conj, {(i, K(N)[0][0]): _k_rep(h, conj, j, i)})
+            Rk = {}
+            for (N2, i2), c0 in _T_dict(h, s, X, conj, {(i, N): 1.0}).items():
+                _acc(Rk, (K(N2)[0][0], i2), c0*_k_rep(h, conj, jpsi, i2))
+            worst = max(worst, _rel(Lk, Rk))
+    return worst
+
+
+def _compose(*ops):
+    def f(N):
+        cur = [(N, 1.0)]
+        for op in reversed(ops):
+            cur = [(M2, c*v) for (M, c) in cur for (M2, v) in op(M)]
+        return cur
+    return f
+
+
+def _opdiff(A, B, labels, scale=None):
+    w = 0
+    for N in labels:
+        a, b = {}, {}
+        for k, v in A(N):
+            _acc(a, k, v)
+        for k, v in B(N):
+            _acc(b, k, v)
+        if scale is None:
+            w = max(w, _rel(a, b))
+        else:
+            w = max(w, max([abs(a.get(k, 0) - b.get(k, 0)) for k in set(a) | set(b)] + [0])/scale(N))
+    return w
+
+
+rngh = np.random.default_rng(431)
+thsH = (-0.32, 0.41, 0.82 + 0.11j)
+resV = resVb = resC = cartc = rels = 0; obstr_ok = True
+for h in (3, 4, 5):
+    s = rngh.normal(size=h)*0.3; s -= s.mean()
+    labs = [tuple(np.zeros(h, dtype=int)), tuple(_u(h, 0) - _u(h, 2)), tuple(2*_u(h, 1) - 2*_u(h, h - 1))]
+    for j in range(h):
+        jp = (j - 1) % h
+        for th in thsH:
+            resV = max(resV, e_type_residual(h, s, th, False, j, jp, 0.0, labs))
+            resVb = max(resVb, e_type_residual(h, s, th, True, j, jp, 0.0, labs))
+            resC = max(resC, e_type_residual(h, s, th, False, j, jp, 0.3, labs),
+                       e_type_residual(h, s, th, True, j, jp, 0.3, labs))
+        # the free constant breaks k_j e_j k_j^-1 = q^2 e_j
+        cartc = max(cartc, _opdiff(_compose(_K(h, j), _Y(h, s, j, 0.3), _K(h, j, -1)),
+                                   lambda N, j=j: [(M, QH**2*v) for (M, v) in _Y(h, s, j, 0.3)(N)], labs))
+        # U_q(b^+) relations of rho~
+        for i in range(h):
+            aij = 2 if i == j else (-1 if (i - j) % h in (1, h - 1) else 0)
+            rels = max(rels, _opdiff(_compose(_K(h, i), _Y(h, s, j), _K(h, i, -1)),
+                                     lambda N, j=j, aij=aij: [(M, QH**aij*v) for (M, v) in _Y(h, s, j)(N)], labs))
+            if (i - j) % h == 1:                       # adjacent i = j + 1: e_j e_{j+1} = q^-1 e_{j+1} e_j, q-Serre
+                Yj, Yi = _Y(h, s, j), _Y(h, s, i)
+                rels = max(rels, _opdiff(_compose(Yj, Yi), lambda N: [(M, v/QH) for (M, v) in _compose(Yi, Yj)(N)], labs))
+                for (A, B) in ((Yj, Yi), (Yi, Yj)):
+                    serre = lambda N, A=A, B=B: (_compose(A, A, B)(N) + [(M, -(QH + 1/QH)*v) for (M, v) in _compose(A, B, A)(N)]
+                                                 + _compose(B, A, A)(N))
+                    rels = max(rels, _opdiff(serre, lambda N: [], labs, scale=lambda N, A=A, B=B: abs(_compose(A, A, B)(N)[0][1])))
+            elif i != j and (j - i) % h != 1:
+                rels = max(rels, _opdiff(_compose(_Y(h, s, i), _Y(h, s, j)), _compose(_Y(h, s, j), _Y(h, s, i)), labs))
+    rels = max(rels, _opdiff(_compose(*[_K(h, j) for j in range(h)]), lambda N: [(N, 1.0)], labs))
+    # y-power obstructions of the other twists, on V (0-based: first end a = j-1, second end b = j of alpha_j).
+    # e-type, order y^2, input v_b: the left side is pi(e_j) followed by the X-part of eq-dt-tv, v_b -> v_a -> v_{a-1},
+    # non-zero; the right side is the X-part followed by kappa (x) pi(e_psi(j)), v_b -> v_{b-1} = v_a -> e_psi(j) v_a,
+    # which vanishes for every kappa unless psi(j) = j - 1.  f-type, order y^-1, input v_{a'}, a' = first end of psi(j):
+    # the right side (1 (x) pi(f_psi(j))) times the diagonal part is non-zero; the left side contains f_j v_{a'} = 0
+    # unless psi(j) = j.  So exactly psi = pi (e-type) and psi = id (f-type) escape the obstruction.
+    for j in range(h):
+        b, a = j % h, (j - 1) % h
+        for jp in range(h):
+            lhs = bool(_e_rep(h, False, 1.0, j, b)); rhs = bool(_e_rep(h, False, 1.0, jp, (b - 1) % h))
+            obstr_ok &= (lhs and not rhs) == (jp != (j - 1) % h)
+            obstr_ok &= (((jp - 1) % h) != a) == (jp != j)
+# h = 2 against ch. 37 and ch. 42
+sS = 0.37; s2 = np.array([sS/2, -sS/2]); tau = -1j*np.exp(1j*np.pi*OMH/2); ydH = np.exp(OMH*TD)
+dB = lambda n: tau**(-n)*QH**(n*(n - 1)/2 + n*sS/2)
+devT2 = devR2 = 0; shifts_ok = True
+for th in thsH:
+    y = np.exp(OMH*th); X = np.exp(OMH*(th - TD - 1j*np.pi/2))
+    for n in range(-3, 4):
+        N = (n, -n)
+        o1 = _T_dict(2, s2, X, False, {(0, N): 1.0}); o2 = _T_dict(2, s2, X, False, {(1, N): 1.0})
+        A_ = QH**(sS/2)*o1[(N, 0)]; C_ = QH**(sS/2)*o1[((n + 1, -n - 1), 1)]*dB(n)/dB(n + 1)
+        D_ = QH**(sS/2)*o2[(N, 1)]; B_ = QH**(sS/2)*o2[((n - 1, -n + 1), 0)]*dB(n)/dB(n - 1)
+        sg37 = (QH**-n, -1j*(y/ydH)*QH**(n + sS), -1j*(y/ydH)*QH**-n, QH**(n + sS))   # A, B, C, D, eq-sg-transmission-matrix
+        devT2 = max(devT2, max(abs(u_ - v_)/abs(v_) for u_, v_ in zip((A_, B_, C_, D_), sg37)))
+for n in range(-3, 4):
+    N = (n, -n)
+    e1 = _Y(2, s2, 1)(N)[0]; k1 = _K(2, 1)(N)[0]; e0 = _Y(2, s2, 0)(N)[0]; k0 = _K(2, 0)(N)[0]
+    aa = 1j*ydH*QH**(-sS)/(QH**2 - 1); bb = 1j*ydH*QH**sS/(QH**2 - 1)
+    got = [o[1]*dB(n)/dB(o[0][0]) for o in (e1, k1, e0, k0)]
+    want = (aa*QH**(-2*n), QH**(-2*n - 2 - sS), bb*QH**(2*n), QH**(2*n - 2 + sS))     # eq-dbd-second-module
+    shifts_ok &= tuple(o[0][0] - n for o in (e1, k1, e0, k0)) == (1, 2, -1, -2)
+    devR2 = max(devR2, max(abs(u_ - v_)/abs(v_) for u_, v_ in zip(got, want)))
+report(f'(h) eq-dpt-second-module solves the e-type (psi = pi) and Cartan equations for V [{resV:.0e}] and Vbar '
+       f'[{resVb:.0e}], h = 3, 4, 5, every node, 3 rapidities, exact labels; with c_j q^(N+s)_j added it still solves them '
+       f'[{resC:.0e}] but breaks k_j e_j k_j^-1 = q^2 e_j [{cartc:.2f}]; U_q(b^+) relations [{rels:.0e}]; the other twists '
+       f'have a block free of unknowns [{obstr_ok}]; h = 2: q^(s/2) M_V = eq-sg-transmission-matrix [{devT2:.0e}] and '
+       f'rho~ = eq-dbd-second-module [{devR2:.0e}] in the basis tau^-n q^(n(n-1)/2 + ns/2)|n>',
+       resV < 1e-13 and resVb < 1e-13 and resC < 1e-13 and cartc > 0.1 and rels < 1e-13 and obstr_ok
+       and devT2 < 1e-13 and devR2 < 1e-13 and shifts_ok)
+
+
+# ---------------------------------------------------------------- (i) the soliton CDD condition eq-dpt-soliton-cdd
+def _string(f, D, h):
+    return np.prod([f(D - 1j*np.pi + 2j*np.pi*k/h) for k in range(h)], axis=0)
+
+
+def _Fbar(f, D, h):
+    return np.prod([f(D + 1j*np.pi*(2*m - h + 2)/h) for m in range(h - 1)], axis=0)
+
+
+DsI = np.array([0.41, -0.7 + 0.2j, 1.3 - 0.1j])
+devI = 0; okI = True
+for h in range(2, 9):
+    for f in (lambda D, h=h: Tcl(D, 1, h), lambda D: (np.sinh(D) + 0.3j)/(np.sinh(D) - 0.3j)):
+        # crossing (ch. 41) with g -> g f, gbar -> gbar Fbar: (II) Fbar(D) f(D - i pi) = 1, (I) f(D) Fbar(D - i pi) = 1
+        devI = max(devI, abs(_Fbar(f, DsI, h)*f(DsI - 1j*np.pi) - _string(f, DsI, h)).max(),
+                   abs(f(DsI)*_Fbar(f, DsI - 1j*np.pi, h) - _string(f, DsI + 1j*np.pi - 2j*np.pi/h, h)).max())
+    okI &= abs(_string(lambda D: Tcl(D, 1, h), DsI, h) - 1).max() < 1e-12
+    if h > 2:
+        okI &= abs(Tcl(DsI, 1, h)*Tcl(DsI + 1j*np.pi, 1, h) - 1).max() > 0.1
+sinhf = lambda D: (np.sinh(D) + 0.3j)/(np.sinh(D) - 0.3j)
+fail3 = abs(_string(sinhf, DsI, 3) - 1).max()
+okI &= abs(sinhf(DsI)*sinhf(DsI + 1j*np.pi) - 1).max() < 1e-14 and fail3 > 0.1
+
+
+def _constituents(h, a, om, D):
+    ub = np.pi/2 - np.pi/(h*om)
+    return ([D - 1j*ub + 1j*np.pi*(2*m - h + a + 1)/h for m in range(h - a)]
+            + [D + 1j*ub + 1j*np.pi*(2*m - a + 1)/h for m in range(a)])
+
+
+mult = [np.prod([Tcl(c, 1, 4) for c in _constituents(4, 2, om, 0.41)]) for om in (np.sqrt(2), np.sqrt(5))]
+okI &= abs(mult[0] - (-0.2200 - 0.9755j)) < 1e-4 and abs(mult[1] - (0.2004 - 0.9797j)) < 1e-4
+report(f'(i) eq-dpt-soliton-cdd: with g -> g f, both crossing relations of ch. 41 are the string condition '
+       f'prod_k f(D - i pi + 2 pi i k/h) = 1 [{devI:.0e}]; T^cl_1 satisfies it for h = 2..8 but not f(D) f(D + i pi) = 1 '
+       f'for h > 2; (sinh D + 0.3i)/(sinh D - 0.3i) satisfies the latter and fails the string condition at h = 3 by '
+       f'{fail3:.2f}; f = T^cl_1 multiplies the factor of B^(2)_1 of a_3 at D = 0.41 by {mult[0]:.4f} at omega = sqrt2 and '
+       f'{mult[1]:.4f} at sqrt5', okI and devI < 1e-12)
+
+
+# ---------------------------------------------------------------- (j) tbl-dpt-spectrum: ranks, Lee-Yang, v = pi
+def _sector_blocks(h, om, X, s):
+    """Sector blocks of eq-dt-tv (basis v_i (x) |Q - e_i>, sum Q = 1) and eq-dt-tvbar (vb_i (x) |Qb + e_i>, sum Qb = -1)."""
+    q = q_phys(om); I = np.eye(h)
+    Q = I[1]; Qb = -I[0]
+    MV = np.zeros((h, h), complex); MVb = np.zeros((h, h), complex)
+    for i in range(h):
+        N = Q - I[i]
+        MV[i, i] += q**(-(N + s)[i]); MV[(i - 1) % h, i] += X
+        N = Qb + I[i]; kk = np.zeros(h)
+        for jj in range(h):
+            b = (i + jj) % h; kk[b] += 1
+            MVb[b, i] += X**jj*q**((N + s) @ kk)
+    return MV, MVb
+
+
+rngj = np.random.default_rng(4313)
+okJ = True; worstJ = 0
+for h in (3, 4, 5, 6):
+    r = h - 1
+    for om in (np.sqrt(2), 1.37, 3.1):
+        s = rngj.normal(size=h)*0.3; s -= s.mean()
+        X1 = np.exp(-1j*np.pi*om*r/h - 1j*np.pi/h)          # species-1 pole theta_1 (eq-dt-pole)
+        Xr = np.exp(-1j*np.pi*om/h - 1j*np.pi/h)            # species-r pole, X^h = q
+        sv1 = np.linalg.svd(_sector_blocks(h, om, X1, s)[0], compute_uv=False)
+        svr = np.linalg.svd(_sector_blocks(h, om, Xr, s)[1], compute_uv=False)
+        okJ &= sv1[-1]/sv1[0] < 1e-12 and sv1[-2]/sv1[0] > 0.1 and svr[1]/svr[0] < 1e-12
+        worstJ = max(worstJ, sv1[-1]/sv1[0], svr[1]/svr[0])
+resid = []
+for h in (3, 4, 5):
+    r = h - 1; om = 1.37; c = an_scalar_constant(r, om, q_phys(om))
+    Dr = 1j*np.pi/2 - 1j*(np.pi/h + np.pi/(h*om))
+    v1, v2 = [eps*an_scalar_gbar(Dr + eps, r, om, 400, c) for eps in (1e-5, 5e-6)]
+    okJ &= abs(v1) > 1e-2 and abs(v1 - v2) < 1e-4*abs(v1)
+    resid.append(v1)
+fLY = lambda th: (np.sinh(th) + 1j*np.sin(2*np.pi/3))/(np.sinh(th) - 1j*np.sin(2*np.pi/3))
+for b in (-0.5, 0.5, 1.5):
+    for y0 in ((b + 1)/6,) + (((b - 1)/6,) if b > 1 else ()):
+        th = 1j*np.pi*y0 + 1e-7
+        okJ &= abs(1e-7*fLY(th + 1j*np.pi*(3 - b)/6)) > 1 and abs(1e-7*fLY(th - 1j*np.pi*(3 - b)/6)) < 1e-5
+devPi = 0; okPi = True
+for h in (3, 4, 5, 6):
+    for a in range(1, h):
+        g = np.pi*a/h
+        devPi = max(devPi, max(abs(abs(Tcl(t - 1j*np.pi, a, h)) - 1) for t in np.linspace(-3, 3, 31)))
+        okPi &= max(abs(abs(Tcl(t - 1j*(np.pi - 0.3), a, h)) - 1) for t in np.linspace(-3, 3, 31)) > 0.05
+        okPi &= ((np.pi - g < np.pi < 1.5*np.pi - g) == (2*a < h)) and abs(1/Tcl(1j*g - 1j*np.pi + 1e-9, a, h)) < 1e-8
+report(f'(j) tbl-dpt-spectrum: on a charge sector the residue of T_V at the species-1 pole has rank h - 1 and that of '
+       f'T_Vbar at the species-r pole (X^h = q) rank 1, h = 3..6, three couplings, random offsets [{worstJ:.0e}]; gbar has '
+       f'a simple uncancelled pole there [eps gbar = {abs(resid[0]):.3f}, {abs(resid[1]):.3f}, {abs(resid[2]):.3f}]; the '
+       f'Lee-Yang bound-state poles are in Tbar_b, not T_b; for theta_d = i v, T_a is a phase for real theta at v = pi '
+       f'[{devPi:.0e}] but not at v = pi - 0.3, and v = pi lies in the window iff a < h/2, pole at i gamma_a',
+       okJ and okPi and devPi < 1e-12)
+
 print(f'# total runtime {time.time() - T0:.0f} s')

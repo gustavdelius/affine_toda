@@ -13,7 +13,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 | 40 | 2026-10-12 | `defect_universal_r.py`, `defect_transfer.py` | 16 + 9 PASS (92 s, 29 s) | Codex deep, integrated 2026-10-12 |
 | 41 | 2026-10-12 | `defect_an_transmission.py` | 27 PASS (198 s) | Codex deep, integrated 2026-10-13 |
 | 42 | 2026-10-12 | `defect_doubling.py` | 20 PASS (15 s) | Codex deep, integrated 2026-10-13 |
-| 43 | 2026-10-12 | `defect_particle_transmission.py` | 8 PASS (62 s) | no |
+| 43 | 2026-10-12 | `defect_particle_transmission.py` | 11 PASS (35–50 s; optional (b3) $a_5$ about 2.5 min) | Codex (items 1–4) + Claude (items 5–8), integrated 2026-10-13 |
 
 ## Chapter 36 (`sec-defect-scattering`)
 
@@ -615,16 +615,17 @@ The full drafting report is in `briefs/draft_ch42_report.md`, including the prop
 
 ## Chapter 43 (`sec-particle-transmission`)
 
-The full drafting report is in `briefs/draft_ch43_report.md`; the checkpoint is `briefs/draft_ch43_checkpoint.md`. Re-run on integration: 8 PASS, 62 s.
+The full drafting report is in `briefs/draft_ch43_report.md`; the checkpoint is `briefs/draft_ch43_checkpoint.md`. Re-run on integration: 8 PASS, 62 s. After the referee integration of 2026-10-13: 11 PASS, 35–50 s (see the integration subsection below).
 
 **Notation.** ω = 4π/β² − 1 is always the coupling. Ch. 39's root of unity is written e^{2πi/h}. The ch. 40 twist is written ω_m = q^{−m/2}.
 
 **Key results.**
 - **`prp-lightest-breather-universal` [Numerical, 2 ≤ r ≤ 4].**
   - The lowest breather B^(a)_1 of every species crosses a type-I₋ defect as 𝕋^cl_a(θ−θ_d) times the identity on 𝒲, so it is independent of the coupling, the defect label and the offset s.
-  - A scratch run covers all five species of a₅.
+  - All five species of a₅: optional check (b3) of the script (`DPT_A5=1`, about 2.5 min, 4e-9); before 2026-10-13 an unrecorded scratch run.
+  - The lowest breather is physical only for hω > 2 (Gandenberger 1998 §3.3.1); h = 3, ω = 0.6 in (b2) is an algebraic continuation. Only B₁ of sine-Gordon is coupling-independent; B_n, n ≥ 2, are not.
   - cz2007 (7.5) is the pair (𝕋^cl_2, 𝕋^cl_1) in book labels.
-- **`prp-an-particle-transmission` [Numerical, as solutions of the axioms].** For h = 2..8 and both types:
+- **`prp-an-particle-transmission` [Theorem since 2026-10-13, was Numerical for h = 2..8; as solutions of the axioms].** For every h ≥ 2 and both types (full hand proof in the proof block; exact sympy in check (c)):
   - unitarity, crossing and Hermitian analyticity;
   - the bootstrap at every fusing;
   - no physical-strip poles for real θ_d;
@@ -633,23 +634,24 @@ The full drafting report is in `briefs/draft_ch43_report.md`; the checkpoint is 
 - **`cnj-transmission-continuation` [Conjecture].** If the real-coupling defect is quantum integrable, the only quantum content of particle transmission is the renormalized θ_d(σ, β). The chapter makes a one-loop prediction for a_r: one common δθ_d for all species.
 - **Bajnok–Simon.** Their one-loop factor is exactly the O(b²) term of the exact factor with θ_d = (1 − B/2)θ_d^cl.
 - **`prp-dpt-doubled` [Numerical].** Ch. 42's a_r expectation holds for type I₋ of a₂ and a₃: Δ(U_q(𝔟⁻)) and (1⊗π)Δ(U_q(𝔟⁺)), with π(e_j) = e_{j−1}. The opposite rotation fails.
-- `tbl-dpt-spectrum` and 15 open problems in `sec-defect-open-problems`. They cover every ch. 43 obligation from ch. 37–42; the mapping is a table in the report, §5.
+  - Since 2026-10-13: the second module ρ̃ is explicit (`eq-dpt-second-module`: ρ̃(e_j)|N⟩ = e^{ω(θ_d+iπ/2)}/(q−q⁻¹) q^{−(N+s)_j}|N+α_j⟩, ρ̃(k_j) = plain shift by α_j−α_{j−1}); derived by hand for V (free constant c_j q^{(N+s)_j} killed by the Cartan relation, q⁴ ≠ 1), V̄ numerical (exact labels, h = 3, 4, 5); h = 2 is `eq-dbd-second-module` in the basis τ^{−n}q^{n(n−1)/2+ns/2}|n⟩, τ = −ie^{iπω/2}, with M_V times q^{s/2}. The failing twists fail by an exact y-power argument (e-type ψ(j) ≠ j−1 at y², f-type ψ(j) ≠ j at y⁻¹). The two Borel halves do not form one coideal (q³ ≠ 1, as `prp-diagonal-borel` (4)).
+- **Soliton CDD condition** (`eq-dpt-soliton-cdd`, 2026-10-13): ∏_{k<h} f(D − iπ + 2πik/h) = 1, not f(D)f(D+iπ) = 1 (only h = 2); T^cl_1 satisfies it for every h; its breather multiplier depends on ω (computed).
+- `tbl-dpt-spectrum` and 15 open problems in `sec-defect-open-problems`. Residue at the species-1 pole of 𝕋_V: rank h−1; at the species-r pole of 𝕋_V̄ (X^h = q): rank 1; other species not computed. Lee–Yang bound-state poles are in 𝕋̄_b. For θ_d = iv, Θ is broken only for v ∉ πℤ; at v = π (in the window for a < h/2) σ = −1, unbounded below. They cover every ch. 43 obligation from ch. 37–42; the mapping is a table in the report, §5.
 
 **Verification record.**
 - **By script:** checks (a)–(g).
-- **By scratch run:** a₅ every species (about 10 min); (f) on all nodes of a₃.
+- **By scratch run:** (f) on all nodes of a₃. (The a₅ run is now the optional check (b3).)
 - **By hand:** the telescoping identities, block forms, `prp-dpt-vacuum`, and the derivation of the duality relation.
 - **Unchecked:**
   - the type-I₊ breathers (no I₊ scalar factor yet);
   - class-p breathers;
   - higher breathers for a_r;
-  - the module relations of ρ̃ for a_r;
   - a proof for all r.
-- **Quoted only:** the defect TBA, DTCSA, Kormos–Runkel–Watts, and Jiang (from the abstract only).
+- **Quoted only:** the defect TBA, DTCSA, Kormos–Runkel–Watts. Jiang 2017 was read in full at the referee integration (abstract, intro, (5.5)–(5.6), §7); the "(from the abstract)" qualifier was removed and the bullet rewritten from the paper.
 - **Flags for the referee:**
   - the duality remark and θ_d = (1 − B/2)θ_d^cl for a_r are conditional;
   - "for every r" is an expectation;
-  - "a soliton CDD factor destroys the coupling independence" is argued, not computed.
+  - "a soliton CDD factor destroys the coupling independence" is argued, not computed. (Computed since 2026-10-13, with the corrected condition `eq-dpt-soliton-cdd`.)
 
 **Corrections to sources recorded in the Notes.**
 - cz2007 (7.3)–(7.5): their particle labels are swapped relative to the book (transposed defect matrix). Their remark that the factors "depend on β only via η" holds exactly, for every species of a₂–a₄.
@@ -666,6 +668,13 @@ The full drafting report is in `briefs/draft_ch43_report.md`; the checkpoint is 
 - Repository files (DONE 2026-10-12):
   - `textbook_code/README.md` row — DONE 2026-10-12;
   - conventions brief §11 (text in the report) — DONE 2026-10-12 (now §13, in chapter order).
+
+**Integration of the referee report (2026-10-13).** Report `briefs/referee_defects_43_report.md` (Codex items 1–4, Claude items 5–8; Integration section at its end); checkpoint `briefs/integration_43_checkpoint.md`; own scripts `briefs/referee_defects_43_scripts/integration_*.py`. All eight items verified (items 6 and 8 with small modifications); none rejected.
+- Labels changed: `prp-an-particle-transmission` [Numerical, h = 2..8] → **[Theorem]** for every h ≥ 2 (full hand proof added to the proof block; exact sympy in check (c)); `tbl-dpt-spectrum` row "a_r particles, real θ_d" status → "[Theorem] for the factors". **No independent referee pass of the upgraded proof.** All other labels unchanged (`prp-dpt-doubled` stays [Numerical]).
+- New ids: `eq-dpt-second-module` (proof of `prp-dpt-doubled`), `eq-dpt-soliton-cdd` (CDD paragraph).
+- Book script 11 PASS (was 8): exact identities in (c), explicit σ < 0 direction in (g), (h) second module, (i) soliton CDD condition, (j) residue ranks, Lee–Yang direction, v = π; optional (b3) a₅.
+- Minimal consistency edits outside ch. 43: ch. 37 `sec-sg-defect-spectrum` ("Θ is broken unless v ∈ πℤ"; v = π in the window for 1/2 < λ < 1); ch. 42 "Beyond sine-Gordon" (the module relations are no longer open). Ch. 41 not touched (its rank h−1 claim is for 𝕋_V only, correct). No Part VII or index edits needed. No Appendix D entries (all corrections book-internal).
+- Open, recorded in the report's Integration section: a proof of the V̄ half of the second module (sketch: the e-type and Cartan equations for V imply them for the fused (T⊗1)(1⊗T), hence for V̄ through the bootstrap embedding; not written out); the species-r excited defect (rank-1 residue) as the simplest case of problem 10.
 
 ## Global pending edits
 
