@@ -1,3 +1,17 @@
+---
+keywords:
+  - affine Toda field theory
+  - integrable quantum field theory
+  - sine-Gordon theory
+  - solitons
+  - exact S-matrices
+  - quantum groups
+  - integrable boundaries
+  - integrable defects
+  - non-Hermitian quantum field theory
+  - non-unitary
+---
+
 # Introduction and reader's guide {#sec-introduction}
 
 Affine Toda field theories are a family of two-dimensional quantum field theories, one for each affine Kac–Moody algebra $\hat g$. They are integrable, so many of their properties can be computed exactly, and they are rich enough to display most of the phenomena of interacting quantum field theory: particles and bound states, solitons and breathers, strong–weak duality, quantum-group symmetry, integrable boundaries and, at imaginary coupling, non-unitarity. This book introduces them to a reader who knows quantum field theory but has not met affine Toda theory, Kac–Moody algebras or quantum groups, and leads that reader to current research.

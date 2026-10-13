@@ -44,7 +44,7 @@ def metadata_block(path: Path) -> str:
                 '  <meta name="citation_language" content="en">',
                 f'  <meta name="citation_public_url" content="{SITE_URL}">',
                 f'  <meta name="citation_pdf_url" content="{SITE_URL}affine-toda.pdf">',
-                '  <meta name="citation_keywords" content="affine Toda field theory; integrable quantum field theory; solitons; quantum groups; exact S-matrices">',
+                '  <meta name="citation_keywords" content="affine Toda field theory; integrable quantum field theory; solitons; quantum groups; exact S-matrices; integrable boundaries; integrable defects; non-unitary">',
             ]
         )
     lines.append(END)
