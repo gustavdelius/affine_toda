@@ -28,19 +28,32 @@ Checks:
     sine-Gordon with spin 1/2 and spin 1 probes, a_2 vector), T = exp(i alpha mu) (psi = torus), T = C (psi = node swap tau).
  c. Jump defect (cnj-twisted-diagonal, prp-diagonal-borel), sine-Gordon types I_- (Weyl module of U_q(b^-)) and I_+:
     the diagonal Borel Delta(U_q(b^-+)) is a symmetry with W the Weyl module (s = 0 and 0.3); for the generators of every
-    twisted diagonal (1 (x) psi)Delta(U), psi in {torus, tau o torus}, a least-squares search over theta-independent
-    weight-graded operators on W (three rapidities, windows N = 5, 7, 9) finds: type I_-: e/id and f/tau fail, f/id and
-    e/tau hold; type I_+: the mirror image.  So no twisted diagonal is a symmetry (the conjecture as stated is refuted),
-    and the second Borel survives twisted by tau, with an explicit second module structure rho~ on W (relations and
-    exact intertwining checked).  The two Borel symmetries do not combine: rho(k_1) and rho~(k_1) q^4-commute although
-    k_1 (x) k_1 and k_1 (x) k_0 commute, and e_1 (x) 1, which any coideal containing both must contain, is not a symmetry.
-    Limits: theta_d -> +inf restores the untwisted (torus-twisted) diagonal, theta_d -> -inf the tau-twisted one.
+    twisted diagonal (1 (x) psi)Delta(U), psi in {torus, tau o torus} (all Hopf automorphisms, Kolb 1207.6036 Thm. 3.2),
+    a least-squares search over theta-independent weight-graded operators on W (three rapidities, windows N = 5, 7, 9)
+    finds: type I_-: e/id and f/tau fail, f/id and e/tau hold; type I_+: the mirror image.  Exactly (sympy,
+    noncommutative symbols for arbitrary operators on W): with L = P T = D + y O (I_-) or D + O/y (I_+), one power of y
+    in a single generator equation has a block that contains no unknown and does not vanish (prp-diagonal-borel (3)).
+    The second Borel survives twisted by tau, with an explicit second module structure rho~ on W (relations and the
+    intertwining of all four generators checked numerically on windows and exactly for symbolic n).  The two Borel
+    symmetries do not combine: rho(k_1) and rho~(k_1) q^4-commute although k_1 (x) k_1 and k_1 (x) k_0 commute, and any
+    coideal containing both contains e_1 (x) 1 (type I_-) or 1 (x) f_0 (type I_+), which are not symmetries (numerically,
+    and exactly by a power of y).
+    Limits (prp-diagonal-borel (5)): the off-diagonal part of L is (y/y_d) x const for I_- and (y_d/y) x const for I_+,
+    so the diagonal limit is theta_d -> +inf for I_- and theta_d -> -inf for I_+ (single-generator residuals decay like
+    e^{-lambda |theta_d|} in these directions and tend to 1 in the opposite ones).  In neither limit is there a twisted
+    diagonal on all of W: the e_1 and f_1 equations force chi(Delta k_1) and chi(Delta k_1^-1) to be the same operator
+    t^-1 q^(-+(2n+s)), not inverse ones, and in the off-diagonal limit chi(k_1 (x) k_0) and its would-be inverse both raise
+    n by 2 (exact).  Each charge sector C|n> of the diagonal limit is the twist line t_1 = 1/t_0 = q^(-2n-s).
     Control: a particle used as a defect (W = V(theta_d), T = Rc) has the full diagonal Delta(U).
  d. Fusion onto a Dirichlet boundary (prp-defect-fusion-k): K_f = Tbar (1 (x) K_D) T on V (x) W solves the reflection
     equation on windows N = 5, 7, 9 (perturbed control fails); its charge-sector blocks have label-independent gauge
     invariants (Corrigan-Zambon 1202.6016 (2.18)) and equal the Ghoshal-Zamolodchikov matrix eq-bsg-k-matrix with
     (eta, vartheta) = (eta_D, lambda theta_d); with the scalar factors (eq-sgd-scalar; R_0, sigma of eq-bsg-k-full) the
     identity holds entry by entry.  Sinh-Gordon: Tbar K_D T = K_shG(E, F = 2 i theta_d/pi) (eq-shg-reflection) re-checked.
+    Corrigan-Zambon 1202.6016 in their conventions (rows = incoming soliton, Q^2 = 1/q): direct fusion (2.9) of their
+    general transmission matrix (2.14) with the Dirichlet matrix (2.16) agrees with their (2.17); for the type-II
+    parameters it agrees with (2.19) only after two corrections, h = -(|b_-|^2 + |b_+|^2) Q^-2 and the opposite overall
+    sign of s_- (each alone fails); the charge dependence of the type-II result survives.
  e. Classical (prp-fused-bdg): K_phi(lam) = sigma(L_d(1/lam)^-1) K_psi(lam) L_d(lam)^-1 (sigma = transposition) satisfies the
     dynamical compatibility d_t K = K a_t(lam) + sigma(a_t(1/lam)) K on the fused system (defect + psi-boundary with
     field-independent K_psi: GZ for a_1, Durham C = +-1 and Neumann for a_2, a_3); the undressed or wrongly dressed K fails.
@@ -49,7 +62,7 @@ Checks:
  f. Tensor K (sec-tensor-k): for the sine-Gordon coideal with generic eps-hat and W = V(theta_d) (a particle frozen as a
     defect), Tbar (1 (x) K) T intertwines the coideal on V(theta) (x) W, the space of such intertwiners is one-dimensional
     (so it is Appel-Vlaar's trigonometric tensor K-matrix), and it solves the reflection equation.
-Runtime: about 30 s (17 checks).
+Runtime: about 15 s (20 checks).
 """
 import numpy as np
 import mpmath as mp
@@ -439,13 +452,74 @@ hold = {(-1, 'f', 'id'), (-1, 'e', 'tau'), (1, 'e', 'id'), (1, 'f', 'tau')}
 ok_hold = max(max(table[k]) for k in hold) < 1e-12
 fail_min = min(min(v) for k, v in table.items() if k not in hold)
 lab = lambda k: f"{'I-' if k[0] == -1 else 'I+'} {k[1]}/{k[2]}"
-report('cnj-twisted-diagonal as stated is refuted: for no twisted diagonal (1 (x) psi)Delta(U) (psi = torus or tau o torus) '
-       'do both its e- and f-generators commute with the doubled jump-defect K for any theta-independent action on W; '
-       'minimal residuals over windows N = 5, 7, 9: '
+report('cnj-twisted-diagonal, least-squares test: for no twisted diagonal (1 (x) psi)Delta(U) (psi = torus or '
+       'tau o torus) do both its e- and f-generators commute with the doubled jump-defect K for a theta-independent '
+       'action on W of the weight allowed by charge conservation; minimal residuals over windows N = 5, 7, 9 (they '
+       'depend on the sampled rapidities): '
        + ', '.join(f'{lab(k)} {min(v):.2f}-{max(v):.2f}' for k, v in table.items() if k not in hold),
        fail_min > 0.5)
 report('what holds instead (same test): type I_- keeps f/id (diagonal b^-) and e/tau (tau-twisted b^+); type I_+ keeps '
        f'e/id and f/tau [{max(max(table[k]) for k in hold):.0e}, all windows]', ok_hold)
+
+# exact obstruction (prp-diagonal-borel (3), (4), (5)): arbitrary operators on W as noncommuting symbols.
+# Basis v_+ (x) W, v_- (x) W; L = P T = Dg + y Og (I_-) or Dg + Og/y (I_+), Dg = diag(A, D), Og = [[0, B], [C, 0]],
+# with A, B, C, D theta-independent and invertible.  pi_y(e_1) = y E+, pi_y(f_1) = E-/y, pi_y(e_0) = y E-,
+# pi_y(f_0) = E+/y, pi(k_1) = diag(q, 1/q) = pi(k_0)^-1; the reflected copy at -theta carries pi_y as well.
+nA, nB, nC, nD, nY, nK, nZ = sp.symbols('A B C D Y kappa Z', commutative=False)
+qs, ys, ts = sp.symbols('q y t', nonzero=True)
+nE = {'+': sp.Matrix([[0, 1], [0, 0]]), '-': sp.Matrix([[0, 0], [1, 0]])}
+I2s = sp.eye(2)
+kmat = lambda op, p=1: sp.Matrix([[qs**p*op, 0], [0, qs**-p*op]])      # pi(k_1)^p (x) op
+Dg, Og = sp.Matrix([[nA, 0], [0, nD]]), sp.Matrix([[0, nB], [nC, 0]])
+
+
+def ycoef(M, p):
+    """coefficient of y^p of a matrix polynomial in y, y^-1"""
+    return M.applyfunc(lambda e: sp.expand(e*ys**4).coeff(ys, p + 4))
+
+
+def gen_eq(L, kind, tw):
+    """L X_V - X_V' L for (1 (x) psi)Delta(x_1), psi = t id or t tau (eq-dbd-coproduct; generator_terms)"""
+    if kind == 'e':          # V: pi(e_1)(x)1 + pi(k_1)(x)Y ;  V': 1(x)Y + t pi(e_psi)(x)kappa
+        XV = ys*nE['+'] + kmat(nY)
+        XP = I2s*nY + ts*ys*(nE['+'] if tw == 'id' else nE['-'])*nK
+    else:                    # V: pi(f_1)(x)kappa + 1(x)Y ;  V': pi(k_psi^-1)(x)Y + t^-1 pi(f_psi)(x)1
+        XV = nE['-']/ys*nK + I2s*nY
+        XP = kmat(nY, -1 if tw == 'id' else 1) + (nE['-'] if tw == 'id' else nE['+'])/(ts*ys)
+    return (L*XV - XP*L).applyfunc(sp.expand)
+
+
+Lm_s, Lp_s = Dg + ys*Og, Dg + Og/ys
+cases_ex = [('I_- e/id', gen_eq(Lm_s, 'e', 'id'), 2, (1, 1), nC), ('I_- f/tau', gen_eq(Lm_s, 'f', 'tau'), -1, (0, 1), -nD/ts),
+            ('I_+ f/id', gen_eq(Lp_s, 'f', 'id'), -2, (1, 1), -nB/ts), ('I_+ e/tau', gen_eq(Lp_s, 'e', 'tau'), 1, (0, 1), nA),
+            ('I_- e_1 (x) 1', (Lm_s*(ys*nE['+'] + kmat(nZ)) - I2s*nZ*Lm_s), 2, (1, 1), nC),
+            ('I_+ 1 (x) f_0', (Lp_s*I2s*nZ - (kmat(nZ) + nE['+']/ys)*Lp_s), -2, (0, 0), -nC),
+            # in the limits the other twist fails already: diagonal limit L = Dg (tau), off-diagonal limit L = Og (id)
+            ('diag. limit e/tau', gen_eq(Dg, 'e', 'tau'), 1, (0, 1), nA), ('off-diag. limit e/id', gen_eq(Og, 'e', 'id'), 1, (1, 1), nC)]
+ex_ok, ex_txt = True, []
+for name, M, p, (i, j), expect in cases_ex:
+    blk = ycoef(M.applyfunc(sp.expand), p)[i, j]
+    ex_ok &= sp.simplify(blk - expect) == 0
+    ex_txt.append(f'{name}: y^{p} block {"+-"[i]}{"+-"[j]} = {blk}')
+# diagonal limit L = Dg: the e_1 (y^1, block +-) and f_1 (y^-1, block -+) equations of the untwisted diagonal are
+# A - t kappa D = 0 and D kappa' - A/t = 0: they force kappa = A D^-1/t = chi(Delta k_1), kappa' = D^-1 A/t = chi(Delta k_1^-1)
+be = ycoef(gen_eq(Dg, 'e', 'id'), 1)[0, 1]
+bf = ycoef(gen_eq(Dg, 'f', 'id'), -1)[1, 0]
+lim_forms = sp.simplify(be - (nA - ts*nK*nD)) == 0 and sp.simplify(bf - (nD*nK - nA/ts)) == 0
+# off-diagonal limit L = Og, tau-twisted: C - t kappa B = 0 and B kappa' - C/t = 0, so kappa = C B^-1/t and
+# kappa' = B^-1 C/t; C raises n by 1 and B lowers it by 1, so both raise n by 2 and cannot be inverse to each other
+be_t = ycoef(gen_eq(Og, 'e', 'tau'), 1)[1, 1]
+bf_t = ycoef(gen_eq(Og, 'f', 'tau'), -1)[0, 0]
+lim_forms &= sp.simplify(be_t - (nC - ts*nK*nB)) == 0 and sp.simplify(bf_t - (nB*nK - nC/ts)) == 0
+ns_, ss_ = sp.symbols('n s')
+prod_m = sp.simplify((qs**-ns_/qs**(ns_ + ss_))**2/ts**2)      # I_-: A = q^-n, D = q^(n+s) commute
+prod_p = sp.simplify((qs**ns_/qs**(-ns_ - ss_))**2/ts**2)      # I_+: A = q^n, D = q^(-n-s)
+report('exact obstruction for arbitrary theta-independent operators Y, kappa, Z on W (noncommuting symbols): '
+       + '; '.join(ex_txt) + '.  Diagonal limit: the e_1 and f_1 equations of (1 (x) t)Delta(U) force chi(Delta k_1) = '
+       f'A D^-1/t and chi(Delta k_1^-1) = D^-1 A/t, the same operator; their product is {prod_m} (I_-), {prod_p} (I_+), '
+       'not 1; off-diagonal limit: chi(k_1 (x) k_0) = C B^-1/t and chi(k_1^-1 (x) k_0^-1) = B^-1 C/t both raise n by 2',
+       ex_ok and lim_forms and sp.simplify(prod_m.subs(ns_, 1) - prod_m.subs(ns_, 0)) != 0
+       and sp.simplify(prod_p.subs(ns_, 1) - prod_p.subs(ns_, 0)) != 0)
 
 
 # explicit second module rho~ for type I_- (sg_tmatrix normalization A_n = q^-n, D_n = q^(n+s), ...)
@@ -491,11 +565,63 @@ for th in THETAS:
             rhs = ((kron(rt[('e', j)], np.eye(2)) + kron(rt[('k', j)], V[('e', jt)])) if kd == 'e'
                    else kron(rt[('k', j)], V[('k', jt)])) @ T
             worst_int = max(worst_int, np.abs((lhs - rhs)[np.ix_(rows, cols)]).max()/np.abs(lhs[np.ix_(rows, cols)]).max())
+# the same exactly, for symbolic n, q, s, y, y_d: operators on W as {shift m: coefficient(n)}, |n> -> c(n)|n+m>
+nn, yds = sp.symbols('n y_d')
+
+
+def s_mul(P, R):
+    out = {}
+    for m, c in R.items():
+        for m2, c2 in P.items():
+            out[m + m2] = out.get(m + m2, 0) + c*c2.subs(nn, nn + m)
+    return out
+
+
+def s_add(P, R, c=1):
+    out = dict(P)
+    for m, v in R.items():
+        out[m] = out.get(m, 0) + c*v
+    return out
+
+
+def b_mul(P, R):
+    return [[s_add(s_mul(P[i][0], R[0][j]), s_mul(P[i][1], R[1][j])) for j in range(2)] for i in range(2)]
+
+
+def b_zero(P):
+    return all(sp.simplify(v) == 0 for row in P for d in row for v in d.values())
+
+
+def on_V(M, op=None):            # (2x2 matrix on V) (x) (operator on W, identity if None)
+    op = {0: sp.Integer(1)} if op is None else op
+    return [[{k: v*M[i][j] for k, v in op.items()} if M[i][j] != 0 else {} for j in range(2)] for i in range(2)]
+
+
+aS, bS = sp.I*yds*qs**-ss_/(qs**2 - 1), sp.I*yds*qs**ss_/(qs**2 - 1)
+rtS = {('e', 1): {1: aS*qs**(-2*nn)}, ('k', 1): {2: qs**(-2*nn - 2 - ss_)},
+       ('e', 0): {-1: bS*qs**(2*nn)}, ('k', 0): {-2: qs**(2*nn - 2 + ss_)}}
+LmS = [[{0: qs**-nn}, {-1: -sp.I*(ys/yds)*qs**(nn + ss_)}], [{1: -sp.I*(ys/yds)*qs**-nn}, {0: qs**(nn + ss_)}]]
+piS = {('e', 1): [[0, ys], [0, 0]], ('e', 0): [[0, 0], [ys, 0]], ('k', 1): [[qs, 0], [0, 1/qs]], ('k', 0): [[1/qs, 0], [0, qs]]}
+ex_int = True
+for j in (1, 0):
+    jt = 1 - j
+    XV = [[s_add(a_, b_) for a_, b_ in zip(r1, r2)] for r1, r2 in zip(on_V(piS[('e', j)]), on_V(piS[('k', j)], rtS[('e', j)]))]
+    XP = [[s_add(a_, b_) for a_, b_ in zip(r1, r2)] for r1, r2 in zip(on_V([[1, 0], [0, 1]], rtS[('e', j)]),
+                                                                    on_V(piS[('e', jt)], rtS[('k', j)]))]
+    lhs, rhs = b_mul(LmS, XV), b_mul(XP, LmS)
+    ex_int &= b_zero([[s_add(lhs[i][k], rhs[i][k], -1) for k in range(2)] for i in range(2)])
+    lhs, rhs = b_mul(LmS, on_V(piS[('k', j)], rtS[('k', j)])), b_mul(on_V(piS[('k', jt)], rtS[('k', j)]), LmS)
+    ex_int &= b_zero([[s_add(lhs[i][k], rhs[i][k], -1) for k in range(2)] for i in range(2)])
+r_ = lambda x_, y_: s_mul(rtS[x_], rtS[y_])
+ex_rel = b_zero([[s_add(r_(('k', 0), ('k', 1)), {0: sp.Integer(1)}, -1), s_add(r_(('k', 1), ('e', 1)), r_(('e', 1), ('k', 1)), -qs**2)],
+                 [s_add(r_(('k', 1), ('e', 0)), r_(('e', 0), ('k', 1)), -qs**-2), s_add(r_(('e', 1), ('e', 0)), r_(('e', 0), ('e', 1)), -1)]])
+ex_rel &= sp.simplify(r_(('e', 1), ('e', 0))[0] - aS*bS*qs**2) == 0
 report('second module rho~ of U_q(b^+) on W (type I_-): rho~(e_1)|n> = a q^-2n |n+1>, rho~(k_1)|n> = q^(-2n-2-s)|n+2>, '
        'rho~(e_0)|n> = b q^2n |n-1>, rho~(k_0)|n> = q^(2n-2+s)|n-2>, a = i y_d q^-s/(q^2-1), b = i y_d q^s/(q^2-1): '
        f'k_0 k_1 = 1, k e k^-1 = q^(+-2) e, e_1 e_0 = e_0 e_1 central [{max(rel, cen):.0e}]; and T intertwines '
-       f'(pi (x) rho~)Delta(x) with (rho~ (x) pi o tau)Delta(x) for x = e_j, k_j (s = 0.3) [{worst_int:.0e}]',
-       max(rel, cen) < 1e-12 and worst_int < 1e-12)
+       f'(pi (x) rho~)Delta(x) with (rho~ (x) pi o tau)Delta(x) for x = e_j, k_j (s = 0.3) [{worst_int:.0e}]; '
+       f'exactly, for symbolic n, q, s, y, y_d: relations {ex_rel}, the four generator equations {ex_int}',
+       max(rel, cen) < 1e-12 and worst_int < 1e-12 and ex_rel and ex_int)
 
 rho_k1 = np.diag(q**(2.0*ns + s_))
 qc = np.abs((rho_k1 @ k1 - q**4*k1 @ rho_k1)[blk]).max()
@@ -503,22 +629,55 @@ plain = np.abs((rho_k1 @ k1 - k1 @ rho_k1)[blk]).max()
 W5 = T_I(0.1, 0.15, 7, -1)[1]
 r_e1 = max(ls_symmetry(lambda th: T_I(th, 0.15, 7, -1)[0], W5,
                        [(gmat('e', j), None, 0), (gmat('k', j), 'Z', DE[j])], [(ONE, 'Z', DE[j])]) for j in (0, 1))
-report(f'the two Borel symmetries of the I_- doubled boundary do not combine: rho(k_1) rho~(k_1) = q^4 rho~(k_1) rho(k_1) '
-       f'[{qc:.0e}; commutator {plain:.2f}], while k_1 (x) k_1 and k_1 (x) k_0 commute; any coideal containing both '
-       f'contains e_j (x) 1, which is not a symmetry [residual {r_e1:.2f}]', qc < 1e-10 and plain > 0.1 and r_e1 > 0.5)
+# type I_+: Delta(U_q(b^+)) and (1 (x) tau)Delta(U_q(b^-)); conjugating f_1 (x) k_0^-1 + 1 (x) f_0 by k_1 (x) k_1 isolates
+# 1 (x) f_0, acting as 1 (x) Z on V (x) W and as pi(k_0^-1) (x) Z + pi(f_0) (x) 1 on V' (x) W
+W5p = T_I(0.1, 0.15, 7, 1)[1]
+r_f0 = ls_symmetry(lambda th: T_I(th, 0.15, 7, 1)[0], W5p, [(ONE, 'Z', DF[0])], [(gmat('k', 0, -1), 'Z', DF[0]),
+                                                                                 (gmat('f', 0), None, 0)])
+qn_ = complex(q)
+Ek, Kk2 = np.array([[0, 1], [0, 0]]), np.diag([qn_, 1/qn_])
+ya_, yb_ = np.exp(LAM*(0.3 + 0.1j)), np.exp(LAM*(-0.5 + 0.2j))
+Gk = kron(Kk2, Kk2)
+iso = lambda x_: (Gk @ x_ @ np.linalg.inv(Gk) - x_/qn_**2)/(qn_**2 - qn_**-2)
+alg_ok = (np.allclose(iso(kron(ya_*Ek, np.eye(2)) + kron(Kk2, yb_*Ek.T)), kron(ya_*Ek, np.eye(2)))
+          and np.allclose(iso(kron(Ek.T/ya_, Kk2) + kron(np.eye(2), Ek/yb_)), kron(np.eye(2), Ek/yb_)))
+report(f'the two Borel symmetries do not combine: rho(k_1) rho~(k_1) = q^4 rho~(k_1) rho(k_1) '
+       f'[{qc:.0e}; commutator {plain:.2f}], while k_1 (x) k_1 and k_1 (x) k_0 commute; e_1 (x) 1 = (G x G^-1 - q^-2 x)/'
+       f'(q^2 - q^-2) with G = k_1 (x) k_1, x = e_1 (x) 1 + k_1 (x) e_0, and 1 (x) f_0 likewise from x = f_1 (x) k_0^-1 + '
+       f'1 (x) f_0 (in pi (x) pi: {alg_ok}); neither is a symmetry: e_j (x) 1 for type I_- [residual {r_e1:.2f}], '
+       f'1 (x) f_0 for type I_+ [{r_f0:.2f}]', qc < 1e-10 and plain > 0.1 and r_e1 > 0.5 and r_f0 > 0.5 and alg_ok)
 
+# limits theta_d -> +-inf (prp-diagonal-borel (5)): residuals of the single failing generator of (3), N = 6
+TW = {'e': 'id', 'f': 'tau'}                          # the failing generators of (3): I_- e/id, f/tau; I_+ f/id, e/tau
+TW_P = {'e': 'tau', 'f': 'id'}
+runs = [(sg_, k_, d_*t_) for sg_, k_, d_ in ((-1, 'e', 1), (-1, 'f', -1), (1, 'f', -1), (1, 'e', 1))
+        for t_ in (1.5, 3.0, 4.5)]                     # towards the limit in which the generator's own equation is solvable
+runs += [(-1, 'e', -4.5), (-1, 'f', 4.5), (1, 'f', 4.5), (1, 'e', -4.5)]   # opposite directions
 lim = {}
-for thd_ in (1.5, 3.0, 4.5, -1.5, -3.0, -4.5):
-    W6 = T_I(0.1, thd_, 6, -1)[1]
-    Tf = lambda th: T_I(th, thd_, 6, -1)[0]
-    kind, tw = ('e', 'id') if thd_ > 0 else ('f', 'tau')
-    lim[thd_] = ls_symmetry(Tf, W6, *generator_terms(kind, 1, 1 if tw == 'id' else 0))
-up = [lim[t] for t in (1.5, 3.0, 4.5)]
-dn = [lim[t] for t in (-1.5, -3.0, -4.5)]
-report('limits (N = 6): as theta_d -> +inf the untwisted e-generator is restored (residual '
-       + ', '.join(f'{v:.1e}' for v in up) + ' at theta_d = 1.5, 3, 4.5: the twist line), as theta_d -> -inf the '
-       'tau-twisted f-generator (' + ', '.join(f'{v:.1e}' for v in dn) + ': the charge-conjugation line); decay ~ e^{-lambda |theta_d|}',
-       up[0] > up[1] > up[2] and dn[0] > dn[1] > dn[2] and up[2] < 0.02 and dn[2] < 0.02 and up[1]/up[2] > 4)
+for sign, kind, thd_ in runs:
+    tw = (TW if sign == -1 else TW_P)[kind]
+    W6 = T_I(0.1, thd_, 6, sign)[1]
+    Tf = lambda th: T_I(th, thd_, 6, sign)[0]
+    lim[(sign, kind, thd_)] = ls_symmetry(Tf, W6, *generator_terms(kind, 1, 1 if tw == 'id' else 0))
+seq = {k: [lim[(k[0], k[1], t)] for t in (k[2]*1.5, k[2]*3.0, k[2]*4.5)]
+       for k in ((-1, 'e', 1), (-1, 'f', -1), (1, 'f', -1), (1, 'e', 1))}
+dec_ok = all(v[0] > v[1] > v[2] and v[2] < 0.02 and v[1]/v[2] > 4 for v in seq.values())
+wrong = [lim[(-1, 'e', -4.5)], lim[(-1, 'f', 4.5)], lim[(1, 'f', 4.5)], lim[(1, 'e', -4.5)]]
+nm_ = {(-1, 'e', 1): 'I_- e/id, theta_d > 0', (-1, 'f', -1): 'I_- f/tau, theta_d < 0', (1, 'f', -1): 'I_+ f/id, theta_d < 0',
+       (1, 'e', 1): 'I_+ e/tau, theta_d > 0'}
+report('limits (N = 6, |theta_d| = 1.5, 3, 4.5): single-generator residuals decay like e^{-lambda |theta_d|} towards the '
+       'diagonal limit (twist lines) of I_- at +inf and of I_+ at -inf, and towards the off-diagonal limit (conjugation '
+       'with a charge shift) in the other direction: ' + '; '.join(f'{nm_[k]}: ' + ', '.join(f'{x:.1e}' for x in v)
+                                                                    for k, v in seq.items())
+       + f'; in the opposite directions they stay of order 1 [{min(wrong):.2f}-{max(wrong):.2f} at |theta_d| = 4.5]. '
+       'They measure the approach of the matrix, not a module: see the exact check above', dec_ok and min(wrong) > 0.5)
+report('each charge sector C|n> of the diagonal limit is the twist line of prp-diagonal-coideal: diag(q^-n, q^(n+s)) '
+       'conjugates pi(e_1), pi(e_0), pi(k_1) into t pi(e_1), pi(e_0)/t, pi(k_1), t = q^(-2n-s) (I_-), and diag(q^n, '
+       'q^(-n-s)) with t = q^(2n+s) (I_+), so the sector twist depends on n',
+       all(np.allclose(np.diag([a_, d_]) @ sg(1.3)[('e', 1)] @ np.diag([1/a_, 1/d_]), (a_/d_)*sg(1.3)[('e', 1)])
+           and np.allclose(np.diag([a_, d_]) @ sg(1.3)[('e', 0)] @ np.diag([1/a_, 1/d_]), (d_/a_)*sg(1.3)[('e', 0)])
+           and abs(a_/d_ - q**(-sgn*(2*n_ + 0.3))) < 1e-12
+           for sgn in (1, -1) for n_ in (-2, 0, 3) for a_, d_ in [(q**(-sgn*n_), q**(sgn*(n_ + 0.3)))]))
 
 # control: a particle as a defect has the full diagonal Delta(U) (W = V(theta_d), T = Rc, chi = pi_W)
 Wp = sl2_spin(1, q, np.exp(LAM*(0.15 + 0.2j)))
@@ -668,6 +827,79 @@ dev_sh = max(abs(Tcl(1j*np.pi - th - thd)*KDsh(th, 0.31)*Tcl(th - thd)/Kshg(th, 
              for th in (0.3, 1.1 + 0.2j, -0.6))
 report(f'sinh-Gordon (Bajnok-Simon): Tbar_shG K_D(E) T_shG = K_shG(E, F = 2 i theta_d/pi) of eq-shg-reflection [{dev_sh:.0e}]',
        dev_sh < 1e-12)
+
+# Corrigan-Zambon 1202.6016 in their conventions: T^{b beta}_{a alpha}, rows = incoming (a, alpha), a + alpha = b + beta;
+# (2.9) is the row-incoming product T(theta) R(theta) T(-theta)^-1; x = e^{gamma theta}; Q^alpha = q^{-alpha/2}.
+# On the sector {(+, alpha), (-, alpha+2)}: T = [[a(alpha), b(alpha)], [c(alpha+2), d(alpha+2)]] of (2.14), and the fused
+# matrix is [[r_+(alpha), s_+(alpha)], [s_-(alpha+2), r_-(alpha+2)]] up to a factor common to all sectors.
+Qc, xc, rc_ = np.exp(-0.355j), np.exp(0.41), np.exp(0.23j)
+qc_ = Qc**-2
+Xc = xc**2 - xc**-2
+RDc = np.diag([rc_*xc + 1/(rc_*xc), rc_/xc + xc/rc_])                     # (2.16)
+
+
+def cz_T(xx, A, p):
+    ap, am, bp, bm, cp, cm, dp, dm = p
+    A2 = A*Qc**2                                                       # Q^(alpha+2)
+    return np.array([[ap*A/xx + am*xx/A, bp*A + bm/A], [cp*A2 + cm/A2, dp*A2*xx + dm/(A2*xx)]])
+
+
+def cz_217(A, p):
+    ap, am, bp, bm, cp, cm, dp, dm = p
+    qa = A**-2                                                         # q^alpha
+    g, h = am*dp/qc_ + ap*dm*qc_, bm*cp/qc_ + bp*cm*qc_
+    rp = Xc*(am*dm*qa*qc_*rc_*xc - ap*dp/(qa*qc_*rc_*xc)) + xc*(g*rc_ - h/rc_) + (g/rc_ - h*rc_)/xc
+    rm = Xc*(ap*dp*qc_/qa*xc/rc_ - am*dm*qa/qc_*rc_/xc) + xc*(g/rc_ - h*rc_) + (g*rc_ - h/rc_)/xc
+    sp_ = Xc*(ap*bm/rc_ - am*bp*rc_ - am*bm*qa*rc_ + ap*bp/(qa*rc_))
+    sm_ = Xc*(dm*cp*rc_ - dp*cm/rc_ + dm*cm*qa*rc_ - dp*cp/(qa*rc_))
+    return rp, rm, sp_, sm_
+
+
+def cz_219(A, b, fix_h=False, fix_sign=False):
+    bp, bm = b
+    Bp, Bm = np.conj(bp), np.conj(bm)
+    g = (abs(bp)**2*abs(bm)**2 + 1)*Qc**-2
+    h = -(abs(bm)**2 + abs(bp)**2)*Qc**-2 if fix_h else -(abs(bm)**2*Qc**-2 + abs(bp)**2)*Qc**-2
+    rp = Xc*(bp*Bm*A**2*Qc**-2/(rc_*xc) - Bp*bm*A**-2*Qc**-2*rc_*xc) + xc*(g*rc_ - h/rc_) + (g/rc_ - h*rc_)/xc
+    rm = Xc*(-bp*Bm*A**2*Qc**-6*xc/rc_ + Bp*bm*A**-2*Qc**2*rc_/xc) + xc*(g/rc_ - h*rc_) + (g*rc_ - h/rc_)/xc
+    sp_ = Xc*(bm/rc_ + abs(bp)**2*bm*rc_ + bp*A**2/rc_ + bm**2*Bp*A**-2*rc_)
+    sm_ = (-1 if fix_sign else 1)*Xc*(Bm*Qc**-4*rc_ + abs(bp)**2*Bm*Qc**-4/rc_ + Bm**2*bp*A**2*Qc**-8/rc_ + Bp*A**-2*rc_)
+    return rp, rm, sp_, sm_
+
+
+def cz_dev(p, formula):
+    """max relative spread of fused/formula over all entries of the sectors alpha = 0, 2, 4"""
+    ratios = []
+    for A in (1, Qc**2, Qc**4):
+        F = cz_T(xc, A, p) @ RDc @ np.linalg.inv(cz_T(1/xc, A, p))
+        e0, e2 = formula(A), formula(A*Qc**2)
+        M = np.array([[e0[0], e0[2]], [e2[3], e2[1]]])
+        ratios += list((F/M).ravel())
+    ratios = np.array(ratios)
+    return np.abs(ratios - ratios[0]).max()/abs(ratios[0])
+
+
+rng_cz = np.random.default_rng(7)
+cpx = lambda: complex(rng_cz.normal(), rng_cz.normal())
+ap_, am_, bp_, bm_, cp_, cm_ = (cpx() for _ in range(6))
+gen_p = (ap_, am_, bp_, bm_, cp_, cm_, bp_*cp_/ap_, bm_*cm_/am_)                  # a_+- d_+- = b_+- c_+-
+dev217 = cz_dev(gen_p, lambda A: cz_217(A, gen_p))
+bII = (0.37 + 0.19j, -0.28 + 0.13j)
+Bp_, Bm_ = np.conj(bII[0]), np.conj(bII[1])
+pII = (1, -Bp_*bII[1], bII[0], bII[1], -Bm_*qc_**2, -Bp_, -bII[0]*Bm_*qc_**2, 1)  # type II, CZ p. 5
+devII = {(fh, fs): cz_dev(pII, lambda A, fh=fh, fs=fs: cz_219(A, bII, fh, fs)) for fh in (False, True) for fs in (False, True)}
+dev217II = cz_dev(pII, lambda A: cz_217(A, pII))
+FII = [cz_T(xc, A, pII) @ RDc @ np.linalg.inv(cz_T(1/xc, A, pII)) for A in (1, Qc**2, Qc**4)]
+ratII = [B[0, 0]/B[1, 1] for B in FII]
+report('Corrigan-Zambon 1202.6016: direct fusion (2.9) of their (2.14) (generic, a d = b c) with (2.16) equals (2.17) '
+       f'up to a factor common to all sectors [{dev217:.0e}], also at the type-II parameters [{dev217II:.0e}]; (2.19) as '
+       f'printed fails [{devII[(False, False)]:.2f}], with only h = -(|b_-|^2 + |b_+|^2) Q^-2 [{devII[(True, False)]:.2f}] or '
+       f'only the sign of s_- reversed [{devII[(False, True)]:.2f}] it still fails, with both it holds '
+       f'[{devII[(True, True)]:.0e}]; the type-II diagonal ratio depends on the charge (alpha = 0, 2, 4: '
+       + ', '.join(f'{v:.3f}' for v in ratII) + ')',
+       dev217 < 1e-12 and dev217II < 1e-12 and devII[(True, True)] < 1e-12
+       and min(devII[(False, False)], devII[(True, False)], devII[(False, True)]) > 1e-2
+       and abs(ratII[0] - ratII[1]) > 1e-2)
 
 
 # ================================================================ e. classical: the K-matrix dressed by L_d; BDG

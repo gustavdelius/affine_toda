@@ -1,11 +1,14 @@
 """Figure F41 (chapter 42, sec-jump-coideal, prp-diagonal-borel, tbl-dbd-symmetries): the symmetries of the doubled
 boundary of sine-Gordon lines, and how the type-I_- jump defect interpolates between two invertible lines.
 
-Top: as theta_d -> +infinity the jump defect tends to twist lines (one for each defect charge n), whose doubled
+Top: as theta_d -> +infinity the transmission matrix tends, on each defect charge n, to a twist line, whose doubled
 boundary keeps the twisted diagonal (1 (x) t_n) Delta(U); the transparent line is the twist line with t = 1.  As
-theta_d -> -infinity it tends to the charge-conjugation line, which keeps (1 (x) tau) Delta(U).  At finite theta_d the
-doubled boundary keeps one Borel half of each: Delta(U_q(b^-)) on the Weyl module rho and (1 (x) tau) Delta(U_q(b^+))
-on the second module rho~ (eq-dbd-second-module); no twisted diagonal survives.  Bottom: the probability that a
+theta_d -> -infinity it tends to a charge conjugation dressed by a shift of the defect charge; the charge-conjugation
+line C itself keeps (1 (x) tau) Delta(U).  At finite theta_d the doubled boundary keeps one Borel half of each:
+Delta(U_q(b^-)) on the Weyl module rho and (1 (x) tau) Delta(U_q(b^+)) on the second module rho~
+(eq-dbd-second-module); no twisted diagonal survives, and the other halves do not return in the limits on all of W
+(prp-diagonal-borel (5): the sector twist t_n depends on n, and the charge shift cannot be absorbed into W).
+The arrows mark matrix limits, not restored symmetries.  Bottom: the probability that a
 soliton is converted, |Phi C_n|^2 = Y^2/(1 + Y^2), Y = e^{lambda(theta - theta_d)}, against lambda(theta_d - theta).
 
 Checks: the transmission matrix of defect_common.sg_tmatrix has |C_n/A_n| = Y on every label, and with the scalar
@@ -13,7 +16,8 @@ factor (eq-sgd-scalar) |Phi A_n|^2 + |Phi C_n|^2 = 1 and |Phi C_n|^2 = Y^2/(1 + 
 the limits of prp-defect-twist-limit: for theta - theta_d -> -infinity the V -> V block on a fixed label is diagonal,
 diag(A_n, D_n), and conjugates pi(e_1), pi(e_0), pi(k_1) into t pi(e_1), t^-1 pi(e_0), pi(k_1) with t = A_n/D_n
 (a torus twist t_1 = 1/t_0, depending on n); for theta - theta_d -> +infinity the block is antidiagonal and
-conjugates pi(e_1) into a multiple of pi(e_0) = pi(tau(e_1)) (charge conjugation); the twist line diag(e^{i alpha},
+conjugates pi(e_1) into a multiple of pi(e_0) = pi(tau(e_1)) (charge conjugation, as a matrix on each total-charge
+sector, not a line with W = C); the twist line diag(e^{i alpha},
 e^{-i alpha}) gives t_1 = 1/t_0 = e^{2 i alpha}, and C = sigma_x gives tau exactly.
 
 Writes part8-defects/figures/ch42_f41_doubled_symmetries.svg.
@@ -103,13 +107,13 @@ def half(xc, yc, w, h, text, col, kept):
 
 # left end: charge conjugation
 xl, xr = -3.1, 3.1
-ax.text(xl, 2.75, r"$\theta_d\to-\infty$: conjugation line $C$", ha="center", va="center", fontsize=8)
-ax.text(xl, 2.38, r"$(1\otimes\tau)\Delta(U)$", ha="center", va="center", fontsize=8)
+ax.text(xl, 2.75, r"$\theta_d\to-\infty$: $C$ with a charge shift", ha="center", va="center", fontsize=8)
+ax.text(xl, 2.38, r"line $C$: $(1\otimes\tau)\Delta(U)$", ha="center", va="center", fontsize=8)
 half(xl - 0.6, 1.8, 1.15, 0.42, r"$\mathfrak{b}^+$ half", style.ORANGE, True)
 half(xl + 0.6, 1.8, 1.15, 0.42, r"$\mathfrak{b}^-$ half", style.ORANGE, False)
 # right end: twist lines
 ax.text(xr, 2.75, r"$\theta_d\to+\infty$: twist lines $e^{i\alpha_n\cdot\mu}$", ha="center", va="center", fontsize=8)
-ax.text(xr, 2.38, r"$(1\otimes t_n)\Delta(U)$", ha="center", va="center", fontsize=8)
+ax.text(xr + 0.3, 2.38, r"$(1\otimes t_n)\Delta(U)$, each $n$", ha="center", va="center", fontsize=8)
 ax.text(xr, 1.42, r"$t=1$: the transparent line, $\Delta(U)$", ha="center", va="center", fontsize=7.2)
 half(xr - 0.6, 1.8, 1.15, 0.42, r"$\mathfrak{b}^-$ half", style.BLUE, True)
 half(xr + 0.6, 1.8, 1.15, 0.42, r"$\mathfrak{b}^+$ half", style.BLUE, False)
@@ -117,14 +121,14 @@ half(xr + 0.6, 1.8, 1.15, 0.42, r"$\mathfrak{b}^+$ half", style.BLUE, False)
 ax.text(0, 2.75, r"type-I$_-$ jump, finite $\theta_d$", ha="center", va="center", fontsize=8)
 half(0, 2.12, 2.5, 0.42, r"$\Delta(U_q(\mathfrak{b}^-))$ on $\rho$", style.BLUE, True)
 half(0, 1.55, 2.5, 0.42, r"$(1\otimes\tau)\Delta(U_q(\mathfrak{b}^+))$ on $\tilde\rho$", style.ORANGE, True)
-ax.text(0, 1.08, "no twisted diagonal, and no coideal\ncontaining both halves is a symmetry", ha="center", va="center",
+ax.text(0, 1.08, "no twisted diagonal, no coideal with\nboth halves; dashed halves stay lost", ha="center", va="center",
         fontsize=7.2)
 ax.add_patch(FancyArrowPatch((1.3, 2.12), (xr - 1.2, 1.86), arrowstyle="->", mutation_scale=9, color=style.BLUE, lw=1.0,
                              connectionstyle="arc3,rad=-0.15"))
 ax.add_patch(FancyArrowPatch((-1.3, 1.55), (xl + 0.03, 1.57), arrowstyle="->", mutation_scale=9, color=style.ORANGE,
                              lw=1.0, connectionstyle="arc3,rad=-0.25"))
-ax.text(1.65, 2.36, r"restored as $\theta_d\to+\infty$", color=style.BLUE, ha="center", va="bottom", fontsize=7)
-ax.text(-2.0, 1.22, r"restored as $\theta_d\to-\infty$", color=style.ORANGE, ha="center", va="top", fontsize=7)
+ax.text(1.5, 2.36, r"matrix limit $\theta_d\to+\infty$", color=style.BLUE, ha="center", va="bottom", fontsize=7)
+ax.text(-3.0, 1.22, r"matrix limit $\theta_d\to-\infty$", color=style.ORANGE, ha="center", va="top", fontsize=7)
 
 # bottom: conversion probability
 ax2 = fig.add_axes([0.1, 0.12, 0.82, 0.25])

@@ -1,0 +1,15 @@
+(2.17), general type (2.14): fused = c * formula entry by entry: True;  common factor c = Q**2*a_m*a_p*x**2/((-a_m*b_p + a_p*b_m*x**2)*(-Q**4*a_m*c_p + a_p*c_m*x**2))
+   det of the sector T (CZ Delta) is alpha-independent: True
+type II satisfies a d = b c: True True
+(2.17) with the type-II parameters: fused = c * formula entry by entry: True;  common factor c = Q**2*x**2/((b_+*bb_+ + x**2)*(b_-*bb_- + x**2))
+   g from (2.17) = (b_+*b_-*bb_+*bb_- + 1)/Q**2 ;   h from (2.17) = -(b_+*bb_+ + b_-*bb_-)/Q**2
+(2.19) with h printed, s_- sign +1: fused = c * formula entry by entry: False;  common factor c = Q**4*x**2*(-A**4*b_+*bb_-*x**4 + A**4*b_+*bb_- - A**2*b_+*b_-*bb_+*bb_-*r**2*x**4 - A**2*b_+*b_-*bb_+*bb_-*x**2 - A**2*b_+*bb_+*r**2*x**2 - A**2*b_+*bb_+*x**4 - A**2*b_-*bb_-*r**2*x**2 - A**2*b_-*bb_-*x**4 - A**2*r**2*x**4 - A**2*x**2 + b_-*bb_+*r**2*x**6 - b_-*bb_+*r**2*x**2)/((b_+*bb_+ + x**2)*(b_-*bb_- + x**2)*(-A**4*Q**2*b_+*bb_-*x**4 + A**4*Q**2*b_+*bb_- - A**2*Q**2*b_+*b_-*bb_+*bb_-*r**2*x**4 - A**2*Q**2*b_+*b_-*bb_+*bb_-*x**2 - A**2*Q**2*b_+*bb_+*r**2*x**2 - A**2*Q**2*b_+*bb_+*x**4 - A**2*Q**2*r**2*x**4 - A**2*Q**2*x**2 - A**2*b_-*bb_-*r**2*x**2 - A**2*b_-*bb_-*x**4 + Q**2*b_-*bb_+*r**2*x**6 - Q**2*b_-*bb_+*r**2*x**2))
+(2.19) with h printed, s_- sign -1: fused = c * formula entry by entry: False;  common factor c = Q**4*x**2*(-A**4*b_+*bb_-*x**4 + A**4*b_+*bb_- - A**2*b_+*b_-*bb_+*bb_-*r**2*x**4 - A**2*b_+*b_-*bb_+*bb_-*x**2 - A**2*b_+*bb_+*r**2*x**2 - A**2*b_+*bb_+*x**4 - A**2*b_-*bb_-*r**2*x**2 - A**2*b_-*bb_-*x**4 - A**2*r**2*x**4 - A**2*x**2 + b_-*bb_+*r**2*x**6 - b_-*bb_+*r**2*x**2)/((b_+*bb_+ + x**2)*(b_-*bb_- + x**2)*(-A**4*Q**2*b_+*bb_-*x**4 + A**4*Q**2*b_+*bb_- - A**2*Q**2*b_+*b_-*bb_+*bb_-*r**2*x**4 - A**2*Q**2*b_+*b_-*bb_+*bb_-*x**2 - A**2*Q**2*b_+*bb_+*r**2*x**2 - A**2*Q**2*b_+*bb_+*x**4 - A**2*Q**2*r**2*x**4 - A**2*Q**2*x**2 - A**2*b_-*bb_-*r**2*x**2 - A**2*b_-*bb_-*x**4 + Q**2*b_-*bb_+*r**2*x**6 - Q**2*b_-*bb_+*r**2*x**2))
+(2.19) with h corrected, s_- sign +1: fused = c * formula entry by entry: False;  common factor c = Q**2*x**2/((b_+*bb_+ + x**2)*(b_-*bb_- + x**2))
+(2.19) with h corrected, s_- sign -1: fused = c * formula entry by entry: True;  common factor c = Q**2*x**2/((b_+*bb_+ + x**2)*(b_-*bb_- + x**2))
+   gauge invariants (diag ratio, off-diag product), h printed, s_- sign +1: max rel. dev. 2.03
+   gauge invariants (diag ratio, off-diag product), h corrected, s_- sign +1: max rel. dev. 2
+   gauge invariants (diag ratio, off-diag product), h printed, s_- sign -1: max rel. dev. 0.103
+   gauge invariants (diag ratio, off-diag product), h corrected, s_- sign -1: max rel. dev. 2.63e-16
+type II fused diag ratio r_+(alpha)/r_-(alpha+2) at Q^alpha = 1, Q^2, Q^4: [(0.9924599633724672-0.12256925023316868j), (0.9434540699587081+0.3315032697853057j), (0.9093520469070348+0.4160274687878025j)]
+(2.18), type I (multiplied by x as CZ do): fused = c * formula entry by entry: True;  common factor c = Q**2/((-Q**2*epsilon + x)*(Q**2*epsilon + x))

@@ -1,0 +1,3 @@
+matrix step k_+ + yd^-2 k_- = 4 P_0^+/yd (and the - entry): 2.0e-15
+scalar identity sigma(i lambda theta_d, -i theta) = ... Phi/Phi: max rel. dev. 6.9e-09 (Richardson Phi ~1e-9)
+PASS

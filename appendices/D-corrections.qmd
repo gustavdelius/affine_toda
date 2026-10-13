@@ -152,13 +152,17 @@ Differences of convention are not listed; the dictionaries between conventions a
 
 - **After (3.12), the poles of the scalar factor.** With $z=i(\theta-\nu)/\xi$, the two Gamma functions $\Gamma(\frac12-z+\frac\pi{3\xi})\Gamma(\frac12-z+\frac{2\pi}{3\xi})$ outside the products have their poles at $\nu-i(\frac\xi2+\frac\pi3)$ and $\nu-i(\frac\xi2+\frac{2\pi}3)$, not at the printed $\nu-i(\xi+\frac\pi3)$ and $\nu-i(\xi+\frac{2\pi}3)$, where their arguments are $-\frac12$. With its Gamma functions grouped at equal $k$, (3.12) solves their crossing and bootstrap conditions (3.8) and (3.10) with this $z$, so the slip is in the pole positions. The windows of unstable states derived from them after (3.13), $\frac\pi6<\xi<\frac{2\pi}3$ and $-\frac\pi6<\xi<\frac\pi3$, become $\frac\pi3<\xi<\frac{4\pi}3$ and $-\frac\pi3<\xi<\frac{2\pi}3$. As printed, the products of (3.12) pair Gamma functions with different $k$ and drift like $K^{-2z}$, as in [@cz2009a, eq. (6.10)]. Whether (3.12) is the physical scalar factor has not been checked. *Error* (@sec-a22-transmission; `textbook_code/defect_an_transmission.py`).
 
+**Corrigan and Zambon 2012** [@cz2012], defects in front of sine-Gordon boundaries.
+
+- **(2.19), the type-II fused reflection matrix.** Substituting their type-II parameters into their general fusion formula (2.17) gives, with their $Q^2=q^{-1}$, $h=-(\lvert b_-\rvert^2+\lvert b_+\rvert^2)Q^{-2}$, not the printed $-(\lvert b_-\rvert^2Q^{-2}+\lvert b_+\rvert^2)Q^{-2}$, and every term of $s_-$ with the opposite sign. Their (2.17) agrees with the direct fusion (2.9) of their transmission matrix (2.14) with the Dirichlet matrix (2.16), and with both corrections (2.19) agrees with it entry by entry, up to a factor common to all entries; either correction alone does not suffice. The dependence on the boundary charge that no similarity transformation removes is unaffected. *Misprint* (@sec-defect-boundary-notes; `textbook_code/defect_doubling.py`).
+
 **Vernier, Jacobsen and Saleur 2016** [@vernier2016].
 
 - **(98), the soliton masses of the $a_{2n-1}^{(2)}$ vertex model.** The general formula has $a\pi$ where their cases $n=2$ and $n=3$, (66) and (92), require $(a-1)\pi$. *Misprint.* The corrected closed form agrees to $10^{-30}$ for $n\le8$ with the spectrum of the spinor-soliton S-matrix of Part VI (@sec-a2n-lattice; `foundations_code/vernier/`).
 
 **Bao and Wang 2018** [@bao_wang2018b], quantum symmetric pairs of diagonal type.
 
-- **Remark 4.10(2).** It is made in the finite-type setting of the paper, with "one checks" for the coideal property. Kolb [@kolb2014] and Appel and Vlaar [@appel_vlaar2022] assume an indecomposable Cartan matrix, so their universal K-matrices do not cover the diagonal type of affine algebras, whose Cartan matrix is that of $\hat g\oplus\hat g$. *Clarification* (@sec-diagonal-qsp).
+- **Remark 4.10(2).** It is made in the finite-type setting of the paper, with "one checks" for the coideal property. Kolb [@kolb2014] and Appel and Vlaar [@appel_vlaar2022] assume an indecomposable Cartan matrix, so their constructions of the coideals and of the universal K-matrices, respectively, do not directly cover the diagonal type of affine algebras, whose Cartan matrix is that of $\hat g\oplus\hat g$. *Clarification* (@sec-diagonal-qsp).
 
 **Penati and Polvara 2019** [@penati_polvara2019].
 
