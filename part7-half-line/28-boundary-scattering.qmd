@@ -119,7 +119,7 @@ $$
 K(\theta)\,K(-\theta)=1 ,
 $$ {#eq-boundary-unitarity}
 
-with $K(-\theta):V(-\theta)\to V(\theta)$ in the soliton-preserving case and the obvious modification for conjugating boundaries. As with braiding unitarity (@eq-braiding-unitarity), this is a consistency condition of the exchange algebra and says nothing about an inner product.
+with $K(-\theta):V(-\theta)\to V(\theta)$ in the soliton-preserving case. For a soliton-conjugating boundary the reflected particle is in the conjugate multiplet, and the second reflection is that of the antiparticle: $K_{\bar\mu}(-\theta)K_\mu(\theta)=1$ with $K_{\bar\mu}(-\theta):V_{\bar\mu}(-\theta)\to V_\mu(\theta)$. For the non-diagonal $a_n^{(1)}$ matrices $K_{\bar V}=K^{\rm T}$, not $K$ (@sec-an-nondiagonal-k). As with braiding unitarity (@eq-braiding-unitarity), this is a consistency condition of the exchange algebra and says nothing about an inner product.
 
 Boundary unitarity and the reflection equation leave a large ambiguity: if $K$ is a solution, so is $\Phi_B(\theta)K(\theta)$ for any $\Phi_B$ with $\Phi_B(\theta)\Phi_B(-\theta)=1$, which need not even be meromorphic. On the full line it is crossing that turns the corresponding ambiguity into the discrete CDD ambiguity (@prp-cdd). The boundary has no obvious crossed channel, because a particle cannot be "crossed" into the boundary. Ghoshal and Zamolodchikov found one by exchanging the roles of space and time.
 

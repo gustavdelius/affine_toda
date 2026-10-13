@@ -1,15 +1,22 @@
 project:
   type: book
-  post-render: add-backlinks.py
+  post-render:
+    - add-backlinks.py
+    - add-discovery-metadata.py
   output-dir: _site
 
 book:
   title: "Affine Toda field theory"
   subtitle: "A graduate introduction, leading into current research"
-  author:
-    - Gustav Delius
-    - Niall MacKay
-    - Gerard Watts
+  editor: Gustav Delius
+  description: >-
+    An AI-drafted graduate textbook and research monograph, with scoped
+    subject-matter validation, on affine Toda field theory, integrable quantum
+    field theory, solitons, quantum groups, exact S-matrices and integrable
+    boundaries.
+  site-url: https://gustavdelius.github.io/affine_toda/
+  open-graph: true
+  twitter-card: true
   repo-url: https://github.com/gustavdelius/affine_toda
   output-file: affine-toda
   downloads: [pdf]
@@ -91,6 +98,7 @@ book:
         - part9-foundations/48-scattering.qmd
         - part9-foundations/49-unitarity.qmd
     - outlook/50-outlook.qmd
+    - citation.qmd
     - references.qmd
   appendices:
     - appendices/A-algebra-data.qmd
@@ -100,6 +108,39 @@ book:
 
 bibliography: references.bib
 csl: aps.csl
+nocite: |
+  @*
+lang: en-GB
+keywords:
+  - affine Toda field theory
+  - integrable quantum field theory
+  - sine-Gordon theory
+  - solitons
+  - exact S-matrices
+  - quantum groups
+  - integrable boundaries
+  - non-Hermitian quantum field theory
+
+# A DOI will be added here after the first versioned book release is archived.
+citation:
+  type: book
+  title: "Affine Toda field theory: A graduate introduction, leading into current research"
+  editor:
+    - given: Gustav
+      family: Delius
+  issued: 2026
+  url: https://gustavdelius.github.io/affine_toda/
+  pdf-url: https://gustavdelius.github.io/affine_toda/affine-toda.pdf
+  language: en
+  abstract: >-
+    An AI-drafted graduate textbook and research monograph, with scoped
+    subject-matter validation, covering integrable quantum field theory,
+    solitons, quantum groups, exact S-matrices, integrable boundaries and the
+    foundations of the imaginary-coupling theories.
+  keyword: >-
+    affine Toda field theory; integrable quantum field theory; solitons;
+    quantum groups; exact S-matrices
+appendix-cite-as: false
 
 format:
   html:

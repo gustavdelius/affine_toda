@@ -19,7 +19,7 @@ The steps parallel those of @sec-sm-construction.
 1. **Coideal.** Take the generators $b_j=e_j+q_j^{-1}f_jk_j+\hat\epsilon_jk_j$ of (-@eq-coideal-generators), in the principal gradation, at the physical $q$ (-@eq-q-physical).
 2. **Intertwiner.** Solve the linear equations (-@eq-k-intertwiner) for $K_\mu(\theta):V_\mu(\theta)\to V_{\bar\mu}(-\theta)$ (soliton-conjugating) or $V_\mu(\theta)\to V_\mu(-\theta)$ (soliton-preserving). For most $\hat\epsilon$ there is no solution. The values of $\hat\epsilon$ for which there is one are part of the answer, as in @prp-an-k-existence.
 3. **Reflection equation.** By @thm-k-reflection it holds automatically when the relevant tensor products are irreducible under $B_{\hat\epsilon}$. We check it numerically anyway, which also tests that the R-matrices are in the same conventions.
-4. **Scalar factor.** The physical amplitude is $A(\theta)K(\theta)$. Boundary unitarity, $K(\theta)K(-\theta)=1$, and boundary crossing-unitarity (@sec-boundary-unitarity-crossing) give functional equations for $A$. Their minimal solution is an infinite product of Gamma functions, like the bulk factor of @sec-scalar-factor, and it is unique up to CDD factors.
+4. **Scalar factor.** The physical amplitude is $A(\theta)K(\theta)$. Boundary unitarity (-@eq-boundary-unitarity), which for a soliton-conjugating matrix involves the matrix of the antisoliton, and boundary crossing-unitarity (@sec-boundary-unitarity-crossing) give functional equations for $A$. Their minimal solution is an infinite product of Gamma functions, like the bulk factor of @sec-scalar-factor, and it is unique up to CDD factors.
 5. **Breather test.** The soliton–antisoliton pole of the bulk S-matrix gives, by the boundary bootstrap, the reflection factor of the lowest breather. It must agree with the reflection factor of the lightest particle at real coupling, continued in $\beta$ (@sec-particle-reflection).
 
 Two features have no bulk counterpart. Step 2 constrains the boundary parameters, so the quantum boundary conditions come out of the algebra. And the sign of $q$ is invisible in step 3 for sine-Gordon, so it must be checked in step 4 (@sec-sg-k-from-symmetry).
@@ -125,16 +125,60 @@ With $\Phi=T\theta-\frac{i\pi}2(T-\omega)$, the diagonal entries are $-i\sinh\Ph
 
 ::: {#prp-an-nondiagonal}
 ## The non-diagonal $a_n$ reflection matrices
-**[Numerical]** For $n=2,3,4$: (i) (-@eq-an-k-matrix) is the unique intertwiner $V(\theta)\to\bar V(-\theta)$ for these $\hat\epsilon$; (ii) it solves the twisted reflection equation of @thm-k-reflection for all four pairs $(\mu,\nu)\in\{V,\bar V\}^2$, with constant exactly 1 when $\mu=\nu$; (iii) its matrix part satisfies boundary crossing-unitarity (checked for $n=2,3$); (iv) at $-q$, where the antisoliton is $\bar V(-y)$, the same matrix fails the reflection equation.
+**[Numerical]** For $n=2,3,4$: (i) (-@eq-an-k-matrix) is the unique intertwiner $V(\theta)\to\bar V(-\theta)$ for these $\hat\epsilon$; (ii) it solves the twisted reflection equation of @thm-k-reflection for all four pairs $(\mu,\nu)\in\{V,\bar V\}^2$, with constant exactly 1 when $\mu=\nu$; (iii) its matrix part satisfies boundary crossing-unitarity; (iv) at $-q$, where the antisoliton is $\bar V(-y)$, the same matrix fails the reflection equation.
 :::
 
-Checked in `textbook_code/boundary_coideal.py`. The scalar factor of (-@eq-an-k-matrix) has not been constructed for general $n$; the eigenvalue of $\check R_{\bar V\bar V}$ that appears in crossing-unitarity has no closed form yet.
+Checked in `textbook_code/boundary_coideal.py`, and (iii) with the explicit factor $\Psi_s$ below in `textbook_code/an_nondiagonal_scalar.py`.
+
+**Unitarity.** Let $J$ reverse the order of the basis. Then $J\pi_{\bar V(y)}(x)J=\pi_{V(y)}(\tau x)$ for every generator $x$, where $\tau:j\mapsto n+1-j$ is the reflection of the Dynkin diagram that fixes node 0. So $J$ is charge conjugation. The $\hat\epsilon_j$ of (-@eq-an-k-matrix) are $\tau$-invariant, so $JKJ$ is the intertwiner $\bar V(\theta)\to V(-\theta)$: the antisoliton is reflected by $JKJ$, with the same scalar factor. Since (-@eq-an-k-matrix) is a Toeplitz matrix, $JKJ=K^{\rm T}$. Boundary unitarity (-@eq-boundary-unitarity) is therefore
+$$
+A(\theta)A(-\theta)\,K(-\theta)^{\rm T}K(\theta)=1,\qquad
+K(-\theta)^{\rm T}K(\theta)=U_s\,\mathbf 1,\quad U_s=\frac{s\cosh2T\theta-\cos\pi T}{2\sin^2\frac{\pi\omega}2} .
+$$
+The product $K(\theta)K(-\theta)$ is not a multiple of $\mathbf 1$ for $n\ge2$.
+
+To see that $K(-\theta)^{\rm T}K(\theta)$ is scalar, write $w=(-q)^{1/2}=e^{-i\pi\omega/2}$ and let $Z$ be the cyclic shift of the basis twisted by $s$, so that $Z^N=s$. Then $K$ is a polynomial in $Z$. On the eigenvector of $Z$ with eigenvalue $\zeta$, $\zeta^N=s$, its eigenvalue is
+$$
+\kappa(\zeta)=\frac{(1-sX^N)(X\zeta+q)}{w\,X^{N/2}(w-w^{-1})(X\zeta-1)} .
+$$
+$K(-\theta)^{\rm T}$ has the eigenvalue $\kappa$ with $X\to w^2/X$ and $\zeta\to1/\zeta$, and the product of the two eigenvalues does not depend on $\zeta$.
+
+**Crossing-unitarity.** The matrix part satisfies $k(\theta)=\Psi_s(\theta)\,\check R_{\bar V\bar V}(2\theta)\,k(-\theta)$ with
+$$
+\Psi_+(\mu)=\frac{\sin\pi(\frac\omega2-\mu)}{\sin\pi(\frac\omega2+\mu)},\qquad
+\Psi_-(\mu)=\frac{\cos\pi(\mu-\frac\omega2)}{\cos\pi(\mu+\frac\omega2)},
+$$
+which depend on $n$ only through $T$. The scalar factor therefore has to satisfy
+$$
+A(\mu)A(-\mu)\,U_s=1,\qquad \frac{A(\frac T2-\mu)}{A(\frac T2+\mu)}=\frac{F_{11}(2\mu)}{\Psi_s(\mu)} ,
+$$ {#eq-an-nondiagonal-scalar-eqs}
+in place of (-@eq-an-diagonal-scalar-eqs).
+
+::: {#prp-an-nondiagonal-scalar}
+## The scalar factor of the matrix with $s=+1$
+**[Numerical]** Write (-@eq-an-diagonal-scalar) as $(-\frac T2)_I\,a_1(\mu)$, so that $a_1$ is its infinite product. For $n=2,3,4$,
+$$
+A^{(+)}(\mu)=\frac{\sin\frac{\pi\omega}2}{\sin\pi(\mu-\frac T2)}\prod_{j=1}^\infty\frac{G_j(\mu,\frac\omega2-\frac{3T}2)\,G_j(\mu,1-\frac\omega2-\frac T2)}{G_j(\mu,\frac\omega2-\frac T2)\,G_j(\mu,1-\frac\omega2-\frac{3T}2)}\;a_1(\mu)\,\Big(\frac T2-\frac\omega2\Big)_I\Big(\frac T2+\frac\omega2\Big)_I
+$$ {#eq-an-nondiagonal-scalar}
+satisfies (-@eq-an-nondiagonal-scalar-eqs) with $s=+1$. The lowest breather, the singlet in $V(\theta_a)\otimes\bar V(\theta_b)$, is mapped by $(1\otimes K)\check R(1\otimes K^{\rm T})$ to $c_+(\mu)$ times itself, with
+$$
+c_+(\mu)=-\frac{\cos\pi\mu\,\cos\pi(\mu+\frac\omega2)\,\cos\pi(\mu-T)}{\sin^2\frac{\pi\omega}2\,\cos\pi(\mu-\frac\omega2)},
+$$
+and
+$$
+A^{(+)}(\mu_a)\,F_{11}(2\mu)\,A^{(+)}(\mu_b)\,c_+(\mu)=\Big(-\frac n2\omega\Big)_I\Big(\frac n2\omega-\frac12\Big)_I\Big(\frac12\Big)_I ,\qquad \mu_{a,b}=\mu\mp\Big(\frac T2-\frac12\Big).
+$$ {#eq-an-neumann-breather}
+:::
+
+Checked in `textbook_code/an_nondiagonal_scalar.py`: the functional equations and (-@eq-an-neumann-breather) to $10^{-26}$, with the tails of the infinite products summed by a Stirling series, and the matrix part $c_+$ to $10^{-14}$. The breather identity has also been checked to $10^{-36}$ with an integral representation of the products. Continued by $\omega\to-2/B$, (-@eq-an-neumann-breather) is the Neumann amplitude $K^N_1$ (@sec-neumann-duality).
+
+**CDD factors.** The equations (-@eq-an-nondiagonal-scalar-eqs) fix $A^{(+)}$ up to CDD factors. The last factor of (-@eq-an-nondiagonal-scalar), $(\frac T2-\frac\omega2)_I(\frac T2+\frac\omega2)_I$, is unitary and crossing-symmetric by itself. For odd $n$ it is minus Delius and Gandenberger's $\sigma_c$ of (-@eq-an-cdd) with $c=\frac{n-1}2$. For $n=3$ it is required by Kim's one-loop amplitudes. Without it the continued amplitudes become $K^N_1/k_1$ and $K^N_2/\big(k_1(\theta+\frac{i\pi}4)k_1(\theta-\frac{i\pi}4)\big)$, with $k_1$ the continued $\sigma_1$, and these disagree with [@kim1995, eqs. (33), (39)] at $O(\beta^2)$ (`textbook_code/an_nondiagonal_scalar.py`). For other $n$ it is kept so that the formula is uniform in $n$. It puts a pole at $\theta=i\pi(\frac12-\frac1h)$ in the physical strip, which is present in Gandenberger's $n=2$ amplitude too and has not been explained.
 
 **Gandenberger's solutions.** For $a_2^{(1)}$ Gandenberger found, by solving the reflection equation directly, two non-diagonal solutions $K^\pm$ and a diagonal one $K^d$ [@gandenberger1999a, eqs. (3.7) and (3.10)]. With his $\lambda=\omega$, $\mu=-iT\theta/\pi$ and free parameters $g=h=1$, $K^+$ and $K^-$ are (-@eq-an-k-matrix) with $s=+1$ and $s=-1$, up to transposition, and $K^d$ with $d_1=d_2=1$ is (-@eq-an-diagonal-k) (`textbook_code/boundary_coideal.py`). He later found the non-diagonal solutions for all $n$ [@gandenberger1999b, eqs. (3.3)–(3.4)], again two solutions distinguished by signs; these are the $s=\pm1$ matrices, in the homogeneous as well as the principal gradation (not checked here in his conventions).
 
 **The free parameters are a gauge.** Gandenberger's $g,h$ and $d_1,d_2$, and his $n$ parameters $E_i$ in the general case [@gandenberger1999b, eq. (3.6)], come from a symmetry of the bulk: every $\check R$ commutes with $g\otimes g$ for $g=e^{i\vec a\cdot\vec H}$ in the Cartan torus. So $K\mapsto\pi_{\bar V}(g)\,K\,\pi_V(g)^{-1}$ maps solutions of the reflection equation to solutions. On the coideal it acts as the rescaling $e_j\to s_je_j$, $f_j\to f_j/s_j$ with $\prod_js_j^{n_j}=1$, which changes $c_j$ away from the parity-symmetric value $q_j^{-1}$. Within the parity-symmetric normalization only the discrete signs of $\hat\epsilon_j$ remain, and of those only $s$ is gauge invariant (@prp-an-k-existence). This also resolves Delius and MacKay's remark that at $\hat\epsilon=0$ "$K$ can be an arbitrary diagonal matrix": the other diagonal matrices solve the reflection equation, but intertwine a rescaled coideal. In the language of quantum symmetric pairs the rescaled $c_j$ are Kolb's parameters, and the gauge transformation is Regelskis and Vlaar's dressing (@sec-letzter-kolb).
 
-**Which boundary.** By @cnj-neumann-coideal, $s=+1$ is the Neumann boundary and $\hat\epsilon=0$ the uniform boundary $C\equiv+1$; the evidence is listed in @sec-epsilon-constraint. No boundary condition is known for $s=-1$. Checking the Neumann particle amplitudes against the breather amplitude of (-@eq-an-k-matrix) with $s=+1$ is open for $n\ge3$ (@sec-neumann-duality).
+**Which boundary.** By @cnj-neumann-coideal, $s=+1$ is the Neumann boundary and $\hat\epsilon=0$ the uniform boundary $C\equiv+1$; the evidence is listed in @sec-epsilon-constraint. No boundary condition is known for $s=-1$. The breather amplitude of (-@eq-an-k-matrix) with $s=+1$, continued to real coupling, gives the Neumann particle amplitudes for $n=2,3,4$ (@prp-an-nondiagonal-scalar, @sec-neumann-duality).
 
 **Delius and MacKay's (4.21).** The non-diagonal matrix (4.21) of [@delius_mackay2003] is (-@eq-an-k-matrix) after reversing the order of the basis and substituting $q_{\rm DM}\to-(-q)^{1/2}$, $x\to y$ and $\hat\epsilon_i\to\hat\epsilon_i/\epsilon_*$. Their $(-qx)$ is our $X$. For $s=+1$ the two agree exactly, for $s=-1$ up to a diagonal gauge (`textbook_code/boundary_coideal.py`). The $q$ in their (4.21) is not the $q$ of their representation (4.15): (4.21) solves their own (corrected) equations only after this substitution, which we have checked in their basis for $n\le7$. Read this way, their (4.21) is correct, but the conditions under which they derive it are not (@sec-boundary-qg-notes).
 
@@ -151,6 +195,29 @@ $$ {#eq-dn-vector-r}
 in the homogeneous gradation, with $q\to q^{-1}$ in $\langle a\rangle$ for the Part VI coproduct. The poles of $\langle1\rangle$ and $\langle n-1\rangle$ are the bound states $1+1\to2$ (the antisymmetric tensor) and $1+1\to0$ (a breather in the singlet).
 
 ::: {#prp-dn-r}
+**The scalar factor at $\hat\epsilon=0$.** At $\hat\epsilon=0$ the reflection matrix is $K=A(\theta)J$ with $J$ antidiagonal, with entries $\pm1$, independent of $\theta$, and $J^2=1$ (`textbook_code/dn_uniform.py`). Since $\bar V\cong V$, the same matrix reflects the whole multiplet, and boundary unitarity is $A(\theta)A(-\theta)=1$. In crossing-unitarity the boundary-state vector $\sum_{ab}J_{ba}v_a\otimes v_b=\sum_i\pm v_{-i}\otimes v_{-i}$ has the weights $-2\epsilon_i$. These occur in $V\otimes V$ only in $L(2\omega_1)$, where (-@eq-dn-vector-r) is 1, so the matrix part contributes no factor. With $T=(n-1)\omega=\frac h2\omega$, $\mu=-iT\theta/\pi$ and $g(\mu,c)=\Gamma(\mu+c)/\Gamma(-\mu+c)$, the scalar factor therefore satisfies
+$$
+A(\mu)A(-\mu)=1,\qquad \frac{A(\frac T2-\mu)}{A(\frac T2+\mu)}=F(2\mu),
+$$
+where $F$ is the scalar factor of the vector–vector S-matrix, normalized to 1 on $L(2\omega_1)$:
+$$
+F=\frac{B_{1+T}\,B_{1+\omega}}{B_0\,B_{T-\omega}},\qquad B_a(\mu)=\prod_{k=0}^\infty\frac{g(\mu,a+2Tk)}{g(\mu,a+T+2Tk)} .
+$$
+
+::: {#prp-dn-scalar}
+## The scalar factor of the $d_n$ matrix at $\hat\epsilon=0$
+**[Numerical]** For $n=4,5,6$: $F$ is unitary and satisfies $F(T-\mu)=F(\mu)\,c(-\mu)$ with $c(\mu)=\frac{\sin\pi\mu\,\sin\pi(\mu+T-\omega)}{\sin\pi(\mu+\omega)\,\sin\pi(\mu+T)}$; and
+$$
+A(\mu)=\prod_{k=0}^\infty\frac{g(2\mu,1+3T+4Tk)\,g(2\mu,1+\omega+2T+4Tk)\,g(2\mu,T+4Tk)\,g(2\mu,2T-\omega+4Tk)}{g(2\mu,1+2T+4Tk)\,g(2\mu,1+\omega+T+4Tk)\,g(2\mu,2T+4Tk)\,g(2\mu,3T-\omega+4Tk)}
+$$ {#eq-dn-scalar}
+solves both equations, with $A(0)=1$. Unlike (-@eq-an-diagonal-scalar) it has no prefactor $(-\frac T2)_I$. With the matrix part acting trivially on the singlet, the lowest-breather amplitude is
+$$
+A\Big(\mu-\frac T2+\frac12\Big)F(2\mu)A\Big(\mu+\frac T2-\frac12\Big)=\Big(\frac\omega2-T\Big)_I\Big(\frac12-T\Big)_I\Big(-\frac\omega2-\frac12\Big)_I\,\frac{(\frac T2-\frac\omega2)_I\,(\frac T2+\frac\omega2+\frac12)_I}{(\frac T2)_I\,(\frac T2+\frac12)_I} .
+$$ {#eq-dn-breather}
+:::
+
+Checked in `textbook_code/dn_uniform.py` to $10^{-26}$. The particle amplitude that (-@eq-dn-breather) continues to is in @sec-dn-uniform.
+
 ## The $d_n$ vector R-matrix
 **[Numerical]** For $n=4,5$ the intertwiner $V(z)\otimes V(1)\to V(1)\otimes V(z)$ has eigenvalues $1$, $\langle1\rangle$ and $\langle1\rangle\langle n-1\rangle$ with multiplicities $n(2n+1)-1$, $n(2n-1)$ and 1, as in (-@eq-dn-vector-r).
 :::
@@ -191,7 +258,18 @@ The classical analysis of @sec-boundary-conditions distinguishes two kinds of in
 
 The classical solitons decide which class a boundary is in. For the boundaries of @sec-durham-classification, a soliton returns as an antisoliton [@delius1998a], so the reflection matrix is soliton-conjugating, and the reflection equation that follows from factorization involves four different R-matrices [@delius_mackay2003, eq. (2.8)]. For the boundary of Delius [-@delius1998b] solitons return as solitons, and the reflection equation is Sklyanin's original braid form.
 
-For the soliton-preserving case, de Vega and González-Ruiz found all diagonal solutions for the $a_{n-1}$ vertex models [@devega1993]. In their conventions they are $K_a(\theta)=k\sinh(\xi+\theta)e^\theta$ for $a\le l$ and $K_a(\theta)=k\sinh(\xi-\theta)e^{-\theta}$ for $a>l$, with a discrete parameter $l$ (unchecked in book conventions). The soliton-conjugating reflection equation was studied in the spin-chain setting by Doikou, who called it "soliton non-preserving", in contrast to the "soliton-preserving" case of Delius [@doikou2000; @delius1998b]. The coideals behind the soliton-preserving matrices are of a different type, related to other involutions of $\hat g$; they are part of the classification of @sec-generalized-satake.
+For the soliton-preserving case, de Vega and González-Ruiz found all diagonal solutions for the $a_{n-1}$ vertex models [@devega1993]. In book conventions (principal gradation, $T=\frac h2\omega$) they are
+$$
+K_V(\theta)=\operatorname{diag}\big(e^{a_j\omega\theta}\big)\,\operatorname{diag}\big(\sinh(\eta\pm T\theta)\big) .
+$$
+The upper sign and $a_j=2j$ hold on a block of $l$ consecutive basis vectors, $j=0,\dots,l-1$ (up to a cyclic rotation); the lower sign and $a_j=2j-h$ hold on the rest. The change to the homogeneous gradation, $K\to\operatorname{diag}(y^{-2j})K$, turns this into their form $K_a=e^u\sinh(\xi+u)$ for $a\le l$ and $e^{-u}\sinh(\xi-u)$ for $a>l$, with $u=T\theta$ and $\xi=\eta$, up to a scalar. The antisoliton is reflected by $K_{\bar V}(\theta)=\operatorname{diag}(e^{-a_j\omega\theta})\operatorname{diag}(\sinh(\bar\eta\mp T\theta))$ with $\bar\eta=\eta+i\pi\omega(l-\frac h2)$, which solves the mixed reflection equation for $V$ and $\bar V$. Unitarity is scalar: $K_V(\theta)K_V(-\theta)=\sinh(\eta+T\theta)\sinh(\eta-T\theta)$ (`textbook_code/soliton_preserving.py`).
+
+Two structural facts set these matrices apart from the soliton-conjugating ones for $n\ge2$.
+
+- **No cyclic symmetry.** No member of the family is invariant under the cyclic rotation of the extended Dynkin diagram, even up to a scalar or a diagonal gauge. Invariance would need all ratios $k_j/k_{j+1}$ to be equal, but they are $y^{-2}$ inside the block and different at its ends.
+- **Particles are reflected into their conjugates.** The matrices keep solitons as solitons. So the lowest breather, the singlet in $V(\theta-\frac{iu}2)\otimes\bar V(\theta+\frac{iu}2)$ (@sec-breather-reflection), comes back as the singlet in $\bar V\otimes V$ with the same ordering of rapidities, which is its conjugate. The boundary reflects particle $a$ into particle $h-a$. Dirichlet and Neumann conditions on all components reflect every particle into itself.
+
+So for $n\ge2$ the soliton-preserving matrices describe neither Dirichlet nor Neumann boundaries. For $n=1$, where $\bar V\cong V$, they give Ghoshal and Zamolodchikov's Dirichlet factor. The soliton-conjugating reflection equation was studied in the spin-chain setting by Doikou, who called it "soliton non-preserving", in contrast to the "soliton-preserving" case of Delius [@doikou2000; @delius1998b]. The coideals behind the soliton-preserving matrices are of a different type, related to other involutions of $\hat g$; they are part of the classification of @sec-generalized-satake.
 
 ## Semiclassical check {#sec-boundary-semiclassics}
 
@@ -214,7 +292,7 @@ Delius and Gandenberger state that the scalar factor (-@eq-an-diagonal-scalar) a
 **[Numerical]** For $n=2,3$, $\frac{\beta^2}{4h}\frac{d}{d\theta}\big(-i\ln A\big)$ computed from (-@eq-an-diagonal-scalar) approaches $\ln\big(1+\sin(\pi/h)/\cosh\theta\big)$ as $\omega\to\infty$, with an error decreasing like $1/\omega$.
 :::
 
-Checked in `textbook_code/reflection_matrices.py` at $\omega=40,80,160$. This is the semiclassical counterpart of the assignment of $K=1$ to the uniform boundary. Delius had already compared the semiclassical time delays of [@delius1998a, sec. 5] with the $a_2$ reflection factors of Gandenberger. For the Neumann boundary the time delay is $\frac1{m_a\sinh\theta}\ln(1-s^2)$, a time advance (@sec-images-neumann). The corresponding test of $s=+1$ needs the scalar factor of (-@eq-an-k-matrix), which is open.
+Checked in `textbook_code/reflection_matrices.py` at $\omega=40,80,160$. This is the semiclassical counterpart of the assignment of $K=1$ to the uniform boundary. Delius had already compared the semiclassical time delays of [@delius1998a, sec. 5] with the $a_2$ reflection factors of Gandenberger. For the Neumann boundary the time delay is $\frac1{m_a\sinh\theta}\ln(1-s^2)$, a time advance (@sec-images-neumann). The scalar factor (-@eq-an-nondiagonal-scalar) of $s=+1$ reproduces it: $\frac{\beta^2}{4h}\frac d{d\theta}(-i\ln A^{(+)})\to\frac12\ln\big(1-\sin^2\frac\pi h/\cosh^2\theta\big)$, with errors decreasing like $1/\omega$ at $\omega=40,80,160$ for $n=2,3$ (`textbook_code/an_nondiagonal_scalar.py`). This is the semiclassical counterpart of the assignment of $s=+1$ to the Neumann boundary.
 
 ## Exercises {#sec-soliton-reflection-exercises}
 
