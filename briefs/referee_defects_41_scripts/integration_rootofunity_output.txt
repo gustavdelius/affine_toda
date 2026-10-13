@@ -1,0 +1,6 @@
+q^5=1 (omega=0.6)     : smallest relative sv 2.6e-16, next 0.336 (h = 3, 4, both Borels, V and Vbar)
+q=i (omega=1/2)       : smallest relative sv 3.6e-16, next 0.349 (h = 3, 4, both Borels, V and Vbar)
+omega=1.37 (q^200=1)  : smallest relative sv 3.6e-16, next 0.342 (h = 3, 4, both Borels, V and Vbar)
+q^3=1                 : smallest relative sv 2.7e-16, next 0.372 (h = 3, 4, both Borels, V and Vbar)
+q^4=1                 : smallest relative sv 3.6e-16, next 0.349 (h = 3, 4, both Borels, V and Vbar)
+q^6=1                 : smallest relative sv 3.2e-16, next 0.333 (h = 3, 4, both Borels, V and Vbar)

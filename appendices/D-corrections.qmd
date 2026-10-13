@@ -113,8 +113,8 @@ Differences of convention are not listed; the dictionaries between conventions a
 
 **Corrigan and Zambon 2009a** [@cz2009a], defects in the $a_r$ Toda theories.
 
-- **(6.10), the scalar factor.** The infinite product pairs Gamma functions with different $k$, and its partial products drift like $K^{-z}$; it converges only with a $K$-dependent normalization. Paired at equal $k$ it converges (-@eq-dt-g). *Error* (@sec-transmission-unitarity-crossing; `textbook_code/defect_an_transmission.py`).
-- **Section 6, after (6.15), the unstable windows.** For the "soliton" representations $a<\frac h2$ the window is $\frac1\gamma<a$, not $\frac1\gamma<\frac h2-1$ ($h$ even) or $\frac1\gamma<\frac{h-1}2$ ($h$ odd); the two agree only for the largest such $a$. *Error* (@sec-an-defect-bound-states; `textbook_code/defect_an_transmission.py`).
+- **(6.10), the scalar factor.** The infinite product pairs Gamma functions with different $k$. Divided by its value at $z=0$, its partial product up to $K$ equals the partial product of the equal-$k$ form (-@eq-dt-g) times $\Gamma(A_K-z)/\Gamma(A_K)$, $A_K=\frac12+(hK+\frac r2)\gamma$, which drifts like $(h\gamma K)^{-z}$. So it converges only after this normalization and the removal of the endpoint factor; paired at equal $k$ it converges. *Error* (@sec-transmission-unitarity-crossing; `textbook_code/defect_an_transmission.py`).
+- **(6.15) and after, the unstable windows.** At $\vartheta_a=\frac\pi2$ the energy (6.14) is real, so an unstable state needs $\frac\pi2<\vartheta_a<\pi$, for the pole in the strip next to the real axis, and the windows exclude both ends; (6.15) and the range $(a-h/2)\le1/\gamma<a$ include the lower one. For the "soliton" representations $a<\frac h2$ the window is $\frac1\gamma<a$, not $\frac1\gamma<\frac h2-1$ ($h$ even) or $\frac1\gamma<\frac{h-1}2$ ($h$ odd); the two agree only for the largest such $a$. *Error* (@sec-an-defect-bound-states; `textbook_code/defect_an_transmission.py`).
 
 **Corrigan and Zambon 2009b** [@cz2009b], a new class of integrable defects.
 
@@ -131,6 +131,10 @@ Differences of convention are not listed; the dictionaries between conventions a
 
 - **(2.6) and (4.15), the Borel subalgebra.** Weston calls the type-I defect algebra $U_q(\mathfrak b^+)$, with the coproduct of Part VI. His identification (4.15) includes a transposition (his footnote 10), and transposition exchanges the two Borel subalgebras. In a fixed reading the type-I$_-$ matrix of Bowcock, Corrigan and Zambon intertwines $U_q(\mathfrak b^-)$, and the type-I$_+$ matrix $U_q(\mathfrak b^+)$. *Clarification* (@sec-t-intertwiner, @exr-dq-transpose).
 - **Section 2.4.1, Q-operators as regularized traces.** For the type-I module, $r_1=r_2=0$, at $|q|=1$, the case of sine-Gordon theory, no ordinary twist makes the trace over $\mathbb Z$ converge; it factorizes into a formal series in the twist and the matrix element $\langle0|\cdot|0\rangle$, as Rossi and Weston had found for their bilateral module [@rossi_weston2002, Sec. 4.3, eqs. (5.5)–(5.10)]. This does not affect the existence of formal Q-operators. *Clarification* (@prp-defect-transfer; `textbook_code/defect_transfer.py`).
+
+**Corrigan and Zambon 2011** [@cz2011], the $a_2^{(2)}$ transmission matrix.
+
+- **After (3.12), the poles of the scalar factor.** With $z=i(\theta-\nu)/\xi$, the two Gamma functions $\Gamma(\frac12-z+\frac\pi{3\xi})\Gamma(\frac12-z+\frac{2\pi}{3\xi})$ outside the products have their poles at $\nu-i(\frac\xi2+\frac\pi3)$ and $\nu-i(\frac\xi2+\frac{2\pi}3)$, not at the printed $\nu-i(\xi+\frac\pi3)$ and $\nu-i(\xi+\frac{2\pi}3)$, where their arguments are $-\frac12$. With its Gamma functions grouped at equal $k$, (3.12) solves their crossing and bootstrap conditions (3.8) and (3.10) with this $z$, so the slip is in the pole positions. The windows of unstable states derived from them after (3.13), $\frac\pi6<\xi<\frac{2\pi}3$ and $-\frac\pi6<\xi<\frac\pi3$, become $\frac\pi3<\xi<\frac{4\pi}3$ and $-\frac\pi3<\xi<\frac{2\pi}3$. As printed, the products of (3.12) pair Gamma functions with different $k$ and drift like $K^{-2z}$, as in [@cz2009a, eq. (6.10)]. Whether (3.12) is the physical scalar factor has not been checked. *Error* (@sec-a22-transmission; `textbook_code/defect_an_transmission.py`).
 
 **Vernier, Jacobsen and Saleur 2016** [@vernier2016].
 

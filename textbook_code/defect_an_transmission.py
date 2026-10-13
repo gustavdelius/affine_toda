@@ -13,7 +13,7 @@ Windows: root-lattice balls |N|^2 <= R2 (defect_common.an_root_window); equation
 'deep' labels.  Window sizes (labels/interior/deep): a_2 R2=18: 37/19/7; a_2 R2=14: 31/13/1; a_3 R2=18: 177/55/13;
 a_3 R2=14: 135/43/1; a_4 R2=8: 171/21/1; a_4 R2=12: 331/51/1.
 
-Checks (book ids; 21 PASS lines):
+Checks (book ids; 27 PASS lines):
  (a) eq-dt-weyl: Cartan relations, q-Serre relations and level zero on the Weyl modules of U_q(b^-) and U_q(b^+) for
      a_2, a_3 (orientations +1 and -1, generic s); without the q-powers (orient = 0) q-Serre fails (control).
  (b) prp-an-transmission (1)-(2), eq-dt-tv, eq-dt-tvbar, eq-dt-tplus: the U_q(b^-) intertwiners V (x) W -> W (x) V and
@@ -30,14 +30,19 @@ Checks (book ids; 21 PASS lines):
      the sign of q: dual V(y) = Vbar(y e^{i pi gamma}) with C = 1 at q_phys; at -q_phys no conjugation for h odd and
      C' = diag((-1)^i) for h even; crossing at -q fails with C = 1 (all r) and with C' (h odd), holds with C' (h even);
      the scalar factor g: cz2009a (6.8), (I), (II) to 1e-9 with a real positive c_r (gamma = 1.37, 0.6); cz2009a (6.10) as
-     printed drifts like K^{-z}, eq-dt-g converges; the bootstrap Vbar = Lambda^r V gives M_Vbar with ratio 1 (a_2, a_3).
+     printed: P_K(z)/P_K(0) = prod_{k<K} F_k(z)/F_k(0) Gamma(a_K - z)/Gamma(a_K) exactly, a drift like (h gamma K)^{-z},
+     eq-dt-g converges; the bootstrap Vbar = Lambda^r V gives M_Vbar with ratio 1 (a_2, a_3).
  (e) prp-a2-unstable, eq-dt-pole, eq-dt-window: simple poles of g at theta_1 = Delta - i(pi r/h + pi/(h gamma)) and of gbar
      at Delta - i(pi/h + pi/(h gamma)); det of each charge block of M_V = q^r (1 + (-1/q)^r X^h), rank h - 1 at theta_1
-     (a_2, a_3, a_4); eq-dt-window = cz2009a (6.13)-(6.15) for h = 3..6, the a_2 windows in book labels, and the failure of
-     cz2009a's text; the kernel bootstrap: T_23 Rc_12 on the kernel of M_V(theta_1) is the matrix of the module with
-     offset s + lambda_1 with X^h -> q^2 X^h, theta_d -> theta_d + 2 pi i/h (a_2, s = 0 and lambda_1).
+     (a_2, a_3, a_4); eq-dt-window, open at both ends, from the signs of E at the poles (6.13) for the pole in the strip
+     -pi/2 < Im theta_a < 0 (h = 3..6), Im E = 0 at the end 1/gamma = a - h/2 (included by cz2009a (6.15)), the signs recur
+     in remote strips, the a_2 windows in book labels, and the failure of cz2009a's text; the kernel of the residue:
+     T_23 Rc_12 on the kernel of M_V(theta_1) is the matrix of the module with offset s + lambda_1 with X^h -> q^2 X^h
+     (a_2, s = 0 and lambda_1); the shift theta_d -> theta_d + 2 pi i/h + 2 pi i k/(h gamma) is fixed only up to the integer k,
+     and k = 0, 1 give opposite signs of Im E at the a_5 real-absorption candidate (species 1, class 1).
  (f) prp-transmission-semiclassical: (2 pi/(h(gamma + 1))) d arg g/d theta -> ln|z_1(theta - theta_d)| of eq-dc-ar-delay
-     (a_2, a_3; g and gbar), deviations at gamma = 10, 40, 160 decreasing like 1/gamma; arg z_1(theta_d) = pi/h.
+     (a_2, a_3; g and gbar), deviations at gamma = 10, 40, 160 decreasing like 1/gamma; arg z_1(theta_d) = pi/h; the
+     conversion threshold of exr-dt-semiclassical for a soliton a distance eps inside the edge of its sector.
  (g) prp-a22-transmission: CZ 2011's U_q(a_2^(2)) (d = (4, 1)) in Part VI form; 3-dim representation; Borel module with
      F(N) = f1 q^{-2N-1} + f2 q^{2N+1} (quintic q-Serre included), F = 1 and (-1)^N fail; unique U_q(b^+) intertwiners for
      four (f1, f2); triangle relation with rcheck (control: perturbed R); conjugation dual V(x) = V(x x_c), x_c = -q^-6,
@@ -45,7 +50,17 @@ Checks (book ids; 21 PASS lines):
  (h) prp-an-transmission (4), the selection rule: M_V has only v_i -> v_i, v_{i-1} (pi); M_Vbar has all h entries,
      |entry j| = |X|^j; the classically forbidden ones (1 <= j <= h - 2) relative to the largest vanish as gamma -> oo at
      fixed theta != theta_d and equal 1 at theta = theta_d; for r >= 2 the matrix part is not unitary for real theta.
-Runtime: about 100 seconds.
+ (i) prp-an-transmission (2)-(3), eq-dt-reversed, uniqueness for every r: exact (Fractions, q = 2) loop conditions on one
+     sector leave a one-dimensional space for a_2, a_3, both types, V and Vbar, s = 0 and generic; hypothesis (ii) of
+     thm-t-triangle for a_2 (81 unknowns, nullity 1); the closed forms satisfy the sector equations exactly (h = 3, 4, 5);
+     the structure of Omega_j used in the proof for every r (h = 3..6); the sector determinants, independent of sector and s;
+     eq-dt-reversed (exact) and its coefficient qX in the basis q^{-|n|^2/2}|n> (cz2007 (5.10)); the type-I_+ intertwiner for
+     V as the inverse of eq-dt-reversed with offset -s, labels -N, X -> -X_+ (Chevalley involution; exact, h = 3..6); at
+     q^5 = 1 the shift by 5 alpha_1 commutes with W, and charge-conserving intertwiners are still unique (q^5 = 1, gamma = 1.37).
+ (j) cz2011 (3.12): with z = i(theta - nu)/xi and the Gamma functions grouped at equal k, rho-hat solves (3.8) and (3.10);
+     its outside Gamma functions have poles at nu - i(xi/2 + pi/3), nu - i(xi/2 + 2 pi/3), not at the printed xi; the
+     decaying-energy windows pi/3 < xi < 4 pi/3 and -pi/3 < xi < 2 pi/3; as printed the products drift like K^{-2z}.
+Runtime: about 200 seconds.
 """
 import time
 import numpy as np
@@ -360,6 +375,15 @@ def lg_book(z, r, gam, K):
     return np.sum(loggamma(a + z) + loggamma(a - z) - loggamma(b + z) - loggamma(b - z) - 2*loggamma(a) + 2*loggamma(b))
 
 
+# exact finite identity: P_K(z)/P_K(0) = prod_{k<K} F_k(z)/F_k(0) * Gamma(a_K - z)/Gamma(a_K), a_K = 1/2 + (hK + r/2) gamma
+idk = 0
+for r in (1, 2, 3, 4):
+    for gam in (LAM, 0.6):
+        for z in (0.43 + 0.72j, -0.31 + 1.1j, 0.2 - 0.4j):
+            for K in (3, 17, 60):
+                aK = 0.5 + ((r + 1)*K + r/2)*gam
+                d = (lg_cz(z, r, gam, K) - lg_cz(0, r, gam, K)) - (lg_book(z, r, gam, K) + loggamma(aK - z) - loggamma(aK))
+                idk = max(idk, abs(complex(d.real, (d.imag + np.pi) % (2*np.pi) - np.pi)))       # log defined mod 2 pi i
 dcz = []; dbk = []
 for r in (2, 3):
     for D in (0.3, -0.7):
@@ -367,9 +391,10 @@ for r in (2, 3):
         K = 2000
         d = (lg_cz(z, r, LAM, 2*K) - lg_cz(z, r, LAM, K)) - (lg_cz(0, r, LAM, 2*K) - lg_cz(0, r, LAM, K))
         dcz.append(abs(d + z*np.log(2))); dbk.append(abs(lg_book(z, r, LAM, 2*K) - lg_book(z, r, LAM, K)))
-report(f'cz2009a (6.10) as printed: between cutoffs K = 2000 and 2K the z-dependent part of its logarithm changes by '
-       f'-z ln 2 [{max(dcz):.0e}] (|z ln 2| = 0.7 at D = 0.3), a drift like K^-z; paired at equal k (eq-dt-g) the '
-       f'change is {max(dbk):.0e} = O(1/K)', max(dcz) < 1e-3 and max(dbk) < 1e-3)
+report(f'cz2009a (6.10) as printed: P_K(z)/P_K(0) = prod_(k<K) F_k(z)/F_k(0) Gamma(a_K - z)/Gamma(a_K) exactly '
+       f'(r = 1..4, two couplings, three z, K = 3, 17, 60) [{idk:.0e}]; between cutoffs K = 2000 and 2K the z-dependent part '
+       f'of its logarithm changes by -z ln 2 [{max(dcz):.0e}] (|z ln 2| = 0.7 at D = 0.3), a drift like (h gamma K)^-z; paired '
+       f'at equal k (eq-dt-g) the change is {max(dbk):.0e} = O(1/K)', idk < 1e-9 and max(dcz) < 1e-3 and max(dbk) < 1e-3)
 
 
 def fusion_map(r, qq, yy, shifts):
@@ -460,25 +485,36 @@ report('eq-dt-pole: g has a simple pole at theta_1 = Delta - i(pi r/h + pi/(h ga
        'so the residue has rank h - 1 in every sector: ' + '; '.join(outp), okp)
 
 
+def theta_pole(a, h, gam, eta=0.4):
+    return eta + 1j*np.pi/2 - 1j*(np.pi*(h - a)/h + np.pi/(h*gam))      # cz2009a (6.13), Delta = eta + i pi/2
+
+
 def unstable(a, h, gam, eta=0.4):
-    th = eta + 1j*np.pi/2 - 1j*(np.pi*(h - a)/h + np.pi/(h*gam))      # cz2009a (6.13), Delta = eta + i pi/2
+    """Re E > 0 and Im E < 0 (strictly), for the pole in the strip -pi/2 < Im theta_a < 0 next to the real axis."""
+    th = theta_pole(a, h, gam, eta)
     E = np.cosh(th)
-    return E.real > 0 and E.imag <= 1e-14
+    return E.real > 1e-14 and E.imag < -1e-14 and -np.pi/2 < th.imag < 0
 
 
 gams = np.exp(np.linspace(np.log(0.3), np.log(50), 4001))      # theta_a stays in the strip Im < 2 pi
 okw = True
 for h in (3, 4, 5, 6):
     for a in range(1, h):
-        pred = np.array([max(0, a - h/2) <= 1/g_ < a for g_ in gams])
-        okw &= np.array_equal(pred, np.array([unstable(a, h, g_) for g_ in gams]))
+        gg = [g_ for g_ in gams if min(abs(1/g_ - a), abs(1/g_ - a + h/2)) > 1e-9]       # the ends are tested below
+        pred = np.array([max(0, a - h/2) < 1/g_ < a for g_ in gg])
+        okw &= np.array_equal(pred, np.array([unstable(a, h, g_) for g_ in gg]))
+ends = [np.cosh(theta_pole(a, h, 1/(a - h/2))) for h in (3, 4, 5, 6) for a in range(1, h) if a > h/2]
+far = np.cosh(theta_pole(1, 3, 1/6.5, 0.7))           # 1/gamma = 6.5: decaying signs, but the pole is 2 pi i further down
 s1 = [g_ for g_ in gams if unstable(1, 3, g_)]; s2 = [g_ for g_ in gams if unstable(2, 3, g_)]
 text = [g_ for g_ in gams if 1/g_ < 2 and not unstable(1, 5, g_)]
-report(f'eq-dt-window = cz2009a (6.13)-(6.15) re-derived: species a is unstable iff max(0, a - h/2) <= 1/gamma < a (h = 3..6); a_2 in '
-       f'book labels: species 1 for gamma > {min(s1):.3f}, species 2 for {min(s2):.3f} < gamma <= {max(s2):.3f} '
-       f'(the window of cz2007, whose species 1 is book species 2); the text of cz2009a, "1/gamma < (h-1)/2", fails for a_4, a = 1, at '
-       f'{len(text)} grid points with 1 <= 1/gamma < 2', okw and abs(min(s1) - 1) < 3e-3 and abs(min(s2) - 0.5) < 3e-3
-       and abs(max(s2) - 2) < 3e-3 and len(text) > 0)
+report(f'eq-dt-window = cz2009a (6.13)-(6.14) re-derived: for the pole in -pi/2 < Im theta_a < 0, species a is unstable iff '
+       f'max(0, a - h/2) < 1/gamma < a (h = 3..6), both ends excluded: at 1/gamma = a - h/2 the pole is real, |Im E| <= '
+       f'{max(abs(e.imag) for e in ends):.0e} (cz2009a (6.15) includes this end); outside that strip the signs recur (h = 3, a = 1, '
+       f'1/gamma = 6.5: E/M = {far:.3f}); a_2 in book labels: species 1 for gamma > {min(s1):.3f}, species 2 for {min(s2):.3f} < '
+       f'gamma < {max(s2):.3f} (the window of cz2007, whose species 1 is book species 2); the text of cz2009a, "1/gamma < (h-1)/2", '
+       f'fails for a_4, a = 1, at {len(text)} grid points with 1 <= 1/gamma < 2',
+       okw and max(abs(e.imag) for e in ends) < 1e-14 and far.real > 0 and far.imag < 0 and abs(min(s1) - 1) < 3e-3
+       and abs(min(s2) - 0.5) < 3e-3 and abs(max(s2) - 2) < 3e-3 and len(text) > 0)
 
 # kernel bootstrap (a_2): T_23 Rc_12 on the kernel of M_V(theta_1) in V(theta_1) (x) W, classes 0 -> 1 and 1 -> 2
 def cycle(Ad, Cd, i, Qk, h):
@@ -531,6 +567,19 @@ report(f'prp-a2-unstable (3): at theta_1 the kernel of M_V in V(theta_1) (x) W i
        f'[{max(k[3] for k in kb):.0e}], and q^2 times its cycle invariant at the same theta_d [{max(k[4] for k in kb):.0e}]: '
        f'X^h -> q^2 X^h, theta_d -> theta_d + 2 pi i/h (a_2, classes 0 -> 1 and 1 -> 2)',
        all(k[0] < 1e-12 and k[1] < 1e-10 and k[2] == [0, 2] and k[3] < 1e-10 and k[4] < 1e-10 for k in kb))
+# the matrix part fixes the shift of theta_d only modulo 2 pi i/(h gamma); the representatives give different candidate poles
+okk = True
+for h in (3, 4, 6):
+    for gam in (1.37, 0.6, 7.3):
+        okk &= all(abs(np.exp(-h*gam*(2j*np.pi/h + 2j*np.pi*k/(h*gam))) - q_phys(gam)**2) < 1e-12 for k in range(-2, 3))
+h6 = [theta_pole(1, 6, LAM, 0.7) + 2j*np.pi/6 + 2j*np.pi*k/(6*LAM) for k in (0, 1)]       # a = p = 1 of a_5: a + 2p = h/2
+E6 = [np.cosh(t) for t in h6]
+report(f'the kernel fixes theta_d -> theta_d + 2 pi i/h + 2 pi i k/(h gamma) only up to the integer k: every k gives X^h -> q^2 X^h '
+       f'(h = 3, 4, 6; gamma = 1.37, 0.6, 7.3; k = -2..2), and each tends to 2 pi i/h as gamma -> oo; with g(theta - shift), '
+       f'species 1 of a_5 in class 1 has its pole at theta_d - i pi/(h gamma) for k = 0 (E/M = {E6[0]:.4f}) and at '
+       f'theta_d + i pi/(h gamma) for k = 1 (E/M = {E6[1]:.4f}): opposite signs of Im E',
+       okk and abs(h6[0] - (0.7 - 1j*np.pi/(6*LAM))) < 1e-12 and abs(h6[1] - (0.7 + 1j*np.pi/(6*LAM))) < 1e-12
+       and E6[0].imag < 0 < E6[1].imag)
 print(f'# (e) done after {time.time() - T0:.0f} s')
 
 
@@ -555,10 +604,19 @@ for r in (2, 3):
 okf = all(devs[(r, 160.0)][0] < 0.01 and devs[(r, 160.0)][1] < 0.01 and 3 < devs[(r, 10.0)][0]/devs[(r, 40.0)][0] < 5
           and 3 < devs[(r, 40.0)][0]/devs[(r, 160.0)][0] < 5 for r in (2, 3))
 argz = max(abs(np.angle(zcl(0.0, 1, h)) - np.pi/h) for h in (3, 4, 5))
+thr = 0                                                     # exr-dt-semiclassical: arg z_1(u_*) = eps at the threshold u_*
+for h in (3, 4, 5, 8):
+    for eps in (0.03, 0.2, np.pi/(2*h), np.pi/h):
+        ustar = -0.5*np.log(np.sin(2*np.pi/h)/np.tan(eps) - np.cos(2*np.pi/h))
+        thr = max(thr, abs(np.angle(zcl(ustar, 1, h)) - eps), max(ustar, 0))
+    us = np.linspace(-6, 6, 1201)
+    thr = max(thr, 0 if np.all(np.diff(np.angle(zcl(us, 1, h))) > 0) else 1)
 report('prp-transmission-semiclassical: (2 pi/(h(gamma + 1))) d arg g/d theta -> ln|z_1(theta - theta_d)| (eq-dc-ar-delay), '
        'deviations (g, gbar) at gamma = 10, 40, 160: '
        + '; '.join(f'a_{r}: ' + ', '.join(f'{devs[(r, gm)][0]:.4f}/{devs[(r, gm)][1]:.4f}' for gm in (10.0, 40.0, 160.0))
-                   for r in (2, 3)) + f'; arg z_1(theta_d) = pi/h [{argz:.0e}]', okf and argz < 1e-14)
+                   for r in (2, 3)) + f'; arg z_1(theta_d) = pi/h [{argz:.0e}]; arg z_1 increases with theta, and a soliton a '
+       f'distance eps inside the edge of its sector converts iff theta - theta_d > -ln(sin(2 pi/h)/tan eps - cos(2 pi/h))/2 <= 0 '
+       f'(h = 3, 4, 5, 8) [{thr:.0e}]', okf and argz < 1e-14 and thr < 1e-12)
 print(f'# (f) done after {time.time() - T0:.0f} s')
 
 
@@ -763,4 +821,345 @@ for r in (2, 3):
             nonu.append(np.abs(G - np.diag(np.diag(G))).max()/abs(G[0, 0]))
 report(f'for r >= 2 the matrix part is not unitary for real theta: M^+ M has off-diagonal entries of relative size '
        f'{min(nonu):.2f} or more in every block tested (a_2, a_3), unlike sine-Gordon (ch. 37)', min(nonu) > 0.1)
+print(f'# (h) done after {time.time() - T0:.0f} s')
+
+
+# ---------------------------------------------------------------- (i) uniqueness for every r: sector machinery
+# A charge-conserving map P (x) W -> W (x) P is a family of d x d blocks between the sectors of total charge Q (states
+# p (x) |Q - wt(p)>).  Exact version: Fractions at a rational point (q = 2), integer labels N (sum free), offsets t_c = q^{s_c}.
+from fractions import Fraction as Fr
+import itertools
+
+
+def qp(qq, n):
+    return qq**n if n >= 0 else 1/qq**(-n)
+
+
+def alph(h, j):
+    a = [0]*h
+    if j == 0:
+        a[h - 1] += 1; a[0] -= 1
+    else:
+        a[j - 1] += 1; a[j] -= 1
+    return tuple(a)
+
+
+def mmul(A, B):
+    return [[sum((A[i][k]*B[k][j] for k in range(len(B))), 0*A[0][0]) for j in range(len(B[0]))] for i in range(len(A))]
+
+
+def minv(A):
+    n = len(A); M = [list(A[i]) + [1 if i == j else 0 for j in range(n)] for i in range(n)]
+    for c in range(n):
+        pv = next(i for i in range(c, n) if M[i][c] != 0); M[c], M[pv] = M[pv], M[c]
+        pc = M[c][c]; M[c] = [x/pc for x in M[c]]
+        for i in range(n):
+            if i != c and M[i][c] != 0:
+                f_ = M[i][c]; M[i] = [a - f_*b for a, b in zip(M[i], M[c])]
+    return [row[n:] for row in M]
+
+
+def xrank(rows, nc):
+    M = [list(r) for r in rows if any(x != 0 for x in r)]; rk = 0
+    for c in range(nc):
+        pv = next((i for i in range(rk, len(M)) if M[i][c] != 0), None)
+        if pv is None:
+            continue
+        M[rk], M[pv] = M[pv], M[rk]; pc = M[rk][c]; M[rk] = [x/pc for x in M[rk]]
+        for i in range(len(M)):
+            if i != rk and M[i][c] != 0:
+                f_ = M[i][c]; M[i] = [a - f_*b for a, b in zip(M[i], M[rk])]
+        rk += 1
+    return rk
+
+
+def prep(h, qq, yy, conj):
+    """V(y) or Vbar(y) as in an_vector: node j moves v_j <-> v_{j+1} (node 0: v_h <-> v_1)."""
+    zero = 0*qq
+    R = {'dim': h, 'wt': [tuple((-1 if conj else 1)*(c == i) for c in range(h)) for i in range(h)]}
+    for j in range(h):
+        a, b = (h - 1, 0) if j == 0 else (j - 1, j)
+        F = [[zero]*h for _ in range(h)]; E = [[zero]*h for _ in range(h)]
+        if conj:
+            F[a][b] = 1/yy; E[b][a] = yy
+        else:
+            F[b][a] = 1/yy; E[a][b] = yy
+        al = alph(h, j)
+        K_ = [[zero]*h for _ in range(h)]
+        for i in range(h):
+            K_[i][i] = qp(qq, sum(x*w for x, w in zip(al, R['wt'][i])))
+        R[('f', j)], R[('e', j)], R[('k', j)] = F, E, K_
+    return R
+
+
+def ptensor(A, B):
+    dA, dB = A['dim'], B['dim']
+    kron = lambda X, Y: [[X[i1][j1]*Y[i2][j2] for j1 in range(dA) for j2 in range(dB)] for i1 in range(dA) for i2 in range(dB)]
+    IA = [[1 if i == j else 0 for j in range(dA)] for i in range(dA)]; IB = [[1 if i == j else 0 for j in range(dB)] for i in range(dB)]
+    R = {'dim': dA*dB, 'wt': [tuple(x + y for x, y in zip(wa, wb)) for wa in A['wt'] for wb in B['wt']]}
+    for j in range(len(A['wt'][0])):
+        add = lambda X, Y: [[x + y for x, y in zip(r1, r2)] for r1, r2 in zip(X, Y)]
+        R[('e', j)] = add(kron(A[('e', j)], IB), kron(A[('k', j)], B[('e', j)]))
+        R[('f', j)] = add(kron(A[('f', j)], minv(B[('k', j)])), kron(IA, B[('f', j)]))
+        R[('k', j)] = kron(A[('k', j)], B[('k', j)])
+    return R
+
+
+class Wmod:
+    """eq-dt-weyl with integer labels N: x_j|N> = m q^{orient n_{j+1}} |N + sign alpha_j>, k_j|N> = q^{alpha_j.n}, q^{n_c} = t_c q^{N_c};
+    x = f (sign -1, U_q(b^-)) or e (sign +1, U_q(b^+))."""
+    def __init__(self, h, qq, m, t, sign, orient=1):
+        self.h, self.q, self.m, self.t, self.sign, self.orient = h, qq, m, t, sign, orient
+
+    def qn(self, N, c):
+        return self.t[c]*qp(self.q, N[c])
+
+    def k(self, j, N):
+        out = 1
+        for c, x in enumerate(alph(self.h, j)):
+            if x:
+                out = out*self.qn(N, c)**x
+        return out
+
+    def x(self, j, N):
+        al = alph(self.h, j); c2 = al.index(-1)
+        return self.m*self.qn(N, c2)**self.orient, tuple(n + self.sign*x for n, x in zip(N, al))
+
+
+def smap(P, W, j, Q, pfirst):
+    """Block of Delta(x_j) from the sector Q of P (x) W (pfirst) or W (x) P to the sector Q + sign alpha_j."""
+    al = alph(W.h, j); Qn = tuple(c + W.sign*x for c, x in zip(Q, al)); d = P['dim']
+    src = [(p, tuple(c - w for c, w in zip(Q, P['wt'][p]))) for p in range(d)]
+    look = {(p, tuple(c - w for c, w in zip(Qn, P['wt'][p]))): p for p in range(d)}
+    M = [[0*W.q]*d for _ in range(d)]
+    X = 'f' if W.sign == -1 else 'e'
+    for i, (p, N) in enumerate(src):
+        cW, N2 = W.x(j, N); kW = W.k(j, N); kP = P[('k', j)][p][p]
+        for p2 in range(d):
+            a_ = P[(X, j)][p2][p]
+            if a_ != 0:
+                # f: f x k^-1 + 1 x f;  e: e x 1 + k x e  (particle first), and the mirror forms for W (x) P
+                M[look[(p2, N)]][i] += (a_/kW if pfirst else a_) if X == 'f' else (a_ if pfirst else kW*a_)
+        M[look[(p, N2)]][i] += (cW if pfirst else cW/kP) if X == 'f' else (kP*cW if pfirst else cW)
+    return M, Qn
+
+
+def spath(P, W, Q, nodes, pfirst):
+    d = P['dim']; M = [[1 if i == j else 0 for j in range(d)] for i in range(d)]
+    for j in nodes:
+        A, Q = smap(P, W, j, Q, pfirst); M = mmul(A, M)
+    return M, Q
+
+
+def loop_rows(Ps, Pt, W, Q):
+    """Linear conditions L_B T = T L_A on the block T_Q, for the commutator loops of two nodes and the loop through all nodes."""
+    h = W.h; d = Ps['dim']; rows = []
+    loops = [(list(jk), list(jk[::-1])) for jk in itertools.combinations(range(h), 2)] + [(list(range(h)), None)]
+    for a_, b_ in loops:
+        LA, LB = spath(Ps, W, Q, a_, True)[0], spath(Pt, W, Q, a_, False)[0]
+        if b_ is not None:
+            LA = mmul(minv(spath(Ps, W, Q, b_, True)[0]), LA); LB = mmul(minv(spath(Pt, W, Q, b_, False)[0]), LB)
+        for i in range(d):
+            for k in range(d):
+                r_ = [0*W.q]*(d*d)
+                for c in range(d):
+                    r_[c*d + k] += LB[i][c]; r_[i*d + c] -= LA[c][k]
+                rows.append(r_)
+    return rows
+
+
+def closed_block(h, qq, X, t, Q, kind):
+    """Blocks of eq-dt-tv ('V'), eq-dt-tvbar ('Vbar'), eq-dt-tplus ('Vbar+'), eq-dt-reversed ('rev') on the sector Q."""
+    T = [[0*qq]*h for _ in range(h)]
+    for i in range(h):
+        N = tuple(Q[c] + (c == i)*(-1 if kind == 'V' else 1) for c in range(h))
+        qn = lambda c: t[c]*qp(qq, N[c])
+        if kind == 'V':
+            T[i][i] = 1/qn(i); T[(i - 1) % h][i] = X
+        elif kind == 'Vbar':
+            pw = 1
+            for j in range(h):
+                b = (i + j) % h; pw = pw*qn(b); T[b][i] = X**j*pw
+        elif kind == 'Vbar+':
+            b = (i - 1) % h; T[i][i] = 1/qn(i); T[b][i] = X*qn(i)/qn(b)/qq
+        else:
+            b = (i + 1) % h; T[i][i] = qn(i); T[b][i] = X*qn(i)/qn(b)
+    return T
+
+
+t1 = time.time()
+qx, mx, yx = Fr(2), Fr(3, 7), Fr(5, 4)
+TT = {3: (Fr(3, 2), Fr(5, 7), Fr(14, 15)), 4: (Fr(3, 2), Fr(5, 7), Fr(2, 3), Fr(7, 5))}
+nul = []
+for h in (3, 4):
+    for t in ((Fr(1),)*h, TT[h]):
+        for sign in (-1, 1):
+            for conj in (False, True):
+                P = prep(h, qx, yx, conj)
+                nul.append(h*h - xrank(loop_rows(P, P, Wmod(h, qx, mx, t, sign), tuple([1] + [0]*(h - 1))), h*h))
+nul2 = []
+for t in ((Fr(1),)*3, TT[3]):
+    P12 = ptensor(prep(3, qx, yx, False), prep(3, qx, Fr(11, 3), False))
+    P21 = ptensor(prep(3, qx, Fr(11, 3), False), prep(3, qx, yx, False))
+    nul2.append(81 - xrank(loop_rows(P12, P21, Wmod(3, qx, mx, t, -1), (1, 1, -2)), 81))
+okx = True                           # existence: the closed forms satisfy the sector equations exactly
+for h in (3, 4, 5):
+    t = (Fr(3, 2), Fr(5, 7)) + (Fr(1),)*(h - 3) + (Fr(14, 15),)
+    for kind, sign, conj in (('V', -1, False), ('Vbar', -1, True), ('Vbar+', 1, True)):
+        W = Wmod(h, qx, mx, t, sign); P = prep(h, qx, yx, conj)
+        X = -(qx - 1/qx)*mx*yx if sign == -1 else (qx - 1/qx)*mx/yx
+        for Q in (tuple([1] + [0]*(h - 1)), tuple([2, -1] + [0]*(h - 2))):
+            for j in range(h):
+                A, Qn = smap(P, W, j, Q, True); B, _ = smap(P, W, j, Q, False)
+                okx &= mmul(closed_block(h, qx, X, t, Qn, kind), A) == mmul(B, closed_block(h, qx, X, t, Q, kind))
+report(f'prp-an-transmission (3), exact: on one sector the loop conditions (commutator loops and the loop through all nodes) '
+       f'leave a one-dimensional space for a_2 and a_3, both types, V and Vbar, s = 0 and a generic offset (nullities {set(nul)}; '
+       f'q = 2, rational parameters, so by semicontinuity for generic ones); hypothesis (ii) of thm-t-triangle for a_2, '
+       f'V(y1) (x) V(y2) (x) W -> W (x) V(y2) (x) V(y1): nullity {set(nul2)} (81 unknowns); eq-dt-tv, eq-dt-tvbar, eq-dt-tplus satisfy '
+       f'the sector equations exactly (h = 3, 4, 5) [{time.time() - t1:.0f} s]', set(nul) == {1} and set(nul2) == {1} and okx)
+
+# the proof for every r: Omega_j has no pure-W term, image/kernel are coordinate lines/hyperplanes (random complex parameters)
+rng = np.random.default_rng(11); omok = True
+for h in (3, 4, 5, 6):
+    for sign in (-1, 1):
+        for conj in (False, True):
+            qc = np.exp(1j*rng.uniform(0.3, 1.2))*rng.uniform(0.8, 1.2)
+            tc = np.exp(rng.normal(size=h) + 1j*rng.normal(size=h)); tc = tc/np.prod(tc)**(1/h)
+            W = Wmod(h, qc, complex(*rng.normal(size=2)), tuple(tc), sign); P = prep(h, qc, complex(*rng.normal(size=2)), conj)
+            Q = tuple([1] + [0]*(h - 1))
+            for j in range(h):
+                k = (j + 1) % h; tgt = (j + 1) % h                       # 0-based index of v_{j+2}
+                A1 = np.array(spath(P, W, Q, [k, j], True)[0]); A2 = np.array(spath(P, W, Q, [j, k], True)[0])
+                Om = A1 - (A2/qc if sign == -1 else qc*A2)
+                sv = np.linalg.svd(Om, compute_uv=False)
+                rows_ = [i for i in range(h) if np.abs(Om[i]).max() > 1e-12*np.abs(Om).max()]
+                cols_ = [i for i in range(h) if np.abs(Om[:, i]).max() > 1e-12*np.abs(Om).max()]
+                line = (sign == -1) != conj                                 # image a line for (b-, V) and (b+, Vbar)
+                omok &= sv[1] < 1e-12*sv[0] and (rows_ == [tgt] if line else cols_ == [tgt])
+# sector determinants (projected labels n = N + s): independent of the sector and of s
+qd = q; dets = 0
+for h in (3, 4, 5):
+    r_ = h - 1; X_ = 0.83*np.exp(0.4j)
+    for s_ in (np.zeros(h), s_generic(h)):
+        for N0 in (np.zeros(h), np.eye(h)[0] - np.eye(h)[1], np.eye(h)[2] - np.eye(h)[0]):
+            mu_ = lambda i: np.eye(h)[i] - 1/h
+            for kind, form in (('V', qd**r_*(1 + (-1/qd)**r_*X_**h)), ('Vbar', (qd - X_**h)**r_),
+                               ('Vbar+', qd**(-r_)*(1 + (-qd)**r_*X_**h)), ('rev', qd**r_*(1 + (-1)**r_*qd*X_**h))):
+                B = np.zeros((h, h), complex)
+                for i in range(h):
+                    n = (N0 + s_ - mu_(i) + mu_(0)) if kind == 'V' else (N0 + s_ + mu_(i) - mu_(0))
+                    if kind == 'V':
+                        B[i, i] = qd**(-n[i]); B[(i - 1) % h, i] = X_
+                    elif kind == 'Vbar':
+                        pw = 1
+                        for j in range(h):
+                            b = (i + j) % h; pw = pw*qd**n[b]; B[b, i] = X_**j*pw
+                    elif kind == 'Vbar+':
+                        b = (i - 1) % h; B[i, i] = qd**(-n[i]); B[b, i] = X_*qd**(n[i] - n[b] - 1)
+                    else:
+                        b = (i + 1) % h; B[i, i] = qd**n[i]; B[b, i] = X_*qd**(n[i] - n[b])
+                dets = max(dets, abs(np.linalg.det(B)/form - 1))
+report(f'prp-an-transmission (3), the proof for every r: Omega_j = Delta(x_j)Delta(x_(j+1)) - q^-+1 Delta(x_(j+1))Delta(x_j) has '
+       f'rank 1 on each sector, with image the line of v_(j+2) (b-, V; b+, Vbar) or kernel the hyperplane i != j+2 (b-, Vbar; '
+       f'b+, V), h = 3..6 at random complex parameters; the sector determinants are q^r(1 + (-1/q)^r X^h) (eq-dt-tv), '
+       f'(q - X^h)^r (eq-dt-tvbar), q^-r(1 + (-q)^r X_+^h) (eq-dt-tplus) and q^r(1 + (-1)^r q X^h) (eq-dt-reversed), '
+       f'independent of the sector and of s (h = 3, 4, 5) [{dets:.0e}]', omok and dets < 1e-12)
+
+# type I_+, V: the inverse of eq-dt-reversed (offset -s, labels -N, X -> -X_+), carried over by the Chevalley involution
+okv = True; okr = True
+for h in (3, 4, 5, 6):
+    t = (Fr(3, 2), Fr(5, 7)) + (Fr(1),)*(h - 3) + (Fr(14, 15),); tinv = tuple(1/x for x in t)
+    Wp = Wmod(h, qx, mx, t, +1); P = prep(h, qx, yx, False); Xp_ = -(qx - 1/qx)*mx/yx
+    TQ = lambda Q: minv(closed_block(h, qx, Xp_, tinv, tuple(-c for c in Q), 'rev'))
+    for Q in (tuple([1] + [0]*(h - 1)), tuple([2, -1] + [0]*(h - 2))):
+        for j in range(h):
+            A, Qn = smap(P, Wp, j, Q, True); B, _ = smap(P, Wp, j, Q, False)
+            okv &= mmul(TQ(Qn), A) == mmul(B, TQ(Q))
+        okv &= all(x != 0 for row in TQ(Q) for x in row)
+    if h <= 5:                         # eq-dt-reversed itself, on the reversed-orientation module of U_q(b^-)
+        Wr = Wmod(h, qx, mx, t, -1, orient=-1); Pb = prep(h, qx, yx, True); Xr = -(qx - 1/qx)*mx*yx
+        for Q in (tuple([1] + [0]*(h - 1)), tuple([2, -1] + [0]*(h - 2))):
+            for j in range(h):
+                A, Qn = smap(Pb, Wr, j, Q, True); B, _ = smap(Pb, Wr, j, Q, False)
+                okr &= mmul(closed_block(h, qx, Xr, t, Qn, 'rev'), A) == mmul(B, closed_block(h, qx, Xr, t, Q, 'rev'))
+gauge = all(sum((n_ - a_)**2 for n_, a_ in zip(n, alph(h, i))) - sum(x*x for x in n) == -2*(sum(n_*a_ for n_, a_ in zip(n, alph(h, i)))) + 2
+            for h in (3, 4, 5) for i in range(h) for n in itertools.product(range(-2, 3), repeat=h))
+report('eq-dt-reversed intertwines U_q(b^-) on the reversed module (exact, h = 3, 4, 5); in the basis q^(-|n|^2/2)|n> its '
+       'converting coefficient is q X, since |n - alpha_i|^2 - |n|^2 = -2 alpha_i.n + 2 (cz2007 (5.10) with xhat = qX); '
+       'prp-an-transmission (2): the inverse of its blocks, with offset -s, labels -N and X -> -X_+, is the type-I_+ intertwiner '
+       'for V, all h^2 entries nonzero (exact, h = 3..6)', okr and okv and gauge)
+
+# root of unity: the shift by 5 alpha_1 at q^5 = 1, and uniqueness among charge-conserving maps
+q5 = np.exp(2j*np.pi/5); W5 = Wmod(3, q5, 0.7 - 0.2j, (1.0, 1.0, 1.0), -1); sres = 0
+for N in ((1, -1, 0), (0, 2, -2), (3, 0, -3)):
+    NS = tuple(n + 5*a for n, a in zip(N, alph(3, 1)))
+    for j in range(3):
+        sres = max(sres, abs(W5.x(j, N)[0] - W5.x(j, NS)[0]), abs(W5.k(j, N) - W5.k(j, NS)))
+sv5 = []
+for qq_ in (q5, q_phys(0.6), q_phys(LAM)):
+    for h in (3, 4):
+        for sign in (-1, 1):
+            for conj in (False, True):
+                P = prep(h, qq_, 0.8 + 0.3j, conj)
+                M_ = np.array(loop_rows(P, P, Wmod(h, qq_, 0.43 - 0.21j, (1.0,)*h, sign), tuple([1] + [0]*(h - 1))), complex)
+                sv_ = np.linalg.svd(M_, compute_uv=False); sv5.append((sv_[-1]/sv_[0], sv_[-2]/sv_[0]))
+report(f'roots of unity: at q^5 = 1 (gamma = 0.6) the shift |N> -> |N + 5 alpha_1> commutes with k_j and f_j [{sres:.0e}], so the '
+       f'k_j-equations do not enforce charge conservation; among charge-conserving maps the loop conditions still leave one '
+       f'dimension at q^5 = 1 and at gamma = 1.37 (q^200 = 1), h = 3, 4, both types, V and Vbar (smallest relative singular value '
+       f'{max(x[0] for x in sv5):.0e}, next {min(x[1] for x in sv5):.2f})',
+       sres < 1e-14 and max(x[0] for x in sv5) < 1e-12 and min(x[1] for x in sv5) > 0.05)
+print(f'# (i) done after {time.time() - T0:.0f} s')
+
+
+# ---------------------------------------------------------------- (j) cz2011 (3.12): poles and functional equations
+def cz11_log(z, c, K=200):
+    """log of the displayed rho-hat of cz2011 (3.12), Gamma functions grouped at equal k, each group divided by its value at
+    z = 0: groups Phi_k(z) Phi_k(-z), Phi_k(u) = G(1/2+u+6kc+c) G(1/2+u+6kc+2c)/(G(1/2+u+6kc+4c) G(1/2+u+6kc+5c)), c = pi/(3 xi)."""
+    k = np.arange(4*K)[:, None]
+    def Phi(u):
+        A = 0.5 + u + 6*k*c
+        return loggamma(A + c) + loggamma(A + 2*c) - loggamma(A + 4*c) - loggamma(A + 5*c)
+    z = np.atleast_1d(np.asarray(z, complex))[None, :]
+    terms = Phi(z) + Phi(-z) - 2*Phi(0*z)
+    return np.array([richardson_sum(terms[:, i], K) for i in range(terms.shape[1])])
+
+
+fe = 0; ctl = 1e9
+for xi in (0.9, 1.7):
+    c = np.pi/(3*xi); zs = np.array([0.11 + 0.07j, -0.23 + 0.31j, 0.05 - 0.4j])
+    # (3.10): rho(theta) = (1 + tau^2 x) rho(theta + i pi/3) rho(theta - i pi/3); theta +- i pi/3 <-> z -+ c, tau^2 x = e^{-2 pi i z}
+    b10 = cz11_log(zs, c) + loggamma(0.5 + zs) + loggamma(0.5 - zs) - cz11_log(zs - c, c) - cz11_log(zs + c, c)
+    # (3.8): rho(theta) rho(theta - i pi) (1 + tau^2 q^-4 x)(1 - tau^2 q^-2 x) = 1; theta - i pi <-> z + 3c
+    b8 = cz11_log(zs, c) + cz11_log(zs + 3*c, c) - loggamma(0.5 + zs + c) - loggamma(0.5 + zs + 2*c) \
+        - loggamma(0.5 - zs - c) - loggamma(0.5 - zs - 2*c)
+    w10 = cz11_log(zs, c) + loggamma(0.5 + zs) + loggamma(0.5 - zs) - cz11_log(zs - 2*c, c) - cz11_log(zs + 2*c, c)
+    fe = max(fe, np.abs(np.exp(b10 - b10[0]) - 1).max(), np.abs(np.exp(b8 - b8[0]) - 1).max())
+    ctl = min(ctl, np.abs(np.exp(w10 - w10[0]) - 1).max())
+xi = 0.9; nu = 0.3 + 0.5j*np.pi
+zp = [1j*(nu - 1j*(xi*f_ + np.pi*m_/3) - nu)/xi for f_, m_ in ((0.5, 1), (0.5, 2), (1, 1), (1, 2))]
+args = [0.5 - zp[i] + (i % 2 + 1)*np.pi/(3*xi) for i in range(4)]     # Gamma arguments: 0 at xi/2, -1/2 at the printed xi
+xs = np.linspace(-3, 6, 18001)
+sg = lambda ph: (np.cosh(0.4 + 1j*ph).real > 0) & (np.cosh(0.4 + 1j*ph).imag < 0)
+w1 = xs[sg(np.pi/6 - xs/2)]; w2 = xs[sg(-np.pi/6 - xs/2)]
+
+
+def cz11_printed(z, c, K):
+    k = np.arange(1, K + 1)
+    return (loggamma(0.5 - z + c) + loggamma(0.5 - z + 2*c)
+            + np.sum(loggamma(0.5 + z + 6*k*c - 4*c) + loggamma(0.5 + z + 6*k*c - 5*c) - loggamma(0.5 + z + 6*k*c - 2*c)
+                     - loggamma(0.5 + z + 6*k*c - c) + loggamma(0.5 - z + 6*k*c + 2*c) + loggamma(0.5 - z + 6*k*c + c)
+                     - loggamma(0.5 - z + 6*k*c - 2*c) - loggamma(0.5 - z + 6*k*c - c)))
+
+
+c = np.pi/(3*0.9); z = 0.3 + 0.5j
+drift = (cz11_printed(z, c, 2000) - cz11_printed(z, c, 1000)) - (cz11_printed(0, c, 2000) - cz11_printed(0, c, 1000))
+report(f'cz2011 (3.12): grouped at equal k, rho-hat solves (3.10) and (3.8) up to constants with z = i(theta - nu)/xi, tau^2 x = '
+       f'e^(-2 pi i z) (xi = 0.9, 1.7) [{fe:.0e}]; control with doubled shifts [{ctl:.2f}]; the arguments of the Gamma functions '
+       f'outside the products vanish at nu - i(xi/2 + pi/3), nu - i(xi/2 + 2 pi/3) [arguments {abs(args[0]):.0e}, {abs(args[1]):.0e}] and equal '
+       f'-1/2 at the printed nu - i(xi + pi/3), nu - i(xi + 2 pi/3); Re E > 0, Im E < 0 (eta > 0) for {w1.min()/np.pi:.3f} pi < xi < '
+       f'{w1.max()/np.pi:.3f} pi and {w2.min()/np.pi:.3f} pi < xi < {w2.max()/np.pi:.3f} pi; as printed the products drift '
+       f'like K^-2z [{abs(drift + 2*z*np.log(2)):.0e}]',
+       fe < 1e-8 and ctl > 1e-2 and abs(args[0]) < 1e-12 and abs(args[1]) < 1e-12 and abs(args[2] + 0.5) < 1e-12
+       and abs(args[3] + 0.5) < 1e-12 and abs(w1.min() - np.pi/3) < 1e-3 and abs(w1.max() - 4*np.pi/3) < 1e-3
+       and abs(w2.min() + np.pi/3) < 1e-3 and abs(w2.max() - 2*np.pi/3) < 1e-3 and abs(drift + 2*z*np.log(2)) < 1e-3)
 print(f'# total runtime {time.time() - T0:.0f} s')

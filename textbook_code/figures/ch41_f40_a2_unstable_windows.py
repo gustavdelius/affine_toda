@@ -4,14 +4,17 @@ poles of the a_2^(1) type-I_- defect and the windows in which they describe unst
 The species-a pole is at theta_a = theta_d + i pi/2 - i vartheta_a, vartheta_a = pi(h - a)/h + pi/(h omega)
 (eq-dt-pole for a = 1, its conjugate for a = r), so Im(theta_a - theta_d)/pi = a/h - 1/2 - (1/omega)/h; for a_2 (h = 3)
 species 1 is at -1/6 - 1/(3 omega), species 2 at 1/6 - 1/(3 omega).  With theta_d > 0 the energy
-E_a = M_a cosh theta_a has Re E_a > 0 and Im E_a < 0 (an unstable state) exactly when -1/2 < Im(theta_a - theta_d)/pi <= 0,
-the window eq-dt-window max(0, a - h/2) <= 1/omega < a: species 1 for omega > 1, species 2 for 1/2 < omega <= 2.
-The coupling is omega = 4 pi/beta^2 - 1, so 1/omega = 0 is the classical limit and beta^2/pi = 4 x/(1 + x), x = 1/omega.
+E_a = M_a cosh theta_a has Re E_a > 0 and Im E_a < 0 (an unstable state) exactly when -1/2 < Im(theta_a - theta_d)/pi < 0,
+the window eq-dt-window max(0, a - h/2) < 1/omega < a, open at both ends: species 1 for omega > 1, species 2 for
+1/2 < omega < 2.  At the top edge, Im(theta_a - theta_d) = 0 (species 2 at 1/omega = 1/2), the pole is real and Im E_a = 0:
+a zero-width end, not a decaying state.  The coupling is omega = 4 pi/beta^2 - 1, so 1/omega -> 0 is the classical limit
+and beta^2/pi = 4 x/(1 + x), x = 1/omega.  Open circles mark the excluded ends of the windows.
 
 Checks: g (defect_common.an_scalar_g, r = 2) has a simple pole at theta_1 and gbar (an_scalar_gbar) at the species-2
-position, for omega = 0.6, 1.37, 3; the sign test Re E > 0, Im E <= 0 on a grid of 1/omega reproduces eq-dt-window for
-a = 1, 2 (and h = 4, 5, 6) and gives the a_2 windows omega > 1 and 1/2 < omega <= 2, i.e. beta^2 < 2 pi and
-4 pi/3 <= beta^2 < 8 pi/3; as 1/omega -> 0 the species-1 pole tends to the classical absorption rapidity
+position, for omega = 0.6, 1.37, 3; the sign test Re E > 0, Im E < 0 on a grid of 1/omega reproduces eq-dt-window for
+a = 1, r (h = 3, 4, 5, 6) and gives the a_2 windows omega > 1 and 1/2 < omega < 2, i.e. beta^2 < 2 pi and
+4 pi/3 < beta^2 < 8 pi/3; at the end 1/omega = 1/2 of species 2, Im E = 0; as 1/omega -> 0 the species-1 pole tends to
+the classical absorption rapidity
 theta_d - i(pi/2 - pi/h) (eq-ds-absorption).
 
 Writes part8-defects/figures/ch41_f40_a2_unstable_windows.svg.
@@ -38,7 +41,7 @@ def y_pole(a, x, h=H):
 
 def unstable(a, h, x, thd=0.4):
     E = np.cosh(thd + 1j * np.pi * y_pole(a, x, h))
-    return E.real > 0 and E.imag <= 1e-14
+    return E.real > 1e-14 and E.imag < -1e-14
 
 
 # ---- checks ----------------------------------------------------------------
@@ -59,15 +62,18 @@ xs = np.linspace(0, 4, 8001) + 1e-4 / np.e             # a grid that avoids the 
 ok = True
 for h in (3, 4, 5, 6):
     for a in (1, h - 1):
-        pred = np.array([max(0, a - h / 2) <= x < a for x in xs])
+        pred = np.array([max(0, a - h / 2) < x < a for x in xs])
         ok &= np.array_equal(pred, np.array([unstable(a, h, x) for x in xs]))
 s1 = xs[[unstable(1, 3, x) for x in xs]]
 s2 = xs[[unstable(2, 3, x) for x in xs]]
-report(f"Re E > 0, Im E <= 0 (theta_d = 0.4) reproduces eq-dt-window for a = 1, r and h = 3..6; a_2: species 1 for "
-       f"0 <= 1/omega < {s1.max():.3f}, species 2 for {s2.min():.3f} <= 1/omega < {s2.max():.3f}",
+report(f"Re E > 0, Im E < 0 (theta_d = 0.4) reproduces eq-dt-window, open at both ends, for a = 1, r and h = 3..6; a_2: "
+       f"species 1 for 0 < 1/omega < {s1.max():.3f}, species 2 for {s2.min():.3f} < 1/omega < {s2.max():.3f}",
        ok and s1.min() < 1e-3 and abs(s1.max() - 1) < 1e-3 and abs(s2.min() - 0.5) < 1e-3 and abs(s2.max() - 2) < 1e-3)
 b2 = lambda x: 4 * x / (1 + x)                          # beta^2/pi from omega = 4 pi/beta^2 - 1
-report("in beta^2: species 1 unstable for beta^2 < 2 pi, species 2 for 4 pi/3 <= beta^2 < 8 pi/3",
+E_end = np.cosh(0.4 + 1j * np.pi * y_pole(2, 0.5))
+report(f"end of the species-2 window, 1/omega = 1/2: the pole is real and E/M = {E_end.real:.6f} + {abs(E_end.imag):.0e} i, "
+       "a zero-width end, excluded", abs(E_end.imag) < 1e-15 and not unstable(2, 3, 0.5))
+report("in beta^2: species 1 unstable for beta^2 < 2 pi, species 2 for 4 pi/3 < beta^2 < 8 pi/3",
        abs(b2(1) - 2) < 1e-15 and abs(b2(0.5) - 4 / 3) < 1e-15 and abs(b2(2) - 8 / 3) < 1e-15)
 report("classical limit 1/omega -> 0: species-1 pole -> theta_d - i(pi/2 - pi/h) (classical absorption, eq-ds-absorption), "
        "species-2 pole -> theta_d + i pi/6 (no classical counterpart in the window)",
@@ -90,7 +96,8 @@ for a, c in ((1, style.BLUE), (2, style.RED)):
     win = np.array([unstable(a, H, xx) for xx in x])
     ax.plot(x, y, color=c, lw=1.0, alpha=0.7)
     ax.plot(x, np.where(win, y, np.nan), color=c, lw=2.6, label=f"species {a}")
-    ax.plot([0], [y_pole(a, 0)], "o", color=c, ms=4.5, zorder=5, clip_on=False)
+    for xe in (max(0, a - H / 2), a):                    # excluded ends of the open window (1/omega -> 0 is a limit)
+        ax.plot([xe], [y_pole(a, xe)], "o", mfc="white", mec=c, mew=1.3, ms=5, zorder=6, clip_on=False)
 for xv in (0.5, 1, 2):
     ax.axvline(xv, color=style.GREY, lw=0.7, ls=":")
 ax.text(0.07, -0.035, "classical absorption", color=style.BLUE, va="top", fontsize=7.2)

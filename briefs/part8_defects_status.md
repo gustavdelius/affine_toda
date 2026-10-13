@@ -11,7 +11,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 | 38 | 2026-10-12 | `defect_classical_an.py`, `defect_lax_rmatrix.py` | 24 + 6 PASS (114 s, 2 s) | Codex deep, integrated 2026-10-12 |
 | 39 | 2026-10-12 | `defect_solitons_an.py` | 9 PASS (48 s) | Codex deep, integrated 2026-10-13 |
 | 40 | 2026-10-12 | `defect_universal_r.py`, `defect_transfer.py` | 16 + 9 PASS (92 s, 29 s) | Codex deep, integrated 2026-10-12 |
-| 41 | 2026-10-12 | `defect_an_transmission.py` | 21 PASS (100–176 s) | no |
+| 41 | 2026-10-12 | `defect_an_transmission.py` | 27 PASS (198 s) | Codex deep, integrated 2026-10-13 |
 | 42 | 2026-10-12 | `defect_doubling.py` | 17 PASS (30 s) | no |
 | 43 | 2026-10-12 | `defect_particle_transmission.py` | 8 PASS (62 s) | no |
 
@@ -430,23 +430,24 @@ The full drafting report is in `briefs/draft_ch41_report.md`. The exploration ch
 **Convention.** In this chapter ω = 4π/β² − 1, as in Part VI (Corrigan–Zambon's γ), and X = e^{ω(θ−θ_d−iπ/2)}, which is CZ's x̂. The chapter writes ch. 39's root of unity as e^{2πi/h}. See the clash noted under the global pending edits.
 
 **Key results.**
-- **`prp-an-transmission` [Established; numerical re-derivation].**
-  - The a_r Weyl module `eq-dt-weyl` (offset s = λ_p for class p) has unique intertwiners.
-  - Closed forms `eq-dt-tv`, `eq-dt-tvbar`, `eq-dt-tplus` agree with cz2009a (5.8), (5.11) in the same gauge.
-  - The triangle relation holds.
-  - **Selection rule.** M_V obeys the classical rule exactly. M_V̄ tunnels to the forbidden weights with relative size min(|X|^j, |X|^{j−h+1}).
+- **`prp-an-transmission` [Established (1); Theorem (2), (3), (5); Numerical (4)]** (relabelled 2026-10-13; items renumbered, the selection rule is now item 5).
+  - (1) Closed forms `eq-dt-tv`, `eq-dt-tvbar` agree with cz2009a (5.8), (5.11) in the same gauge.
+  - (2) Type I₊: `eq-dt-tplus` for V̄; for V the inverse of the reversed-orientation two-entry matrix `eq-dt-reversed` (sector −Q, offset −s, X → −X₊), via the Chevalley involution ϖ (e↔f, k→k⁻¹, (ϖ⊗ϖ)Δ = Δ^op ϖ). New, proved in the integration.
+  - (3) **Uniqueness for every r ≥ 2** among charge-conserving maps, θ off the (sector- and s-independent) determinant zeros; for q not a root of unity (ω irrational) every intertwiner conserves charge. Proof: Ω_j = Δ(f_j)Δ(f_{j+1}) − q⁻¹Δ(f_{j+1})Δ(f_j) has no pure-𝒲 term; its image (V) or kernel (V̄) is a coordinate line/hyperplane, so End is diagonal, then scalar. New proof, not refereed. At q⁵ = 1 (ω = 3/5) the shift by 5α₁ gives non-charge-conserving extra intertwiners. Note ω = 1.37 is rational too (q²⁰⁰ = 1).
+  - (4) The triangle relation: numerical (a₂, a₃); hypothesis (ii) proved for a₂ at generic parameters (exact rank certificate).
+  - (5) **Selection rule.** M_V obeys the classical rule exactly. M_V̄ has entries to every weight; the ones forbidden for that incoming soliton have relative size min(|X|^j, |X|^{j−h+1}).
 - **`prp-transmission-crossing` [Numerical].**
   - The matrices are not unitary for r ≥ 2.
   - Crossing holds with C = 1, c_I = 1 + (−q)^r X^h and c_II = 1 − qX^h, independently of s.
   - The bootstrap gives ḡ = ∏g. The scalar factor is given in the convergent form `eq-dt-g`.
   - **The q-sign, in the book's conventions.** At −q crossing fails for h odd with both C and C′, and for h even it holds with C′ = diag((−1)^i).
-- **`prp-a22-transmission` [Numerical].** Algebra, unique intertwiners, the triangle relation, and crossing at x_c = −q^{−6} with an antidiagonal C. What remains is listed in the chapter.
-- **`prp-a2-unstable` [Numerical; windows Established].**
-  - The residue has rank h−1 per sector (`eq-dt-pole`).
-  - The window is `eq-dt-window`.
-  - In book labels, species 1 is unstable for ω > 1, which includes the classical limit; species 2 for 1/2 < ω ≤ 2 (cz2007's window).
-  - **Kernel bootstrap.** It gives the class-1 module with θ_d → θ_d + 2πi/h, the quantum form of `eq-ds-class-shift`.
-  - Classical real absorptions become resonances at θ_d − iπ/(hω).
+- **`prp-a22-transmission` [Numerical].** Algebra, intertwiners unique up to a scalar on the windows tested, the triangle relation, and crossing at x_c = −q^{−6} with an antidiagonal C. What remains is listed in the chapter. cz2011 (3.12): checked that, grouped at equal k, it solves (3.8), (3.10) with z = i(θ−ν)/ξ; its outside Gamma poles are at ν − i(ξ/2 + π/3), ν − i(ξ/2 + 2π/3), so the printed positions (ξ) and windows are wrong; from (3.12) the decaying-energy windows are π/3 < ξ < 4π/3 and −π/3 < ξ < 2π/3 (physical status unchecked).
+- **`prp-a2-unstable` [Established (1); Numerical (2), (3)]** (relabelled 2026-10-13).
+  - The residue has rank h−1 per sector (`eq-dt-pole`), for generic ω.
+  - The window `eq-dt-window` is open at both ends, max(0, a−h/2) < 1/ω < a, for the pole in −π/2 < Im θ_a < 0; at ϑ_a = π/2 the pole is real, Im E = 0 (zero width; cz2009a (6.15) includes it).
+  - In book labels, species 1 is unstable for ω > 1 (β² < 2π), with the classical absorption as the limit ω → ∞; species 2 for 1/2 < ω < 2 (cz2007's window, strict).
+  - **Kernel of the residue.** The one-dimensional kernel carries the class-1 matrix (offset s+λ₁, X^h → q²X^h), i.e. θ_d → θ_d + 2πi/h + 2πik/(hω) for any integer k; every k has the same classical limit. The excited defect is the (h−1)-dimensional image (ch. 36), not the kernel.
+  - **[Conjecture]** class-p scalar g(θ − 2πip/h) (k = 0); the charged-class windows and the resonances at θ_d − iπ/(hω) from real absorptions (a₅ species 1 class 1) rest on it; k = 1 gives the opposite sign of Im E.
 - **`prp-transmission-semiclassical` [Numerical].** Wigner test against `eq-dc-ar-delay`: deviations 0.092/0.025/0.0063 (a₂) at ω = 10/40/160.
 
 **Verification record.**
@@ -462,17 +463,18 @@ The full drafting report is in `briefs/draft_ch41_report.md`. The exploration ch
 - **Unchecked:**
   - Robertson's fused a₃ matrix;
   - cz2007's a₂ matrices entry by entry;
-  - uniqueness for r ≥ 4, and hypothesis (ii) for r ≥ 3;
+  - hypothesis (ii) for r ≥ 3 (uniqueness itself is proved for every r since 2026-10-13);
   - the scalar factors of species 1 < a < r;
-  - the excited-defect scalar;
-  - the type-I₊ species-1 closed form and the I₊ class shift;
-  - the θ_d = 0 candidate poles;
-  - most of a₂^(2): gauge invariants, scalar, dictionary, pole positions, semiclassics;
+  - the excited-defect scalar (bootstrap on the image of the residue) and the class-p scalar (conjecture);
+  - the I₊ scalar factor and class shift (the I₊ V matrix is now known as an inverse, item 2);
+  - the θ_d = 0 candidate poles (note: det M_V̄ = (q − X^h)^r vanishes to order r at the species-r pole X^h = q; its residue rank is unchecked);
+  - most of a₂^(2): gauge invariants, the physical scalar (only the functional equations and poles of cz2011 (3.12) are checked), dictionary, semiclassics;
   - a Klein-type ±q relation for h odd.
 
 **Corrections to sources recorded in the Notes.**
-- cz2009a (6.10): the Gamma functions are paired across different k, so the partial products drift like K^{−z}. The equal-k pairing converges.
-- cz2009a §6: for a < h/2 the window is 1/γ < a, not "h/2 − 1 or (h−1)/2".
+- cz2009a (6.10): the Gamma functions are paired across different k; normalized at z = 0 the partial products are the equal-k ones times Γ(A_K−z)/Γ(A_K), a drift like (hγK)^{−z}. The equal-k pairing converges.
+- cz2009a §6: for a < h/2 the window is 1/γ < a, not "h/2 − 1 or (h−1)/2"; and (6.15) must be strict at ϑ_a = π/2 (2026-10-13).
+- cz2011 (3.12)–(3.13): pole positions with ξ instead of ξ/2, hence wrong windows; as printed the products drift like K^{−2z} (2026-10-13; Appendix D).
 - cz2007 §6: their species 1 is the book's species 2, because of the transposed defect matrix.
 - cz2007 (6.14): (−q)^{+1/2}.
 - cz2009a §5: the tunnelling in (5.11) is made quantitative.
@@ -493,9 +495,11 @@ The full drafting report is in `briefs/draft_ch41_report.md`. The exploration ch
 - **Ch. 43:**
   - `prp-lightest-breather-universal`: bootstrap the lightest breather from these matrices (cz2007 §7 for a₂); the a₂^(2) breather is unchecked.
 - **Ch. 43 open problems:**
-  - the (h−1)-dimensional image of the residue;
+  - the excited-defect bootstrap on the (h−1)-dimensional image of the residue, and its scalar factor (open problem 10, updated 2026-10-13);
+  - the class-p scalar factor g(θ − 2πip/h) and the resonance reading of the real absorptions (conjectural since 2026-10-13; open problem 10);
+  - the a₂^(2) physical scalar factor and windows, given the cz2011 (3.12) pole slip (open problem 5, updated 2026-10-13);
   - candidate stable states at θ_d = 0;
-  - the I₊ species-1 closed form and the class shift;
+  - the I₊ scalar factor and class shift;
   - the fused I₋I₊ pair versus the soliton S-matrix;
   - the remaining a₂^(2) work;
   - Robertson's fused matrices;
@@ -504,6 +508,22 @@ The full drafting report is in `briefs/draft_ch41_report.md`. The exploration ch
   - hypothesis (ii) for r ≥ 3;
   - the U_q(a_r^(1)) universal R on 𝒲;
   - the a_r doubled-boundary expectation of ch. 42, testable with these matrices.
+
+**Referee (Codex deep, 2026-10-12/13; integrated 2026-10-13).** Report `briefs/referee_defects_41_report.md`, scripts and outputs in `briefs/referee_defects_41_scripts/` (rerun, outputs reproduced byte for byte), integration scripts `integration_*.py` there; checkpoint `briefs/integration_41_checkpoint.md`; record in the report's "Integration (2026-10-13)" section. Items 1–8 accepted or accepted with modification; none rejected. Main changes:
+- `prp-an-transmission`: relabelled per item; uniqueness now a theorem for every r (Ω argument, charge conservation, roots of unity); the I₊ V matrix via the Chevalley involution; new `eq-dt-reversed` with the normalization μ → μ/q (cz2007 x̂ = qX otherwise); hypothesis (ii) for a₂ by an exact certificate.
+- Windows strict, nearest strip; endpoint zero width; species 2 of a₂ 1/2 < ω < 2; classical limit as a limit (also ch. 36 l. 215, ch. 37 `sec-sg-defect-spectrum`); figure F40 open circles.
+- Kernel vs image: the kernel restriction is a matrix equivalence, not the excited defect; the shift is fixed only mod 2πi/(hω); class-p scalar, charged-class windows and resonances are conjectures (ch. 43 table, reading paragraph, open problem 10).
+- cz2009a (6.10): exact finite identity with normalization at z = 0 (text, exr-dt-gamma, Appendix D).
+- cz2011 (3.12)–(3.13): pole positions ξ → ξ/2, windows doubled; flagged in ch. 41, Appendix D (new entry), ch. 43 table and open problem 5.
+- Penati–Polvara: spin-3 *current* (spin-±2 charges; Q₊₂ tested), r ≤ 5, renormalizations of the potential, derivative coupling and improvement terms (ch. 41 caveat, ch. 43 condition 4 and open problem 1; ch. 37 l. 240 already correct: spin-3 charge of sinh-Gordon = spin-4 current).
+- Lagrangian caveat rewritten; Notes; exercises serre (cubic for r = 1), intertwiner, crossing (φφ̄ constant), gamma, window ((5,5) representative p = −1), semiclassical (regular soliton, threshold formula).
+- Script: 21 → 27 checks, about 200 s.
+
+**Status upgrades without an independent second referee pass (2026-10-13).** `prp-an-transmission` (2) existence of the I₊ V intertwiner for every r, and (3) uniqueness for every r, both [Theorem] with proofs written in the integration; (5) selection rule labelled [Theorem] (read off the closed forms). Hypothesis (ii) for a₂ was certified independently by the referee as well.
+
+**Pending edits elsewhere (2026-10-13).**
+- `appendices/C-code.qmd` row for `defect_an_transmission.py`: 27 checks, about 200 s (was 21, 100–180 s); outside the integration's allowed files.
+- Ch. 42: nothing found that repeats a corrected claim.
 
 ## Chapter 42 (`sec-defect-boundary`)
 
