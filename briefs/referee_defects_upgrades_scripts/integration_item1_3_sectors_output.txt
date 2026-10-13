@@ -1,0 +1,2 @@
+h = 3, omega = 1.37, theta = theta_d: all |entries| = 0.636686 = 1/|1 - q X_+^h| = 0.636686
+PASS : items 1, 3 - type-I_+ V matrix: det q^-r/(1 - q X_+^h) (poles), equal moduli 1/|1 - q X_+^h| at theta = theta_d, relative sizes min(t^d, t^(d-h+1))

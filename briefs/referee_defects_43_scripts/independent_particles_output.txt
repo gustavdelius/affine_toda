@@ -1,0 +1,32 @@
+scalar checks h=2..8, both types, fusion cases= 224
+unitarity: 8.006e-16
+HA: 7.301e-16
+phase: 2.220e-16
+bootstrap: 1.977e-15
+block: 5.118e-16
+bulk_CDD: 5.447e-15
+independent potential Hessian and vector sewing h=2..8: reflection=1.555e-15 factor_error=1.633e-15
+BS derivative identity after x=exp(theta+mu): 0*I
+CZ(7.5) label swap max error: 4.47545209131181e-16
+exercise imaginary counterexample: h=3,a=1,v=pi,u/pi=0.333333,|T(.4)|=1.000000000000000,sigma=-1 real
+higher SG breather B2 at theta=.4,td=.27:
+2.6 (-0.9510428619865721-0.3090590148570175j)
+3.1 (-0.9565043912695932-0.29171792794064844j)
+species pole h=3 a=1: rank(M)=2, normalized singular values=[1.00000000e+00 1.00000000e+00 8.40652309e-17]
+species pole h=3 a=2: rank(M)=1, normalized singular values=[1.00000000e+00 1.24307690e-16 2.69870603e-17]
+species pole h=4 a=1: rank(M)=3, normalized singular values=[1.00000000e+00 7.07106781e-01 7.07106781e-01 5.02758399e-16]
+species pole h=4 a=3: rank(M)=1, normalized singular values=[1.00000000e+00 2.18366113e-16 1.44024217e-16 6.49646690e-17]
+species pole h=5 a=1: rank(M)=4, normalized singular values=[1.00000000e+00 1.00000000e+00 6.18033989e-01 6.18033989e-01
+ 1.38928439e-16]
+species pole h=5 a=4: rank(M)=1, normalized singular values=[1.00000000e+00 3.85287459e-16 2.95077478e-16 2.39404869e-16
+ 2.00453420e-16]
+a2 resonance windows from -1/2 < a/3-1/2-1/(3w) < 0: a1 w>1; a2 1/2<w<2
+a2 omega=1.1 Imtheta/pi for a1,a2= [-0.46969696969696967, -0.13636363636363635]
+a2 omega=2.3 Imtheta/pi for a1,a2= [-0.3115942028985508, 0.021739130434782566]
+a2 omega=10 Imtheta/pi for a1,a2= [-0.2, 0.1333333333333333]
+admissible exponential CDD omega=1.41421356237: breather multiplier=(0.9928739166309765+0.11916956689467492j), formula_error=2.259e-16, full_crossing=1.119e-16
+admissible exponential CDD omega=2.2360679775: breather multiplier=(0.9969633752884501+0.0778718712595317j), formula_error=1.144e-16, full_crossing=1.119e-16
+ordinary sinh CDD at h=3: printed crossing residual=2.220e-16, actual fused crossing residual=0.903327
+meromorphic CDD omega=1.41421356237: multiplier=(-0.2199993794525964-0.9755000118095706j), full_crossing=6.939e-16
+meromorphic CDD omega=2.2360679775: multiplier=(0.20044251305987243-0.9797054654120502j), full_crossing=6.939e-16
+TBA crossed factor conjugacy=4.042e-16; self-conjugate F at theta=.73,td=.27: (-0.22602835227867096+7.50725848640989e-17j)

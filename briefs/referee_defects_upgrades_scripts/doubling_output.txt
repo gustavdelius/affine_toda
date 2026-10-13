@@ -1,0 +1,9 @@
+node 1: e equation, k equation, inverse and own Cartan relation: exact zero
+node 0: e equation, k equation, inverse and own Cartan relation: exact zero
+cross Cartan equations: exact zero; e1 e0=e0 e1=-yd^2 q^2/(q^2-1)^2; cubic Serre follows
+minus untwisted e, y^2: Matrix([[-t*K*C, 0], [0, C]])
+minus twisted f, y^-1: Matrix([[0, -t**(-1)*D], [D*K, 0]])
+plus untwisted f, y^-2: Matrix([[B*K, 0], [0, -t**(-1)*B]])
+plus twisted e, y: Matrix([[0, A], [-t*K*A, 0]])
+plus coideal isolated 1 tensor f0, y^-2: Matrix([[-C, 0], [0, 0]])
+PASS. The report derives the forced inverse-Cartan contradictions in both limits.

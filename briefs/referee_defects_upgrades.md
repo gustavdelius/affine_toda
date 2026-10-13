@@ -13,7 +13,9 @@ You are an adversarial mathematical-physics referee. You are working in the repo
 
 Chapters 38, 39 and 41 were refereed by you (Codex) on 2026-10-12/13; the reports are `briefs/referee_defects_38_40_report.md`, `briefs/referee_defects_39_report.md` and `briefs/referee_defects_41_report.md`, and each ends with an "Integration" section that says what was changed. During integration, Claude agents **upgraded some labels to [Theorem] with new proofs that no referee has seen**. This pass checks only those new proofs and the few new claims listed below. Do not re-referee what your earlier reports already covered.
 
-Commits: ch. 39 integration ad9342c; ch. 41 integration df973fb; ch. 41 triangle relation 9441742; ch. 38 a₃ spin-two script e748b4f. Use `git show <commit> -- <file>` to see exactly what changed.
+Commits: ch. 39 integration ad9342c; ch. 41 integration df973fb; ch. 41 triangle relation 9441742; ch. 38 a₃ spin-two script e748b4f; ch. 42 integration 90061c8; ch. 43 integration fd38d74. Use `git show <commit> -- <file>` to see exactly what changed.
+
+Items 8–11 were added on 2026-10-13, after the chapter-42 and chapter-43 integrations. Chapter 43 needs extra care. You ran out of quota during its referee pass. Its report, `briefs/referee_defects_43_report.md`, has items 1–4 by you, and items 5–8 written by Claude from your handoff file. So the claims of items 5–8 have had no independent referee; item 11 lists them.
 
 **Conventions** (as in the ch. 41 brief): ω = 4π/β² − 1, q = −e^{−iπω}, X = e^{ω(θ−θ_d−iπ/2)}, coproduct Δe = e⊗1 + k⊗e, Δf = f⊗k⁻¹ + 1⊗f; 𝕋: V⊗𝒲 → 𝒲⊗V. Read `briefs/part8_defects_conventions.md` §§10–11 first.
 
@@ -52,6 +54,32 @@ For each item, do **one independent computation**: a derivation written out, or 
    - that B = 3(1 − D), together with the A_abc formula, gives the bulk spin-2 current of a₃ in the normalization the flux uses. The script's check 4 tests conservation on shell, but is the scale of B relative to A, which the docstring ties to a factor of 3 between check 5 and check 11, consistent?
    - that the exact zero is a real identity and not an artefact, e.g. of simplification or of the homotopy construction producing G by design. The control with a non-integrable D fails; is that control sensitive enough?
    - whether the label change in `prp-spin-two` is now justified as stated.
+
+8. **`prp-diagonal-borel` (ch. 42), items (2) for type I₋, (3) and (5) upgraded to [Theorem] in 90061c8; new proof of (4) for type I₊.** All four rest on comparing powers of y in one generator equation, with 𝕃 = P𝕋 = 𝒟 + y𝒪 (type I₋) or 𝒟₊ + y⁻¹𝒪₊ (type I₊), where the blocks are θ-independent. Check in particular:
+   - (3): that the y² coefficient (untwisted e₁) and the y⁻¹ coefficient (τ-twisted f₁) are contradictory for **arbitrary** θ-independent operators Y, κ on 𝒲, with a torus factor t kept explicit; and the type-I₊ analogues. Does [@kolb2014, Thm. 3.2] say that every Hopf automorphism of the algebra in question is a torus rescaling, possibly composed with τ? Is that algebra the one the book's U is (derived algebra, generic q, level-zero modules)?
+   - (5): the forced operators χ(Δk₁) = t⁻¹AD⁻¹ and χ(Δk₁⁻¹) = t⁻¹D⁻¹A in the diagonal limit, the charge-shifting pair in the off-diagonal limit, and the exchange of the two directions for type I₊. Is "no twisted diagonal acts on all of 𝒲" proved for every Hopf twist?
+   - (2), type I₋: is the proof block complete, i.e. does it check both e-generators, both k-equations and all relations of ρ̃ (`eq-dbd-second-module`)?
+   - (4), type I₊: conjugation by Δ(k₁) separates the two terms of f₁⊗k₀⁻¹ + 1⊗f₀, which isolates 1⊗f₀, whose y⁻² coefficient is uncancellable.
+   - Comparison scripts: `briefs/referee_defects_42_scripts/integration_obstructions.py`, `textbook_code/defect_doubling.py` (20 checks).
+9. **`prp-an-particle-transmission` (ch. 43), upgraded from [Numerical, h = 2,…,8] to [Theorem] for every h in fd38d74.** Items 1–4 are now proved by hand in the proof block (rational identities in x = e^{−(θ−θ_d)}, u = e^{iγ_a}, v = e^{iγ_b}, for both fusings and both types); item 5 is `prp-an-linear-transmission`, which is item 4 above. Check the hand proof, in particular the shifts for the fusing c = a + b − h and the type-I₊ version, which the proof gives only in outline.
+10. **`prp-dpt-doubled` (ch. 43): the new explicit second module `eq-dpt-second-module` (fd38d74).** The label stays [Numerical], but the proof now claims by hand:
+    - on V, that the y² terms force κ to be the plain shift by α_j − α_{j−1};
+    - that the y terms give Y = ρ̃(e_j) + c_j q^{(N+s)_j} times the shift;
+    - that the Cartan relation forces c_j = 0, after which ρ̃ is a U_q(𝔟⁺)-module, including the q-Serre relations for every r;
+    - that the h = 2 case is ch. 42's `eq-dbd-second-module` after the basis change d_n = τ^{−n}q^{n(n−1)/2+ns/2}, τ = −ie^{iπω/2};
+    - that the failing twists fail by an exact y-power argument for every r, and that the two Borel halves do not lie in one coideal for q³ ≠ 1.
+    
+    The V̄ half is numerical only. Is the V half proved, and is there a short proof of the V̄ half?
+11. **Claims in ch. 43 from the Claude-written items 5–8 of its referee report (integrated in fd38d74).** For each, an independent computation:
+    - the residue of 𝕋_V̄ at the species-r pole has rank 1. At that pole X^h = q, and on a sector of fixed charge M_V̄ = q u wᵀ. Check also that the pole of ḡ is not cancelled. `tbl-dpt-spectrum` and problem 10 now say this;
+    - the soliton CDD condition `eq-dpt-soliton-cdd`, ∏_{k=0}^{h−1} f(θ − iπ + 2πik/h) = 1, derived from the crossing relations of ch. 41 and `eq-dt-bootstrap`. Is it necessary and sufficient? Is the example f = 𝕋^cl_1, with its coupling-dependent breather multiplier, right?
+    - the exceptions at θ_d = iv with v ∈ πℤ (Θ unbroken, 𝕋_a a phase, σ = −1 inside the window for a < h/2; for sine-Gordon only for ½ < λ < 1), in `tbl-dpt-spectrum`, "Reading the table", `exr-dpt-imaginary` and ch. 37 `sec-sg-defect-spectrum`;
+    - the Lee–Yang poles are in 𝕋̄_b (table caption);
+    - the TBA paragraph of `sec-defect-finite-volume` (fugacity form, F_ā = conj(F_a), |F_a| < 1, F_{h/2} = −tanh((θ−θ_d)/2), reality only for a conjugation-symmetric solution), and the rewritten Jiang bullet against 1703.03562 (not in `~/referee-copy/papers`; your download is in `referee_scratch/defects_43/sources/`);
+    - the new statements in `prp-dpt-vacuum`'s proof: the explicit unbounded direction φ = ψ = tv for σ < 0, and the linear-layer estimate for the total static energy;
+    - the citation and novelty changes in the Notes, Corrigan–Zambon (7.11) and (6.12).
+    
+    Comparison scripts: `briefs/referee_defects_43_scripts/` (Codex's, `second_module_checks.py`, and `integration_*`), `textbook_code/defect_particle_transmission.py` (11 checks).
 
 ## Report format (`briefs/referee_defects_upgrades_report.md`)
 

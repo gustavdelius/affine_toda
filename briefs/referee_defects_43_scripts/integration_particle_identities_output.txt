@@ -1,0 +1,11 @@
+I- fuse a+b<h: 0
+I+ fuse a+b<h: 0
+I- fuse a+b>h: 0
+I+ fuse a+b>h: 0
+I- unit/cross: 0
+I+ unit/cross: 0
+I- herm: 0
+I+ herm: 0
+I- phase: 0
+no pole with 0 < Im theta < pi for real theta_d, h < 30: True
+ALL EXACT ZERO

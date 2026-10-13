@@ -1,0 +1,16 @@
+h=3 f rotation=0: LS residuals=1.742e-13,1.611e-13,1.573e-13 closed=4.618e-16,3.954e-16,3.909e-16 shape=(432, 32)
+h=3 e rotation=-1: LS residuals=1.061e-13,2.570e-14,1.589e-13 closed=2.798e-16,2.773e-16,2.270e-16 shape=(432, 41)
+h=3 e rotation=0: LS residuals=9.275e-01,9.197e-01,9.182e-01 closed=n/a,n/a,n/a shape=(459, 41)
+h=3 e rotation=1: LS residuals=9.269e-01,9.177e-01,9.187e-01 closed=n/a,n/a,n/a shape=(459, 39)
+h=3 f rotation=-1: LS residuals=8.261e-01,8.266e-01,8.261e-01 closed=n/a,n/a,n/a shape=(459, 32)
+h=3 f rotation=1: LS residuals=8.458e-01,8.454e-01,8.464e-01 closed=n/a,n/a,n/a shape=(459, 32)
+h=3 second-module Cartan and Serre max residual=4.578e-16
+h=4 f rotation=0: LS residuals=9.992e-13,1.644e-12,1.838e-12,1.165e-12 closed=6.513e-16,6.206e-16,6.012e-16,5.835e-16 shape=(2025, 126)
+h=4 e rotation=-1: LS residuals=4.451e-13,4.995e-13,4.702e-13,3.522e-13 closed=3.275e-16,3.422e-16,2.831e-16,2.905e-16 shape=(2025, 162)
+h=4 e rotation=0: LS residuals=9.290e-01,9.183e-01,9.157e-01,9.181e-01 closed=n/a,n/a,n/a,n/a shape=(2106, 162)
+h=4 e rotation=1: LS residuals=9.290e-01,9.186e-01,9.151e-01,9.185e-01 closed=n/a,n/a,n/a,n/a shape=(2106, 164)
+h=4 f rotation=-1: LS residuals=6.964e-01,7.029e-01,6.930e-01,6.931e-01 closed=n/a,n/a,n/a,n/a shape=(2106, 126)
+h=4 f rotation=1: LS residuals=7.434e-01,7.426e-01,7.482e-01,7.575e-01 closed=n/a,n/a,n/a,n/a shape=(2106, 126)
+h=4 second-module Cartan and Serre max residual=4.578e-16
+h=5 second-module Cartan and Serre max residual=4.996e-16
+h=6 second-module Cartan and Serre max residual=5.467e-16

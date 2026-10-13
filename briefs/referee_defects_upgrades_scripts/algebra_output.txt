@@ -1,0 +1,10 @@
+h=3: Omega image/kernel; four displayed intertwiners; second module on V and Vbar: exact PASS
+h=4: Omega image/kernel; four displayed intertwiners; second module on V and Vbar: exact PASS
+h=5: Omega image/kernel; four displayed intertwiners; second module on V and Vbar: exact PASS
+h=6: Omega image/kernel; four displayed intertwiners; second module on V and Vbar: exact PASS
+h=7: Omega image/kernel; four displayed intertwiners; second module on V and Vbar: exact PASS
+h=3: symbolic cyclic inverse identity; det Mbar=(q-X^h)^(h-1)
+h=4: symbolic cyclic inverse identity; det Mbar=(q-X^h)^(h-1)
+h=5: symbolic cyclic inverse identity; det Mbar=(q-X^h)^(h-1)
+h=6: symbolic cyclic inverse identity; det Mbar=(q-X^h)^(h-1)
+PASS. Generic-r proofs and first-order universal-R calculations are written in the report.

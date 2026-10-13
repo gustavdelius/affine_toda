@@ -8,12 +8,12 @@ Working record for Part VIII, kept in the repository because the session scratch
 |---|---|---|---|---|
 | 36 | 2026-10-11 | `defect_axioms.py` | 20 PASS (2 s) | Gemini (light) + Codex deep, integrated 2026-10-12 |
 | 37 | 2026-10-11 | `defect_classical_sg.py`, `defect_sg_transmission.py` | 27 + 24 PASS (18 s, 103 s) | Gemini (light) + Codex deep, integrated 2026-10-12 |
-| 38 | 2026-10-12 | `defect_classical_an.py`, `defect_lax_rmatrix.py` | 24 + 6 PASS (114 s, 2 s) | Codex deep, integrated 2026-10-12 |
+| 38 | 2026-10-12 | `defect_classical_an.py`, `defect_lax_rmatrix.py`, `defect_spin_two_a3.py` | 24 + 6 + 9 PASS (114 s, 2 s, 151 s) | Codex deep, integrated 2026-10-12; upgrades pass (item 7) integrated 2026-10-13 |
 | 39 | 2026-10-12 | `defect_solitons_an.py` | 9 PASS (48 s) | Codex deep, integrated 2026-10-13 |
 | 40 | 2026-10-12 | `defect_universal_r.py`, `defect_transfer.py` | 16 + 9 PASS (92 s, 29 s) | Codex deep, integrated 2026-10-12 |
-| 41 | 2026-10-12 | `defect_an_transmission.py` | 27 PASS (198 s) | Codex deep, integrated 2026-10-13 |
-| 42 | 2026-10-12 | `defect_doubling.py` | 17 PASS (30 s) | no |
-| 43 | 2026-10-12 | `defect_particle_transmission.py` | 8 PASS (62 s) | no |
+| 41 | 2026-10-12 | `defect_an_transmission.py` | 28 PASS (192 s) | Codex deep, integrated 2026-10-13; upgrades pass (items 1–3, 5, 6) integrated 2026-10-13 |
+| 42 | 2026-10-12 | `defect_doubling.py` | 20 PASS (23 s) | Codex deep, integrated 2026-10-13; upgrades pass (item 8) integrated 2026-10-13 |
+| 43 | 2026-10-12 | `defect_particle_transmission.py` | 11 PASS (about 1 min; optional (b3) $a_5$ about 2.5 min) | Codex (items 1–4) + Claude (items 5–8), integrated 2026-10-13; upgrades pass (items 9–11, Codex) integrated 2026-10-13 |
 
 ## Chapter 36 (`sec-defect-scattering`)
 
@@ -221,7 +221,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 - **Ch. 30 `prp-sklyanin`: DONE 2026-10-12** (re-derived: local {a_x⊗a_x} = +[r, a₁+a₂]δ, four-site lattice transport c = −1). Still open: `boundary_classical.py`'s `tau_bracket` docstring says {T⊗T} = +[r, TT]; harmless (homogeneous), but the docstring could note the sign (file outside the integration list). — Docstring note DONE 2026-10-12 (global integration; `boundary_classical.py` rerun, 43 PASS).
 - **Appendix D (literature corrections; not on this branch):** when the Part VIII corrections are added, include corrections 1–7 above (7: CZ 2009b (4.5) winding reversal) and state BCZ's tensor as A = 2Σ(μ·u)³ (density ⅓A), not ⅔Σ — DONE 2026-10-12 (global integration).
 - **Conventions brief:** BCZ's A_abc = 2Σμμμ (density ⅓A); {T⊗T} = −[r, T⊗T] for ∂_xT = −a_xT while {a_x⊗a_x} = +[r, a₁+a₂]δ; PP γ/2 = b_SG²/8π (sinh-Gordon); the defect bracket is for independent defect values — DONE 2026-10-12 (global integration). (§5, and the PP sign corrected in §9.)
-- **Pending (ch. 38):** retain a reproducible a₃ spin-±2 run (e.g. a separate slow script) — DONE 2026-10-13: `textbook_code/defect_spin_two_a3.py` (9 checks, about 162 s), generalizing check 5/11's a₂ construction to general r; the result is now EXACT (sympy) for a₃, not just numerical, so `prp-spin-two` item (3) and its label were upgraded to [Theorem] for a₃ too (`part8-defects/38-defect-conditions.qmd`). Verification: ran the new script to completion (all 9 PASS) and reran `defect_classical_an.py` (24 PASS, docstring-only change) in this session (label upgrade not independently refereed).
+- **Pending (ch. 38):** retain a reproducible a₃ spin-±2 run (e.g. a separate slow script) — DONE 2026-10-13: `textbook_code/defect_spin_two_a3.py` (9 checks, about 162 s), generalizing check 5/11's a₂ construction to general r; the result is now EXACT (sympy) for a₃, not just numerical, so `prp-spin-two` item (3) and its label were upgraded to [Theorem] for a₃ too (`part8-defects/38-defect-conditions.qmd`). Verification: ran the new script to completion (all 9 PASS) and reran `defect_classical_an.py` (24 PASS, docstring-only change) in this session (label upgrade not independently refereed). Refereed 2026-10-13 (upgrades report item 7): correct, with an independent Laurent-polynomial Euler test; the `boundary_G` docstring had the Θ sign wrong (the flux is G = (T+Θ)(φ) − (T+Θ)(ψ), dQ_bulk/dt = εG, defect contribution −εF for D_tF = G, charge spin −ε·spin) — docstring fixed, script rerun 9 PASS (151 s).
 - `textbook_code/README.md` rows: `defect_classical_an.py` (24 checks, ~55 s), `defect_lax_rmatrix.py` (6 checks, <1 s) — DONE 2026-10-12 (global integration).
 - **Conventions brief** (all items DONE 2026-10-12, §5 and §8):
   - the monodromy T₊L_d⁻¹T₋ and the bracket results;
@@ -438,8 +438,8 @@ The full drafting report is in `briefs/draft_ch41_report.md`. The exploration ch
 **Key results.**
 - **`prp-an-transmission` [Established (1); Theorem (2)–(5)]** (relabelled 2026-10-13; items renumbered, the selection rule is now item 5; item 4 upgraded from [Numerical] the same day, see below).
   - (1) Closed forms `eq-dt-tv`, `eq-dt-tvbar` agree with cz2009a (5.8), (5.11) in the same gauge.
-  - (2) Type I₊: `eq-dt-tplus` for V̄; for V the inverse of the reversed-orientation two-entry matrix `eq-dt-reversed` (sector −Q, offset −s, X → −X₊), via the Chevalley involution ϖ (e↔f, k→k⁻¹, (ϖ⊗ϖ)Δ = Δ^op ϖ). New, proved in the integration.
-  - (3) **Uniqueness for every r ≥ 2** among charge-conserving maps, θ off the (sector- and s-independent) determinant zeros; for q not a root of unity (ω irrational) every intertwiner conserves charge. Proof: Ω_j = Δ(f_j)Δ(f_{j+1}) − q⁻¹Δ(f_{j+1})Δ(f_j) has no pure-𝒲 term; its image (V) or kernel (V̄) is a coordinate line/hyperplane, so End is diagonal, then scalar. New proof, not refereed. At q⁵ = 1 (ω = 3/5) the shift by 5α₁ gives non-charge-conserving extra intertwiners. Note ω = 1.37 is rational too (q²⁰⁰ = 1).
+  - (2) Type I₊: `eq-dt-tplus` for V̄; for V the inverse of the reversed-orientation two-entry matrix `eq-dt-reversed` (sector −Q, offset −s, X → −X₊), via the Chevalley involution ϖ (e↔f, k→k⁻¹, (ϖ⊗ϖ)Δ = Δ^op ϖ). New, proved in the integration; since 2026-10-13 the proof also contains the all-rank coefficient check of `eq-dt-reversed` (X/y + cq = c/q, c = μ/y_d). Refereed: upgrades report item 2 (correct).
+  - (3) **Uniqueness for every r ≥ 2** among charge-conserving maps, θ off the (sector- and s-independent) determinant zeros; for q not a root of unity (ω irrational) every intertwiner conserves charge. Proof: Ω_j = Δ(f_j)Δ(f_{j+1}) − q⁻¹Δ(f_{j+1})Δ(f_j) has no pure-𝒲 term; its image (V) or kernel (V̄) is a coordinate line/hyperplane, so End is diagonal, then scalar. New proof; refereed in the upgrades report, item 1 (correct). Hypothesis since 2026-10-13: the matrices defined and invertible on their nonempty sectors (the I₊ V matrix, an inverse, has det q^{−r}/(1 − qX₊^h): poles, not zeros). At q⁵ = 1 (ω = 3/5) the shift by 5α₁ gives non-charge-conserving extra intertwiners. Note ω = 1.37 is rational too (q²⁰⁰ = 1).
   - (4) **The triangle relation for every r ≥ 2**, both types, pairs VV, V̄V̄, VV̄, V̄V (2026-10-13, checkpoint `briefs/triangle_all_r_checkpoint.md`). Proof: ℛ ∈ U_q(𝔟⁻)⊗̂U_q(𝔟⁺) = q^t(1 + (q−q⁻¹)Σ f_j⊗e_j + …) (type I₊) and ℛ₂₁⁻¹ = (1 − (q−q⁻¹)Σ e_j⊗f_j + …)q^{−t} (type I₋), evaluated on V⊗𝒲, are formal power series in y_d/y resp. y/y_d with finite coefficients, charge-conserving intertwiners over ℂ((x)); the uniqueness proof of (3) is field-theoretic, so P·(evaluated ℛ) = φ·M with φ = 1 + O(x²) (orders 0 and 1 agree exactly, all four cases); on V⊗V it is ψ·Ř (generic uniqueness of Ř, rank argument); the YBE on V(y₁)⊗V(y₂)⊗𝒲 is a series in u, uv, v and gives the triangle relation times ψφφ, invertible in ℂ((u))((v)); rational ⇒ identical; one q throughout. Hypothesis (ii) is not used; it remains proved only for a₂ (exact rank certificate).
   - (5) **Selection rule.** M_V obeys the classical rule exactly. M_V̄ has entries to every weight; the ones forbidden for that incoming soliton have relative size min(|X|^j, |X|^{j−h+1}).
 - **`prp-transmission-crossing` [Numerical].**
@@ -447,7 +447,7 @@ The full drafting report is in `briefs/draft_ch41_report.md`. The exploration ch
   - Crossing holds with C = 1, c_I = 1 + (−q)^r X^h and c_II = 1 − qX^h, independently of s.
   - The bootstrap gives ḡ = ∏g. The scalar factor is given in the convergent form `eq-dt-g`.
   - **The q-sign, in the book's conventions.** At −q crossing fails for h odd with both C and C′, and for h even it holds with C′ = diag((−1)^i).
-- **`prp-a22-transmission` [Numerical].** Algebra, intertwiners unique up to a scalar on the windows tested, the triangle relation, and crossing at x_c = −q^{−6} with an antidiagonal C. What remains is listed in the chapter. cz2011 (3.12): checked that, grouped at equal k, it solves (3.8), (3.10) with z = i(θ−ν)/ξ; its outside Gamma poles are at ν − i(ξ/2 + π/3), ν − i(ξ/2 + 2π/3), so the printed positions (ξ) and windows are wrong; from (3.12) the decaying-energy windows are π/3 < ξ < 4π/3 and −π/3 < ξ < 2π/3 (physical status unchecked).
+- **`prp-a22-transmission` [Numerical].** Algebra, intertwiners unique up to a scalar on the windows tested, the triangle relation, and crossing at x_c = −q^{−6} with an antidiagonal C. What remains is listed in the chapter. cz2011 (3.12): checked that, grouped at equal k, it solves (3.8), (3.10) with z = i(θ−ν)/ξ, provided (3.2) is read as x = e^{2πθ/ξ} (printed q^{2πθ/ξ}, a misprint; 2026-10-13); its outside Gamma poles are at ν − i(ξ/2 + π/3), ν − i(ξ/2 + 2π/3), so the printed positions (ξ) and windows are wrong; from (3.12) the decaying-energy windows are π/3 < ξ < 4π/3 and −π/3 < ξ < 2π/3 (physical status unchecked).
 - **`prp-a2-unstable` [Established (1); Numerical (2), (3)]** (relabelled 2026-10-13).
   - The residue has rank h−1 per sector (`eq-dt-pole`), for generic ω.
   - The window `eq-dt-window` is open at both ends, max(0, a−h/2) < 1/ω < a, for the pole in −π/2 < Im θ_a < 0; at ϑ_a = π/2 the pole is real, Im E = 0 (zero width; cz2009a (6.15) includes it).
@@ -480,7 +480,8 @@ The full drafting report is in `briefs/draft_ch41_report.md`. The exploration ch
 **Corrections to sources recorded in the Notes.**
 - cz2009a (6.10): the Gamma functions are paired across different k; normalized at z = 0 the partial products are the equal-k ones times Γ(A_K−z)/Γ(A_K), a drift like (hγK)^{−z}. The equal-k pairing converges.
 - cz2009a §6: for a < h/2 the window is 1/γ < a, not "h/2 − 1 or (h−1)/2"; and (6.15) must be strict at ϑ_a = π/2 (2026-10-13).
-- cz2011 (3.12)–(3.13): pole positions with ξ instead of ξ/2, hence wrong windows; as printed the products drift like K^{−2z} (2026-10-13; Appendix D).
+- cz2011 (3.2): the spectral variable is x_i = e^{2πθ_i/ξ}, not the printed q^{2πθ_i/ξ}; only then τ²x = e^{−2πiz} and (3.12) solves (3.8), (3.10) (PDF checked; misprint; upgrades integration 2026-10-13; Appendix D).
+- cz2011 (3.12)–(3.13): pole positions with ξ instead of ξ/2, hence wrong windows (in the corrected (3.2) convention); as printed the products converge only after normalization at z = 0, then drift like K^{−2z} (2026-10-13; Appendix D).
 - cz2007 §6: their species 1 is the book's species 2, because of the transposed defect matrix.
 - cz2007 (6.14): (−q)^{+1/2}.
 - cz2009a §5: the tunnelling in (5.11) is made quantitative.
@@ -527,6 +528,8 @@ The full drafting report is in `briefs/draft_ch41_report.md`. The exploration ch
 
 **Status upgrades without an independent second referee pass (2026-10-13).** `prp-an-transmission` (2) existence of the I₊ V intertwiner for every r, and (3) uniqueness for every r, both [Theorem] with proofs written in the integration; (5) selection rule labelled [Theorem] (read off the closed forms). Hypothesis (ii) for a₂ was certified independently by the referee as well. Item (4), the triangle relation for every r, upgraded [Numerical] → [Theorem] the same day by the universal-R argument (proof written by a Claude agent, no referee pass; supporting checks: a₄ on complete sectors and the first-order terms in `defect_an_transmission.py`, a₂–a₅ in a scratch check).
 
+**Referee pass of these upgrades (Codex, 2026-10-13; integrated the same day).** Report `briefs/referee_defects_upgrades_report.md`, items 1, 2, 3, 5, 6: every upgrade correct, no label downgraded. Integrated: item 1 (uniqueness hypothesis 'defined and invertible'), item 2 (all-rank coefficient check of `eq-dt-reversed` in the proof), item 3 (type-I₊ selection rule: same relative bound with X₊, equal but not unit moduli at θ = θ_d), item 5 (cz2011 (3.2) misprint; 'so the slip is in the pole positions' qualified; normalization at z = 0), item 6 (Cartan lift with a fixed log q; W need not lie in Frenkel–Hernandez's category O; no pinpoint citations, the sources are not available locally). Script: check (j) gains the control with the printed (3.2). Record: the report's Integration section and `briefs/integration_upgrades_checkpoint.md`.
+
 **Pending edits elsewhere (2026-10-13).**
 - `appendices/C-code.qmd` row for `defect_an_transmission.py`: 27 checks, about 200 s (was 21, 100–180 s) — DONE 2026-10-13 (coordinator, after the integration).
 - Ch. 42: nothing found that repeats a corrected claim.
@@ -538,15 +541,15 @@ The full drafting report is in `briefs/draft_ch42_report.md`, including the prop
 **Key results.**
 - **`prp-reflected-copy`.** The reflected copy is acted on through Δ^op, so the doubled bulk algebra is U⊗U^cop. Through ω_q the reflected copy is the conjugate multiplet: parity maps solitons to antisolitons.
 - **`prp-diagonal-coideal`.** Every invertible line has a twisted-diagonal symmetry (1⊗ψ)Δ(U): the identity for the transparent defect, a torus twist for the twist line, the node swap τ for the charge-conjugation line. Numerically the largest left coideal inside the commutant of the doubled K is exactly this twisted diagonal.
-- **`cnj-twisted-diagonal` is refuted as stated.** For type I₋ and type I₊ alike, no twisted diagonal is a symmetry; the residuals are 0.93–0.97, stable under window growth.
+- **`cnj-twisted-diagonal` is refuted as stated.** For type I₋ and type I₊ alike, no twisted diagonal is a symmetry; the residuals are 0.93–0.97, stable under window growth. *Since the referee integration (2026-10-13): refuted for every Hopf twist by an exact y-power argument, for arbitrary θ-independent operators on 𝒲; Hopf automorphisms = torus ⋊ diagram automorphisms by Kolb 2014 Thm. 3.2 (Twietmeyer).*
 - **`prp-diagonal-borel`. What holds instead:**
   - Δ(U_q(𝔟^∓)), with 𝒲 the Weyl module as a dynamical boundary module. This is the expected outcome.
   - (1⊗τ)Δ(U_q(𝔟^±)) on a second module structure ρ̃ of 𝒲 (`eq-dbd-second-module`). This was not predicted.
   - The two halves do not combine: any coideal containing both contains e_j⊗1, which fails.
-  - As θ_d → +∞ the untwisted diagonal is restored, and as θ_d → −∞ the τ-twisted one.
-  - The RTT algebra is the off-diagonal part of the doubled reflection-equation algebra, with 𝕃⁻¹ adjoined.
+  - ~~As θ_d → +∞ the untwisted diagonal is restored, and as θ_d → −∞ the τ-twisted one.~~ Wrong (referee, verified 2026-10-13): these are matrix limits only. Type I₋: diagonal (twist line t_n = q^(−2n−s) on each charge sector) as θ_d → +∞, conjugation with a charge shift as θ_d → −∞; type I₊ reversed. On all of 𝒲 no twisted diagonal acts in either limit (χ(Δk₁) and χ(Δk₁⁻¹) forced to be the same operator).
+  - ~~The RTT algebra is the off-diagonal part of the doubled reflection-equation algebra, with 𝕃⁻¹ adjoined.~~ Since 2026-10-13: with vanishing diagonal blocks and boundary unitarity (a quotient) the doubled RE presentation is equivalent to RTT with 𝕃⁻¹ adjoined; no embedding; Δ(U_q(𝔟)) is a left coideal, not a Hopf subalgebra under Δ_A.
 - **`prp-defect-fusion-k`.**
-  - A type-I₋ defect fused onto Dirichlet equals Ghoshal–Zamolodchikov with (η, ϑ) = (η_D, λθ_d), sector by sector and with the scalar factor, so no CDD factor appears. With the UV–IR conjecture this gives λθ_d = (λ+1)θ_d^cl, consistent with `cnj-defect-parameter`.
+  - A type-I₋ defect fused onto Dirichlet equals Ghoshal–Zamolodchikov with (η, ϑ) = (η_D, λθ_d), sector by sector and with the scalar factor, so no CDD factor appears. With the UV–IR conjecture this gives λθ_d = (λ+1)θ_d^cl, consistent with `cnj-defect-parameter`. *Since 2026-10-13 (4) is conditional on the quantum UV–IR matching at finite coupling; the classical limit fixes only θ_d/θ_d^cl → 1.*
   - The sinh-Gordon identity (Bajnok–Simon) is re-checked.
   - The classical dressing is K ↦ σ(L_d(1/λ)⁻¹) K_ψ L_d(λ)⁻¹.
 - **`prp-fused-bdg`.**
@@ -608,18 +611,25 @@ The full drafting report is in `briefs/draft_ch42_report.md`, including the prop
   - the algebra generated by the two Borel halves;
   - boundary crossing-unitarity of K_f.
 
+**Integration of the Codex deep referee report (2026-10-13).** Report `briefs/referee_defects_42_report.md` (Integration section at its end); checkpoint `briefs/integration_42_checkpoint.md`; own scripts `briefs/referee_defects_42_scripts/integration_*.py`. All eight items verified (some modified); none rejected.
+- Labels changed: `cnj-twisted-diagonal` → [Conjecture; refuted for Hopf twists, exact argument below]; `prp-diagonal-borel` → [Theorem (1), (3)–(5), and (2) for type I₋; Numerical (2) for type I₊] (upgrades of (3), (5) and (2)-for-I₋, by hand + exact sympy; refereed 2026-10-13 in the upgrades report, item 8: correct, except that (5) and the proof wrote 𝕃 = P𝕋 = 𝒟 + y𝒪, which holds only for the matrix part — fixed, see below); `prp-defect-fusion-k` (4) → "by hand, given the quantum UV–IR matching"; `tbl-dbd-symmetries` status cells; ch. 40 table status cell.
+- Book script 20 PASS (was 17): exact y-power obstruction, ρ̃ exact for symbolic n, (4) for both types, limits for both types, CZ (2.17)/(2.19).
+- Upgrades referee pass (2026-10-13, item 8): 𝕋 = Φ𝕋̂ with Φ the scalar factor; the proof works with the matrix part 𝕃̂ = P𝕋̂ = 𝒟 + y𝒪 (Φ cancels from every intertwining equation); (5) states the limits for 𝕃̂ (the full 𝕃 has the same θ_d → +∞ limit since Φ → 1; 𝕃/(y/y_d) → 0 since |Φ| = (1+Y²)^{−1/2}; 𝕃/(ΦY) has the conjugation limit, |ΦY| → 1); type-I₊ twist matrices diag(q^n, q^{−n−s}); caption 'becomes proportional to'; script and figure-script docstrings. No label change. Script 20 PASS (23 s).
+- New correction to the literature: CZ 2012 (2.19), two misprints (h and the sign of s₋), chapter Notes and Appendix D.
+
 ## Chapter 43 (`sec-particle-transmission`)
 
-The full drafting report is in `briefs/draft_ch43_report.md`; the checkpoint is `briefs/draft_ch43_checkpoint.md`. Re-run on integration: 8 PASS, 62 s.
+The full drafting report is in `briefs/draft_ch43_report.md`; the checkpoint is `briefs/draft_ch43_checkpoint.md`. Re-run on integration: 8 PASS, 62 s. After the referee integration of 2026-10-13: 11 PASS, 35–50 s (see the integration subsection below).
 
 **Notation.** ω = 4π/β² − 1 is always the coupling. Ch. 39's root of unity is written e^{2πi/h}. The ch. 40 twist is written ω_m = q^{−m/2}.
 
 **Key results.**
 - **`prp-lightest-breather-universal` [Numerical, 2 ≤ r ≤ 4].**
   - The lowest breather B^(a)_1 of every species crosses a type-I₋ defect as 𝕋^cl_a(θ−θ_d) times the identity on 𝒲, so it is independent of the coupling, the defect label and the offset s.
-  - A scratch run covers all five species of a₅.
+  - All five species of a₅: optional check (b3) of the script (`DPT_A5=1`, about 2.5 min, 4e-9); before 2026-10-13 an unrecorded scratch run.
+  - The lowest breather is physical only for hω > 2 (Gandenberger 1998 §3.3.1); h = 3, ω = 0.6 in (b2) is an algebraic continuation. Only B₁ of sine-Gordon is coupling-independent; B_n, n ≥ 2, are not.
   - cz2007 (7.5) is the pair (𝕋^cl_2, 𝕋^cl_1) in book labels.
-- **`prp-an-particle-transmission` [Numerical, as solutions of the axioms].** For h = 2..8 and both types:
+- **`prp-an-particle-transmission` [Theorem since 2026-10-13, was Numerical for h = 2..8; as solutions of the axioms].** For every h ≥ 2 and both types (full hand proof in the proof block; exact sympy in check (c)):
   - unitarity, crossing and Hermitian analyticity;
   - the bootstrap at every fusing;
   - no physical-strip poles for real θ_d;
@@ -627,24 +637,25 @@ The full drafting report is in `briefs/draft_ch43_report.md`; the checkpoint is 
 - **`prp-dpt-vacuum` [Theorem].** At real coupling with σ > 0, ℬ_d ≥ 0, with equality only at φ = ψ = 0. For σ < 0 it is unbounded below.
 - **`cnj-transmission-continuation` [Conjecture].** If the real-coupling defect is quantum integrable, the only quantum content of particle transmission is the renormalized θ_d(σ, β). The chapter makes a one-loop prediction for a_r: one common δθ_d for all species.
 - **Bajnok–Simon.** Their one-loop factor is exactly the O(b²) term of the exact factor with θ_d = (1 − B/2)θ_d^cl.
-- **`prp-dpt-doubled` [Numerical].** Ch. 42's a_r expectation holds for type I₋ of a₂ and a₃: Δ(U_q(𝔟⁻)) and (1⊗π)Δ(U_q(𝔟⁺)), with π(e_j) = e_{j−1}. The opposite rotation fails.
-- `tbl-dpt-spectrum` and 15 open problems in `sec-defect-open-problems`. They cover every ch. 43 obligation from ch. 37–42; the mapping is a table in the report, §5.
+- **`prp-dpt-doubled` [Theorem since 2026-10-13 (upgrades integration), type I₋, every r ≥ 2, generic q (q³, q⁴ ≠ 1 suffice), finite θ_d, any s; was Numerical for a₂, a₃].** Ch. 42's a_r expectation holds for type I₋ (originally checked for a₂ and a₃): Δ(U_q(𝔟⁻)) and (1⊗π)Δ(U_q(𝔟⁺)), with π(e_j) = e_{j−1}. The opposite rotation fails.
+  - Since 2026-10-13: the second module ρ̃ is explicit (`eq-dpt-second-module`: ρ̃(e_j)|N⟩ = e^{ω(θ_d+iπ/2)}/(q−q⁻¹) q^{−(N+s)_j}|N+α_j⟩, ρ̃(k_j) = plain shift by α_j−α_{j−1}); derived by hand for V (free constant c_j q^{(N+s)_j} killed by the Cartan relation, q⁴ ≠ 1), V̄ numerical (exact labels, h = 3, 4, 5) until the upgrades integration, which added the all-rank proof by the sparse inverse M_V̄⁻¹ = H/(1 − X^h/q), H|i,N⟩ = q^{−n_i}|i,N⟩ − (X/q)|i+1, N−α_i⟩ (from the upgrades report, item 10; check (h) now also checks H M_V̄ = 1 − X^h/q); h = 2 is `eq-dbd-second-module` in the basis τ^{−n}q^{n(n−1)/2+ns/2}|n⟩, τ = −ie^{iπω/2}, with M_V times q^{s/2}. The failing twists fail by an exact y-power argument (e-type ψ(j) ≠ j−1 at y², f-type ψ(j) ≠ j at y⁻¹). The two Borel halves do not form one coideal (q³ ≠ 1, as `prp-diagonal-borel` (4)).
+- **Soliton CDD condition** (`eq-dpt-soliton-cdd`, 2026-10-13): ∏_{k<h} f(D − iπ + 2πik/h) = 1. The simpler f(D)f(D+iπ) = 1 is equivalent only for h = 2; for h > 2 it is not necessary, it is sufficient for even h (pair k with k + h/2) and not sufficient in general for odd h (corrected 2026-10-13, upgrades report item 11; do not write 'neither necessary nor sufficient'). The h = 3 case is in cz2007 right after (6.9), cited; the novelty claim is the all-rank form and derivation; T^cl_1 satisfies it for every h; its breather multiplier depends on ω (computed).
+- `tbl-dpt-spectrum` and 15 open problems in `sec-defect-open-problems`. Residue (on each fixed-charge sector; infinite rank on the whole direct sum) at the species-1 pole of 𝕋_V: rank h−1; at the species-r pole of 𝕋_V̄ (X^h = q): rank 1; other species not computed. Lee–Yang bound-state poles are in 𝕋̄_b. For θ_d = iv, Θ is broken only for v ∉ πℤ; at v = π (in the window for a < h/2) σ = −1, unbounded below. They cover every ch. 43 obligation from ch. 37–42; the mapping is a table in the report, §5.
 
 **Verification record.**
 - **By script:** checks (a)–(g).
-- **By scratch run:** a₅ every species (about 10 min); (f) on all nodes of a₃.
+- **By scratch run:** (f) on all nodes of a₃. (The a₅ run is now the optional check (b3).)
 - **By hand:** the telescoping identities, block forms, `prp-dpt-vacuum`, and the derivation of the duality relation.
 - **Unchecked:**
   - the type-I₊ breathers (no I₊ scalar factor yet);
   - class-p breathers;
   - higher breathers for a_r;
-  - the module relations of ρ̃ for a_r;
   - a proof for all r.
-- **Quoted only:** the defect TBA, DTCSA, Kormos–Runkel–Watts, and Jiang (from the abstract only).
+- **Quoted only:** the defect TBA, DTCSA, Kormos–Runkel–Watts. Jiang 2017 was read in full at the referee integration (abstract, intro, (5.5)–(5.6), §7); the "(from the abstract)" qualifier was removed and the bullet rewritten from the paper.
 - **Flags for the referee:**
   - the duality remark and θ_d = (1 − B/2)θ_d^cl for a_r are conditional;
   - "for every r" is an expectation;
-  - "a soliton CDD factor destroys the coupling independence" is argued, not computed.
+  - "a soliton CDD factor destroys the coupling independence" is argued, not computed. (Computed since 2026-10-13, with the corrected condition `eq-dpt-soliton-cdd`.)
 
 **Corrections to sources recorded in the Notes.**
 - cz2007 (7.3)–(7.5): their particle labels are swapped relative to the book (transposed defect matrix). Their remark that the factors "depend on β only via η" holds exactly, for every species of a₂–a₄.
@@ -662,12 +673,25 @@ The full drafting report is in `briefs/draft_ch43_report.md`; the checkpoint is 
   - `textbook_code/README.md` row — DONE 2026-10-12;
   - conventions brief §11 (text in the report) — DONE 2026-10-12 (now §13, in chapter order).
 
+**Integration of the referee report (2026-10-13).** Report `briefs/referee_defects_43_report.md` (Codex items 1–4, Claude items 5–8; Integration section at its end); checkpoint `briefs/integration_43_checkpoint.md`; own scripts `briefs/referee_defects_43_scripts/integration_*.py`. All eight items verified (items 6 and 8 with small modifications); none rejected.
+- Labels changed: `prp-an-particle-transmission` [Numerical, h = 2..8] → **[Theorem]** for every h ≥ 2 (full hand proof added to the proof block; exact sympy in check (c)); `tbl-dpt-spectrum` row "a_r particles, real θ_d" status → "[Theorem] for the factors". **No independent referee pass of the upgraded proof** at the time; refereed 2026-10-13 in the upgrades report, item 9 (correct; the type-I₊ case is now written out in the same variable x). All other labels unchanged at that integration (`prp-dpt-doubled` stayed [Numerical]; upgraded to [Theorem] in the upgrades integration, see above).
+- New ids: `eq-dpt-second-module` (proof of `prp-dpt-doubled`), `eq-dpt-soliton-cdd` (CDD paragraph).
+- Book script 11 PASS (was 8): exact identities in (c), explicit σ < 0 direction in (g), (h) second module, (i) soliton CDD condition, (j) residue ranks, Lee–Yang direction, v = π; optional (b3) a₅.
+- Minimal consistency edits outside ch. 43: ch. 37 `sec-sg-defect-spectrum` ("Θ is broken unless v ∈ πℤ"; v = π in the window for 1/2 < λ < 1); ch. 42 "Beyond sine-Gordon" (the module relations are no longer open). Ch. 41 not touched (its rank h−1 claim is for 𝕋_V only, correct). No Part VII or index edits needed. No Appendix D entries (all corrections book-internal).
+- Open, recorded in the report's Integration section: a proof of the V̄ half of the second module (sketch: the e-type and Cartan equations for V imply them for the fused (T⊗1)(1⊗T), hence for V̄ through the bootstrap embedding; not written out) — DONE 2026-10-13 by a different route (sparse inverse, upgrades integration); the species-r excited defect (rank-1 residue) as the simplest case of problem 10.
+
 ## Global pending edits
 
 - **Notation clash ω.** Ch. 39 uses ω = e^{2πi/h}; ch. 41 uses ω = 4π/β² − 1, Part VI's coupling. Decide globally, e.g. by renaming ch. 39's root of unity — DONE 2026-10-12: not renamed. Part III (ch. 10, `eq-an-soliton`) uses ω = e^{2πi/h} and Part VI (ch. 20–21) ω = 4π/β² − 1, and ch. 20 already warns about it, so Part VIII inherits a book-wide double use; ch. 39 now says so in one sentence (and its script docstring), as does the conventions brief §10. (Part VII ch. 31 writes the root of unity ζ instead; a rename to ζ in ch. 39 remains possible.)
 - Harmonize theorem titles: Part VII and ch. 40, 42 put a `## Title` inside every `::: {#prp-…}` block; ch. 36, 38, 39 have none and ch. 37 has one — DONE 2026-10-12 (global integration). Titles added to all 28 untitled blocks of ch. 36–39.
 - Rewrite Part VII open problem 10 (`sec-boundary-open-problems`, ch. 35): integrable interacting defects are purely transmitting — DONE 2026-10-12 (global integration).
 - Naming: the conventions scripts call the two signs of 𝖣 "types I, II"; the book's names are type I₊ and type I₋ (type II is the Corrigan–Zambon defect with an auxiliary field) — not needed: the scripts were already renamed in the conventions commit bc915ba (they say I_-/I_+ throughout); the remaining "type II" strings are the genuine Corrigan–Zambon defects (`defect_classical_an.py` check 10) and Weston's type-II module, and 'I'/'II' in `defect_an_transmission.py` label the crossing relations (I), (II).
+- **Part VII edits from the ch. 42 referee integration (2026-10-13).** Do not apply them on the defects branch; apply them on the branch that edits Part VII. The first two were verified with `boundary_common.an_vector`: V(1/y)∘ω_q = V̄(y) to 2e-16, while V(y)∘ω_q = V̄(1/y).
+  - `part7-half-line/33-soliton-reflection.qmd` line 72: replace "In the principal gradation, at the physical $q$, $\bar V(y)$ is $V(y)$ composed with $e_j\leftrightarrow f_j$, $k_j\to k_j^{-1}$. It is the antisoliton at the same rapidity," by "In the principal gradation $\bar V(y)$ has $e_j=yF_j$, $f_j=E_j/y$ and $k_j=q^{-H_j}$: it is $V(1/y)$ composed with $e_j\leftrightarrow f_j$, $k_j\to k_j^{-1}$. At the physical $q$ it is the antisoliton at the same rapidity,". — PENDING
+  - `part7-half-line/34-quantum-symmetric-pairs.qmd` line 72: replace "the conjugate multiplet: $\bar V=V\circ\omega_q$ (@sec-an-diagonal-k)." by "the conjugate multiplet: $\bar V(y)=V(1/y)\circ\omega_q$ in the principal gradation (@sec-an-diagonal-k)." — PENDING
+  - `part7-half-line/35-particle-reflection.qmd` problem 9 (line ~317): replace "Classically, a type-I defect fused onto a boundary of @tbl-durham gives integrable dynamical $a_n^{(1)}$ boundaries with $n$ boundary variables (@prp-fused-bdg); their quantization is open." by "Classically, a type-I defect fused onto a boundary of @tbl-durham gives dynamical $a_n^{(1)}$ boundaries with $n$ boundary variables and a conserved Lax generating function (@prp-fused-bdg); whether their charges are in involution, and their quantization, are open." (`prp-fused-bdg` proves conservation only, not involution.) — PENDING
+
+- **From the upgrades integration (2026-10-13), outside the files that integration could edit.** `prp-dpt-doubled` is now a [Theorem] for type I₋ and every r ≥ 2. (a) Ch. 40 `tbl-boundary-defect-algebra`, status cell of the doubled-boundary column: "$a_2$, $a_3$ [Numerical]" → "$a_r$, type I$_-$, [Theorem]" — DONE 2026-10-13 (coordinator). (b) `index.qmd` l. 51, "or for $a_2^{(1)}$ and $a_3^{(1)}$ by the rotation of the Dynkin diagram": not wrong, but now weaker than the theorem; now "or for every $a_r^{(1)}$, $r\ge2$, by the rotation …" — DONE 2026-10-13 (coordinator).
 
 ## Global integration (2026-10-12)
 
@@ -678,3 +702,14 @@ Done by the global-integration agent; checkpoint `briefs/global_integration_part
 - Appendix D: the Part VIII corrections to published papers, with a fifth kind, *clarification*. Not listed there, by the appendix's rules: convention-only items (Bajnok–Simon $B_{\rm BS}=B/2$; BGKNR/BLZ translation; cz2007 (7.3)–(7.5) and Sec. 6 species labels), items that confirm or extend without correcting (cz2007 Sec. 7 remarks, Bajnok–Simon Sec. 4.2, cz2009a Sec. 5, cz2012 (2.18)), and book-internal items. cz2007 Sec. 2 after (2.22) is under "Corrections made earlier by others" (cz2009a noted it).
 - Appendix C: section `sec-app-code-defects` with all `defect_*.py` scripts. `textbook_code/README.md`, `briefs/README.md` and the root `README.md` cover Part VIII.
 - Conventions brief: ch. 38 and ch. 40 items folded into §5, §6 and §8 (PP sign in §9 corrected); new §10 (ch. 39), §11 (ch. 41), §12 (ch. 42, the report's "§10") and §13 (ch. 43, the report's "§11").
+
+## Integration of the upgrades referee report (2026-10-13)
+
+Report `briefs/referee_defects_upgrades_report.md` (Codex, commit inspected 4c78d75; Integration section at its end); checkpoint `briefs/integration_upgrades_checkpoint.md`; own scripts `briefs/referee_defects_upgrades_scripts/integration_*.py` with outputs. Every item re-derived before editing; all eleven verified, none rejected; no label downgraded.
+- Ch. 38 (item 7): `defect_spin_two_a3.py` `boundary_G` docstring (flux G = (T+Θ)(φ) − (T+Θ)(ψ), dQ_bulk/dt = εG, defect contribution −εF, spin −ε·spin); 9 PASS, 151 s. The a₃ [Theorem] of `prp-spin-two` (3) is now refereed.
+- Ch. 41 (items 1, 2, 3, 5, 6): uniqueness hypothesis "defined and invertible"; all-rank coefficient check of `eq-dt-reversed`; type-I₊ selection-rule sentence; cz2011 (3.2) misprint (x = e^{2πθ/ξ}), qualified pole-slip statement and normalization at z = 0 (also Notes, Appendix D); Cartan lift and category-O remark (no pinpoint citations: TK1992, FH2015 not available locally). Script check (j) gains the printed-(3.2) control; 28 PASS, 192 s.
+- Ch. 42 (item 8): the limits of `prp-diagonal-borel` (5) and the proof are for the matrix part 𝕃̂ = P𝕋̂, 𝕋 = Φ𝕋̂; caption; script and figure-script docstrings; 20 PASS, 23 s (figure script PASS, SVG restored: ids only).
+- Ch. 43 (items 9, 10, 11): type-I₊ particle proof in the same variable; **`prp-dpt-doubled` [Numerical] → [Theorem]** (type I₋, every r ≥ 2, generic q), proof complete (V half, V̄ half by the sparse inverse, module relations, failed twists, coideal obstruction); CDD sentence (even h sufficient, not necessary; odd h not sufficient), CZ 2007 after (6.9) cited, novelty qualified; "on each fixed-charge sector" in `tbl-dpt-spectrum` and problem 10; problem 12 and ch. 42 "Beyond sine-Gordon" follow the theorem. Script (h) gains H M_V̄ = 1 − X^h/q, (i) the even/odd-h sinh-type test; 11 PASS, about 1 min.
+- Labels changed: only `prp-dpt-doubled`. Its proof is the referee's (item 10), re-derived by hand and by an exact script here; the integration text itself has had no referee pass.
+- Reference check: 65 files, 1164 ids (no new ids), no duplicates or unresolved references, all citation keys in `references.bib`.
+- Pending: none from this integration; the ch. 40 table cell and `index.qmd` l. 51 were done by the coordinator (2026-10-13).

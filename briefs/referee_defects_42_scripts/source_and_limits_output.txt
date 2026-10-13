@@ -1,0 +1,12 @@
+CZ 2.19 0 printed h relative full-block error 0.26040770233492144
+CZ 2.19 0 substitution h relative full-block error 0.2584131052132281
+CZ 2.19 2 printed h relative full-block error 0.1749505088407776
+CZ 2.19 2 substitution h relative full-block error 0.173196055790588
+CZ 2.19 4 printed h relative full-block error 0.560129157366662
+CZ 2.19 4 substitution h relative full-block error 0.5565116585638562
+diagonal limit required chi(k) chi(k^-1) at s=0: q**(-4*n)
+offdiagonal limit: chi(k) shifts +2; independently fitted chi(k^-1) also shifts +2
+all-entry minus graded residual: -1 e 0 0.0
+all-entry minus graded residual: -1 f 1 0.0
+all-entry minus graded residual: 1 f 0 0.0
+all-entry minus graded residual: 1 e 1 0.0

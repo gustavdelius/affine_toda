@@ -1,0 +1,37 @@
+h=3 om=1.414: (-1/q)^r X1^h = -1.000-0.000j, Xr^h/q = 1.000+0.000j; M_V(theta_1) sv/sv0 = [1. 1. 0.]; M_Vbar(theta_r) sv/sv0 = [1. 0. 0.]
+h=3 om=1.370: (-1/q)^r X1^h = -1.000-0.000j, Xr^h/q = 1.000-0.000j; M_V(theta_1) sv/sv0 = [1. 1. 0.]; M_Vbar(theta_r) sv/sv0 = [1. 0. 0.]
+h=3 om=3.100: (-1/q)^r X1^h = -1.000-0.000j, Xr^h/q = 1.000-0.000j; M_V(theta_1) sv/sv0 = [1. 1. 0.]; M_Vbar(theta_r) sv/sv0 = [1. 0. 0.]
+h=4 om=1.414: (-1/q)^r X1^h = -1.000+0.000j, Xr^h/q = 1.000-0.000j; M_V(theta_1) sv/sv0 = [1.    0.707 0.707 0.   ]; M_Vbar(theta_r) sv/sv0 = [1. 0. 0. 0.]
+h=4 om=1.370: (-1/q)^r X1^h = -1.000-0.000j, Xr^h/q = 1.000-0.000j; M_V(theta_1) sv/sv0 = [1.    0.707 0.707 0.   ]; M_Vbar(theta_r) sv/sv0 = [1. 0. 0. 0.]
+h=4 om=3.100: (-1/q)^r X1^h = -1.000-0.000j, Xr^h/q = 1.000+0.000j; M_V(theta_1) sv/sv0 = [1.    0.707 0.707 0.   ]; M_Vbar(theta_r) sv/sv0 = [1. 0. 0. 0.]
+h=5 om=1.414: (-1/q)^r X1^h = -1.000-0.000j, Xr^h/q = 1.000+0.000j; M_V(theta_1) sv/sv0 = [1.    1.    0.618 0.618 0.   ]; M_Vbar(theta_r) sv/sv0 = [1. 0. 0. 0. 0.]
+h=5 om=1.370: (-1/q)^r X1^h = -1.000+0.000j, Xr^h/q = 1.000-0.000j; M_V(theta_1) sv/sv0 = [1.    1.    0.618 0.618 0.   ]; M_Vbar(theta_r) sv/sv0 = [1. 0. 0. 0. 0.]
+h=5 om=3.100: (-1/q)^r X1^h = -1.000+0.000j, Xr^h/q = 1.000-0.000j; M_V(theta_1) sv/sv0 = [1.    1.    0.618 0.618 0.   ]; M_Vbar(theta_r) sv/sv0 = [1. 0. 0. 0. 0.]
+h=6 om=1.414: (-1/q)^r X1^h = -1.000+0.000j, Xr^h/q = 1.000+0.000j; M_V(theta_1) sv/sv0 = [1.    0.866 0.866 0.5   0.5   0.   ]; M_Vbar(theta_r) sv/sv0 = [1. 0. 0. 0. 0. 0.]
+h=6 om=1.370: (-1/q)^r X1^h = -1.000-0.000j, Xr^h/q = 1.000+0.000j; M_V(theta_1) sv/sv0 = [1.    0.866 0.866 0.5   0.5   0.   ]; M_Vbar(theta_r) sv/sv0 = [1. 0. 0. 0. 0. 0.]
+h=6 om=3.100: (-1/q)^r X1^h = -1.000+0.000j, Xr^h/q = 1.000-0.000j; M_V(theta_1) sv/sv0 = [1.    0.866 0.866 0.5   0.5   0.   ]; M_Vbar(theta_r) sv/sv0 = [1. 0. 0. 0. 0. 0.]
+h=3: eps*gbar(theta_r + eps) = -0.2649-0.3416j, -0.2649-0.3416j
+h=4: eps*gbar(theta_r + eps) = -0.0820-0.2250j, -0.0820-0.2250j
+h=5: eps*gbar(theta_r + eps) = -0.0239-0.1451j, -0.0239-0.1451j
+LY b=-0.5 |1+> y=0.083: eps*T_b=7.2e-09, eps*Tbar_b=3.46e+00
+LY b=-0.5 |2+> y=-0.250: eps*T_b=2.7e-08, eps*Tbar_b=3.46e+00
+   max |T_b| on the strip axis: 0.54
+LY b=0.5 |1+> y=0.250: eps*T_b=2.7e-08, eps*Tbar_b=3.46e+00
+LY b=0.5 |2+> y=-0.083: eps*T_b=7.2e-09, eps*Tbar_b=3.46e+00
+   max |T_b| on the strip axis: 1.84
+LY b=1.5 |1+> y=0.417: eps*T_b=3.7e-07, eps*Tbar_b=3.46e+00
+LY b=1.5 |2+> y=0.083: eps*T_b=2.7e-08, eps*Tbar_b=3.46e+00
+   max |T_b| on the strip axis: 9.75
+h=3 a=1: v=pi phase dev 4e-16, v=pi-0.3 dev 0.71; v=pi in window: True (a<h/2: True); 1/T at i gamma_a: 6e-10
+h=3 a=2: v=pi phase dev 2e-16, v=pi-0.3 dev 0.19; v=pi in window: False (a<h/2: False); 1/T at i gamma_a: 6e-10
+h=4 a=1: v=pi phase dev 4e-16, v=pi-0.3 dev 1.15; v=pi in window: True (a<h/2: True); 1/T at i gamma_a: 7e-10
+h=4 a=2: v=pi phase dev 2e-16, v=pi-0.3 dev 0.36; v=pi in window: False (a<h/2: False); 1/T at i gamma_a: 5e-10
+h=4 a=3: v=pi phase dev 2e-16, v=pi-0.3 dev 0.13; v=pi in window: False (a<h/2: False); 1/T at i gamma_a: 7e-10
+h=5 a=1: v=pi phase dev 4e-16, v=pi-0.3 dev 1.74; v=pi in window: True (a<h/2: True); 1/T at i gamma_a: 9e-10
+h=5 a=2: v=pi phase dev 4e-16, v=pi-0.3 dev 0.53; v=pi in window: True (a<h/2: True); 1/T at i gamma_a: 5e-10
+h=5 a=3: v=pi phase dev 2e-16, v=pi-0.3 dev 0.25; v=pi in window: False (a<h/2: False); 1/T at i gamma_a: 5e-10
+h=5 a=4: v=pi phase dev 2e-16, v=pi-0.3 dev 0.10; v=pi in window: False (a<h/2: False); 1/T at i gamma_a: 9e-10
+SG lam=0.4: v=pi in window: False
+SG lam=0.6: v=pi in window: True
+SG lam=0.9: v=pi in window: True
+SG lam=1.2: v=pi in window: False

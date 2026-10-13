@@ -60,9 +60,11 @@ Checks (book ids; 28 PASS lines):
      prp-an-transmission (4) for every r: the terms of order 0 and 1 of the universal R-matrix, R = q^t(1 + (q - q^-1)
      sum f_j (x) e_j + ...) for type I_+ and R_21^-1 for type I_-, on V, Vbar (x) W equal the matrix parts (h = 3, 4, 5);
      eq-triangle-braid for a_4 on complete charge sectors, both types, VV, VbarVbar, VVbar, VbarV (control: -q).
- (j) cz2011 (3.12): with z = i(theta - nu)/xi and the Gamma functions grouped at equal k, rho-hat solves (3.8) and (3.10);
-     its outside Gamma functions have poles at nu - i(xi/2 + pi/3), nu - i(xi/2 + 2 pi/3), not at the printed xi; the
-     decaying-energy windows pi/3 < xi < 4 pi/3 and -pi/3 < xi < 2 pi/3; as printed the products drift like K^{-2z}.
+ (j) cz2011 (3.12): with z = i(theta - nu)/xi and the Gamma functions grouped at equal k, rho-hat solves (3.8) and (3.10)
+     when the spectral variable of (3.2) is x = e^{2 pi theta/xi}, so that tau^2 x = e^{-2 pi i z}; with the printed
+     x = q^{2 pi theta/xi} (control) (3.10) fails; its outside Gamma functions have poles at nu - i(xi/2 + pi/3),
+     nu - i(xi/2 + 2 pi/3), not at the printed xi; the decaying-energy windows pi/3 < xi < 4 pi/3 and -pi/3 < xi < 2 pi/3;
+     as printed the products converge only after normalization at z = 0, and then drift like K^{-2z}.
 Runtime: about 200 seconds.
 """
 import time
@@ -1232,15 +1234,29 @@ def cz11_printed(z, c, K):
                      - loggamma(0.5 - z + 6*k*c - 2*c) - loggamma(0.5 - z + 6*k*c - c)))
 
 
+# control: the printed spectral variable of (3.2), x = q^{2 pi theta/xi}, tau = e^{-pi nu/xi}, theta = nu - i xi z, with
+# log q = i 4 pi^2/beta^2 = i pi (c + 1/2) (q = e^{i 4 pi^2/beta^2}, c = pi/(3 xi) = 4 pi/beta^2 - 1/2); rho = e^{i pi z} rho-hat
+pr = 0
+for xi in (0.9, 1.7):
+    c = np.pi/(3*xi); nu_r = 0.4; zs = np.array([0.11 + 0.07j, -0.23 + 0.31j, 0.05 - 0.4j])
+    Lr = lambda z_: 1j*np.pi*z_ + cz11_log(z_, c)
+    th = nu_r - 1j*xi*zs
+    t2x_pr = np.exp(-2*np.pi*nu_r/xi + (2*np.pi*th/xi)*1j*np.pi*(c + 0.5))
+    t2x_ok = np.exp(-2j*np.pi*zs)
+    bpr = Lr(zs) - np.log(1 + t2x_pr) - Lr(zs - c) - Lr(zs + c)
+    bok = Lr(zs) - np.log(1 + t2x_ok) - Lr(zs - c) - Lr(zs + c)
+    fe = max(fe, np.abs(np.exp(bok - bok[0]) - 1).max())
+    pr = max(pr, np.abs(np.exp(bpr - bpr[0]) - 1).max())
 c = np.pi/(3*0.9); z = 0.3 + 0.5j
 drift = (cz11_printed(z, c, 2000) - cz11_printed(z, c, 1000)) - (cz11_printed(0, c, 2000) - cz11_printed(0, c, 1000))
 report(f'cz2011 (3.12): grouped at equal k, rho-hat solves (3.10) and (3.8) up to constants with z = i(theta - nu)/xi, tau^2 x = '
-       f'e^(-2 pi i z) (xi = 0.9, 1.7) [{fe:.0e}]; control with doubled shifts [{ctl:.2f}]; the arguments of the Gamma functions '
+       f'e^(-2 pi i z), i.e. x = e^(2 pi theta/xi) in (3.2) (xi = 0.9, 1.7) [{fe:.0e}]; controls: doubled shifts [{ctl:.2f}], the printed '
+       f'x = q^(2 pi theta/xi) of (3.2) in (3.10) [{pr:.2f}]; the arguments of the Gamma functions '
        f'outside the products vanish at nu - i(xi/2 + pi/3), nu - i(xi/2 + 2 pi/3) [arguments {abs(args[0]):.0e}, {abs(args[1]):.0e}] and equal '
        f'-1/2 at the printed nu - i(xi + pi/3), nu - i(xi + 2 pi/3); Re E > 0, Im E < 0 (eta > 0) for {w1.min()/np.pi:.3f} pi < xi < '
-       f'{w1.max()/np.pi:.3f} pi and {w2.min()/np.pi:.3f} pi < xi < {w2.max()/np.pi:.3f} pi; as printed the products drift '
-       f'like K^-2z [{abs(drift + 2*z*np.log(2)):.0e}]',
-       fe < 1e-8 and ctl > 1e-2 and abs(args[0]) < 1e-12 and abs(args[1]) < 1e-12 and abs(args[2] + 0.5) < 1e-12
+       f'{w1.max()/np.pi:.3f} pi and {w2.min()/np.pi:.3f} pi < xi < {w2.max()/np.pi:.3f} pi; as printed, normalized at z = 0, the '
+       f'products drift like K^-2z [{abs(drift + 2*z*np.log(2)):.0e}]',
+       fe < 1e-8 and ctl > 1e-2 and pr > 1e-2 and abs(args[0]) < 1e-12 and abs(args[1]) < 1e-12 and abs(args[2] + 0.5) < 1e-12
        and abs(args[3] + 0.5) < 1e-12 and abs(w1.min() - np.pi/3) < 1e-3 and abs(w1.max() - 4*np.pi/3) < 1e-3
        and abs(w2.min() + np.pi/3) < 1e-3 and abs(w2.max() - 2*np.pi/3) < 1e-3 and abs(drift + 2*z*np.log(2)) < 1e-3)
 print(f'# total runtime {time.time() - T0:.0f} s')
