@@ -41,7 +41,6 @@
 - [DONE] Cleaned up a stray r3_pid.txt accidentally written to the repo root by a backgrounding quirk (cwd
   resets between Bash calls, so "cd scratch && nohup ... &" followed by "echo ... | tee r3_pid.txt" on the
   next line ran the second command back in the repo root). Removed before committing.
-- [TODO] Commit with explicit paths (only my files: textbook_code/defect_spin_two_a3.py,
-  textbook_code/defect_classical_an.py, textbook_code/README.md, appendices/C-code.qmd,
-  part8-defects/38-defect-conditions.qmd, briefs/part8_defects_status.md, briefs/spin_two_a3_checkpoint.md --
-  NOT briefs/referee_defects_upgrades.md or referee_scratch/, which belong to other agents).
+- [DONE] Committed with explicit paths as e748b4f ("Chapter 38: reproducible a3 spin-±2 check
+  (defect_spin_two_a3.py)"), 7 files changed; did not touch briefs/referee_defects_upgrades.md or
+  referee_scratch/ (other agents' files). TASK COMPLETE.
