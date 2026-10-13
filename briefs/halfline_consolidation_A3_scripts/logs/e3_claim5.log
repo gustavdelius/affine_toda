@@ -1,0 +1,29 @@
+=== real coupling, defining representation, generic phi_0 and phi_0 = 0
+a_1 phi0 generic: T 1 (svmin 2.0e-16), S 1 (svmin 2.6e-16); permuted [1], reflected {'TJ': 1, 'SJ': 1}, antilinear on real data {'dag': 1, 'nconj': 1}
+a_1 phi0 zero: T 1 (svmin 0.0e+00), S 1 (svmin 8.9e-17); permuted [1], reflected {'TJ': 1, 'SJ': 1}, antilinear on real data {'dag': 1, 'nconj': 1}
+a_2 phi0 generic: T 0 (svmin 1.1e-01), S 0 (svmin 8.4e-02); permuted [0], reflected {'TJ': 0, 'SJ': 0}, antilinear on real data {'dag': 0, 'nconj': 0}
+a_2 phi0 zero: T 0 (svmin 1.1e-01), S 0 (svmin 1.3e-01); permuted [0], reflected {'TJ': 0, 'SJ': 0}, antilinear on real data {'dag': 0, 'nconj': 0}
+a_3 phi0 generic: T 0 (svmin 7.9e-02), S 0 (svmin 3.4e-02); permuted [0], reflected {'TJ': 0, 'SJ': 0}, antilinear on real data {'dag': 0, 'nconj': 0}
+a_3 phi0 zero: T 0 (svmin 1.0e-01), S 0 (svmin 5.6e-02); permuted [0], reflected {'TJ': 0, 'SJ': 0}, antilinear on real data {'dag': 0, 'nconj': 0}
+a_4 phi0 generic: T 0 (svmin 1.2e-01), S 0 (svmin 4.1e-02); permuted [0], reflected {'TJ': 0, 'SJ': 0}, antilinear on real data {'dag': 0, 'nconj': 0}
+a_4 phi0 zero: T 0 (svmin 1.3e-01), S 0 (svmin 1.2e-01); permuted [0], reflected {'TJ': 0, 'SJ': 0}, antilinear on real data {'dag': 0, 'nconj': 0}
+=== mechanism: lam^(2h) = 1 gives a K (cycle condition closes)
+a_2 lam=(0.5+0.866j) lam^(2h)=(1-0j): T 0, S 1
+a_2 lam=(0.866+0.5j) lam^(2h)=(-1+0j): T 0, S 0
+a_2 lam=1.0 lam^(2h)=1.0: T 0, S 1
+a_2 lam=-1.0 lam^(2h)=1.0: T 0, S 1
+a_3 lam=(0.707+0.707j) lam^(2h)=(1-0j): T 0, S 1
+a_3 lam=(0.924+0.383j) lam^(2h)=(-1-0j): T 0, S 0
+a_3 lam=1.0 lam^(2h)=1.0: T 0, S 1
+a_3 lam=-1.0 lam^(2h)=1.0: T 0, S 1
+=== other representations (real coupling, generic phi_0)
+a2 adjoint (8): rep ok True; T (0, 0.06023810382236903), S (0, 0.06977283505665344)
+a3 Lambda^2 (6): rep ok True; T (0, 0.018896791220254935), S (0, 0.009427070980620782)
+a2 V+Vbar (6): rep ok True; T (0, 0.06504223479928778), S (0, 0.060643076928391826)
+a3 adjoint (15): rep ok True; T (0, 0.011520095580326992), S (0, 0.010266239363511686)
+a1 adjoint (3): rep ok True; T (1, 8.822415294324158e-17), S (1, 6.194424693784188e-17)
+d4 vector (8): rep ok True; T (0, 0.02999217313810766), S (0, 0.028666370449210263)
+=== imaginary coupling, complex fields, full complex Dirichlet phi(0) = phi_0 (complex), d_x phi complex free
+a_1: {'T': 1, 'S': 1, 'dag': 0, 'nconj': 0}
+a_2: {'T': 0, 'S': 0, 'dag': 0, 'nconj': 0}
+a_3: {'T': 0, 'S': 0, 'dag': 0, 'nconj': 0}

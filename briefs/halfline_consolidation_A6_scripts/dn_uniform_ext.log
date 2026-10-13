@@ -1,0 +1,9 @@
+PASS d_n, eps-hat = 0: K = J antidiagonal with entries +-1, independent of y, J^2 = 1 (n = 4, 5) [7e-15]
+PASS d_n vector scalar factor F: unitarity and crossing F(T - mu) = F(mu) c(-mu) (n = 4, 5, 6) [8.4e-28]
+PASS d_n boundary scalar factor A: unitarity, crossing A(T/2-mu)/A(T/2+mu) = F(2mu), A(0) = 1; breather amplitude = closed form (n = 4, 5, 6) [7.7e-27]
+PASS d_n: continuation gives K_1, which satisfies unitarity and crossing-unitarity with the book d_n S-matrix and tends to the classical factor (n = 4..7) [5.1e-13]
+PASS K_1 = Castro-Alvaredo-Fring's R^_1, and their spinor amplitude satisfies their crossing-unitarity with S_ss for n = 4..7 (no error for odd n) [2.3e-15]
+PASS d_n, eps-hat = 0: R-check_(Vbar Vbar)(2 theta) fixes the boundary-state vector (crossing factor 1), and (1 x J) R-check (1 x J) maps the B_1 singlet (u = pi - pi/T) to itself with coefficient 1 (n = 4, 5) [3e-14]
+PASS C = +1 vacuum: the invariant kinks of d_4 (Tzitzeica, e^f(0) = 9/8) and d_5 (sinh-Gordon, e^f(0) = 4 - 2 sqrt2) solve the static field equation and the boundary condition, are regular on x <= 0, and have energies 16 sqrt2 - 8 - 6 sqrt6 and -24 - 4 sqrt2 + 32(1 + sqrt2) sin(pi/8) (m/beta^2) [4.1e-30]
+PASS linearized reflection about the C = +1 vacuum (d_4, d_5): diagonal in the particle basis, K_a = prod_j S_aj(theta, B=1) (book S-matrix) for every particle, spinors included, and K_1 = the B -> 0 limit of eq-dn-uniform-amplitude [3e-11; off-diagonal 2e-14]; no boundary bound state below threshold
+PASS d_6, C = +1: the invariant static solution (two tail modes, m_2 and m_4) satisfies the boundary condition, and the linearized reflection about it is diagonal with K_a = prod_j S_aj(theta, B=1) [2e-11]; energy -0.103252 m/beta^2

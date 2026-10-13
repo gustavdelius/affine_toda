@@ -14,8 +14,14 @@ Checks (omega = 0.37, so that k_closed's branch is the analytic one):
  5. One soliton between the uniform wall (K = 1) and the Neumann wall (s = +1), n = 2: K/sqrt(c_K) (the modulus of the
     physical scalar factor is 1/sqrt(c_K)) has one eigenvalue of modulus 1 (the Z_3 sector zeta = 1) and a pair
     (rho, 1/rho), rho != 1 (zeta = exp(+-2 pi i/3)), with rho = |y zeta - w|/|y zeta - conj w|, y = exp(omega theta), w = exp(-i pi omega/2).
-Runtime: a few seconds.
+ 6. Z_(n+1) sectors: [Z, K] = 0, [Z x Z, R-check] = 0, C Z C = Z^(-1).
+ 7. Two and three solitons of a_2 on an interval (open problem 7(b)): the double-row transfer matrices commute (and
+    fail to with the unmirrored left wall); in the sector zeta = 1 the levels are unimodular for uniform walls on both
+    sides, and for UN and NN walls below the coupling thresholds (VV: 0.69-0.71 UN, 0.53-0.54 NN; VW: 0.65-0.68 UN,
+    0.49-0.51 NN), not above; three solitons are broken.
+Runtime: about 2 minutes.
 """
+import itertools
 import numpy as np
 from boundary_common import an_vector, rcheck, q_phys, coideal_gen, report
 
@@ -135,3 +141,97 @@ for n in (2, 3):
     dev6 = max(dev6, np.linalg.norm(np.kron(Z1, Z1) @ R - R @ np.kron(Z1, Z1)))
 report(f'Z_(n+1) sectors: [Z, K] = 0 with the twisted shift (Z^(n+1) = s), [Z x Z, R-check] = 0, C Z C = Z^(-1) '
        f'(n = 2, 3) [{dev6:.0e}]', dev6 < 1e-12)
+
+
+# ---------------------------------------------------------------- 7. two and three solitons on the interval (a_2)
+# Double-row transfer matrices (sec-boundary-bethe-yang): particle j crosses j+1..N-1, reflects at the right wall,
+# crosses everybody, reflects at the left wall (the mirror image: its matrix on tbar at -theta is the right wall's
+# matrix on t at theta) and returns. Walls: U (K = 1) and N (s = +1, K/sqrt(c_K), on the analytic branch, so valid
+# for omega > 1 too); bulk R-check normalized on highest weights. The scalar phases are unimodular at real rapidity
+# and are omitted. Deviation = max ||Lambda| - 1| over the joint eigenvalues of the T_j in the sector zeta = 1.
+def kmat_an(n, om, th, s):
+    N = n + 1
+    L = om*(th - 0.5j*np.pi)
+    w = np.exp(-0.5j*np.pi*om)
+    q = q_phys(om)
+    es = 1/(2*np.cos(np.pi*om/2))
+    K = np.empty((N, N), complex)
+    for i in range(N):
+        for j in range(N):
+            K[i, j] = ((w*np.exp(-N/2*L) - s/w*np.exp(N/2*L))/(es*(1/q - q)) if i == j
+                       else np.exp((j - i - N/2)*L) if j > i else s*np.exp((j - i + N/2)*L))
+    return K
+
+
+def wall(code, typ, om, th, n=2):
+    if code == 'U':
+        return np.eye(n + 1, dtype=complex)
+    T = (n + 1)*om/2
+    cK = (np.cosh(2*T*th) - np.cos(np.pi*T))/(2*np.sin(np.pi*om/2)**2)
+    K = kmat_an(n, om, th, 1)/np.sqrt(cK)
+    return K if typ == 'V' else K.T
+
+
+def transfer(j, types, ths, left, right, om, mirror=True, n=2):
+    d, N = n + 1, len(types)
+    bar = {'V': 'W', 'W': 'V'}
+    rep = lambda t, x: an_vector(n, q_phys(om), np.exp(om*x), t == 'W')
+    op = lambda M, p, k: np.kron(np.kron(np.eye(d**p), M), np.eye(d**(N - p - k)))
+    st = [(types[k], ths[k]) for k in range(N)]
+    M = np.eye(d**N, dtype=complex)
+
+    def swap(p):
+        nonlocal M
+        M = op(rcheck(rep(*st[p]), rep(*st[p + 1]))[0], p, 2) @ M
+        st[p], st[p + 1] = st[p + 1], st[p]
+    p = j
+    while p < N - 1:
+        swap(p); p += 1
+    t, x = st[p]
+    M = op(wall(right, t, om, x), p, 1) @ M
+    st[p] = (bar[t], -x)
+    while p > 0:
+        swap(p - 1); p -= 1
+    t, x = st[p]
+    M = op(wall(left, bar[t] if mirror else t, om, -x), p, 1) @ M
+    st[p] = (bar[t], -x)
+    while p < j:
+        swap(p); p += 1
+    return M
+
+
+rng7 = np.random.default_rng(7)
+
+
+def sector(types, ths, walls, om, mirror=True):
+    Ts = [transfer(j, types, ths, walls[0], walls[1], om, mirror) for j in range(len(types))]
+    Z1 = np.roll(np.eye(3), 1, axis=0).astype(complex)
+    Z = Z1
+    for _ in types[1:]:
+        Z = np.kron(Z, Z1)
+    comm = max(np.linalg.norm(Ts[0] @ T - T @ Ts[0]) + np.linalg.norm(Z @ T - T @ Z) for T in Ts)
+    _, P = np.linalg.eig(sum(rng7.normal()*T for T in Ts) + 0.37*Z)
+    Pi = np.linalg.inv(P)
+    sel = np.abs(np.diag(Pi @ Z @ P) - 1) < 1e-6
+    return max(np.abs(np.abs(np.diag(Pi @ T @ P)[sel]) - 1).max() for T in Ts), comm
+
+
+t2s = np.geomspace(1e-4, 3, 8)
+dev = lambda types, walls, om: max(sector(list(types), [12.0, t2], walls, om)[0] for t2 in t2s)
+comm7 = max(sector(list(t), [0.7, 0.25], w, om)[1] for t in ('VV', 'VW') for w in ('UN', 'NN') for om in (0.37, 0.83))
+bad7 = sector(['V', 'V'], [0.7, 0.25], 'NN', 0.37, mirror=False)[1]
+report(f'a_2 double-row transfer matrices: [T_1, T_2] = 0 and [Z x Z, T_j] = 0 for UN, NN walls, VV and VW '
+       f'[{comm7:.0e}]; with the unmirrored left wall [T_1, T_2] = {bad7:.2f} (control)', comm7 < 1e-12 and bad7 > 0.1)
+uu = max(dev(t, 'UU', om) for t in ('VV', 'VW') for om in (0.37, 0.83, 1.43))
+rows, ok7 = [], uu < 1e-6
+for t, w, lo, hi in (('VV', 'UN', 0.69, 0.71), ('VW', 'UN', 0.65, 0.68), ('VV', 'NN', 0.53, 0.54), ('VW', 'NN', 0.49, 0.51)):
+    a, b = dev(t, w, lo), dev(t, w, hi)
+    ok7 &= a < 1e-6 and b > 1e-2
+    rows.append(f'{w} {t}: {a:.0e} at {lo}, {b:.2f} at {hi}')
+report(f'two solitons, sector zeta = 1, theta_1 = 12, theta_2 in [1e-4, 3]: UU unbroken at omega = 0.37, 0.83, 1.43 '
+       f'[{uu:.0e}]; thresholds ' + '; '.join(rows), ok7)
+g3 = [8.0, 2.0, 0.5, 0.05]
+vvv = min(max(sector(['V']*3, list(c), w, om)[0] for c in itertools.combinations(g3, 3))
+          for w in ('UU', 'UN', 'NN') for om in (0.3, 0.83))
+report(f'three solitons VVV, sector zeta = 1: broken for UU, UN, NN at omega = 0.3, 0.83 (min over cases of the max '
+       f'deviation {vvv:.2f})', vvv > 0.1)

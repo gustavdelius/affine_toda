@@ -1,0 +1,6 @@
+n=4 om=0.37 sig=1: unitarity (1.0 - 1.48675889797e-29j), crossing ratio (1.0 + 7.76394174011e-30j)
+n=4 om=0.37 sig=-1: unitarity (1.0 - 1.18539542342e-29j), crossing ratio (1.0 + 1.53252132889e-29j)
+n=4 om=0.61 sig=1: unitarity (1.0 - 1.52774303277e-29j), crossing ratio (1.0 - 4.73566342739e-30j)
+n=4 om=0.61 sig=-1: unitarity (1.0 - 1.21725691501e-29j), crossing ratio (1.0 - 1.33763030956e-30j)
+n=5 om=0.53 sig=1: unitarity (1.0 - 2.56880865872e-30j), crossing ratio (1.0 + 3.74887916045e-30j)
+n=5 om=0.53 sig=-1: unitarity (1.0 - 3.27091644484e-30j), crossing ratio (1.0 + 2.54145987777e-30j)

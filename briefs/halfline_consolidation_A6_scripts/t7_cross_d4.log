@@ -1,0 +1,30 @@
+om=0.37: P antidiagonal? 1.2e-16, y-independent 1.8e-15
+/tmp/claude-1000/-home-gustav-Git-affine-toda/b441568d-def3-432f-aa17-ea3eda7016d3/scratchpad/a6/t7_cross.py:25: RuntimeWarning: divide by zero encountered in divide
+  r = (K/K[0, 0]) - (Kn/Kn[0, 0])
+/tmp/claude-1000/-home-gustav-Git-affine-toda/b441568d-def3-432f-aa17-ea3eda7016d3/scratchpad/a6/t7_cross.py:25: RuntimeWarning: invalid value encountered in divide
+  r = (K/K[0, 0]) - (Kn/Kn[0, 0])
+  0: |K_sym - K_book| = nan
+     th=0.31: proportional [5.6e-15], Psi = 1.0000000000-0.0000000000j, mu = 0.0000-0.1095j
+     th=(0.83+0.1j): proportional [5.6e-15], Psi = 1.0000000000-0.0000000000j, mu = 0.0353-0.2933j
+     th=(-0.4+0.25j): proportional [2.1e-15], Psi = 1.0000000000-0.0000000000j, mu = 0.0883+0.1413j
+  s+: |K_sym - K_book| = 3.0e-15
+     th=0.31: proportional [6.8e-15], Psi = 0.1725479473+0.1843266650j, mu = 0.0000-0.1095j
+     th=(0.83+0.1j): proportional [4.8e-15], Psi = 0.0132093843+0.0197910181j, mu = 0.0353-0.2933j
+     th=(-0.4+0.25j): proportional [2.6e-15], Psi = -2.4151858471-3.1387998026j, mu = 0.0883+0.1413j
+  s-: |K_sym - K_book| = 4.9e-15
+     th=0.31: proportional [8.8e-15], Psi = -0.0432921687+0.2487466617j, mu = 0.0000-0.1095j
+     th=(0.83+0.1j): proportional [5.2e-15], Psi = 0.0060002140+0.0249820110j, mu = 0.0353-0.2933j
+     th=(-0.4+0.25j): proportional [4.6e-15], Psi = -5.8081517672-0.4778013272j, mu = 0.0883+0.1413j
+om=1.29: P antidiagonal? 1.4e-16, y-independent 1.1e-15
+  0: |K_sym - K_book| = nan
+     th=0.31: proportional [4.3e-15], Psi = 1.0000000000-0.0000000000j, mu = 0.0000-0.3819j
+     th=(0.83+0.1j): proportional [2.8e-14], Psi = 1.0000000000-0.0000000000j, mu = 0.1232-1.0224j
+     th=(-0.4+0.25j): proportional [6.6e-15], Psi = 1.0000000000+0.0000000000j, mu = 0.3080+0.4927j
+  s+: |K_sym - K_book| = 3.6e+01
+     th=0.31: proportional [4.0e-15], Psi = -0.0078994200+0.0023432125j, mu = 0.0000-0.3819j
+     th=(0.83+0.1j): proportional [2.7e-14], Psi = 0.0000012111+0.0000023429j, mu = 0.1232-1.0224j
+     th=(-0.4+0.25j): proportional [6.9e-15], Psi = 531.0652123440-100.9973336355j, mu = 0.3080+0.4927j
+  s-: |K_sym - K_book| = 3.7e+01
+     th=0.31: proportional [4.2e-15], Psi = -0.0061902827+0.0054380034j, mu = 0.0000-0.3819j
+     th=(0.83+0.1j): proportional [2.7e-14], Psi = 0.0000012174+0.0000023236j, mu = 0.1232-1.0224j
+     th=(-0.4+0.25j): proportional [6.4e-15], Psi = 426.9500020233-115.5472737484j, mu = 0.3080+0.4927j

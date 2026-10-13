@@ -1,0 +1,5 @@
+a_1: dimension of the spin-2 current space = 0 (sinh-Gordon has no spin-2 charge)
+a_2: spin-2 current space dim 1; jet identity residual 4.3e-14; |A| = 0.685, |B| = 1.237; at a Dirichlet wall: energy-like flux 2A(u,u,u) - 4B(u,gradV) = -29.878+0.000j (no udot), momentum-like flux 4B(udot,u) = 4.712+0.000j (exact iff B symmetric: |B + B^T| = 0.0e+00, |B - B^T| = 2.47)
+a_3: spin-2 current space dim 1; jet identity residual 5.3e-14; |A| = 0.601, |B| = 1.253; at a Dirichlet wall: energy-like flux 2A(u,u,u) - 4B(u,gradV) = -4.523+0.000j (no udot), momentum-like flux 4B(udot,u) = 1.001+0.000j (exact iff B symmetric: |B + B^T| = 0.0e+00, |B - B^T| = 2.51)
+a_4: spin-2 current space dim 1; jet identity residual 2.1e-14; |A| = 0.544, |B| = 1.269; at a Dirichlet wall: energy-like flux 2A(u,u,u) - 4B(u,gradV) = 23.623+0.000j (no udot), momentum-like flux 4B(udot,u) = 3.953+0.000j (exact iff B symmetric: |B + B^T| = 0.0e+00, |B - B^T| = 2.54)
+a_2 spin-2 conservation law on an exact 2-soliton solution (beta_real = i beta): |d_- T - d_+ Theta| = 2.7e-01 (|d_- T| ~ 8.3e+02)

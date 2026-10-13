@@ -1,0 +1,2 @@
+d_4: bound-state frequencies (sign changes of det): []; local minima of |det|: []; predicted from poles of prod_j S_aj(theta,1): [0.7071067812, 2.1213203436]; m_1 sin(pi/h) = 0.707106781187; min |det| for Om^2 < 0: 6.31e+01
+d_5: bound-state frequencies (sign changes of det): []; local minima of |det|: [0.936  0.9496 0.9821 1.0011 1.0065 1.0119 1.0201 1.0282 1.039  1.0472]; predicted from poles of prod_j S_aj(theta,1): [0.4142135624, 1.0, 2.4142135624]; m_1 sin(pi/h) = 0.414213562373; min |det| for Om^2 < 0: 1.62e+02

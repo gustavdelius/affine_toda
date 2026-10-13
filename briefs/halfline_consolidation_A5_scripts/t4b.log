@@ -1,0 +1,31 @@
+exceptional: d1 = 0.257789025012388 d2 = 0.563669884984393
+tau_j(0): ['1.9176', '1.9176', '3.5288e-63', '1.5341', '6.3187e-61']
+min tau_j(x<0): 0.033731
+d2 up    e=1e-2: not regular on x<=0
+d2 up    e=1e-3: not regular on x<=0
+d2 up    e=1e-4: not regular on x<=0
+d2 up    e=1e-6: not regular on x<=0
+d2 down  e=1e-2: tau2(0)=0.00854 tau4(0)=0.00854 K11=(0.30866454 + 0.94398802j) K44=(0.30866454 + 0.94398802j) |K41|=0.116674 |K14|=0.116674 unit=1.5e-56
+d2 down  e=1e-3: tau2(0)=0.000854 tau4(0)=0.000854 K11=(0.32399047 + 0.93497051j) K44=(0.32399047 + 0.93497051j) |K41|=0.144431 |K14|=0.144431 unit=1.2e-54
+d2 down  e=1e-4: tau2(0)=8.54e-5 tau4(0)=8.54e-5 K11=(0.32522202 + 0.93416149j) K44=(0.32522202 + 0.93416149j) |K41|=0.146877 |K14|=0.146877 unit=1.8e-52
+d2 down  e=1e-6: tau2(0)=8.54e-7 tau4(0)=8.54e-7 K11=(0.32534616 + 0.93407787j) K44=(0.32534616 + 0.93407787j) |K41|=0.147134 |K14|=0.147134 unit=1.9e-48
+d1 up    e=1e-2: not regular on x<=0
+d1 up    e=1e-3: not regular on x<=0
+d1 up    e=1e-4: not regular on x<=0
+d1 up    e=1e-6: not regular on x<=0
+d1 down  e=1e-2: tau2(0)=0.000774 tau4(0)=0.000774 K11=(0.32492185 + 0.93440417j) K44=(0.32492185 + 0.93440417j) |K41|=0.145995 |K14|=0.145995 unit=1.7e-54
+d1 down  e=1e-3: tau2(0)=7.71e-5 tau4(0)=7.71e-5 K11=(0.32531507 + 0.9341045j) K44=(0.32531507 + 0.9341045j) |K41|=0.147034 |K14|=0.147034 unit=3.0e-52
+d1 down  e=1e-4: tau2(0)=7.7e-6 tau4(0)=7.7e-6 K11=(0.32534443 + 0.93407964j) K44=(0.32534443 + 0.93407964j) |K41|=0.147127 |K14|=0.147127 unit=1.7e-50
+d1 down  e=1e-6: tau2(0)=7.7e-8 tau4(0)=7.7e-8 K11=(0.32534734 + 0.93407707j) K44=(0.32534734 + 0.93407707j) |K41|=0.147136 |K14|=0.147136 unit=1.3e-46
+chi1 +   e=1e-2: not regular on x<=0
+chi1 +   e=1e-3: not regular on x<=0
+chi1 +   e=1e-4: not regular on x<=0
+chi1 +   e=1e-6: not regular on x<=0
+chi1 -   e=1e-2: not regular on x<=0
+chi1 -   e=1e-3: not regular on x<=0
+chi1 -   e=1e-4: not regular on x<=0
+chi1 -   e=1e-6: not regular on x<=0
+chi2 +   e=1e-2: not regular on x<=0
+chi2 +   e=1e-3: not regular on x<=0
+chi2 +   e=1e-4: not regular on x<=0
+chi2 +   e=1e-6: not regular on x<=0

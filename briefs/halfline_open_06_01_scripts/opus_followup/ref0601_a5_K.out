@@ -1,0 +1,8 @@
+d=0.535898  tau(0) at chi_end: [ 1.60769515  1.60769515 -0.          1.60769515  1.60769515 -0.        ]  tau'(0): [ 1.176915  1.176915 -1.607695  1.176915  1.176915 -1.607695]
+static Toda residual (chi=chi_end+0.1): 5.7e-07
+side +1: exact regular pattern +--+-- (BC residual 4.3e-14)
+side -1: exact regular pattern -+--+- (BC residual 2.8e-14)
+
+== theta=0.6 (only a=1,5 open)  Omega=1.1855
+   BP diagonal values: {1: (0.856552+0.516061j), 5: (0.856552+0.516061j)}
+side +1 +--+--(reg) delta=1e-01 tau2(0)=5.4e-03 | mine: max|offdiag|=4.20e-08 max|Kdiag-BPdiag|=4.20e-08 unitarity 7e-09 | worker-vs-mine 3.6e-08

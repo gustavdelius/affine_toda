@@ -24,6 +24,8 @@ Checks:
     B -> 0 limit 1, (3.20) = (3.16) at B -> 2-B, neither is self-dual; O(beta^2) agreement with Kim
     hep-th/9506031 (33), (39) for a_3 and with G98 (6.11) for a_2; G98's K^(-) (from the s = -1 soliton K)
     satisfies the axioms, has classical limit 1, and is dual to the CDRS minimal conjecture (5.7) for C = -1.
+    For all n, the s = -1 amplitudes K^(-)_a = -(a)(h-a) K_a satisfy the axioms, tend to 1, and are dual to the
+    CDRS conjecture (5.16) for C = -1, n = 1..7.
  6. Solitonic boundaries DG (5.4)-(5.6) (sec-solitonic-boundaries): K_a^(b) = K_a M_a^(b) satisfies unitarity,
     crossing-unitarity and the bootstrap, M_a^(b) = M_a^(h-b), K_a^(b) = K_{h-a}^(b); the B -> 0 limit of
     M_a^(b) is the four-block product (5.7); DG (6.3), (6.18), (6.19), (6.25) are special cases, and so is
@@ -329,6 +331,19 @@ report('G98 K^(-) = -(1)(-1+B/2)(3-B/2) (s = -1): axioms with K_2 = K_1, B -> 0 
        ok)
 cdrs57 = Prod(3, {(1, 0): 1, (2, Fr(1, 2)): 1, (0, Fr(1, 2)): -1}, sign=-1)          # CDRS (5.7), C = -1
 report('the dual of K^(-) is the CDRS minimal conjecture (5.7) -(1)(2+B/2)/(B/2) for C = -1', close(Kminus.dual(), cdrs57))
+
+
+def K_minus(a, n):             # the s = -1 amplitudes for all n: -(a)(h-a) K_a (an_nondiagonal_scalar.py, checks 8-10)
+    return Prod(n + 1, sign=-1).mul((a, 0)).mul((n + 1 - a, 0))*K_uniform(a, n)
+
+
+res = [axioms(lambda a, n=n: K_minus(a, n), n, 'minus') for n in range(1, 8)]
+ok = (all(all(r) for r in res) and close(K_minus(1, 2), Kminus)
+      and all(abs(K_minus(a, n)(th, 0) - 1) < TOL for n in range(1, 8) for a in range(1, n + 1) for th in THS))
+report('K^(-)_a = -(a)(h-a) K_a (s = -1, all n): unitarity, crossing-unitarity, K_a = K_{h-a}, bootstrap, B -> 0 limit 1, '
+       '= G98 (6.4) for n = 2; n = 1..7', ok)
+report('the dual of K^(-)_a is the CDRS conjecture (5.16) for C = -1 (A = -2), every a, n = 1..7',
+       all(close(K_minus(a, n).dual(), cdrs(a, n, False)) for n in range(1, 8) for a in range(1, n + 1)))
 
 # ---------------------------------------------------------------- 6. solitonic boundaries DG (5.4)-(5.7)
 ok_ax, ok_sym, ok_cl, ok_cl_swap = True, True, True, True

@@ -1,0 +1,9 @@
+a2 V+Vbar: reflection j -> 0-j: lam=0.83 {'T': 0, 'S': 0}; lam=-0.83 {'T': 0, 'S': 0}
+a2 V+Vbar: reflection j -> 1-j: lam=0.83 {'T': 0, 'S': 0}; lam=-0.83 {'T': 0, 'S': 0}
+a2 V+Vbar: reflection j -> 2-j: lam=0.83 {'T': 0, 'S': 0}; lam=-0.83 {'T': 0, 'S': 0}
+a2 adjoint: reflection j -> 0-j: lam=0.83 {'T': 0, 'S': 0}; lam=-0.83 {'T': 0, 'S': 0}
+a2 adjoint: reflection j -> 1-j: lam=0.83 {'T': 0, 'S': 0}; lam=-0.83 {'T': 0, 'S': 0}
+a2 adjoint: reflection j -> 2-j: lam=0.83 {'T': 0, 'S': 0}; lam=-0.83 {'T': 0, 'S': 0}
+a2 defining: reflection j -> 0-j: lam=0.83 {'T': 0, 'S': 0}; lam=-0.83 {'T': 0, 'S': 0}
+a2 defining: reflection j -> 1-j: lam=0.83 {'T': 0, 'S': 0}; lam=-0.83 {'T': 0, 'S': 0}
+a2 defining: reflection j -> 2-j: lam=0.83 {'T': 0, 'S': 0}; lam=-0.83 {'T': 0, 'S': 0}

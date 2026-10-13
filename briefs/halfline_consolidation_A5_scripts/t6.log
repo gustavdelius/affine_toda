@@ -1,0 +1,13 @@
+DG b=2 K_1 = (-0.1045723086 + 0.9945172861j)
++-+- d=1-e, species-1 pair amplitude e^1 chi=0.3: |K11-DG|=0.00471 |K31|=0.00469 | |K11-DG|=4.65e-5 |K31|=4.65e-5 | |K11-DG|=4.65e-7 |K31|=4.65e-7
++-+- d=1-e, species-1 pair amplitude e^1 chi=2.0: irregular | irregular | irregular
++-+- d=1-e, species-1 pair amplitude e^0.5 chi=1.1: irregular | irregular | irregular
++-+- d=1-e, species-1 pair amplitude e^2 chi=4.0: |K11-DG|=0.005 |K31|=0.005 | |K11-DG|=4.97e-5 |K31|=4.97e-5 | |K11-DG|=4.97e-7 |K31|=4.97e-7
++--- d=1-e, species-1 pair amplitude e^1 chi=0.3: |K11-DG|=0.00387 |K31|=0.00386 | |K11-DG|=3.86e-5 |K31|=3.86e-5 | |K11-DG|=3.86e-7 |K31|=3.86e-7
++--- d=1-e, species-1 pair amplitude e^1 chi=2.0: irregular | irregular | irregular
++--- d=1-e, species-1 pair amplitude e^0.5 chi=1.1: irregular | irregular | irregular
++--- d=1-e, species-1 pair amplitude e^2 chi=4.0: |K11-DG|=0.00389 |K31|=0.00389 | |K11-DG|=3.86e-5 |K31|=3.86e-5 | |K11-DG|=3.86e-7 |K31|=3.86e-7
+---- d=1-e, species-1 pair amplitude e^1 chi=0.3: |K11-DG|=0.000322 |K31|=0.000308 | |K11-DG|=3.18e-6 |K31|=3.18e-6 | |K11-DG|=3.18e-8 |K31|=3.18e-8
+---- d=1-e, species-1 pair amplitude e^1 chi=2.0: irregular | irregular | irregular
+---- d=1-e, species-1 pair amplitude e^0.5 chi=1.1: irregular | irregular | irregular
+---- d=1-e, species-1 pair amplitude e^2 chi=4.0: |K11-DG|=1.95e-7 |K31|=1.95e-7 | |K11-DG|=1.95e-13 |K31|=1.95e-13 | |K11-DG|=1.95e-19 |K31|=1.95e-19

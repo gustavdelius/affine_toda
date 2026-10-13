@@ -1,0 +1,6 @@
+c=0 tau=[0, 2, 1]: generators-only intertwiner for theta = omega o tau: nullity 0, sv_min/max 5.00e-01
+      tau-hat alone (E_j -> E_tau(j)) implementable: nullity 0
+c=1 tau=[1, 0, 2]: generators-only intertwiner for theta = omega o tau: nullity 0, sv_min/max 5.00e-01
+      tau-hat alone (E_j -> E_tau(j)) implementable: nullity 0
+c=2 tau=[2, 1, 0]: generators-only intertwiner for theta = omega o tau: nullity 0, sv_min/max 5.00e-01
+      tau-hat alone (E_j -> E_tau(j)) implementable: nullity 0

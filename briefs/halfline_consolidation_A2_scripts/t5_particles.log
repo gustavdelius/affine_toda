@@ -1,0 +1,26 @@
+1. K0 at omega = -2/B = (h/2)(h/2+B/2)(h/2-1)(h/2-1-B/2)(h/2+1+B/2)/(h/2-1+B/2), n = 1..7: 1.0e-30
+cdd=none            n=1: Ln=bootstrap 3.9e-31  unitarity 2.4e-31  crossing 2.4e-30  bootstrap 0
+cdd=none            n=2: Ln=bootstrap 1.7e-30  unitarity 2.8e-30  crossing 3.5e-30  bootstrap 2.3e-30
+cdd=none            n=3: Ln=bootstrap 1.7e-30  unitarity 2.2e-30  crossing 3.2e-30  bootstrap 3.1e-30
+cdd=none            n=4: Ln=bootstrap 1.9e-30  unitarity 1.8e-30  crossing 5.2e-30  bootstrap 5.7e-30
+cdd=none            n=5: Ln=bootstrap 3.2e-30  unitarity 3.4e-30  crossing 5.6e-30  bootstrap 6.4e-30
+cdd=sigma_A         n=1: Ln=bootstrap 4.0e-31  unitarity 4.1e-31  crossing 2.1e-30  bootstrap 0
+cdd=sigma_A         n=2: Ln=bootstrap 1.3  unitarity 2.6  crossing 8.2e-30  bootstrap 1.3
+cdd=sigma_A         n=3: Ln=bootstrap 2.2e-30  unitarity 2.7e-30  crossing 7.5e-30  bootstrap 6.4e-30
+cdd=sigma_A         n=4: Ln=bootstrap 0.75  unitarity 1.3  crossing 6.7e-30  bootstrap 1.3
+cdd=sigma_A         n=5: Ln=bootstrap 4.8e-30  unitarity 4.6e-30  crossing 6.9e-30  bootstrap 1.3e-29
+cdd=sigma_B         n=1: Ln=bootstrap 4.0e-31  unitarity 5.9e-31  crossing 3.1e-30  bootstrap 0
+cdd=sigma_B         n=2: Ln=bootstrap 2.1e-30  unitarity 2.0e-30  crossing 7.9e-30  bootstrap 7.0e-30
+cdd=sigma_B         n=3: Ln=bootstrap 3.1e-30  unitarity 2.9e-30  crossing 9.7e-30  bootstrap 7.7e-30
+cdd=sigma_B         n=4: Ln=bootstrap 3.9e-30  unitarity 4.1e-30  crossing 7.7e-30  bootstrap 1.1e-29
+cdd=sigma_B         n=5: Ln=bootstrap 9.9e-30  unitarity 1.0e-29  crossing 9.8e-30  bootstrap 1.6e-29
+cdd=(om)_I pair     n=1: Ln=bootstrap 1.1e-30  unitarity 1.1e-30  crossing 2.6e-30  bootstrap 0
+cdd=(om)_I pair     n=2: Ln=bootstrap 2.0e-30  unitarity 3.0e-30  crossing 4.2e-30  bootstrap 3.4e-30
+cdd=(om)_I pair     n=3: Ln=bootstrap 1.5e-30  unitarity 2.1e-30  crossing 4.8e-30  bootstrap 3.5e-30
+cdd=(om)_I pair     n=4: Ln=bootstrap 2.5e-30  unitarity 2.3e-30  crossing 6.9e-30  bootstrap 5.0e-30
+cdd=(om)_I pair     n=5: Ln=bootstrap 3.2e-30  unitarity 3.3e-30  crossing 7.0e-30  bootstrap 8.5e-30
+cdd=(-om/2)^2 pair  n=1: Ln=bootstrap 4.6e-30  unitarity 4.5e-30  crossing 3.1e-30  bootstrap 0
+cdd=(-om/2)^2 pair  n=2: Ln=bootstrap 6.2e-30  unitarity 6.3e-30  crossing 8.0e-30  bootstrap 7.6e-30
+cdd=(-om/2)^2 pair  n=3: Ln=bootstrap 2.7e-30  unitarity 3.8e-30  crossing 6.8e-30  bootstrap 6.6e-30
+cdd=(-om/2)^2 pair  n=4: Ln=bootstrap 3.4e-30  unitarity 6.1e-30  crossing 7.9e-30  bootstrap 5.7e-30
+cdd=(-om/2)^2 pair  n=5: Ln=bootstrap 7.6e-30  unitarity 8.0e-30  crossing 1.5e-29  bootstrap 9.8e-30
