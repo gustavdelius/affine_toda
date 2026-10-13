@@ -111,15 +111,6 @@ csl: aps.csl
 nocite: |
   @*
 lang: en-GB
-keywords:
-  - affine Toda field theory
-  - integrable quantum field theory
-  - sine-Gordon theory
-  - solitons
-  - exact S-matrices
-  - quantum groups
-  - integrable boundaries
-  - non-Hermitian quantum field theory
 
 # A DOI will be added here after the first versioned book release is archived.
 citation:
@@ -139,7 +130,8 @@ citation:
     foundations of the imaginary-coupling theories.
   keyword: >-
     affine Toda field theory; integrable quantum field theory; solitons;
-    quantum groups; exact S-matrices
+    quantum groups; exact S-matrices; integrable boundaries; integrable defects;
+    non-unitary
 appendix-cite-as: false
 
 format:
