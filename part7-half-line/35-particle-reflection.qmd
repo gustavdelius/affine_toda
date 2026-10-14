@@ -369,7 +369,7 @@ The left wall is the mirror image of the right wall (@sec-boundary-bethe-yang): 
 - With one or two Neumann walls they are phases only below a threshold in the coupling. The thresholds are $\omega\approx0.698$ (UN, VV), $0.667$ (UN, $V\bar V$), $0.536$ (NN, VV) and $0.500$ (NN, $V\bar V$). For VV the breaking appears first as $\theta_2\to0$ with $\theta_1$ large, and the threshold is close to its large-$\theta_1$ limit by $\theta_1\approx10$. For $V\bar V$ it appears with one rapidity large and the other of order a few units. Restricting the latter to $\theta_2\to0$ misses this onset and gives thresholds close to the VV values.
 - Three solitons are broken for all three pairs of walls at every coupling sampled, as is the bulk sector with three colours (@sec-krein-unitarity).
 
-**[Numerical]** These statements rest on scans of real rapidities (`textbook_code/boundary_krein.py`), with the $V\bar V$ onset checked on a finer grid and at rapidities up to 20 in the consolidation referee checks (`briefs/halfline_consolidation_referee_scripts/b5_vvbar_threshold.py`, `b5_vvbar_extended.py`); no explanation of the thresholds is known.
+**[Numerical]** These statements rest on scans of real rapidities (`textbook_code/boundary_krein.py`), with the $V\bar V$ onset checked on a finer grid and at rapidities up to 20; no explanation of the thresholds is known.
 
 ## Open problems on the half-line {#sec-boundary-open-problems}
 
