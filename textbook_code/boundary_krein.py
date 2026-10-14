@@ -230,6 +230,17 @@ for t, w, lo, hi in (('VV', 'UN', 0.69, 0.71), ('VW', 'UN', 0.65, 0.68), ('VV', 
     rows.append(f'{w} {t}: {a:.0e} at {lo}, {b:.2f} at {hi}')
 report(f'two solitons, sector zeta = 1, theta_1 = 12, theta_2 in [1e-4, 3]: UU unbroken at omega = 0.37, 0.83, 1.43 '
        f'[{uu:.0e}]; thresholds ' + '; '.join(rows), ok7)
+# The V Vbar onset is missed by taking the slow rapidity to zero.  Use
+# couplings above its threshold but below the VV threshold as a regression.
+onset = []
+for walls, om, slow in (('UN', 0.672, 1.5), ('NN', 0.505, 2.0)):
+    finite = sector(['V', 'W'], [20.0, slow], walls, om)[0]
+    near_zero = sector(['V', 'W'], [12.0, 1e-4], walls, om)[0]
+    onset.append((finite, near_zero))
+report('V Vbar first breaks at finite slow rapidity: UN (omega=.672, theta=20,1.5), '
+       'NN (.505, 20,2); theta_2=1e-4 remains unbroken at these couplings '
+       + str([(round(a, 4), float(f'{b:.1e}')) for a, b in onset]),
+       all(a > 0.01 and b < 1e-6 for a, b in onset))
 g3 = [8.0, 2.0, 0.5, 0.05]
 vvv = min(max(sector(['V']*3, list(c), w, om)[0] for c in itertools.combinations(g3, 3))
           for w in ('UU', 'UN', 'NN') for om in (0.3, 0.83))

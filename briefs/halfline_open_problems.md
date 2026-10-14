@@ -4,6 +4,31 @@ Written 2026-10-11. Section `sec-boundary-open-problems` (§35.7, `part7-half-li
 
 **Caveat on the literature.** The searches were done on 2026-10-11. Most entries were checked only at the level of the arXiv abstract; some rest on a machine summary of the full text (marked in the briefs). One equation was read directly: Ahn–Kim–Rim eq. (10). New references are marked "not in `references.bib`". Following the repository rule, a worker must re-derive or recompute every claim before the book is changed.
 
+## Referee integration (2026-10-14, PR #14)
+
+The findings in `halfline_consolidation_referee_report.md` have been re-derived
+by Codex. The item-by-item derivations, dispositions and validation record are
+in [halfline_consolidation_integration.md](halfline_consolidation_integration.md).
+The earlier status tables below record the original consolidation; the
+following qualifications supersede them:
+
+- Full Dirichlet is excluded in the stated Sklyanin framework with a
+  field-independent K in evaluation representations. Half-coweight
+  compatibility survives, but half-solitons and three-soliton images require a
+  single-soliton charge in the class.
+- One loop does not determine the CDD factor, for either d4 or a3. The displayed
+  factors give exact duality and reproduce one loop; their derivation remains open.
+- The d_n variational argument gives existence and uniqueness for nonnegative
+  C_j at every rank. Closed forms of higher-rank uniform vacua remain open.
+- The extra d5 particle-3 pole is verified. The referee's proposed spinor-channel
+  explanation is rejected because both fluctuation Hessians decouple those
+  channels. Bound-state scans cover d4 and d5, not d6.
+- The V Vbar Krein onset occurs at finite slow rapidity; finer numerical
+  thresholds are approximately 0.667 (UN) and 0.500 (NN).
+- CAF receive credit for the classical product formula. Agreement with Kim's
+  shifted a3 amplitude is only at one loop. Semiclassical evidence concerns
+  leading phase derivatives.
+
 ## Ranking by feasibility
 
 Feasibility here means the likelihood that one focused agent session (or a few) produces a result that can go into the book, either a solution or a sharp partial answer. It is not the importance of the problem.
