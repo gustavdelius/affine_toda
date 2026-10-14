@@ -10,8 +10,6 @@ Affine Toda field theories are a family of two-dimensional quantum field theorie
 
 **Prerequisites.** Quantum field theory at the level of a first graduate course (path integrals, perturbation theory, renormalization, the S-matrix), finite-dimensional Lie algebras at the level of $su(n)$, and complex analysis. Everything else is developed in the text.
 
-**Status.** All chapters are drafted. Parts I–IV, Parts VII–VIII and the textbook chapters of Parts V–VI have not yet been refereed by a human specialist. The record of what has been checked, and how, is in the repository (`briefs/referee_textbook.md`, for Part VII `briefs/referee_half_line_*.md`, for Part VIII `briefs/part8_defects_status.md` and `briefs/referee_defects_*.md`, and `textbook_code/`).
-
 ::: {.content-visible when-format="html"}
 The whole book is also available as a [PDF](affine-toda.pdf).
 :::
@@ -26,9 +24,7 @@ Parts I–IV, Parts VII and VIII, and the introductory chapters of Parts V and V
 - **[Numerical]**, checked numerically by a script in the repository but not proved;
 - **[Conjecture]**, with the supporting evidence stated.
 
-The checks also found errors and misprints in published papers, among them several formulas of Corrigan and Zambon's $a_r^{(1)}$ defect papers. Each is corrected in the chapter's notes, and @sec-app-corrections collects them all.
-
-**Presentation of known material.** The book also gathers, in one notation, results that the literature scatters: factorized scattering and sine-Gordon (Part I), root systems, affine algebras, quantum groups and R-matrices (Part II), classical solitons and Hirota solutions (Part III), the exact particle S-matrices, the thermodynamic Bethe ansatz and form factors at real coupling (Part IV), the quantum-group symmetry and bootstrap construction of soliton S-matrices (chapters 20–22), and the theory on the half-line: integrable boundary conditions, solitons reflected by the boundary, the boundary quantum-group symmetry and the reflection matrices it determines, and their place in the theory of quantum symmetric pairs (Part VII), and the theory with integrable defects: their scattering axioms, the defect conditions as frozen Bäcklund transformations, and the Borel quantum-group symmetry and transmission matrices of the defects (Part VIII).
+The checks also found errors and misprints in published papers. Each is corrected in the chapter's notes, and @sec-app-corrections collects them all.
 
 Statements labelled **[Theorem]** have complete proofs in the text but, being new, have not been checked by anyone outside the project. The Part IX continuum-limit theorems in particular await independent checking.
 
