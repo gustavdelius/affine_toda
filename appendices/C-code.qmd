@@ -14,8 +14,6 @@ The scripts directly in `textbook_code/` run on their own and print one `PASS` o
 
 `textbook_code/README.md` describes every script, with the ids of the statements it checks. @sec-app-code-defects lists the scripts of Part VIII one by one.
 
-The status of every claim checked only by hand, and of every claim not yet checked, is recorded for the textbook chapters in `briefs/referee_textbook.md`, for Part VIII in `briefs/part8_defects_status.md`, and the other files in `briefs/` describe open research tasks.
-
 ## Part VIII: defects {#sec-app-code-defects}
 
 The checks of Part VIII are in `textbook_code/` and share the helper `defect_common.py`, whose module docstring states the conventions of the part: the fields $\vec\phi$ on $x<0$ and $\vec\psi$ on $x>0$, the matrices $\mathsf D$ and $E$ of both types, the defect potential, $\sigma=e^{-\theta_d}$, the Weyl and Fock modules and the $a_r^{(1)}$ transmission matrices. Each script prints `PASS`/`FAIL` lines; the runtimes are approximate and depend on the load of the machine.
@@ -34,5 +32,3 @@ The checks of Part VIII are in `textbook_code/` and share the helper `defect_com
 | `defect_an_transmission.py` | 41 | 28 | about 200 s | the $a_r^{(1)}$ and $a_2^{(2)}$ transmission matrices: uniqueness, triangle relation, crossing and the sign of $q$, scalar factors, poles and unstable windows, the semiclassical limit |
 | `defect_doubling.py` | 42 | 20 | 15–60 s | the doubled theory, diagonal coideals, the refutation of @cnj-twisted-diagonal (least squares and the exact obstruction), the two Borel symmetries and the limits $\theta_d\to\pm\infty$, defect–boundary fusion and Corrigan and Zambon's (2.17)–(2.19), the classical dressing, tensor K-matrices |
 | `defect_particle_transmission.py` | 43 | 11 | about 1 min | lightest-breather transmission for $a_2^{(1)}$–$a_4^{(1)}$, the particle transmission factors and their bootstrap, the one-loop sinh-Gordon factor, the doubled $a_r^{(1)}$ boundary and its second module, the soliton CDD condition, residue ranks of the spectrum table, the real-coupling defect vacuum |
-
-The scripts of the referee passes on Part VIII are kept with their reports in `briefs/referee_defects_*_scripts/`; the book does not depend on them.
