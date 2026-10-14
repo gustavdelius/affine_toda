@@ -1,10 +1,10 @@
 -- Website only: turn the bold status labels, such as "**[Theorem]**" or
 -- "**[Proposition, sketch]**", into colour-coded tags.
 --
--- A label is a Strong in brackets that opens a paragraph or list item and
--- starts with one of the status words below; it appears in theorem-like
--- blocks, in lists of results, and in the legend in the introduction. The
--- brackets are dropped and the label is wrapped in a Span with classes
+-- A label is a Strong in brackets that starts with one of the status words
+-- below. It may open a paragraph or list item, or sit inside a sentence, as
+-- in the legend in the introduction. The brackets are dropped and the label
+-- is wrapped in a Span with classes
 -- "status-tag status-<kind>", which theme.scss styles. Runs at pre-ast, before
 -- Quarto restructures theorem blocks. The PDF keeps the bracketed labels.
 
@@ -24,11 +24,7 @@ local function kind_of(label)
   return "mixed"
 end
 
-local function tag_label(block)
-  local strong = block.content[1]
-  if not strong or strong.t ~= "Strong" then
-    return nil
-  end
+local function tag_strong(strong)
   local inlines = pandoc.Inlines(strong.content)
   local n = #inlines
   local first, last = inlines[1], inlines[n]
@@ -46,8 +42,15 @@ local function tag_label(block)
   if not status_words[label:match("^%a+") or ""] then
     return nil
   end
-  block.content[1] = pandoc.Span(inlines,
-    { class = "status-tag status-" .. kind_of(label) })
+  return pandoc.Span(inlines, { class = "status-tag status-" .. kind_of(label) })
+end
+
+local function tag_label(block)
+  for i, el in ipairs(block.content) do
+    if el.t == "Strong" then
+      block.content[i] = tag_strong(el) or el
+    end
+  end
   return block
 end
 
