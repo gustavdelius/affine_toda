@@ -1,0 +1,5 @@
+a_3 book P_{w/2}: max(|K(0)-1|, |dlogK/dB - Kim (33)|) = 1.72e-14
+a_3 alt P_{1/2+w/2}: max(|K(0)-1|, |dlogK/dB - Kim (33)|) = 2.29e-14
+soliton bootstrap sigma(mu)/prod = (1.0 - 5.637048e-31j) for sigma = P_{w/2}
+soliton bootstrap sigma(mu)/prod = (1.0 + 5.8669108e-31j) for sigma = P_{1/2+w/2}
+soliton bootstrap sigma(mu)/prod = (1.0 + 5.8669108e-31j) for sigma = -P_{1/2+w/2}

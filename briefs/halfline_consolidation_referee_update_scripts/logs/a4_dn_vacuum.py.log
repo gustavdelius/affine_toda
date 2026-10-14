@@ -1,0 +1,7 @@
+d4: e^f(0) = 1.125 (9/8 = 1.125), E = -0.069521458729547808357, book -0.069521458729547808357
+d5: e^f(0) = 1.1715728752538099024 (4-2sqrt2 = 1.1715728752538099024), E = -0.092709209131203999105, book -0.092709209131203999105
+d4 full-field BVP: E = -0.069521459 (spread over 3 random starts 5.8e-16), ref -0.069521459; alpha_j.phi(0) = [-0.117783 -0.117783  0.235566 -0.117783 -0.117783]
+d5 full-field BVP: E = -0.092709209 (spread over 3 random starts 7.8e-16), ref -0.092709209; alpha_j.phi(0) = [-0.158347 -0.158347  0.158347  0.158347 -0.158347 -0.158347]
+d6 full-field BVP: E = -0.103251515 (spread over 3 random starts 9.3e-16), ref -0.103251500; alpha_j.phi(0) = [-0.177011 -0.177011  0.130878  0.092266  0.130878 -0.177011 -0.177011]
+convexity: min eigenvalue of Hess V on samples 6.983e-02 > 0; Hess B with C_0=-1 has eigenvalue -4.329 < 0
+PASS d_n uniform vacuum: closed forms, energies, full-field BVP

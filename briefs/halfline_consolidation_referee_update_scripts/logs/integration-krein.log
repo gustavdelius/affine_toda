@@ -1,0 +1,12 @@
+PASS mirror convention, cyclic sectors, and Krein form: 1.16e-13
+PASS VV UN threshold: 0.698194
+PASS VV NN threshold: 0.536227
+UU ('V', 'V') omega=0.15: 1.998e-15 at (12.0, 3.0)
+UU ('V', 'V') omega=0.45: 3.864e-14 at (12.0, 0.05)
+UU ('V', 'V') omega=0.9: 4.008e-14 at (12.0, 0.0001)
+UU ('V', 'V') omega=1.3: 4.667e-13 at (12.0, 0.0001)
+UU ('V', 'W') omega=0.15: 1.776e-14 at (12.0, 1.3)
+UU ('V', 'W') omega=0.45: 9.170e-14 at (12.0, 7.0)
+UU ('V', 'W') omega=0.9: 7.576e-12 at (12.0, 7.0)
+UU ('V', 'W') omega=1.3: 1.026e-11 at (12.0, 1.3)
+PASS uniform-wall grids and UN below threshold

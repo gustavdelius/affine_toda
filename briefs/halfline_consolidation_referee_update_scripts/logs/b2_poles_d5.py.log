@@ -1,0 +1,10 @@
+d_4 node 0 mass 1.4142: pole at theta = i pi 2/6 (|prodS| 6.7e+01 -> 6.7e+03); 2|p| = 2.449490, Omega^2 = 0.500000
+d_4 node 1 mass 2.4495: pole at theta = i pi 1/6 (|prodS| 6.7e+01 -> 6.7e+03); 2|p| = 2.449490, Omega^2 = 4.500000
+d_4 node 2 mass 1.4142: pole at theta = i pi 2/6 (|prodS| 6.7e+01 -> 6.7e+03); 2|p| = 2.449490, Omega^2 = 0.500000
+d_4 node 3 mass 1.4142: pole at theta = i pi 2/6 (|prodS| 6.7e+01 -> 6.7e+03); 2|p| = 2.449490, Omega^2 = 0.500000
+d_4 masses [1.414214 2.44949 ]
+d_5 node 0 mass 1.0824: pole at theta = i pi 3/8 (|prodS| 7.9e+01 -> 7.9e+03); 2|p| = 2.000000, Omega^2 = 0.171573
+d_5 node 2 mass 2.6131: pole at theta = i pi 1/8 (|prodS| 7.9e+01 -> 7.9e+03); 2|p| = 2.000000, Omega^2 = 5.828427
+d_5 node 3 mass 1.4142: pole at theta = i pi 2/8 (|prodS| 7.9e+01 -> 7.9e+03); 2|p| = 2.000000, Omega^2 = 1.000000
+d_5 node 4 mass 1.4142: pole at theta = i pi 2/8 (|prodS| 7.9e+01 -> 7.9e+03); 2|p| = 2.000000, Omega^2 = 1.000000
+d_5 masses [1.082392 1.414214 2.       2.613126]

@@ -1,0 +1,9 @@
+middle a3 delta=0.001 errors: ['0.000497507473', '0.000497507441']
+middle a3 delta=1.0e-5 errors: ['4.97261129e-6', '4.97261129e-6']
+middle a3 delta=1.0e-7 errors: ['4.97258668e-8', '4.97258668e-8']
+middle a3 delta=1.0e-9 errors: ['4.97258643e-10', '4.97258643e-10']
+middle a5 delta=0.001 errors: ['0.00142788966', '0.00142845029']
+middle a5 delta=1.0e-5 errors: ['1.42336147e-5', '1.42336705e-5']
+middle a5 delta=1.0e-7 errors: ['1.42331677e-7', '1.42331683e-7']
+middle a5 delta=1.0e-9 errors: ['1.42331633e-9', '1.42331633e-9']
+PASS middle-soliton limits including species-1 admixtures

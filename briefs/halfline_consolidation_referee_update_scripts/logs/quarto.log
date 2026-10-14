@@ -1,0 +1,72 @@
+[ 1/65] index.qmd
+[ 2/65] part1-background/part.qmd
+[ 3/65] part1-background/02-integrable-qft.qmd
+[ 4/65] part1-background/03-sine-gordon.qmd
+[ 5/65] part1-background/04-non-hermitian.qmd
+[ 6/65] part2-algebra/part.qmd
+[ 7/65] part2-algebra/05-root-systems.qmd
+[ 8/65] part2-algebra/06-affine-algebras.qmd
+[ 9/65] part2-algebra/07-quantum-groups.qmd
+[10/65] part2-algebra/08-r-matrices.qmd
+[11/65] part3-classical/part.qmd
+[12/65] part3-classical/09-lagrangian.qmd
+[13/65] part3-classical/10-solitons.qmd
+[14/65] part3-classical/11-reality.qmd
+[15/65] part4-real-coupling/part.qmd
+[16/65] part4-real-coupling/12-perturbation-theory.qmd
+[17/65] part4-real-coupling/13-simply-laced.qmd
+[18/65] part4-real-coupling/14-non-simply-laced.qmd
+[19/65] part4-real-coupling/15-beyond-smatrix.qmd
+[20/65] part5-semiclassics/part.qmd
+[21/65] part5-semiclassics/16-dhn.qmd
+[22/65] part5-semiclassics/17-thimbles.qmd
+[23/65] part5-semiclassics/18-jordan-chains.qmd
+[24/65] part5-semiclassics/19-one-loop-masses.qmd
+[25/65] part6-soliton-smatrices/part.qmd
+[26/65] part6-soliton-smatrices/20-quantum-group-symmetry.qmd
+[27/65] part6-soliton-smatrices/21-construction.qmd
+[28/65] part6-soliton-smatrices/22-known-smatrices.qmd
+[29/65] part6-soliton-smatrices/23-cn-solitons.qmd
+[30/65] part6-soliton-smatrices/24-a2n-solitons.qmd
+[31/65] part6-soliton-smatrices/25-e6-solitons.qmd
+[32/65] part6-soliton-smatrices/26-f4-solitons.qmd
+[33/65] part6-soliton-smatrices/27-rsos.qmd
+[34/65] part7-half-line/part.qmd
+[35/65] part7-half-line/28-boundary-scattering.qmd
+[36/65] part7-half-line/29-boundary-sine-gordon.qmd
+[37/65] part7-half-line/30-boundary-conditions.qmd
+[38/65] part7-half-line/31-half-line-solitons.qmd
+[39/65] part7-half-line/32-boundary-quantum-groups.qmd
+[40/65] part7-half-line/33-soliton-reflection.qmd
+[41/65] part7-half-line/34-quantum-symmetric-pairs.qmd
+[42/65] part7-half-line/35-particle-reflection.qmd
+[43/65] part8-defects/part.qmd
+[44/65] part8-defects/36-defect-scattering.qmd
+[45/65] part8-defects/37-defect-sine-gordon.qmd
+[46/65] part8-defects/38-defect-conditions.qmd
+[47/65] part8-defects/39-defect-solitons.qmd
+[48/65] part8-defects/40-defect-quantum-groups.qmd
+[49/65] part8-defects/41-soliton-transmission.qmd
+[50/65] part8-defects/42-defects-and-boundaries.qmd
+[51/65] part8-defects/43-particle-transmission.qmd
+[52/65] part9-foundations/part.qmd
+[53/65] part9-foundations/44-twelve-gaps.qmd
+[54/65] part9-foundations/45-lattice.qmd
+[55/65] part9-foundations/46-continuum-thresholds.qmd
+[56/65] part9-foundations/47-continuum-window.qmd
+[57/65] part9-foundations/48-scattering.qmd
+[58/65] part9-foundations/49-unitarity.qmd
+[59/65] outlook/50-outlook.qmd
+[60/65] citation.qmd
+[61/65] references.qmd
+[62/65] appendices/A-algebra-data.qmd
+[63/65] appendices/B-numerics.qmd
+[64/65] appendices/C-code.qmd
+[65/65] appendices/D-corrections.qmd
+
+[WARNING] Could not convert TeX math U_q(\widehat{sl}_2), rendering as TeX
+Running script 'add-backlinks.py'
+Running script 'add-discovery-metadata.py'
+
+Output created: _site/index.html
+

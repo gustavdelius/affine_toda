@@ -1,0 +1,4 @@
+omega=40.37: phase slopes/omega = -0.3115220147, -0.3631901536, -0.3888591984
+omega=80.37: phase slopes/omega = -0.3460001483, -0.3719118886, -0.3848261282
+omega=160.37: phase slopes/omega = -0.3633375596, -0.3763129131, -0.3827901346
+PASS equal leading semiclassical phase derivatives; extrapolated differences 7.917e-5, 4.0203e-5
