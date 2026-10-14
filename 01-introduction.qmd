@@ -1,17 +1,3 @@
----
-keywords:
-  - affine Toda field theory
-  - integrable quantum field theory
-  - sine-Gordon theory
-  - solitons
-  - exact S-matrices
-  - quantum groups
-  - integrable boundaries
-  - integrable defects
-  - non-Hermitian quantum field theory
-  - non-unitary
----
-
 # Introduction and reader's guide {#sec-introduction}
 
 Affine Toda field theories are a family of two-dimensional quantum field theories, one for each affine Kac–Moody algebra $\hat g$. They are integrable, so many of their properties can be computed exactly, and they are rich enough to display most of the phenomena of interacting quantum field theory: particles and bound states, solitons and breathers, strong–weak duality, quantum-group symmetry, integrable boundaries and, at imaginary coupling, non-unitarity. This book introduces them to a reader who knows quantum field theory but has not met affine Toda theory, Kac–Moody algebras or quantum groups, and leads that reader to current research.
@@ -146,19 +132,7 @@ The theories are not only of historical interest. They are rich enough to show g
 
 ## How this book is organised {#sec-reader-guide}
 
-The book has nine parts.
-
-- **Part I** collects the physical background: factorized scattering in two dimensions, sine-Gordon theory as the rank-one template, and the non-Hermitian quantum mechanics needed for the imaginary-coupling theories.
-- **Part II** collects the algebraic background: root systems, affine Kac–Moody algebras, quantum groups and R-matrices.
-- **Part III** treats the classical field theory: Lagrangians, integrability, solitons and the reality of their energies.
-- **Part IV** treats the quantum theory at real coupling, where the exact particle S-matrices are known for every algebra.
-- **Part V** treats the semiclassical quantization of the complex solitons of the imaginary-coupling theories.
-- **Part VI** treats their exact soliton S-matrices, including the constructions for $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$ and the open case $f_4^{(1)}$.
-- **Part VII** restricts the theories to a half-line: integrable boundary conditions, solitons and their mirror images, the remnant of quantum-group symmetry that a boundary leaves unbroken and its place in the theory of quantum symmetric pairs, and the exact reflection amplitudes of solitons and particles.
-- **Part VIII** puts a defect into the theory, a line that particles and solitons cross without being reflected: the scattering axioms of transmitting defects, sine-Gordon and $a_r^{(1)}$ defects as Bäcklund transformations frozen at a point, the solitons that cross them, their Borel quantum-group symmetry and transmission matrices, and the relation between defects and boundaries.
-- **Part IX** asks whether the imaginary-coupling theories exist as quantum field theories, and answers: yes, as non-unitary ones.
-
-Parts I–IV are textbook material. Parts V, VI and IX present research results, many of them new. Part VII presents the theory on the half-line, developed in the research literature since 1993, in textbook form, and Part VIII does the same for integrable defects, studied since 1994.
+The [preface](index.qmd) describes the nine parts. Parts I–IV are textbook material. Parts V, VI and IX present research results, many of them new. Part VII presents the theory on the half-line, developed in the research literature since 1993, in textbook form, and Part VIII does the same for integrable defects, studied since 1994.
 
 The dependencies between the parts are shown below. Chapter 4 is needed only for Parts V and IX, and Part II is needed in full only for Parts VI–VIII. Parts VIII and IX meet in one place: the Bloch twists of chapter 48 are the simplest defects.
 

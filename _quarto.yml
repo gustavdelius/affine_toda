@@ -31,6 +31,7 @@ book:
     collapse-level: 1
   chapters:
     - index.qmd
+    - 01-introduction.qmd
     - part: part1-background/part.qmd
       chapters:
         - part1-background/02-integrable-qft.qmd

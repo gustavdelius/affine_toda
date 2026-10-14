@@ -32,7 +32,7 @@ Claude drafts and other models referee (`AGENTS.md`, "Roles"). The editor starts
 5. **Read first.**
    - The conventions brief, and the relevant sections by id.
    - The source papers by arXiv number. On the editor's machine their texts are in `~/referee-copy/papers/*.txt`, and `run_referee_agy.sh` copies them to `papers/`.
-   - How to find an object: `grep -rn '{#<id>}' part*/ index.qmd`.
+   - How to find an object: `grep -rn '{#<id>}' part*/ *.qmd`.
 6. **Evidence rule.**
    - For each item, one independent computation: a derivation written out, or a script of the referee's own.
    - The book's scripts may be run for comparison but are not evidence.

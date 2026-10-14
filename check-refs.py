@@ -14,7 +14,7 @@ Checks, one PASS, FAIL or WARN line each; exit status 1 on any FAIL:
      citation. Pandoc does so when every ";"-separated part of the bracket holds
      an @key; the brackets are then lost and status-tags.lua cannot tag the
      label. Write **[Numerical]** (@sec-x) instead.
-  6. the list of original results in index.qmd (the ::: {.original-results} div
+  6. the list of original results in 01-introduction.qmd (the ::: {.original-results} div
      in sec-new-results) matches the chapters. Each item opens with a status
      label and ends with the references of the statements it summarises,
          - **[Theorem]** Both spin-two charges survive ... (@prp-spin-two).
@@ -114,10 +114,10 @@ def trailing_refs(item):
 
 def original_results(text, defs):
     """Check 6. Returns (problems, note)."""
-    t = text.get(Path('index.qmd'), '')
+    t = text.get(Path('01-introduction.qmd'), '')
     m = re.search(r'^:::+\s*\{\.original-results\}\s*$(.*?)^:::+\s*$', t, re.S | re.M)
     if not m:
-        return [], 'no ::: {.original-results} list in index.qmd'
+        return [], 'no ::: {.original-results} list in 01-introduction.qmd'
     start = lineno(t, m.start(1))
     items, cur = [], None
     for k, line in enumerate(m.group(1).split('\n')):
@@ -130,7 +130,7 @@ def original_results(text, defs):
             cur = None
     bad = []
     for n, item in items:
-        where = f'index.qmd:{n}'
+        where = f'01-introduction.qmd:{n}'
         lab = re.match(r'\*\*\[((?:%s)\b[^\]\n]*)\]\*\*' % '|'.join(STATUS_WORDS), item)
         if not lab:
             bad.append(f'{where} item does not open with a status label')
