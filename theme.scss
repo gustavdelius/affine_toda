@@ -146,3 +146,9 @@ code:not(.sourceCode) {
     overflow-x: auto;
   }
 }
+
+/* Hypothesis floats (see the hyp- ids) hold running text: keep it left-aligned */
+figure.quarto-float-hyp,
+figure.quarto-float-hyp p {
+  text-align: left;
+}

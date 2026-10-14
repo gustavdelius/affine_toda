@@ -146,6 +146,7 @@ format:
     filters:
       - path: status-tags.lua
         at: pre-ast
+      - path: hyp-names.lua
   pdf:
     documentclass: scrreprt
     classoption: [enabledeprecatedfontcommands]  # math uses \rm, \bf
@@ -155,8 +156,17 @@ format:
     filters:
       - path: part-preamble.lua
         at: post-render
+      - path: hyp-names.lua
     include-in-header:
       text: |
         % Part titles already read "Part I: ...", so drop LaTeX's own part label
         \renewcommand*{\partformat}{}
         \renewcommand*{\addparttocentry}[2]{\addtocentrydefault{part}{}{#2}}
+
+crossref:
+  custom:
+    - kind: float
+      key: hyp
+      reference-prefix: Hypothesis
+      space-before-numbering: true
+      latex-env: hyp

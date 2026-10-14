@@ -36,7 +36,7 @@ from pathlib import Path
 ROOT = Path(sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parent)
 SKIP = {'briefs', 'referee_scratch', '_site', '_book', '.quarto', '.claude', '.git', 'node_modules'}
 PREFIXES = ('sec', 'eq', 'prp', 'thm', 'lem', 'cor', 'cnj', 'def', 'exm', 'exr', 'sol', 'rem',
-            'alg', 'fig', 'tbl', 'lst', 'nte', 'tip', 'wrn', 'imp', 'cau')
+            'alg', 'fig', 'tbl', 'lst', 'nte', 'tip', 'wrn', 'imp', 'cau', 'hyp')
 STATUS_WORDS = ('Theorem', 'Established', 'Proposition', 'Numerical', 'Conjecture', 'Part')
 
 P = '|'.join(PREFIXES)
