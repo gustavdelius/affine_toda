@@ -85,3 +85,14 @@ Part VIII (`part8-defects/`, chapters 36–43) was planned, drafted, refereed an
 | `run_referee_agy.sh` | Runs a referee brief with a non-Claude model through the Antigravity CLI, in a throwaway copy of the repository; writes `briefs/<brief>_report.md` |
 
 The book cites only the scripts in `textbook_code/` (`defect_*.py`, listed in `textbook_code/README.md` and in appendix C, `appendices/C-code.qmd`); the referee scripts are kept for reproducibility.
+
+## Part II: model-diverse referee pass (from 2026-10-15)
+
+Part II (`part2-algebra/`, chapters 5–8) had one referee pass, on 2026-10-10, by Claude agents only (items 2–4 and 9–12 of `referee_textbook.md`). Much of its current text is that pass's replacement wording or was added by the reading pass (`part2_reading_fixes.md`), and has had no referee since. The two briefs below ask for a non-Claude pass, weighted toward that text. The chapters were reviewed as on main at 9d85ab7.
+
+| File | What it is |
+|---|---|
+| `referee_algebra_05_06.md` | Referee brief for chapters 5–6: duality of the dual pairs and its normalization against ch. 14, the two foldings to $a_{2n}^{(2)}$, the folding and label tables, exponents and vertex operators, affine-diagram symmetries, Perron–Frobenius and conserved charges, citations, exercises. Report: `referee_algebra_05_06_report.md` |
+| `referee_algebra_07_08.md` | Referee brief for chapters 7–8: twisted normalizations, the central element and the $S^2$ shift (with $a_{2n}^{(2)}$), the sign of $q$ and the Part VI dictionary, the twisted tensor-product graph for the $U_q(d_{n+1}^{(2)})$ spinor, where the graph fails, the history of the R-matrices (DGZ, GMW), roots of unity, fusion and IRF, citations, exercises. Report: `referee_algebra_07_08_report.md` |
+
+**Files under review: do not edit until the reports are in.** `part2-algebra/05-root-systems.qmd`, `06-affine-algebras.qmd`, `07-quantum-groups.qmd`, `08-r-matrices.qmd`, and the captions of the figures in `part2-algebra/figures/`.
