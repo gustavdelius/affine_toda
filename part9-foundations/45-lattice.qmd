@@ -85,6 +85,8 @@ The exponent is minus a positive-semidefinite quadratic form (the covariance $C\
 
 This is the multi-component analogue of the well-known equivalence of sine-Gordon theory with the two-component Coulomb gas. Here, however, it holds without any reality of the potential. It closes H2.
 
+The positivity concerns this Euclidean formulation and vertex-operator observables. Other observables are averaged over the same positive ensemble, but they become complex-valued functions of the charges: with the charges present, Gaussian integration shifts $\vec\phi$ by $i\sum_kq_{j_k}C(\cdot,u_k)$. Their correlation functions need not be positive; by the symmetry $\Theta$ below, for example, $\langle\vec\phi_u\rangle$ is purely imaginary. Positivity also does not extend to real time, where $\Theta$-broken sectors give complex levels (@sec-solvable-check), nor to every regularization: the Euclidean weights of the integrable lattice of @prp-krein-regularization carry phases.
+
 The sign of $V$ in (-@eq-imaginary-potential) is essential: the opposite sign gives fugacities of alternating sign. @sec-solvable-check shows that this sign choice decides whether the partition function is positive.
 
 ## Hamiltonian structure: a Krein space {#sec-hamiltonian-structure-krein-space}
@@ -151,6 +153,8 @@ It has simple poles at $w=1/\lambda$ with nonzero residues, and no cancellation 
 
 @thm-vacuum-energy closes H5 at the lattice level. It is sharp: it says nothing about excited levels, and these can indeed be complex.
 
+It also leaves the uniqueness of the vacuum open. Pringsheim's theorem does not exclude further singularities of $f$ on its circle of convergence, so $T$ may have other eigenvalues of modulus $\rho(T)$. A pair $\rho(T)e^{\pm i\vartheta}$ would give levels with $\operatorname{Re}E=E_0$ and $\operatorname{Im}E\ne0$. Nor does the proof show that $\rho(T)$ is a simple eigenvalue. For a real positive weight the Perron–Frobenius (Jentzsch) theorem settles both questions, but the kernel of $T$ carries the phases of $e^{-\frac a2\mathcal V}$ and does not preserve positivity. Positivity of the traces gives only $m_\lambda\le m_{\rho(T)}$ for every eigenvalue $\lambda$ with $\lvert\lambda\rvert=\rho(T)$ (@exr-peripheral). In the zero-mode reduction below, the vacuum is simple, and every other level has a real part larger by at least $1.3$.
+
 ## An exactly solvable check {#sec-solvable-check}
 
 The zero-mode reduction of (-@eq-lattice-action) is quantum mechanics on the field-space torus,
@@ -188,6 +192,10 @@ Show that $T^\dagger=PTP$ for (-@eq-transfer-matrix), using $\overline{V(\vec\ph
 
 ::: {#exr-trace-positivity}
 A matrix with eigenvalues $\pm i$ has $\operatorname{Tr}T^2=-2$. Explain why such a matrix cannot be the transfer matrix of a positive Coulomb gas, and how this is used in the proof of @thm-vacuum-energy.
+:::
+
+::: {#exr-peripheral}
+Let $T$ be trace class with $\operatorname{Tr}T^N>0$ for every $N\ge1$, and let $\lambda=\rho(T)e^{i\vartheta}$ be an eigenvalue. Show that $m_\lambda\le m_{\rho(T)}$. (Average $\rho(T)^{-N}\operatorname{Tr}T^N\,e^{-iN\vartheta}$ over $N=1,\dots,K$ and let $K\to\infty$.)
 :::
 
 ::: {#exr-zero-mode-sign}
