@@ -1,9 +1,9 @@
 """Consolidated checks for the A_2^(1) RSOS (IRF) soliton S-matrix in the symmetric gauge."""
 import qsign_patch
 from irf_a2 import *
-import itertools, sys
+import itertools, os, sys
 from math import gcd
-sys.path.insert(0, '/home/gustav/Git/affine_toda/foundations_code')
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..'))  # krein_bethe.py
 rng = np.random.default_rng(7)
 which = sys.argv[1]
 

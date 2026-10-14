@@ -8,7 +8,8 @@ affine roots, so H is real and not symmetric.
 
 Prints the table of the chapter: lowest level, number of complex levels among the 40 with smallest real part,
 Z(T) = Tr exp(-T H) for T = 0.5, 2, 8; then the opposite sign for a_2 at g = 1, and the convergence in P.
-Exits non-zero if a claim of the chapter fails (lowest level real and of minimal real part, Z > 0, P-independence,
+Exits non-zero if a claim of the chapter fails (lowest level real, simple and of minimal real part with a gap of at
+least 1.3 to the next real part, Z > 0, P-independence,
 complex levels present, a_2 opposite sign negative Z(2) with complex lowest pair, c_2 sign equivalence).
 Runtime: about 2 min (the P = 20 diagonalizations dominate)."""
 import itertools
@@ -56,6 +57,8 @@ for model in ("a2", "c2"):
         Z = [np.exp(-T * ev).sum().real for T in Ts]
         print(f"| {model} | {g} | {ev[0].real:.4f} | {nc} | " + ", ".join(f"{z:.3g}" for z in Z) + " |")
         check(f"{model} g={g}: lowest level real, minimal real part", abs(ev[0].imag) < 1e-9 and np.all(ev.real >= ev[0].real - 1e-12))
+        check(f"{model} g={g}: vacuum simple, every other level has real part larger by >= 1.3 "
+              f"(gap {ev[1].real - ev[0].real:.3f})", ev[1].real - ev[0].real >= 1.3)
         check(f"{model} g={g}: Z(T) > 0", all(z > 0 for z in Z))
         check(f"{model} g={g}: complex levels among the lowest 40", nc > 0)
         e8, e20 = spectrum(model, g, 8)[:10], spectrum(model, g, 20)[:10]

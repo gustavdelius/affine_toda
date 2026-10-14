@@ -1,0 +1,8 @@
+g_2 triple composite: closed-form Delta M = -1.272080; singular Im xi at [-3.1416 -1.6323 -1.2372  0.      1.2372  1.6323]
+PASS g_2 triple composite, Im xi = -2.3876 (most regular): Delta M = -1.271704 -6.6e-07i, |diff| = 3.8e-04
+PASS g_2 triple composite, Im xi = -2.1416 (1.0 from singular): Delta M = -1.271703 +4.2e-08i, |diff| = 3.8e-04
+PASS g_2 triple composite, Im xi = -2.8416 (0.3 from singular): Delta M = -1.271573 +2.7e-04i, |diff| = 5.7e-04
+b_3 spinor composite: closed-form Delta M = -1.026046; singular Im xi at [-3.1416 -1.5708  0.      1.5708  3.1416]
+PASS b_3 spinor composite, Im xi = -2.3562 (most regular): Delta M = -1.025778 +3.2e-08i, |diff| = 2.7e-04
+PASS b_3 spinor composite, Im xi = -2.1416 (1.0 from singular): Delta M = -1.025777 -6.7e-08i, |diff| = 2.7e-04
+PASS b_3 spinor composite, Im xi = -2.8416 (0.3 from singular): Delta M = -1.025639 -1.3e-04i, |diff| = 4.3e-04

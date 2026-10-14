@@ -1,5 +1,5 @@
-# Python packages for the scripts in textbook_code/, foundations_code/ and
-# soliton_rmatrix_code/. Install with: python3 -m pip install -r requirements.txt
+# Python packages for the scripts in textbook_code/ and its subdirectories.
+# Install with: python3 -m pip install -r requirements.txt
 # The minimum versions are those installed in the development environment;
 # older versions may work but have not been tested.
 numpy>=1.26

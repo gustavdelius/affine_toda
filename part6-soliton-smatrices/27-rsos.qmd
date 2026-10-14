@@ -73,7 +73,7 @@ Evidence:
 
 :::
 
-*Numerics.* The mixed Yang–Baxter equations hold to $5\times10^{-15}$ and braiding unitarity to $8\times10^{-14}$ in all four sectors. Hermitian analyticity and $SS^\dagger=1$ hold to $10^{-12}$ at the eight couplings tested with $p'\equiv\pm1$, and fail by $O(1)$ at the five others. The sign criterion was checked by brute force for $4\le p\le60$. Scripts: `foundations_code/irf/`.
+*Numerics.* The mixed Yang–Baxter equations hold to $5\times10^{-15}$ and braiding unitarity to $8\times10^{-14}$ in all four sectors. Hermitian analyticity and $SS^\dagger=1$ hold to $10^{-12}$ at the eight couplings tested with $p'\equiv\pm1$, and fail by $O(1)$ at the five others. The sign criterion was checked by brute force for $4\le p\le60$. Scripts: `textbook_code/irf/`.
 
 @fig-qdim-signs shows which couplings pass the criterion of part 1 and which pass only the weaker $\mathrm{su}(2)$ criterion.
 

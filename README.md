@@ -52,13 +52,16 @@ The book's own summary of new material is in the introduction, and [Appendix D](
 |---|---|
 | `index.qmd`, `part*/`, `outlook/`, `appendices/` | The book, as Quarto source (`.qmd`) with bibliography `references.bib` |
 | `figures/`, `part*/figures/` | The committed SVG figures |
-| `textbook_code/` | Symbolic and numerical checks of the textbook material, Parts I–VIII and appendix A |
+| `textbook_code/` | All the book's check scripts. Flat scripts check Parts I–IV, VII and VIII, appendix A and parts of Part IX; subdirectories hold the larger computations |
 | `textbook_code/figures/` | Scripts that draw the figures and check the formulas they plot |
-| `foundations_code/` | Research computations behind Parts V and IX |
-| `soliton_rmatrix_code/` | Construction of quantum-affine representations and R-matrices, soliton S-matrices and one-loop tests (Part VI) |
+| `textbook_code/hirota/`, `oneloop/`, `thimbles/` | Hirota fluctuations, Jordan types, one-loop soliton masses and thimbles (Part V) |
+| `textbook_code/rmatrix/` | Construction of quantum-affine representations and R-matrices, soliton S-matrices and one-loop tests (Part VI, appendix B) |
+| `textbook_code/sectors/`, `irf/`, `vernier/`, `review614/` | Soliton sectors and Krein unitarity, RSOS kinks, the Vernier–Jacobsen–Saleur lattice model and the continuum-limit lemmas (Parts VI and IX) |
 | `briefs/` | Referee reports, reading-fix briefs and open research tasks |
 | `add-backlinks.py`, `add-discovery-metadata.py`, `part-preamble.lua`, `status-tags.lua`, `theme*.scss` | Quarto build helpers, discovery metadata and styling |
 | `publish-pdf.sh` | Builds the PDF locally and attaches it to the `pdf-latest` release |
+| `check-refs.py`, `render-scratch.sh` | Checks cross-references and citations without rendering; renders the book in a scratch copy and reports unresolved references |
+| `AGENTS.md`, `CLAUDE.md`, `.claude/skills/` | Working rules for the AI agents that draft and referee the book, and the Claude Code skills for referee briefs and their integration |
 | `requirements.txt` | Python packages needed by the scripts |
 | `LICENSE` | MIT licence for the code |
 
@@ -79,6 +82,13 @@ The PDF needs a LaTeX installation:
 quarto render --to pdf
 ```
 
+Two helpers check the book while it is being edited:
+
+```bash
+python3 check-refs.py      # ids, cross-references, citation keys, status labels and the list of original results, in under a second
+./render-scratch.sh        # render in a scratch copy, so a running preview is undisturbed (--pdf for the PDF too)
+```
+
 The GitHub Actions workflow (`.github/workflows/publish.yml`) renders the HTML on each push to `main` and deploys it to GitHub Pages. It does not render the PDF, because Quarto hangs on the Mermaid figure in chapter 1 on the runner. The PDF is built locally with `./publish-pdf.sh`, which uploads it to the `pdf-latest` release and redeploys the site. That script needs `gh` logged in to GitHub.
 
 ## Running the supporting code
@@ -95,9 +105,9 @@ python3 -m pip install -r requirements.txt
   ```
   Runtimes range from seconds to a few minutes; the table in [`textbook_code/README.md`](textbook_code/README.md) maps each script to the equations and results it checks.
 - **`textbook_code/figures/`** — each script writes an SVG into the book tree and checks the formulas it plots, printing `PASS` or `FAIL` per check. The SVGs are committed, so building the book does not require running them. To regenerate one, run `python3 textbook_code/figures/<name>.py` from the repository root.
-- **`foundations_code/`** and **`soliton_rmatrix_code/`** — run each script from its own directory, as the directory READMEs describe. Some scripts need `rsolve.py` or `dtw.py` copied alongside them, and the READMEs say which.
+- **Subdirectories of `textbook_code/`** — run each script from its own directory, as [`textbook_code/README.md`](textbook_code/README.md) and the subdirectory READMEs describe. Many print tables rather than `PASS`/`FAIL` lines. Some need `rsolve.py` or `dtw.py` copied alongside them, and the READMEs say which.
 
-Some scripts take a long time, and a few depend on a sign convention for $q$. The `QSIGN` environment variable selects the physical sign, and the soliton and foundations READMEs explain the default.
+Some scripts take a long time, and a few depend on a sign convention for $q$. The `QSIGN` environment variable selects the physical sign, and `textbook_code/README.md` and `textbook_code/rmatrix/README.md` explain the default.
 
 ## Contributing and feedback
 

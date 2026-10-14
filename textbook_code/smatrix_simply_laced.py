@@ -3,7 +3,7 @@
 S_ab = prod_x {x}^{N_x}, {x} = (x-1)(x+1)/((x-1+B)(x+1-B)),
 (x) = sinh(theta/2 + i pi x/2h)/sinh(theta/2 - i pi x/2h), with Dorey's block content
 S_ab = prod_{p=1}^{h} {2p-1+(c(b)-c(a))/2}^{-N_p/2}, N_p = lambda_a . w^p gamma_b, gamma_b=(1-w^{-1})lambda_b,
-w = s_black s_white (eq-dorey-formula; the same convention as variant 1 of foundations_code/hirota/dorey.py).
+w = s_black s_white (eq-dorey-formula; the same convention as variant 1 of hirota/dorey.py).
 Note: the variant with w^{-p} gives a different, also unitary, crossing-symmetric and bootstrap-consistent
 product that is NOT the physical S-matrix (it fails the e8 and a_n checks below).
 Checks: unitarity, crossing, B -> 2-B invariance, e8 S_11 = {1}{11}{19}{29}, the a_n closed
