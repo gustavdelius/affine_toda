@@ -59,6 +59,8 @@ The book's own summary of new material is in the introduction, and [Appendix D](
 | `briefs/` | Referee reports, reading-fix briefs and open research tasks |
 | `add-backlinks.py`, `add-discovery-metadata.py`, `part-preamble.lua`, `status-tags.lua`, `theme*.scss` | Quarto build helpers, discovery metadata and styling |
 | `publish-pdf.sh` | Builds the PDF locally and attaches it to the `pdf-latest` release |
+| `check-refs.py`, `render-scratch.sh` | Checks cross-references and citations without rendering; renders the book in a scratch copy and reports unresolved references |
+| `AGENTS.md`, `CLAUDE.md`, `.claude/skills/` | Working rules for the AI agents that draft and referee the book, and the Claude Code skills for referee briefs and their integration |
 | `requirements.txt` | Python packages needed by the scripts |
 | `LICENSE` | MIT licence for the code |
 
@@ -77,6 +79,13 @@ The PDF needs a LaTeX installation:
 
 ```bash
 quarto render --to pdf
+```
+
+Two helpers check the book while it is being edited:
+
+```bash
+python3 check-refs.py      # ids, cross-references, citation keys, status labels and the list of original results, in under a second
+./render-scratch.sh        # render in a scratch copy, so a running preview is undisturbed (--pdf for the PDF too)
 ```
 
 The GitHub Actions workflow (`.github/workflows/publish.yml`) renders the HTML on each push to `main` and deploys it to GitHub Pages. It does not render the PDF, because Quarto hangs on the Mermaid figure in chapter 1 on the runner. The PDF is built locally with `./publish-pdf.sh`, which uploads it to the `pdf-latest` release and redeploys the site. That script needs `gh` logged in to GitHub.

@@ -1,5 +1,7 @@
 # Template: prompt for a Claude agent that integrates a Codex referee report
 
+This is the Part VIII version, with its worktree and files hard-coded. The general procedure is the Claude Code skill `.claude/skills/integrate-referee-report/`, whose `agent-prompt.md` generalizes this template.
+
 Used for chapter 41 on 2026-10-13: the referee report was committed first as 3f7883a, then integrated as df973fb. Before each integration:
 
 1. Commit the report unchanged.
