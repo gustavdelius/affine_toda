@@ -1,0 +1,8 @@
+om=0.37: in-singlet as V(x)V: v0v1 1.0, v1v0 (-1.0 + 0.0j);  out-singlet: v0v1 1.0, v1v0 (-1.0 + 0.0j)
+om=0.83: in-singlet as V(x)V: v0v1 1.0, v1v0 (-1.0 + 0.0j);  out-singlet: v0v1 1.0, v1v0 (-1.0 + 0.0j)
+om=0.37 eta=0.41+0.23j: K_SP sigma_A sigma_A / K_B1(Ghoshal, Dirichlet) = (1.0 + 3.03760334994e-31j), (1.0 + 1.91309216878e-30j), (1.0 - 3.98988802091e-30j)
+om=0.37 eta=-0.3+1.1j: K_SP sigma_A sigma_A / K_B1(Ghoshal, Dirichlet) = (1.0 - 1.1673949399e-30j), (1.0 - 3.11214359025e-31j), (1.0 - 4.12148528092e-30j)
+om=0.37 eta=0.05+1.4j: K_SP sigma_A sigma_A / K_B1(Ghoshal, Dirichlet) = (1.0 - 8.33748590098e-31j), (1.0 - 9.73104696246e-31j), (1.0 - 1.10108822307e-30j)
+om=0.83 eta=0.41+0.23j: K_SP sigma_A sigma_A / K_B1(Ghoshal, Dirichlet) = (1.0 - 1.74289071087e-31j), (1.0 - 2.46664583718e-30j), (1.0 - 2.77910755718e-30j)
+om=0.83 eta=-0.3+1.1j: K_SP sigma_A sigma_A / K_B1(Ghoshal, Dirichlet) = (1.0 + 6.43926036115e-30j), (1.0 - 9.70550622681e-31j), (1.0 - 4.41017708147e-30j)
+om=0.83 eta=0.05+1.4j: K_SP sigma_A sigma_A / K_B1(Ghoshal, Dirichlet) = (1.0 - 1.07758725432e-30j), (1.0 - 1.96437632177e-30j), (1.0 + 3.19791461859e-31j)

@@ -1,0 +1,10 @@
+PASS d_n, eps-hat_j^2 = eps_*^2: K(-theta) K(theta) = U_varsigma 1, varsigma = (-1)^n s (n = 4, 5, 6) [5e-14]
+PASS crossing-unitarity of the matrix part: k(theta) = Psi_varsigma R-check_(Vbar Vbar)(2 theta) k(-theta), Psi_+- as for a_n (n = 4, 5) [2e-14]
+PASS B_1 singlet mapped to c_varsigma(mu) = c^an_varsigma(mu) e_varsigma(mu) times itself (n = 4, 5) [2e-13]
+PASS scalar factors A_+-: unitarity A(mu)A(-mu)U = 1 and crossing A(T/2-mu)/A(T/2+mu) = F(2mu)/Psi (n = 4, 5, 6) [1.5e-26]
+PASS breather amplitudes: A(mu_a) F(2mu) A(mu_b) c(mu) = closed block forms (n = 4, 5, 6) [1.4e-26]
+PASS omega -> -2/B: K^(+-)_1 = closed forms, unitary, crossing-unitary with the book S_11 (n = 4..7), bootstrap closure over the vector-like particles (n = 5, 6), K -> 1 as B -> 0 [2.4e-15]
+PASS one loop, d_4 (Kim-Cho (K1), (K2)): varsigma = +1 with the CDD factor agrees [1.9e-17] (without it: 0.61); varsigma = -1 agrees at theta + i pi [5.6e-18] (at theta: 0.31); the same against Kim's d_n conjecture = CAF R~_1(theta + i pi), n = 4..7 [1.6e-26]; a_3: K^(-)_1(theta) = Kim (33)(theta + i pi) [1.7e-27]
+PASS semiclassics (d_4): both varsigma = +-1 give half the time delay of F(2 theta), as a Neumann wall by images [-0.338016, -0.338097, -0.338162]
+PASS varsigma = +1 with the CDD factor is the dual K_1(theta, 2 - B) of the uniform amplitude, = K^N_1 in closed form; varsigma = -1 is K_1/K_1^cl (n = 4..7) [1.3e-30]
+FIN

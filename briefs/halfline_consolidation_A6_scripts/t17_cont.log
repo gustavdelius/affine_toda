@@ -1,0 +1,5 @@
+continuation = closed forms [1.2e-30]; unitarity and crossing-unitarity with book S_11 [5.68e-16]; B -> 0 limit is 1 [1.89e-15]  (n = 4..7, sig = +-1)
+sig=+1 CDD k=(): |K_1 one loop - Kim-Cho (K1)| = 0.615; vs (K1) at theta+i pi: 0.307; |K_2 = K_1 K_1 S_11 one loop - (K2)| = 0.892; at theta+i pi 0.446
+sig=+1 CDD k=(0, 1, 2): |K_1 one loop - Kim-Cho (K1)| = 1.29e-17; vs (K1) at theta+i pi: 0.307; |K_2 = K_1 K_1 S_11 one loop - (K2)| = 1.94e-17; at theta+i pi 0.446
+sig=-1 CDD k=(): |K_1 one loop - Kim-Cho (K1)| = 0.307; vs (K1) at theta+i pi: 4.15e-18; |K_2 = K_1 K_1 S_11 one loop - (K2)| = 0.446; at theta+i pi 5.64e-18
+sig=-1 CDD k=(0, 1, 2): |K_1 one loop - Kim-Cho (K1)| = 0.307; vs (K1) at theta+i pi: 0.615; |K_2 = K_1 K_1 S_11 one loop - (K2)| = 0.446; at theta+i pi 0.892

@@ -1,6 +1,7 @@
-"""Scalar factor of the non-diagonal a_n^(1) reflection matrix (s = +1) and the Neumann amplitudes from the soliton side
-(Part VII, ch. 33, sec-an-nondiagonal-k, prp-an-nondiagonal-scalar; ch. 35, sec-neumann-duality; half-line open
-problem 3). Built from the problem-3 report and its referee scripts.
+"""Scalar factors of the non-diagonal a_n^(1) reflection matrices (s = +1 and s = -1), the Neumann amplitudes from the
+soliton side, and the amplitudes of the third matrix (Part VII, ch. 33, sec-an-nondiagonal-k, prp-an-nondiagonal-scalar;
+ch. 35, sec-neumann-duality; half-line open problem 3). Built from the problem-3 report and its referee scripts; the
+s = -1 checks (8-10) were added in the consolidation of 2026-10-12.
 
 Book conventions: physical q = -exp(-i pi omega), V/Vbar = an_vector, R-check = rcheck, (eq-an-k-matrix) on the
 analytic branch X^p = exp(p omega (theta - i pi/2)), eps_* = 1/(2 cos(pi omega/2)); h = n+1, T = h omega/2,
@@ -20,7 +21,16 @@ Checks:
     (eq-neumann-amplitude), n = 1..7.
  5. Kim's one-loop a_3^(1) Neumann amplitudes (kim1995, eqs. (33), (39)) agree with K^N_1, K^N_2 at O(beta^2); without
     the CDD factor (T/2 - omega/2)_I (T/2 + omega/2)_I they become K^N_1/k_1, K^N_2/(k_1 k_1) (DG's k_1) and disagree.
-Runtime: about 1 minute.
+ 6. Crossing function Psi_s (s = +-1) against the crossing matrix.
+ 7. Semiclassics of A^(+): the Neumann time advance.
+ 8. s = -1: the B_1 singlet is mapped to c_-(mu) times itself,
+    c_- = sin(pi mu) sin(pi(mu + omega/2)) sin(pi(mu - T))/(sin^2(pi omega/2) sin(pi(mu - omega/2))). n = 2, 3, 4.
+ 9. s = -1: the scalar factor A^(-) (eq-an-nondiagonal-scalar-minus) solves A(mu)A(-mu) U_- = 1 and
+    A(T/2-mu)/A(T/2+mu) = F_11(2mu)/Psi_-(mu), and A(mu_a) F_11(2mu) A(mu_b) c_-(mu) = -(omega/2)_I (1/2 - T)_I
+    (-omega/2 - 1/2)_I (eq-an-minus-breather). 30 digits; n = 1..4.
+10. s = -1: for n = 2 this is Gandenberger's (5.17) (gandenberger1999a); omega -> -2/B turns it into
+    -(1)(h - B/2)(-1 + B/2), n = 1..7. (Its axioms and dual are checked in particle_reflection.py, check 5.)
+Runtime: about a minute.
 """
 import numpy as np
 import mpmath as mp
@@ -237,3 +247,80 @@ for n in (2, 3):
     msgs.append(f'n = {n}: ' + ', '.join(mp.nstr(e, 2) for e in errs))
 report('semiclassical limit of A^(+): the Neumann time advance (1/2) ln(1 - sin^2(pi/h)/cosh^2 theta), errors at '
        'omega = 40, 80, 160 decreasing like 1/omega (' + '; '.join(msgs) + ')', ok7)
+
+# ---------------------------------------------------------------- 8. s = -1: singlet projection
+dP = 0
+for n, om, mu in ((2, 0.53, 0.11 + 0.19j), (3, 0.61, 0.17 + 0.23j), (4, 0.47, -0.21 + 0.13j), (2, 1.37, 0.05 - 0.12j)):
+    h, N = n + 1, n + 1
+    T, q = h*om/2, q_phys(om)
+    th = 1j*np.pi*mu/T
+    u = np.pi*(1 - 2/(h*om))
+    ta, tb = th - 0.5j*u, th + 0.5j*u
+    Va, Vb = an_vector(n, q, np.exp(om*ta)), an_vector(n, q, np.exp(om*tb), True)
+    w_in = singlet(Va, Vb)
+    Wa = an_vector(n, q, np.exp(-om*tb))
+    w_out = singlet(Wa, an_vector(n, q, np.exp(-om*ta), True))
+    R = rcheck(Va, Wa)[0]
+    v = kron(np.eye(N), kmat(n, om, ta, -1)) @ (R @ (kron(np.eye(N), kmat(n, om, tb, -1).T) @ w_in))
+    c = np.vdot(w_out, v)/np.vdot(w_out, w_out)
+    cm = (np.sin(np.pi*mu)*np.sin(np.pi*(mu + om/2))*np.sin(np.pi*(mu - T))
+          / (np.sin(np.pi*om/2)**2*np.sin(np.pi*(mu - om/2))))
+    dP = max(dP, np.linalg.norm(v - c*w_out)/np.linalg.norm(v), abs(c/cm - 1))
+report(f's = -1: the B_1 singlet is mapped to c_-(mu) times itself (n = 2, 3, 4; omega = 1.37 for n = 2) [{dP:.0e}]',
+       dP < 1e-12)
+
+
+# ---------------------------------------------------------------- 9. s = -1: scalar factor and breather identity
+# A^(-) = -i (-T/2)_I sin(pi omega/2)/cos pi(mu - T/2) prod_j G_j(mu, 1/2 + omega/2 - 3T/2) G_j(mu, 1/2 - omega/2 - T/2)
+#         / [G_j(mu, 1/2 + omega/2 - T/2) G_j(mu, 1/2 - omega/2 - 3T/2)] a_1(mu)
+def scalar_minus(n, om):
+    h = n + 1
+    T, L, half = h*om/2, h*om, mp.mpf(1)/2
+
+    def Am(mu):
+        a1 = mp.exp(logprod(2*L, G(2*mu, -1.5*L + 1) + G(2*mu, -0.5*L) + G(2*mu, -1.5*n*om - 0.5*om + 1, -1)
+                            + G(2*mu, -0.5*n*om - 1.5*om, -1)))
+        a0 = mp.sin(mp.pi*om/2)/mp.cos(mp.pi*(mu - T/2))*mp.exp(
+            logprod(L, G(mu, half + om/2 - 1.5*T) + G(mu, half - om/2 - T/2) + G(mu, half + om/2 - T/2, -1)
+                    + G(mu, half - om/2 - 1.5*T, -1)))
+        return -1j*blk(-T/2, mu, T)*a0*a1
+    return Am
+
+
+mp.mp.dps = 30
+d9 = 0
+for n, om, mu in ((1, mp.mpf('0.71'), mp.mpc('0.13', '0.08')), (2, mp.mpf('0.53'), mp.mpc('0.11', '0.19')),
+                  (3, mp.mpf('0.61'), mp.mpc('0.17', '0.23')), (4, mp.mpf('0.47'), mp.mpc('-0.21', '0.13')),
+                  (2, mp.mpf('1.37'), mp.mpc('0.05', '-0.12'))):
+    T, _, F11 = scalar_data(n, om)
+    Am = scalar_minus(n, om)
+    half = mp.mpf(1)/2
+    U = -mp.cos(mp.pi*(T/2 + mu))*mp.cos(mp.pi*(T/2 - mu))/mp.sin(mp.pi*om/2)**2
+    Psi = mp.cos(mp.pi*(mu - om/2))/mp.cos(mp.pi*(mu + om/2))
+    cm = (mp.sin(mp.pi*mu)*mp.sin(mp.pi*(mu + om/2))*mp.sin(mp.pi*(mu - T))
+          / (mp.sin(mp.pi*om/2)**2*mp.sin(mp.pi*(mu - om/2))))
+    lhs = Am(mu - T/2 + half)*F11(2*mu)*Am(mu + T/2 - half)*cm
+    rhs = -blk(om/2, mu, T)*blk(half - T, mu, T)*blk(-om/2 - half, mu, T)
+    d9 = max(d9, abs(Am(mu)*Am(-mu)*U - 1), abs(Am(T/2 - mu)/Am(T/2 + mu)*Psi/F11(2*mu) - 1), abs(lhs/rhs - 1))
+report(f's = -1: A^(-) solves unitarity and crossing; A(mu_a) F_11(2mu) A(mu_b) c_- = -(omega/2)_I (1/2 - T)_I '
+       f'(-omega/2 - 1/2)_I (n = 1..4; omega = 1.37 for n = 2) [{mp.nstr(d9, 2)}]', d9 < mp.mpf('1e-20'))
+
+# ---------------------------------------------------------------- 10. s = -1: G98 (5.17) and the continuation
+# For n = 2 (T = 3 omega/2) the breather amplitude is Gandenberger's (5.17) -(l/2)(-l/2 - 1/2)(-3l/2 + 1/2), l = omega.
+# Continued: -(omega/2)_I (1/2 - T)_I (-omega/2 - 1/2)_I -> -(1)(h - B/2)(-1 + B/2) = -(1)(h-1) K_1, K_1 = DG (3.12).
+d10 = 0
+for n in range(1, 8):
+    h = n + 1
+    for Bv in (mp.mpf('0.37'), mp.mpf('1.3')):
+        for t in (mp.mpc('0.4', '0.1'), mp.mpc('-1.1', '0.3')):
+            om = -2/Bv
+            T = h*om/2
+            mu = -1j*T*t/mp.pi
+            cont = -blk(om/2, mu, T)*blk(mp.mpf(1)/2 - T, mu, T)*blk(-om/2 - mp.mpf(1)/2, mu, T)
+            d10 = max(d10, abs(cont/(-bth(1, t, h)*bth(h - Bv/2, t, h)*bth(-1 + Bv/2, t, h)) - 1))
+for om in (mp.mpf('0.53'), mp.mpf('1.37')):
+    T, mu = 3*om/2, mp.mpc('0.11', '0.19')
+    g98 = -blk(om/2, mu, T)*blk(-om/2 - mp.mpf(1)/2, mu, T)*blk(-3*om/2 + mp.mpf(1)/2, mu, T)
+    d10 = max(d10, abs(g98/(-blk(om/2, mu, T)*blk(mp.mpf(1)/2 - T, mu, T)*blk(-om/2 - mp.mpf(1)/2, mu, T)) - 1))
+report(f's = -1: n = 2 is Gandenberger (5.17); omega -> -2/B gives -(1)(h - B/2)(-1 + B/2), n = 1..7 '
+       f'[{mp.nstr(d10, 2)}]', d10 < mp.mpf('1e-25'))

@@ -314,7 +314,7 @@ for coupling, cond in [('imag', 'Dirichlet on Re phi in (2pi/beta) coweights, Ne
     # zero set of Im e^{i beta alpha_j.phi/2} = e^{-beta alpha.v/2} sin(beta alpha_j.u/2): beta alpha_j.Re phi in 2 pi Z
     report(f'soliton-preserving K=1, {coupling} coupling: K a_t + a_t(1/lam)^dagger = 0 <=> {cond}', ok)
 
-# a numerical illustration of the 'iff': pick Re phi = (2 pi/beta) * coweight, check vanishing; shift by half -> fails
+# a numerical illustration of the 'iff': pick Re phi = (2 pi/beta) * coweight, check vanishing; shift by half -> fails with K = 1 (it holds with K = e^{i pi nu.H}: boundary_dirichlet.py)
 bv, mv = 0.9, 1.0
 w1 = np.array([2, -1, -1]) / 3.0                          # fundamental coweight of a_2 (alpha_1.w1 = 1 in cyclic labels)
 alv = [np.array(a, dtype=float).ravel() for a in [[1, -1, 0], [0, 1, -1], [-1, 0, 1]]]
@@ -325,7 +325,7 @@ def sp_res(Rephi, Imphi, dReal, dImag):
     return max(abs(np.array(res)))
 ok = sp_res(2 * np.pi / bv * w1, np.array([0.3, -0.1, -0.2]), np.zeros(3), np.zeros(3)) < 1e-14
 ok &= sp_res(np.pi / bv * w1, np.array([0.3, -0.1, -0.2]), np.zeros(3), np.zeros(3)) > 0.1
-report('soliton-preserving: Re phi(0) = (2pi/beta) w passes, (pi/beta) w (half a coweight) fails', ok)
+report('soliton-preserving: Re phi(0) = (2pi/beta) w passes, (pi/beta) w (half a coweight) fails with K_+ = 1', ok)
 
 # ---------------------------------------------------------------- 4. Theta on the half-line
 Cs = sp.symbols('C0:3'); Cb = [sp.conjugate(c) for c in Cs]

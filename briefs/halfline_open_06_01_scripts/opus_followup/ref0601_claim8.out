@@ -1,0 +1,52 @@
+a_2 a=1 chi_end=1.0472 vanishing [1] (all other nodes are neighbours: True); regular sides --+ (res 4e-15), +-- (res 5e-13); opposite-neighbour on both: True,True; flipped nodes [0, 2]
+      patterns sharing the endpoint: 4 (2 with prod C=+1, 2 with -1); opposite-neighbour ones: ['+--', '--+']; prodC=-1 ones all non-opposite: True
+a_2 a=1 chi_end=3.1416 vanishing [0] (all other nodes are neighbours: True); regular sides -+- (res 2e-12), --+ (res 5e-13); opposite-neighbour on both: True,True; flipped nodes [1, 2]
+      patterns sharing the endpoint: 4 (2 with prod C=+1, 2 with -1); opposite-neighbour ones: ['-+-', '--+']; prodC=-1 ones all non-opposite: True
+a_2 a=1 chi_end=5.2360 vanishing [2] (all other nodes are neighbours: True); regular sides +-- (res 5e-13), -+- (res 5e-13); opposite-neighbour on both: True,True; flipped nodes [0, 1]
+      patterns sharing the endpoint: 4 (2 with prod C=+1, 2 with -1); opposite-neighbour ones: ['+--', '-+-']; prodC=-1 ones all non-opposite: True
+a_3 a=1 chi_end=0.0000 vanishing [2] (all other nodes are neighbours: False); regular sides +--+ (res 9e-13), ++-- (res 5e-13); opposite-neighbour on both: True,True; flipped nodes [1, 3]
+      patterns sharing the endpoint: 8 (4 with prod C=+1, 4 with -1); opposite-neighbour ones: ['++--', '+--+', '-+--', '---+']; prodC=-1 ones all non-opposite: False
+a_3 a=1 chi_end=1.5708 vanishing [1] (all other nodes are neighbours: False); regular sides --++ (res 9e-13), +--+ (res 9e-13); opposite-neighbour on both: True,True; flipped nodes [0, 2]
+      patterns sharing the endpoint: 8 (4 with prod C=+1, 4 with -1); opposite-neighbour ones: ['+--+', '+---', '--++', '--+-']; prodC=-1 ones all non-opposite: False
+a_3 a=1 chi_end=3.1416 vanishing [0] (all other nodes are neighbours: False); regular sides -++- (res 9e-13), --++ (res 5e-13); opposite-neighbour on both: True,True; flipped nodes [1, 3]
+      patterns sharing the endpoint: 8 (4 with prod C=+1, 4 with -1); opposite-neighbour ones: ['-++-', '-+--', '--++', '---+']; prodC=-1 ones all non-opposite: False
+a_3 a=1 chi_end=4.7124 vanishing [3] (all other nodes are neighbours: False); regular sides ++-- (res 5e-13), -++- (res 9e-13); opposite-neighbour on both: True,True; flipped nodes [0, 2]
+      patterns sharing the endpoint: 8 (4 with prod C=+1, 4 with -1); opposite-neighbour ones: ['++--', '+---', '-++-', '--+-']; prodC=-1 ones all non-opposite: False
+a_4 a=1 chi_end=0.6283 vanishing [2] (all other nodes are neighbours: False); regular sides +--++ (res 5e-13), ++--+ (res 5e-13); opposite-neighbour on both: True,True; flipped nodes [1, 3]
+      patterns sharing the endpoint: 16 (8 with prod C=+1, 8 with -1); opposite-neighbour ones: ['++--+', '++---', '+--++', '+--+-', '-+--+', '-+---', '---++', '---+-']; prodC=-1 ones all non-opposite: False
+a_4 a=1 chi_end=1.8850 vanishing [1] (all other nodes are neighbours: False); regular sides --+++ (res 7e-13), +--++ (res 2e-13); opposite-neighbour on both: True,True; flipped nodes [0, 2]
+      patterns sharing the endpoint: 16 (8 with prod C=+1, 8 with -1); opposite-neighbour ones: ['+--++', '+--+-', '+---+', '+----', '--+++', '--++-', '--+-+', '--+--']; prodC=-1 ones all non-opposite: False
+a_4 a=1 chi_end=3.1416 vanishing [0] (all other nodes are neighbours: False); regular sides -+++- (res 2e-13), --+++ (res 2e-13); opposite-neighbour on both: True,True; flipped nodes [1, 4]
+      patterns sharing the endpoint: 16 (8 with prod C=+1, 8 with -1); opposite-neighbour ones: ['-+++-', '-++--', '-+-+-', '-+---', '--+++', '--+-+', '---++', '----+']; prodC=-1 ones all non-opposite: False
+a_4 a=1 chi_end=4.3982 vanishing [4] (all other nodes are neighbours: False); regular sides +++-- (res 9e-13), -+++- (res 1e-12); opposite-neighbour on both: True,True; flipped nodes [0, 3]
+      patterns sharing the endpoint: 16 (8 with prod C=+1, 8 with -1); opposite-neighbour ones: ['+++--', '++---', '+-+--', '+----', '-+++-', '-+-+-', '--++-', '---+-']; prodC=-1 ones all non-opposite: False
+a_4 a=1 chi_end=5.6549 vanishing [3] (all other nodes are neighbours: False); regular sides ++--+ (res 3e-15), +++-- (res 2e-13); opposite-neighbour on both: True,True; flipped nodes [2, 4]
+      patterns sharing the endpoint: 16 (8 with prod C=+1, 8 with -1); opposite-neighbour ones: ['+++--', '++--+', '+-+--', '+---+', '-++--', '-+--+', '--+--', '----+']; prodC=-1 ones all non-opposite: False
+a_4 a=2 chi_end=0.6283 vanishing [1] (all other nodes are neighbours: False); regular sides --+-- (res 5e-13), +---- (res 5e-13); opposite-neighbour on both: True,True; flipped nodes [0, 2]
+      patterns sharing the endpoint: 16 (8 with prod C=+1, 8 with -1); opposite-neighbour ones: ['+--++', '+--+-', '+---+', '+----', '--+++', '--++-', '--+-+', '--+--']; prodC=-1 ones all non-opposite: False
+a_4 a=2 chi_end=1.8850 vanishing [3] (all other nodes are neighbours: False); regular sides ----+ (res 5e-13), --+-- (res 9e-13); opposite-neighbour on both: True,True; flipped nodes [2, 4]
+      patterns sharing the endpoint: 16 (8 with prod C=+1, 8 with -1); opposite-neighbour ones: ['+++--', '++--+', '+-+--', '+---+', '-++--', '-+--+', '--+--', '----+']; prodC=-1 ones all non-opposite: False
+a_4 a=2 chi_end=3.1416 vanishing [0] (all other nodes are neighbours: False); regular sides -+--- (res 5e-13), ----+ (res 5e-13); opposite-neighbour on both: True,True; flipped nodes [1, 4]
+      patterns sharing the endpoint: 16 (8 with prod C=+1, 8 with -1); opposite-neighbour ones: ['-+++-', '-++--', '-+-+-', '-+---', '--+++', '--+-+', '---++', '----+']; prodC=-1 ones all non-opposite: False
+a_4 a=2 chi_end=4.3982 vanishing [2] (all other nodes are neighbours: False); regular sides ---+- (res 3e-15), -+--- (res 1e-12); opposite-neighbour on both: True,True; flipped nodes [1, 3]
+      patterns sharing the endpoint: 16 (8 with prod C=+1, 8 with -1); opposite-neighbour ones: ['++--+', '++---', '+--++', '+--+-', '-+--+', '-+---', '---++', '---+-']; prodC=-1 ones all non-opposite: False
+a_4 a=2 chi_end=5.6549 vanishing [4] (all other nodes are neighbours: False); regular sides +---- (res 5e-13), ---+- (res 9e-13); opposite-neighbour on both: True,True; flipped nodes [0, 3]
+      patterns sharing the endpoint: 16 (8 with prod C=+1, 8 with -1); opposite-neighbour ones: ['+++--', '++---', '+-+--', '+----', '-+++-', '-+-+-', '--++-', '---+-']; prodC=-1 ones all non-opposite: False
+a_5 a=1 chi_end=0.0000 vanishing [3] (all other nodes are neighbours: False); regular sides ++--++ (res 9e-13), +++--+ (res 2e-13); opposite-neighbour on both: True,True; flipped nodes [2, 4]
+      patterns sharing the endpoint: 32 (16 with prod C=+1, 16 with -1); opposite-neighbour ones: ['+++--+', '+++---', '++--++', '++--+-', '+-+--+', '+-+---', '+---++', '+---+-', '-++--+', '-++---', '-+--++', '-+--+-', '--+--+', '--+---', '----++', '----+-']; prodC=-1 ones all non-opposite: False
+a_5 a=1 chi_end=1.0472 vanishing [2] (all other nodes are neighbours: False); regular sides +--+++ (res 2e-13), ++--++ (res 7e-13); opposite-neighbour on both: True,True; flipped nodes [1, 3]
+      patterns sharing the endpoint: 32 (16 with prod C=+1, 16 with -1); opposite-neighbour ones: ['++--++', '++--+-', '++---+', '++----', '+--+++', '+--++-', '+--+-+', '+--+--', '-+--++', '-+--+-', '-+---+', '-+----', '---+++', '---++-', '---+-+', '---+--']; prodC=-1 ones all non-opposite: False
+a_5 a=1 chi_end=2.0944 vanishing [1] (all other nodes are neighbours: False); regular sides --++++ (res 2e-13), +--+++ (res 2e-13); opposite-neighbour on both: True,True; flipped nodes [0, 2]
+      patterns sharing the endpoint: 32 (16 with prod C=+1, 16 with -1); opposite-neighbour ones: ['+--+++', '+--++-', '+--+-+', '+--+--', '+---++', '+---+-', '+----+', '+-----', '--++++', '--+++-', '--++-+', '--++--', '--+-++', '--+-+-', '--+--+', '--+---']; prodC=-1 ones all non-opposite: False
+a_5 a=1 chi_end=3.1416 vanishing [0] (all other nodes are neighbours: False); regular sides -++++- (res 7e-13), --++++ (res 5e-13); opposite-neighbour on both: True,True; flipped nodes [1, 5]
+      patterns sharing the endpoint: 32 (16 with prod C=+1, 16 with -1); opposite-neighbour ones: ['-++++-', '-+++--', '-++-+-', '-++---', '-+-++-', '-+-+--', '-+--+-', '-+----', '--++++', '--++-+', '--+-++', '--+--+', '---+++', '---+-+', '----++', '-----+']; prodC=-1 ones all non-opposite: False
+a_5 a=1 chi_end=4.1888 vanishing [5] (all other nodes are neighbours: False); regular sides ++++-- (res 2e-12), -++++- (res 2e-13); opposite-neighbour on both: True,True; flipped nodes [0, 4]
+      patterns sharing the endpoint: 32 (16 with prod C=+1, 16 with -1); opposite-neighbour ones: ['++++--', '+++---', '++-+--', '++----', '+-++--', '+-+---', '+--+--', '+-----', '-++++-', '-++-+-', '-+-++-', '-+--+-', '--+++-', '--+-+-', '---++-', '----+-']; prodC=-1 ones all non-opposite: False
+a_5 a=1 chi_end=5.2360 vanishing [4] (all other nodes are neighbours: False); regular sides +++--+ (res 5e-13), ++++-- (res 1e-12); opposite-neighbour on both: True,True; flipped nodes [3, 5]
+      patterns sharing the endpoint: 32 (16 with prod C=+1, 16 with -1); opposite-neighbour ones: ['++++--', '+++--+', '++-+--', '++---+', '+-++--', '+-+--+', '+--+--', '+----+', '-+++--', '-++--+', '-+-+--', '-+---+', '--++--', '--+--+', '---+--', '-----+']; prodC=-1 ones all non-opposite: False
+a_5 a=2 chi_end=1.0472 vanishing [1, 4] (all other nodes are neighbours: True); regular sides --+--+ (res 2e-12), +--+-- (res 1e-12); opposite-neighbour on both: True,True; flipped nodes [0, 2, 3, 5]
+      patterns sharing the endpoint: 16 (8 with prod C=+1, 8 with -1); opposite-neighbour ones: ['+--+--', '+----+', '--++--', '--+--+']; prodC=-1 ones all non-opposite: True
+a_5 a=2 chi_end=3.1416 vanishing [0, 3] (all other nodes are neighbours: True); regular sides -+--+- (res 2e-12), --+--+ (res 2e-12); opposite-neighbour on both: True,True; flipped nodes [1, 2, 4, 5]
+      patterns sharing the endpoint: 16 (8 with prod C=+1, 8 with -1); opposite-neighbour ones: ['-++---', '-+--+-', '--+--+', '----++']; prodC=-1 ones all non-opposite: True
+a_5 a=2 chi_end=5.2360 vanishing [2, 5] (all other nodes are neighbours: True); regular sides +--+-- (res 2e-12), -+--+- (res 1e-12); opposite-neighbour on both: True,True; flipped nodes [0, 1, 3, 4]
+      patterns sharing the endpoint: 16 (8 with prod C=+1, 8 with -1); opposite-neighbour ones: ['++----', '+--+--', '-+--+-', '---++-']; prodC=-1 ones all non-opposite: True

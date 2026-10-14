@@ -31,6 +31,22 @@ Feasibility here means the likelihood that one focused agent session (or a few) 
 - **Problem 9 with the defects Part.** It shares the dressing construction and the anomaly caveat (Penati–Polvara).
 - Per the subagent lessons, run at most two or three agents at a time, and follow every result with an adversarial referee pass before any status label changes.
 
+## Status (2026-10-13): consolidation (section A of `halfline_open_continuation.md`)
+
+Branch `half-line-consolidation`, from the unmerged PR #12 branch. The user chose consolidation only (no new attacks). Prompts: `briefs/halfline_consolidation_common.md` and `halfline_consolidation_A<k>_prompt.md`; agent reports `halfline_consolidation_A<k>_report.md` with scripts in `halfline_consolidation_A<k>_scripts/`. Verdicts are recorded in the Integration tables of the round-1 reports (03, 07, 06_01, 11, 02).
+
+| Item | Who | Outcome | Book |
+|---|---|---|---|
+| A1, $s=-1$ scalar factor | coordinator | verified; **new**: the duals of $K^{(-)}_a=-(a)(h-a)K_a$ are CDRS (5.16) for all $n\le7$ | `prp-an-nondiagonal-scalar` extended; ch. 35 "The third matrix"; `an_nondiagonal_scalar.py` checks 8–10, `particle_reflection.py` check 5 |
+| A2, problem 11 scalar factors | Opus xhigh + coordinator | verified with corrections ($k$ closed form, $n=1$ sign, breather phase is a convention); **new**: SP soliton bootstrap; $(-\frac T2)_I^2$ excluded for even $n$ | ch. 33 `prp-sp-scalar`; ch. 35 `eq-sp-breather`; open problem 11; `sp_scalar.py` |
+| A3, problem 11 classical claims | Opus max + coordinator | both verified; claim 5 strengthened to [Theorem] `prp-no-dirichlet` (all untwisted $\hat g\ne a_1$); Appendix D Delius 1998b (1.4) item rewritten (the book's earlier reason was wrong) | ch. 30 `prp-soliton-preserving-half`, `prp-no-dirichlet`; ch. 31; open problem 7(c); `boundary_dirichlet.py` |
+| A4, problem 7(b) thresholds | coordinator | verified (UN VV 0.698, UN $V\bar V$ 0.666, NN VV 0.536, NN $V\bar V$ 0.501; three solitons broken); "NN VV unbroken at 0.67" refuted | `sec-boundary-krein` "Two and three solitons"; `boundary_krein.py` check 7 |
+| A5, problem 6 numerical $K$ | Opus high + coordinator (own ODE) | DG (5.7) verified about every regular vacuum ($a_2$–$a_5$); singular backgrounds: path-dependent, so round 1's "BP Table 2 corrected" is **withdrawn** | ch. 31 `prp-solitonic-linear`, `sec-boundary-missing-charges`; `solitonic_linear.py` |
+| A6, problem 2 leftovers | Opus xhigh + coordinator (own BVP vacuum and linearization, own one-loop and functional-equation checks) | verified: $\hat\epsilon=0$ is $C\equiv+1$ for $d_4,d_5,d_6$ (convex energy ⇒ unique vacuum, closed-form kinks, $K_a^{\rm cl}=\prod_bS_{ab}(\theta,1)$ for every particle); **new**: $d_n$ $s=\pm1$ scalar factors, the relevant sign is $\varsigma=(-1)^ns$; $\varsigma=+1$ with a one-loop CDD factor is the dual of the uniform amplitude and reproduces Kim–Cho's $d_4$ one loop; $\varsigma=-1$ is $K_1/K_1^{\rm cl}$; the book's "Kim's one-loop $d_4$" citation was wrong (it is Kim–Cho hep-th/9505138); ch. 33 `prp-dn-r` nesting fixed; c_2 step: folding argument confirmed, nothing new for the book | ch. 30 sec-boundary-potential; ch. 33 `sec-dn-vector-k` restructured, new `prp-dn-nondiagonal-scalar`; ch. 35 `sec-dn-uniform` (`prp-dn-uniform-vacuum` [Theorem], `prp-dn-uniform-classical`, `eq-dn-neumann-amplitude`), open problem 2; Appendix D self-dual item; `dn_uniform.py` checks 6–9, new `dn_nondiagonal_scalar.py` |
+| A7, problem 8 coincident diagrams | — | not attempted (research) | — |
+
+The three new [Theorem]s (`prp-soliton-preserving-half`, `prp-no-dirichlet`, `prp-dn-uniform-vacuum`) and the Appendix D changes were checked by an Opus agent and by the coordinator, but have had no Gemini referee pass.
+
 ## Status (2026-10-12): solving paused, integration under way
 
 On 2026-10-12 the user asked to stop attacking further open problems and to consolidate and integrate the solutions into the book.

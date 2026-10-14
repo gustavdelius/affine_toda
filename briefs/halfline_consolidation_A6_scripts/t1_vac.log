@@ -1,0 +1,4 @@
+d_4: c_j = [-1, -1, 2, -1, -1], e^f(0) = 1.125, field eq residual 4.07e-30, BC residual 1.28e-30, f regular on [-20,0]: True, min f 2.22e-16 max f 0.117783
+   energy (m/beta^2): bulk 0.0344528180206715, boundary -0.103974276750219, total -0.0695214587295478
+d_5: c_j = [-1, -1, 1, 1, -1, -1], e^f(0) = 1.1715728752538099024, field eq residual 4.44e-31, BC residual 2.96e-31, f regular on [-20,0]: True, min f 6.72e-19 max f 0.158347
+   energy (m/beta^2): bulk 0.0501738624294458, boundary -0.14288307156065, total -0.092709209131204

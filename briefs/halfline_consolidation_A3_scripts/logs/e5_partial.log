@@ -1,0 +1,20 @@
+=== (a) partial Dirichlet from involutive diagram automorphisms (real coupling, defining rep, lam = 0.83)
+a_1 rotation by h/2        (fixed nodes []; Dirichlet on 1 of 1 components): K for T/S {'T': 1, 'S': 1}; swapped D/N {'T': 1, 'S': 1}; odd value c != 0: {'T': 1, 'S': 1}
+a_1 reflection j -> 0-j    (fixed nodes [0, 1]; Dirichlet on 0 of 1 components): K for T/S {'T': 1, 'S': 1}; swapped D/N {'T': 1, 'S': 1}; odd value c != 0: -
+a_1 reflection j -> 1-j    (fixed nodes []; Dirichlet on 1 of 1 components): K for T/S {'T': 1, 'S': 1}; swapped D/N {'T': 1, 'S': 1}; odd value c != 0: {'T': 1, 'S': 1}
+a_2 reflection j -> 0-j    (fixed nodes [0]; Dirichlet on 1 of 2 components): K for T/S {'T': 0, 'S': 0}; swapped D/N {'T': 0, 'S': 0}; odd value c != 0: {'T': 0, 'S': 0}
+a_2 reflection j -> 1-j    (fixed nodes [2]; Dirichlet on 1 of 2 components): K for T/S {'T': 0, 'S': 0}; swapped D/N {'T': 0, 'S': 0}; odd value c != 0: {'T': 0, 'S': 0}
+a_2 reflection j -> 2-j    (fixed nodes [1]; Dirichlet on 1 of 2 components): K for T/S {'T': 0, 'S': 0}; swapped D/N {'T': 0, 'S': 0}; odd value c != 0: {'T': 0, 'S': 0}
+a_3 rotation by h/2        (fixed nodes []; Dirichlet on 2 of 3 components): K for T/S {'T': 1, 'S': 0}; swapped D/N {'T': 0, 'S': 0}; odd value c != 0: {'T': 0, 'S': 0}
+a_3 reflection j -> 0-j    (fixed nodes [0, 2]; Dirichlet on 1 of 3 components): K for T/S {'T': 0, 'S': 1}; swapped D/N {'T': 0, 'S': 0}; odd value c != 0: {'T': 0, 'S': 0}
+a_3 reflection j -> 1-j    (fixed nodes []; Dirichlet on 2 of 3 components): K for T/S {'T': 0, 'S': 1}; swapped D/N {'T': 0, 'S': 0}; odd value c != 0: {'T': 0, 'S': 1}
+a_3 reflection j -> 2-j    (fixed nodes [1, 3]; Dirichlet on 1 of 3 components): K for T/S {'T': 0, 'S': 1}; swapped D/N {'T': 0, 'S': 0}; odd value c != 0: {'T': 0, 'S': 0}
+a_3 reflection j -> 3-j    (fixed nodes []; Dirichlet on 2 of 3 components): K for T/S {'T': 0, 'S': 1}; swapped D/N {'T': 0, 'S': 0}; odd value c != 0: {'T': 0, 'S': 1}
+=== (b) transposition-type sigma, self-conjugate reps, lam^(2h) = 1 vs generic
+a2 adjoint: (T, S) nullities {'lam=(0.5+0.866j)': (1, 1), 'lam=(0.866+0.5j)': (0, 0), 'lam=0.83': (0, 0)}
+a3 Lambda^2: (T, S) nullities {'lam=(0.707+0.707j)': (1, 1), 'lam=(0.924+0.383j)': (0, 0), 'lam=0.83': (0, 0)}
+a2 V+Vbar: (T, S) nullities {'lam=(0.5+0.866j)': (2, 2), 'lam=(0.866+0.5j)': (0, 0), 'lam=0.83': (0, 0)}
+=== (c) classical reflection equation (book RE_plus with r_toda at real lam) for K_+ = e^{i pi nu.H}
+N=2: all 2 classes: max relative residual 6.5e-16; random constant K: 1.9e+00
+N=3: all 4 classes: max relative residual 6.1e-16; random constant K: 1.7e+00
+N=4: all 8 classes: max relative residual 3.2e-16; random constant K: 1.2e+00

@@ -1,0 +1,7 @@
+d_5: orbits [[0, 1, 4, 5], [2, 3]]; invariant subspace dim 1
+   masses [1.082392 1.414214 1.414214 2.       2.613126]  invariant modes: [2.0]
+   solution c = [-0.22381983]  residual 1.1775693440128314e-16
+   psi(0) = [ 0.          0.15834718 -0.         -0.15834718  0.        ]  alpha_j.psi(0) = [-0.15834718 -0.15834718  0.15834718  0.15834718 -0.15834718 -0.15834718]
+   e^{alpha_j.psi(0)} = [0.85355339 0.85355339 1.17157288 1.17157288 0.85355339 0.85355339]
+   energy -0.0927091807 m/beta^2 (trapezoid)
+   linearized reflection: max |K_aa/prod_j S_aj(theta,1) - 1| = 1.4e-11, max |offdiag| = 1.1e-13

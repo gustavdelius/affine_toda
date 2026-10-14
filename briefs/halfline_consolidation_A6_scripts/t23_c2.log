@@ -1,0 +1,5 @@
+root lengths^2 [2.0, 1.0, 2.0]  sum n_j alpha_j = [ 0. -0.]
+masses [1.41421356 2.        ]  BC matrix = M2/2: True
+c_2 linearized reflection at phi = 0 = folded a_3 targets -[(1)(3)]^{-C}, -[(2)^2]^{-C}: 4.47545209131181e-16
+B = 0.4: S_22(c_2)/S_22(a_3) = 0.836753-0.615310j; mass ratio m_1/m_2 = 0.661595 (a_3: 0.707107)
+B = 1.0: S_22(c_2)/S_22(a_3) = 1.055470-0.085597j; mass ratio m_1/m_2 = 0.618034 (a_3: 0.707107)

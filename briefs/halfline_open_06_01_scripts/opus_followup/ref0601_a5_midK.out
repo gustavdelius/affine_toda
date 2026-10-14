@@ -1,0 +1,37 @@
+wave self-check: ['1.43e-49', '8.58e-50']
+
+== Omega=1.18547 open [1, 5]; C=-1 values {1: '(0.23702304 - 0.97150403j)', 5: '(0.23702304 - 0.97150403j)'}
+------ 1-d=0.3 max|offdiag|=1.79e-50 max|Kdiag - C=-1 value|=1.94 lsq-resid 3.4e-50
+------ 1-d=1e-2 max|offdiag|=2.02e-47 max|Kdiag - C=-1 value|=1.94 lsq-resid 3.5e-47
+------ 1-d=1e-4 max|offdiag|=2.02e-43 max|Kdiag - C=-1 value|=1.94 lsq-resid 5.4e-43
+------ 1-d=1e-6 max|offdiag|=4.26e-39 max|Kdiag - C=-1 value|=1.94 lsq-resid 9.4e-39
++-+--- 1-d=0.3 max|offdiag|=0.187 max|Kdiag - C=-1 value|=1.97 lsq-resid 5.9e-50
++-+--- 1-d=1e-2 max|offdiag|=0.0147 max|Kdiag - C=-1 value|=1.94 lsq-resid 6.7e-47
++-+--- 1-d=1e-4 max|offdiag|=0.000142 max|Kdiag - C=-1 value|=1.94 lsq-resid 1.0e-42
++-+--- 1-d=1e-6 max|offdiag|=1.42e-6 max|Kdiag - C=-1 value|=1.94 lsq-resid 4.1e-39
++----- 1-d=0.3 max|offdiag|=0.106 max|Kdiag - C=-1 value|=1.96 lsq-resid 4.0e-50
++----- 1-d=1e-2 max|offdiag|=0.434 max|Kdiag - C=-1 value|=1.7 lsq-resid 1.5e-46
++----- 1-d=1e-4 max|offdiag|=0.000962 max|Kdiag - C=-1 value|=1.94 lsq-resid 5.0e-43
++----- 1-d=1e-6 max|offdiag|=9.55e-6 max|Kdiag - C=-1 value|=1.94 lsq-resid 8.9e-39
++-+-+- 1-d=0.3 max|offdiag|=1.39e-49 max|Kdiag - C=-1 value|=2.0 lsq-resid 7.6e-50
++-+-+- 1-d=1e-2 max|offdiag|=8.21e-47 max|Kdiag - C=-1 value|=1.94 lsq-resid 5.1e-47
++-+-+- 1-d=1e-4 max|offdiag|=8.64e-43 max|Kdiag - C=-1 value|=1.94 lsq-resid 5.6e-43
++-+-+- 1-d=1e-6 max|offdiag|=1.04e-38 max|Kdiag - C=-1 value|=1.94 lsq-resid 4.2e-39
+
+== Omega=2.3 open [1, 2, 3, 4, 5]; C=-1 values {1: '(0.88986784 - 0.4562184j)', 2: '(0.0088105727 - 0.99996119j)', 3: '(-0.51228733 - 0.85881412j)', 4: '(0.0088105727 - 0.99996119j)', 5: '(0.88986784 - 0.4562184j)'}
+------ 1-d=0.3 max|offdiag|=1.22e-50 max|Kdiag - C=-1 value|=2.0 lsq-resid 5.7e-50
+------ 1-d=1e-2 max|offdiag|=1.95e-47 max|Kdiag - C=-1 value|=2.0 lsq-resid 8.5e-47
+------ 1-d=1e-4 max|offdiag|=1.39e-43 max|Kdiag - C=-1 value|=2.0 lsq-resid 5.6e-43
+------ 1-d=1e-6 max|offdiag|=1.08e-39 max|Kdiag - C=-1 value|=2.0 lsq-resid 3.8e-39
++-+--- 1-d=0.3 max|offdiag|=0.112 max|Kdiag - C=-1 value|=1.98 lsq-resid 1.2e-49
++-+--- 1-d=1e-2 max|offdiag|=0.00316 max|Kdiag - C=-1 value|=2.0 lsq-resid 8.0e-47
++-+--- 1-d=1e-4 max|offdiag|=3.15e-5 max|Kdiag - C=-1 value|=2.0 lsq-resid 1.4e-42
++-+--- 1-d=1e-6 max|offdiag|=3.15e-7 max|Kdiag - C=-1 value|=2.0 lsq-resid 4.2e-39
++----- 1-d=0.3 max|offdiag|=0.0791 max|Kdiag - C=-1 value|=1.99 lsq-resid 5.9e-50
++----- 1-d=1e-2 max|offdiag|=0.00224 max|Kdiag - C=-1 value|=2.0 lsq-resid 1.2e-46
++----- 1-d=1e-4 max|offdiag|=2.23e-5 max|Kdiag - C=-1 value|=2.0 lsq-resid 8.5e-43
++----- 1-d=1e-6 max|offdiag|=2.23e-7 max|Kdiag - C=-1 value|=2.0 lsq-resid 4.2e-39
++-+-+- 1-d=0.3 max|offdiag|=0.157 max|Kdiag - C=-1 value|=1.98 lsq-resid 1.1e-49
++-+-+- 1-d=1e-2 max|offdiag|=0.00446 max|Kdiag - C=-1 value|=2.0 lsq-resid 8.6e-47
++-+-+- 1-d=1e-4 max|offdiag|=4.44e-5 max|Kdiag - C=-1 value|=2.0 lsq-resid 1.4e-42
++-+-+- 1-d=1e-6 max|offdiag|=4.44e-7 max|Kdiag - C=-1 value|=2.0 lsq-resid 6.7e-39

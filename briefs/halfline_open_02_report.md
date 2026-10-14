@@ -191,3 +191,23 @@ The Opus follow-up prompt `halfline_open_02_opus_prompt.md` was not launched; th
 | 9 (FO match) | **Not integrated** | | — |
 | 10 (corrections to the brief) | Accepted for the brief; the folding remark is in open problem 2 | | open problem 2 |
 | 11 (step-4 table) | **Not integrated** (literature map, CAF coverage unverified) | | Open problem 2 rewritten more briefly |
+
+## Consolidation A6 (branch half-line-consolidation, 2026-10-13)
+
+Agent report `briefs/halfline_consolidation_A6_report.md`, scripts in `briefs/halfline_consolidation_A6_scripts/`. The coordinator re-derived the key claims with its own code (scratch `a6v/`: full-space boundary-value solution of the vacuum without the symmetry ansatz, own multichannel linearization, own one-loop expansion against the Kim–Cho TeX, the proposed scalar-factor formula typed from the text, the sign rule from the corner entry of the book's intertwiner).
+
+| Claims | Verdict | How it was checked | Book change |
+|---|---|---|---|
+| 2 (crossing factor 1), 5 (singlet coefficient 1) | **Now computed** | `dn_uniform.py` check 6 (agent's; read and rerun) | hedge in `prp-dn-scalar` removed |
+| 8 (classical identification with $C\equiv+1$) | **Verified, extended to $d_6$ and to every particle** | Coordinator: BVP vacuum in the full field space gives $e^{f(0)}=9/8$, $4-2\sqrt2$ and the closed-form energies to $10^{-13}$; $d_6$ energy $-0.1032515$; linearized $K_a=\prod_bS_{ab}(\theta,1)$ for all particles to $10^{-11}$, off-diagonal $<10^{-11}$; $K_1$ = $B\to0$ limit of `eq-dn-uniform-amplitude`. Convexity proof checked by hand, including the $d_4$, $d_5$ reductions and $f(0)$. Pole positions $p=\frac i2 m_2$ checked from the S-matrix blocks. No-bound-state claim: agent's check 8 only. | `prp-dn-uniform-vacuum` [Theorem], `prp-dn-uniform-classical` [Numerical] |
+| $d_n$ $s=\pm1$: $\varsigma=(-1)^ns$, $U_\varsigma$, $\Psi_\varsigma$, $c_\varsigma$ | **Verified** | Coordinator: corner entry of the book intertwiner vanishes at $y^h=\varsigma$; $K(-\theta)K(\theta)=U_\varsigma$ to $10^{-13}$ ($n=4,5,6$). $\Psi$, $c$: agent's checks 2–3 (matrix level, read and rerun); $c_\pm$ match the book's $a_n$ ones. | `prp-dn-nondiagonal-scalar` (i), (ii), (iv) |
+| scalar factors $A_\varsigma=A\rho_\varsigma g_\varsigma$ | **Verified** | Coordinator: formula as typed in the book text, both functional equations to $10^{-27}$, $n=4,5,6$ | `eq-dn-nondiagonal-scalar` |
+| breather closed forms, $\Xi$ | **Verified** | Agent's check 5 (projection, $10^{-26}$); coordinator: $\Xi$ unitary and crossing-symmetric, dressed breather formula, $10^{-30}$ | `eq-dn-nondiagonal-breather` |
+| continuation: $K^N_1=K_1(2-B)$, $K^{(-)}_1=K_1/K_1^{\rm cl}$; axioms, bootstrap | **Verified** (relations by hand from the block identities $(2h-x)=1/(x)$; axioms and bootstrap: agent's checks 6, 9) | | `eq-dn-neumann-amplitude` |
+| Kim–Cho one loop | **Verified** | Coordinator read hep-th/9505138 TeX (eq. numbers (29), (40) by counting environments; arXiv page for the journal ref); own $O(\beta^2)$: $K^N_1$, $K^N_2$ agree to $10^{-17}$; $K^{(-)}_1$ only at $\theta+i\pi$; Kim–Cho's own self-dual $K_1$ and Kim's $d_5$–$d_7$ conjecture agree at one loop, differ by 8–16% at $B=0.6$ | `sec-dn-uniform`; Appendix D self-dual item extended; `kim_cho1996` added |
+| book cited [@kim1995] for the $d_4$ one-loop amplitude | **Book error, corrected** | Kim 1995 has only the self-dual $d_n$ conjectures (fig. 7) | open problem 2 |
+| $\Xi$ ambiguity ($x=k\omega/2$ vs $\frac12+k\omega/2$) | **Not integrated** (not rechecked); the text says only that $\Xi$ is fixed by one loop and not derived | | — |
+| semiclassics: both $\varsigma$ give the Neumann time delay; $a_n$ $A^{(-)}$ too | **Partly integrated**: $d_4$ statement only (agent's check 8); the $a_n$ claim was not rechecked and is not in the book | | `sec-dn-uniform` |
+| ch. 33 `prp-dn-r` nesting | **Verified** (markup error from the round-1 integration) | read the source | fixed |
+| Task 3, $c_2$ | **Accepted, not integrated**: the folding argument is confirmed; the classical $c_2$ check only confirms the normalization in `sec-images-cn` | | — |
+

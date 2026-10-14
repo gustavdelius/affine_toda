@@ -1,0 +1,6 @@
+n=4 l=0 mu=(0.11+0.19j): matrix res 4.1e-14 iota_out=iota_in 3.7e-14 Q = (-1.0 + 4.0591056386e-15j)
+n=4 l=0 mu=(-0.23+0.07j): matrix res 3.6e-14 iota_out=iota_in 1.6e-14 Q = (-1.0 - 1.01684739335e-14j)
+n=4 l=2 mu=(0.11+0.19j): matrix res 1.3e-14 iota_out=iota_in 3.7e-14 Q = (-1.0 - 1.70552737857e-15j)
+n=4 l=2 mu=(-0.23+0.07j): matrix res 2.1e-14 iota_out=iota_in 1.6e-14 Q = (-1.0 - 4.76023396981e-15j)
+n=4 l=5 mu=(0.11+0.19j): matrix res 4.1e-14 iota_out=iota_in 3.7e-14 Q = (-1.0 + 2.74673259059e-15j)
+n=4 l=5 mu=(-0.23+0.07j): matrix res 3.6e-14 iota_out=iota_in 1.6e-14 Q = (-1.0 - 1.49262753575e-14j)

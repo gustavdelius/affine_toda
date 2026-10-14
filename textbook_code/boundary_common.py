@@ -70,7 +70,7 @@ def an_vector(n, q, y, conj=False):
     Basis v_1..v_{n+1} (indices 0..n), weights eps_i; alpha_j = eps_j - eps_{j+1} (j=1..n),
     alpha_0 = eps_{n+1} - eps_1.  E_j = e_{j,j+1}, F_j = E_j^T, H_j = e_jj - e_{j+1,j+1}.
     V(y):    e_j = y E_j, f_j = F_j/y, k_j = q^{H_j}.
-    Vbar(y): e_j = y F_j, f_j = E_j/y, k_j = q^{-H_j}  (V composed with the Chevalley
+    Vbar(y): e_j = y F_j, f_j = E_j/y, k_j = q^{-H_j}  (V(1/y) composed with the Chevalley
              involution e<->f, k->k^-1), weights -eps_i.  At the physical q this is the
              antisoliton at the same rapidity: V(z)* = Vbar(-z/q) and -1/q = exp(i pi omega)."""
     N = n + 1

@@ -1,0 +1,60 @@
+lambda=6.299999999999999822364316059974953532219 xi=eta=5.0  MD range 0<xi<11.4668;  eta_N-pi=8.3252
+  nu_0=0.54432 nu_-1=1.04298 (pi/2=1.57080)  nu_n: [0.5443, 0.0457, -0.453, -0.9517, -1.4503]  w_n: [2.5973, 2.0986, 1.5999, 1.1013, 0.6026, 0.1039, -0.3947, -0.8934, -1.392, -1.8907, -2.3894]
+  state c=0 ()             valid=True  P+ at nu_0: measured +1.0000/+1.0000  predicted +1
+  state c=0 ()             valid=True  P+ at nu_-1: measured +0.0000/-0.0000  predicted +0
+  state c=0 ()             valid=True  P- at nu_0: measured +0.0000/-0.0000  predicted +0
+  state c=0 ()             valid=True  P- at nu_-1: measured -1.0000/-1.0000  predicted -1
+  state c=1 (0,)           valid=True  P+ at nu_0: measured +1.0000/+1.0000  predicted +1
+  state c=1 (0,)           valid=True  P+ at nu_-1: measured +1.0000/+1.0000  predicted +1
+  state c=1 (0,)           valid=True  P- at nu_0: measured +1.0000/+1.0000  predicted +1
+  state c=1 (0,)           valid=True  P- at nu_-1: measured +1.0000/+1.0000  predicted +1
+  state c=1 (1,)           valid=True  P+ at nu_0: measured +2.0000/+2.0000  predicted +2
+  state c=1 (1,)           valid=True  P+ at nu_-1: measured +1.0000/+1.0000  predicted +1
+  state c=1 (1,)           valid=True  P- at nu_0: measured +2.0000/+2.0000  predicted +2
+  state c=1 (1,)           valid=True  P- at nu_-1: measured +1.0000/+1.0000  predicted +1
+  state c=0 (0, 5)         valid=True  P+ at nu_0: measured +2.0000/+2.0000  predicted +2
+  state c=0 (0, 5)         valid=True  P+ at nu_-1: measured +2.0000/+2.0000  predicted +2
+  state c=0 (0, 5)         valid=True  P- at nu_0: measured +1.0000/+1.0000  predicted +1
+  state c=0 (0, 5)         valid=True  P- at nu_-1: measured +1.0000/+1.0000  predicted +1
+  state c=1 (0, 5, 1)      valid=True  P+ at nu_0: measured +3.0000/+3.0000  predicted +3
+  state c=1 (0, 5, 1)      valid=True  P+ at nu_-1: measured +3.0000/+3.0000  predicted +3
+  state c=1 (0, 5, 1)      valid=True  P- at nu_0: measured +3.0000/+3.0000  predicted +3
+  state c=1 (0, 5, 1)      valid=True  P- at nu_-1: measured +3.0000/+3.0000  predicted +3
+lambda=12.69999999999999928945726423989981412888 xi=eta=15.0  MD range 0<xi<21.5199;  eta_N-pi=18.3783
+  nu_0=1.05742 nu_-1=1.30479 (pi/2=1.57080)  nu_n: [1.0574, 0.81, 0.5627, 0.3153, 0.0679]  w_n: [2.0842, 1.8368, 1.5894, 1.3421, 1.0947, 0.8473, 0.6, 0.3526, 0.1052, -0.1422, -0.3895]
+  state c=0 ()             valid=True  P+ at nu_0: measured +1.0000/+1.0000  predicted +1
+  state c=0 ()             valid=True  P+ at nu_-1: measured +0.0000/-0.0000  predicted +0
+  state c=0 ()             valid=True  P- at nu_0: measured +0.0000/-0.0000  predicted +0
+  state c=0 ()             valid=True  P- at nu_-1: measured -1.0000/-1.0000  predicted -1
+  state c=1 (0,)           valid=True  P+ at nu_0: measured +1.0000/+1.0000  predicted +1
+  state c=1 (0,)           valid=True  P+ at nu_-1: measured +1.0000/+1.0000  predicted +1
+  state c=1 (0,)           valid=True  P- at nu_0: measured +1.0000/+1.0000  predicted +1
+  state c=1 (0,)           valid=True  P- at nu_-1: measured +1.0000/+1.0000  predicted +1
+  state c=1 (1,)           valid=True  P+ at nu_0: measured +2.0000/+2.0000  predicted +2
+  state c=1 (1,)           valid=True  P+ at nu_-1: measured +1.0000/+1.0000  predicted +1
+  state c=1 (1,)           valid=True  P- at nu_0: measured +2.0000/+2.0000  predicted +2
+  state c=1 (1,)           valid=True  P- at nu_-1: measured +1.0000/+1.0000  predicted +1
+  state c=1 (2,)           valid=True  P+ at nu_0: measured +2.0000/+2.0000  predicted +2
+  state c=1 (2,)           valid=True  P+ at nu_-1: measured +1.0000/+1.0000  predicted +1
+  state c=1 (2,)           valid=True  P- at nu_0: measured +2.0000/+2.0000  predicted +2
+  state c=1 (2,)           valid=True  P- at nu_-1: measured +1.0000/+1.0000  predicted +1
+  state c=0 (0, 6)         valid=True  P+ at nu_0: measured +2.0000/+2.0000  predicted +2
+  state c=0 (0, 6)         valid=True  P+ at nu_-1: measured +2.0000/+2.0000  predicted +2
+  state c=0 (0, 6)         valid=True  P- at nu_0: measured +1.0000/+1.0000  predicted +1
+  state c=0 (0, 6)         valid=True  P- at nu_-1: measured +1.0000/+1.0000  predicted +1
+  state c=0 (1, 6)         valid=True  P+ at nu_0: measured +3.0000/+3.0000  predicted +3
+  state c=0 (1, 6)         valid=True  P+ at nu_-1: measured +2.0000/+2.0000  predicted +2
+  state c=0 (1, 6)         valid=True  P- at nu_0: measured +2.0000/+2.0000  predicted +2
+  state c=0 (1, 6)         valid=True  P- at nu_-1: measured +1.0000/+1.0000  predicted +1
+  state c=1 (1, 6, 2)      valid=True  P+ at nu_0: measured +4.0000/+4.0000  predicted +4
+  state c=1 (1, 6, 2)      valid=True  P+ at nu_-1: measured +3.0000/+3.0000  predicted +3
+  state c=1 (1, 6, 2)      valid=True  P- at nu_0: measured +4.0000/+4.0000  predicted +4
+  state c=1 (1, 6, 2)      valid=True  P- at nu_-1: measured +3.0000/+3.0000  predicted +3
+  state c=1 (0, 6, 2)      valid=True  P+ at nu_0: measured +3.0000/+3.0000  predicted +3
+  state c=1 (0, 6, 2)      valid=True  P+ at nu_-1: measured +3.0000/+3.0000  predicted +3
+  state c=1 (0, 6, 2)      valid=True  P- at nu_0: measured +3.0000/+3.0000  predicted +3
+  state c=1 (0, 6, 2)      valid=True  P- at nu_-1: measured +3.0000/+3.0000  predicted +3
+  state c=0 (1, 6, 2, 9)   valid=False P+ at nu_0: measured +5.0000/+5.0000  predicted +5
+  state c=0 (1, 6, 2, 9)   valid=False P+ at nu_-1: measured +4.0000/+4.0000  predicted +4
+  state c=0 (1, 6, 2, 9)   valid=False P- at nu_0: measured +4.0000/+4.0000  predicted +4
+  state c=0 (1, 6, 2, 9)   valid=False P- at nu_-1: measured +3.0000/+3.0000  predicted +3
