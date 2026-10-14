@@ -31,6 +31,7 @@ book:
     collapse-level: 1
   chapters:
     - index.qmd
+    - 01-introduction.qmd
     - part: part1-background/part.qmd
       chapters:
         - part1-background/02-integrable-qft.qmd
@@ -105,6 +106,7 @@ book:
     - appendices/B-numerics.qmd
     - appendices/C-code.qmd
     - appendices/D-corrections.qmd
+    - appendices/E-original-results.qmd
 
 bibliography: references.bib
 csl: aps.csl

@@ -32,7 +32,7 @@ Claude drafts and other models referee (`AGENTS.md`, "Roles"). The editor starts
 5. **Read first.**
    - The conventions brief, and the relevant sections by id.
    - The source papers by arXiv number. On the editor's machine their texts are in `~/referee-copy/papers/*.txt`, and `run_referee_agy.sh` copies them to `papers/`.
-   - How to find an object: `grep -rn '{#<id>}' part*/ index.qmd`.
+   - How to find an object: `grep -rn '{#<id>}' part*/ appendices/ outlook/ *.qmd`.
 6. **Evidence rule.**
    - For each item, one independent computation: a derivation written out, or a script of the referee's own.
    - The book's scripts may be run for comparison but are not evidence.
@@ -43,7 +43,7 @@ Claude drafts and other models referee (`AGENTS.md`, "Roles"). The editor starts
    - the computation that would confirm or refute it;
    - "is the label justified?".
 
-   Always include an item on prior art and novelty claims, and one on whether each citation says what the source says. Weight the items toward what changed: label upgrades without a referee pass, new [Theorem]s, and new Appendix D entries.
+   Always include an item on prior art and novelty claims, covering the part's items in the list of original results (Appendix E, `appendices/E-original-results.qmd`), and one on whether each citation says what the source says. Weight the items toward what changed: label upgrades without a referee pass, new [Theorem]s, and new Appendix D entries.
 8. **Report format.**
    - A header with the date, the model and the commit reviewed.
    - One section per item: the verdict (correct / wrong / unclear); the referee's own computation (script inline or path, and its output); and, for errors, replacement text ready to paste, with file and line.

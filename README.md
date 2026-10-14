@@ -42,15 +42,15 @@ The record of what has been checked, and how, is in [`briefs/`](briefs/) (for ex
 | VIII. Defects | 36–43 | Integrable defects: scattering axioms, defect conditions as Bäcklund transformations, solitons through defects, Borel quantum-group symmetry, transmission amplitudes, relation to boundaries |
 | IX. Foundations | 44–49 | Whether the imaginary-coupling theories exist as quantum field theories (in progress) |
 
-Chapter 1 is the introduction and reader's guide, and the outlook is chapter 50. The guide sets out six reading paths: a course on integrable field theory, a course on quantum groups in field theory, integrable boundaries, integrable defects, non-unitary quantum field theory, and a path for specialists through Parts V–IX.
+An unnumbered preface comes first. Chapter 1 is the introduction and reader's guide, and the outlook is chapter 50. The guide sets out six reading paths: a course on integrable field theory, a course on quantum groups in field theory, integrable boundaries, integrable defects, non-unitary quantum field theory, and a path for specialists through Parts V–IX.
 
-The book's own summary of new material is in the introduction, and [Appendix D](appendices/D-corrections.qmd) lists every correction the book makes to published papers.
+The book's own list of its original results is [Appendix E](appendices/E-original-results.qmd), and [Appendix D](appendices/D-corrections.qmd) lists every correction the book makes to published papers.
 
 ## Repository layout
 
 | Path | What it contains |
 |---|---|
-| `index.qmd`, `part*/`, `outlook/`, `appendices/` | The book, as Quarto source (`.qmd`) with bibliography `references.bib` |
+| `index.qmd`, `01-introduction.qmd`, `part*/`, `outlook/`, `appendices/` | The book, as Quarto source (`.qmd`) with bibliography `references.bib`; `index.qmd` is the preface and the home page |
 | `figures/`, `part*/figures/` | The committed SVG figures |
 | `textbook_code/` | All the book's check scripts. Flat scripts check Parts I–IV, VII and VIII, appendix A and parts of Part IX; subdirectories hold the larger computations |
 | `textbook_code/figures/` | Scripts that draw the figures and check the formulas they plot |
