@@ -1,12 +1,18 @@
 # Guide to the supporting code {#sec-app-code}
 
-Every numerical or symbolic claim in this book that is not a textbook result is backed by a script in the repository [github.com/gustavdelius/affine_toda](https://github.com/gustavdelius/affine_toda). The scripts are Python 3 with numpy, scipy, sympy and mpmath. Each directory has a README with a file-by-file description, and this appendix says which directory serves which part of the book.
+Every numerical or symbolic claim in this book that is not a textbook result is backed by a script in the repository [github.com/gustavdelius/affine_toda](https://github.com/gustavdelius/affine_toda). The scripts are Python 3 with numpy, scipy, sympy and mpmath (`requirements.txt`), and all of them are in the directory `textbook_code/`. Wherever the text names a script, the name links to its source.
 
-| Directory | Parts | What it contains |
+The scripts directly in `textbook_code/` run on their own and print one `PASS` or `FAIL` line per check. They cover the textbook material, Parts VII and VIII, appendix A and parts of Part IX. The larger computations are in subdirectories. Each of their scripts is run from its own directory, and most print tables or residuals, with the stored output next to them.
+
+| Subdirectory | Parts | What it contains |
 |---|---|---|
-| `textbook_code/` | I–VIII (textbook chapters), appendix A | Checks of the formulas presented as textbook material: the sine-Gordon S-matrix and breather, the six-vertex R-matrix and its crossing data, the universal R-matrix, the tensor-product graph, the classical Toda theory (Lax pair, masses, Dorey's rule, Hirota solitons), the simply-laced S-matrices, the semiclassical mass formulas, quantum dimensions, and the data of appendix A. Each script prints `PASS`/`FAIL` lines. |
-| `textbook_code/` | V, IX | Research computations behind Parts V and IX: Hirota fluctuations, transmission factors and Jordan types (`hirota/`), one-loop masses of all folded solitons (`oneloop/`), the thimble decomposition of the reduced model and topological charges (`thimbles/`), Krein-unitarity and sector classification (`krein_bethe.py`, `sectors/`), RSOS face weights of $a_2^{(1)}$ (`irf/`), the continuum-limit lemmas (`nested_check.py`, `review614/`), the bulk-energy poles (`bulk_poles.py`), and the comparison with the lattice model of Vernier, Jacobsen and Saleur (`vernier/`). |
-| `textbook_code/rmatrix/` | VI, appendix B | Construction of representations and R-matrices of quantum affine algebras from their defining relations, scalar factors, fusion, pole scans and breather tests for $c_n^{(1)}$, $a_{2n-1}^{(2)}$, $e_6^{(2)}$, $f_4^{(1)}$, $g_2^{(1)}$ and $d_4^{(3)}$, and the one-loop comparisons with the Toda Lagrangian. |
+| `hirota/`, `oneloop/`, `thimbles/` | V | Hirota fluctuations, transmission factors and Jordan types; one-loop masses of all folded solitons; the thimble decomposition of the reduced model and topological charges |
+| `rmatrix/` | VI, appendix B | Construction of representations and R-matrices of quantum affine algebras from their defining relations, scalar factors, fusion, pole scans and breather tests for $c_n^{(1)}$, $a_{2n-1}^{(2)}$, $e_6^{(2)}$, $f_4^{(1)}$, $g_2^{(1)}$ and $d_4^{(3)}$, and the one-loop comparisons with the Toda Lagrangian |
+| `vernier/`, `irf/`, `sectors/` | VI, IX | The lattice model of Vernier, Jacobsen and Saleur; RSOS face weights of $a_2^{(1)}$; Krein unitarity and the classification of multi-soliton sectors |
+| `review614/` | IX | Random tests of the continuum-limit lemmas |
+| `figures/` | all | Scripts that draw the figures and check the formulas they plot |
+
+`textbook_code/README.md` describes every script, with the ids of the statements it checks. @sec-app-code-defects lists the scripts of Part VIII one by one.
 
 The status of every claim checked only by hand, and of every claim not yet checked, is recorded for the textbook chapters in `briefs/referee_textbook.md`, for Part VIII in `briefs/part8_defects_status.md`, and the other files in `briefs/` describe open research tasks.
 
