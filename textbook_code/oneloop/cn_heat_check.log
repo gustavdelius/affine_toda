@@ -1,0 +1,6 @@
+PASS c2(1) soliton 1: double zero at lambda_0 = 2.000000 (a threshold: True); max |grid - formula| = 2.9e-08 with weight 2, min = 5.0e-02 with weight 1
+PASS c3(1) soliton 1: double zero at lambda_0 = 3.000000 (a threshold: True); max |grid - formula| = 7.9e-12 with weight 2, min = 1.1e-02 with weight 1
+PASS c3(1) soliton 2: double zero at lambda_0 = 1.000000 (a threshold: True); max |grid - formula| = 5.0e-12 with weight 2, min = 2.2e-01 with weight 1
+PASS c4(1) soliton 1: double zero at lambda_0 = 3.414214 (a threshold: True); max |grid - formula| = 4.4e-11 with weight 2, min = 6.0e-03 with weight 1
+PASS c4(1) soliton 2: double zero at lambda_0 = 2.000000 (a threshold: True); max |grid - formula| = 6.5e-08 with weight 2, min = 5.0e-02 with weight 1
+PASS c4(1) soliton 3: double zero at lambda_0 = 0.585786 (a threshold: True); max |grid - formula| = 2.4e-06 with weight 2, min = 4.2e-01 with weight 1
