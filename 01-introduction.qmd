@@ -1,0 +1,134 @@
+# Introduction and reader's guide {#sec-introduction}
+
+Affine Toda field theories are a family of two-dimensional quantum field theories, one for each affine Kac–Moody algebra $\hat g$. They are integrable, so many of their properties can be computed exactly, and they are rich enough to display most of the phenomena of interacting quantum field theory: particles and bound states, solitons and breathers, strong–weak duality, quantum-group symmetry, integrable boundaries and, at imaginary coupling, non-unitarity. This book introduces them to a reader who knows quantum field theory but has not met affine Toda theory, Kac–Moody algebras or quantum groups, and leads that reader to current research.
+
+## About this book {#sec-about}
+
+**Editorial model and AI drafting.** Gustav Delius is the coordinating editor. Most of the text and the supporting code were drafted by Claude, an AI model made by Anthropic, working from outlines, source papers and briefs assembled by the coordinating editor. Further Claude, Codex and Gemini instances have been used for automated critique and consistency checks, not as human referees. The prose, many of the proofs and the numerical checks are machine-drafted, and errors may remain. Where a result matters to you, check the proof, and where the book gives a script (`textbook_code/`; see the [guide to the supporting code](appendices/C-code.qmd)), run it.
+
+**Subject-matter validation.** Niall MacKay and Gerard Watts are the first subject-matter validators. This is only the beginning of the list: the project aims to invite cited researchers working on affine Toda theory to validate the book's representation of their own research. Each validator checks only that limited scope. Listing a validator does not imply that they have reviewed or endorsed the rest of the book, and this subject-matter validation is not a substitute for independent peer review.
+
+**Prerequisites.** Quantum field theory at the level of a first graduate course (path integrals, perturbation theory, renormalization, the S-matrix), finite-dimensional Lie algebras at the level of $su(n)$, and complex analysis. Everything else is developed in the text.
+
+**Status.** All chapters are drafted. Parts I–IV, Parts VII–VIII and the textbook chapters of Parts V–VI have not yet been refereed by a human specialist. The record of what has been checked, and how, is in the repository (`briefs/referee_textbook.md`, for Part VII `briefs/referee_half_line_*.md`, for Part VIII `briefs/part8_defects_status.md` and `briefs/referee_defects_*.md`, and `textbook_code/`).
+
+::: {.content-visible when-format="html"}
+The whole book is also available as a [PDF](affine-toda.pdf).
+:::
+
+## Presentation and new results {#sec-new-results}
+
+Parts I–IV, Parts VII and VIII, and the introductory chapters of Parts V and VI present established material. We have rewritten it in a common notation and with consistent conventions, and have added exercises, figures and some derivations that the original papers omit, but the results are those of the literature cited in each chapter's *Notes and references*. Parts V, VI and IX contain original results. Elsewhere, re-deriving the material in one set of conventions, with a check script for every key formula, produced new results and corrections: one in chapter 11, and several on the half-line (Part VII) and on defects (Part VIII). @sec-app-original-results lists them all, so that a reader can tell what is new. From Part V on, the main statements carry a status label:
+
+- **[Theorem]**, with a complete proof given here;
+- **[Proposition, sketch]**, with a proof outline that a specialist could complete;
+- **[Established]**, proved or computed in the cited literature (**[Established; reformulated]** when we restate it in a different form);
+- **[Numerical]**, checked numerically by a script in the repository but not proved;
+- **[Conjecture]**, with the supporting evidence stated.
+
+The checks also found errors and misprints in published papers, among them several formulas of Corrigan and Zambon's $a_r^{(1)}$ defect papers. Each is corrected in the chapter's notes, and @sec-app-corrections collects them all.
+
+**Presentation of known material.** The book also gathers, in one notation, results that the literature scatters: factorized scattering and sine-Gordon (Part I), root systems, affine algebras, quantum groups and R-matrices (Part II), classical solitons and Hirota solutions (Part III), the exact particle S-matrices, the thermodynamic Bethe ansatz and form factors at real coupling (Part IV), the quantum-group symmetry and bootstrap construction of soliton S-matrices (chapters 20–22), and the theory on the half-line: integrable boundary conditions, solitons reflected by the boundary, the boundary quantum-group symmetry and the reflection matrices it determines, and their place in the theory of quantum symmetric pairs (Part VII), and the theory with integrable defects: their scattering axioms, the defect conditions as frozen Bäcklund transformations, and the Borel quantum-group symmetry and transmission matrices of the defects (Part VIII).
+
+Statements labelled **[Theorem]** have complete proofs in the text but, being new, have not been checked by anyone outside the project. The Part IX continuum-limit theorems in particular await independent checking.
+
+## Why affine Toda theory matters {#sec-why-atft-matters}
+
+For each affine Kac–Moody algebra $\hat g$ there is a Lagrangian field theory of $r=\operatorname{rank}g$ scalars with exponential interactions, the affine Toda field theory. Its Lagrangian is $\mathcal L=\tfrac12\partial_\mu\vec\phi\cdot\partial^\mu\vec\phi-V(\vec\phi)$, with $\vec\phi\in\mathbb R^r$ and one of the two potentials
+
+$$
+V_{\rm real}=\frac{m^2}{\beta^2}\sum_jn_j\left(e^{\beta\vec\alpha_j\cdot\vec\phi}-1\right),\qquad
+V_{\rm imag}=-\frac{m^2}{\beta^2}\sum_jn_j\left(e^{i\beta\vec\alpha_j\cdot\vec\phi}-1\right).
+$$
+
+The sums run over the $r+1$ simple roots $\vec\alpha_0,\dots,\vec\alpha_r\in\mathbb R^r$ of $\hat g$, the $n_j$ are positive integers called Kac labels, $m$ sets the mass scale and $\beta>0$ is the coupling. Part II defines the roots and labels (@sec-affine-dynkin), and Part III takes up the theory again from these potentials (-@eq-imaginary-potential). Until then two facts suffice. The labels satisfy $\sum_jn_j\vec\alpha_j=0$, so $\vec\phi=0$ is a stationary point of both potentials. For the smallest algebra, $a_1^{(1)}$, one has $r=1$, $\alpha_1=-\alpha_0=\sqrt2$ and $n_0=n_1=1$, and the two potentials are those of sinh-Gordon and sine-Gordon theory (@sec-sg-dictionary).
+
+These theories have been a laboratory for several central ideas in two-dimensional quantum field theory:
+
+- exact factorized S-matrices and the bootstrap [@zz1979; @braden1990];
+- the geometry of root systems in scattering (Dorey's fusing rule [@dorey1991]);
+- strong–weak coupling duality [@braden1990; @dgz1992];
+- solitons with quantum-group symmetry [@bernard1991; @hollowood1993b];
+- integrable boundary conditions and reflection matrices [@gz1994; @bcdr1995; @delius_mackay2003];
+- integrable perturbations of conformal field theories [@zamolodchikov1989; @eguchi1989; @hollowood1989];
+- the ODE/IM correspondence [@lukyanov2010; @dorey2013].
+
+The theories come in two regimes.
+
+- **Real coupling.** The theory is an ordinary unitary QFT with a unique vacuum and $r$ massive particles.
+- **Imaginary coupling.** The potential is periodic and complex. There are infinitely many degenerate vacua, solitons interpolating between them, and breathers. These are the theories that describe perturbed (W-algebra) minimal models after quantum-group restriction, and they carry the richest physics.
+
+@fig-two-regimes shows the two kinds of potential for $a_1^{(1)}$ and $a_2^{(1)}$.
+
+![The two regimes. (a) For $a_1^{(1)}$, in the sine-Gordon normalization of @sec-sg-dictionary, the real-coupling potential has a single minimum and the imaginary-coupling potential has infinitely many. A kink runs between neighbouring minima. (b) For $a_2^{(1)}$ the vacua of the imaginary-coupling theory form a hexagonal lattice, shown on the real part of $V_{\rm imag}$ (its imaginary part also vanishes at the vacua).](figures/intro_f2_potentials.svg){#fig-two-regimes fig-alt="Left: the cosh potential with one minimum and the cosine potential with infinitely many minima, with an arrow for a kink between adjacent minima. Right: a contour plot of the real part of the imaginary-coupling potential of a_2^(1) over the plane of the two fields, with its minima at the points of a triangular lattice."}
+
+The theories are not only of historical interest. They are rich enough to show generic phenomena of quantum field theory, yet solvable enough that claims about them can be checked exactly. Five features keep them current.
+
+- **A family, not a single model.** There is one theory for each affine algebra, and results come with Lie-theoretic structure: Dorey's fusing rule, Perron–Frobenius masses, Lie duality. A general claim about integrable or massive two-dimensional QFT can therefore be tested across a whole family, not in one example.
+- **Exact benchmarks.** At real coupling the S-matrices are known for every algebra, together with the thermodynamic Bethe ansatz, form factors and the exact mass–coupling relation (@sec-real-coupling). New methods are calibrated against them. Recent examples are tree-level integrability for every ATFT, derived from properties of root systems [@dorey_polvara2022], one-loop integrability of the simply-laced theories [@polvara2023], and the comparison of one-loop amplitudes with the bootstrap S-matrices for the whole simply-laced class [@fabri_polvara2024].
+- **A non-unitary QFT with structure.** The imaginary-coupling theories are the field-theoretic parents of non-unitary perturbed minimal and W-algebra models. We argue that their non-unitarity is organised by a Krein structure and an antilinear $PT$-type symmetry $\Theta$, and is not a pathology. That is the question non-Hermitian physics now asks of many systems (@sec-connections-current-research).
+- **Unfinished business.** The soliton S-matrix of $f_4^{(1)}$ is still missing, and those of $c_n^{(1)}$, $a_{2n-1}^{(2)}$ and $e_6^{(2)}$ are constructed in Part VI, though not for every soliton species (@sec-imaginary-coupling-quantum-theory). The disagreements over one-loop soliton masses needed a new counting rule to resolve (@sec-semiclassics). The missing-topological-charge problem is open, and static complex saddles cannot resolve it (@sec-which-saddles-contribute). On the half-line, particle reflection amplitudes are known only for $a_n^{(1)}$, and those of the Neumann boundary have been derived from the solitons only for $a_2^{(1)}$ (@sec-boundary-open-problems). Open problems in a theory whose surroundings are this well mapped are unusually well posed.
+- **A meeting point of mathematics and physics.** Quantum affine algebras and their R-matrices, quantum symmetric pairs and their K-matrices, Hirota tau-functions, Coulomb gases and Picard–Lefschetz theory all act on the same model. Progress in any one of them tends to have consequences here.
+
+## How this book is organised {#sec-reader-guide}
+
+The [preface](index.qmd) describes the nine parts. Parts I–IV are textbook material. Parts V, VI and IX present research results, many of them new. Part VII presents the theory on the half-line, developed in the research literature since 1993, in textbook form, and Part VIII does the same for integrable defects, studied since 1994.
+
+The dependencies between the parts are shown below. Chapter 4 is needed only for Parts V and IX, and Part II is needed in full only for Parts VI–VIII. Parts VIII and IX meet in one place: the Bloch twists of chapter 48 are the simplest defects.
+
+```{mermaid}
+%%| label: fig-dependencies
+%%| fig-cap: "Dependencies between the parts of the book. An arrow means that the later part uses the earlier one. Chapter 4 of Part I, on non-Hermitian quantum mechanics, is drawn separately because only Parts V and IX use it."
+%%| fig-width: 6
+flowchart LR
+  I["I. Physical background<br/>ch. 2–3"] --> III["III. Classical theory<br/>ch. 9–11"]
+  II["II. Algebraic background<br/>ch. 5–8"] --> III
+  I --> IV["IV. Real coupling<br/>ch. 12–15"]
+  III --> IV
+  III --> V["V. Semiclassics<br/>ch. 16–19"]
+  IV --> VI["VI. Soliton S-matrices<br/>ch. 20–27"]
+  II --> VI
+  V --> VI
+  VI --> VII["VII. Half-line<br/>ch. 28–35"]
+  III --> VII
+  IV --> VII
+  VII --> VIII["VIII. Defects<br/>ch. 36–43"]
+  II --> VIII
+  III --> VIII
+  VI --> VIII
+  V --> IX["IX. Foundations<br/>ch. 44–49"]
+  I4["I. Non-Hermitian QM<br/>ch. 4"] --> V
+  I4 --> IX
+  VI --> IX
+```
+
+**Reading paths.**
+
+- *A course on integrable field theory:* chapters 2–3, 5–6, 9–10, 12–14, then 20–22. This covers sine-Gordon, the classical theory, the particle S-matrices and the known soliton S-matrices.
+- *A course on quantum groups in field theory:* chapters 2–3 and 5–8, then 20–22 and 27.
+- *Integrable boundaries:* chapters 2–3, 7–10 and 13, then Part VII, consulting chapters 20–21 for the quantum-group method.
+- *Integrable defects:* chapters 2–3, 7–11 and 20–21, then 28–32, then Part VIII, consulting chapters 13 and 33–35 for its last chapters.
+- *Non-unitary quantum field theory:* chapters 2–4, 9–11, then Part IX, consulting Parts V–VI as needed.
+- *For specialists:* Parts V–IX, which can be read on their own by a reader who already knows affine Toda theory.
+
+The six paths are drawn in @fig-reading-paths.
+
+![The six reading paths, by chapter. An arrow means "then", and the colour of a box is the Part its chapters belong to.](figures/intro_f1_reading_paths.svg){#fig-reading-paths fig-alt="Six rows of boxes joined by arrows. The first row runs through chapters 2 to 3, 5 to 6, 9 to 10, 12 to 14 and 20 to 22. The second runs through chapters 2 to 3, 5 to 8, 20 to 22 and 27. The third runs through chapters 2 to 3, 7 to 8, 9 to 10, 13 and Part VII. The fourth runs through chapters 2 to 3, 7 to 8, 9 to 11, 20 to 21, 28 to 32 and Part VIII. The fifth runs through chapters 2 to 4, 9 to 11 and Part IX. The sixth is a single box for Parts V to IX."}
+
+**What Part I borrows from Part II.** Part I uses some algebraic terms before Part II defines them. They appear in statements about general affine Toda theories, which a first reading can take on trust, and the sine-Gordon case of @sec-sine-gordon needs none of them in more than its simplest form. In brief:
+
+- **Affine Kac–Moody algebra** $\hat g=X_n^{(k)}$: an infinite-dimensional extension of a simple Lie algebra, untwisted for $k=1$ and twisted for $k=2,3$. All the theory needs from it is its simple roots $\vec\alpha_j$, its Kac labels $n_j$ and its **affine Dynkin diagram**, a graph with one node per simple root (@sec-affine-algebras).
+- **Cartan matrix, Coxeter number $h$, exponents**: the Cartan matrix is the matrix $a_{ij}=2\vec\alpha_i\cdot\vec\alpha_j/\vec\alpha_i^2$ of the simple roots; the Coxeter number is $h=\sum_jn_j$; and the exponents are a set of positive integers attached to each algebra (for untwisted $\hat g=g^{(1)}$, $r$ integers between 1 and $h-1$), which become the spins of the conserved charges (@sec-roots, @sec-weyl-coxeter, @sec-conserved-charges).
+- **Perron–Frobenius eigenvector**: the eigenvector of the Cartan matrix of $g$ with positive components; in the simply-laced theories the particle masses are proportional to its components (@sec-perron-frobenius).
+- **Dorey's fusing rule**: a criterion, in terms of the Coxeter element of the Weyl group, for which three-point couplings of particles are nonzero (@sec-dorey-rule).
+- **Duality of algebras and Lie duality**: reversing the arrows of an affine Dynkin diagram gives the dual algebra $\hat g^\vee$; "Lie duality" relates the soliton masses of $g^{(1)}$ to the particle masses of $(g^\vee)^{(1)}$ (@sec-affine-folding).
+- **Quantum affine algebras** $U_q(\hat g)$: deformations of the symmetry algebra of $\hat g$. They are Hopf algebras, whose coproduct says how a symmetry acts on multi-particle states and whose antipode gives crossing. Their **evaluation representations** are finite-dimensional representations depending on a spectral parameter, which becomes the rapidity (@sec-quantum-groups).
+- **IRF (RSOS) basis and quantum-group restriction**: a change of basis from soliton labels to sequences of vacua, after which, when $q$ is a root of unity, all but finitely many vacua can be discarded consistently (@sec-irf, @sec-qg-restriction). The restricted theories are perturbed minimal models of Virasoro or of $W$-algebras, the conformal field theories with higher-spin symmetry currents (@sec-perturbed-minimal).
+
+## Conventions {#sec-conventions}
+
+We use units with $\hbar=c=1$ and the metric signature $(+,-)$. Rapidities are written $\theta$, and two-particle amplitudes depend on the rapidity difference (@sec-rapidities).
+
+Roots are normalized so that the longest roots of the finite algebra have squared length 2, as in @sec-lie-algebraic-data. Some of the literature instead gives the longest root of a twisted algebra $X_n^{(k)}$ squared length $2k$; its coupling is then $\beta_{\rm lit}^2=\beta^2/k$, and we convert whenever we quote such results. The coupling $\beta$ is always real and positive. "Real coupling" and "imaginary coupling" refer to the two potentials $V_{\rm real}$ and $V_{\rm imag}$ of @sec-why-atft-matters, restated as (-@eq-imaginary-potential), not to the sign of $\beta^2$. For $a_1^{(1)}$ our $\beta$ is related to the conventional sine-Gordon coupling by $\beta_{\rm SG}^2=2\beta^2$ (@sec-sine-gordon).
+
+In Part VII the field lives on the half-line $x\le0$, with the boundary at $x=0$. A boundary potential, with one coefficient $C_j$ for each simple root, fixes the boundary condition (@sec-boundary-potential). In Part VIII the defect sits at $x=0$, with the field $\vec\phi$ on $x<0$ and $\vec\psi$ on $x>0$ and the defect parameter $\sigma=e^{-\theta_d}$, $\theta_d$ the defect rapidity; the transmission matrix maps $V\otimes\mathcal W\to\mathcal W\otimes V$, $\mathcal W$ the space of defect states, with the tensor factors in spatial order (@sec-defect-lagrangian, @sec-defect-scattering).

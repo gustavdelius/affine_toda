@@ -14,8 +14,8 @@ Checks, one PASS, FAIL or WARN line each; exit status 1 on any FAIL:
      citation. Pandoc does so when every ";"-separated part of the bracket holds
      an @key; the brackets are then lost and status-tags.lua cannot tag the
      label. Write **[Numerical]** (@sec-x) instead.
-  6. the list of original results in index.qmd (the ::: {.original-results} div
-     in sec-new-results) matches the chapters. Each item opens with a status
+  6. the list of original results in appendices/E-original-results.qmd (the
+     ::: {.original-results} div) matches the chapters. Each item opens with a status
      label and ends with the references of the statements it summarises,
          - **[Theorem]** Both spin-two charges survive ... (@prp-spin-two).
      Every thm-/prp-/lem-/cor-/cnj- id in that final parenthesis must carry a
@@ -55,6 +55,7 @@ FENCE = re.compile(r'^(```|~~~).*?^\1', re.S | re.M)
 INLINE_CODE = re.compile(r'`[^`\n]*`')
 CODE_SPAN = re.compile(r'(?<!`)`([^`\n]+)`(?!`)')
 SCRIPT_DIRS = ('textbook_code/', 'foundations_code/', 'soliton_rmatrix_code/')
+ORIGINAL_RESULTS = 'appendices/E-original-results.qmd'
 
 
 def book_files():
@@ -114,10 +115,10 @@ def trailing_refs(item):
 
 def original_results(text, defs):
     """Check 6. Returns (problems, note)."""
-    t = text.get(Path('index.qmd'), '')
+    t = text.get(Path(ORIGINAL_RESULTS), '')
     m = re.search(r'^:::+\s*\{\.original-results\}\s*$(.*?)^:::+\s*$', t, re.S | re.M)
     if not m:
-        return [], 'no ::: {.original-results} list in index.qmd'
+        return [], f'no ::: {{.original-results}} list in {ORIGINAL_RESULTS}'
     start = lineno(t, m.start(1))
     items, cur = [], None
     for k, line in enumerate(m.group(1).split('\n')):
@@ -130,7 +131,7 @@ def original_results(text, defs):
             cur = None
     bad = []
     for n, item in items:
-        where = f'index.qmd:{n}'
+        where = f'{ORIGINAL_RESULTS}:{n}'
         lab = re.match(r'\*\*\[((?:%s)\b[^\]\n]*)\]\*\*' % '|'.join(STATUS_WORDS), item)
         if not lab:
             bad.append(f'{where} item does not open with a status label')
