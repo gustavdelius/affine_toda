@@ -1,0 +1,19 @@
+n=2 l=1: RE 5.9e-16, transmissions 5.6e-16, cross prop 7.9e-16, Phi1 5.3e-16, Phi2 6.7e-16
+n=3 l=2: RE 7.6e-16, transmissions 1.4e-15, cross prop 3.9e-15, Phi1 1.4e-15, Phi2 8.2e-16
+n=3 l=0: RE 8.5e-16, transmissions 1.4e-15, cross prop 2.7e-15, Phi1 1.6e-15, Phi2 1.5e-15
+n=2 l=0: RE 5.5e-16, transmissions 5.6e-16, cross prop 8.2e-16, Phi1 1.1e-15, Phi2 5.6e-16
+scalar n=2 l=1 mu=(0.13 + 0.21j): unit a 2.8e-26, unit b 3.0e-26, cross 1 5.3e-27, cross 2 0.0
+scalar n=2 l=1 mu=(-0.27 + 0.09j): unit a 9.2e-26, unit b 4.7e-26, cross 1 7.0e-26, cross 2 8.5e-26
+scalar n=3 l=2 mu=(0.13 + 0.21j): unit a 5.3e-26, unit b 9.3e-26, cross 1 3.8e-26, cross 2 7.7e-26
+scalar n=3 l=2 mu=(-0.27 + 0.09j): unit a 5.6e-26, unit b 3.0e-25, cross 1 9.3e-26, cross 2 5.3e-26
+scalar n=3 l=1 mu=(0.13 + 0.21j): unit a 3.9e-26, unit b 5.4e-26, cross 1 7.2e-26, cross 2 9.2e-26
+scalar n=3 l=1 mu=(-0.27 + 0.09j): unit a 6.6e-26, unit b 1.8e-26, cross 1 1.7e-25, cross 2 5.2e-26
+breather n=2 l=1 th=(0.31+0.17j): singlet proportionality 6.0e-15, |result/K_(1->n) - 1| 2.0e-15
+breather n=2 l=1 th=(-0.2+0.4j): singlet proportionality 1.2e-15, |result/K_(1->n) - 1| 9.72e-17
+breather n=3 l=2 th=(0.31+0.17j): singlet proportionality 7.7e-15, |result/K_(1->n) - 1| 5.18e-16
+breather n=3 l=2 th=(-0.2+0.4j): singlet proportionality 9.3e-15, |result/K_(1->n) - 1| 2.23e-15
+breather n=2 l=0 th=(0.31+0.17j): singlet proportionality 1.4e-15, |result/K_(1->n) - 1| 1.99e-15
+breather n=2 l=0 th=(-0.2+0.4j): singlet proportionality 1.7e-15, |result/K_(1->n) - 1| 1.33e-16
+breather n=3 l=1 th=(0.31+0.17j): singlet proportionality 7.7e-15, |result/K_(1->n) - 1| 1.2e-15
+breather n=3 l=1 th=(-0.2+0.4j): singlet proportionality 2.7e-15, |result/K_(1->n) - 1| 4.04e-15
+PASS soliton-preserving crossing functions, scalar factors and breather amplitude
