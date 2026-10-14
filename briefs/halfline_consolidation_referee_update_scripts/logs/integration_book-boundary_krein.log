@@ -1,0 +1,12 @@
+PASS pi(a)^dagger = C pi(tau a) C on V(y), Vbar(y), y real, all generators, n = 2, 3, 4 [0e+00]
+PASS R-check^dagger (C x C) R-check = C x C for VV, VVbar, VbarV, VbarVbar at real rapidity, untwisted C, n = 2, 3 [9e-15]
+PASS C pi(b_j)^dagger C = pi(b_(nu j)) with eps -> conj(eps): tau(b_j) = b_(nu j)(conj eps_j) [0e+00]; B_eps is tau-stable iff eps_(nu j) = conj(eps_j)
+PASS K^dagger C K = c_K C, c_K = (cosh 2T theta - s cos pi T)/(2 sin^2(pi omega/2)) > 0, and C K C = K^T (s = +-1, n = 2, 3) [2e-15]
+PASS one soliton, uniform/Neumann walls, a_2: eigenvalue moduli of K/sqrt(c_K) = [0.709371, 1.0, 1.4097] (1 and a pair r, 1/r = rho^(+-1), rho = 1.409700)
+PASS Z_(n+1) sectors: [Z, K] = 0 with the twisted shift (Z^(n+1) = s), [Z x Z, R-check] = 0, C Z C = Z^(-1) (n = 2, 3) [4e-15]
+PASS a_2 double-row transfer matrices: [T_1, T_2] = 0 and [Z x Z, T_j] = 0 for UN, NN walls, VV and VW [6e-14]; with the unmirrored convention [T_1, T_2] = 0.92 for a Neumann left wall (NN), while for a uniform left wall (UN) the two conventions coincide [1e-14]
+PASS two solitons, sector zeta = 1, theta_1 = 12 (VV) or 12, 20 (V Vbar), theta_2 in [1e-4, 3]: UU unbroken at omega = 0.37, 0.83, 1.43 [3e-09]; thresholds UN VV: 6e-13 at 0.695, 0.13 at 0.701; UN VW: 4e-11 at 0.664, 0.03 at 0.67; NN VV: 9e-14 at 0.533, 0.17 at 0.539; NN VW: 1e-12 at 0.497, 0.04 at 0.503
+PASS V Vbar first breaks at finite slow rapidity: UN (omega=.672, theta=20,1.5), NN (.505, 20,2); theta_2=1e-4 remains unbroken at these couplings [(0.0489, 1.1e-13), (0.0616, 4.2e-15)]
+PASS three solitons VVV, sector zeta = 1: broken for UU, UN, NN at omega = 0.3, 0.83 (min over cases of the max deviation 0.44)
+76.33 s
+EXIT 0

@@ -1,0 +1,4 @@
+PASS d4: 110 subthreshold points, m_min^2=2.000000000000; min eig(Y+R)=0.848538937418 at Omega^2=1.999999999900
+PASS d4: domain/tolerance refinement, max eigenvalue change 3.521e-11; at Omega^2=1 min eig=1.891805812446
+PASS d5: 110 subthreshold points, m_min^2=1.171572875254; min eig(Y+R)=0.463269881452 at Omega^2=1.171572875154
+PASS d5: domain/tolerance refinement, max eigenvalue change 2.592e-11; at Omega^2=1 min eig=0.897061476243

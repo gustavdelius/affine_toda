@@ -1,0 +1,10 @@
+P1/2 Pw/2 P(T-w)/2       n=4: axioms residual 1.1e-30, |K/K_1(2-B) - 1| at B=0.6: 0.145
+P1/2 Pw/2 P(T-w)/2       n=5: axioms residual 4.5e-30, |K/K_1(2-B) - 1| at B=0.6: 0.0664
+P1/2 Pw/2 P(T-w)/2       n=6: axioms residual 4.1e-30, |K/K_1(2-B) - 1| at B=0.6: 0.0354
+P0 P1/2+w/2 P(T-w)/2     n=4: axioms residual 2.9e-30, |K/K_1(2-B) - 1| at B=0.6: 0.267
+P0 P1/2+w/2 P(T-w)/2     n=5: axioms residual 3.0e-30, |K/K_1(2-B) - 1| at B=0.6: 0.179
+P0 P1/2+w/2 P(T-w)/2     n=6: axioms residual 3.2e-30, |K/K_1(2-B) - 1| at B=0.6: 0.12
+P1/2 P1/2+w/2 P(T-w)/2   n=4: axioms residual 1.0e-30, |K/K_1(2-B) - 1| at B=0.6: 0.179
+P1/2 P1/2+w/2 P(T-w)/2   n=5: axioms residual 2.9e-30, |K/K_1(2-B) - 1| at B=0.6: 0.129
+P1/2 P1/2+w/2 P(T-w)/2   n=6: axioms residual 3.9e-30, |K/K_1(2-B) - 1| at B=0.6: 0.0905
+PASS alternative CDD factors satisfy all axioms, match one loop (d_4), and are not the dual of K_1

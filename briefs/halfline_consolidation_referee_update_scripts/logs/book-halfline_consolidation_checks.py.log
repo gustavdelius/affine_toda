@@ -1,0 +1,7 @@
+PASS exact missing single-soliton class counts: {2: 0, 3: 2, 4: 5, 5: 21}
+PASS three alternative d_n CDD choices preserve one loop and vector-particle axioms: loop 4.56e-55, axioms 3.12e-45, finite-B differences 0.00369–0.226
+PASS a3 CDD ambiguity survives soliton bootstrap; shifted Kim equality holds only at one loop
+PASS d5 particle 3 has simple poles at i pi/8 and 3i pi/8: {1: 1, 2: -2, 3: 1}
+PASS extra d5 pole has nonzero small residue: (9.48984744e-13 - 0.00814729956j)
+PASS d5 spinor channels decouple in both bulk and boundary Hessians
+PASS d5 extra pole at Omega=m is not a decaying bound state: min eigenvalue of Y(0)+R = 0.897061476

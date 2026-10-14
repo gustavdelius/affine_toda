@@ -1,0 +1,4 @@
+d_4: middle k = 5 (= h-1 = 5); Kim vector vs K^N_1: value and B-derivative at 0 1.12e-31; |ratio-1| at B=0.6: ['0.188', '0.107']
+d_5: middle k = 7 (= h-1 = 7); Kim vector vs K^N_1: value and B-derivative at 0 1.26e-31; |ratio-1| at B=0.6: ['0.16', '0.0777']
+d_6: middle k = 9 (= h-1 = 9); Kim vector vs K^N_1: value and B-derivative at 0 4.84e-32; |ratio-1| at B=0.6: ['0.132', '0.061']
+d_7: middle k = 11 (= h-1 = 11); Kim vector vs K^N_1: value and B-derivative at 0 3.87e-32; |ratio-1| at B=0.6: ['0.11', '0.0502']

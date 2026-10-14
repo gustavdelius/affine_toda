@@ -4,6 +4,19 @@ Written 2026-10-11. Section `sec-boundary-open-problems` (§35.7, `part7-half-li
 
 **Caveat on the literature.** The searches were done on 2026-10-11. Most entries were checked only at the level of the arXiv abstract; some rest on a machine summary of the full text (marked in the briefs). One equation was read directly: Ahn–Kim–Rim eq. (10). New references are marked "not in `references.bib`". Following the repository rule, a worker must re-derive or recompute every claim before the book is changed.
 
+## Referee integration (2026-10-14, PR #14)
+
+The findings of `halfline_consolidation_referee_report.md` (Codex, reviewing 3a75d31) were verified by Claude, item by item: by hand, with Claude's own scripts (`halfline_consolidation_referee_update_scripts/integration_*.py`) and by reading the seven sources. The edits Codex had made from an earlier version of these findings (904f924, described in `halfline_consolidation_integration.md`) were checked in the same pass and partly rewritten. The record is the section `## Integration (Claude, 2026-10-14)` at the end of the report. The earlier status tables below record the original consolidation; the following qualifications supersede them. No status label changed.
+
+- `prp-no-dirichlet` [Theorem]: for $g^{(1)}\ne a_1^{(1)}$ and generic $\lambda$, full Dirichlet admits no field-independent $K_+$ in Sklyanin's construction, in finite-dimensional evaluation representations without trivial summands. Other constructions are not excluded. Corrigan (hep-th/9612138, sec. 4) said, without proof, that Dirichlet conditions are "not generally permitted". The spin-$\pm2$ argument was rechecked for $a_2^{(1)}$.
+- `prp-soliton-preserving-half` [Theorem]: compatibility, the $a_n$ "only if" (a gap in the proof, which assumed $K_+$ invertible, is closed) and the reflection equation for diagonal $K_+$ hold. Half-solitons and three-soliton images exist only in classes that contain a single-soliton charge; 0, 2, 5, 21 nontrivial classes lack one for $a_2$–$a_5$. Delius's (1.4) gives (1.5) only for coweights in $2\Lambda_W^\vee$ (Appendix D entry kept).
+- CDD factors: one loop fixes neither $P_{\omega/2}$ for $a_3^{(1)}$ nor $\Xi$ for $d_n^{(1)}$; a CDD block pair enters the breather amplitude as $D(q)$, with $D=1$ at $B=0$. The chosen factors give exact duality. The Neumann identifications of the $s=+1$ and $\varsigma=+1$ matrices are conditional on `cnj-reflection-continuation` and on that choice. Kim's $a_3$ and Kim–Cho's $d_4$ amplitudes agree only at one loop.
+- `prp-dn-uniform-vacuum` [Theorem]: existence (coercivity on $H^1$, direct method) and uniqueness (strict convexity) for $C_j\ge0$ at every rank; closed forms only for $d_4$, $d_5$.
+- `prp-dn-uniform-classical` [Numerical]: particle 3 of $d_5^{(1)}$ has an extra simple pole at $\theta=3i\pi/8$ ($p=i(1+\sqrt2)m$, $\Omega=m$). The spinors decouple from it in both Hessians, so it is unexplained. No classical bound state for $d_4$, $d_5$ (Riccati scan, 68 frequencies each); $d_6$ not scanned.
+- Singular solitonic backgrounds (ch. 31): agreement of limits is claimed only for the approaches tested; the withdrawal of "Bowcock–Perkins Table 2 corrected" stands.
+- Boundary Krein structure: the unmirrored left wall fails only when it is Neumann. VV breaks first as $\theta_2\to0$; $V\bar V$ at a finite slow rapidity. Thresholds about 0.698, 0.667, 0.536, 0.500 (grid estimates).
+- Castro-Alvaredo and Fring are credited for $\hat R_a(\theta,0)=\prod_bS_{ab}(\theta,1)$ and its association with fixed boundaries; the semiclassical checks concern leading phase derivatives.
+
 ## Ranking by feasibility
 
 Feasibility here means the likelihood that one focused agent session (or a few) produces a result that can go into the book, either a solution or a sharp partial answer. It is not the importance of the problem.

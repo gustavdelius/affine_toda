@@ -1,0 +1,14 @@
+g2 sign choice (1, 1, 1, 1) closure dim 14
+b2 closure 10
+c3 closure 21
+d4 closure 28
+a1 vector (sinh-Gordon)      dim=  2 ht(theta)=1  nullity: {'antipode': 1, 'transpose': 1, 'hermitian': 0, '-conj': 0}
+a2 Sym^2                     dim=  6 ht(theta)=2  nullity: {'antipode': 0, 'transpose': 0, 'hermitian': 0, '-conj': 0}
+a3 Sym^2                     dim= 10 ht(theta)=3  nullity: {'antipode': 0, 'transpose': 0, 'hermitian': 0, '-conj': 0}
+b2 vector                    dim=  5 ht(theta)=3  nullity: {'antipode': 0, 'transpose': 0, 'hermitian': 0, '-conj': 0}
+c3 vector                    dim=  6 ht(theta)=5  nullity: {'antipode': 0, 'transpose': 0, 'hermitian': 0, '-conj': 0}
+d4 vector                    dim=  8 ht(theta)=5  nullity: {'antipode': 0, 'transpose': 0, 'hermitian': 0, '-conj': 0}
+g2 7-dim                     dim=  7 ht(theta)=5  nullity: {'antipode': 0, 'transpose': 0, 'hermitian': 0, '-conj': 0}
+d4 adjoint dim 28
+d4 adjoint                   dim= 28 ht(theta)=5  nullity: {'antipode': 0, 'transpose': 0, 'hermitian': 0, '-conj': 0}
+PASS Dirichlet: no K except a1

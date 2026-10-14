@@ -1,0 +1,7 @@
+1. block identity: 3.53e-41
+2. breather image of P_x equals D(q;B): 1.43e-40; D(q;0) = 1: 3.93e-41
+3. P_x unitary and crossing-symmetric: 1.24e-40
+4. d_n K^N_1 = dual of uniform: 2.65e-41; axioms (unitarity, crossing-unitarity, bootstrap) for K^N and the three alternatives: 1.61e-39; ratio and B-derivative at B=0: 6.72e-50; |ratio - 1| at B = 0.6: 0.000805 .. 0.226
+5. Kim-Cho (29), (40) at O(beta^2): K^N and alternatives 1.02e-40; minimal amplitude misses by >= 1.34
+6. a_3: CDD bootstrap condition for P_(omega/2), P_((omega+1)/2): 1.32e-40; one loop vs Kim (33) for K^N_1, the alternative, K^(-)_1(theta+i pi) and Kim (42): 9.47e-41; K^(-)_1(theta+i pi)/Kim(42) - 1 at B=0.6: ['0.163', '0.11', '0.075']
+7. (-T/2)_I^2 unitary and crossing-symmetric, (-T/2)_I crossing-odd: 1.37e-40

@@ -1,0 +1,11 @@
+PASS J is charge conjugation [0e+00]; K and K^T = JKJ are the soliton and antisoliton intertwiners [9e-16]; K(-theta)^T K(theta) = U 1 [2e-15]; K(theta)K(-theta) is not scalar [off-diagonal/diagonal >= 0.38] (n = 2, 3, 4; omega = 0.37, 1.29; s = +-1)
+PASS B_1 singlet is mapped to c_+(mu) times itself (n = 2, 3, 4) [6e-15]
+PASS A^(+) solves unitarity and crossing; A(mu_a) F_11(2mu) A(mu_b) c_+ = (-n omega/2)_I (n omega/2 - 1/2)_I (1/2)_I (n = 2, 3, 4) [4.0e-27]
+PASS omega -> -2/B: the breather amplitude becomes K^N_1 of eq-neumann-amplitude (n = 1..7) [4.9e-31]
+PASS Kim (33), (39): K^N_1, K^N_2 agree at O(beta^2) [4.6e-32]; without the CDD factor (T/2 - omega/2)_I (T/2 + omega/2)_I they deviate by 0.661
+PASS crossing-unitarity k(theta) = Phi R-check_(Vbar Vbar)(2theta) k(-theta) with the closed-form Phi, s = +-1, n = 2, 3, 4, omega = 0.37, 1.29 [2e-14]
+PASS semiclassical limit of A^(+): the Neumann time advance (1/2) ln(1 - sin^2(pi/h)/cosh^2 theta), errors at omega = 40, 80, 160 decreasing like 1/omega (n = 2: 0.021, 0.011, 0.0055; n = 3: 0.017, 0.0085, 0.0043)
+PASS s = -1: the B_1 singlet is mapped to c_-(mu) times itself (n = 2, 3, 4; omega = 1.37 for n = 2) [2e-14]
+PASS s = -1: A^(-) solves unitarity and crossing; A(mu_a) F_11(2mu) A(mu_b) c_- = -(omega/2)_I (1/2 - T)_I (-omega/2 - 1/2)_I (n = 1..4; omega = 1.37 for n = 2) [4.3e-27]
+PASS s = -1: n = 2 is Gandenberger (5.17); omega -> -2/B gives -(1)(h - B/2)(-1 + B/2), n = 1..7 [7.0e-31]
+EXIT 0

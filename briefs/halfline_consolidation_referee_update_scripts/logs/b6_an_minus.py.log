@@ -1,0 +1,30 @@
+  n=1 om=0.43 mu=(0.12 + 0.23j): breather 7.2e-31
+  n=1 om=0.43 mu=(-0.3 + 0.11j): breather 6.9e-31
+  n=1 om=0.91 mu=(0.12 + 0.23j): breather 3.6e-31
+  n=1 om=0.91 mu=(-0.3 + 0.11j): breather 3.7e-31
+  n=2 om=0.43 mu=(0.12 + 0.23j): unit 1.2e-31, cross 6.7e-31, breather 5.3e-31
+  n=2 om=0.43 mu=(-0.3 + 0.11j): unit 3.9e-31, cross 1.0e-30, breather 6.8e-31
+  n=2 om=0.91 mu=(0.12 + 0.23j): unit 3.7e-32, cross 7.3e-31, breather 5.4e-31
+  n=2 om=0.91 mu=(-0.3 + 0.11j): unit 6.1e-31, cross 6.3e-31, breather 9.0e-31
+  n=3 om=0.43 mu=(0.12 + 0.23j): unit 4.3e-31, cross 4.1e-31, breather 2.8e-31
+  n=3 om=0.43 mu=(-0.3 + 0.11j): unit 1.4e-31, cross 5.1e-31, breather 4.1e-31
+  n=3 om=0.91 mu=(0.12 + 0.23j): unit 9.9e-32, cross 3.6e-31, breather 2.2e-31
+  n=3 om=0.91 mu=(-0.3 + 0.11j): unit 3.1e-31, cross 4.0e-31, breather 3.5e-31
+  n=4 om=0.43 mu=(0.12 + 0.23j): unit 1.1e-31, cross 5.5e-31, breather 7.9e-31
+  n=4 om=0.43 mu=(-0.3 + 0.11j): unit 9.9e-32, cross 1.1e-30, breather 5.5e-31
+  n=4 om=0.91 mu=(0.12 + 0.23j): unit 2.8e-31, cross 1.3e-30, breather 1.1e-30
+  n=4 om=0.91 mu=(-0.3 + 0.11j): unit 3.1e-31, cross 2.2e-30, breather 2.3e-30
+  n=2 B=0.37: continuation 4.4e-31, axioms 7.9e-31, dual = CDRS (5.16) 3.0e-31
+  n=2 B=(1.2 + 0.3j): continuation 4.6e-31, axioms 4.4e-31, dual = CDRS (5.16) 2.1e-31
+  n=3 B=0.37: continuation 2.3e-31, axioms 5.8e-31, dual = CDRS (5.16) 4.3e-31
+  n=3 B=(1.2 + 0.3j): continuation 3.1e-31, axioms 6.5e-31, dual = CDRS (5.16) 1.8e-31
+  n=4 B=0.37: continuation 5.4e-31, axioms 8.5e-31, dual = CDRS (5.16) 4.8e-31
+  n=4 B=(1.2 + 0.3j): continuation 4.8e-31, axioms 1.0e-30, dual = CDRS (5.16) 2.1e-31
+  n=5 B=0.37: continuation 7.2e-31, axioms 2.9e-30, dual = CDRS (5.16) 3.6e-31
+  n=5 B=(1.2 + 0.3j): continuation 4.1e-31, axioms 1.6e-30, dual = CDRS (5.16) 2.2e-31
+  n=6 B=0.37: continuation 2.4e-31, axioms 1.7e-30, dual = CDRS (5.16) 6.0e-31
+  n=6 B=(1.2 + 0.3j): continuation 2.2e-31, axioms 1.3e-30, dual = CDRS (5.16) 3.0e-31
+  n=7 B=0.37: continuation 7.4e-31, axioms 2.9e-30, dual = CDRS (5.16) 8.4e-31
+  n=7 B=(1.2 + 0.3j): continuation 2.9e-31, axioms 1.2e-30, dual = CDRS (5.16) 4.1e-31
+  n=2: dual of K^(-)_1 = CDRS (5.7) -(1)(2+B/2)/(B/2): 3.5e-31
+PASS a_n s = -1: scalar factor, breather, continued amplitudes, axioms, duals = CDRS (5.16)

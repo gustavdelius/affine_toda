@@ -16,9 +16,11 @@ Checks (omega = 0.37, so that k_closed's branch is the analytic one):
     (rho, 1/rho), rho != 1 (zeta = exp(+-2 pi i/3)), with rho = |y zeta - w|/|y zeta - conj w|, y = exp(omega theta), w = exp(-i pi omega/2).
  6. Z_(n+1) sectors: [Z, K] = 0, [Z x Z, R-check] = 0, C Z C = Z^(-1).
  7. Two and three solitons of a_2 on an interval (open problem 7(b)): the double-row transfer matrices commute (and
-    fail to with the unmirrored left wall); in the sector zeta = 1 the levels are unimodular for uniform walls on both
-    sides, and for UN and NN walls below the coupling thresholds (VV: 0.69-0.71 UN, 0.53-0.54 NN; VW: 0.65-0.68 UN,
-    0.49-0.51 NN), not above; three solitons are broken.
+    fail to with the unmirrored left wall, here NN); in the sector zeta = 1 the levels are unimodular for uniform walls on
+    both sides, and for UN and NN walls below the coupling thresholds (VV: 0.695-0.701 UN, 0.533-0.539 NN, on theta_1 = 12,
+    theta_2 in [1e-4, 3]; V Vbar (VW): 0.664-0.670 UN, 0.497-0.503 NN, on theta_1 = 12, 20), not above; V Vbar breaks first at
+    finite slow rapidity: at omega = 0.672 (UN) and 0.505 (NN) the levels at (20, 1.5) and (20, 2) are not phases while those
+    at (12, 1e-4) are; three solitons are broken.
 Runtime: about 2 minutes.
 """
 import itertools
@@ -220,16 +222,33 @@ t2s = np.geomspace(1e-4, 3, 8)
 dev = lambda types, walls, om: max(sector(list(types), [12.0, t2], walls, om)[0] for t2 in t2s)
 comm7 = max(sector(list(t), [0.7, 0.25], w, om)[1] for t in ('VV', 'VW') for w in ('UN', 'NN') for om in (0.37, 0.83))
 bad7 = sector(['V', 'V'], [0.7, 0.25], 'NN', 0.37, mirror=False)[1]
+same7 = max(sector(list(t), [0.7, 0.25], 'UN', 0.37, mirror=False)[1] for t in ('VV', 'VW'))
 report(f'a_2 double-row transfer matrices: [T_1, T_2] = 0 and [Z x Z, T_j] = 0 for UN, NN walls, VV and VW '
-       f'[{comm7:.0e}]; with the unmirrored left wall [T_1, T_2] = {bad7:.2f} (control)', comm7 < 1e-12 and bad7 > 0.1)
+       f'[{comm7:.0e}]; with the unmirrored convention [T_1, T_2] = {bad7:.2f} for a Neumann left wall (NN), while for a '
+       f'uniform left wall (UN) the two conventions coincide [{same7:.0e}]', comm7 < 1e-12 and bad7 > 0.1 and same7 < 1e-12)
 uu = max(dev(t, 'UU', om) for t in ('VV', 'VW') for om in (0.37, 0.83, 1.43))
 rows, ok7 = [], uu < 1e-6
-for t, w, lo, hi in (('VV', 'UN', 0.69, 0.71), ('VW', 'UN', 0.65, 0.68), ('VV', 'NN', 0.53, 0.54), ('VW', 'NN', 0.49, 0.51)):
-    a, b = dev(t, w, lo), dev(t, w, hi)
+# V Vbar breaks first at a finite slow rapidity (theta_2 about 2 with theta_1 = 20), so its grid includes theta_1 = 20.
+vw_grid = [(t1, t2) for t1 in (12.0, 20.0) for t2 in (1e-4, 0.5, 1.0, 1.5, 2.0, 2.5, 3.0)]
+dev_vw = lambda walls, om: max(sector(['V', 'W'], list(g), walls, om)[0] for g in vw_grid)
+for t, w, lo, hi in (('VV', 'UN', 0.695, 0.701), ('VW', 'UN', 0.664, 0.670), ('VV', 'NN', 0.533, 0.539),
+                     ('VW', 'NN', 0.497, 0.503)):
+    a, b = (dev(t, w, lo), dev(t, w, hi)) if t == 'VV' else (dev_vw(w, lo), dev_vw(w, hi))
     ok7 &= a < 1e-6 and b > 1e-2
     rows.append(f'{w} {t}: {a:.0e} at {lo}, {b:.2f} at {hi}')
-report(f'two solitons, sector zeta = 1, theta_1 = 12, theta_2 in [1e-4, 3]: UU unbroken at omega = 0.37, 0.83, 1.43 '
-       f'[{uu:.0e}]; thresholds ' + '; '.join(rows), ok7)
+report(f'two solitons, sector zeta = 1, theta_1 = 12 (VV) or 12, 20 (V Vbar), theta_2 in [1e-4, 3]: UU unbroken at '
+       f'omega = 0.37, 0.83, 1.43 [{uu:.0e}]; thresholds ' + '; '.join(rows), ok7)
+# The V Vbar onset is missed by taking the slow rapidity to zero.  Use
+# couplings above its threshold but below the VV threshold as a regression.
+onset = []
+for walls, om, slow in (('UN', 0.672, 1.5), ('NN', 0.505, 2.0)):
+    finite = sector(['V', 'W'], [20.0, slow], walls, om)[0]
+    near_zero = sector(['V', 'W'], [12.0, 1e-4], walls, om)[0]
+    onset.append((finite, near_zero))
+report('V Vbar first breaks at finite slow rapidity: UN (omega=.672, theta=20,1.5), '
+       'NN (.505, 20,2); theta_2=1e-4 remains unbroken at these couplings '
+       + str([(round(a, 4), float(f'{b:.1e}')) for a, b in onset]),
+       all(a > 0.01 and b < 1e-6 for a, b in onset))
 g3 = [8.0, 2.0, 0.5, 0.05]
 vvv = min(max(sector(['V']*3, list(c), w, om)[0] for c in itertools.combinations(g3, 3))
           for w in ('UU', 'UN', 'NN') for om in (0.3, 0.83))

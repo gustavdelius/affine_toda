@@ -1,0 +1,6 @@
+PASS exceptional background from wall equations: d1=0.25778902501238702013802481213 d2=0.563669884984393415822712186658 finite boundary residual=9.4574e-16
+exceptional delta=0.0001 |K14|: ['0.14712654427482', '0.14687732680628']
+exceptional delta=1.0e-6 |K14|: ['0.14713641247743', '0.14713396584684']
+exceptional delta=1.0e-8 |K14|: ['0.14713650988311', '0.14713648546211']
+exceptional delta=1.0e-10 |K14|: ['0.14713651085591', '0.14713651061174']
+PASS exceptional a4 non-diagonal limit along two specified paths

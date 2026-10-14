@@ -1,0 +1,9 @@
+d_4: alpha_j . v = [-1 -1  2 -1 -1]  marks [1 1 2 1 1]  |v|^2 = 2.0
+d_5: alpha_j . v = [-1 -1  1  1 -1 -1]  marks [1 1 2 2 1 1]  |v|^2 = 2.0
+d4: f0 = 0.11778303565638345454, exp f0 = 1.125 (closed 1.125); E = (-0.0695214587295478084 + 4.68501897033166417e-43j)  closed form -0.0695214587295478084
+d5: f0 = 0.15834718382037493889, exp f0 = 1.1715728752538099024 (closed 1.1715728752538099024); E = (-0.0927092091312039991 + 6.81492576834025047e-39j)  closed form -0.0927092091312039991
+d4 closed form: full field eq + boundary residual 2.220446049250313e-16
+d5 closed form: full field eq + boundary residual 7.216449660063518e-16
+d_4: min_u max_j alpha_j.u ~ 0.2797 (> 0); min V/|phi|^2 sampled = 0.5235
+d_5: min_u max_j alpha_j.u ~ 0.2057 (> 0); min V/|phi|^2 sampled = 0.3693
+d_6: min_u max_j alpha_j.u ~ 0.1662 (> 0); min V/|phi|^2 sampled = 0.3148

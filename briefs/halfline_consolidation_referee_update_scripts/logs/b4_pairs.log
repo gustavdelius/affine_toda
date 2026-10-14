@@ -1,0 +1,9 @@
+pair delta=0.001 chi+, chi-, d: ['0.71919252139072', '0.71919252139072', '0.93648368582665'] other pattern: ['0.0893996606962', '0.271752488771']
+  zeroth-order boundary defects: ['0.0011557', '0.0023094', '0.048068']
+pair delta=1.0e-5 chi+, chi-, d: ['0.71919320541554', '0.71919320541554', '0.93742769059956'] other pattern: ['0.0912836756356', '0.272066342574']
+  zeroth-order boundary defects: ['1.1547e-5', '2.3094e-5', '0.0048056']
+pair delta=1.0e-7 chi+, chi-, d: ['0.71919320548394', '0.71919320548394', '0.93743711669418'] other pattern: ['0.0913026253781', '0.272069482503']
+  zeroth-order boundary defects: ['1.1547e-7', '2.3094e-7', '0.00048056']
+pair delta=1.0e-9 chi+, chi-, d: ['0.71919320548395', '0.71919320548395', '0.93743721095372'] other pattern: ['0.091302814886', '0.272069513902']
+  zeroth-order boundary defects: ['1.1547e-9', '2.3094e-9', '4.8056e-5']
+PASS stationary-pair limits differ by path; asymmetric target differs by side

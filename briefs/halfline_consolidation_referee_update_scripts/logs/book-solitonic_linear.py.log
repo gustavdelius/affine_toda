@@ -1,0 +1,15 @@
+   56 backgrounds (all regular chi-intervals of the pairs and the self-conjugate family, a_2..a_5), 3 frequencies each; max pde = 3.4e-30, max flat = 1.1e-30, max bv = 2.886579864025407e-15, max off = 4.8e-28, max diag = 4.8e-28, max unit = 8.7e-28, max res = 3.3e-28
+PASS 1. the dressed Hirota waves solve the linearized field equation eps'' = M^2(x) eps - Omega^2 eps (residual < 1e-25)
+PASS 2. flat vacuum, C = +-1: K_a = -((a)(h-a))^{-C} (eq-linear-reflection), diagonal, a_2..a_5
+PASS 3. continued pair = boundary_vacua.pair_taus; regular on x <= 0; exactly one pattern, that of the soliton charge; DG (4.8)-(4.9) class b = a (b = h/2, C = -1 for the self-conjugate family)
+PASS 4. DG (5.7): about every regular continued vacuum of a_2..a_5 the linearized K is diagonal and equals DG K_c^(b) at B -> 0 in every open channel (Omega = m_1 cosh 0.6, m_2 cosh 0.6, 2.3); flux-normalized K unitary
+PASS 5. Bow (4.14) with (4.21)-(4.22) equals DG (5.7) (n = 2..6, all a, b); BP Table 2 diagonal entries of the regular rows (-++; ++++, --++; -++++, ---++; ++++++, -++-++, ----++) are DG K_c^(b) at B -> 0
+   a_5 (+,+,-,-,-,-), chi -> 5pi/3: K_11 = (0.15563283 + 0.677155488j), |K_15| = 0.719193205 (spread over both sides, delta = 1e-4, 1e-6: 1.5e-8); DG b = 2 = BP Table 2: (0.856551825 + 0.516061015j)
+PASS 6a. a_5 (+,+,-,-,-,-) about the species-2 pair endpoint, as the limit along the regular solutions chi = 5pi/3 +- delta: the same from both sides and not diagonal, |K_15| -> 0.71919, K_11 -> 0.15563 + 0.67716i, not BP/DG's (2)(4)/((1)(5))
+   path dependence: d-path (non-solutions) |K_15| -> 0.9374372, K_11 -> (-0.06460441 + 0.3421078j); (+,+,-,-,+,-): |K_15| -> 0.091301 (chi > 5pi/3), 0.27207 (chi < 5pi/3); regular pattern's own Hessian: |K_15| = 1.9e-31 on its side, 0.51675 from the other side
+PASS 6b. the limit depends on the approach: non-solution path d -> 1/(1+s) gives |K_15| -> 0.93744 for (+,+,-,-,-,-); for (+,+,-,-,+,-) the two sides give 0.0913 and 0.2721; the regular pattern's own Hessian gives DG only from its own side
+   a_3 +-+-: off-diagonal 5.0e-5, 5.0e-7 at 1-d = 1e-4, 1e-6; a_5 +-+---: off-diagonal 0.00014, 1.4e-6 at 1-d = 1e-4, 1e-6
+PASS 7. middle-soliton endpoints d -> 1 (a_3 (+,-,+,-), a_5 (+,-,+,-,-,-)): K -> diagonal DG K_1^(h/2) = -(1)(h-1), off-diagonal O(1-d), also along a path with a species-1 admixture
+   a_4 exceptional: d_1 = 0.257789025012, d_2 = 0.563669884984; K_11 -> (0.32534737 + 0.93407705j), |K_14| -> 0.1471365 (two paths at 1e-7: spread 1.4e-7); DG b = 2: (0.34282358 + 0.9393998j)
+   a_4 exceptional: finite part of the boundary condition at x = 0 (evaluated at x = -1e-30): 9.5e-16; tau_i'/tau_i(0) - (m_1 + m_2 - sqrt 5) = 7.8e-61
+PASS 8. a_4 exceptional background (BP): tau_2(0) = tau_4(0) = 0, tau_i'/tau_i(0) = m_1 + m_2 - sqrt 5 (BP's C), boundary condition of (+,+,-,+,-); the linearized K for (+,+,-,+,-), approached along two families of regular configurations, has one non-diagonal limit |K_14| = 0.1471, not DG's diagonal b = 2 value

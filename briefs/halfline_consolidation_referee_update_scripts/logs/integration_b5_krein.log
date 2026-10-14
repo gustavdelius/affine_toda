@@ -1,0 +1,17 @@
+(a) walls UN VV mirror=True: ||[T1,T2]|| = 5.0e-15, ||[ZZ,T]|| = 3.4e-15
+(a) walls UN VV mirror=False: ||[T1,T2]|| = 5.0e-15, ||[ZZ,T]|| = 3.4e-15
+(a) walls UN VW mirror=True: ||[T1,T2]|| = 6.3e-15, ||[ZZ,T]|| = 4.2e-15
+(a) walls UN VW mirror=False: ||[T1,T2]|| = 6.3e-15, ||[ZZ,T]|| = 4.2e-15
+(a) walls NN VV mirror=True: ||[T1,T2]|| = 6.0e-15, ||[ZZ,T]|| = 3.8e-15
+(a) walls NN VV mirror=False: ||[T1,T2]|| = 9.2e-01, ||[ZZ,T]|| = 4.0e-15
+(a) walls NN VW mirror=True: ||[T1,T2]|| = 7.0e-15, ||[ZZ,T]|| = 4.7e-15
+(a) walls NN VW mirror=False: ||[T1,T2]|| = 1.8e+00, ||[ZZ,T]|| = 4.3e-15
+(a) walls NU VV mirror=True: ||[T1,T2]|| = 5.4e-15, ||[ZZ,T]|| = 3.6e-15
+(a) walls NU VV mirror=False: ||[T1,T2]|| = 1.1e+00, ||[ZZ,T]|| = 3.5e-15
+(a) walls NU VW mirror=True: ||[T1,T2]|| = 6.1e-15, ||[ZZ,T]|| = 4.5e-15
+(a) walls NU VW mirror=False: ||[T1,T2]|| = 1.9e+00, ||[ZZ,T]|| = 4.6e-15
+(b) VV UN: threshold at theta = (12, 1e-3): 0.69819
+(b) VV NN: threshold at theta = (12, 1e-3): 0.53623
+(c) V Vbar UN: threshold over the grid 0.6667 (largest deviation at 0.6697: theta = (20.0, 2.0), 0.025); with theta_2 -> 0 only: 0.6981
+(c) V Vbar NN: threshold over the grid 0.5000 (largest deviation at 0.5030: theta = (20.0, 2.5), 0.037); with theta_2 -> 0 only: 0.5362
+EXIT 0

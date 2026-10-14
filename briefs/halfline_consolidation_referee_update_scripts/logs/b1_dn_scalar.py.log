@@ -1,0 +1,37 @@
+Part A: functional equations and breather identities (residuals)
+  n=4 om=0.37 mu=(0.13 + 0.21j): worst 1.26e-30  A0 unit:2.7e-32 A0 cross:3.0e-31 unit +1:1.5e-31 cross +1:4.5e-31 unit -1:3.7e-31 cross -1:2.0e-31 breather eps0:1.2e-31 breather -:2.1e-31 breather +Xi:1.3e-30
+  n=4 om=0.37 mu=(-0.31 + 0.07j): worst 2.5e-30  A0 unit:3.8e-34 A0 cross:1.4e-31 unit +1:8.9e-31 cross +1:7.6e-31 unit -1:4.2e-31 cross -1:3.0e-31 breather eps0:2.0e-31 breather -:2.5e-30 breather +Xi:5.9e-31
+  n=4 om=0.83 mu=(0.13 + 0.21j): worst 1.23e-30  A0 unit:1.6e-32 A0 cross:3.0e-31 unit +1:7.4e-31 cross +1:3.5e-31 unit -1:4.8e-31 cross -1:2.9e-31 breather eps0:2.3e-31 breather -:1.2e-30 breather +Xi:7.2e-31
+  n=4 om=0.83 mu=(-0.31 + 0.07j): worst 2.52e-30  A0 unit:1.0e-31 A0 cross:6.2e-32 unit +1:1.5e-31 cross +1:2.0e-31 unit -1:9.9e-31 cross -1:8.0e-31 breather eps0:7.9e-31 breather -:7.2e-31 breather +Xi:2.5e-30
+  n=5 om=0.37 mu=(0.13 + 0.21j): worst 1.24e-30  A0 unit:7.4e-32 A0 cross:2.0e-31 unit +1:3.4e-31 cross +1:0.0 unit -1:3.7e-31 cross -1:2.1e-31 breather eps0:2.1e-31 breather -:6.2e-31 breather +Xi:1.2e-30
+  n=5 om=0.37 mu=(-0.31 + 0.07j): worst 1.02e-30  A0 unit:8.5e-34 A0 cross:5.5e-32 unit +1:2.7e-31 cross +1:6.6e-31 unit -1:4.0e-31 cross -1:1.5e-31 breather eps0:6.9e-31 breather -:1.0e-30 breather +Xi:1.0e-30
+  n=5 om=0.83 mu=(0.13 + 0.21j): worst 1.01e-30  A0 unit:1.2e-32 A0 cross:8.8e-31 unit +1:5.7e-31 cross +1:5.0e-31 unit -1:4.1e-31 cross -1:5.9e-31 breather eps0:1.0e-30 breather -:7.9e-31 breather +Xi:8.5e-31
+  n=5 om=0.83 mu=(-0.31 + 0.07j): worst 1.39e-30  A0 unit:9.9e-32 A0 cross:6.2e-32 unit +1:2.8e-31 cross +1:1.3e-30 unit -1:3.8e-31 cross -1:2.6e-31 breather eps0:4.4e-31 breather -:1.4e-30 breather +Xi:7.2e-31
+  n=6 om=0.37 mu=(0.13 + 0.21j): worst 1.01e-30  A0 unit:3.8e-32 A0 cross:5.9e-31 unit +1:9.9e-32 cross +1:8.2e-31 unit -1:1.2e-31 cross -1:6.6e-32 breather eps0:4.4e-31 breather -:1.0e-30 breather +Xi:3.2e-31
+  n=6 om=0.37 mu=(-0.31 + 0.07j): worst 2.7e-30  A0 unit:9.9e-32 A0 cross:1.2e-31 unit +1:9.9e-32 cross +1:4.1e-31 unit -1:6.9e-31 cross -1:7.1e-31 breather eps0:4.5e-31 breather -:7.3e-31 breather +Xi:2.7e-30
+  n=6 om=0.83 mu=(0.13 + 0.21j): worst 1.32e-30  A0 unit:1.7e-32 A0 cross:4.4e-31 unit +1:8.0e-31 cross +1:2.2e-31 unit -1:4.6e-31 cross -1:4.2e-31 breather eps0:3.1e-31 breather -:1.1e-30 breather +Xi:1.3e-30
+  n=6 om=0.83 mu=(-0.31 + 0.07j): worst 8.76e-30  A0 unit:5.1e-33 A0 cross:2.5e-32 unit +1:3.6e-31 cross +1:6.3e-31 unit -1:6.3e-31 cross -1:2.8e-31 breather eps0:9.9e-31 breather -:3.2e-30 breather +Xi:8.8e-30
+Part B: continuation omega -> -2/B
+  n=4 B=0.31: K^N=K_1(2-B) 4.8e-31, K^(-)=K_1/K_1cl 4.7e-31, eps0=K_1 4.9e-31; axioms K^N 1.3e-30, K^(-) 1.1e-30, minimal 7.5e-30
+  n=4 B=1.37: K^N=K_1(2-B) 6.0e-31, K^(-)=K_1/K_1cl 6.1e-31, eps0=K_1 5.9e-31; axioms K^N 2.4e-30, K^(-) 2.7e-30, minimal 8.8e-30
+  n=4 B=(0.6 + 0.2j): K^N=K_1(2-B) 4.2e-31, K^(-)=K_1/K_1cl 7.9e-31, eps0=K_1 1.1e-30; axioms K^N 1.4e-30, K^(-) 1.6e-30, minimal 5.9e-30
+  n=4: K^N, K^(-) -> 1 as B -> 0
+  n=5 B=0.31: K^N=K_1(2-B) 4.3e-31, K^(-)=K_1/K_1cl 6.1e-31, eps0=K_1 4.1e-31; axioms K^N 1.1e-30, K^(-) 1.3e-30, minimal 8.3e-30
+  n=5 B=1.37: K^N=K_1(2-B) 5.4e-31, K^(-)=K_1/K_1cl 3.9e-31, eps0=K_1 5.0e-31; axioms K^N 9.3e-31, K^(-) 2.3e-30, minimal 6.7e-30
+  n=5 B=(0.6 + 0.2j): K^N=K_1(2-B) 4.4e-31, K^(-)=K_1/K_1cl 5.8e-31, eps0=K_1 2.8e-31; axioms K^N 2.1e-30, K^(-) 3.2e-30, minimal 1.0e-29
+  n=5: K^N, K^(-) -> 1 as B -> 0
+  n=6 B=0.31: K^N=K_1(2-B) 6.4e-31, K^(-)=K_1/K_1cl 6.3e-31, eps0=K_1 3.9e-31; axioms K^N 1.9e-30, K^(-) 2.0e-30, minimal 9.3e-30
+  n=6 B=1.37: K^N=K_1(2-B) 5.0e-31, K^(-)=K_1/K_1cl 5.1e-31, eps0=K_1 6.3e-31; axioms K^N 3.4e-30, K^(-) 4.5e-30, minimal 1.4e-29
+  n=6 B=(0.6 + 0.2j): K^N=K_1(2-B) 3.6e-31, K^(-)=K_1/K_1cl 3.3e-31, eps0=K_1 4.2e-31; axioms K^N 4.4e-30, K^(-) 4.5e-30, minimal 9.5e-30
+  n=6: K^N, K^(-) -> 1 as B -> 0
+  n=7 B=0.31: K^N=K_1(2-B) 5.5e-31, K^(-)=K_1/K_1cl 5.7e-31, eps0=K_1 4.0e-31; axioms K^N 3.8e-30, K^(-) 3.2e-30, minimal 1.3e-29
+  n=7 B=1.37: K^N=K_1(2-B) 5.9e-31, K^(-)=K_1/K_1cl 4.3e-31, eps0=K_1 5.9e-31; axioms K^N 2.9e-30, K^(-) 2.2e-30, minimal 8.5e-30
+  n=7 B=(0.6 + 0.2j): K^N=K_1(2-B) 2.2e-31, K^(-)=K_1/K_1cl 5.5e-31, eps0=K_1 4.1e-31; axioms K^N 2.2e-30, K^(-) 2.8e-30, minimal 1.3e-29
+  n=7: K^N, K^(-) -> 1 as B -> 0
+  one loop d_4 vs Kim-Cho (29): O(B^0) value and O(B) coefficient of log K at three rapidities
+    Xi = P0 Pw/2 P(T-w)/2     : max(|K(0)-1|, |dlogK - KimCho|) = 1.23e-14
+    none (minimal)            : max(|K(0)-1|, |dlogK - KimCho|) = 3.45
+    P1/2 Pw/2 P(T-w)/2        : max(|K(0)-1|, |dlogK - KimCho|) = 1.23e-14
+    P0 P1/2+w/2 P(T-w)/2      : max(|K(0)-1|, |dlogK - KimCho|) = 1.95e-14
+    P1/2 P1/2+w/2 P(T-w)/2    : max(|K(0)-1|, |dlogK - KimCho|) = 1.96e-14
+PASS d_n s = +-1 scalar factors, breathers, continued amplitudes, one loop

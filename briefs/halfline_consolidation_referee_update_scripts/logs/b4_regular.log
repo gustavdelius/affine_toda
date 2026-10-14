@@ -1,0 +1,6 @@
+a2 completed regular backgrounds
+a3 completed regular backgrounds
+a4 completed regular backgrounds
+a5 completed regular backgrounds
+regular total 56 {'field': '1.5167e-79', 'wave': '2.5726e-79', 'boundary': '1.5913e-78', 'reflection': '9.3254e-79', 'solve': '9.8779e-86'}
+PASS regular a2-a5 field, fluctuation, boundary and DG reflection identities

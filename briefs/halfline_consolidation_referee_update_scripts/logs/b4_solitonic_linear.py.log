@@ -1,0 +1,35 @@
+1. linearized K about continued vacua vs DG K^(b)_c at B = 0 (b = a)
+   a_2 a=1 chi=2.094 pattern --+ (bc spread 6e-16): |K_cc - DG| 4.3e-12, off-diagonal 1.6e-12
+   a_2 a=1 chi=4.189 pattern -+- (bc spread 3e-15): |K_cc - DG| 4.3e-12, off-diagonal 1.6e-12
+   a_2 a=1 chi=6.283 pattern +-- (bc spread 1e-15): |K_cc - DG| 4.3e-12, off-diagonal 1.6e-12
+   a_3 a=1 chi=0.785 pattern +--+ (bc spread 7e-16): |K_cc - DG| 4.6e-12, off-diagonal 2.6e-11
+   a_3 a=1 chi=2.356 pattern --++ (bc spread 2e-16): |K_cc - DG| 4.6e-12, off-diagonal 2.6e-11
+   a_3 a=1 chi=3.927 pattern -++- (bc spread 1e-15): |K_cc - DG| 4.6e-12, off-diagonal 2.6e-11
+   a_4 a=1 chi=1.257 pattern +--++ (bc spread 1e-15): |K_cc - DG| 4.9e-12, off-diagonal 1.2e-08
+   a_4 a=1 chi=2.513 pattern --+++ (bc spread 1e-15): |K_cc - DG| 4.9e-12, off-diagonal 1.2e-08
+   a_4 a=1 chi=3.770 pattern -+++- (bc spread 2e-15): |K_cc - DG| 4.9e-12, off-diagonal 1.2e-08
+   a_4 a=2 chi=1.257 pattern --+-- (bc spread 3e-15): |K_cc - DG| 5.1e-12, off-diagonal 4.6e-13
+   a_4 a=2 chi=2.513 pattern ----+ (bc spread 1e-15): |K_cc - DG| 5.1e-12, off-diagonal 4.6e-13
+   a_4 a=2 chi=3.770 pattern -+--- (bc spread 2e-15): |K_cc - DG| 5.1e-12, off-diagonal 4.6e-13
+   a_5 a=1 chi=0.524 pattern ++--++ (bc spread 1e-15): |K_cc - DG| 5.0e-12, off-diagonal 4.4e-08
+   a_5 a=1 chi=1.571 pattern +--+++ (bc spread 1e-15): |K_cc - DG| 5.0e-12, off-diagonal 4.4e-08
+   a_5 a=1 chi=2.618 pattern --++++ (bc spread 3e-15): |K_cc - DG| 5.0e-12, off-diagonal 4.4e-08
+   a_5 a=2 chi=2.094 pattern --+--+ (bc spread 1e-15): |K_cc - DG| 5.1e-12, off-diagonal 1.6e-12
+   a_5 a=2 chi=4.189 pattern -+--+- (bc spread 2e-15): |K_cc - DG| 5.1e-12, off-diagonal 1.6e-12
+   a_5 a=2 chi=6.283 pattern +--+-- (bc spread 3e-15): |K_cc - DG| 5.1e-12, off-diagonal 1.6e-12
+   self-conjugate family tau_j = 1 + (-1)^j d e^{2x}, C = -1, b = h/2
+   a_3 d=0.3 pattern ----: |K - DG| 5.0e-12, off-diagonal 4.6e-13
+   a_3 d=0.8 pattern ----: |K - DG| 5.0e-12, off-diagonal 6.9e-13
+   a_5 d=0.3 pattern ------: |K - DG| 5.4e-12, off-diagonal 8.9e-13
+   a_5 d=0.8 pattern ------: |K - DG| 5.2e-12, off-diagonal 6.7e-13
+2. a_3 middle-soliton endpoint d -> 1 with the alternating pattern's boundary Hessian
+   1-d = 1e-02: |K_11 - (-(1)(3))| = 5.00e-03, max off-diagonal 5.00e-03
+   1-d = 1e-03: |K_11 - (-(1)(3))| = 4.98e-04, max off-diagonal 4.98e-04
+   1-d = 1e-04: |K_11 - (-(1)(3))| = 2.14e-04, max off-diagonal 2.14e-04
+   other alternating pattern (-+-+), 1-d = 1e-4: |K_11 + (1)(3)| = 4.50e-05
+3. a_5 pattern (+,+,-,-,-,-) at the species-2 pair endpoint chi = 5pi/3: path dependence
+   delta = 1e-02: chi path K_11 = 0.139552+0.978496j / 0.280437+0.581648j, |K_15| = 0.860571 / 0.582152;  d path K_11 = -0.071160+0.366265j, |K_15| = 0.927785
+   delta = 1e-03: chi path K_11 = -1.799015-3.782155j / -0.913175-0.355398j, |K_15| = 5.062077 / 1.970398;  d path K_11 = -0.065270+0.344586j, |K_15| = 0.936485
+   delta = 1e-04: chi path K_11 = 69.395501+24.424723j / 1.106304+0.681681j, |K_15| = 72.627245 / 0.298699;  d path K_11 = -0.064539+0.343566j, |K_15| = 0.936746
+   DG b=2 diagonal value (2)(4)/((1)(5)) = 0.856552+0.516061j
+FAIL linearized reflection about the regular continued vacua = DG (5.7) at B = 0 (a_2..a_5)

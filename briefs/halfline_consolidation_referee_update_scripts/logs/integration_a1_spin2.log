@@ -1,0 +1,4 @@
+free parameters of the spin-3 current: [f0_1, f0_2, f1_1, f1_2, f2_1, f2_2]
+solutions (c, current parameters) making the flux a total time derivative: [{f0_1: sqrt(3)*f0_2/3 - 2*sqrt(3)*f1_2/3 + f2_1 + sqrt(3)*f2_2/3}]
+flux at c = 1 with dp/dt = 0: -(15*sqrt(3)*P1**2*P2*f0_1 - 15*P1**2*P2*f0_2 + 30*P1**2*P2*f1_2 - 15*sqrt(3)*P1**2*P2*f2_1 - 15*P1**2*P2*f2_2 - 57*P1*f0_1 + 19*sqrt(3)*P1*f0_2 - 38*sqrt(3)*P1*f1_2 + 57*P1*f2_1 + 19*sqrt(3)*P1*f2_2 - 5*sqrt(3)*P2**3*f0_1 + 5*P2**3*f0_2 - 10*P2**3*f1_2 + 5*sqrt(3)*P2**3*f2_1 + 5*P2**3*f2_2 - 14*sqrt(3)*P2*f0_1 + 14*P2*f0_2 - 28*P2*f1_2 + 14*sqrt(3)*P2*f2_1 + 14*P2*f2_2)/45
+cubic coefficients of T in each solution: [[0, 0]]
