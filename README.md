@@ -44,7 +44,7 @@ The record of what has been checked, and how, is in [`briefs/`](briefs/) (for ex
 
 An unnumbered preface comes first. Chapter 1 is the introduction and reader's guide, and the outlook is chapter 50. The guide sets out six reading paths: a course on integrable field theory, a course on quantum groups in field theory, integrable boundaries, integrable defects, non-unitary quantum field theory, and a path for specialists through Parts V–IX.
 
-The book's own summary of new material is in the introduction, and [Appendix D](appendices/D-corrections.qmd) lists every correction the book makes to published papers.
+The book's own list of its original results is [Appendix E](appendices/E-original-results.qmd), and [Appendix D](appendices/D-corrections.qmd) lists every correction the book makes to published papers.
 
 ## Repository layout
 

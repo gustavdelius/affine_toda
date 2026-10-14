@@ -48,7 +48,7 @@ Create `briefs/<tag>_checkpoint.md`. After every completed item, append one line
 - The chapter(s) above (the main target).
 - Minimal consistency edits in other chapters that repeat a corrected claim. Do not edit `<files currently under review by a referee>`; record the edits they need as pending in the status record instead.
 - `appendices/D-corrections.qmd`, and the script's row in `appendices/C-code.qmd`.
-- `01-introduction.qmd`, section `sec-new-results` only: this part's items in the list of original results, and the paragraph after the list, when a verdict changes what they say.
+- `appendices/E-original-results.qmd`: this part's items in the list of original results, when a verdict changes what they say. Likewise, in `01-introduction.qmd`, section `sec-new-results` only, the paragraph on errors in published papers.
 - The chapter's check script, its figure scripts and their SVGs. Figure scripts write into the repository whatever `OUT_DIR` says, so run `git restore` on every other regenerated SVG whose diff is only ids and timestamps.
 - The script directory's README.
 - `<the part's status record and conventions brief>`.

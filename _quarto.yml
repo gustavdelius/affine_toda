@@ -106,6 +106,7 @@ book:
     - appendices/B-numerics.qmd
     - appendices/C-code.qmd
     - appendices/D-corrections.qmd
+    - appendices/E-original-results.qmd
 
 bibliography: references.bib
 csl: aps.csl
