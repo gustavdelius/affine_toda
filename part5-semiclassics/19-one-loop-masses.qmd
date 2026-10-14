@@ -22,9 +22,9 @@ Three independent checks favour the algebraic-multiplicity count:
 The details are in @sec-hirota-form-dn1-en1 and @sec-one-loop-masses-folded. For $b_n^{(1)}$ the spinor soliton is the coincident pair $(s,s')$ of $d_{n+1}^{(1)}$. Every vector channel $b$ has a double zero at $\lambda=2m^2\sin^2(\pi b/n)$. These zeros are isolated, embedded, or (for $b=n/2$) at the spinor threshold. Counted with weight 2 they give the soliton floating Coxeter number $H_s=2n+\beta^2/4\pi$ from every ratio, which is the exact result of [@gmw1996]. (The particles of $b_n^{(1)}$ have instead $H=2n-\beta^2/4\pi$, @tbl-floating-h.) Counted once they give MacKay and Watts' table (@sec-one-loop-masses-folded).
 
 ::: {#cnj-counting-rule}
-**[Part 1 is a theorem given (D); Part 2 is a conjecture]** In part 1, the trace-weight clause also rests on @prp-net-count part 2, whose hypothesis (X3) is numerical beyond $a_n^{(1)}$ and $c_n^{(1)}$.
+**[Part 1 is a theorem; Part 2 is a conjecture]** Part 1 is conditional on @hyp-D. In part 1, the trace-weight clause also rests on @prp-net-count part 2, whose @hyp-X3 is numerical beyond $a_n^{(1)}$ and $c_n^{(1)}$.
 
-1. For every $\hat g$ and every soliton obtained by folding Hirota multisolitons, the fluctuation solutions have the Hirota form (H) of @sec-counting-rule-transmission-factors. Then the factorization (-@eq-net-factorization) holds by @thm-hirota-factorization, the algebraic multiplicity of each isolated eigenvalue is the net order (zeros minus poles) of $\prod_bX_{ab}$, and the same net order is the weight in the one-loop trace. Wherever Hypothesis (R) holds, the Jordan blocks have the sizes of the individual zeros (@thm-jordan-chains).
+1. For every $\hat g$ and every soliton obtained by folding Hirota multisolitons, the fluctuation solutions have the Hirota form @hyp-H of @sec-counting-rule-transmission-factors. Then the factorization (-@eq-net-factorization) holds by @thm-hirota-factorization, the algebraic multiplicity of each isolated eigenvalue is the net order (zeros minus poles) of $\prod_bX_{ab}$, and the same net order is the weight in the one-loop trace. Wherever @hyp-R holds, the Jordan blocks have the sizes of the individual zeros (@thm-jordan-chains).
 2. Counting accordingly, the one-loop masses of all solitons obtained by folding multisolitons satisfy
 
 $$
@@ -35,16 +35,16 @@ where, for untwisted $\hat g$, $m^\vee$ are the one-loop particle masses of the 
 
 :::
 
-Part 1 is a theorem given the degree bound (D) of @sec-hirota-form-dn1-en1 (@prp-hirota-form, which covers single solitons and coincident orbits). (D) has been checked numerically, at $3(h+2)$ random points per soliton–channel pair, for $d_n^{(1)}$ with $n\le8$, for all $e_n^{(1)}$, and for the 19 foldings listed there; it is not proved. So part 1 depends on (D) except for $a_n^{(1)}$ and $c_n^{(1)}$. Evidence for part 2:
+Part 1 is a theorem given the degree bound @hyp-D of @sec-hirota-form-dn1-en1 (@prp-hirota-form, which covers single solitons and coincident orbits). @hyp-D has been checked numerically, at $3(h+2)$ random points per soliton–channel pair, for $d_n^{(1)}$ with $n\le8$, for all $e_n^{(1)}$, and for the 19 foldings listed there; it is not proved. So part 1 depends on @hyp-D except for $a_n^{(1)}$ and $c_n^{(1)}$. Evidence for part 2:
 
 - In every family tested, the counting rule makes all one-loop soliton mass ratios follow one floating Coxeter number, and counting each multiple zero once breaks this (@sec-one-loop-masses-folded). The families are $b_n^{(1)}$ ($n\le7$), $c_n^{(1)}$ ($n\le6$), $g_2^{(1)}$, $f_4^{(1)}$, $a_{2n-1}^{(2)}$ ($n\le4$), $d_{n+1}^{(2)}$ ($n\le6$), $a_{2n}^{(2)}$ ($n\le3$), $d_4^{(3)}$ and $e_6^{(2)}$.
 - The resulting floating Coxeter numbers agree at $O(\beta^2)$ with every known result: the exact $b_n^{(1)}$ [@gmw1996], $g_2^{(1)}$ [@takacs1997b], $d_4^{(3)}$ [@takacs1997c], $d_{n+1}^{(2)}$ [@gm1995] and $a_{2n}^{(2)}$ [@gandenberger1998] masses; Part VI's $c_n^{(1)}$ (complete for $n=3$), $a_{2n-1}^{(2)}$ and $e_6^{(2)}$ amplitudes; and the one-loop $c_n^{(1)}$ result of [@delius_grisaru1995].
 - The $c_n^{(1)}$ blocks were constructed explicitly as Jordan chains (@prp-cn-threshold-blocks), and the lattice evaluation of (-@eq-one-loop-mass) agrees with the algebraic-multiplicity count.
 - For $b_3^{(1)}$ and $g_2^{(1)}$ the spectrum and heat trace on a Fourier grid confirm clusters of algebraic multiplicity 4 at $\lambda=\tfrac32$, and @prp-net-count part 2, to $10^{-5}$.
 
-The weight relevant to (-@eq-one-loop-mass) is the net order from (-@eq-net-factorization). It agrees with the dimension of the $L^2$ root space where (R) holds, but not at threshold resonances (@prp-cn-threshold-blocks and @sec-hirota-form-dn1-en1). The simpler statement, that every zero of $X_{ab}$ in the bound-state half-plane is an eigenvalue of multiplicity equal to its order, is false: in $a_4^{(1)}$ a zero of $X_{12}$ is cancelled by a pole of $X_{11}$ (@prp-an-zeros).
+The weight relevant to (-@eq-one-loop-mass) is the net order from (-@eq-net-factorization). It agrees with the dimension of the $L^2$ root space where @hyp-R holds, but not at threshold resonances (@prp-cn-threshold-blocks and @sec-hirota-form-dn1-en1). The simpler statement, that every zero of $X_{ab}$ in the bound-state half-plane is an eigenvalue of multiplicity equal to its order, is false: in $a_4^{(1)}$ a zero of $X_{12}$ is cancelled by a pole of $X_{11}$ (@prp-an-zeros).
 
-This closes H8 for the algebraic multiplicity of isolated eigenvalues, given (D). (D) has been checked numerically, but not proved, for $d_n^{(1)}$ with $n\le8$, for all $e_n^{(1)}$, and for the 19 foldings of @sec-hirota-form-dn1-en1. The mass-ratio statement holds numerically in every family tested and remains to be proved.
+This closes H8 for the algebraic multiplicity of isolated eigenvalues, given @hyp-D. @hyp-D has been checked numerically, but not proved, for $d_n^{(1)}$ with $n\le8$, for all $e_n^{(1)}$, and for the 19 foldings of @sec-hirota-form-dn1-en1. The mass-ratio statement holds numerically in every family tested and remains to be proved.
 
 ## One-loop masses of the folded solitons {#sec-one-loop-masses-folded}
 
@@ -52,7 +52,7 @@ The counting rule turns the one-loop masses into a computation with the transmis
 
 ::: {#lem-born}
 ## Born approximation
-**[Theorem]** Assume (H), with $\psi_b^-$ rational in $z_b$, and take the channel vectors $e_b=u_b$ of (H). Then, as $k\to\infty$,
+**[Theorem]** Assume @hyp-H, with $\psi_b^-$ rational in $z_b$, and take the channel vectors $e_b=u_b$ of @hyp-H. Then, as $k\to\infty$,
 
 $$
 X_b(k)=1-\frac{ic_b}{2k}+O(k^{-2}),\qquad c_b=\int e_{\bar b}^{\mathsf T}\,\delta\mathsf M^2(x)\,e_b\,dx .
@@ -66,18 +66,18 @@ $$
    \psi(x)=e^{ikx}e_b+\int_{-\infty}^xG(x-y)\,\delta\mathsf M^2(y)\psi(y)\,dy,\qquad G(x)=\sum_c\frac{\sin k_cx}{k_c}\,e_ce_{\bar c}^{\mathsf T}.
    $$
    Then $(\mathcal A-\lambda)\psi=0$ at $\lambda=m_b^2+k^2$. Since $\lVert G\rVert=O(1/k)$, Gronwall's inequality gives $\sup_x\lVert\psi(x)-e^{ikx}e_b\rVert=O(1/k)$.
-2. Real $k$ lies on the boundary of the physical sheet, where (H) does not directly apply. But $Y_b^-$ is rational in the $E_i$ with coefficients rational in $z_b$, so $\psi_b^-$ continues to $z_b=ik/m_b$ for all but finitely many real $k$. It still solves $(\mathcal A-\lambda)u=0$, and its limits at $\pm\infty$ are still $e^{ikx}u_b$ and $X_be^{ikx}u_b$: the first is the value at $E_i=0$, the second a ratio of top coefficients, and both continue rationally in $z_b$. So $\psi_b^--e^{ikx}e_b\to0$ as $x\to-\infty$, and so does $\psi$. All channels are open at this $\lambda$. Variation of constants about the free system, whose solutions $e^{\pm ik_cx}e_c$ are bounded with a bounded inverse fundamental matrix, shows that the only solution tending to $0$ at $-\infty$ is $0$ [@coddington1955, Ch. 3]. This holds also when masses are degenerate, since the $e_c$ remain independent. So $\psi=\psi_b^-$.
+2. Real $k$ lies on the boundary of the physical sheet, where @hyp-H does not directly apply. But $Y_b^-$ is rational in the $E_i$ with coefficients rational in $z_b$, so $\psi_b^-$ continues to $z_b=ik/m_b$ for all but finitely many real $k$. It still solves $(\mathcal A-\lambda)u=0$, and its limits at $\pm\infty$ are still $e^{ikx}u_b$ and $X_be^{ikx}u_b$: the first is the value at $E_i=0$, the second a ratio of top coefficients, and both continue rationally in $z_b$. So $\psi_b^--e^{ikx}e_b\to0$ as $x\to-\infty$, and so does $\psi$. All channels are open at this $\lambda$. Variation of constants about the free system, whose solutions $e^{\pm ik_cx}e_c$ are bounded with a bounded inverse fundamental matrix, shows that the only solution tending to $0$ at $-\infty$ is $0$ [@coddington1955, Ch. 3]. This holds also when masses are degenerate, since the $e_c$ remain independent. So $\psi=\psi_b^-$.
 3. As $x\to+\infty$, using $e_{\bar b}^{\mathsf T}e_c=\delta_{bc}$,
    $$
    e_{\bar b}^{\mathsf T}\psi\to e^{ikx}\Big(1+\frac1{2ik}\int e^{-iky}e_{\bar b}^{\mathsf T}\delta\mathsf M^2\psi\,dy\Big)-e^{-ikx}\,\frac1{2ik}\int e^{iky}e_{\bar b}^{\mathsf T}\delta\mathsf M^2\psi\,dy .
    $$
-   By (H) the limit is $X_be^{ikx}$. Comparing coefficients and inserting step 1 gives the expansion for real $k\to+\infty$. $X_b$ is rational in $k$, so this is its Laurent expansion at $\infty$, valid in all directions.
+   By @hyp-H the limit is $X_be^{ikx}$. Comparing coefficients and inserting step 1 gives the expansion for real $k\to+\infty$. $X_b$ is rational in $k$, so this is its Laurent expansion at $\infty$, valid in all directions.
 
 :::
 
 ::: {#prp-one-loop-mass}
 ## One-loop mass from the transmission factors
-**[Theorem]** Assume (H), with $\psi_b^\mp$ rational in $z_b$, and assume that every zero and pole of every $X_b(z)$ lies in $[-1,1]$. Then the integral (-@eq-one-loop-mellin) converges, and
+**[Theorem]** Assume @hyp-H, with $\psi_b^\mp$ rational in $z_b$, and assume that every zero and pole of every $X_b(z)$ lies in $[-1,1]$. Then the integral (-@eq-one-loop-mellin) converges, and
 
 $$
 \Delta M=\tfrac12\sum_bm_b\sum_w\operatorname{ord}_w(X_b)\,\varpi(\arcsin w),\qquad \varpi(t)=\frac{t\cos t-\sin t}{\pi},
@@ -88,7 +88,7 @@ where $w$ runs over all zeros and poles of $X_b$ in $[-1,1]$, with zeros counted
 :::
 
 ::: {.proof}
-1. *Hypotheses.* (H) gives (-@eq-net-factorization) by @thm-hirota-factorization. $X_bu_b$ is the limit at $+\infty$ of a rational function of the $E_i$ with coefficients rational in $z_b$, so (X1) holds. @lem-wronskian, applied on the whole $z$-plane, gives (X2). Roots in $[-1,1]$ give (X3). So parts 2 and 3 of @prp-net-count apply. Write $o_{\mu,w}=\operatorname{ord}_wX_\mu$ for $0<w\le1$, as in @prp-net-count. By @lem-born, $X_\mu(\infty)=1$. This fixes the sign in step 1 of the proof of part 3 of @prp-net-count, so $X_\mu(z)=\prod_{0<w\le1}\big(\frac{z-w}{z+w}\big)^{o_{\mu,w}}$. The sign does not affect the heat trace; it is used only to take logarithms in step 2.
+1. *Hypotheses.* @hyp-H gives (-@eq-net-factorization) by @thm-hirota-factorization. $X_bu_b$ is the limit at $+\infty$ of a rational function of the $E_i$ with coefficients rational in $z_b$, so @hyp-X1 holds. @lem-wronskian, applied on the whole $z$-plane, gives @hyp-X2. Roots in $[-1,1]$ give @hyp-X3. So parts 2 and 3 of @prp-net-count apply. Write $o_{\mu,w}=\operatorname{ord}_wX_\mu$ for $0<w\le1$, as in @prp-net-count. By @lem-born, $X_\mu(\infty)=1$. This fixes the sign in step 1 of the proof of part 3 of @prp-net-count, so $X_\mu(z)=\prod_{0<w\le1}\big(\frac{z-w}{z+w}\big)^{o_{\mu,w}}$. The sign does not affect the heat trace; it is used only to take logarithms in step 2.
 2. *Counterterm.* The operator $\delta\mathsf M^2e^{-t\mathcal A_0}=\delta\mathsf M^2(x)\,e^{-tp^2}e^{-t\mathsf M^2}$, with $p=-i\partial_x$, is trace class, because $\delta\mathsf M^2$ and $e^{-tp^2}$ both lie in $\ell^1(L^2)$ [@simon2005, Ch. 4]. Here $f\in\ell^1(L^2)$ means $\sum_{n\in\mathbb Z}\lVert f\rVert_{L^2([n,n+1])}<\infty$. The exponential decay of $\delta\mathsf M^2$ makes this sum a convergent geometric series, and $e^{-tp^2}$ is a Gaussian. The trace is $\frac1{2\pi}\int e^{-tp^2}dp\int\operatorname{tr}\big(\delta\mathsf M^2(x)e^{-t\mathsf M^2}\big)dx$. So $\operatorname{Tr}\big((\mathcal A-\mathcal A_0)e^{-t\mathcal A_0}\big)=\frac1{\sqrt{4\pi t}}\sum_bc_be^{-tm_b^2}$, using $e^{-t\mathsf M^2}=\sum_be^{-tm_b^2}e_be_{\bar b}^{\mathsf T}$. With $z=ik/\mu$, $\log\frac{z-w}{z+w}=\frac{2i\mu w}k+O(k^{-3})$. Comparing with @lem-born summed over the level gives $\sum_{m_b=\mu}c_b=-4\mu\sum_wo_{\mu,w}w$.
 3. *Reduction to one root.* By step 2 and part 3 of @prp-net-count, the bracket in (-@eq-one-loop-mellin) equals $\sum_\mu\sum_wo_{\mu,w}F_w(\mu^2t)$, with
    $$
@@ -132,7 +132,7 @@ $\varpi$ is continuous at $w=0$, so a zero that crosses a threshold causes no ju
 | $d_4^{(3)}$ | $e_6^{(1)}$ | none | $+3/2\pi$ | same | exact [@takacs1997c] |
 | $e_6^{(2)}$ | $e_7^{(1)}$ | none | $+3/2\pi$ | same | Part VI |
 
-Each entry applies @prp-one-loop-mass with the folded transmission factors $X_b^{\rm fold}=\prod_{a'\in O(a)}X_{a'b}$, the parent factors being computed from the Hirota solutions. Except for $c_n^{(1)}$, where everything is explicit, the hypotheses of @prp-one-loop-mass are numerical here (@sec-counting-rule-transmission-factors, "Which solitons satisfy the hypotheses"). For $b_7^{(1)}$, $a_7^{(2)}$, $d_6^{(2)}$, $d_7^{(2)}$, and $a_{2n}^{(2)}$ obtained from $d_{2n+2}^{(1)}$, the product form itself is assumed: these foldings are not among the 19 for which (H) was checked in @sec-hirota-form-dn1-en1.
+Each entry applies @prp-one-loop-mass with the folded transmission factors $X_b^{\rm fold}=\prod_{a'\in O(a)}X_{a'b}$, the parent factors being computed from the Hirota solutions. Except for $c_n^{(1)}$, where everything is explicit, the hypotheses of @prp-one-loop-mass are numerical here (@sec-counting-rule-transmission-factors, "Which solitons satisfy the hypotheses"). For $b_7^{(1)}$, $a_7^{(2)}$, $d_6^{(2)}$, $d_7^{(2)}$, and $a_{2n}^{(2)}$ obtained from $d_{2n+2}^{(1)}$, the product form itself is assumed: these foldings are not among the 19 for which @hyp-H was checked in @sec-hirota-form-dn1-en1.
 
 The comparisons use the normalization of @sec-lie-algebraic-data, with longest roots of squared length 2 and the same $m$; folding preserves $\beta$. For twisted algebras the cited papers give the longest root squared length $2k$, so their coupling is $\beta^2/k$. In the normalization of @sec-lie-algebraic-data the gradation formula of @sec-amplitude-and-gradation then gives $\omega=4\pi/\beta^2-1$, that is $1/\omega=\beta^2/4\pi+O(\beta^4)$, for every amplitude compared, and the comparisons use this coupling map. (This $\omega$ is the gradation parameter of Part VI, not a mode frequency $\omega_n$.) It is related to the parameter $B$ of (-@eq-b-of-beta) by $2/\omega=B(\beta)+O(\beta^4)$. Exactly, $2/\omega=-B(\beta_r)$ with $\beta_r^2=-\beta^2$, the continuation of (-@eq-b-of-beta) to imaginary coupling. @tbl-floating-h uses $B(\beta_*)$ with $\beta_*^2=\beta^2/k$ for $c_n^{(1)}$, $g_2^{(1)}$ and $f_4^{(1)}$; for $g_2^{(1)}$, for example, $3B(\beta/\sqrt3)=\beta^2/2\pi+O(\beta^4)=2/\omega+O(\beta^4)$. With it every known result agrees at $O(\beta^2)$. For the $b_3^{(1)}$ spinor and the $g_2^{(1)}$ triple composite, a Fourier-grid diagonalization finds four eigenvalues clustered at $\lambda=\tfrac32$, as the net count predicts. The heat trace matches @prp-net-count part 2 to $10^{-5}$, and the grid value of (-@eq-one-loop-mass) converges towards the closed form. Scripts: `textbook_code/oneloop/`.
 

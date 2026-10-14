@@ -124,8 +124,8 @@ Many statements in the next three chapters are labelled [Numerical], and several
 | zero-dimensional $i\phi^3$ integral | @sec-picard-lefschetz | `semiclassics.py` |
 | reduced model: critical points, intersection numbers, decomposition | @sec-which-saddles-contribute | `thimbles/run_a2L1_final.py`, `thimbles/check_cg.py`, `thimbles/check_th4.py`, `thimbles/check_L2.py` |
 | topological charges of static solitons and of bound states | @prp-static-saddles | `thimbles/charges.py`, `thimbles/charges_multi.py` |
-| (D), (H) and the block formula for $X_{ab}$ | @prp-hirota-form | `hirota/fluct_scan.py`, `hirota/check_equations.py`, `hirota/checks_SN.py`, `hirota/compare_dorey.py` |
-| foldings: (H) and $X_b^{\rm fold}=\prod X_{a'b}$ | @sec-hirota-form-dn1-en1 | `hirota/fold.py`, `hirota/fold_tables.py`, `oneloop/composite.py` |
+| @hyp-D, @hyp-H and the block formula for $X_{ab}$ | @prp-hirota-form | `hirota/fluct_scan.py`, `hirota/check_equations.py`, `hirota/checks_SN.py`, `hirota/compare_dorey.py` |
+| foldings: @hyp-H and $X_b^{\rm fold}=\prod X_{a'b}$ | @sec-hirota-form-dn1-en1 | `hirota/fold.py`, `hirota/fold_tables.py`, `oneloop/composite.py` |
 | reflectionless scattering, Wronskians, determinant | @thm-hirota-factorization | `hirota/transfer_check.py`, `hirota/theoremG_check.py` |
 | grid spectra, net counts, Jordan types, threshold zeros | @prp-an-zeros, @prp-cn-threshold-blocks, @sec-hirota-form-dn1-en1 | `hirota/grid_jordan.py`, `hirota/jordan_check.py`, `hirota/tables.py`, `hirota/threshold_scan.py` |
 | heat traces | @prp-net-count | `oneloop/heat_trace_checks.py --grid 768`, `hirota/heat_a3.py`, `oneloop/phi4_check.py` |
