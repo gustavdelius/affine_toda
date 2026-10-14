@@ -147,6 +147,7 @@ format:
       - path: status-tags.lua
         at: pre-ast
       - path: hyp-names.lua
+      - path: script-links.lua
   pdf:
     documentclass: scrreprt
     classoption: [enabledeprecatedfontcommands]  # math uses \rm, \bf
@@ -157,6 +158,7 @@ format:
       - path: part-preamble.lua
         at: post-render
       - path: hyp-names.lua
+      - path: script-links.lua
     include-in-header:
       text: |
         % Part titles already read "Part I: ...", so drop LaTeX's own part label

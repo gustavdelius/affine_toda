@@ -23,6 +23,12 @@ Checks, one PASS, FAIL or WARN line each; exit status 1 on any FAIL:
      kind) as the item's label. So the item may abbreviate a long label, but
      an upgrade, a downgrade or a refutation in the chapter fails until the
      list is updated. Section ids are allowed; their labels are not checked.
+  7. every script path cited as inline code resolves. A code span counts as a
+     script citation when its first whitespace-delimited token ends in ".py" or
+     starts with textbook_code/, foundations_code/ or soliton_rmatrix_code/.
+     The token must name an existing file, or an existing directory if it ends
+     in "/", relative to the repository root or to textbook_code/ (the rule of
+     script-links.lua, which turns such spans into GitHub links).
 
 Book files are all .qmd files outside briefs/, referee_scratch/ and build or
 tool directories. Fenced code blocks and inline code are ignored, except for
@@ -47,6 +53,8 @@ CITE = re.compile(r'(?<![\w.@/])-?@([A-Za-z][A-Za-z0-9_:\-]*[A-Za-z0-9_])')
 STATUS = re.compile(r'\*\*\[((?:%s)\b[^\]\n]*)\]\*\*' % '|'.join(STATUS_WORDS))
 FENCE = re.compile(r'^(```|~~~).*?^\1', re.S | re.M)
 INLINE_CODE = re.compile(r'`[^`\n]*`')
+CODE_SPAN = re.compile(r'(?<!`)`([^`\n]+)`(?!`)')
+SCRIPT_DIRS = ('textbook_code/', 'foundations_code/', 'soliton_rmatrix_code/')
 
 
 def book_files():
@@ -145,6 +153,28 @@ def original_results(text, defs):
     return bad, f'{len(items)} items'
 
 
+def script_paths(raw):
+    """Check 7. Returns the code spans that cite a script that does not exist."""
+    bad = []
+    for f, t in raw.items():
+        t = FENCE.sub(lambda m: re.sub(r'[^\n]', '', m.group(0)), t)   # keep line numbers
+        for m in CODE_SPAN.finditer(t):
+            words = m.group(1).split()
+            if not words:
+                continue
+            token = words[0]
+            if not (token.endswith('.py') or token.startswith(SCRIPT_DIRS)):
+                continue
+            want_dir = token.endswith('/')
+            rel = token.rstrip('/')
+            ok = bool(rel) and not token.startswith('/') and '..' not in token
+            ok = ok and any((p.is_dir() if want_dir else p.is_file())
+                            for p in (ROOT / rel, ROOT / 'textbook_code' / rel))
+            if not ok:
+                bad.append(f'{f}:{lineno(t, m.start())} `{m.group(1)[:70]}`')
+    return bad
+
+
 def main():
     files = list(book_files())
     raw = {f: (ROOT / f).read_text() for f in files}
@@ -195,6 +225,7 @@ def main():
         results.append(('original results match their statements', [note], 'WARN'))
     else:
         results.append((f'original results match their statements ({note})', orig, 'FAIL'))
+    results.append(('script paths in code spans resolve', script_paths(raw), 'FAIL'))
     print(f'{len(files)} files, {len(defs)} ids, {len(keys)} bibliography keys')
     ok = True
     for name, bad, severity in results:

@@ -163,7 +163,7 @@ $$
 H=\tfrac12\lvert\vec p\rvert^2-g\sum_jn_je^{i\vec\alpha_j\cdot\vec x},\qquad \vec p\in\text{root lattice},\quad g>0.
 $$
 
-Here $\vec x\in\mathbb R^r/(2\pi\Lambda^\vee)$. For $a_2$ the roots have squared length 4, and for $c_2$ the long roots do. This $H$ has the same $\Theta$-symmetry, and its partition function has the same positive Coulomb-gas expansion. Diagonalizing in the plane-wave basis $\vec p=\sum_ic_i\vec\alpha_i$ with $\lvert c_i\rvert\le P$ gives the following at $P=16$. The levels shown do not change for $P$ from 8 to 20. The script is `foundations_code/zero_mode.py`.
+Here $\vec x\in\mathbb R^r/(2\pi\Lambda^\vee)$. For $a_2$ the roots have squared length 4, and for $c_2$ the long roots do. This $H$ has the same $\Theta$-symmetry, and its partition function has the same positive Coulomb-gas expansion. Diagonalizing in the plane-wave basis $\vec p=\sum_ic_i\vec\alpha_i$ with $\lvert c_i\rvert\le P$ gives the following at $P=16$. The levels shown do not change for $P$ from 8 to 20. The script is `textbook_code/zero_mode.py`.
 
 | algebra | $g$ | lowest level | complex levels among the lowest 40 | $Z(T)$ for $T=0.5,2,8$ |
 |---|---|---|---|---|

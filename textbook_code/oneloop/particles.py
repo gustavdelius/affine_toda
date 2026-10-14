@@ -1,6 +1,6 @@
 """One-loop particle masses of the folded (real-coupling) Toda theory, in the same normalization as the
 soliton computation: V_real = (m^2/beta^2) sum_j n_j (e^{beta alpha_j.phi} - 1) of the PARENT, restricted to
-the sigma-invariant subspace. Bubble diagram as in soliton_rmatrix_code/smatrix/oneloop_ratio.py
+the sigma-invariant subspace. Bubble diagram as in textbook_code/rmatrix/smatrix/oneloop_ratio.py
 (tadpoles vanish by normal ordering). Returns masses and d log m_a / d beta^2 (real coupling)."""
 import numpy as np
 from scipy.integrate import quad

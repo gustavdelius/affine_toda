@@ -117,21 +117,21 @@ These are not academic worries. For $c_n^{(1)}$, MacKay and Watts [-@mackay_watt
 
 ## Numerical evidence in Part V {#sec-dhn-numerics}
 
-Many statements in the next three chapters are labelled [Numerical], and several theorems rest on hypotheses that have only been checked numerically (@tbl-jordan-hypotheses). @tbl-part5-numerics lists the numerical claims and the scripts behind them, so that a reader can rerun them. Paths are relative to `foundations_code/` unless stated otherwise.
+Many statements in the next three chapters are labelled [Numerical], and several theorems rest on hypotheses that have only been checked numerically (@tbl-jordan-hypotheses). @tbl-part5-numerics lists the numerical claims and the scripts behind them, so that a reader can rerun them. Paths are relative to `textbook_code/`.
 
 | claim | where | scripts |
 |---|---|---|
-| zero-dimensional $i\phi^3$ integral | @sec-picard-lefschetz | `textbook_code/semiclassics.py` |
-| reduced model: critical points, intersection numbers, decomposition | @sec-which-saddles-contribute | `thimbles/run_a2L1_final.py`, `check_cg.py`, `check_th4.py`, `check_L2.py` |
-| topological charges of static solitons and of bound states | @prp-static-saddles | `thimbles/charges.py`, `charges_multi.py` |
-| @hyp-D, @hyp-H and the block formula for $X_{ab}$ | @prp-hirota-form | `hirota/fluct_scan.py`, `check_equations.py`, `checks_SN.py`, `compare_dorey.py` |
-| foldings: @hyp-H and $X_b^{\rm fold}=\prod X_{a'b}$ | @sec-hirota-form-dn1-en1 | `hirota/fold.py`, `fold_tables.py`, `oneloop/composite.py` |
-| reflectionless scattering, Wronskians, determinant | @thm-hirota-factorization | `hirota/transfer_check.py`, `theoremG_check.py` |
-| grid spectra, net counts, Jordan types, threshold zeros | @prp-an-zeros, @prp-cn-threshold-blocks, @sec-hirota-form-dn1-en1 | `hirota/grid_jordan.py`, `jordan_check.py`, `tables.py`, `threshold_scan.py` |
+| zero-dimensional $i\phi^3$ integral | @sec-picard-lefschetz | `semiclassics.py` |
+| reduced model: critical points, intersection numbers, decomposition | @sec-which-saddles-contribute | `thimbles/run_a2L1_final.py`, `thimbles/check_cg.py`, `thimbles/check_th4.py`, `thimbles/check_L2.py` |
+| topological charges of static solitons and of bound states | @prp-static-saddles | `thimbles/charges.py`, `thimbles/charges_multi.py` |
+| @hyp-D, @hyp-H and the block formula for $X_{ab}$ | @prp-hirota-form | `hirota/fluct_scan.py`, `hirota/check_equations.py`, `hirota/checks_SN.py`, `hirota/compare_dorey.py` |
+| foldings: @hyp-H and $X_b^{\rm fold}=\prod X_{a'b}$ | @sec-hirota-form-dn1-en1 | `hirota/fold.py`, `hirota/fold_tables.py`, `oneloop/composite.py` |
+| reflectionless scattering, Wronskians, determinant | @thm-hirota-factorization | `hirota/transfer_check.py`, `hirota/theoremG_check.py` |
+| grid spectra, net counts, Jordan types, threshold zeros | @prp-an-zeros, @prp-cn-threshold-blocks, @sec-hirota-form-dn1-en1 | `hirota/grid_jordan.py`, `hirota/jordan_check.py`, `hirota/tables.py`, `hirota/threshold_scan.py` |
 | heat traces | @prp-net-count | `oneloop/heat_trace_checks.py --grid 768`, `hirota/heat_a3.py`, `oneloop/phi4_check.py` |
 | lattice one-loop masses; independence of $\operatorname{Im}\xi$ | @sec-resolution-semiclassical-mass-disagreements, @sec-which-saddles-contribute | `oneloop/lattice.py` |
-| calibration, Born constants, Mellin integral | @sec-one-loop-masses-folded | `oneloop/heat_trace_checks.py`, `phi4_check.py`, `calib_an_cn.py` |
-| floating Coxeter numbers of all folded solitons | @sec-one-loop-masses-folded | `oneloop/analysis.py`, `summary.py` |
+| calibration, Born constants, Mellin integral | @sec-one-loop-masses-folded | `oneloop/heat_trace_checks.py`, `oneloop/phi4_check.py`, `oneloop/calib_an_cn.py` |
+| floating Coxeter numbers of all folded solitons | @sec-one-loop-masses-folded | `oneloop/analysis.py`, `oneloop/summary.py` |
 
 : Numerical claims of Part V and the scripts that check them. {#tbl-part5-numerics}
 

@@ -41,7 +41,8 @@ The book's conventions are in `index.qmd`, section `sec-conventions`. Part-speci
 
 ## Check scripts and numerics
 
-- **Every new claim gets a check.** A claimed formula or [Numerical] statement needs a check in the relevant script directory (see `README.md`). Each script prints one `PASS` or `FAIL` line per check. Add or update the script's row in its directory README and in `appendices/C-code.qmd`.
+- **Every new claim gets a check.** A claimed formula or [Numerical] statement needs a check in `textbook_code/` or one of its subdirectories (see `README.md`). Each new script prints one `PASS` or `FAIL` line per check. Add or update the script's row in `textbook_code/README.md` (or its subdirectory README) and in `appendices/C-code.qmd`.
+- **Cite the script at the claim.** Name it in the text where the claim is made, as a full repository path in inline code, e.g. `` `textbook_code/hirota/fold.py` ``. `script-links.lua` turns such paths into GitHub links, and `check-refs.py` fails on a path that does not exist. Appendix C indexes every script, one section per part.
 - **Shared helpers.** Only append to shared helpers such as `textbook_code/defect_common.py`, then rerun every script that imports them.
 - **Figures.** Follow `briefs/figures_for_the_book.md`. Figure scripts write SVGs into the repository whatever `OUT_DIR` says. After a rerun, `git restore` every SVG whose diff is only ids and timestamps.
 - **Waiting on processes.** Never use `pgrep -f` or `pkill -f` with a pattern that appears in your own command line: it matches the shell running it, and wait loops then never end. Wait on a PID (`while kill -0 $pid; do sleep 5; done`) and kill by PID.
