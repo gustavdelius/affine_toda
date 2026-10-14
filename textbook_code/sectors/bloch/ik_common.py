@@ -1,4 +1,4 @@
-"""Izergin-Korepin kink amplitude (conventions of foundations_code/sectors), twisted and graded transfer matrices."""
+"""Izergin-Korepin kink amplitude (conventions of textbook_code/sectors), twisted and graded transfer matrices."""
 import sys, os, numpy as np
 SECTORS = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 sys.path.insert(0, SECTORS)

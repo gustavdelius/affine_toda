@@ -16,7 +16,7 @@ Differences of convention are not listed; the dictionaries between conventions a
 
 **Hollowood 1993** [@hollowood1993a].
 
-- **(3.28), the one-loop $a_n^{(1)}$ soliton mass.** The paper prints $\frac12\cot\frac\pi h$. The coefficient is $\frac14\cot\frac\pi h$, so that $\Delta M_a=-m_a\big[\frac h{2\pi}-\frac14\cot\frac\pi h\big]$ (-@eq-hollowood-mass). The evaluations (3.3) and (3.27) of the bound-state sum (3.2) and the continuum integral (3.26) are each twice the actual value. The coefficient $\frac14$ is the one found by MacKay and Watts [@mackay_watts1995]; the source of the factor 2 is located in @sec-dhn-an. *Error.* Reproduced by @prp-one-loop-mass and by a lattice evaluation (`foundations_code/oneloop/lattice.py`).
+- **(3.28), the one-loop $a_n^{(1)}$ soliton mass.** The paper prints $\frac12\cot\frac\pi h$. The coefficient is $\frac14\cot\frac\pi h$, so that $\Delta M_a=-m_a\big[\frac h{2\pi}-\frac14\cot\frac\pi h\big]$ (-@eq-hollowood-mass). The evaluations (3.3) and (3.27) of the bound-state sum (3.2) and the continuum integral (3.26) are each twice the actual value. The coefficient $\frac14$ is the one found by MacKay and Watts [@mackay_watts1995]; the source of the factor 2 is located in @sec-dhn-an. *Error.* Reproduced by @prp-one-loop-mass and by a lattice evaluation (`textbook_code/oneloop/lattice.py`).
 
 **Ghoshal and Zamolodchikov 1994** [@gz1994].
 
@@ -60,7 +60,7 @@ Differences of convention are not listed; the dictionaries between conventions a
 
 **Takács and Watts 1999** [@tw1999].
 
-- **The two-kink amplitude of the fundamental $a_2^{(2)}$ kinks, eq. 5.5.** They state that its eigenvalues are phases for $x>0$. Write $q^2=-e^{i\psi}$ with $\psi=2\pi^2/3\xi$ reduced to $(-\pi,\pi]$. Their own eigenvalue equation has roots off the unit circle whenever $\cos\psi<0$. For example, at $\xi=0.9\pi$ and $\theta=0.55$ two roots have moduli $2.118$ and $1/2.118$. So the statement holds only for $\cos\psi\ge0$. Their three-kink numerics are likewise not unimodular for $2\pi/3<\xi<4\pi/3$. Their Bethe ansatz (eq. 2.9) has only a scalar statistics phase, so the statement concerns bosonic exchange. With bosonic exchange, $N$ kinks are unbroken if and only if $\lvert\psi\rvert\le\pi/N$ or $\psi=\pi$. *Error.* The breaking for $\cos\psi<0$ is proved at large $\theta$, and the $N$-kink criterion is numerical for $N\le5$ (@sec-sector-status; `foundations_code/sectors/`).
+- **The two-kink amplitude of the fundamental $a_2^{(2)}$ kinks, eq. 5.5.** They state that its eigenvalues are phases for $x>0$. Write $q^2=-e^{i\psi}$ with $\psi=2\pi^2/3\xi$ reduced to $(-\pi,\pi]$. Their own eigenvalue equation has roots off the unit circle whenever $\cos\psi<0$. For example, at $\xi=0.9\pi$ and $\theta=0.55$ two roots have moduli $2.118$ and $1/2.118$. So the statement holds only for $\cos\psi\ge0$. Their three-kink numerics are likewise not unimodular for $2\pi/3<\xi<4\pi/3$. Their Bethe ansatz (eq. 2.9) has only a scalar statistics phase, so the statement concerns bosonic exchange. With bosonic exchange, $N$ kinks are unbroken if and only if $\lvert\psi\rvert\le\pi/N$ or $\psi=\pi$. *Error.* The breaking for $\cos\psi<0$ is proved at large $\theta$, and the $N$-kink criterion is numerical for $N\le5$ (@sec-sector-status; `textbook_code/sectors/`).
 
 **Delius and Gandenberger 1999** [@delius_gandenberger1999], particle reflection amplitudes.
 
@@ -159,7 +159,7 @@ Differences of convention are not listed; the dictionaries between conventions a
 
 **Vernier, Jacobsen and Saleur 2016** [@vernier2016].
 
-- **(98), the soliton masses of the $a_{2n-1}^{(2)}$ vertex model.** The general formula has $a\pi$ where their cases $n=2$ and $n=3$, (66) and (92), require $(a-1)\pi$. *Misprint.* The corrected closed form agrees to $10^{-30}$ for $n\le8$ with the spectrum of the spinor-soliton S-matrix of Part VI (@sec-a2n-lattice; `foundations_code/vernier/`).
+- **(98), the soliton masses of the $a_{2n-1}^{(2)}$ vertex model.** The general formula has $a\pi$ where their cases $n=2$ and $n=3$, (66) and (92), require $(a-1)\pi$. *Misprint.* The corrected closed form agrees to $10^{-30}$ for $n\le8$ with the spectrum of the spinor-soliton S-matrix of Part VI (@sec-a2n-lattice; `textbook_code/vernier/`).
 
 **Bao and Wang 2018** [@bao_wang2018b], quantum symmetric pairs of diagonal type.
 

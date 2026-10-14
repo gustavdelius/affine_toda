@@ -138,7 +138,7 @@ So the one-loop soliton masses relocate the obstruction but do not remove it. In
 
 ## Discussion and open problems {#sec-sm-discussion}
 
-The status of the results of Part VI is as follows. "Exact arithmetic" means that blocks first identified numerically are then compared symbolically in $\omega$. Scripts are in `soliton_rmatrix_code/` and `foundations_code/` (@sec-app-numerics).
+The status of the results of Part VI is as follows. "Exact arithmetic" means that blocks first identified numerically are then compared symbolically in $\omega$. Scripts are in `textbook_code/`, mainly in `textbook_code/rmatrix/` (@sec-app-numerics).
 
 | Theory | S-matrix | Soliton masses | Breather identification |
 |---|---|---|---|

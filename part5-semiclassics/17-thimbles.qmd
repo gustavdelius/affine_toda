@@ -132,7 +132,7 @@ The one-loop mass (-@eq-one-loop-mass) is independent of $\operatorname{Im}\xi$.
 
 - **[Theorem]** For real $\hbar>0$ the gradient flows of $S/\hbar$ are reparametrized flows of $S$. So the thimbles and the $\nu_\sigma$ depend on $\kappa$, $L$ and $\arg\hbar$, but not on $\lvert\hbar\rvert$, and no Stokes jump occurs as $\lvert g\rvert$ varies.
 - **[Numerical]** For $a_2^{(1)}$ with $L=1$, $\kappa=1$ and $\vec\lambda$ a weight of $\mathbf3$, a broad search finds 54 complex critical points, and exactly four contribute, each with $\lvert \nu_\sigma\rvert=1$. They are a $\Theta$-pair of real-action kinks centred on the two bonds and a $\Theta$-pair of complex-action kinks centred on the site, the lattice image of the complex translation orbit. $\Theta$ maps these thimbles to each other and conjugates their contributions. The decomposition reproduces the exact integral. After the exactly integrated real pair is subtracted, the residual equals the two-loop contribution of the complex pair to $6.6\times10^{-9}$ of the total at $\hbar=0.15$, which is 2% of that contribution and the size of its two-loop truncation error. At $\arg\hbar=\pm0.02$ the same four saddles contribute, with $\lvert\nu_\sigma\rvert=1$. For $L=2$ the same pattern appears: real-action kinks on bonds and complex-action kinks on sites.
-- The reduced model validates the method, but it cannot decide @cnj-missing-charge, because it contains only static saddles. Scripts: `foundations_code/thimbles/`.
+- The reduced model validates the method, but it cannot decide @cnj-missing-charge, because it contains only static saddles. Scripts: `textbook_code/thimbles/`.
 
 ## Exercises {#sec-semiclassics-exercises}
 
