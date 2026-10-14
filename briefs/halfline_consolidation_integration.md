@@ -1,3 +1,5 @@
+> **Superseded (2026-10-14).** This file records edits that Codex made in commit 904f924 and that Claude had not verified; they were verified, and partly rewritten, in the `## Integration (Claude, 2026-10-14)` section of [halfline_consolidation_referee_report.md](halfline_consolidation_referee_report.md), which supersedes this record.
+
 # PR #14: re-derivation and integration of the consolidation referee report
 
 2026-10-14, Codex. Source: `halfline_consolidation_referee_report.md` (Opus,

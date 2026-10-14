@@ -1,0 +1,9 @@
+PASS 1. a_n single-soliton charges (exact): h/gcd(b,h) per species, species h-b = negatives; nontrivial classes without a single-soliton charge: {2: 0, 3: 2, 4: 5, 5: 21, 6: 42} (a_2..a_6); a_3: classes of e1+e2 and e1+e4
+PASS 2. (z)(theta+iv)(z)(theta-iv) = (z+hv/pi)(z-hv/pi); breather image of P_x = D(chi), D = 1 at B = 0; P_x unitary and crossing-symmetric [9.6e-31]
+PASS 3. d_n, n = 4..7: three alternatives to Xi are unitary, crossing-unitary, close the vector-like bootstrap [9.9e-30], equal K^N_1 to O(B) [5.9e-40], differ at B = 0.6 [>= 0.0021]; d_4: all four agree with Kim-Cho (29), (40) at O(beta^2) [8.4e-31], without Xi off by 2.0
+PASS 4. a_3: P_((omega+1)/2) and P_(omega/2) satisfy the soliton-bootstrap condition; K^N_1, its alternative and K^(-)_1(theta + i pi) agree with Kim (33) at O(beta^2) [1.1e-30]; K^(-)_1(theta + i pi) differs from Kim (42) at B = 0.6 by >= 0.11
+PASS 5. poles of prod_b S_ab(theta, 1) with 0 < Im theta < pi/2, d_4 and d_5 (orders confirmed by epsilon scaling): all at p = i m_2/2 except d_5 particle 3 at 3 i pi/8 (order +1; p = 2.414214 i, Omega = 1.000000, residue (9.48985e-14 - 0.0081473j))
+PASS 6. d_5 vacuum: the spinor directions e_1, e_5 decouple from e_2, e_3, e_4 in the bulk and boundary Hessians [0e+00]
+PASS 7. no classical bound state below threshold (68 frequencies each): smallest eigenvalue of Y(0) + Hess B positive and decreasing in Omega^2; d_4: min 0.8485, at Omega = m 1.8918; d_5: min 0.4633, at Omega = m 0.8971
+PASS 8. linearized reflection about regular continued vacua by direct ODE (a_2 species 1, a_4 species 2): diagonal [2e-11] and equal to DG K^(b)_c at B = 0 [2e-11]
+EXIT 0

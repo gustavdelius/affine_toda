@@ -1,0 +1,5 @@
+omega = 40.37: plus -0.311522015, minus -0.363190154, half bulk -0.388859198
+omega = 80.37: plus -0.346000148, minus -0.371911889, half bulk -0.384826128
+omega = 160.37: plus -0.36333756, minus -0.376312913, half bulk -0.382790135
+first-order extrapolation from 80.37, 160.37: ['-0.380675', '-0.380714', '-0.380754']  differences to half bulk: 7.92e-5 4.02e-5
+EXIT 0

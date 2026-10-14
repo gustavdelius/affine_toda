@@ -1,0 +1,19 @@
+d_4: h = 6, masses (units m) [1.414214 2.44949  1.414214 1.414214], m_2 = 2.449490
+   particle 1 (m = 1.414214): z=1: order -1, p = 0.707107 i, Omega = 1.224745; z=2: order +1, p = 1.224745 i, Omega = 0.707107; z=3: order -2, p = 1.414214 i, Omega = 0.000000
+   particle 2 (m = 2.449490): z=1: order +1, p = 1.224745 i, Omega = 2.121320; z=2: order -3, p = 2.121320 i, Omega = 1.224745; z=3: order +2, p = 2.449490 i, Omega = 0.000000
+   particle 3 (m = 1.414214): z=1: order -1, p = 0.707107 i, Omega = 1.224745; z=2: order +1, p = 1.224745 i, Omega = 0.707107; z=3: order -2, p = 1.414214 i, Omega = 0.000000
+   particle 4 (m = 1.414214): z=1: order -1, p = 0.707107 i, Omega = 1.224745; z=2: order +1, p = 1.224745 i, Omega = 0.707107; z=3: order -2, p = 1.414214 i, Omega = 0.000000
+d_5: h = 8, masses (units m) [1.082392 2.       2.613126 1.414214 1.414214], m_2 = 2.000000
+   particle 1 (m = 1.082392): z=1: order -1, p = 0.414214 i, Omega = 1.000000; z=3: order +1, p = 1.000000 i, Omega = 0.414214; z=4: order -2, p = 1.082392 i, Omega = 0.000000
+   particle 2 (m = 2.000000): z=3: order -2, p = 1.847759 i, Omega = 0.765367; z=4: order +2, p = 2.000000 i, Omega = 0.000000
+   particle 3 (m = 2.613126): z=1: order +1, p = 1.000000 i, Omega = 2.414214; z=2: order -2, p = 1.847759 i, Omega = 1.847759; z=3: order +1, p = 2.414214 i, Omega = 1.000000; z=4: order -2, p = 2.613126 i, Omega = 0.000000
+   particle 4 (m = 1.414214): z=1: order -1, p = 0.541196 i, Omega = 1.306563; z=2: order +1, p = 1.000000 i, Omega = 1.000000; z=3: order -1, p = 1.306563 i, Omega = 0.541196
+   particle 5 (m = 1.414214): z=1: order -1, p = 0.541196 i, Omega = 1.306563; z=2: order +1, p = 1.000000 i, Omega = 1.000000; z=3: order -1, p = 1.306563 i, Omega = 0.541196
+   d_5 particle 3 at 3 i pi/8: eps*K = ['(9.4898474396e-11 - 0.00814729956448j)', '(9.4898474396e-13 - 0.00814729956448j)', '(9.4898474396e-15 - 0.00814729956448j)']
+d_5 spinor block: masses^2 at -inf [2. 2.]; max coupling to e2,e3,e4: bulk 0.0e+00, boundary 0.0e+00
+d_4: m_min^2 = 2.000000000; 68 frequencies; success True; asymmetry 0.0e+00; min eigenvalue of Y(0)+R = 0.848543411 at z = 1.9999999998 (L=30, rtol 1e-12: 0.848543411); at z = 1: 1.891805812; monotone decreasing in z: True
+/tmp/claude-1000/-home-gustav-Git-affine-toda/3bec8fc9-2d66-4643-913c-f51da079d30a/scratchpad/hlref/b2_poles_riccati.py:75: RuntimeWarning: overflow encountered in exp
+  phi5 = lambda x: 4*np.arctanh(c5*np.exp(2*x))*v5
+/tmp/claude-1000/-home-gustav-Git-affine-toda/3bec8fc9-2d66-4643-913c-f51da079d30a/scratchpad/hlref/b2_poles_riccati.py:75: RuntimeWarning: invalid value encountered in arctanh
+  phi5 = lambda x: 4*np.arctanh(c5*np.exp(2*x))*v5
+d_5: m_min^2 = 1.171572875; 68 frequencies; success True; asymmetry 6.7e-16; min eigenvalue of Y(0)+R = 0.463270761 at z = 1.1715728751 (L=30, rtol 1e-12: 0.463270761); at z = 1: 0.897061476; monotone decreasing in z: True

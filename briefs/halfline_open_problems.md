@@ -6,28 +6,16 @@ Written 2026-10-11. Section `sec-boundary-open-problems` (§35.7, `part7-half-li
 
 ## Referee integration (2026-10-14, PR #14)
 
-The findings in `halfline_consolidation_referee_report.md` have been re-derived
-by Codex. The item-by-item derivations, dispositions and validation record are
-in [halfline_consolidation_integration.md](halfline_consolidation_integration.md).
-The earlier status tables below record the original consolidation; the
-following qualifications supersede them:
+The findings of `halfline_consolidation_referee_report.md` (Codex, reviewing 3a75d31) were verified by Claude, item by item: by hand, with Claude's own scripts (`halfline_consolidation_referee_update_scripts/integration_*.py`) and by reading the seven sources. The edits Codex had made from an earlier version of these findings (904f924, described in `halfline_consolidation_integration.md`) were checked in the same pass and partly rewritten. The record is the section `## Integration (Claude, 2026-10-14)` at the end of the report. The earlier status tables below record the original consolidation; the following qualifications supersede them. No status label changed.
 
-- Full Dirichlet is excluded in the stated Sklyanin framework with a
-  field-independent K in evaluation representations. Half-coweight
-  compatibility survives, but half-solitons and three-soliton images require a
-  single-soliton charge in the class.
-- One loop does not determine the CDD factor, for either d4 or a3. The displayed
-  factors give exact duality and reproduce one loop; their derivation remains open.
-- The d_n variational argument gives existence and uniqueness for nonnegative
-  C_j at every rank. Closed forms of higher-rank uniform vacua remain open.
-- The extra d5 particle-3 pole is verified. The referee's proposed spinor-channel
-  explanation is rejected because both fluctuation Hessians decouple those
-  channels. Bound-state scans cover d4 and d5, not d6.
-- The V Vbar Krein onset occurs at finite slow rapidity; finer numerical
-  thresholds are approximately 0.667 (UN) and 0.500 (NN).
-- CAF receive credit for the classical product formula. Agreement with Kim's
-  shifted a3 amplitude is only at one loop. Semiclassical evidence concerns
-  leading phase derivatives.
+- `prp-no-dirichlet` [Theorem]: for $g^{(1)}\ne a_1^{(1)}$ and generic $\lambda$, full Dirichlet admits no field-independent $K_+$ in Sklyanin's construction, in finite-dimensional evaluation representations without trivial summands. Other constructions are not excluded. Corrigan (hep-th/9612138, sec. 4) said, without proof, that Dirichlet conditions are "not generally permitted". The spin-$\pm2$ argument was rechecked for $a_2^{(1)}$.
+- `prp-soliton-preserving-half` [Theorem]: compatibility, the $a_n$ "only if" (a gap in the proof, which assumed $K_+$ invertible, is closed) and the reflection equation for diagonal $K_+$ hold. Half-solitons and three-soliton images exist only in classes that contain a single-soliton charge; 0, 2, 5, 21 nontrivial classes lack one for $a_2$–$a_5$. Delius's (1.4) gives (1.5) only for coweights in $2\Lambda_W^\vee$ (Appendix D entry kept).
+- CDD factors: one loop fixes neither $P_{\omega/2}$ for $a_3^{(1)}$ nor $\Xi$ for $d_n^{(1)}$; a CDD block pair enters the breather amplitude as $D(q)$, with $D=1$ at $B=0$. The chosen factors give exact duality. The Neumann identifications of the $s=+1$ and $\varsigma=+1$ matrices are conditional on `cnj-reflection-continuation` and on that choice. Kim's $a_3$ and Kim–Cho's $d_4$ amplitudes agree only at one loop.
+- `prp-dn-uniform-vacuum` [Theorem]: existence (coercivity on $H^1$, direct method) and uniqueness (strict convexity) for $C_j\ge0$ at every rank; closed forms only for $d_4$, $d_5$.
+- `prp-dn-uniform-classical` [Numerical]: particle 3 of $d_5^{(1)}$ has an extra simple pole at $\theta=3i\pi/8$ ($p=i(1+\sqrt2)m$, $\Omega=m$). The spinors decouple from it in both Hessians, so it is unexplained. No classical bound state for $d_4$, $d_5$ (Riccati scan, 68 frequencies each); $d_6$ not scanned.
+- Singular solitonic backgrounds (ch. 31): agreement of limits is claimed only for the approaches tested; the withdrawal of "Bowcock–Perkins Table 2 corrected" stands.
+- Boundary Krein structure: the unmirrored left wall fails only when it is Neumann. VV breaks first as $\theta_2\to0$; $V\bar V$ at a finite slow rapidity. Thresholds about 0.698, 0.667, 0.536, 0.500 (grid estimates).
+- Castro-Alvaredo and Fring are credited for $\hat R_a(\theta,0)=\prod_bS_{ab}(\theta,1)$ and its association with fixed boundaries; the semiclassical checks concern leading phase derivatives.
 
 ## Ranking by feasibility
 

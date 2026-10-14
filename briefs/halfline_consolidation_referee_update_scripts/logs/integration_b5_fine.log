@@ -1,0 +1,9 @@
+UN VW omega = 0.664: max deviation over 372 rapidity pairs = 8.43e-09 at (30.0, 0.5)
+UN VW omega = 0.6694: max deviation over 372 rapidity pairs = 2.54e-02 at (30.0, 1.8000000000000003)
+NN VW omega = 0.497: max deviation over 372 rapidity pairs = 2.35e-10 at (30.0, 1.6)
+NN VW omega = 0.503: max deviation over 372 rapidity pairs = 3.74e-02 at (30.0, 2.4000000000000004)
+UN VV omega = 0.695: max deviation over 372 rapidity pairs = 4.01e-08 at (30.0, 0.1)
+UN VV omega = 0.701: max deviation over 372 rapidity pairs = 1.63e+20 at (30.0, 0.1)
+NN VV omega = 0.533: max deviation over 372 rapidity pairs = 8.45e-10 at (30.0, 0.001)
+NN VV omega = 0.539: max deviation over 372 rapidity pairs = 1.74e-01 at (30.0, 0.001)
+EXIT 0

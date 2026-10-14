@@ -1,0 +1,8 @@
+a2 V lambda = 1 lambda^(2h) = 1 dims: [1, 0]
+a2 V lambda = -1 lambda^(2h) = 1 dims: [1, 0]
+a2 V lambda = exp(I*pi/3) lambda^(2h) = 1 dims: [1, 0]
+a2 V lambda = 3/7 lambda^(2h) = 729/117649 dims: [0, 0]
+d4 V lambda = 1 lambda^(2h) = 1 dims: [1, 1]
+d4 V lambda = -1 lambda^(2h) = 1 dims: [1, 1]
+d4 V lambda = exp(I*pi/6) lambda^(2h) = 1 dims: [1, 1]
+d4 V lambda = 3/7 lambda^(2h) = 531441/13841287201 dims: [0, 0]
