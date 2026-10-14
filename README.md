@@ -84,7 +84,7 @@ quarto render --to pdf
 Two helpers check the book while it is being edited:
 
 ```bash
-python3 check-refs.py      # ids, cross-references, citation keys and status labels, in under a second
+python3 check-refs.py      # ids, cross-references, citation keys, status labels and the list of original results, in under a second
 ./render-scratch.sh        # render in a scratch copy, so a running preview is undisturbed (--pdf for the PDF too)
 ```
 

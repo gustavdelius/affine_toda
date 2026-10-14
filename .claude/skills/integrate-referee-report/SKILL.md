@@ -38,6 +38,7 @@ Mark each item **verified**, **modified** or **rejected**, with the reason.
 - **Style.** Adapt the referee's text to the book's style rather than pasting it. Never cite the report or `referee_scratch/`, and never mention the referee.
 - **Corrections to papers** go in the chapter's Notes and in `appendices/D-corrections.qmd`.
 - **Repeated claims.** Fix every chapter that repeats a corrected claim. Find them by grepping the id and the key formula.
+- **Original results.** If a verdict changes a result in the list of original results (`index.qmd`, `sec-new-results`), update its item there too (see `AGENTS.md`). `check-refs.py` catches a changed label, but not a new result that belongs in the list. Integration agents need `index.qmd` in their list of editable files: one agent that lacked it left the entry for Part VIII weaker than a new theorem, and the coordinator had to fix it.
 - **Check scripts.** Update the chapter's check script to test the corrected claims, and its row in the directory README and `appendices/C-code.qmd` if the check count or runtime changes.
 - **Label upgrades.** Re-derive every upgrade yourself, even when an agent made it and says it verified it.
 

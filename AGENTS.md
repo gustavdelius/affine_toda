@@ -21,6 +21,7 @@ Do not trust any finding in a brief, a referee report or a review, including fin
 - **Style.** Use short declarative sentences and define every symbol. Never cite `briefs/`, `referee_scratch/` or a report in the book, and never mention "the referee".
 - **Prior art.** Before calling a result new, search the literature, including the editor's own papers. Several "new" R-matrices turned out to be in Delius–Gould–Zhang.
 - **Corrections to published papers.** Read the source line yourself, quote it exactly, and recompute with the book's code. A misquoted prefactor once produced a false "correction". Each correction goes in the chapter's Notes and in Appendix D (`appendices/D-corrections.qmd`), in the same change. Update or drop the Appendix D entry whenever a chapter gains or loses a correction.
+- **The list of original results.** `index.qmd`, section `sec-new-results`, lists the book's original results by part, in a `::: {.original-results}` div. Each item opens with a status label and ends with the ids of the statements it summarises: `- **[Theorem]** … (@prp-x).` The label may shorten a long one, but must keep its first word and its colour. Keep the list in step with the chapters, in the same change. Add an item for a new original result. Update or drop an item when its result is proved, refuted or relabelled, when it turns out to be in earlier literature, and when a correction to a paper is added or dropped. `check-refs.py` fails when an item's label no longer matches its statement's; it cannot notice a result that is missing from the list.
 - **Moving or renumbering chapters.**
   - File names carry global chapter numbers, figure scripts are named `chNN_fM_*.py`, and `textbook_code/figures/style.py` has one `OUT_PARTn` per part.
   - Regenerate the chapter list in `_quarto.yml`.
@@ -52,7 +53,7 @@ The book's conventions are in `index.qmd`, section `sec-conventions`. Part-speci
 
 ## Building and checking the book
 
-- **`python3 check-refs.py`** checks that every id is defined once, every cross-reference resolves, every citation key is in `references.bib`, and no status label is parsed as a citation. It takes under a second. Run it before every commit that touches a `.qmd` file.
+- **`python3 check-refs.py`** checks that every id is defined once, every cross-reference resolves, every citation key is in `references.bib`, no status label is parsed as a citation, and every item in the list of original results carries the label of the statement it cites. It takes under a second. Run it before every commit that touches a `.qmd` file.
 - **`./render-scratch.sh`** (HTML) or **`./render-scratch.sh --pdf`** (HTML and PDF, about 7 minutes) renders in a scratch copy and lists unresolved references. Never run `quarto render` in a checkout where `quarto preview` may be running; the editor usually has one open. `--output-dir` does not prevent the race.
 - **LaTeX fixes.** Test them by running `lualatex` on the `index.tex` left in the scratch copy. The math uses `\rm` and `\bf`, so the KOMA class option `enabledeprecatedfontcommands` must stay. Mermaid figures need `%%| fig-width:` of 6 inches or less.
 - **Website styling.**
