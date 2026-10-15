@@ -23,7 +23,7 @@ $$
 \check R_{nn}(x)=\sum_{k=0}^{n}\Big[\prod_{j=1}^{k}\langle 2j\rangle_{(-1)^{j+1}}\Big]P_{\Lambda^{n-k}} .
 $$
 
-This is the R-matrix derived for all $n$ by Delius, Gould and Zhang with the twisted tensor-product graph [@dgz1996, eqs. (4.30)–(4.31) at $a=1$, with their $q$ equal to our $q^{-2}$]; we re-derived it from direct solutions of the intertwining equations for $n=2,3,4$, to $10^{-13}$. The crossing point is $x_c=(-1)^{n+1}q^{-2n}$.
+This is the R-matrix derived for all $n$ by Delius, Gould and Zhang with the twisted tensor-product graph [@dgz1996, eqs. (4.30)–(4.31) at $a=1$, with their $q$ equal to our $q^{-2}$]; we re-derived it from direct solutions of the intertwining equations for $n=2,3,4$, to $3\times10^{-13}$ (`textbook_code/rmatrix/spinform.py` for $n=2,3$; `textbook_code/rmatrix/smatrix/sign_n4.py` for $n=4$). The crossing point is $x_c=(-1)^{n+1}q^{-2n}$.
 
 ## Parameters and the scalar factor {#sec-cn-parameters}
 
@@ -37,7 +37,7 @@ The zeros of $c$ sit at $a_j=j\omega+(j-1)/2$ for $j=1,\dots,n$, so $a_n=T$. The
 
 ## Bound states and exact masses {#sec-bound-states-exact-masses}
 
-The pole of $S$ at $t=a_j$ is the bound state $n+n\to n-j$. Its residue projects onto the Kirillov–Reshetikhin module formed by the channels that contain $\langle 2j\rangle$. For $n=4$ the residue ranks are $130=84+36+9+1$, $46=36+9+1$ and $10=9+1$. The breathers sit at $t=T-k$, with rank-one residues.
+The pole of $S$ at $t=a_j$ is the bound state $n+n\to n-j$. Its residue projects onto the Kirillov–Reshetikhin module formed by the channels that contain $\langle 2j\rangle$. For $n=4$ the residue ranks are $130=84+36+9+1$, $46=36+9+1$ and $10=9+1$. The breathers sit at $t=T-k$, with rank-one residues (`textbook_code/rmatrix/smatrix/spinorn.py`).
 
 Since $T-a_j=(n-j)(\omega+\tfrac12)$, and $a_j$ is the fusion $n+n\to n-j$, the fusion angles give the soliton masses in closed form:
 
@@ -59,7 +59,7 @@ $$
 S_{nn}=\prod_{p=1}^{n}\{2p-1\}_H\,\{H-2p+1\}_H,\qquad \{x\}_H=\frac{(x-1)_H\,(x+1)_H}{(x-1+B)_H\,(x+1-B)_H},
 $$
 
-continued to imaginary coupling. We checked this for $n=2,3,4$ at two couplings, $\omega=2.37$ and $1.61$. The value of $B$ is DGZ's $B(\beta)=\dfrac{\beta^2/2\pi}{1+\beta^2/4\pi}$ evaluated at $\beta_{\rm DGZ}^2=-\beta^2/2$: the sign is the continuation, and the factor $\tfrac12$ is the relative root normalisation.
+continued to imaginary coupling. We checked this for $n=2,3,4$ at two couplings, $\omega=2.37$ and $1.61$ (`textbook_code/rmatrix/smatrix/breather_n.py`). The value of $B$ is DGZ's $B(\beta)=\dfrac{\beta^2/2\pi}{1+\beta^2/4\pi}$ evaluated at $\beta_{\rm DGZ}^2=-\beta^2/2$: the sign is the continuation, and the factor $\tfrac12$ is the relative root normalisation.
 
 The lifts are physical. At $n=4$, an alternating choice with $a_3=3\omega$ also gives a unitary, crossing-symmetric amplitude. Its breather amplitude, however, differs from DGZ's by the CDD-type factor
 
@@ -81,7 +81,7 @@ $$
 S_{ab}(\theta)=\eta_{ab}(x)\prod_{\alpha}F_{33}(\theta+i\alpha)\;\check R_{ab}(x),
 $$
 
-where $\check R_{ab}$ is the unique intertwiner normalised on the top channel, and $\eta_{ab}$ is a rational fusion factor, verified exactly with constant $\pm1$.
+where $\check R_{ab}$ is the unique intertwiner normalised on the top channel, and $\eta_{ab}$ is a rational fusion factor, verified exactly with constant $\pm1$ (`textbook_code/rmatrix/smatrix/allS.py`, `textbook_code/rmatrix/smatrix/kfit.py`, `textbook_code/rmatrix/smatrix/kcheck.py`).
 
 | $ab$ | shifts $\alpha$ | $\eta_{ab}(x)$ |
 | --- | --- | --- |
@@ -92,11 +92,11 @@ where $\check R_{ab}$ is the unique intertwiner normalised on the top channel, a
 | 22 | $\pm u_2,\ 0,\ 0$ | $-\langle2\rangle_+$ |
 | 12 | $\pm(u_1+u_2)/2,\ \pm(u_1-u_2)/2$ | $\langle1\rangle_{-i}\,\langle3\rangle_{i}$ |
 
-The reversed amplitudes follow from $\eta_{ba}(x)=1/\eta_{ab}(1/x)$. The fused amplitudes close on their multiplets to $10^{-6}$ and are unitary to the truncation accuracy of the infinite product.
+The reversed amplitudes follow from $\eta_{ba}(x)=1/\eta_{ab}(1/x)$. The fused amplitudes close on their multiplets to $10^{-6}$ and are unitary to the truncation accuracy of the infinite product (`textbook_code/rmatrix/smatrix/allS.py`).
 
 ### Spectrum {#sec-c3-spectrum}
 
-We tested every candidate pole, taken from the shifted Gamma-function poles of $F_{33}$. Each fundamental fusion is a simple pole with the correct multiplet, and occurs in exactly the channels the fusion rules allow. All were confirmed at $\omega=2.37$ and $\omega=1.61$.
+We tested every candidate pole, taken from the shifted Gamma-function poles of $F_{33}$. Each fundamental fusion is a simple pole with the correct multiplet, and occurs in exactly the channels the fusion rules allow. All were confirmed at $\omega=2.37$ and $\omega=1.61$ (`textbook_code/rmatrix/smatrix/poles.py`, `textbook_code/rmatrix/smatrix/spectrum.py`, `textbook_code/rmatrix/smatrix/verify_w.py`).
 
 | Fusion | $t$ | Residue |
 | --- | --- | --- |
@@ -116,7 +116,7 @@ The breathers form complete towers: integer $p$ for soliton 3, and half-integer 
 
 ### Breather amplitudes {#sec-breather-amplitudes}
 
-Breather–soliton amplitudes are finite block products, with blocks in the notation of @sec-breather-test. The three amplitudes $S[\mathcal B^a,3]$ were identified numerically. All the others follow from them by exact bootstrap arithmetic, and five of the derived forms were confirmed against independent fused numerics. Every residual scales exactly as $1/J$ under truncation of the infinite product, extrapolating to about $10^{-5}$.
+Breather–soliton amplitudes are finite block products, with blocks in the notation of @sec-breather-test. The three amplitudes $S[\mathcal B^a,3]$ were identified numerically. All the others follow from them by exact bootstrap arithmetic (`textbook_code/rmatrix/smatrix/breathers.py`, `textbook_code/rmatrix/smatrix/bootstrap_exact.py`), and five of the derived forms were confirmed against independent fused numerics (`textbook_code/rmatrix/smatrix/breathers2.py`, `textbook_code/rmatrix/smatrix/verify_w.py`). Every residual scales exactly as $1/J$ under truncation of the infinite product, extrapolating to about $10^{-5}$ (`textbook_code/rmatrix/smatrix/jscale.py`).
 
 | Amplitude | Blocks |
 | --- | --- |
@@ -128,7 +128,7 @@ Breather–soliton amplitudes are finite block products, with blocks in the nota
 | $S[\mathcal B^1,\mathcal B^3]$ | $(\omega+\tfrac12)(2\omega+\tfrac12)(-\omega+\tfrac12)(-2\omega-\tfrac32)$ |
 | $S[\mathcal B^3,\mathcal B^3]$ | $-(1)(\omega)(\omega+\tfrac12)(2\omega+\tfrac12)(2\omega+1)(3\omega)(-\omega+\tfrac12)(-\omega-1)(-2\omega)(-2\omega-\tfrac32)$ |
 
-All six breather–breather amplitudes, including $S[\mathcal B^1,\mathcal B^2]$, $S[\mathcal B^2,\mathcal B^2]$ and $S[\mathcal B^2,\mathcal B^3]$ not listed here, are identical to the DGZ $c_3^{(1)}$ particle amplitudes. The identification is $H=2T/(\omega+\tfrac12)=6+B$ with $B=-1/(\omega+\tfrac12)$, and the comparison is done in exact arithmetic in $\omega$. Among the lowest breathers, which are the particles, we find the fusions $1+1\to2$, $1+2\to1$, $1+2\to3$, $1+3\to2$ and $2+3\to1$. The remaining poles of the breather amplitudes are DGZ's own displaced and split double poles. These are inherited from the particle S-matrix, not artefacts of the soliton construction.
+All six breather–breather amplitudes, including $S[\mathcal B^1,\mathcal B^2]$, $S[\mathcal B^2,\mathcal B^2]$ and $S[\mathcal B^2,\mathcal B^3]$ not listed here, are identical to the DGZ $c_3^{(1)}$ particle amplitudes. The identification is $H=2T/(\omega+\tfrac12)=6+B$ with $B=-1/(\omega+\tfrac12)$, and the comparison is done in exact arithmetic in $\omega$ (`textbook_code/rmatrix/smatrix/dgz_compare.py`). Among the lowest breathers, which are the particles, we find the fusions $1+1\to2$, $1+2\to1$, $1+2\to3$, $1+3\to2$ and $2+3\to1$. The remaining poles of the breather amplitudes are DGZ's own displaced and split double poles. These are inherited from the particle S-matrix, not artefacts of the soliton construction.
 
 ## Exercises {#sec-sm-cn-exercises}
 

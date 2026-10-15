@@ -1,0 +1,15 @@
+== dgz_compare: QSIGN=-1 timeout 3600 python3 -u dgz_compare.py
+check numeric values S[B3,3]: [-6.925, -1.185, 1.685, 3.555, 4.555, 6.425]
+check numeric values S[B1,3]: [1.685, 6.425]
+check numeric values S[B2,3]: [0.25, 3.12, 4.99, 7.86]
+S[B1,B1] (fused solitons)  vs  DGZ c3 particle S_11 (continued):  IDENTICAL
+S[B1,B2] (fused solitons)  vs  DGZ c3 particle S_12 (continued):  IDENTICAL
+S[B1,B3] (fused solitons)  vs  DGZ c3 particle S_13 (continued):  IDENTICAL
+S[B2,B2] (fused solitons)  vs  DGZ c3 particle S_22 (continued):  IDENTICAL
+S[B2,B3] (fused solitons)  vs  DGZ c3 particle S_23 (continued):  IDENTICAL
+S[B3,B3] (fused solitons)  vs  DGZ c3 particle S_33 (continued):  IDENTICAL
+all six identical: True
+real	0m0.626s
+user	0m0.317s
+sys	0m0.029s
+rc=0

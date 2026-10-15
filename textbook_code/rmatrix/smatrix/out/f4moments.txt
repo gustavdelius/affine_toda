@@ -1,0 +1,57 @@
+== f4moments: timeout 3600 python3 -u f4moments.py
+(a): T = 6w + 9/2;  needed correction has 32 nonzero sinh-factor exponents on 24 lines
+   line a =  -6, b =    0 mod 1:  sum m = +0,  sum b m =    -1   ->  Gamma-type tower
+   line a =  -6, b =  1/2 mod 1:  sum m = +0,  sum b m =     2   ->  Gamma-type tower
+   line a =  -5, b =    0 mod 1:  sum m = +1,  sum b m =    -3   ->  Barnes double-Gamma (linear growth)
+   line a =  -5, b =  1/2 mod 1:  sum m = -1,  sum b m =   5/2   ->  Barnes double-Gamma (linear growth)
+   line a =  -4, b =    0 mod 1:  sum m = -1,  sum b m =     4   ->  Barnes double-Gamma (linear growth)
+   line a =  -4, b =  1/2 mod 1:  sum m = +1,  sum b m =  -7/2   ->  Barnes double-Gamma (linear growth)
+   line a =  -3, b =    0 mod 1:  sum m = +0,  sum b m =    -2   ->  Gamma-type tower
+   line a =  -3, b =  1/2 mod 1:  sum m = +0,  sum b m =     2   ->  Gamma-type tower
+   line a =  -2, b =    0 mod 1:  sum m = +1,  sum b m =    -1   ->  Barnes double-Gamma (linear growth)
+   line a =  -2, b =  1/2 mod 1:  sum m = -1,  sum b m =   1/2   ->  Barnes double-Gamma (linear growth)
+   line a =  -1, b =    0 mod 1:  sum m = -1,  sum b m =     2   ->  Barnes double-Gamma (linear growth)
+   line a =  -1, b =  1/2 mod 1:  sum m = +1,  sum b m =  -3/2   ->  Barnes double-Gamma (linear growth)
+   line a =   0, b =    0 mod 1:  sum m = +0,  sum b m =    -2   ->  Gamma-type tower
+   line a =   0, b =  1/2 mod 1:  sum m = +0,  sum b m =     1   ->  Gamma-type tower
+   line a =   1, b =    0 mod 1:  sum m = +1,  sum b m =     2   ->  Barnes double-Gamma (linear growth)
+   line a =   1, b =  1/2 mod 1:  sum m = -1,  sum b m =  -3/2   ->  Barnes double-Gamma (linear growth)
+   line a =   2, b =    0 mod 1:  sum m = -1,  sum b m =    -1   ->  Barnes double-Gamma (linear growth)
+   line a =   2, b =  1/2 mod 1:  sum m = +1,  sum b m =   1/2   ->  Barnes double-Gamma (linear growth)
+   line a =   3, b =    0 mod 1:  sum m = +0,  sum b m =    -2   ->  Gamma-type tower
+   line a =   3, b =  1/2 mod 1:  sum m = +0,  sum b m =     2   ->  Gamma-type tower
+   line a =   4, b =    0 mod 1:  sum m = +1,  sum b m =     4   ->  Barnes double-Gamma (linear growth)
+   line a =   4, b =  1/2 mod 1:  sum m = -1,  sum b m =  -7/2   ->  Barnes double-Gamma (linear growth)
+   line a =   5, b =    0 mod 1:  sum m = -1,  sum b m =    -3   ->  Barnes double-Gamma (linear growth)
+   line a =   5, b =  1/2 mod 1:  sum m = +1,  sum b m =   5/2   ->  Barnes double-Gamma (linear growth)
+   summary: {'Gamma-type tower': 8, 'Barnes double-Gamma (linear growth)': 16}
+(b): T = 6w + -3/2;  needed correction has 32 nonzero sinh-factor exponents on 24 lines
+   line a =  -6, b =    0 mod 1:  sum m = +0,  sum b m =    -1   ->  Gamma-type tower
+   line a =  -6, b =  1/2 mod 1:  sum m = +0,  sum b m =     2   ->  Gamma-type tower
+   line a =  -5, b =    0 mod 1:  sum m = +1,  sum b m =     2   ->  Barnes double-Gamma (linear growth)
+   line a =  -5, b =  1/2 mod 1:  sum m = -1,  sum b m =  -5/2   ->  Barnes double-Gamma (linear growth)
+   line a =  -4, b =    0 mod 1:  sum m = -1,  sum b m =     0   ->  Barnes double-Gamma (linear growth)
+   line a =  -4, b =  1/2 mod 1:  sum m = +1,  sum b m =   1/2   ->  Barnes double-Gamma (linear growth)
+   line a =  -3, b =    0 mod 1:  sum m = +0,  sum b m =    -2   ->  Gamma-type tower
+   line a =  -3, b =  1/2 mod 1:  sum m = +0,  sum b m =     2   ->  Gamma-type tower
+   line a =  -2, b =    0 mod 1:  sum m = +1,  sum b m =     1   ->  Barnes double-Gamma (linear growth)
+   line a =  -2, b =  1/2 mod 1:  sum m = -1,  sum b m =  -3/2   ->  Barnes double-Gamma (linear growth)
+   line a =  -1, b =    0 mod 1:  sum m = -1,  sum b m =     1   ->  Barnes double-Gamma (linear growth)
+   line a =  -1, b =  1/2 mod 1:  sum m = +1,  sum b m =  -1/2   ->  Barnes double-Gamma (linear growth)
+   line a =   0, b =    0 mod 1:  sum m = +0,  sum b m =    -2   ->  Gamma-type tower
+   line a =   0, b =  1/2 mod 1:  sum m = +0,  sum b m =     1   ->  Gamma-type tower
+   line a =   1, b =    0 mod 1:  sum m = +1,  sum b m =     1   ->  Barnes double-Gamma (linear growth)
+   line a =   1, b =  1/2 mod 1:  sum m = -1,  sum b m =  -1/2   ->  Barnes double-Gamma (linear growth)
+   line a =   2, b =    0 mod 1:  sum m = -1,  sum b m =     1   ->  Barnes double-Gamma (linear growth)
+   line a =   2, b =  1/2 mod 1:  sum m = +1,  sum b m =  -3/2   ->  Barnes double-Gamma (linear growth)
+   line a =   3, b =    0 mod 1:  sum m = +0,  sum b m =    -2   ->  Gamma-type tower
+   line a =   3, b =  1/2 mod 1:  sum m = +0,  sum b m =     2   ->  Gamma-type tower
+   line a =   4, b =    0 mod 1:  sum m = +1,  sum b m =     0   ->  Barnes double-Gamma (linear growth)
+   line a =   4, b =  1/2 mod 1:  sum m = -1,  sum b m =   1/2   ->  Barnes double-Gamma (linear growth)
+   line a =   5, b =    0 mod 1:  sum m = -1,  sum b m =     2   ->  Barnes double-Gamma (linear growth)
+   line a =   5, b =  1/2 mod 1:  sum m = +1,  sum b m =  -5/2   ->  Barnes double-Gamma (linear growth)
+   summary: {'Gamma-type tower': 8, 'Barnes double-Gamma (linear growth)': 16}
+real	0m0.852s
+user	0m0.865s
+sys	0m0.093s
+rc=0

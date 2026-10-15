@@ -1,0 +1,7 @@
+== f4cdd: timeout 3600 python3 -u f4cdd.py
+T = 15.720; CDS/ours needs 16 sinh factors up, 16 down
+CDD factors Z (up to two crossing pairs) reproducing CDS: none
+real	0m9.038s
+user	0m8.003s
+sys	0m0.148s
+rc=0

@@ -1,0 +1,10 @@
+channels (dims): [35, 21, 7, 1]
+rho_1/rho_0: zeros ['+q^+2']  poles ['+q^-2']
+rho_2/rho_1: zeros ['+q^-2', '+q^+6']  poles ['+q^+2', '+q^-6']
+rho_3/rho_2: zeros ['+q^+2', '+q^+10', '+q^-6']  poles ['+q^-2', '+q^+6', '+q^-10']
+crossing point: V*(x) = V(x * +q^-10)
+crossing factor c_u(x): zeros ['+q^+0', '+q^+4', '+q^+8']  poles ['+q^+2', '+q^+6', '+q^+10']
+real	9m21.146s
+user	10m40.533s
+sys	0m2.144s
+rc=0

@@ -1,0 +1,12 @@
+== f4check: timeout 3600 python3 -u f4check.py
+allowed entries per generator: {1: 6, 2: 6, 3: 12, 4: 12, 0: 6}
+5 highest-weight vectors at weights [(np.int64(4), np.int64(0), np.int64(0), np.int64(0)), (np.int64(0), np.int64(0), np.int64(0), np.int64(0)), (np.int64(2), np.int64(2), np.int64(0), np.int64(0)), (np.int64(3), np.int64(1), np.int64(1), np.int64(1)), (np.int64(2), np.int64(0), np.int64(0), np.int64(0))]  [72s]
+component dimensions from descent: [324, 1, 52, 273, 26]  total 676  [77s]
+eigenvalues from the e_0 intertwining equations: residual 1.2e-15  [77s]
+x = (0.7+0.4j)  rho/closed form: {273: np.complex128(1+0j), 52: np.complex128(1+0j), 26: np.complex128(1+0j), 1: np.complex128(1+0j)}
+x = (1.9-0.6j)  rho/closed form: {273: np.complex128(1-0j), 52: np.complex128(1-0j), 26: np.complex128(1-0j), 1: np.complex128(1+0j)}
+crossing point: V*(x) = V(x t) for t = ['+q^-18']
+real	6m40.799s
+user	16m21.870s
+sys	0m27.627s
+rc=0

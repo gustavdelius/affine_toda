@@ -1,0 +1,14 @@
+== f4hyp: timeout 3600 python3 -u f4hyp.py
+(a): T = 18.720, H = 11.10979, CDS pole 1+1->1' at y = 0.5000
+   our breather amplitude == CDS bootstrap S_(1',1'):  False
+   our breather amplitude == CDS S_11:                 False
+(b): T = 12.720, H = 10.73418, CDS pole 1+1->1' at y = 0.5000
+   our breather amplitude == CDS bootstrap S_(1',1'):  False
+   our breather amplitude == CDS S_11:                 False
+(original): T = 15.720, H = 9.32938, CDS pole 1+1->1' at y = 1.5000
+   our breather amplitude == CDS bootstrap S_(1',1'):  False
+   our breather amplitude == CDS S_11:                 False
+real	0m0.154s
+user	0m0.258s
+sys	0m0.017s
+rc=0

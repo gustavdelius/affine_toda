@@ -1,0 +1,9 @@
+== d42vec: timeout 3600 python3 -u d42vec.py
+U_q(d_4^(2)) vector: finite residual 1.1e-16, node-0 residual 6.7e-17; Cartan row 0 [2, -2, 0, 0]; singlet coupled: True
+R_11 (top-normalised) poles and residue ranks: [('+q^-2', 29), ('+q^-6', 1), ('-q^-2', 29), ('-q^-6', 1)] [301s]
+crossing point: V*(x) = V(x * +q^-6)
+crossing point: V*(x) = V(x * -q^-6)
+real	5m4.638s
+user	10m31.173s
+sys	0m4.076s
+rc=0

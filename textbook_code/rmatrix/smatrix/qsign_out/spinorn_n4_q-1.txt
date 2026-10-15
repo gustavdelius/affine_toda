@@ -1,0 +1,14 @@
+== spinorn_n4: NSPIN=4 QSIGN=-1 timeout 5000 python3 -u spinorn.py
+n = 4, omega = 2.37, T = 10.98, projector ranks [126, 84, 36, 9, 1]
+unitarity S(th)S(-th) = 1: 1.4e-04
+  t = a_1 =  2.3700  4+4 -> soliton 3   pole order 1.00, residue rank 130
+  t = a_2 =  5.2400  4+4 -> soliton 2   pole order 1.00, residue rank 46
+  t = a_3 =  8.1100  4+4 -> soliton 1   pole order 1.00, residue rank 10
+  t =  9.9800  breather            pole order 1.00, residue rank 1
+  t =  8.9800  breather            pole order 1.00, residue rank 1
+soliton masses from fusion angles M_a/M_n: {1: np.float64(0.798285), 2: np.float64(1.463878), 3: np.float64(1.886141)}
+          2 sin(a pi/H), H = 2T/(w+1/2):    {1: np.float64(0.798285), 2: np.float64(1.463878), 3: np.float64(1.886141)}
+real	18m10.384s
+user	10m21.081s
+sys	0m4.312s
+rc=0

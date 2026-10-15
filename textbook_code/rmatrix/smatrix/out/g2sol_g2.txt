@@ -1,0 +1,7 @@
+== g2sol_g2: ALG=g2 timeout 3000 python3 -u g2sol.py
+g2: R-matrix poles [('+q^-2', 'rank', 15), ('+q^-8', 'rank', 7), ('+q^-12', 'rank', 1)]  [18s]
+crossing point: V*(x) = V(x * +q^-12)
+real	0m36.123s
+user	0m32.630s
+sys	0m0.213s
+rc=0

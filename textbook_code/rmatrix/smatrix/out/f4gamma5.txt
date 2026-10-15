@@ -1,0 +1,9 @@
+== f4gamma5: timeout 3600 python3 -u f4gamma5.py
+(a): exact W_e formula vs infinite product (J = 4000): max deviation 7.4e-03
+   173 candidate pairs (quarter-step grid), 830 sinh-factor positions, rank 173: best residual 0.135  [1s]
+(b): exact W_e formula vs infinite product (J = 4000): max deviation 4.7e-03
+   111 candidate pairs (quarter-step grid), 538 sinh-factor positions, rank 111: best residual 0.178  [1s]
+real	0m2.161s
+user	0m2.676s
+sys	0m0.081s
+rc=0

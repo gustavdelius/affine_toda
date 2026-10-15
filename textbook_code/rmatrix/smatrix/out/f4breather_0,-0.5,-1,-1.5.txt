@@ -1,0 +1,17 @@
+== f4breather_0,-0.5,-1,-1.5: AOFF=0,-0.5,-1,-1.5 timeout 3600 python3 -u f4breather.py
+components (dim x multiplicity): [(324, 1), (273, 1), (52, 1), (26, 3), (1, 2)]  total 729 [654s]
+fast solve agrees with full solve: 2e-14
+breather residue rank-1 check: sv1/sv0 = 2.6e-07
+S[B,27]: 8 blocks, sign +1, fit match 2e-02 (209 candidates) [489s]
+   S[B,B] vs CDS S_11 at H = 2T/(w+1) = 7.54896: different
+   S[B,B] vs CDS S_22 at H = 2T/(w+1) = 7.54896: different
+   S[B,B] vs CDS S_33 at H = 2T/(w+1) = 7.54896: different
+   S[B,B] vs CDS S_44 at H = 2T/(w+1) = 7.54896: different
+   ours: [-9.48 -9.35 -7.61 -5.11 -3.37 -3.24  1.    2.37  4.24  6.11  6.61  8.48
+ 10.35 11.72] -1
+   CDS S_11: [-10.98 -10.11  -6.85  -5.87  -2.61  -1.74   2.5    3.37   4.24   5.11
+   7.61   8.48   9.35  10.22] -1
+real	19m9.464s
+user	13m43.557s
+sys	0m19.011s
+rc=0

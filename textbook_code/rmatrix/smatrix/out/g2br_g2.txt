@@ -1,0 +1,13 @@
+== g2br_g2: ALG=g2 timeout 3000 python3 -u g2br.py
+g2, zeros [ 2.37 11.48 17.22], T = 17.220: unitarity 2e-04
+   t =   2.370 fusion 1           order 1.00 rank 15
+   t =  11.480 fusion 2 (self?)   order 1.00 rank 7
+   t =  16.220 lowest breather    order 1.00 rank 1
+   S[B,sol]: 6 blocks, sign -1, fit 9e-03  [65s]
+   S[B,B] vs CDS (g2,d4^(3)) S_11: IDENTICAL at H = 14.531646 (predicted 14.531646)
+   S[B,B] vs CDS (g2,d4^(3)) S_22: different at H = 15.000000 (predicted 14.531646)
+   ours: [-13.85 -12.48  -4.74  -3.37   1.     2.37   5.74  11.48  14.85  16.22] -1
+real	1m5.776s
+user	1m23.007s
+sys	0m0.633s
+rc=0

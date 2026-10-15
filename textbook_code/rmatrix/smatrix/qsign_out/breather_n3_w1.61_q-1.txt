@@ -1,0 +1,11 @@
+== breather_n3_w161: NSPIN=3 OMEGA=1.61 QSIGN=-1 timeout 5000 python3 -u breather_n.py
+S[B3,3] = - (-1/2w) (1/2w+1/2) (3/2w) (3/2w+1) (5/2w+1/2) (-5/2w-1)   (match 4.2e-03; 72 candidates, 21s)
+S[B3,B3] (bootstrap) = - (-2w-3/2) (-2w) (-w-1) (-w+1/2) (1) (w) (w+1/2) (2w+1/2) (2w+1) (3w)
+   -> IDENTICAL to the DGZ c_3^(1) particle amplitude S_33
+   DGZ S_11 = - (-2w) (-w-1) (1/2) (w+1/2) (2w+1/2) (3w+1/2)
+   DGZ S_22 = - (-2w-3/2) (-2w) (-w-1) (-w+1/2) (1/2) (w+1/2) (w+1/2) (2w+1/2) (2w+1/2) (3w+1/2)
+   DGZ S_33 = - (-2w-3/2) (-2w) (-w-1) (-w+1/2) (1) (w) (w+1/2) (2w+1/2) (2w+1) (3w)
+real	1m28.280s
+user	0m33.422s
+sys	0m0.253s
+rc=0
