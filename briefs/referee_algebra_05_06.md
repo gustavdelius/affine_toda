@@ -52,15 +52,15 @@ The figure scripts overwrite the committed SVGs in `part2-algebra/figures/` what
 - The 2026-10-10 report sections named above, to see what was checked then. Do not take its verdicts as evidence.
 - To find an object: `grep -rn '{#<id>}' part*/ appendices/ outlook/ *.qmd`.
 
-**Sources.** None of the sources of these chapters is in `~/referee-copy/papers/` (or `papers/`). Fetch from arXiv what you need:
-- Khastgir–Sasaki, hep-th/9512158 (`khastgir1996b`);
-- MacKay–Watts, hep-th/9411169 (`mackay_watts1995`);
-- Delius–Grisaru–Zanon, hep-th/9201067 (`dgz1992`);
-- Corrigan–Dorey–Sasaki, hep-th/9304065 (`corrigan1993`);
-- Kneipp–Olive, hep-th/9404030 (`kneipp1996`);
-- Olive–Turok–Underwood (`olive1993a`, `olive1993b`; find by title, 1992–93).
+**Sources.** The texts of the arXiv sources are in `~/referee-copy/papers/` (or `papers/`, if you run through `run_referee_agy.sh`), as `<id>.txt` with `/` replaced by `_`:
+- Khastgir–Sasaki, `hep-th_9512158.txt` (`khastgir1996b`);
+- MacKay–Watts, `hep-th_9411169.txt` (`mackay_watts1995`);
+- Delius–Grisaru–Zanon, `hep-th_9201067.txt` (`dgz1992`);
+- Corrigan–Dorey–Sasaki, `hep-th_9304065.txt` (`corrigan1993`);
+- Kneipp–Olive, `hep-th_9404030.txt` (`kneipp1996`);
+- Olive–Turok–Underwood, "Affine Toda solitons and vertex operators", `hep-th_9305160.txt` (`olive1993b`).
 
-The others are pre-arXiv papers and books: Olive–Turok 1983, Braden–Corrigan–Dorey–Sasaki 1990, Freeman 1991, Dorey 1991, Klassen–Melzer 1990, Steinberg 1959, Kostant 1959, Kac's *Infinite-Dimensional Lie Algebras*. If you cannot read a source, say so and mark that citation "unclear"; do not reconstruct what it probably says.
+The PDFs are next to them; consult a PDF when the extracted text garbles a formula. Olive–Turok–Underwood's "Solitons and the energy-momentum tensor for affine Toda theory" (`olive1993a`, Nucl. Phys. B 401 (1993) 663) does not seem to be on arXiv. The other sources are pre-arXiv papers and books: Olive–Turok 1983, Braden–Corrigan–Dorey–Sasaki 1990, Freeman 1991, Dorey 1991, Klassen–Melzer 1990, Steinberg 1959, Kostant 1959, Kac's *Infinite-Dimensional Lie Algebras*. If you cannot read a source, say so and mark that citation "unclear"; do not reconstruct what it probably says.
 
 ## How to work
 
@@ -103,7 +103,7 @@ In numerical work, avoid values of $q$ or of the coupling that are roots of unit
    - The sentence on $2T=4\pi h/\beta^2-h^\vee$: for which algebras, and in which normalization of $\beta$, does chapter 21 (`sec-amplitude-and-gradation`) state it? Is chapter 6's unqualified statement consistent with that for twisted $\hat g$?
    - Claim: $L(\Lambda_j)$ has level $n_j^\vee$.
    - Claim: level-one representations with $n_j=1$ have vertex-operator realizations, with the attributions "Frenkel–Kac … homogeneous" and "Lepowsky–Wilson … principal". The 2026-10-10 pass noted that the general principal construction is due to Kac–Kazhdan–Lepowsky–Wilson.
-   - Compare the $\tau_j$ formula and $W_k$ with Olive–Turok–Underwood, equations (2.27)–(2.29) of the vertex-operator paper or wherever they are. Check the scope: untwisted only, with Kneipp–Olive for twisted algebras.
+   - Compare the $\tau_j$ formula and $W_k$ with Olive–Turok–Underwood, equations (2.27)–(2.30) of `olive1993b` (`hep-th_9305160.txt`). Check the scope: untwisted only, with Kneipp–Olive for twisted algebras.
 
 5. **Symmetries of the affine diagram** (`sec-affine-dynkin`, last paragraph).
    - Claim: the symmetry group is the semidirect product of the finite-diagram symmetries with a subgroup isomorphic to the centre of the simply connected group, which permutes the nodes with $n_j=1$ simply transitively. Check it for every untwisted algebra by enumerating automorphisms; include $d_n$ for $n$ even and odd, and $a_1^{(1)}$.

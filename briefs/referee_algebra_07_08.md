@@ -73,14 +73,14 @@ Weight your effort toward these. Neither chapter has labelled statements, items 
 - The 2026-10-10 report sections named above, to see what was checked then. Do not take its verdicts as evidence.
 - To find an object: `grep -rn '{#<id>}' part*/ appendices/ outlook/ *.qmd`.
 
-**Sources.** None of the sources of these chapters is in `~/referee-copy/papers/` (or `papers/`). Fetch from arXiv what you need:
-- Delius–Gould–Zhang, hep-th/9405030 (`dgz1994`) and q-alg/9508012 (`dgz1996`);
-- Gandenberger–MacKay–Watts, hep-th/9509007 (`gmw1996`);
-- Delius, hep-th/9503079 (`delius1995`);
-- Miramontes, hep-th/9901145 (`miramontes1999`);
-- Hoare–Hollowood–Miramontes, arXiv:1303.1447 (`hoare2013`).
+**Sources.** The texts of the arXiv sources are in `~/referee-copy/papers/` (or `papers/`, if you run through `run_referee_agy.sh`), as `<id>.txt` with `/` replaced by `_`:
+- Delius–Gould–Zhang, `hep-th_9405030.txt` (`dgz1994`) and `q-alg_9508012.txt` (`dgz1996`);
+- Gandenberger–MacKay–Watts, `hep-th_9509007.txt` (`gmw1996`);
+- Delius, `hep-th_9503079.txt` (`delius1995`);
+- Miramontes, `hep-th_9901145.txt` (`miramontes1999`);
+- Hoare–Hollowood–Miramontes, `1303.1447.txt` (`hoare2013`).
 
-The others are pre-arXiv papers and books: Jimbo 1985 and 1986, Drinfeld 1987, Kulish–Reshetikhin–Sklyanin 1981, MacKay 1991, Zhang–Gould–Bracken 1991, Frenkel–Reshetikhin 1992, Bernard–LeClair 1991, Chari–Pressley, Kassel, Gómez–Ruiz-Altaba–Sierra. If you cannot read a source, say so and mark that citation "unclear"; do not reconstruct what it probably says.
+The PDFs are next to them; consult a PDF when the extracted text garbles a formula. The other sources are pre-arXiv papers and books: Jimbo 1985 and 1986, Drinfeld 1987, Kulish–Reshetikhin–Sklyanin 1981, MacKay 1991, Zhang–Gould–Bracken 1991, Frenkel–Reshetikhin 1992, Bernard–LeClair 1991, Chari–Pressley, Kassel, Gómez–Ruiz-Altaba–Sierra. If you cannot read a source, say so and mark that citation "unclear"; do not reconstruct what it probably says.
 
 ## How to work
 
