@@ -426,7 +426,7 @@ for Om in (1.2*ma.min(), 2.0, 3.8):
         pred = np.prod([sl.S(bl[(b, j)], h, 1.0, np.arccosh(Om/m_)) for j in range(n)])
         dev9 = max(dev9, abs(K[i, i]/pred - 1))
 xg = np.linspace(-L6, 0, 4001)
-E6 = np.trapz([0.5*np.sum(np.gradient(psi6(xg), xg, axis=1)[:, i]**2) + nj @ (np.exp(A @ psi6(xg)[:, i]) - 1)
+E6 = getattr(np, 'trapezoid', getattr(np, 'trapz', None))([0.5*np.sum(np.gradient(psi6(xg), xg, axis=1)[:, i]**2) + nj @ (np.exp(A @ psi6(xg)[:, i]) - 1)
                for i in range(len(xg))], xg) + 2*np.sqrt(nj) @ (np.exp(A @ psi6(0.0)/2) - 1)
 report(f'd_6, C = +1: the invariant static solution (two tail modes, m_2 and m_4) satisfies the boundary condition, and the '
        f'linearized reflection about it is diagonal with K_a = prod_j S_aj(theta, B=1) [{dev9:.0e}]; energy {E6:.6f} m/beta^2',

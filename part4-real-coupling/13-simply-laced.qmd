@@ -36,7 +36,7 @@ The numerator $(x-1)(x+1)$ is the **minimal** part. It carries the poles and dep
 
 @fig-b-duality shows the coupling parameter $B(\beta)$ and how the poles and zeros of $\{x\}$ depend on it.
 
-![Left: the parameter $B(\beta)$; the map $\beta\to4\pi/\beta$ acts as $B\to2-B$. Right: the poles (fixed) and zeros (moving) of the block $\{x\}$ as $B$ varies; $B\to2-B$ exchanges the two zeros.](figures/ch13_f17_b_duality.svg){#fig-b-duality fig-alt="Left: B against beta rising from 0 to 2 with the self-dual point B=1 marked. Right: poles of the block at fixed positions x plus and minus 1, and two zeros crossing at B=1."}
+![Left: the parameter $B(\beta)$; the map $\beta\to4\pi/\beta$ acts as $B\to2-B$. Right: the poles (fixed) and zeros (moving) of the block $\{x\}$ as $B$ varies; $B\to2-B$ exchanges the two zeros. `textbook_code/figures/ch13_f17_b_duality.py` checks that $B(4\pi/\beta)=2-B$, the monotonicity of $B$, and the poles and zeros of $\{x\}$.](figures/ch13_f17_b_duality.svg){#fig-b-duality fig-alt="Left: B against beta rising from 0 to 2 with the self-dual point B=1 marked. Right: poles of the block at fixed positions x plus and minus 1, and two zeros crossing at B=1."}
 
 ## The $a_n^{(1)}$ S-matrices {#sec-an-smatrix}
 
@@ -52,7 +52,7 @@ $$
 S_{11}=S_{22}=\{1\},\qquad S_{12}=\{2\}.
 $$
 
-$S_{11}$ has a pole at $\theta=2\pi i/3$ from the block $(2)$: the bound state $1+1\to\bar1=2$ at the fusing angle of an equilateral mass triangle. $S_{12}=\{2\}$ has a pole at $\theta=i\pi/3$, its crossed image. The bootstrap $S_{12}(\theta)=S_{11}(\theta-\frac{i\pi}3)S_{11}(\theta+\frac{i\pi}3)$ holds (@exr-a2-bootstrap).
+$S_{11}$ has a pole at $\theta=2\pi i/3$ from the block $(2)$: the bound state $1+1\to\bar1=2$ at the fusing angle of an equilateral mass triangle. $S_{12}=\{2\}$ has a pole at $\theta=i\pi/3$, its crossed image. The bootstrap $S_{12}(\theta)=S_{11}(\theta-\frac{i\pi}3)S_{11}(\theta+\frac{i\pi}3)$ holds (@exr-a2-bootstrap). `textbook_code/smatrix_simply_laced.py` checks that the closed form (-@eq-an-smatrix) satisfies the bootstrap for every fusing of $a_2^{(1)},\dots,a_5^{(1)}$.
 
 For $a\ne b$ and $a+b<h$, $S_{ab}$ has simple poles at $\theta=i\pi(a+b)/h$, the fusing $a+b\to a+b$, and at $\theta=i\pi\lvert a-b\rvert/h$, the crossed image of the fusing $a+\bar b$, and double poles at the positions in between where consecutive blocks overlap. The double poles are the anomalous thresholds of @sec-coleman-thun. For $a+b>h$ use $S_{ab}=S_{h-a,h-b}$, so that the $s$-channel pole is at $i\pi(2h-a-b)/h$.
 
@@ -70,15 +70,16 @@ $$
 S_{11}=\{1\}\{11\}\{19\}\{29\},\qquad h=30 .
 $$
 
+`textbook_code/smatrix_simply_laced.py` computes this product from (-@eq-dorey-formula).
 Its poles at $\theta=\frac{2\pi i}3$, $\frac{2\pi i}5$ and $\frac{i\pi}{15}$ are the fusings $1+1\to1$, $1+1\to2$ and $1+1\to3$, with $m_2=2m_1\cos\frac\pi5$ and $m_3=2m_1\cos\frac\pi{30}$. @fig-e8-poles shows where all six poles lie. The minimal part of the $e_8^{(1)}$ S-matrix is Zamolodchikov's S-matrix of the Ising model in a magnetic field [@zamolodchikov1989].
 
-![The poles of $S_{11}$ for $e_8^{(1)}$ in the physical strip, at $\theta=i\pi y/30$. Green: bound-state poles, with positive residue$/i$. Red: their crossed images. Circles: the zeros at $B=0.5$.](figures/ch13_f18_e8_poles.svg){#fig-e8-poles fig-alt="The imaginary axis from 0 to i pi with six poles at positions 2, 10, 12, 18, 20 and 28 in units of pi over 30; the three at 2, 12 and 20 are bound states and the others their crossed images."}
+![The poles of $S_{11}$ for $e_8^{(1)}$ in the physical strip, at $\theta=i\pi y/30$. Green: bound-state poles, with positive residue$/i$. Red: their crossed images. Circles: the zeros at $B=0.5$. `textbook_code/figures/ch13_f18_e8_poles.py` checks that the poles are simple and lie exactly at $y=2,10,12,18,20,28$, the residue signs, the fusing angles, unitarity and crossing.](figures/ch13_f18_e8_poles.svg){#fig-e8-poles fig-alt="The imaginary axis from 0 to i pi with six poles at positions 2, 10, 12, 18, 20 and 28 in units of pi over 30; the three at 2, 12 and 20 are bound states and the others their crossed images."}
 
 The signs and the direction of the colour shift in (-@eq-dorey-formula) matter. Products of blocks are easily written that are unitary, crossing symmetric and satisfy the bootstrap at every fusing, yet are not the S-matrices of the theory: the variant with $w^{-p}$ in place of $w^p$ is an example. What singles out the physical S-matrix is agreement with the known cases and with perturbation theory. All three properties, the bootstrap at every fusing of $e_7^{(1)}$ and $e_8^{(1)}$ (112 and 224 fusings respectively), and the reduction to (-@eq-an-smatrix) are checked in `textbook_code/smatrix_simply_laced.py`.
 
 ## Strong–weak duality {#sec-strong-weak}
 
-Because every block is invariant under $B\to2-B$, so is every simply-laced S-matrix. In terms of the coupling,
+Because every block is invariant under $B\to2-B$, so is every simply-laced S-matrix (`textbook_code/smatrix_simply_laced.py` checks this, with unitarity and crossing, for $a_4^{(1)}$, $d_4^{(1)}$, $d_6^{(1)}$, $e_7^{(1)}$ and $e_8^{(1)}$). In terms of the coupling,
 
 $$
 B\Big(\frac{4\pi}\beta\Big)=2-B(\beta) ,
