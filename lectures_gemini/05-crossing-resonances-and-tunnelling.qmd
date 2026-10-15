@@ -1,0 +1,237 @@
+# Lecture 5: Crossing, Decaying Resonances, and Quantum Tunnelling in $a_r^{(1)}$ {#sec-lec5-crossing-resonances}
+
+> **Companion reading in Part VIII:** Chapters 37 and 41 (@sec-defect-sine-gordon, @sec-soliton-transmission).
+
+In Lecture 4 (@sec-lec4-quantum-groups), we solved the linear Borel intertwining equations for sine-Gordon ($a_1^{(1)}$) and found that they uniquely determine the operator matrix structure of the soliton transmission matrix $\mathbb{T}(\theta)$ up to a single scalar factor $\Phi(\theta)$:
+$$
+\mathbb{T}(\theta) = \Phi(\theta)\begin{pmatrix} q^{\frac{s}{2}} U^{-1} & -i Y\,1_{\mathcal{W}} \\ -i Y\,1_{\mathcal{W}} & q^{\frac{s}{2}} U \end{pmatrix}, \qquad Y = e^{\lambda(\theta - \theta_d)}.
+$$ {#eq-lec5-sg-t-reminder}
+
+Now comes the physical heart of the quantum bootstrap: **how do we determine the overall scalar factor $\Phi(\theta)$, what poles does it introduce in the complex $\theta$-plane, and what happens when we generalize from $a_1^{(1)}$ to the higher-rank necklace $a_r^{(1)}$ (such as $a_2^{(1)}$)?**
+
+In this lecture, we will do three crucial calculations on the blackboard that every student of integrable field theory should master:
+
+1. **Unitarity, Crossing, and How Crossing Fixes the Physical Sign of $q$:**
+   We will invert $\mathbb{T}(-\theta)$ on each 2-dimensional charge sector $\{v_+ \otimes |n\rangle, v_- \otimes |n+1\rangle\}$ to obtain the right-to-left transmission matrix $\bar{\mathbb{T}}(\theta) = \mathbb{T}(-\theta)^{-1}$, and impose the defect crossing relation $\bar{\mathbb{T}}_{a\alpha}^{b\beta}(\theta) = C_{aa'}\mathbb{T}_{b'\alpha}^{a'\beta}(i\pi - \theta)C^{b'b}$. In the process, we will see a striking algebraic miracle: **the four matrix entries of the crossing equation are mutually consistent if and only if $q$ has the physical minus sign**
+   $$
+   q = -e^{-i\pi\lambda} = e^{-\frac{4\pi^2 i}{\beta^2}}!
+   $$
+   At the unphysical sign $+e^{-i\pi\lambda}$, the diagonal and off-diagonal entries of crossing demand opposite signs for $\Phi(\theta)\Phi(\theta + i\pi)$!
+2. **The Infinite Gamma-Product Scalar Factor, Wigner's Time Delay, and the Unstable Resonance:**
+   We will solve the functional equations for $\Phi(\theta)$ using an infinite product of Gamma functions, verify that its semiclassical $(\lambda \to \infty)$ phase derivative reproduces the classical Hirota soliton delay $\ln\left|\coth\frac{\theta-\theta_d}{2}\right|$ via Wigner's time-delay formula, and analyze the resonance pole at $\theta_P = \theta_d - \frac{i\pi}{2\lambda}$, showing how the defect bootstrap on the rank-1 residue produces the **excited odd-sector defect** ($s = 1$, $\theta_d \mapsto \theta_d - i\pi$).
+3. **The $a_2^{(1)}$ Soliton Transmission Matrices and Quantum Tunnelling:**
+   We will construct the $a_r^{(1)}$ root-lattice Weyl module $\mathcal{W}$ and derive the transmission matrices $M_V(\theta)$ (for the fundamental triplet $V = \mathbf{3}$) and $M_{\bar{V}}(\theta)$ (for the antitriplet $\bar{V} = \bar{\mathbf{3}}$) both by solving the $U_q(\mathfrak{b}^-)$ intertwining relations and by fusing two $V$-solitons via the defect bootstrap. This calculation reveals a jewel of quantum integrability: while $M_V(\theta)$ has only **two** non-zero transitions per state (obeying the classical chiral selection rule of Lecture 3), $M_{\bar{V}}(\theta)$ has **all three** transitions non-zero—exhibiting **quantum tunnelling** into the classically forbidden topological charge sector near $\theta \approx \theta_d$, which vanishes exponentially in the classical limit $\omega \to \infty$!
+
+---
+
+## 5.1 Unitarity, Crossing, and How Crossing Fixes the Sign of $q$ {#sec-lec5-unitarity-crossing}
+
+Let us work on the 2-dimensional charge-conserving subspace $\mathcal{H}_n = \operatorname{span}\{v_+ \otimes |n\rangle,\, v_- \otimes |n+1\rangle\}$ of $V(\theta) \otimes \mathcal{W}$. On $\mathcal{H}_n$, our transmission matrix (-@eq-lec5-sg-t-reminder) is the explicit $2\times 2$ matrix
+$$
+\mathbb{T}_n(\theta) = \Phi(\theta)\begin{pmatrix} q^{n + \frac{s}{2}} & -i e^{\lambda(\theta - \theta_d)} \\ -i e^{\lambda(\theta - \theta_d)} & q^{-n - \frac{s}{2}} \end{pmatrix}.
+$$ {#eq-lec5-tn-2x2}
+What is its determinant on $\mathcal{H}_n$? Look how the $n$-dependence cancels in the product of the diagonal entries:
+$$
+\det \mathbb{T}_n(\theta) = \Phi(\theta)^2 \left(1 + e^{2\lambda(\theta - \theta_d)}\right) = \Phi(\theta)^2 \big(1 + Y(\theta)^2\big), \qquad Y(\theta) = e^{\lambda(\theta - \theta_d)}!
+$$ {#eq-lec5-det-tn}
+Notice that $\det\mathbb{T}_n(\theta)$ is **completely independent of the defect quantum number $n$**! That is why a single scalar function $\Phi(\theta)$ can normalize $\mathbb{T}_n(\theta)$ simultaneously across all infinitely many charge sectors $n \in \mathbb{Z}$.
+
+### Step 1: Defect Unitarity and $\bar{\mathbb{T}}(\theta)$
+
+Recall from Lecture 1 (@sec-lec1-doubling) that for a purely transmitting defect, defect unitarity $\mathbb{T}(\theta)\,\bar{\mathbb{T}}(-\theta) = \mathbf{1}$ defines the right-to-left transmission matrix $\bar{\mathbb{T}}(\theta) = \mathbb{T}(-\theta)^{-1}$ directly from $\mathbb{T}(\theta)$, whereas **physical unitarity** (the requirement that $\mathbb{T}(\theta)$ is a unitary operator on the Hilbert space for real $\theta \in \mathbb{R}$, when $|q| = 1$ and $\lambda, \theta_d \in \mathbb{R}$) requires $\mathbb{T}(\theta)^\dagger = \mathbb{T}(\theta)^{-1} = \bar{\mathbb{T}}(-\theta)$.
+
+Let us invert the $2\times 2$ matrix $\mathbb{T}_n(-\theta)$ using Cramer's rule and (-@eq-lec5-det-tn):
+$$
+\bar{\mathbb{T}}_n(\theta) = \mathbb{T}_n(-\theta)^{-1} = \frac{1}{\Phi(-\theta)\big(1 + Y(-\theta)^2\big)} \begin{pmatrix} q^{-n - \frac{s}{2}} & +i e^{\lambda(-\theta - \theta_d)} \\ +i e^{\lambda(-\theta - \theta_d)} & q^{n + \frac{s}{2}} \end{pmatrix}.
+$$ {#eq-lec5-tbar-from-unitarity}
+(Notice where each entry goes on the basis vectors: on $\mathcal{H}_n = \{v_+\otimes|n\rangle, v_-\otimes|n+1\rangle\}$, the top-left entry of $\bar{\mathbb{T}}_n(\theta)$ is the amplitude for $v_+\otimes|n\rangle \to v_+\otimes|n\rangle$, the bottom-right entry is the amplitude for $v_-\otimes|n+1\rangle \to v_-\otimes|n+1\rangle$, and the off-diagonal entries connect $v_+\otimes|n\rangle \leftrightarrow v_-\otimes|n+1\rangle$.)
+
+Meanwhile, taking the Hermitian conjugate of (-@eq-lec5-tn-2x2) for real $\theta, \theta_d, \lambda, s$ (where $q^* = q^{-1}$ and $(-iY)^* = +iY$) gives
+$$
+\mathbb{T}_n(\theta)^\dagger = \Phi(\theta)^* \begin{pmatrix} q^{-n - \frac{s}{2}} & +i Y(\theta) \\ +i Y(\theta) & q^{n + \frac{s}{2}} \end{pmatrix},
+$$
+which equals $\mathbb{T}_n(\theta)^{-1} = \bar{\mathbb{T}}_n(-\theta)$ if and only if $\Phi(\theta)$ satisfies the **unitarity modulus condition**:
+$$
+\Phi(\theta)\,\Phi(\theta)^* \big(1 + e^{2\lambda(\theta - \theta_d)}\big) = 1 \qquad (\theta \in \mathbb{R}),
+$$ {#eq-lec5-phi-unitarity-real}
+or, by analytic continuation to complex $\theta$ (in terms of $\theta_{\text{rel}} = \theta - \theta_d$):
+$$
+\Phi_{\text{rel}}(\theta_{\text{rel}})\,\Phi_{\text{rel}}(-\theta_{\text{rel}})\big(1 + e^{2\lambda\theta_{\text{rel}}}\big)\big(1 + e^{-2\lambda\theta_{\text{rel}}}\big) \quad\longrightarrow\quad \bar{\Phi}(\theta) = \frac{1}{\Phi(-\theta)\big(1 + e^{2\lambda(-\theta - \theta_d)}\big)}.
+$$ {#eq-lec5-bar-phi}
+
+### Step 2: Defect Crossing and the Sign of $q$ (@prp-sg-transmission)
+
+Now let us impose the **defect crossing relation** (@eq-defect-crossing from Lecture 1):
+$$
+\bar{\mathbb{T}}_{a\alpha}^{b\beta}(\theta) = C_{aa'}\,\mathbb{T}_{b'\alpha}^{a'\beta}(i\pi - \theta)\,C^{b'b},
+$$ {#eq-lec5-crossing-eq}
+where $C = \sigma_x = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}$ is the charge-conjugation matrix that swaps soliton and antisoliton ($v_+ \leftrightarrow v_-$).
+
+Let us trace carefully what the right-hand side of (-@eq-lec5-crossing-eq) gives for each of the four matrix elements on $\mathcal{H}_n$, keeping track of the defect state labels $\alpha, \beta \in \mathbb{Z}$!
+1. **Diagonal entry $(a,\alpha) = (+, n) \to (b,\beta) = (+, n)$:**
+   In $\bar{\mathbb{T}}_{+,n}^{+,n}(\theta)$, the top-left entry of (-@eq-lec5-tbar-from-unitarity) is
+   $$
+   \bar{\mathbb{T}}_{+,n}^{+,n}(\theta) = \frac{q^{-n - \frac{s}{2}}}{\Phi(-\theta)\big(1 + e^{2\lambda(-\theta - \theta_d)}\big)}.
+   $$
+   On the right-hand side of (-@eq-lec5-crossing-eq), charge conjugation swaps $a = + \mapsto a' = -$ and $b = + \mapsto b' = -$, while keeping the defect states $\alpha = n \to \beta = n$ untouched! Thus the right-hand side is $\mathbb{T}_{-,n}^{-,n}(i\pi - \theta)$. Looking at (-@eq-lec4-sg-t-explicit), the amplitude for $v_- \otimes |n\rangle \to v_- \otimes |n\rangle$ in $\mathbb{T}(i\pi - \theta)$ is $\Phi(i\pi - \theta)\,q^{-n - \frac{s}{2}}$!
+   Equating the two sides, the $q^{-n - \frac{s}{2}}$ factors match and cancel on both sides, giving:
+   $$
+   \Phi(-\theta)\,\Phi(i\pi - \theta)\big(1 + e^{2\lambda(-\theta - \theta_d)}\big) = 1!
+   $$ {#eq-lec5-crossing-diag}
+   Replacing $-\theta$ by $\theta$ writes (-@eq-lec5-crossing-diag) in the standard form:
+   $$
+   \Phi(\theta)\,\Phi(\theta + i\pi)\big(1 + e^{2\lambda(\theta - \theta_d)}\big) = 1 \qquad \text{(or } q^{-s}\text{ in the normalization of Chapter 41)}.
+   $$ {#eq-lec5-crossing-diag-shifted}
+
+2. **Off-diagonal entry $(a,\alpha) = (+, n) \to (b,\beta) = (-, n+1)$:**
+   Now watch what happens to the off-diagonal entry! In $\bar{\mathbb{T}}_{+,n}^{-,n+1}(\theta)$, the top-right entry of (-@eq-lec5-tbar-from-unitarity) is
+   $$
+   \bar{\mathbb{T}}_{+,n}^{-,n+1}(\theta) = \frac{+i\,e^{\lambda(-\theta - \theta_d)}}{\Phi(-\theta)\big(1 + e^{2\lambda(-\theta - \theta_d)}\big)}.
+   $$ {#eq-lec5-offdiag-lhs}
+   On the right-hand side of (-@eq-lec5-crossing-eq), charge conjugation swaps $a = + \mapsto a' = -$ and $b = - \mapsto b' = +$, while keeping $\alpha = n \to \beta = n+1$. So the right-hand side is $\mathbb{T}_{+,n}^{-,n+1}(i\pi - \theta)$, which by (-@eq-lec5-tn-2x2) is
+   $$
+   \mathbb{T}_{+,n}^{-,n+1}(i\pi - \theta) = \Phi(i\pi - \theta)\big(-i\,e^{\lambda(i\pi - \theta - \theta_d)}\big) = -i\,e^{i\pi\lambda}\,e^{\lambda(-\theta - \theta_d)}\,\Phi(i\pi - \theta)!
+   $$ {#eq-lec5-offdiag-rhs}
+   Now compare (-@eq-lec5-offdiag-lhs) and (-@eq-lec5-offdiag-rhs): for both the diagonal entry (-@eq-lec5-crossing-diag) and the off-diagonal entry to be satisfied simultaneously, the extra factor $-i\,e^{i\pi\lambda}$ in (-@eq-lec5-offdiag-rhs) must equal $+i$ (or, when the off-diagonal entry is normalized with $q$, must match the sign of $q$)!
+   Look at the sign in $-i\,e^{i\pi\lambda}$:
+   $$
+   \text{At the physical sign } q = -e^{-i\pi\lambda} \iff -e^{i\pi\lambda} = q^{-1}!
+   $$ {#eq-lec5-q-sign-match}
+   In the convention of Chapter 41 (@eq-q-physical, @prp-sg-transmission; see `textbook_code/defect_sg_transmission.py`), where $y(\theta) = e^{\lambda\theta}$ shifts under crossing $\theta \mapsto \theta + i\pi$ as
+   $$
+   y(\theta + i\pi) = e^{i\pi\lambda} y(\theta) = -q^{-1} y(\theta) \qquad \big(\text{precisely because } q = -e^{-i\pi\lambda}!\big),
+   $$ {#eq-lec5-y-shift-q}
+   the minus sign in $q = -e^{-i\pi\lambda}$ cancels the minus sign between $-iY$ in $\mathbb{T}$ and $+iY$ in $\bar{\mathbb{T}}$, making **all four entries** of the $2\times 2$ crossing relation collapse to the single scalar equation
+   $$
+   \Phi(\theta)\,\Phi(\theta + i\pi)\big(1 + e^{2\lambda(\theta - \theta_d)}\big) = q^{-s}!
+   $$ {#eq-lec5-master-crossing-phi}
+   If you used the naive sign $+e^{-i\pi\lambda}$ instead of $q = -e^{-i\pi\lambda}$, the diagonal entries would give $+q^{-s}$ while the off-diagonal entries would give $-q^{-s}$, and no scalar factor $\Phi(\theta)$ could exist! This is one of the sharpest demonstrations in the entire book of why the physical sign $q = -e^{-i\pi\lambda}$ (arising from the fermionic/bosonic spin of the nonlocal quantum group currents in Chapter 20) is mandatory for consistent defect scattering.
+
+---
+
+## 5.2 The Gamma-Product Scalar Factor, Semiclassical Delay, and the Decaying Resonance {#sec-lec5-gamma-and-resonance}
+
+Let us solve (-@eq-lec5-master-crossing-phi) (for the fundamental even defect $s = 0$, setting $\hat{\theta} = \theta - \theta_d$ and $Y = e^{\lambda\hat{\theta}}$):
+$$
+\Phi(\hat{\theta})\,\Phi(\hat{\theta} + i\pi) = \frac{1}{1 + e^{2\lambda\hat{\theta}}} = \frac{1}{(1 + i e^{\lambda\hat{\theta}})(1 - i e^{\lambda\hat{\theta}})}.
+$$ {#eq-lec5-phi-func-eq}
+
+### Solving the Functional Equation via Infinite Gamma Products
+
+How do we factorize $\frac{1}{1 + e^{2\lambda\hat{\theta}}}$ under a shift by $i\pi$? First, extract a simple prefactor that accounts for the pole nearest the real axis: writing
+$$
+\Phi(\hat{\theta}) = \frac{1}{1 + i e^{\lambda\hat{\theta}}}\,\frac{r(\hat{\theta})}{\bar{r}(\hat{\theta})} \quad\text{or directly in terms of } \Gamma\text{-functions (@eq-sgd-scalar)},
+$$
+let us see how the Gamma function turns a shift $\hat{\theta} \mapsto \hat{\theta} + i\pi$ into a trigonometric factor! Recall Euler's reflection identity:
+$$
+\Gamma(z)\,\Gamma(1 - z) = \frac{\pi}{\sin(\pi z)} \implies \prod_{k=1}^\infty \text{ratios of } \Gamma\text{-functions}.
+$$
+Specifically, shift $\hat{\theta} \mapsto \hat{\theta} + i\pi$: in the variable $x = \frac{\lambda\hat{\theta}}{2\pi i}$, a shift of $\hat{\theta}$ by $i\pi$ shifts $x \mapsto x + \frac{\lambda}{2}$. Following Konik–LeClair [@konik_leclair1999] and Bowcock–Corrigan–Zambon [@bcz2005], the minimal analytic solution to (-@eq-lec5-phi-func-eq) and unitarity (-@eq-lec5-phi-unitarity-real) is given by the infinite Gamma-function product (@eq-sgd-scalar; see `textbook_code/defect_sg_transmission.py`):
+$$
+\Phi(\theta) = \frac{1}{1 + i e^{\lambda(\theta - \theta_d)}}\,\frac{r(\theta - \theta_d)}{\bar{r}(\theta - \theta_d)},
+$$ {#eq-lec5-phi-gamma}
+where $r(\hat{\theta})$ is built from products of $\Gamma\!\left(\frac{1}{2} + 2k\lambda \pm \frac{i\lambda\hat{\theta}}{\pi}\right)$ and $\Gamma\!\left(\frac{1}{2} + (2k-1)\lambda \pm \frac{i\lambda\hat{\theta}}{\pi}\right)$ (and notice a crucial numerical lesson recorded in Chapter 41: if you truncate the infinite product at $k = N$, the individual partial products $r_N(\hat{\theta})$ and $\bar{r}_N(\hat{\theta})$ have an $N$-dependent phase drift, whereas the **ratio** $r_N(\hat{\theta})/\bar{r}_N(\hat{\theta})$ cancels the Stirling asymptotics and converges rapidly!).
+
+### Semiclassical Limit and Wigner's Time Delay
+
+Let us check that our quantum scalar factor (-@eq-lec5-phi-gamma) knows about our classical Bäcklund calculation from Lecture 2! In the classical limit $\beta \to 0$, the coupling parameter $\lambda = \frac{8\pi}{\beta^2} - 1 \to \infty$. By Wigner's semiclassical time-delay relation, the derivative of the quantum transmission phase $\Theta(\hat{\theta}) = \arg\Phi(\hat{\theta})$ with respect to rapidity must reproduce the logarithm of the classical Hirota spatial shift $|z_{\text{I}_-}(\theta)| = \left|\coth\frac{\theta - \theta_d}{2}\right|$:
+$$
+\lim_{\lambda \to \infty} \frac{\pi}{\lambda + 1}\frac{d}{d\theta}\arg\Phi(\theta - \theta_d) = \ln\!\left|\coth\!\left(\frac{\theta - \theta_d}{2}\right)\right|!
+$$ {#eq-lec5-wigner-delay}
+Why does (-@eq-lec5-wigner-delay) work? Using Stirling's approximation $\ln\Gamma(z) \sim z\ln z - z$ as $\lambda \to \infty$, the sum over $k$ in $\frac{d}{d\theta}\ln(r/\bar{r})$ becomes a Fourier series $\sum_{n=0}^\infty \frac{2}{2n+1}\cos\text{ or }e^{-(2n+1)|\theta-\theta_d|} = \ln\left|\coth\frac{\theta-\theta_d}{2}\right|$! What was a single algebraic rational function $-\coth\frac{\theta-\theta_d}{2}$ in the classical Bäcklund transformation is resummed in the quantum theory into an infinite tower of Gamma-function poles.
+
+### The Resonance Pole and the Excited Odd Defect ($s = 1$)
+
+Now look at the prefactor $\frac{1}{1 + i e^{\lambda(\theta - \theta_d)}}$ in (-@eq-lec5-phi-gamma): where are its poles near the physical strip?
+1. Naively, $1 + i e^{\lambda(\theta - \theta_d)} = 0$ when $e^{\lambda(\theta - \theta_d)} = i = e^{i\pi/2}$ or $-i$? Wait: $1 + i e^{\lambda(\theta - \theta_d)} = 0 \iff e^{\lambda(\theta - \theta_d)} = +i = e^{+i\pi/2}$, which lies at $\theta = \theta_d + \frac{i\pi}{2\lambda}$ in the **upper** half-plane $\operatorname{Im}\theta > 0$!
+   Wait: if $\Phi(\theta)$ had a pole at $\theta = \theta_d + \frac{i\pi}{2\lambda}$ in the physical strip $\operatorname{Im}\theta \in (0, \pi)$, that would represent a **stable** defect–soliton bound state. Does $\Phi(\theta)$ have a pole there?
+   **No!** Look inside the Gamma-function factor $1/\bar{r}(\theta - \theta_d)$ in (-@eq-lec5-phi-gamma): at $\theta - \theta_d = +\frac{i\pi}{2\lambda}$, the $k=0$ Gamma function in the denominator of $\bar{r}$ hits $\Gamma(0) = \infty$, so $1/\bar{r}(\theta - \theta_d)$ has a **simple zero** at $\theta = \theta_d + \frac{i\pi}{2\lambda}$ that **cancels** the pole of $\frac{1}{1 + i e^{\lambda(\theta - \theta_d)}}$!
+2. Where *is* the uncancelled pole of $\mathbb{T}(\theta)$ closest to the real axis? It comes from $r(\theta - \theta_d)$ at the conjugate point in the **lower** half-plane (the unphysical sheet!):
+   $$
+   \theta_P = \theta_d - \frac{i\pi}{2\lambda}!
+   $$ {#eq-lec5-resonance-pole}
+
+What is the physics of a pole at $\theta_P = \theta_d - \frac{i\pi}{2\lambda}$ in the lower half-plane $\operatorname{Im}\theta < 0$? Let us compute the energy of the composite system (defect + soliton at rapidity $\theta_P$):
+$$
+\Delta E = M\cosh\theta_P = M\cosh\!\left(\theta_d - \frac{i\pi}{2\lambda}\right) = \underbrace{M\cosh\theta_d \cos\!\left(\frac{\pi}{2\lambda}\right)}_{\operatorname{Re}\Delta E} - i\underbrace{M\sinh\theta_d \sin\!\left(\frac{\pi}{2\lambda}\right)}_{\Gamma/2}!
+$$ {#eq-lec5-resonance-energy}
+For $\theta_d > 0$ and $\lambda > 1/2$, the imaginary part is negative ($\Gamma = 2M\sinh\theta_d\sin\frac{\pi}{2\lambda} > 0$), which is the hallmark of an **unstable decaying resonance** with lifetime $\tau = 1/\Gamma$! (Recall from Lecture 2 that for $\theta_d > 0$, a classical soliton at $\theta = \theta_d > 0$ moves to the right and can be absorbed/emitted at $x=0$; in the quantum theory, this marginal classical absorption at $\theta = \theta_d$ shifts down to $\theta_P = \theta_d - \frac{i\pi}{2\lambda}$ and acquires a quantum decay width $\Gamma$!)
+
+And what happens when we apply the **defect bootstrap** (@eq-lec1-defect-bootstrap from Lecture 1) at the pole $\theta_P = \theta_d - \frac{i\pi}{2\lambda}$? At $\theta = \theta_P$, $e^{\lambda(\theta_P - \theta_d)} = -i$, so the $2\times 2$ matrix in (-@eq-lec5-tn-2x2) has determinant $1 + (-i)^2 = 0$ and rank 1! Projecting onto the 1-dimensional residue image in each charge sector $\mathcal{H}_n$ shifts the Weyl module parameter from $s = 0$ to $s = 1$ and shifts $\theta_d \mapsto \theta_d - i\pi$, producing the **odd-sector sine-Gordon defect**!
+
+---
+
+## 5.3 The $a_2^{(1)}$ Soliton Transmission Matrices and Quantum Tunnelling {#sec-lec5-a2-tunnelling}
+
+Now let us move from $a_1^{(1)}$ to the higher-rank necklace $a_r^{(1)}$ ($h = r+1$), focusing on our showcase multi-component laboratory **$a_2^{(1)}$ ($r = 2, h = 3$)**!
+
+In $a_2^{(1)}$, there are two soliton multiplets:
+- The fundamental **vector soliton** $V = \mathbf{3}$ ($a = 1$, mass $M_1 = \frac{2m}{\beta^2}\sin\frac{\pi}{3}$), with basis $\{|1\rangle_V, |2\rangle_V, |3\rangle_V\}$ corresponding to the three weights of the fundamental representation of $\mathfrak{sl}_3$.
+- The conjugate **antivector soliton** $\bar{V} = \bar{\mathbf{3}}$ ($a = 2$, mass $M_2 = M_1$), with basis $\{|\bar{1}\rangle_{\bar{V}}, |\bar{2}\rangle_{\bar{V}}, |\bar{3}\rangle_{\bar{V}}\}$, which is the bound state of two $V$-solitons at the fusing angle $\theta_{12} = \frac{2\pi i}{3}$ ($V \wedge V \simeq \bar{V}$).
+
+### Constructing the Root-Lattice Weyl Module $\mathcal{W}$ for $a_r^{(1)}$
+
+What is the defect Hilbert space $\mathcal{W}$ for $a_r^{(1)}$? Because the defect can absorb and emit solitons carrying charges in the root lattice $Q = \mathbb{Z}\vec{\alpha}_1 \oplus \cdots \oplus \mathbb{Z}\vec{\alpha}_r \simeq \mathbb{Z}^r$, the defect space is spanned by an $r$-dimensional integer lattice of states:
+$$
+\mathcal{W} = \operatorname{span}\!\big\{|\vec{N}\rangle : \vec{N} = (N_1, \dots, N_r) \in \mathbb{Z}^r\big\}
+$$
+(or conveniently parameterized by $\vec{N} = \sum_{j=0}^r N_j \vec{\alpha}_j$ modulo the null vector $(1,1,\dots,1)$).
+
+How does the Borel subalgebra $U_q(\mathfrak{b}^-) \subset U_q(a_r^{(1)})$ act on $|\vec{N}\rangle$? In $U_q(a_r^{(1)})$ for $r \ge 2$, the lowering generators $f_0, f_1, \dots, f_r$ around the necklace obey the **quadratic** $q$-Serre relations for non-adjacent nodes and cubic $q$-Serre relations for adjacent nodes. In fact, on the Weyl module $\mathcal{W}$, adjacent generators obey the simple **$q$-commutation (clock) relation**:
+$$
+f_j\,f_{j+1} = q^{-1}\,f_{j+1}\,f_j \qquad (j \in \mathbb{Z}/h\mathbb{Z})!
+$$ {#eq-lec5-fj-clock}
+Why does (-@eq-lec5-fj-clock) automatically imply the cubic $q$-Serre relation $f_j^2 f_{j+1} - (q + q^{-1})f_j f_{j+1} f_j + f_{j+1} f_j^2 = 0$? Let us check on the blackboard in one line! Substitute $f_j f_{j+1} = q^{-1}f_{j+1}f_j$ into the middle and left terms:
+$$
+f_j(q^{-1}f_{j+1}f_j) - (q + q^{-1})(q^{-1}f_{j+1}f_j)f_j + f_{j+1}f_j^2 = \big(q^{-2} - (1 + q^{-2}) + 1\big)f_{j+1}f_j^2 = 0!
+$$
+And for (-@eq-lec5-fj-clock) to hold when $f_j$ shifts the $j$-th lattice coordinate $N_j \mapsto N_j + 1$, the action of $f_j$ on $|\vec{N}\rangle$ must carry the exact $q$-power $q^{N_{j+1}}$ of the **next** node around the necklace (@eq-dt-weyl):
+$$
+\rho(k_j)|\vec{N}\rangle = q^{N_{j-1} + N_{j+1} - 2N_j}|\vec{N}\rangle, \qquad \rho(f_j)|\vec{N}\rangle \propto y_d\,q^{N_{j+1} + s_{j+1}}|\vec{N} + \vec{e}_j\rangle!
+$$ {#eq-lec5-ar-weyl-action}
+Notice again the chiral signature of the necklace: node $j$ talks asymmetrically to node $j+1$, just as $\vec{\alpha}_j \cdot \mathsf{D}\vec{\alpha}_k = 2\delta_{jk} - 2\delta_{j+1,k}$ did in our classical calculation in Lecture 3!
+
+### Deriving $M_V(\theta)$ and $M_{\bar{V}}(\theta)$—and Discovering Quantum Tunnelling!
+
+Now let us solve the Borel intertwining equation $\mathbb{T}(\theta)(\pi_\theta \otimes \rho)\Delta(b) = (\rho \otimes \pi_\theta)\Delta(b)\mathbb{T}(\theta)$ for the vector soliton $V$ and the antivector soliton $\bar{V}$ of $a_2^{(1)}$ ($h=3$, where $x = e^{\omega(\theta - \theta_d)}$ with $\omega = \frac{4\pi}{\beta^2} - 1$)!
+
+::: {#prp-lec5-a2-matrices}
+**[Established]** **The $a_2^{(1)}$ Vector and Antivector Transmission Matrices (@prp-an-transmission, @eq-dt-tv, @eq-dt-tvbar; Corrigan–Zambon [@cz2007; @cz2009a; @cz2011]).**
+1. **For the vector soliton $V = \mathbf{3}$ ($a = 1$):** On each incoming state $|j\rangle_V \otimes |\vec{N}\rangle$ ($j \in \{1,2,3\}$), the transmission matrix $M_V(\theta)$ has **only two** non-zero outgoing branches (@eq-dt-tv):
+   - A **diagonal transmission** $|j\rangle_V \otimes |\vec{N}\rangle \to |j\rangle_V \otimes |\vec{N}\rangle$ (preserving the soliton's colour $j$ and shifting its phase by a $q$-power of $\vec{N}$), and
+   - A **single-step clockwise shift** $|j\rangle_V \otimes |\vec{N}\rangle \to |j+1\rangle_V \otimes |\vec{N} + \vec{\alpha}_j\rangle$ with amplitude proportional to $e^{\frac{2\pi}{\beta^2}(\theta - \theta_d)}$ (or $x = e^{\omega(\theta - \theta_d)}$).
+   The third state $|j-1\rangle_V$ has **strictly zero amplitude**!
+2. **For the antivector soliton $\bar{V} = \bar{\mathbf{3}}$ ($a = 2$):** Whether you solve the linear Borel intertwining equations on $\bar{V} \otimes \mathcal{W}$ (using the quadratic $q$-commutator trick $\Omega_j = \Delta(f_j)\Delta(f_{j+1}) - q^{-1}\Delta(f_{j+1})\Delta(f_j)$, which kills the defect leg $\rho(f_j)\rho(f_{j+1}) - q^{-1}\rho(f_{j+1})\rho(f_j) = 0$ and isolates the soliton leg!) or fuse two $V$-solitons at $\theta \pm \frac{i\pi}{3}$ via the defect bootstrap (@eq-dt-bootstrap):
+   $$
+   M_{\bar{V}}(\theta) \propto \Pi_{\bar{V}}\,M_{V_1}\!\left(\theta + \frac{i\pi}{3}\right) M_{V_2}\!\left(\theta - \frac{i\pi}{3}\right) \Pi_{\bar{V}},
+   $$ {#eq-lec5-vbar-from-fusion}
+   you find that $M_{\bar{V}}(\theta)$ has **all three** outgoing states $|\bar{j}\rangle_{\bar{V}}, |\overline{j-1}\rangle_{\bar{V}}, |\overline{j+1}\rangle_{\bar{V}}$ non-zero (@eq-dt-tvbar; see `textbook_code/defect_an_transmission.py`)!
+:::
+
+**Stop and marvel at @prp-lec5-a2-matrices!** Why does $M_V(\theta)$ have 2 non-zero entries per state while $M_{\bar{V}}(\theta)$ has 3?
+- Look at the fusion formula (-@eq-lec5-vbar-from-fusion): a $\bar{V}$-soliton is a bound state of **two** $V$-solitons! When the first $V$-soliton crosses the defect, it can step once clockwise ($0$ or $+1$); when the second $V$-soliton crosses the defect, it can *also* step once clockwise ($0$ or $+1$). Together, two clockwise steps on a 3-node necklace take you to $0$, $+1$, or $+2 \equiv -1 \pmod 3$—reaching **all three** states of $\bar{V}$!
+- Now compare this with our classical Hirota calculation in Lecture 3 (@sec-lec3-solitons)! Clasically, the phase shift $\arg z_2(\theta) \in (0, \frac{4\pi}{3})$ allowed only two charge sectors at $\theta \to \pm\infty$, while the third transition in $M_{\bar{V}}(\theta)$ has an amplitude proportional to a single power of $x = e^{\omega(\theta - \theta_d)}$ Divided by a polynomial of degree 2 in $x$:
+  $$
+  \frac{\text{Tunnelling amplitude}}{\text{Classical amplitudes}} \sim \frac{e^{\omega(\theta - \theta_d)}}{1 + \cdots + e^{2\omega(\theta - \theta_d)}}.
+  $$
+  For any $\theta \neq \theta_d$, as we take the classical limit $\beta \to 0$ ($\omega \to \infty$), this middle-power term **vanishes exponentially** ($\sim e^{-\omega|\theta - \theta_d|} \to 0$)! It is a genuine **quantum tunnelling process** [@cz2010]: in the quantum theory, near the defect rapidity $\theta \approx \theta_d$, an antivector soliton $\bar{V}$ can tunnel into the classically forbidden third topological charge sector!
+
+Finally, just as in sine-Gordon, unitarity and crossing between $M_V(\theta)$ and $M_{\bar{V}}(\theta)$ (@eq-dt-crossing, @prp-transmission-crossing) fix the overall scalar factor $g(\theta)$ (@eq-dt-g) as an infinite Gamma-function product, and its poles in the complex $\theta$-plane produce a discrete window of unstable defect–soliton bound states whose number depends on the coupling $\omega$ (@eq-dt-window, @prp-a2-unstable).
+
+---
+
+## Exercises for Lecture 5
+
+::: {#exr-lec5-omega-trick}
+**The Quadratic $\Omega_j$ Trick on $V \otimes \mathcal{W}$ and $\bar{V} \otimes \mathcal{W}$.**
+Using the coproduct $\Delta(f_j) = f_j \otimes 1 + k_j \otimes f_j$ and the Weyl-module clock relation $\rho(f_j)\rho(f_{j+1}) = q^{-1}\rho(f_{j+1})\rho(f_j)$ from (-@eq-lec5-fj-clock), compute the operator
+$$
+\Omega_j = (\pi \otimes \rho)\big(\Delta(f_j)\Delta(f_{j+1}) - q^{-1}\Delta(f_{j+1})\Delta(f_j)\big)
+$$
+explicitly! Show that the pure defect term $k_j k_{j+1} \otimes (\rho(f_j)\rho(f_{j+1}) - q^{-1}\rho(f_{j+1})\rho(f_j))$ vanishes identically, and use this to explain in two lines why $\pi_V(f_j)\pi_V(f_{j+1}) = 0$ on the vector representation $V$ kills one of the cross-terms and restricts $M_V(\theta)$ to 2 entries per state, whereas on $\bar{V}$ both terms survive and give 3 entries!
+:::
+
+::: {#exr-lec5-odd-defect-bootstrap}
+**Bootstrapping the Odd Sine-Gordon Defect ($s=1$) at $\theta_P = \theta_d - \frac{i\pi}{2\lambda}$.**
+Verify explicitly on the 2-dimensional block $\mathcal{H}_n = \{v_+\otimes|n\rangle, v_-\otimes|n+1\rangle\}$ that at $\theta_P = \theta_d - \frac{i\pi}{2\lambda}$ (where $Y(\theta_P) = -i$), the matrix $\mathbb{T}_n(\theta_P)$ in (-@eq-lec5-tn-2x2) (for $s=0$) has rank 1, with image spanned by $|n\rangle_{\text{odd}} = q^{n/2}v_+\otimes|n\rangle - q^{-n/2}v_-\otimes|n+1\rangle$. Using the bulk sine-Gordon $S$-matrix $S(\theta - \theta_P)$, compute the fused transmission matrix on $\{|n\rangle_{\text{odd}}\}$ and verify that it reproduces $\mathbb{T}_n(\theta)$ with $s = 1$ and $\theta_d \mapsto \theta_d - i\pi$!
+:::
