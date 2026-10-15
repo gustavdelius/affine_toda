@@ -1,0 +1,38 @@
+========================================================================
+PHASE 2 INDEPENDENT VERIFICATION SCRIPT
+========================================================================
+
+--- ITEM 1: Spin-s charges, Freeman eq. (3.48)-(3.49), and spin-4 in a_2^(1) ---
+  a_2^(1) spin N=1: Cartan eigenvalue = 1.0, q_2/q_1 = +1.0, eps_{Q_1} = (-1)^(1-1) = +1
+  a_2^(1) spin N=2: Cartan eigenvalue = 3.0, q_2/q_1 = -1.0, eps_{Q_2} = (-1)^(2-1) = -1
+  a_2^(1) spin N=4: Cartan eigenvalue = 3.0, q_2/q_1 = -1.0, eps_{Q_4} = (-1)^(4-1) = -1
+  a_2^(1) spin N=5: Cartan eigenvalue = 1.0, q_2/q_1 = +1.0, eps_{Q_5} = (-1)^(5-1) = +1
+  a_2^(1) spin N=7: Cartan eigenvalue = 1.0, q_2/q_1 = +1.0, eps_{Q_7} = (-1)^(7-1) = +1
+  a_2^(1) spin N=8: Cartan eigenvalue = 3.0, q_2/q_1 = -1.0, eps_{Q_8} = (-1)^(8-1) = -1
+  Verified W_3 structure at spin 4 (weight 5): density J_5 ~ :T_2 W_3: is C-odd,
+  and with real 1-soliton normalization satisfies J_5(-conj(phi)) = -conj(J_5(phi)), so eps_{Q_4} = -1!
+
+--- ITEM 2: Canonical energy & momentum density integrated on a_2^(1) breather ---
+  a_2^(1) breather (th0=0.3, u=1.0):
+    Canonical int T00 dx = 11.7391228112 + -1.70e-11j,  2 M1 cosh(th0) cos(u) = 11.7391228113, diff = 1.21e-10
+    Canonical int P   dx = 3.4197545339 + -1.98e-10j,  2 M1 sinh(th0) cos(u) = 3.4197545341, diff = 1.70e-10
+
+--- ITEM 4: Two-soliton shifts for BOTH solitons and Hollowood S-matrix semiclassical limit ---
+  a_2^(1) (a=1,b=1): d/dth ln A_ab = 1.3819950821, semiclassical S-matrix integral = 1.3819950821, diff = 2.22e-16
+  a_2^(1) (a=2,b=1): d/dth ln A_ab = 0.6425061154, semiclassical S-matrix integral = 0.6425061154, diff = 0.00e+00
+  a_2^(1) (a=2,b=2): d/dth ln A_ab = 1.3819950821, semiclassical S-matrix integral = 1.3819950821, diff = 2.22e-16
+  a_3^(1) (a=1,b=1): d/dth ln A_ab = 1.1974222962, semiclassical S-matrix integral = 1.1974222962, diff = 0.00e+00
+  a_3^(1) (a=2,b=1): d/dth ln A_ab = 0.8270265648, semiclassical S-matrix integral = 0.8270265648, diff = 2.22e-16
+  a_3^(1) (a=2,b=2): d/dth ln A_ab = 1.4974011068, semiclassical S-matrix integral = 1.4974011068, diff = 4.44e-16
+  a_3^(1) (a=3,b=1): d/dth ln A_ab = 0.2999788106, semiclassical S-matrix integral = 0.2999788106, diff = 5.55e-17
+  a_3^(1) (a=3,b=2): d/dth ln A_ab = 0.8270265648, semiclassical S-matrix integral = 0.8270265648, diff = 2.22e-16
+  a_3^(1) (a=3,b=3): d/dth ln A_ab = 1.1974222962, semiclassical S-matrix integral = 1.1974222962, diff = 0.00e+00
+
+--- ITEM 5: Lax pair for a_2^(2) (3x3 matrices) & centralizer of E_1 ---
+  a_2^(2) (Bullough-Dodd) 3x3 zero-curvature residual with EOM substituted: True
+  Check J_5 E1_a4^T J_5 == E1_a4: True
+  a_4^(2) (k=2, h=5, kh=10) exponents in {1..10}: [1, 3, 7, 9] (expected: [1, 3, 7, 9])
+
+--- ITEM 6: Area rule and Dorey's rule for a_4^(1) and e_6^(1) ---
+  a_4^(1) in complex Z_5 charge basis: max ||C_abc| - (4/sqrt(5)) Delta_abc| = 8.24e-16
+  a_4^(1) in real orthonormal basis: |C_{u1,u1,u2}| = 0.000000 vs area rule (4/sqrt(5)) Delta_112 = 1.175571 (diff = 1.175571)

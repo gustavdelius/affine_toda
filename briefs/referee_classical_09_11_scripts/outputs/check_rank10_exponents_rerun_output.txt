@@ -1,0 +1,32 @@
+========================================================================
+CHECK (Rank 8): Fast exact evaluation of SG kink Q_3 integral
+========================================================================
+int (sech^2 u - 2 sech^4 u) du = -0.666666666667  (-2/3 = -0.666666666667)
+Therefore, on the sine-Gordon kink phi = (4/beta) arctan(exp(m(x cosh theta - t sinh theta))):
+  int T_4 dx = -(8 m^3 / (3 beta^2 cosh theta)) e^{-4 theta}
+  int X_2 dx = -(8 m^3 / (3 beta^2 cosh theta)) e^{-2 theta}
+  Q_3 = int (T_4 + X_2) dx = -(16 m^3 / (3 beta^2)) e^{-3 theta}  (scales as e^{-3 theta}, spin -3!)
+
+========================================================================
+CHECK (Rank 10): Exponents of untwisted and twisted affine algebras modulo k*h
+========================================================================
+a_2^(2): k=2, h=sum(n_j)=3, period k*h=6, exponents mod 6 = [1, 5]
+a_{2n}^(2) (n=2: a_4^(2)): k=2, h=sum(n_j)=5, period k*h=10, exponents mod 10 = [1, 3, 7, 9]
+a_{2n-1}^(2) (n=3: a_5^(2)): k=2, h=sum(n_j)=5, period k*h=10, exponents mod 10 = [1, 3, 5, 7, 9]
+d_{n+1}^(2) (n=3: d_4^(2)): k=2, h=sum(n_j)=4, period k*h=8, exponents mod 8 = [1, 3, 5, 7]
+e_6^(2): k=2, h=sum(n_j)=9, period k*h=18, exponents mod 18 = [1, 5, 7, 11, 13, 17]
+d_4^(3): k=3, h=sum(n_j)=4, period k*h=12, exponents mod 12 = [1, 5, 7, 11]
+
+WAIT: Let's check the exponents of b_n^(1), c_n^(1), a_{2n-1}^(2), d_{n+1}^(2) directly from the principal Heisenberg subalgebra!
+d_4^(1) (h=6): 6 non-zero eigenvalues of E1, magnitudes = [1.4142 1.4142 1.4142 1.4142 1.4142 1.4142], zero evals = 2
+d_6^(1) (h=10): 10 non-zero eigenvalues of E1, magnitudes = [1.4142 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142 1.4142], zero evals = 2
+  d_4^(1) odd power s=1: ||E_1^1|| = 3.4641 (> 0, sigma-invariant!)
+  d_4^(1) odd power s=3: ||E_1^3|| = 6.9282 (> 0, sigma-invariant!)
+  d_4^(1) odd power s=5: ||E_1^5|| = 13.8564 (> 0, sigma-invariant!)
+  d_4^(1) odd power s=7: ||E_1^7|| = 27.7128 (> 0, sigma-invariant!)
+  d_6^(1) odd power s=1: ||E_1^1|| = 4.4721 (> 0, sigma-invariant!)
+  d_6^(1) odd power s=3: ||E_1^3|| = 8.9443 (> 0, sigma-invariant!)
+  d_6^(1) odd power s=5: ||E_1^5|| = 17.8885 (> 0, sigma-invariant!)
+  d_6^(1) odd power s=7: ||E_1^7|| = 35.7771 (> 0, sigma-invariant!)
+  d_6^(1) odd power s=9: ||E_1^9|| = 71.5542 (> 0, sigma-invariant!)
+  d_6^(1) odd power s=11: ||E_1^11|| = 143.1084 (> 0, sigma-invariant!)
