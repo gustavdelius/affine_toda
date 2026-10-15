@@ -110,7 +110,7 @@ $$
 \sigma_c(\mu)=-\Big(\frac c2\omega\Big)_I\Big(\frac h2\omega-\frac c2\omega\Big)_I,\qquad c=1,\dots,n ,
 $$ {#eq-an-cdd}
 
-and their inverses. We have checked that (-@eq-an-cdd) satisfies all three conditions for $n=2,\dots,5$, and that the overall minus sign is needed: without it the bootstrap condition fails for even $n$. They argue that none of these factors has a physical interpretation, and take the minimal solution. The breather and particle reflection factors that follow from it are the subject of @sec-uniform-boundary.
+and their inverses. We have checked that (-@eq-an-cdd) satisfies all three conditions for $n=2,\dots,5$, and that the overall minus sign is needed: without it the bootstrap condition fails for even $n$ (`textbook_code/reflection_matrices.py`). They argue that none of these factors has a physical interpretation, and take the minimal solution. The breather and particle reflection factors that follow from it are the subject of @sec-uniform-boundary.
 
 ## Non-diagonal a_n reflection matrices {#sec-an-nondiagonal-k}
 
@@ -357,7 +357,7 @@ a(\mu)=-i\rho(\mu)\,e^{(1-l)\omega\theta}\,\frac{\mathcal G_{\varepsilon+2T,\,\b
 \tilde b(\mu)=-i\rho(\mu)\,e^{-(1-l)\omega\theta}\,\frac{\mathcal G_{\bar\varepsilon+2T,\,\varepsilon+T}(\mu)}{\sin\pi(\bar\varepsilon+\mu)},\qquad
 \rho(\mu)=\Big(\frac\omega2\Big)_I\,\mathcal G^{(2)}_{2T+\omega,\,0}(2\mu)
 $$ {#eq-sp-scalar}
-solve (-@eq-sp-scalar-eqs) for $n=1,2,3$ and every $l$. They satisfy the soliton bootstrap $V^{\otimes n}\to\bar V$ for $n\le3$, and for $n=4$ at $l=0,2,5$. Here $\bar V(\theta)$ sits in $V(\theta_1)\otimes\dots\otimes V(\theta_n)$ with $\mu_k=\mu-T+k\omega$, and reflecting the $n$ constituents with $aK_V$ and the bulk S-matrix gives $\tilde b(\mu)K_{\bar V}(\theta)$, both the matrix and the scalar. For $n=1$, $l=1$, $a(\mu)(-\frac T2)_I^2K_V$ is Ghoshal and Zamolodchikov's Dirichlet matrix at $\xi_B=\pi\varepsilon-\frac\pi2$, the limit $\vartheta\to\infty$ of (-@eq-bsg-k-full).
+solve (-@eq-sp-scalar-eqs) for $(n,l)=(1,1)$, $(2,0)$, $(2,1)$, $(3,0)$, $(3,1)$ and $(3,2)$. They satisfy the soliton bootstrap $V^{\otimes n}\to\bar V$ for $n\le3$. Here $\bar V(\theta)$ sits in $V(\theta_1)\otimes\dots\otimes V(\theta_n)$ with $\mu_k=\mu-T+k\omega$, and reflecting the $n$ constituents with $aK_V$ and the bulk S-matrix gives $\tilde b(\mu)K_{\bar V}(\theta)$, both the matrix and the scalar. For $n=1$, $l=1$, $a(\mu)(-\frac T2)_I^2K_V$ is Ghoshal and Zamolodchikov's Dirichlet matrix at $\xi_B=\pi\varepsilon-\frac\pi2$, the limit $\vartheta\to\infty$ of (-@eq-bsg-k-full).
 :::
 
 Checked in `textbook_code/sp_scalar.py`, the functional equations to $10^{-26}$ and the matrix parts to $10^{-14}$. The equations (-@eq-sp-scalar-eqs) are invariant under $a\to a\,e^{m\theta}$, $\tilde b\to(-1)^m\tilde b\,e^{-m\theta}$, $m\in\mathbb Z$. The soliton bootstrap selects $m=0$ and fixes the overall sign. The factor $e^{(1-l)\omega\theta}$ centres the exponents of $K_V$: $e^{(1-l)\omega\theta}K_V$ has the exponents $-(l-1),\dots,l-1$ on the block and $-(n-l),\dots,n-l$ off it.
@@ -378,7 +378,7 @@ $$
 \frac{d\delta}{d\theta}=\frac{4h}{\beta^2}\ln\Big(1+\frac{\sin(\pi a/h)}{\cosh\theta}\Big)+O(1) .
 $$ {#eq-semiclassical-uniform}
 
-Delius and Gandenberger state that the scalar factor (-@eq-an-diagonal-scalar) agrees with this for $a=1$ [@delius_gandenberger1999, sec. 3.3]. We have checked the leading term numerically.
+Delius and Gandenberger state that the scalar factor (-@eq-an-diagonal-scalar) agrees with this for $a=1$ [@delius_gandenberger1999, sec. 3.3]. We have checked the leading term numerically (`textbook_code/reflection_matrices.py`).
 
 ::: {#prp-semiclassical-uniform}
 ## Semiclassical limit of the diagonal amplitude
@@ -427,10 +427,10 @@ Sine-Gordon's reflection matrix is due to Ghoshal and Zamolodchikov [@gz1994], a
 
 Corrections and clarifications of the sources, in addition to those of @sec-boundary-qg-notes:
 
-- **Delius and Nepomechie (3.8).** The square root covers only the first product; read otherwise, the formula fails their own equations for $m\ge2$. At imaginary $\eta$, which includes the physical $q$, the closed form with principal-branch square roots fails for $j\ge1$, as their footnote anticipates; their linear equations (3.6)–(3.7) remain correct there.
+- **Delius and Nepomechie (3.8).** The square root covers only the first product; read otherwise, the formula fails their own equations for $m\ge2$. At imaginary $\eta$, which includes the physical $q$, the closed form with principal-branch square roots fails for $j\ge1$, as their footnote anticipates; their linear equations (3.6)–(3.7) remain correct there (`textbook_code/reflection_matrices.py`).
 - **Delius and Gandenberger (3.9).** The prefactor is not fixed by (3.8): $(-\frac h4\omega)_I$, as printed, and $-(\frac h4\omega)_I$ both solve it. Only the printed one is consistent with their breather amplitude (3.11) and, for $n=1$, with Ghoshal (`textbook_code/reflection_matrices.py`).
-- **Delius and Gandenberger (3.24).** The overall minus sign that they print is necessary when $n$ is even: without it the bootstrap condition (3.23) acquires a factor $(-1)^{n+1}$.
+- **Delius and Gandenberger (3.24).** The overall minus sign that they print is necessary when $n$ is even: without it the bootstrap condition (3.23) acquires a factor $(-1)^{n+1}$ (`textbook_code/reflection_matrices.py`).
 - **Delius and Gandenberger versus Delius and MacKay.** The diagonal matrix belongs to the uniform boundary, as Delius and Gandenberger assigned it, and not to Neumann (@cnj-neumann-coideal).
 - **Gandenberger's free parameters** and **Delius and George's $n$-parameter families** are conjugations by the Cartan torus. They solve the reflection equation, but only the parity-symmetric representative is the intertwiner of the coideal of @sec-boundary-qg.
-- **Delius and George (16)–(17).** Jimbo's $d_n$ R-matrix as printed is not an intertwiner; four corrections are listed in @sec-dn-vector-k.
-- **Delius and George (22).** Their $\hat\epsilon_j^2$ equals the $a_n$ value $\epsilon_*^2$; the shift $\eta$ is the price of their normalization of the generators. The condition omits the solution at $\hat\epsilon=0$.
+- **Delius and George (16)–(17).** Jimbo's $d_n$ R-matrix as printed is not an intertwiner; four corrections are listed in @sec-dn-vector-k (`textbook_code/reflection_matrices.py`).
+- **Delius and George (22).** Their $\hat\epsilon_j^2$ equals the $a_n$ value $\epsilon_*^2$; the shift $\eta$ is the price of their normalization of the generators. The condition omits the solution at $\hat\epsilon=0$ (`textbook_code/reflection_matrices.py`).

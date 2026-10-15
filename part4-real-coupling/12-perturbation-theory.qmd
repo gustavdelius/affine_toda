@@ -50,7 +50,7 @@ $$
 S(\theta)=1-\frac{i\beta^2}{2\sinh\theta}+O(\beta^4).
 $$
 
-The exact S-matrix (-@eq-sinh-gordon-smatrix), $S=(\sinh\theta-i\sin\frac{\pi B}2)/(\sinh\theta+i\sin\frac{\pi B}2)$ with $B$ given by (-@eq-b-of-beta), expands to $1-i\pi B/\sinh\theta=1-i\beta^2/(2\sinh\theta)$. The two agree. This fixes the leading behaviour of $B(\beta)$, and a one-loop computation fixes the next order [@arinshtein1979].
+The exact S-matrix (-@eq-sinh-gordon-smatrix), $S=(\sinh\theta-i\sin\frac{\pi B}2)/(\sinh\theta+i\sin\frac{\pi B}2)$ with $B$ given by (-@eq-b-of-beta), expands to $1-i\pi B/\sinh\theta=1-i\beta^2/(2\sinh\theta)$. The two agree (`textbook_code/smatrix_simply_laced.py` compares them numerically at weak coupling). This fixes the leading behaviour of $B(\beta)$, and a one-loop computation fixes the next order [@arinshtein1979].
 
 **Tree-level poles.** When $C_{abc}\ne0$, the tree amplitude for $a+b\to a+b$ contains the $s$-channel exchange $-C_{abc}^2/(s-m_c^2)$. In terms of $\theta$, near the fusing angle $\theta=iu_{ab}^c$, one has $s-m_c^2\simeq2m_am_b\sinh(iu_{ab}^c)(\theta-iu_{ab}^c)=2i\,m_am_b\sin u_{ab}^c\,(\theta-iu_{ab}^c)$, and (-@eq-s-from-m) gives
 

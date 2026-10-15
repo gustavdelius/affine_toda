@@ -17,7 +17,7 @@ $$
 \Theta:\vec\phi\mapsto-\bar{\vec\phi} .
 $$
 
-Conjugating the field equation (-@eq-toda-eom) shows that $\Theta$ maps solutions to solutions. On the Hirota form (-@eq-hirota-ansatz), $-\bar{\vec\phi}=\frac i\beta\sum_j\frac{2\vec\alpha_j}{\alpha_j^2}\ln\bar\tau_j$, so $\Theta$ acts by $\tau_j\mapsto\bar\tau_j$. For the $a_n^{(1)}$ solutions (-@eq-n-soliton), $\overline{\omega^{ja}}=\omega^{j(h-a)}$ and $\overline{A_{ab}(\theta)}=A_{h-a,h-b}(\bar\theta)$, so on the data of each constituent soliton
+Conjugating the field equation (-@eq-toda-eom) shows that $\Theta$ maps solutions to solutions. On the Hirota form (-@eq-hirota-ansatz), $-\bar{\vec\phi}=\frac i\beta\sum_j\frac{2\vec\alpha_j}{\alpha_j^2}\ln\bar\tau_j$, so $\Theta$ acts by $\tau_j\mapsto\bar\tau_j$. For the $a_n^{(1)}$ solutions (-@eq-n-soliton), $\overline{\omega^{ja}}=\omega^{j(h-a)}$ and $\overline{A_{ab}(\theta)}=A_{h-a,h-b}(\bar\theta)$, so on the data of each constituent soliton (checked for $a_3^{(1)}$ in `textbook_code/toda_classical.py`)
 
 $$
 \Theta:(a,\theta,\xi)\mapsto(\bar a,\bar\theta,\bar\xi),\qquad\bar a=h-a .
@@ -25,7 +25,7 @@ $$ {#eq-theta-data}
 
 A $\Theta$-invariant field satisfies $\vec\phi=-\bar{\vec\phi}$ (up to a vacuum shift), i.e. it is purely imaginary, and $i\vec\phi$ solves the real-coupling equation; it carries no topological charge. So no soliton is $\Theta$-invariant as a field, and for solitons $\Theta$-invariance is a property of the asymptotic data. The sine-Gordon kink, for which $\bar a=a$, is mapped to a solution with the opposite topological charge and conjugate $\xi$. A breather is the simplest $\Theta$-invariant solution (@fig-breather-theta).
 
-![Left: $\Theta$ reflects the rapidity in the real axis and exchanges $a$ and $\bar a$, so the constituents $(a,\theta_0+iu)$ and $(\bar a,\theta_0-iu)$ of a breather are exchanged. Right: the classical breather mass $2M_a\cos u$, for $u\in(0,\pi/2)$, fills a continuous band.](figures/ch11_f16_breather_theta.svg){#fig-breather-theta fig-alt="Left: two points in the complex rapidity plane at the same real part and opposite imaginary parts, joined by a double arrow. Right: a cosine curve falling from 2 to 0."}
+![Left: $\Theta$ reflects the rapidity in the real axis and exchanges $a$ and $\bar a$, so the constituents $(a,\theta_0+iu)$ and $(\bar a,\theta_0-iu)$ of a breather are exchanged. Right: the classical breather mass $2M_a\cos u$, for $u\in(0,\pi/2)$, fills a continuous band. `textbook_code/figures/ch11_f16_breather_theta.py` checks that the breather energy and momentum are real, that $E^2-P^2=(2M_a\cos u)^2$ and that $\Theta$ maps the pair to itself.](figures/ch11_f16_breather_theta.svg){#fig-breather-theta fig-alt="Left: two points in the complex rapidity plane at the same real part and opposite imaginary parts, joined by a double arrow. Right: a cosine curve falling from 2 to 0."}
 
 ## Reality of energy and momentum {#sec-reality-energy-momentum}
 
@@ -84,7 +84,7 @@ Show that $\overline{A_{ab}(\theta)}=A_{h-a,h-b}(\bar\theta)$ for (-@eq-interact
 :::
 
 ::: {#exr-breather-real}
-Show that the asymptotic data of a breather are $\Theta$-invariant. If moreover $\xi_2=\bar\xi_1$, show that $\bar\tau_j=\tau_j$, so that the field is purely imaginary where all $\tau_j>0$, and that the $\tau_j$ change sign, so this solution is singular along curves in the $(x,t)$ plane. For sine-Gordon, show that the real breather (-@eq-sg-breather) instead has $\xi_2=\bar\xi_1+i\pi$.
+Show that the asymptotic data of a breather are $\Theta$-invariant. If moreover $\xi_2=\bar\xi_1$, show that $\bar\tau_j=\tau_j$, so that the field is purely imaginary where all $\tau_j>0$, and that the $\tau_j$ change sign, so this solution is singular along curves in the $(x,t)$ plane. For sine-Gordon, show that the real breather (-@eq-sg-breather) instead has $\xi_2=\bar\xi_1+i\pi$. (A numerical check is in `textbook_code/toda_classical.py`.)
 :::
 
 ::: {#exr-singular-points}
