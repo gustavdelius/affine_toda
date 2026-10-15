@@ -8,6 +8,7 @@ Scripts behind the symbolic and numerical checks of the textbook material in Par
 | `sixvertex.py` | `sec-jimbo-equations`, `eq-six-vertex`, `eq-r-unitarity`, `eq-ybe-braid`, `eq-six-vertex-eigenvalue`, `sec-qg-crossing`, `sec-six-vertex` | the six-vertex $\check R$ solves Jimbo's equations; unitarity; braid Yang–Baxter in the printed order; eigenvalues; crossing data $x_c=q^2$, $C$, $c_u$; the sine-Gordon dictionary $z=e^{2\lambda\theta}$, $q=-e^{i\pi\lambda}$, including the gauge to the principal gradation | about a minute |
 | `universal_r.py` | `eq-universal-r-sl2` | Drinfeld's universal R-matrix intertwines $\Delta$ and $\Delta^{\rm op}$ on spin $\frac12$ and spin 1; the reversed ordering fails | seconds |
 | `spin1_tpg.py` | `eq-tpg-rule`, `exr-spin1` | $q$-Serre for the spin-1 evaluation representation; Jimbo's equations on spin $1\otimes1$ reproduce $\rho_1=\langle2\rangle$, $\rho_0=\langle2\rangle\langle1\rangle$ | about a minute |
+| `lie_algebra_checks.py` | `sec-weyl-coxeter`, `fig-root-systems`, `tbl-foldings`, `sec-affine-folding`, `sec-affine-dynkin`, `sec-gradations`, `sec-qg-crossing`, `sec-tpg` | Coxeter-plane radii ($B_3$: a long and a short orbit share a radius; $E_8$: eight radii proportional to the Perron–Frobenius vector); every twisted fold (orbits, coprime labels, factor $k$, dual labels, $h$, $h^\vee$); the two parents of $a_{2n}^{(2)}$ give the same masses at $m_F^2=m_A^2=2m_D^2$; $\sum_jn_j^\vee s_j=4\pi kh/\beta^2-h^\vee$; the self-duality $\beta\to8\pi/\beta$ of $a_{2n}^{(2)}$ (rescaled coroots, $B\to2-B$, the Bullough–Dodd S-matrix); the $a_n^{(1)}$ diagram symmetries on the species; $V(x)^{**}$ shifts solved from the antipode ($q^{2h^\vee}$, and $q^{h^\vee}$ for $a_2^{(2)}$ with $\alpha_0^2=1$); the $U_q(d_3^{(2)})$ spinor R-matrix from Jimbo's equations and the normalization of $q$ in its eigenvalues | 34 checks, about 10 s |
 | `toda_classical.py` | `eq-lax-pair`, `eq-toda-eom`, `eq-spin3-current`, `sec-masses-couplings`, `prp-dorey-rule`, `eq-area-rule`, `eq-hirota-bilinear`, `eq-an-soliton`, `eq-n-soliton`, `eq-interaction-coefficient`, `eq-soliton-mass`, `eq-theta-data`, `exr-breather-real` | Lax pair ⇔ field equation for $a_2^{(1)}$; sinh-Gordon spin-3 current; masses = Perron–Frobenius vector and sum rule; Dorey's rule and $\lvert C_{abc}\rvert=\frac{4\beta}{\sqrt h}\Delta_{abc}$ for $e_7,e_8$; one- and two-soliton $a_n^{(1)}$ solutions; soliton energy $2hm_a/\beta^2$ at complex $\xi$; $\Theta$ on Hirota data; sine-Gordon breather reality | a few minutes |
 | `smatrix_simply_laced.py` | `eq-blocks`, `eq-dorey-formula`, `eq-an-smatrix`, `sec-strong-weak`, `sec-tree-level` | Dorey's formula: unitarity, crossing, $B\to2-B$, $e_8$ $S_{11}$, $a_n$ closed form, bootstrap at every $e_7$/$e_8$ fusing; sinh-Gordon tree level. Requires `toda_classical.py` in the same directory | about a minute |
 | `semiclassics.py` | `eq-dhn-psi`, `eq-ccg`, `eq-hollowood-mass`, `sec-picard-lefschetz`, `prp-thimble-gaussian` | one-loop masses of the sine-Gordon and $\phi^4$ kinks and of the $a_n^{(1)}$ solitons from transmission factors; the zero-dimensional $i\phi^3$ integral; Gaussian over a Jordan block; Jordan blocks of $-\partial^2+ge^{ix}$ | seconds |
@@ -82,6 +83,32 @@ Scripts in `sectors/` reuse `rsolve.py` and `dtw.py` from `rmatrix/`, copied alo
 **Known quirk.** In `oneloop/summary.log` the $c_3^{(1)}$ row reads $[+0.0796,+0.159]$. Solitons 1 and 3 of $c_3^{(1)}$ are classically degenerate, and `summary.py` pairs solitons with particles by sorted mass, so the tie is resolved arbitrarily. The correct values, $-1/4\pi$ for both ratios, are in `oneloop/analysis_untwisted.log` and from `oneloop/calib_an_cn.py`.
 
 **Known quirk.** `oneloop/calib_an_cn.py` prints $\Delta M_a/m_a$ for $a_n^{(1)}$ next to a column labelled $-h/2\pi$. The printed values agree with Hollowood's full formula $-[h/2\pi-\tfrac14\cot(\pi/h)]$, not with that column.
+
+### Part V, script by script
+
+The scripts behind the [Numerical] statements of chapters 16–19, other than `semiclassics.py` (first table) and the four with `PASS`/`FAIL` lines listed above (`hirota/cn_blocks.py`, `oneloop/cn_heat_check.py`, `oneloop/imxi_check.py`, `oneloop/dirichlet_lattice.py`). Paths are relative to `textbook_code/`; run each from its own directory. They print tables or residuals, with stored output next to them.
+
+| Script | Chapters | What it checks |
+|---|---|---|
+| `thimbles/run_a2L1_final.py` | 17 | the reduced $a_2^{(1)}$ model with $L=1$: critical points, intersection numbers, and the thimble decomposition of the exact integral |
+| `thimbles/check_cg.py` | 17 | the exact integral by the Coulomb-gas series; a broad random search for critical points |
+| `thimbles/check_th4.py` | 17 | the residual after the real pair of saddles against the two-loop contribution of the complex pair |
+| `thimbles/check_L2.py` | 17 | the dominant saddle of the reduced model with $L=2$ (needs `thimbles/cps_a2L2.py 1.0 2` first) |
+| `thimbles/charges.py`, `thimbles/charges_multi.py` | 17 | topological charges of single solitons, of static multi-solitons and of bound states |
+| `hirota/fluct_scan.py` | 18 | the Hirota form and the degree bound for every soliton and channel of $d_4^{(1)},\dots,d_8^{(1)}$ and $e_{6,7,8}^{(1)}$; closed forms of $X_{ab}$ |
+| `hirota/check_equations.py`, `hirota/checks_SN.py` | 18 | the field and fluctuation equations; centre characters and non-resonance |
+| `hirota/compare_dorey.py` | 18 | the transmission factors against Dorey's block formula |
+| `hirota/transfer_check.py` | 18 | reflectionless, species-diagonal scattering by direct integration |
+| `hirota/theoremG_check.py` | 18 | Wronskians, the determinant ratio, and grid spectra against the net count |
+| `hirota/heat_a3.py` | 18 | the heat trace of the $a_3^{(1)}$ soliton, with threshold zeros |
+| `hirota/fold.py`, `hirota/fold_tables.py`, `oneloop/composite.py` | 18 | the 19 foldings: the Hirota form and $X_b^{\rm fold}=\prod X_{a'b}$ |
+| `hirota/tables.py`, `hirota/threshold_scan.py` | 18 | zeros and poles of every $X_{ab}$, net counts, threshold zeros |
+| `hirota/jordan_check.py`, `hirota/grid_jordan.py` | 18 | Jordan chains at multiple zeros, and Jordan types from grid ranks |
+| `oneloop/heat_trace_checks.py` | 18–19 | the proofs of `prp-net-count` and `prp-one-loop-mass` on 19 solitons: Born constants, the Mellin integral; with `--grid 768`, grid heat traces |
+| `oneloop/phi4_check.py` | 18–19 | the same results on the $\phi^4$ kink |
+| `oneloop/lattice.py` | 19 | grid spectra, heat traces and one-loop masses of the $g_2^{(1)}$, $b_3^{(1)}$, $b_4^{(1)}$ and $f_4^{(1)}$ composites |
+| `oneloop/calib_an_cn.py` | 19 | the $a_n^{(1)}$ and $c_n^{(1)}$ calibration |
+| `oneloop/analysis.py`, `oneloop/summary.py` | 19 | the one-loop masses of every folded family, their floating Coxeter numbers, and the comparison with the particle masses |
 
 ## Figures (`figures/`)
 

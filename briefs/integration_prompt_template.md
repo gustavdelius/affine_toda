@@ -53,13 +53,13 @@ Create `briefs/integration_<N>_checkpoint.md` and append one line after every co
 
 If you add helpers to `textbook_code/defect_common.py`, only append. Then rerun every `textbook_code/defect_*.py` that imports it. Run them in the background and wait on their PIDs, never with `pgrep -f` loops.
 
-Update the script's rows in `textbook_code/README.md` and `appendices/C-code.qmd` if its check count or runtime changes.
+Update the script's row in `textbook_code/README.md` if its check count or runtime changes.
 
 ## Files you may edit
 
 - The chapter (main target).
 - Minimal consistency edits in other `part8-defects/` chapters that repeat a corrected claim. Not <files under review by a referee right now>; record those edits as pending in the status file instead.
-- `appendices/D-corrections.qmd` and `appendices/C-code.qmd` (only the script's row).
+- `appendices/D-corrections.qmd` and `textbook_code/README.md` (only the script's row).
 - The chapter's script and its figure scripts and SVGs. Figure scripts write into the repo regardless of OUT_DIR, so run `git restore` on any other regenerated SVG whose diff is only ids and timestamps.
 - `textbook_code/README.md`.
 - `briefs/part8_defects_status.md` and `briefs/part8_defects_conventions.md`.

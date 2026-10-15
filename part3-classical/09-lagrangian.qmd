@@ -95,7 +95,7 @@ $$ {#eq-spin3-current}
 
 The charge $Q_3=\int dx\,\big(T_4+\mathcal X_2\big)$ built from this current has spin 3, and on a one-particle state it takes the value $\chi\,m^3e^{3\theta}$, as in (-@eq-charge-eigenvalue). For sine-Gordon, replace $\beta^2$ by $-\beta^2$.
 
-The higher charges have three consequences used later. They make the classical solitons scatter without changing shape (@sec-classical-solitons), they survive quantization and make the S-matrix factorize (@sec-factorization), and their eigenvalues on the particles are the eigenvectors of the Cartan matrix [@klassen1990; @dorey1991], which restricts which particles can couple.
+The higher charges have three consequences used later. They make the classical solitons scatter without changing shape (@sec-classical-solitons), they survive quantization and make the S-matrix factorize (@sec-factorization), and for simply-laced $\hat g$ their eigenvalues on the particles are the eigenvectors of the Cartan matrix [@klassen1990; @dorey1991], which restricts which particles can couple.
 
 There are also **non-local** charges, built from the dual field. They are not among the local charges of the Lax pair but generate the quantum affine algebra $U_q(\hat g^\vee)$ in the quantum imaginary-coupling theory (@sec-qg-symmetry).
 
