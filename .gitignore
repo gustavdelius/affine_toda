@@ -2,6 +2,8 @@ __pycache__/
 *.pyc
 _site/
 /.quarto/
+/lecture-notes/*/.quarto/
+/lecture-notes/*/*_files/
 **/*.quarto_ipynb
 # Quarto intermediates from PDF renders (e.g. Mermaid PNGs)
 /part*/*_files/

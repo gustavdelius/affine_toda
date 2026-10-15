@@ -1,0 +1,39 @@
+# About these lectures {#sec-about-lectures .unnumbered}
+
+These lectures are a companion to the [part on integrable defects](book:sec-defect-scattering) of the textbook *Affine Toda field theory*. The book states the results, with their proofs, their checks and their place in the literature. The lectures tell the story behind them. They ask where each idea comes from and why it had to come out the way it did. They work through the decisive calculations line by line, so that you can do them yourself.
+
+The story starts from a simple question. A boundary of an integrable field theory is a mirror: particles bounce off it, and the book's part on the half-line is about what they do there. What else can a line in spacetime be? The answer turns out to be very restrictive, and very rich. In an interacting integrable theory a line can be a mirror or a window, but not both at once. The windows are not guessed. They are a construction from 19th-century surface geometry, Bäcklund's transformation, frozen at a single point. A window behaves like a particle that has a rapidity but no mass shell, and a particle is itself a window. Asking that momentum be conserved at the window singles out one family of affine Toda theories, the cyclic Dynkin diagrams $a_r^{(1)}$. In the quantum theory a window keeps only half of the quantum group, and that half has representations that the whole cannot have. Wrapped around a cylinder, a window becomes Baxter's Q-operator.
+
+## The lectures {#sec-lectures-plan}
+
+| | Lecture | The question |
+|---|---|---|
+| 1 | Mirrors and windows | What can a line in an integrable theory do to the particles that meet it? |
+| 2 | Bäcklund's machine | How do you add a soliton to a solution by solving first-order equations? |
+| 3 | Freezing it at a point | Which local terms at a point keep a field theory integrable? |
+| 4 | What gets through | What happens to a soliton or a wave that meets the window? |
+| 5 | Why the cycle? | Which affine Toda theories have such windows, and why only those? |
+| 6 | The classical algebra of a window | Why are the windows integrable, in the language of Lax pairs and r-matrices? |
+| 7 | Quantizing the window | Which symmetry survives in the quantum theory, and what does it fix? |
+| 8 | Windows, L-operators and Q-operators | What is a window wrapped around a cylinder? |
+| 9 | Folding, fusing and the classical breather | How are windows and mirrors related, and what is left of $\hbar$? |
+
+Lecture 1 is written; the others are in preparation.
+
+## How to use them {#sec-how-to-use}
+
+**What you need.** You should know the book's [scattering theory on the line](book:sec-integrable-qft) and [on the half-line](book:sec-boundary-scattering), and [sine-Gordon theory](book:sec-sine-gordon). From Lecture 5 on you also need the [classical affine Toda theory](book:sec-theories) and its [solitons](book:sec-classical-solitons), and later the book's [quantum groups](book:sec-quantum-groups). You do not need to have done many calculations with these tools. These lectures are where you do them.
+
+**Predict, then calculate.** Each lecture poses its question before answering it. Where you see a box marked *Predict*, stop and write down what you expect. A wrong prediction that you then correct teaches more than a right answer you only read.
+
+**Calculations.** The decisive calculations are written out without skipped steps. Do them with pen and paper alongside the text. Every calculation shown in detail is also checked by a script in `textbook_code/lectures/`, written from the definitions of the lectures. Run it when your algebra and the text disagree, or change it to try your own variations.
+
+**Exercises** come in three kinds. *Redo* exercises repeat a calculation of the lecture in a slightly different setting. *Rediscover* exercises lead you to a result of the book before you read it there. *Explore* exercises are open-ended, and some of them touch the open problems of the book.
+
+**Status labels.** The lectures use the status labels of the book: **[Theorem]** for a statement proved in the text, **[Established]** for a result of the literature that the book has checked, **[Numerical]** for a statement verified numerically but not proved, and **[Conjecture]** for one that is neither.
+
+**Links.** Links into the book say so, as in [the book's chapter on defect scattering](book:sec-defect-scattering). All other cross-references point within these lectures.
+
+## How these lectures were written {#sec-how-written .unnumbered}
+
+Like the book, these lectures were drafted by an AI model (Claude) under the editorial direction of Gustav Delius, from the book and from the original papers. Every calculation shown in detail was re-derived with an independent check script. Where the lectures and the original papers seem to disagree, trust a calculation of your own over both.

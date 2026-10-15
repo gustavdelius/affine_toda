@@ -52,8 +52,10 @@ The book's own list of its original results is [Appendix E](appendices/E-origina
 |---|---|
 | `index.qmd`, `01-introduction.qmd`, `part*/`, `outlook/`, `appendices/` | The book, as Quarto source (`.qmd`) with bibliography `references.bib`; `index.qmd` is the preface and the home page |
 | `figures/`, `part*/figures/` | The committed SVG figures |
+| `lecture-notes/` | Lecture notes that accompany the book, each a Quarto book of its own: `lecture-notes/defects/` (on Part VIII), with `lecture-notes/book-links.lua`, which turns `[text](book:<id>)` into links to the published book |
 | `textbook_code/` | All the book's check scripts. Flat scripts check Parts I–IV, VII and VIII, appendix A and parts of Part IX; subdirectories hold the larger computations |
 | `textbook_code/figures/` | Scripts that draw the figures and check the formulas they plot |
+| `textbook_code/lectures/` | Check and figure scripts of the lecture notes; see its `README.md` |
 | `textbook_code/hirota/`, `oneloop/`, `thimbles/` | Hirota fluctuations, Jordan types, one-loop soliton masses and thimbles (Part V) |
 | `textbook_code/rmatrix/` | Construction of quantum-affine representations and R-matrices, soliton S-matrices and one-loop tests (Part VI, appendix B) |
 | `textbook_code/sectors/`, `irf/`, `vernier/`, `review614/` | Soliton sectors and Krein unitarity, RSOS kinks, the Vernier–Jacobsen–Saleur lattice model and the continuum-limit lemmas (Parts VI and IX) |
@@ -89,7 +91,17 @@ python3 check-refs.py      # ids, cross-references, citation keys, status labels
 ./render-scratch.sh        # render in a scratch copy, so a running preview is undisturbed (--pdf for the PDF too)
 ```
 
-The GitHub Actions workflow (`.github/workflows/publish.yml`) renders the HTML on each push to `main` and deploys it to GitHub Pages. It does not render the PDF, because Quarto hangs on the Mermaid figure in chapter 1 on the runner. The PDF is built locally with `./publish-pdf.sh`, which uploads it to the `pdf-latest` release and redeploys the site. That script needs `gh` logged in to GitHub.
+The lecture notes in `lecture-notes/` are separate Quarto projects, which the book's render skips. Check and render them with
+
+```bash
+python3 check-refs.py lecture-notes/defects
+```
+
+```bash
+./render-scratch.sh --project lecture-notes/defects
+```
+
+The GitHub Actions workflow (`.github/workflows/publish.yml`) renders the HTML on each push to `main` and deploys it to GitHub Pages, with the lecture notes of `lecture-notes/defects/` under `lectures/defects/`. It does not render the PDF, because Quarto hangs on the Mermaid figure in chapter 1 on the runner. The PDF is built locally with `./publish-pdf.sh`, which uploads it to the `pdf-latest` release and redeploys the site. That script needs `gh` logged in to GitHub.
 
 ## Running the supporting code
 
