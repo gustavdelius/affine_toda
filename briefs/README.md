@@ -96,3 +96,20 @@ Part II (`part2-algebra/`, chapters 5–8) had one referee pass, on 2026-10-10, 
 | `referee_algebra_07_08.md` | Referee brief for chapters 7–8: twisted normalizations, the central element and the $S^2$ shift (with $a_{2n}^{(2)}$), the sign of $q$ and the Part VI dictionary, the twisted tensor-product graph for the $U_q(d_{n+1}^{(2)})$ spinor, where the graph fails, the history of the R-matrices (DGZ, GMW), roots of unity, fusion and IRF, citations, exercises. Report: `referee_algebra_07_08_report.md` |
 
 **Files under review: do not edit until the reports are in.** `part2-algebra/05-root-systems.qmd`, `06-affine-algebras.qmd`, `07-quantum-groups.qmd`, `08-r-matrices.qmd`, and the captions of the figures in `part2-algebra/figures/`.
+
+## Part III: two-phase referee pass (from 2026-10-15)
+
+An experiment in briefing. A brief that lists what to check carries the drafting model's view of where the risks are, so a referee from another model tends to find the errors Claude would have found anyway. This pass therefore has two phases. In phase 1 the referee gets only context (rules, conventions, history, sources, standard of evidence), writes its own ranked list of risky claims, and checks it. In phase 2 it gets the coordinator's items, checks what its own list missed, and compares the two lists. The chapters are reviewed as on main at 2d36c9c.
+
+| File | What it is |
+|---|---|
+| `referee_classical_09_11.md` | Phase-1 brief for chapters 9–11. Phase-1 report: `referee_classical_09_11_phase1_report.md` |
+| `referee_classical_09_11_items.md` | Phase-2 items, written before phase 1 and held outside the repository until phase 1 is complete. SHA-256 `7e46e33bf78567a291bb5350625a8a67b9139c75665e02d0a9de3252de1f41b6`. Report: `referee_classical_09_11_report.md`, with the overlap table |
+
+Protocol for the editor:
+1. Start the referee in this worktree with the phase-1 brief.
+2. When it reports "Phase 1 complete", commit the phase-1 report as it stands. Then copy the held items file into `briefs/`, check its SHA-256 against the value above, and commit it.
+3. Send the referee, in the same session, "Phase 2: follow `briefs/referee_classical_09_11_items.md`."
+4. When the report is in, integrate it with the `integrate-referee-report` skill, and record here which errors each phase found.
+
+**Files under review: do not edit until the reports are in.** `part3-classical/09-lagrangian.qmd`, `10-solitons.qmd`, `11-reality.qmd`, `part.qmd`, and the captions of the figures in `part3-classical/figures/`.
