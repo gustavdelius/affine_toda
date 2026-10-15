@@ -1,3 +1,8 @@
+# a_2^(2) kinks with bosonic exchange (chapter 48, sec-sector-status): max ||s|-1| of the N-kink transfer matrices,
+# N = 3, 4, 5, over random rapidities (seed 0), at six couplings.  Unbroken exactly when |psi| <= pi/N.  Output: out/a22N.txt
+# (about 25 min per coupling under load).  The stored output predates a fix of the printed |psi|/pi column, which was
+# wrong there; the correct values for xi/pi = 0.30, 0.35, 2, 3, 6, 12 are 0.213, 0.102, 0.333, 0.222, 0.111, 0.056.
+# A rerun of the first row reproduced the deviations to rounding.
 import numpy as np, sys
 from lib import *
 exec(open('a22three.py').read().split('q = np.exp(-1j*0.77)')[0])
@@ -6,7 +11,7 @@ q = np.exp(-1j*0.77); Rpl = setup(q)
 print("N=3 consistency", np.abs(transferN(Rpl, 3, [0.3, -0.8]) - transfer3(Rpl, 3, 0.3, -0.8)).max())
 for xi_pi in (0.30, 0.35, 2.0, 3.0, 6.0, 12.0):
     xi = (xi_pi + 0.0013)*np.pi; qTW = 1j*np.exp(1j*np.pi**2/(3*xi)); Rpl = setup(np.conj(qTW))
-    psi = (2*np.pi/(3*xi_pi + 0.0039)) % 2; psi = min(psi, 2 - psi)
+    psi = (2/(3*(xi_pi + 0.0013))) % 2; psi = min(psi, 2 - psi)   # |psi|/pi
     row = []
     for N in (3, 4, 5):
         (d, _), kr = scanN(Rpl, 3, N, L=6, n={3: 300, 4: 200, 5: 100}[N])

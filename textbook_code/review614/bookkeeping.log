@@ -1,0 +1,7 @@
+samples 24681 bad E 0
+max log(F/M) 14.059962219604614  max log(F/M)/n 3.5149905549011535
+samples with active nodes 9258
+scale spread in [0,3): count 14705, max log(F/M) 5.361
+scale spread in [3,6): count 4440, max log(F/M) 14.060
+scale spread in [6,10): count 4192, max log(F/M) 5.472
+scale spread in [10,20): count 1344, max log(F/M) 1.324
