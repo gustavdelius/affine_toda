@@ -1,0 +1,6 @@
+== g2sol_d43: ALG=d43 timeout 3000 python3 -u g2sol.py
+d43: R-matrix poles [('+q^-2', 'rank', 29), ('+q^-6', 'rank', 1)]  [87s]
+real	1m47.130s
+user	2m14.073s
+sys	0m0.751s
+rc=0

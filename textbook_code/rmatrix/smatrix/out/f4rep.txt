@@ -1,0 +1,8 @@
+== f4rep: timeout 3600 python3 -u f4rep.py
+allowed entries per generator: {1: 6, 2: 6, 3: 12, 4: 12, 0: 6}
+U_q(f_4) on 26: max relation residual 2.2e-16  [271s]
+affine node 0 (alpha_0 = -theta, Cartan row 0 = [2, -1, 0, 0, 0]): max residual 2.2e-16  [279s]
+real	4m44.277s
+user	1m7.386s
+sys	0m2.576s
+rc=0

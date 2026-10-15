@@ -1,0 +1,10 @@
+== f4boot: timeout 3600 python3 -u f4boot.py
+components (dim x multiplicity): [(324, 1), (273, 1), (52, 1), (26, 3), (1, 2)]  total 729 [204s]
+fast solve agrees with full solve: 2e-14
+self-fusion residue at t = 2T/3: rank 27
+bootstrap test  S_{C,27}(theta) / S_{27,27}(theta)  (top amplitudes): [-0.99694+0.00213j -1.00179-0.00092j -0.99488+0.00916j -0.99983-0.00053j
+ -0.99369-0.00395j] [9s]
+real	3m35.928s
+user	5m2.844s
+sys	0m17.807s
+rc=0

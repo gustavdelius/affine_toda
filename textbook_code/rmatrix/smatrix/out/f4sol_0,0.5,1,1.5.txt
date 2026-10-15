@@ -1,0 +1,13 @@
+== f4sol_j0: AOFF=0,0.5,1,1.5 timeout 5400 python3 -u f4sol.py
+components (dim x multiplicity): [(324, 1), (273, 1), (52, 1), (26, 3), (1, 2)]  total 729 [104s]
+crossing point: V*(x) = V(x * -q^-12);  x(i pi)/x_c = 1.0000+0.0000j
+m1 = 1, T = 15.720: unitarity 5e-04; crossing test factor +1.0000-0.0000i (resid 1e-12)  [118s]
+   t =   2.370 27+27 -> 378     order 1.00 rank 378
+   t =   7.610 27+27 -> 79      order 1.00 rank 79
+   t =  10.480 27+27 -> 27      order 1.00 rank 27
+   t =  14.720 lowest breather  order 1.00 rank 1
+[122s]
+real	3m46.353s
+user	9m31.656s
+sys	0m19.491s
+rc=0

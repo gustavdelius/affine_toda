@@ -1,0 +1,8 @@
+== f4rescan: timeout 3600 python3 -u f4rescan.py
+components (dim x multiplicity): [(324, 1), (273, 1), (52, 1), (26, 3), (1, 2)]  total 729 [192s]
+fast solve agrees with full solve: 2e-14
+27 x 27 R-matrix poles (12th roots of unity, l = 0..30): [('e^(i pi 0/6) q^-2', 378), ('e^(i pi 0/6) q^-8', 27), ('e^(i pi 6/6) q^-6', 79), ('e^(i pi 6/6) q^-12', 1)] [365s]
+real	60m0.102s
+user	68m35.137s
+sys	0m39.169s
+rc=124

@@ -1,3 +1,29 @@
+# R-matrices and soliton S-matrices (Part VI)
+
+Scripts behind Part VI (`part6-soliton-smatrices/`) and appendix B (`sec-app-numerics`). The book cites them at the claims they check, as `textbook_code/rmatrix/smatrix/<script>.py`.
+
+## Running
+
+Run the scripts in `smatrix/` from that directory, with the parent directory on the path for `rsolve.py` and `dtw.py`:
+
+```bash
+cd textbook_code/rmatrix/smatrix && PYTHONPATH=.. python3 s33.py
+```
+
+Several scripts read a cache written by another script, in the same directory. Run the writer first:
+
+| Script | Needs first |
+|---|---|
+| `s33.py`, `fuse11*.py`, `nocdd.py`, `allS.py` and the scripts that import it (`poles.py`, `kfit.py`, `kcheck.py`, `breathers*.py`, `jscale.py`) | `crossing.py` (writes `C.npy`, `t.npy`) |
+| `aspin_S.py` | `bspin_struct.py` with the same `NSPIN`, `OMEGA` (writes `bspin_P_*`, `bspin_C_*`, `bspin_tc_*`) |
+| `f4R2.py`, `e6tw.py`, `e6sol.py` | `f4rep.py` (writes `f4rep_w*.npy`) |
+| `e6R.py` | `e6tw.py`; then `f4sol.py`, `f4breather.py`, `f4boot.py` need `e6R.py` |
+| `f4lift*.py`, `f4search.py` | `f4breather.py` with the same `AOFF` (unset: `f4BB_m1.npy`) |
+| `f4particle2.py`, `f4cdd_lin.py`, `f4hyp.py`, `f4cand.py` | `f4breather.py` with `AOFF=1,1.5,1,1.5` and `AOFF=0,-0.5,-1,-1.5` |
+| `f4halftower.py`, `f4gamma*.py`, `f4moments.py` | as `f4cand.py` |
+| `g2sol*.py`, `g2br*.py` | `g2alg.py` with the same `ALG` (`g2`: $d_4^{(3)}$ solitons; `d43`: $g_2^{(1)}$ solitons) |
+| `spectrum.py` | `poles.py` for every pair |
+| `check22.py`, `check23.py` (parent directory) | `fuse.py` (writes `B29.npy`, `wB29.npy`, stored) |
 
 ## Sign of q
 
@@ -7,6 +33,8 @@ The scripts use q = e^{-i pi omega} by default. This is minus the physical value
 - Dependent on the sign: the crossing factor (`sign_n*.py`: (-1)^n at the default, +1 at `QSIGN=-1`), the c_3^(1) fusion factors k_32 and k_12 (`kcheck.py` picks the closed forms that match `QSIGN`), and the sign of S[B^3,3] (`bootstrap_exact.py`).
 - `spinorn.py` caches its projectors per omega and sign of q.
 - Outputs at the physical q are in `smatrix/qsign_out/`.
+- Outputs at the default q of the $g_2^{(1)}$, $d_4^{(3)}$, $e_6^{(2)}$ and $f_4^{(1)}$ scripts, whose results depend on q^2 only, are in `smatrix/out/` (2026-10-15). `f4breather_*.txt` and `f4lift3_*.txt` are named by `AOFF`.
+- Known quirk: `oneloop_ratio.py` also prints a line for a_5^(2), with delta H / B_tree = 0.693 where it expects 1/2. The book does not use that line; the one-loop masses of a_{2n-1}^(2) are checked independently in `../../vernier/oneloop_particles.py`, which agrees with the S-matrix.
 
 ## smatrix/ (scalar factors)
 - `common.py`   : spinor representation at complex q, closed-form R_33 with projectors
@@ -42,3 +70,13 @@ The scripts use q = e^{-i pi omega} by default. This is minus the physical value
 - `f4cand.py` : one-loop selection of lifts: candidates T = 6w+9/2 and T = 6w-3/2 give exact one-loop masses under the gradation map; tree strength structural (1/w = beta^2/8pi)
 - `f4halftower.py`, `f4hyp.py`, `f4dbg.py` : exact block comparison with CDS (same particle poles, coupling-dependent shifts 1 instead of 1/2); bound-state hypothesis test (negative)
 - `f4gamma*.py`, `f4moments.py` : test of the half-integer Gamma-tower conjecture (closed-form pair factor W_a, exact lattice solve: no solution) and moment classification (Barnes-type growth needed on 16 of 24 lines)
+
+## Parent directory (the $c_3^{(1)}$ multiplets)
+
+- `dtw.py`, `rsolve.py` : the $U_q(d_{n+1}^{(2)})$ vector representation and the intertwiner solver, imported by most scripts
+- `spinform.py` : the closed-form spinor R-matrix of `sec-cn-representation` against a direct solve, $n=2,3$ (prints on import)
+- `spinor.py`, `spinor2.py`, `spinor3.py`, `ratios.py` : spinor R-matrices from the intertwining equations; special points on the real and imaginary axes; the $(35,21,7,1)$ eigenvalue grouping of $n=3$
+- `analyse.py` : Yang–Baxter equation and eigenvalue structure of the vector R-matrix
+- `fuse.py`, `check22.py`, `check22neg.py`, `check23.py` : $R_{12}$, $R_{22}$, $R_{13}$, $R_{23}$ of $c_3^{(1)}$ by fusion; their special points and images
+- `calib_n2.py` : the $n=2$ intertwiners between vector and spinor multiplets (vector x spinor, vector x vector, spinor x spinor) and their special points. Slow: more than 20 min
+- `oneloop_test.py`, `oneloop_test2.py` : one-loop shifts of the $c_3^{(1)}$ fusion angles against the R-matrix phase data

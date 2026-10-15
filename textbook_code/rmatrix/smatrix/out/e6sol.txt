@@ -1,0 +1,22 @@
+== e6sol: timeout 3600 python3 -u e6sol.py
+allowed entries per generator: {1: 6, 2: 6, 3: 12, 4: 12, 0: 6}
+5 highest-weight vectors at weights [(np.int64(4), np.int64(0), np.int64(0), np.int64(0)), (np.int64(0), np.int64(0), np.int64(0), np.int64(0)), (np.int64(2), np.int64(2), np.int64(0), np.int64(0)), (np.int64(3), np.int64(1), np.int64(1), np.int64(1)), (np.int64(2), np.int64(0), np.int64(0), np.int64(0))]  [74s]
+component dimensions from descent: [324, 1, 52, 273, 26]  total 676  [78s]
+eigenvalues from the e_0 intertwining equations: residual 1.2e-15  [78s]
+projectors: [324, 273, 52, 26, 1] idempotence 1e-10
+lifts [0, 1, 2, 3], T = 24.330: unitarity 8e-04
+   t =   2.370 26+26 -> 299     order 1.00 rank 299
+   t =  10.480 26+26 -> 53      order 1.00 rank 53
+   t =  16.220 26+26 -> 26      order 1.00 rank 26
+   t =  23.330 lowest breather  order 1.00 rank 1
+   S[B,26]: 8 blocks, sign +1, fit match 3e-02  (395 candidates) [102s]
+   S[B,B] vs CDS S_11 at H = 2T/(w+0) = 20.53165: IDENTICAL
+   S[B,B] vs CDS S_22 at H = 2T/(w+0) = 20.53165: different
+   S[B,B] vs CDS S_33 at H = 2T/(w+0) = 20.53165: different
+   S[B,B] vs CDS S_44 at H = 2T/(w+0) = 20.53165: different
+   ours: [-20.96 -17.22 -12.85 -11.48  -7.11  -3.37   1.     2.37   8.11  10.48
+  13.85  16.22  21.96  23.33] -1
+real	3m0.928s
+user	6m53.179s
+sys	0m17.168s
+rc=0

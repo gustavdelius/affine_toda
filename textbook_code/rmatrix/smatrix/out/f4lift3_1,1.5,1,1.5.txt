@@ -1,0 +1,10 @@
+== f4lift3_1,1.5,1,1.5: AOFF=1,1.5,1,1.5 timeout 3600 python3 -u f4lift3.py
+shift a_0 -> a_0+1: F changes by ([4.37, 11.350000000000001], 1)  (ratio at test points [ 0.9266-1.312j  -3.4321+1.1064j -0.3831-0.5359j])
+shift a_1 -> a_1+1: F changes by ([9.61, 6.110000000000001], 1)  (ratio at test points [ 1.0697-1.0692j -4.6781+2.5021j -0.2607-0.5723j])
+shift a_2 -> a_2+1: F changes by ([11.48, 4.24], 1)  (ratio at test points [ 0.9051-1.3392j -3.3283+1.0259j -0.3957-0.5312j])
+searching integer lift shifts (d_a2, d_a6, d_a8) in {-2..2}^3:
+   no exact match in this range
+real	0m6.941s
+user	0m6.888s
+sys	0m0.079s
+rc=0

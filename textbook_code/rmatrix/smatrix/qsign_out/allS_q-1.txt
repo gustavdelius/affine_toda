@@ -1,0 +1,9 @@
+multiplet dimensions: {3: 8, 1: 8, 2: 29}
+S_31: closes on multiplets (9e-07); unitarity S_13(-th)S_31(th) = 1 to 3.3e-03; highest-weight state maps to highest weight (2e-16); swaps [(0, 2.62), (1, -2.62)] (offsets in t)
+S_32: closes on multiplets (5e-07); unitarity S_23(-th)S_32(th) = 1 to 6.1e-04; highest-weight state maps to highest weight (2e-15); swaps [(0, 1.185), (1, -1.185)] (offsets in t)
+S_12: closes on multiplets (1e-06); unitarity S_21(-th)S_12(th) = 1 to 7.9e-03; highest-weight state maps to highest weight (1e-15); swaps [(1, 3.805), (0, -1.435), (2, 1.435), (1, -3.805)] (offsets in t)
+S_11: closes on multiplets (9e-07); unitarity S_11(-th)S_11(th) = 1 to 1.3e-02; highest-weight state maps to highest weight (6e-16); swaps [(1, 5.24), (0, 0.0), (2, 0.0), (1, -5.24)] (offsets in t)
+S_22: closes on multiplets (8e-07); unitarity S_22(-th)S_22(th) = 1 to 2.6e-03; highest-weight state maps to highest weight (3e-15); swaps [(1, 2.37), (0, 0.0), (2, 0.0), (1, -2.37)] (offsets in t)
+real	11m48.986s
+user	2m28.565s
+sys	0m1.690s

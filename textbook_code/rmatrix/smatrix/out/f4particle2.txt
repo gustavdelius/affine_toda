@@ -1,0 +1,9 @@
+== f4particle2: timeout 3600 python3 -u f4particle2.py
+T = 15.720, H = 9.32938
+CDS S_11 (control)      : 111 bootstrap holds;  S_12 (1+1->2) == S_12 (1+3->2): True;  S_12 == CDS S_12: True;  S_13 == CDS S_13: True
+soliton-derived S_11    : 111 bootstrap holds;  S_12 (1+1->2) == S_12 (1+3->2): True;  S_12 == CDS S_12: False;  S_13 == CDS S_13: False
+S_11(ours)/S_11(CDS): numerator sinh-args [-14.22, -11.48, -11.35, -9.61, -6.11, -4.37, -4.24, -1.5, 1.0, 3.74, 4.87, 5.61, 10.11, 10.85, 11.98, 14.72]  denominator [-14.72, -11.98, -10.85, -10.11, -5.61, -4.87, -3.74, -1.0, 1.5, 4.24, 4.37, 6.11, 9.61, 11.35, 11.48, 14.22]  sign 1
+real	0m0.197s
+user	0m0.267s
+sys	0m0.022s
+rc=0

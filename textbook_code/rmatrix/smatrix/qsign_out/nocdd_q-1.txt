@@ -1,0 +1,23 @@
+== nocdd: QSIGN=-1 timeout 5400 python3 -u nocdd.py
+unitarity  S(th)S(-th) = 1 : max dev 2.1e-04   (th=(0.31+0.17j))
+unitarity  S(th)S(-th) = 1 : max dev 2.4e-03   (th=(-0.8+0.9j))
+crossing   S_12(i pi - th) = (C x 1) S_21(th)^t1 (C^-1 x 1) : rel dev 1.4e-09   (th=(0.31+0.17j))
+crossing   S_12(i pi - th) = (C x 1) S_21(th)^t1 (C^-1 x 1) : rel dev 2.1e-09   (th=(1.1+0.6j))
+S_11 from S_33 without CDD (multiplet dim 8):
+   t =  1.1850  former spurious pole t = T/H (=1.185)        regular  (norm ratio      1.0)  residue rank -
+   t =  2.8700  1+1 -> 2 (soliton 2)                         POLE  (norm ratio    100.0)  residue rank 29
+   t =  2.3700  1+1 -> 2* (excited soliton 2)                POLE  (norm ratio    100.0)  residue rank 29
+   t =  7.6100  lowest breather p'=1/2 (particle 1)          POLE  (norm ratio    100.0)  residue rank 1
+   t =  7.1100  breather p'=1                                POLE  (norm ratio    100.0)  residue rank 1
+[65s]
+S_22 from S_33 without CDD (multiplet dim 29):
+   t =  5.2400  2+2 -> 2* on the -q^-4 branch (predicted)    POLE  (norm ratio 999913.2)  residue rank 29
+   t =  5.4067  exact 2+2 -> 2 at u = 2pi/3 (expected absent) regular  (norm ratio      1.0)  residue rank -
+   t =  4.7400  2+2 -> (29) on the +q^-4 branch              POLE  (norm ratio   9997.9)  residue rank 29
+   t =  7.6100  lowest breather p'=1/2 (particle 2)          POLE  (norm ratio    100.0)  residue rank 1
+   t =  1.1850  t = T/H (check no spurious pole)             regular  (norm ratio      1.0)  residue rank -
+[3998s]
+real	67m6.003s
+user	52m14.741s
+sys	0m10.795s
+rc=0

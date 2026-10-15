@@ -1,0 +1,7 @@
+== g2alg_d43: ALG=d43 timeout 3000 python3 -u g2alg.py
+d43: 8-dim rep; finite residual 7.6e-16, affine node residual 3.3e-16; Cartan row 0 [2, -1, 0]
+commutant dimension 5  [332s]
+real	5m34.234s
+user	8m0.080s
+sys	0m2.569s
+rc=0

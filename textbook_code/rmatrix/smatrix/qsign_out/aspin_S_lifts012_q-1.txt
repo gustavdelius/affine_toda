@@ -1,0 +1,12 @@
+== aspin_S_012: LIFTS=0,1,2 QSIGN=-1 timeout 3600 python3 -u aspin_S.py
+lifts [0, 1, 2]: T = 13.850; closed-form R err 6e-13; unitarity 3e-04; crossing test factor +1.0000+0.0000i (resid 6e-14); x(i pi)/x_c = 1.0000+0.0000j
+   t =   2.370 3+3 -> 2 (22)          order 1.00 rank 22
+   t =   8.110 3+3 -> 1 (7)           order 1.00 rank 7
+   t =  12.850 lowest breather (1)    order 1.00 rank 1
+   S[B,3]: 6 blocks y = [1.685, -4.055, 6.425, 7.425, -9.795, 12.165], sign -1, match 1e-02
+   S[B,B] = -1 x blocks [-10.48, -9.11, -4.74, -3.37, 1.0, 2.37, 5.74, 8.11, 11.48, 12.85]
+   -> IDENTICAL to DGZ a_5^(2) particle S_33 with H = 4.825784, B = -0.348432;  (omega+?) check: T/H = 2.870000
+real	1m6.217s
+user	0m32.392s
+sys	0m0.223s
+rc=0
