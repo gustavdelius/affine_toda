@@ -1,0 +1,115 @@
+PASS finite A1: dim=3 marks=[1, 1] h=2 hdual=2 exp=[1] Coxeter_orbits=1x2
+PASS symmetry A1: Aut=2 finite_stabilizer=1 centre=2 element_orders=[1, 2]
+PASS finite A2: dim=8 marks=[1, 1, 1] h=3 hdual=3 exp=[1, 2] Coxeter_orbits=2x3
+PASS symmetry A2: Aut=6 finite_stabilizer=2 centre=3 element_orders=[1, 3, 3]
+PASS finite A3: dim=15 marks=[1, 1, 1, 1] h=4 hdual=4 exp=[1, 2, 3] Coxeter_orbits=3x4
+PASS symmetry A3: Aut=8 finite_stabilizer=2 centre=4 element_orders=[1, 2, 4, 4]
+PASS finite A4: dim=24 marks=[1, 1, 1, 1, 1] h=5 hdual=5 exp=[1, 2, 3, 4] Coxeter_orbits=4x5
+PASS symmetry A4: Aut=10 finite_stabilizer=2 centre=5 element_orders=[1, 5, 5, 5, 5]
+PASS finite A5: dim=35 marks=[1, 1, 1, 1, 1, 1] h=6 hdual=6 exp=[1, 2, 3, 4, 5] Coxeter_orbits=5x6
+PASS symmetry A5: Aut=12 finite_stabilizer=2 centre=6 element_orders=[1, 2, 3, 3, 6, 6]
+PASS finite A6: dim=48 marks=[1, 1, 1, 1, 1, 1, 1] h=7 hdual=7 exp=[1, 2, 3, 4, 5, 6] Coxeter_orbits=6x7
+PASS symmetry A6: Aut=14 finite_stabilizer=2 centre=7 element_orders=[1, 7, 7, 7, 7, 7, 7]
+PASS finite B2: dim=10 marks=[1, 1, 2] h=4 hdual=3 exp=[1, 3] Coxeter_orbits=2x4
+PASS symmetry B2: Aut=2 finite_stabilizer=1 centre=2 element_orders=[1, 2]
+INFO Coxeter radii B2 by root length2: {2.0: {1.0}, 1.0: {0.70710678}}
+PASS finite B3: dim=21 marks=[1, 1, 2, 2] h=6 hdual=5 exp=[1, 3, 5] Coxeter_orbits=3x6
+PASS symmetry B3: Aut=2 finite_stabilizer=1 centre=2 element_orders=[1, 2]
+INFO Coxeter radii B3 by root length2: {2.0: {0.57735027, 1.0}, 1.0: {0.57735027}}
+PASS finite B4: dim=36 marks=[1, 1, 2, 2, 2] h=8 hdual=7 exp=[1, 3, 5, 7] Coxeter_orbits=4x8
+PASS symmetry B4: Aut=2 finite_stabilizer=1 centre=2 element_orders=[1, 2]
+INFO Coxeter radii B4 by root length2: {2.0: {0.92387953, 0.70710678, 0.38268343}, 1.0: {0.5}}
+PASS finite B5: dim=55 marks=[1, 1, 2, 2, 2, 2] h=10 hdual=9 exp=[1, 3, 5, 7, 9] Coxeter_orbits=5x10
+PASS symmetry B5: Aut=2 finite_stabilizer=1 centre=2 element_orders=[1, 2]
+INFO Coxeter radii B5 by root length2: {2.0: {0.85065081, 0.7236068, 0.2763932, 0.52573111}, 1.0: {0.4472136}}
+PASS finite B6: dim=78 marks=[1, 1, 2, 2, 2, 2, 2] h=12 hdual=11 exp=[1, 3, 5, 7, 9, 11] Coxeter_orbits=6x12
+PASS symmetry B6: Aut=2 finite_stabilizer=1 centre=2 element_orders=[1, 2]
+INFO Coxeter radii B6 by root length2: {2.0: {0.78867513, 0.70710678, 0.40824829, 0.57735027, 0.21132487}, 1.0: {0.40824829}}
+PASS finite C2: dim=10 marks=[1, 2, 1] h=4 hdual=3 exp=[1, 3] Coxeter_orbits=2x4
+PASS symmetry C2: Aut=2 finite_stabilizer=1 centre=2 element_orders=[1, 2]
+INFO Coxeter radii C2 by root length2: {2.0: {1.0}, 1.0: {0.70710678}}
+PASS finite C3: dim=21 marks=[1, 2, 2, 1] h=6 hdual=4 exp=[1, 3, 5] Coxeter_orbits=3x6
+PASS symmetry C3: Aut=2 finite_stabilizer=1 centre=2 element_orders=[1, 2]
+INFO Coxeter radii C3 by root length2: {2.0: {0.81649658}, 1.0: {0.70710678, 0.40824829}}
+PASS finite C4: dim=36 marks=[1, 2, 2, 2, 1] h=8 hdual=5 exp=[1, 3, 5, 7] Coxeter_orbits=4x8
+PASS symmetry C4: Aut=2 finite_stabilizer=1 centre=2 element_orders=[1, 2]
+INFO Coxeter radii C4 by root length2: {2.0: {0.70710678}, 1.0: {0.65328148, 0.5, 0.27059805}}
+PASS finite C5: dim=55 marks=[1, 2, 2, 2, 2, 1] h=10 hdual=6 exp=[1, 3, 5, 7, 9] Coxeter_orbits=5x10
+PASS symmetry C5: Aut=2 finite_stabilizer=1 centre=2 element_orders=[1, 2]
+INFO Coxeter radii C5 by root length2: {2.0: {0.63245553}, 1.0: {0.60150096, 0.51166727, 0.37174803, 0.19543951}}
+PASS finite C6: dim=78 marks=[1, 2, 2, 2, 2, 2, 1] h=12 hdual=7 exp=[1, 3, 5, 7, 9, 11] Coxeter_orbits=6x12
+PASS symmetry C6: Aut=2 finite_stabilizer=1 centre=2 element_orders=[1, 2]
+INFO Coxeter radii C6 by root length2: {2.0: {0.57735027}, 1.0: {0.55767754, 0.5, 0.28867513, 0.40824829, 0.14942925}}
+PASS finite D4: dim=28 marks=[1, 1, 2, 1, 1] h=6 hdual=6 exp=[1, 3, 3, 5] Coxeter_orbits=4x6
+PASS symmetry D4: Aut=24 finite_stabilizer=6 centre=4 element_orders=[1, 2, 2, 2]
+PASS finite D5: dim=45 marks=[1, 1, 2, 2, 1, 1] h=8 hdual=8 exp=[1, 3, 4, 5, 7] Coxeter_orbits=5x8
+PASS symmetry D5: Aut=8 finite_stabilizer=2 centre=4 element_orders=[1, 2, 4, 4]
+PASS finite D6: dim=66 marks=[1, 1, 2, 2, 2, 1, 1] h=10 hdual=10 exp=[1, 3, 5, 5, 7, 9] Coxeter_orbits=6x10
+PASS symmetry D6: Aut=8 finite_stabilizer=2 centre=4 element_orders=[1, 2, 2, 2]
+PASS finite D7: dim=91 marks=[1, 1, 2, 2, 2, 2, 1, 1] h=12 hdual=12 exp=[1, 3, 5, 6, 7, 9, 11] Coxeter_orbits=7x12
+PASS symmetry D7: Aut=8 finite_stabilizer=2 centre=4 element_orders=[1, 2, 4, 4]
+PASS finite D8: dim=120 marks=[1, 1, 2, 2, 2, 2, 2, 1, 1] h=14 hdual=14 exp=[1, 3, 5, 7, 7, 9, 11, 13] Coxeter_orbits=8x14
+PASS symmetry D8: Aut=8 finite_stabilizer=2 centre=4 element_orders=[1, 2, 2, 2]
+PASS finite E6: dim=78 marks=[1, 3, 2, 1, 2, 1, 2] h=12 hdual=12 exp=[1, 4, 5, 7, 8, 11] Coxeter_orbits=6x12
+PASS symmetry E6: Aut=6 finite_stabilizer=2 centre=3 element_orders=[1, 3, 3]
+PASS finite E7: dim=133 marks=[1, 4, 3, 2, 1, 3, 2, 2] h=18 hdual=18 exp=[1, 5, 7, 9, 11, 13, 17] Coxeter_orbits=7x18
+PASS symmetry E7: Aut=2 finite_stabilizer=1 centre=2 element_orders=[1, 2]
+PASS finite E8: dim=248 marks=[1, 6, 5, 4, 3, 2, 4, 2, 3] h=30 hdual=30 exp=[1, 7, 11, 13, 17, 19, 23, 29] Coxeter_orbits=8x30
+PASS symmetry E8: Aut=1 finite_stabilizer=1 centre=1 element_orders=[1]
+PASS finite F4: dim=52 marks=[1, 2, 3, 4, 2] h=12 hdual=9 exp=[1, 5, 7, 11] Coxeter_orbits=4x12
+PASS symmetry F4: Aut=1 finite_stabilizer=1 centre=1 element_orders=[1]
+INFO Coxeter radii F4 by root length2: {2.0: {0.88807383, 0.45970084}, 1.0: {0.62796303, 0.32505758}}
+PASS finite G2: dim=14 marks=[1, 3, 2] h=6 hdual=4 exp=[1, 5] Coxeter_orbits=2x6
+PASS symmetry G2: Aut=1 finite_stabilizer=1 centre=1 element_orders=[1]
+INFO Coxeter radii G2 by root length2: {2.0: {1.0}, 0.66666667: {0.57735027}}
+PASS fold D3->B2: orbits=[[0], [1], [2, 3]] lengths=[2, 2, 1] raw=[1, 1, 2] marks=[1, 1, 2] h=4 dual=[1, 1, 1] hdual=3 target=True transpose_isomorphic=False
+PASS fold A3->C2: orbits=[[0], [1, 3], [2]] lengths=[2, 1, 2] raw=[1, 2, 1] marks=[1, 2, 1] h=4 dual=[1, 1, 1] hdual=3 target=True transpose_isomorphic=False
+PASS fold D4->Ao2: orbits=[[0, 1], [2], [3, 4]] lengths=[1, 2, 1] raw=[2, 2, 2] marks=[1, 1, 1] h=3 dual=[1, 2, 1] hdual=4 target=True transpose_isomorphic=False
+PASS fold D4->Dt2: orbits=[[0, 1], [2], [3, 4]] lengths=[1, 2, 1] raw=[2, 2, 2] marks=[1, 1, 1] h=3 dual=[1, 2, 1] hdual=4 target=True transpose_isomorphic=False
+PASS fold D4->B3: orbits=[[0], [1], [2], [3, 4]] lengths=[2, 2, 2, 1] raw=[1, 1, 2, 2] marks=[1, 1, 2, 2] h=6 dual=[1, 1, 2, 1] hdual=5 target=True transpose_isomorphic=False
+PASS fold A5->C3: orbits=[[0], [1, 5], [2, 4], [3]] lengths=[2, 1, 1, 2] raw=[1, 2, 2, 1] marks=[1, 2, 2, 1] h=6 dual=[1, 1, 1, 1] hdual=4 target=True transpose_isomorphic=False
+PASS fold D6->Ao3: orbits=[[0, 5], [1, 6], [2, 4], [3]] lengths=[1, 1, 1, 2] raw=[2, 2, 4, 2] marks=[1, 1, 2, 1] h=5 dual=[1, 1, 2, 2] hdual=6 target=True transpose_isomorphic=False
+PASS fold D5->Dt3: orbits=[[0, 1], [2], [3], [4, 5]] lengths=[1, 2, 2, 1] raw=[2, 2, 2, 2] marks=[1, 1, 1, 1] h=4 dual=[1, 2, 2, 1] hdual=6 target=True transpose_isomorphic=False
+PASS fold D5->B4: orbits=[[0], [1], [2], [3], [4, 5]] lengths=[2, 2, 2, 2, 1] raw=[1, 1, 2, 2, 2] marks=[1, 1, 2, 2, 2] h=8 dual=[1, 1, 2, 2, 1] hdual=7 target=True transpose_isomorphic=False
+PASS fold A7->C4: orbits=[[0], [1, 7], [2, 6], [3, 5], [4]] lengths=[2, 1, 1, 1, 2] raw=[1, 2, 2, 2, 1] marks=[1, 2, 2, 2, 1] h=8 dual=[1, 1, 1, 1, 1] hdual=5 target=True transpose_isomorphic=False
+PASS fold D8->Ao4: orbits=[[0, 7], [1, 8], [2, 6], [3, 5], [4]] lengths=[1, 1, 1, 1, 2] raw=[2, 2, 4, 4, 2] marks=[1, 1, 2, 2, 1] h=7 dual=[1, 1, 2, 2, 2] hdual=8 target=True transpose_isomorphic=False
+PASS fold D6->Dt4: orbits=[[0, 1], [2], [3], [4], [5, 6]] lengths=[1, 2, 2, 2, 1] raw=[2, 2, 2, 2, 2] marks=[1, 1, 1, 1, 1] h=5 dual=[1, 2, 2, 2, 1] hdual=8 target=True transpose_isomorphic=False
+PASS fold E6->F4: orbits=[[0], [1], [2, 4], [3, 5], [6]] lengths=[2, 2, 1, 1, 2] raw=[1, 3, 4, 2, 2] marks=[1, 3, 4, 2, 2] h=12 dual=[1, 3, 2, 1, 2] hdual=9 target=True transpose_isomorphic=False
+PASS fold D4->G2: orbits=[[0], [1, 3, 4], [2]] lengths=[2, 2/3, 2] raw=[1, 3, 2] marks=[1, 3, 2] h=6 dual=[1, 1, 2] hdual=4 target=True transpose_isomorphic=False
+PASS fold E7->Et4: orbits=[[0, 4], [1], [2, 5], [3, 6], [7]] lengths=[1, 2, 1, 1, 2] raw=[2, 4, 6, 4, 2] marks=[1, 2, 3, 2, 1] h=9 dual=[1, 4, 3, 2, 2] hdual=12 target=True transpose_isomorphic=False
+PASS fold E6->Gt2: orbits=[[0, 3, 5], [1], [2, 4, 6]] lengths=[2/3, 2, 2/3] raw=[3, 3, 6] marks=[1, 1, 2] h=4 dual=[1, 3, 2] hdual=6 target=True transpose_isomorphic=False
+PASS fold A2->Ae1: orbits=[[0], [1, 2]] lengths=[2, 1/2] raw=[1, 2] marks=[1, 2] h=3 dual=[2, 1] hdual=3 target=True transpose_isomorphic=True
+PASS fold D4->Ae1: orbits=[[0, 1, 3, 4], [2]] lengths=[1/2, 2] raw=[4, 2] marks=[2, 1] h=3 dual=[1, 2] hdual=3 target=True transpose_isomorphic=True
+PASS fold A4->Ae2: orbits=[[0], [1, 4], [2, 3]] lengths=[2, 1, 1/2] raw=[1, 2, 2] marks=[1, 2, 2] h=5 dual=[2, 2, 1] hdual=5 target=True transpose_isomorphic=True
+PASS fold D6->Ae2: orbits=[[0, 5, 1, 6], [2, 4], [3]] lengths=[1/2, 1, 2] raw=[4, 4, 2] marks=[2, 2, 1] h=5 dual=[1, 2, 2] hdual=5 target=True transpose_isomorphic=True
+PASS fold A6->Ae3: orbits=[[0], [1, 6], [2, 5], [3, 4]] lengths=[2, 1, 1, 1/2] raw=[1, 2, 2, 2] marks=[1, 2, 2, 2] h=7 dual=[2, 2, 2, 1] hdual=7 target=True transpose_isomorphic=True
+PASS fold D8->Ae3: orbits=[[0, 7, 1, 8], [2, 6], [3, 5], [4]] lengths=[1/2, 1, 1, 2] raw=[4, 4, 4, 2] marks=[2, 2, 2, 1] h=7 dual=[1, 2, 2, 2] hdual=7 target=True transpose_isomorphic=True
+PASS Aeven n=1 parent=A2: permutation=(0, 2, 1) orbits=[[0], [1, 2]] raw=[1, 2] gcd=1 standard_mass2=[3.0] parent_restricted_mass2=[3.0]
+PASS Aeven n=1 parent=D4: permutation=(3, 4, 2, 1, 0) orbits=[[0, 3, 1, 4], [2]] raw=[4, 2] gcd=2 standard_mass2=[3.0] parent_restricted_mass2=[6.0]
+PASS Aeven n=2 parent=A4: permutation=(0, 4, 3, 2, 1) orbits=[[0], [1, 4], [2, 3]] raw=[1, 2, 2] gcd=1 standard_mass2=[1.3819660113, 3.6180339887] parent_restricted_mass2=[1.3819660113, 3.6180339887]
+PASS Aeven n=2 parent=D6: permutation=(5, 6, 4, 3, 2, 1, 0) orbits=[[0, 5, 1, 6], [2, 4], [3]] raw=[4, 4, 2] gcd=2 standard_mass2=[1.3819660113, 3.6180339887] parent_restricted_mass2=[2.7639320225, 7.2360679775]
+PASS Aeven n=3 parent=A6: permutation=(0, 6, 5, 4, 3, 2, 1) orbits=[[0], [1, 6], [2, 5], [3, 4]] raw=[1, 2, 2, 2] gcd=1 standard_mass2=[0.7530203963, 2.4450418679, 3.8019377358] parent_restricted_mass2=[0.7530203963, 2.4450418679, 3.8019377358]
+PASS Aeven n=3 parent=D8: permutation=(7, 8, 6, 5, 4, 3, 2, 1, 0) orbits=[[0, 7, 1, 8], [2, 6], [3, 5], [4]] raw=[4, 4, 4, 2] gcd=2 standard_mass2=[0.7530203963, 2.4450418679, 3.8019377358] parent_restricted_mass2=[1.5060407926, 4.8900837358, 7.6038754716]
+PASS fusion A4 s=1 h=5: root_triples=20 conservation_nullity=1 Cartan_residual=4.14e-16
+PASS fusion A4 s=6 h=5: root_triples=20 conservation_nullity=1 Cartan_residual=2.22e-15
+PASS fusion colour flip A4: projector_error=1.76e-15
+PASS fusion D5 s=1 h=8: root_triples=80 conservation_nullity=1 Cartan_residual=8.68e-16
+PASS fusion D5 s=9 h=8: root_triples=80 conservation_nullity=1 Cartan_residual=9.42e-16
+PASS fusion colour flip D5: projector_error=5.71e-16
+PASS fusion E6 s=1 h=12: root_triples=240 conservation_nullity=1 Cartan_residual=1.72e-15
+PASS fusion E6 s=13 h=12: root_triples=240 conservation_nullity=1 Cartan_residual=1.67e-15
+PASS fusion colour flip E6: projector_error=6.55e-16
+PASS fusion D4 s=3 h=6: root_triples=32 conservation_nullity=2 Cartan_residual=6.51e-16
+PASS fusion D4 s=9 h=6: root_triples=32 conservation_nullity=2 Cartan_residual=7.14e-16
+PASS fusion colour flip D4: projector_error=7.77e-16
+PASS fusion D6 s=5 h=10: root_triples=160 conservation_nullity=2 Cartan_residual=6.11e-16
+PASS fusion D6 s=15 h=10: root_triples=160 conservation_nullity=2 Cartan_residual=5.40e-16
+PASS fusion colour flip D6: projector_error=6.29e-16
+PASS fusion E8 s=1 h=30: root_triples=2240 conservation_nullity=1 Cartan_residual=9.87e-15
+PASS fusion E8 s=31 h=30: root_triples=2240 conservation_nullity=1 Cartan_residual=6.96e-15
+PASS fusion colour flip E8: projector_error=4.38e-15
+PASS E8 radii/PF and masses: [1.0, 1.6180339887, 1.9890437907, 2.4048671724, 2.9562952015, 3.2183404585, 3.8911568233, 4.7833861168] golden_error= 3.3306690738754696e-15
+PASS duality C2/D3t: B residual=0 H residual=0; beta2=sqrt(2): B=0.1065443154 Bdual=1.8934556846
+PASS duality B2/A3t: B residual=0 H residual=0; beta2=sqrt(2): B=0.2023110829 Bdual=1.7976889171
+PASS duality G2/D4t: B residual=0 H residual=0; beta2=sqrt(2): B=0.0723136449 Bdual=1.9276863551
+NOTE duality checks verify the stated B conjecture algebraically, not its all-orders physical validity.
