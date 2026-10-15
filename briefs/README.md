@@ -106,4 +106,4 @@ Both reports arrived on 2026-10-15: chapters 5–6 by GPT-Astra (high), chapters
 - The fusion formula needs no projector.
 - The vertex–IRF relation is stated precisely.
 
-Follow-up, not done: a duality sentence for the self-dual $a_{2n}^{(2)}$ ($\beta^\vee=8\pi/\beta$), to be agreed with ch. 14.
+Added afterwards, at the editor's request: the duality sentence for the self-dual $a_{2n}^{(2)}$ in ch. 6 ($\beta^\vee=8\pi/\beta$, $B=\frac{\beta^2/4\pi}{1+\beta^2/8\pi}\to2-B$). Sources: Dorey's lectures (`dorey1998`, §self-dual theories) and, for $a_2^{(2)}$, the Bullough–Dodd action and S-matrix of Alekseev, arXiv:1106.4758, eqs. (3.1) and (3.5). The book states no $a_{2n}^{(2)}$ particle S-matrix elsewhere, so ch. 13 and 14 needed no change.

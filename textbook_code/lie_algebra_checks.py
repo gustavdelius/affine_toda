@@ -10,6 +10,9 @@
 3. The two parents of a_{2n}^{(2)}: the restricted mass matrices are the coprime-label mass matrix
    at m_F^2 = m_A^2 = 2 m_D^2, with masses^2 4 m_F^2 sin^2(pi a/(2n+1)).
 4. Gradation (sec-gradations): sum_j n_j^vee s_j = 4 pi k h/beta^2 - h^vee for X^{(k)}.
+   Duality of the self-dual a_{2n}^{(2)} (sec-affine-folding): rescaled coroots reproduce the roots,
+   beta^vee = 8 pi/beta, B = (beta^2/4pi)/(1+beta^2/8pi) goes to 2 - B; for a_2^{(2)} the
+   Bullough-Dodd S-matrix in this normalization.
 5. Diagram symmetries (sec-affine-dynkin): the rotation of the a_n^{(1)} cycle multiplies each mass
    eigenvector by a phase; the reflection maps species a to n+1-a.
 6. S^2 shift (sec-qg-crossing): V(x)^** = V(x t), found by solving for the intertwiner, with
@@ -304,6 +307,51 @@ for name, f, h, hd in rows:
     tot = sp.simplify(sum(x * y for x, y in zip(nd, s)) - (4 * sp.pi * k * h / b**2 - hd))
     ok &= tot == 0
 report('twisted X^(k): sum_j n_j^vee s_j = 4 pi k h/beta^2 - h^vee, i.e. 4 pi h/beta_lit^2 - h^vee', ok)
+
+# 4b. strong-weak duality of the self-dual a_{2n}^(2) ----------------------------
+ok = True
+for n in (1, 2, 3):
+    affA, labA = a_affine(2 * n + 1)
+    affA = to_hyperplane(affA)
+    fA = fold(affA, labA, [(-j) % (2 * n + 1) for j in range(2 * n + 1)], 2)
+    co = [2 * a / (a @ a) / 2 for a in fA['alO']]          # coroots, rescaled by 1/2
+    G, Gco = [np.array([[a @ b for b in v] for a in v]) for v in (fA['alO'], co)]
+    ok &= np.allclose(Gco, G[::-1, ::-1])                 # the same roots, chain reversed
+report('a_{2n}^(2) (n=1,2,3): coroots rescaled by 1/2 are its roots with the chain reversed, '
+       'so beta^vee = 2 (4 pi/beta) = 8 pi/beta', ok)
+Bbook = (b**2 / (4 * sp.pi)) / (1 + b**2 / (8 * sp.pi))
+blit = b / sp.sqrt(2)                                     # longest roots of squared length 4
+Blit = (blit**2 / (2 * sp.pi)) / (1 + blit**2 / (4 * sp.pi))
+report('a_{2n}^(2): B = (beta_lit^2/2pi)/(1+beta_lit^2/4pi) = (beta^2/4pi)/(1+beta^2/8pi), '
+       'and B(8 pi/beta) = 2 - B(beta)',
+       sp.simplify(Bbook - Blit) == 0 and sp.simplify(Bbook.subs(b, 8 * sp.pi / b) - (2 - Bbook)) == 0)
+# a_2^(2), the Bullough-Dodd model: action (1/16pi)(d phi)^2 + mu (e^{sqrt2 b phi} + 2 e^{-b phi/sqrt2}) and
+# S-matrix of O. Alekseev, arXiv:1106.4758, eqs. (3.1), (3.5); its b <-> 1/b is the duality above.
+bb = sp.symbols('b', positive=True)
+expo = sp.sqrt(2) * bb * sp.sqrt(8 * sp.pi)               # phi = sqrt(8 pi) x canonical field
+ok_norm = sp.simplify((expo / sp.sqrt(2)).subs(bb, b / sp.sqrt(8 * sp.pi)) - b) == 0  # e^{sqrt2 beta phi}: b^2 = beta^2/8pi
+
+
+def fA_(A, th):
+    return np.tanh((th + 1j * np.pi * A) / 2) / np.tanh((th - 1j * np.pi * A) / 2)
+
+
+def S_bd(th, bv):
+    Q = bv + 1 / bv
+    t = lambda a: np.tanh((th + a) / 2)
+    return (t(2j * np.pi / 3) * t(-2j * np.pi / (3 * bv * Q)) * t(-2j * np.pi * bv / (3 * Q))
+            / (t(-2j * np.pi / 3) * t(2j * np.pi / (3 * Q * bv)) * t(2j * np.pi * bv / (3 * Q))))
+
+
+ok_bd = True
+for beta_v in (np.sqrt(2.0), np.e, 5.3):
+    bv = beta_v / np.sqrt(8 * np.pi)
+    Bv = float(Bbook.subs(b, beta_v))
+    for th in (0.37, 1.9 + 0.2j, -0.8):
+        ok_bd &= abs(S_bd(th, bv) - fA_(2 / 3, th) * fA_(-Bv / 3, th) * fA_((Bv - 2) / 3, th)) < 1e-12
+        ok_bd &= abs(S_bd(th, bv) - S_bd(th, 1 / bv)) < 1e-12
+report('a_2^(2) (Bullough-Dodd): b^2 = beta^2/8pi; S = f_{2/3} f_{-B/3} f_{(B-2)/3} with the B above; '
+       'invariant under b -> 1/b, i.e. beta -> 8 pi/beta', ok_norm and ok_bd)
 
 # 5. diagram symmetries of a_n^(1) acting on the particles ------------------------
 ok_rot = ok_ref = True
