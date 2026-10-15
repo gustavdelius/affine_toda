@@ -1,0 +1,3 @@
+PASS 14 D4 all 20 cubic triples: mismatches=[], max area error=8.88e-16
+D4 masses in node order: [1.41421356 2.44948974 1.41421356 1.41421356]
+D4 nonzero unordered cubic triples: [(1, 1, 2), (1, 3, 4), (2, 2, 2), (2, 3, 3), (2, 4, 4)]
