@@ -6,7 +6,7 @@ Run from anywhere: python3 check-refs.py [project-root]  (default: this file's d
 The project root may also be a Quarto project nested in the repository, such as
 lecture-notes/defects/; the book's own check skips such nested projects (any
 subdirectory with its own _quarto.yml), and their files are checked by running
-this script on them. The bibliography is the one named by the project's
+this script on them. The bibliography files are those named by the project's
 _quarto.yml (default references.bib).
 
 Checks, one PASS, FAIL or WARN line each; exit status 1 on any FAIL:
@@ -92,10 +92,21 @@ def project_files(root=ROOT):
 book_files = project_files
 
 
-def bibliography():
+def bibliographies():
+    """The bibliography files named by the project's _quarto.yml: a single path, [a, b], or a block list."""
     cfg = ROOT / '_quarto.yml'
-    m = re.search(r'^bibliography:\s*(\S+)\s*$', cfg.read_text(), re.M) if cfg.exists() else None
-    return (ROOT / (m.group(1) if m else 'references.bib')).resolve()
+    text = cfg.read_text() if cfg.exists() else ''
+    m = re.search(r'^bibliography:[ \t]*(.*)$', text, re.M)
+    if not m:
+        return [ROOT / 'references.bib']
+    value = m.group(1).strip()
+    if value.startswith('['):
+        names = [x.strip() for x in value.strip('[]').split(',') if x.strip()]
+    elif value:
+        names = [value]
+    else:
+        names = re.findall(r'^[ \t]+-[ \t]*(\S+)', text[m.end():].split('\n\n')[0], re.M)
+    return [(ROOT / n).resolve() for n in names]
 
 
 def prose(text):
@@ -228,7 +239,7 @@ def main():
     files = list(book_files())
     raw = {f: (ROOT / f).read_text() for f in files}
     text = {f: prose(t) for f, t in raw.items()}
-    bib = bibliography().read_text()
+    bib = '\n'.join(f.read_text() for f in bibliographies())
     keys = set(re.findall(r'^@\w+\s*\{\s*([^,\s]+)\s*,', bib, re.M))
 
     defs = collections.defaultdict(list)

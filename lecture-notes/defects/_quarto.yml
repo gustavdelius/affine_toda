@@ -23,8 +23,11 @@ book:
   chapters:
     - index.qmd
     - 01-mirrors-and-windows.qmd
+    - 02-backlund-machine.qmd
 
-bibliography: ../../references.bib
+bibliography:
+  - ../../references.bib
+  - references-notes.bib
 csl: ../../aps.csl
 lang: en-GB
 

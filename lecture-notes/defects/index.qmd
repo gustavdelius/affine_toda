@@ -18,7 +18,7 @@ The story starts from a simple question. A boundary of an integrable field theor
 | 8 | Windows, L-operators and Q-operators | What is a window wrapped around a cylinder? |
 | 9 | Folding, fusing and the classical breather | How are windows and mirrors related, and what is left of $\hbar$? |
 
-Lecture 1 is written; the others are in preparation.
+Lectures 1 and 2 are written; the others are in preparation.
 
 ## How to use them {#sec-how-to-use}
 

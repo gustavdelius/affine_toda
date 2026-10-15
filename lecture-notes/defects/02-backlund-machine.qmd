@@ -1,0 +1,360 @@
+# Bäcklund's machine {#sec-backlund-machine}
+
+::: {.callout-note appearance="simple" icon=false title="In this lecture"}
+- We find the sine-Gordon equation where it was born, in the geometry of surfaces of constant negative curvature. The field is an angle, spacetime is a surface, and the static kink is Beltrami's pseudosphere.
+- We meet Bäcklund's transformation, a pair of first-order equations that turns one solution into another, and check that it works.
+- We turn its crank once and create a soliton out of the vacuum. We find that its parameter is a rapidity, and see why: Bäcklund's transformation is Bianchi's, seen by a moving observer.
+- We turn the crank twice and use Bianchi's permutability theorem to build two solitons, and their scattering, by algebra alone. Complex parameters give the breather.
+- We end by asking what happens if the machine works at a single point only. That question is Lecture 3.
+
+*Prerequisites:* @sec-mirrors-windows for the motivation; the book's [sine-Gordon theory](book:sec-sine-gordon) and its [multi-solitons](book:sec-multi-solitons).
+:::
+
+## Superposition without linearity {#sec-l2-question}
+
+In Lecture 1 we learned what a window must do. We did not find one in an interacting theory. The window we are going to find is built from a machine that 19th-century geometers invented for a different purpose, and this lecture takes the machine apart.
+
+The problem it solves is this. For a linear equation the sum of two solutions is a solution, so a few simple solutions generate all the others. The sine-Gordon equation is nonlinear, and the sum of two kinks is not a solution. Yet its solutions behave as if they were superpositions: two solitons pass through each other and emerge unchanged, apart from a shift. Is there a nonlinear way of adding solutions? Bäcklund's transformation is one. It takes a solution and returns another one with one more soliton, and Bianchi showed how to combine such steps by pure algebra.
+
+We work with the dimensionless field $\Phi=\beta_{\rm SG}\phi$, where $\phi$ and $\beta_{\rm SG}$ are the field and the coupling of the book's [sine-Gordon Lagrangian](book:eq-sg-lagrangian). In terms of $\Phi$,
+
+$$
+\mathcal L=\frac1{\beta_{\rm SG}^2}\Big[\tfrac12(\partial_t\Phi)^2-\tfrac12(\partial_x\Phi)^2-m_0^2\,(1-\cos\Phi)\Big],
+$$
+
+so the coupling multiplies the whole action, as $1/\hbar$ does. Classical solutions do not depend on it. It enters only the energy, and in the quantum theory it counts loops. With the light-cone derivatives $\partial_\pm=\partial_t\pm\partial_x$, so that $\partial_+\partial_-=\partial_t^2-\partial_x^2$, the field equation is
+
+$$
+\partial_+\partial_-\Phi=-m_0^2\sin\Phi .
+$$ {#eq-l2-sg}
+
+Its kink is $\Phi=4\arctan e^{m_0x}$, with energy $M=8m_0/\beta_{\rm SG}^2$ (see the book's [kink](book:eq-sg-kink)).
+
+## Where sine-Gordon comes from {#sec-l2-geometry}
+
+::: {.callout-note title="Where it comes from"}
+Minding showed in 1838 that all surfaces of the same constant negative curvature are locally isometric, and Beltrami named them pseudospherical. In 1862 Bour wrote down the equation that the angle between their asymptotic lines must satisfy: the sine-Gordon equation, 77 years before Frenkel and Kontorova met it in dislocation theory, and long before it acquired its punning name. In 1879 Bianchi, in his habilitation thesis, gave a geometric construction of new pseudospherical surfaces from old ones. Bäcklund extended it in 1883 by a parameter that lets the construction be repeated. In 1892 Bianchi showed that two such transformations commute, which gives new solutions by algebra alone. Rogers and Schief tell this history and develop the geometry in modern language [@rogers_schief2002, Ch. 1].
+:::
+
+**Asymptotic lines.** On a surface whose Gaussian curvature is negative, through every point pass two directions in which the surface does not curve towards its normal: the normal curvature vanishes. The curves tangent to these directions are the **asymptotic lines**. On a surface of constant curvature $-1$ the asymptotic lines can be parametrized by arc length, $u$ along one family and $v$ along the other. If $\omega$ is the angle between them, the first and second fundamental forms are
+
+$$
+\mathrm I=du^2+2\cos\omega\,du\,dv+dv^2,\qquad \mathrm{II}=2\sin\omega\,du\,dv .
+$$ {#eq-l2-forms}
+
+The first fundamental form measures lengths on the surface; its form says that $u$ and $v$ are arc lengths and that the coordinate lines meet at the angle $\omega$. The second fundamental form measures the bending; its form says that the coordinate lines are asymptotic.
+
+**Bour's equation.** Gauss's *theorema egregium* says that the curvature can be computed from the first fundamental form alone. For the metric in (-@eq-l2-forms) the result is (@exr-l2-chebyshev)
+
+$$
+K=-\frac{\omega_{uv}}{\sin\omega},
+$$
+
+where subscripts denote derivatives. Setting $K=-1$ gives
+
+$$
+\omega_{uv}=\sin\omega .
+$$ {#eq-l2-bour}
+
+This is Bour's equation. Every solution with $0<\omega<\pi$ describes a pseudospherical surface, which is unique up to rigid motions by Bonnet's theorem, and every pseudospherical surface gives a solution.
+
+**The dictionary.** Introduce
+
+$$
+u=\tfrac12m_0(x+t),\qquad v=\tfrac12m_0(x-t).
+$$
+
+By the chain rule, $\partial_x=\frac{m_0}2(\partial_u+\partial_v)$ and $\partial_t=\frac{m_0}2(\partial_u-\partial_v)$, so
+
+$$
+\partial_+=m_0\,\partial_u,\qquad\partial_-=-m_0\,\partial_v,\qquad\partial_+\partial_-=-m_0^2\,\partial_u\partial_v .
+$$ {#eq-l2-dictionary}
+
+The sine-Gordon equation (-@eq-l2-sg) becomes $\Phi_{uv}=\sin\Phi$, which is Bour's equation for $\omega=\Phi$. So:
+
+- the sine-Gordon field is the angle between the asymptotic lines of a surface;
+- spacetime, with light-cone coordinates, is the coordinate patch of the surface;
+- the light rays $x\pm t=\text{const}$ are the asymptotic lines.
+
+**The kink is a surface.** Take the static kink, $\Phi=4\arctan e^{m_0x}$. With $s=u+v=m_0x$, $\tan\frac\Phi4=e^s$. The half-angle formulas give
+
+$$
+\sin\frac\Phi2=\frac{2\tan\frac\Phi4}{1+\tan^2\frac\Phi4}=\frac{2e^s}{1+e^{2s}}=\operatorname{sech}s,\qquad
+\cos\frac\Phi2=\frac{1-e^{2s}}{1+e^{2s}}=-\tanh s .
+$$
+
+Now write the first fundamental form in terms of $du\pm dv$. Since $\cos\Phi=\cos^2\frac\Phi2-\sin^2\frac\Phi2$,
+
+$$
+\begin{aligned}
+\mathrm I&=\cos^2\tfrac\Phi2\,(du+dv)^2+\sin^2\tfrac\Phi2\,(du-dv)^2\\
+&=\tanh^2s\,ds^2+\operatorname{sech}^2s\,d\tau^2,\qquad \tau=u-v=m_0t .
+\end{aligned}
+$$
+
+This is the metric of a surface of revolution: $\operatorname{sech}s$ is the distance from the axis, and $\tau$ is the angle around it. The surface is
+
+$$
+\vec r(s,\tau)=\big(\operatorname{sech}s\cos\tau,\ \operatorname{sech}s\sin\tau,\ s-\tanh s\big),
+$$
+
+the surface swept out by a tractrix rotating about its asymptote: **Beltrami's pseudosphere**. You can check that its second fundamental form is $\pm2\sin\Phi\,du\,dv$ as well, so the static kink *is* the pseudosphere (@fig-pseudosphere).
+
+![The static kink is the pseudosphere. (a) The kink $\Phi=4\arctan e^{m_0x}$ and its energy density, in units of $m_0^2/\beta_{\rm SG}^2$, which is $4\operatorname{sech}^2(m_0x)$. (b) The pseudosphere $(\operatorname{sech}s\cos\tau,\operatorname{sech}s\sin\tau,s-\tanh s)$, with $s=u+v=m_0x$ and $\tau=u-v=m_0t$. The red and green curves are asymptotic lines $u=\text{const}$ and $v=\text{const}$, which are the light rays of spacetime. The rim, in orange, is the centre of the kink, where the energy density is largest; far from the centre the surface shrinks onto its axis. `textbook_code/lectures/defects_l2_f1_pseudosphere.py` checks that the drawn surface has the first fundamental form (-@eq-l2-forms) with $\omega$ the kink, that the energy density is $4\operatorname{sech}^2$ times $m_0^2/\beta_{\rm SG}^2$, and that the drawn curves are $u$- and $v$-lines.](figures/l2_pseudosphere.svg){#fig-pseudosphere fig-alt="Left: the kink profile rising from 0 to 2 pi, with a bell-shaped energy density centred at zero. Right: a spindle-shaped surface of revolution made of two trumpets joined at a rim, with helical red and green curves on it and the rim drawn in orange."}
+
+Every feature of the kink has a geometric counterpart:
+
+- **Energy and size.** The energy density of the kink is $\frac{m_0^2}{\beta_{\rm SG}^2}\big[\frac12\Phi'^2+(1-\cos\Phi)\big]=\frac{4m_0^2}{\beta_{\rm SG}^2}\operatorname{sech}^2(m_0x)$, which is $4m_0^2/\beta_{\rm SG}^2$ times the square of the radius of the pseudosphere. The energy sits where the surface is widest, at the rim, and the rim is the centre of the kink. There $\Phi=\pi$ and $\sin\Phi=0$, and the surface has a sharp edge; by Hilbert's theorem, every complete surface of constant negative curvature in space must have such singularities.
+- **The vacuum.** Far from the kink $\Phi\to0$ or $2\pi$, and the surface shrinks onto its axis. At $\Phi=0$ the metric becomes $(du+dv)^2$: the two families of asymptotic lines coincide, and the "surface" degenerates to a curve. The vacuum is the axis.
+- **Time.** The time coordinate of the static kink is the angle around the axis. Time translation is rotation of the pseudosphere.
+- **Motion.** A moving kink gives a twisted version of the pseudosphere, one of Dini's helicoidal surfaces [@rogers_schief2002].
+
+## Bäcklund's machine {#sec-l2-machine}
+
+**The transformation.** Here is the machine, in the form used in the book's [Bäcklund transformations](book:eq-sg-backlund), written for $\Phi$. Given a field $\Phi$ and a nonzero constant $a$, look for a second field $\Psi$ with
+
+$$
+\partial_+(\Phi-\Psi)=2a\,m_0\sin\frac{\Phi+\Psi}2,\qquad
+\partial_-(\Phi+\Psi)=-\frac{2m_0}a\sin\frac{\Phi-\Psi}2 .
+$$ {#eq-l2-bt}
+
+We write $\Psi=\mathfrak B_a\Phi$. In the coordinates $u$, $v$ of (-@eq-l2-dictionary) these read $\big(\frac{\Phi-\Psi}2\big)_u=a\sin\frac{\Phi+\Psi}2$ and $\big(\frac{\Phi+\Psi}2\big)_v=\frac1a\sin\frac{\Phi-\Psi}2$.
+
+These are two first-order equations for one unknown function $\Psi$, given $\Phi$. Two first-order equations for one function are in general inconsistent: they prescribe both derivatives $\partial_+\Psi$ and $\partial_-\Psi$, and these must satisfy $\partial_-(\partial_+\Psi)=\partial_+(\partial_-\Psi)$. The surprise is what this consistency condition says.
+
+**The key calculation.** Write $A=\frac{\Phi+\Psi}2$ and $B=\frac{\Phi-\Psi}2$, so that (-@eq-l2-bt) reads $\partial_+(2B)=2am_0\sin A$ and $\partial_-(2A)=-\frac{2m_0}a\sin B$. Apply $\partial_-$ to the first equation and use the second:
+
+$$
+\partial_+\partial_-(2B)=2am_0\cos A\;\partial_-A=2am_0\cos A\cdot\Big(-\frac{m_0}a\sin B\Big)=-2m_0^2\cos A\sin B .
+$$
+
+Apply $\partial_+$ to the second equation and use the first:
+
+$$
+\partial_+\partial_-(2A)=-\frac{2m_0}a\cos B\;\partial_+B=-\frac{2m_0}a\cos B\cdot am_0\sin A=-2m_0^2\sin A\cos B .
+$$
+
+Now add and subtract, using $\Phi=A+B$ and $\Psi=A-B$:
+
+$$
+\begin{aligned}
+2\,\partial_+\partial_-\Phi&=-2m_0^2\big(\sin A\cos B+\cos A\sin B\big)=-2m_0^2\sin(A+B)=-2m_0^2\sin\Phi,\\
+2\,\partial_+\partial_-\Psi&=-2m_0^2\big(\sin A\cos B-\cos A\sin B\big)=-2m_0^2\sin(A-B)=-2m_0^2\sin\Psi .
+\end{aligned}
+$$
+
+Both fields solve the sine-Gordon equation. Read in the other direction, the calculation says more: the system (-@eq-l2-bt) for $\Psi$ is consistent exactly when $\Phi$ solves the sine-Gordon equation, and then every solution $\Psi$ solves it too. A first-order system has turned one solution into another.
+
+**What the machine does to a surface.** In the language of @sec-l2-geometry, $\Phi$ and $\Psi$ describe two pseudospherical surfaces $\Sigma$ and $\Sigma'$. Bianchi's construction, generalized by Bäcklund, relates them by a simple rule: from each point $P$ of $\Sigma$ draw a segment of fixed length, tangent to $\Sigma$, in a direction determined by $\Phi$ and $\Psi$. Its endpoint $P'$ traces out $\Sigma'$, and the segment is tangent to $\Sigma'$ as well. In formulas [@rogers_schief2002, Sec. 1.2],
+
+$$
+\vec r\,'=\vec r+\frac{\sin\sigma}{\sin\omega}\Big[\sin\frac{\omega-\omega'}2\,\vec r_u+\sin\frac{\omega+\omega'}2\,\vec r_v\Big],\qquad\tan\frac\sigma2=|a| ,
+$$ {#eq-l2-geometric-bt}
+
+with $\omega=\Phi$ and $\omega'=\Psi$. The segment has length $\sin\sigma$, and the tangent planes of the two surfaces at $P$ and $P'$ meet at the constant angle $\sigma$. Bianchi's original construction of 1879 had $\sigma=\frac\pi2$: the tangent planes are perpendicular, and $|a|=1$. Bäcklund's generalization allowed any constant angle.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (j) of `textbook_code/lectures/defects_l2_backlund.py` applies (-@eq-l2-geometric-bt) to the pseudosphere with $\omega'=\mathfrak B_a\omega$, computes the fundamental forms of the new surface with 30-digit numerical derivatives, and finds curvature $-1$, the first fundamental form of (-@eq-l2-forms) with angle $\omega'$, a segment of length $\sin\sigma$ tangent to both surfaces, and normals at the angle $\sigma$, all to $10^{-15}$.
+:::
+
+## Turning the crank once {#sec-l2-once}
+
+Start from the vacuum, $\Phi=0$, and look for $\Psi=\mathfrak B_a0$. The system (-@eq-l2-bt) becomes
+
+$$
+-\partial_+\Psi=2am_0\sin\frac\Psi2,\qquad\partial_-\Psi=\frac{2m_0}a\sin\frac\Psi2 ,
+$$
+
+using $\sin(-\frac\Psi2)=-\sin\frac\Psi2$ in the second equation. The trick that linearizes it is the substitution $\Psi=4\arctan Y$. Then
+
+$$
+\partial\Psi=\frac{4\,\partial Y}{1+Y^2},\qquad\sin\frac\Psi2=\frac{2\tan\frac\Psi4}{1+\tan^2\frac\Psi4}=\frac{2Y}{1+Y^2},
+$$
+
+so $\partial\Psi=2\sin\frac\Psi2\,\partial\ln Y$ for either derivative. The common factor $2\sin\frac\Psi2$ cancels, and what remains is linear:
+
+$$
+\partial_+\ln Y=-am_0,\qquad\partial_-\ln Y=\frac{m_0}a .
+$$
+
+With $\partial_\pm=\partial_t\pm\partial_x$, the solution is $\ln Y=\kappa x+\nu t+c$ with $\nu+\kappa=-am_0$ and $\nu-\kappa=m_0/a$, that is,
+
+$$
+\kappa=-\frac{m_0}2\Big(a+\frac1a\Big),\qquad\nu=\frac{m_0}2\Big(\frac1a-a\Big).
+$$
+
+Now write $a=-e^{-\theta}$. Then $a+\frac1a=-2\cosh\theta$ and $\frac1a-a=-2\sinh\theta$, so
+
+$$
+\Psi=\mathfrak B_{-e^{-\theta}}0=4\arctan\exp\big(m_0(x\cosh\theta-t\sinh\theta)+c\big).
+$$ {#eq-l2-soliton}
+
+This is a kink moving with velocity $\tanh\theta$: the machine has created a soliton out of the vacuum, and its parameter is the rapidity in disguise. A positive parameter, $a=+e^{-\theta}$, flips the signs of $\kappa$ and $\nu$ and gives an antikink on the vacuum $\Phi=2\pi$ (@exr-l2-vacuum). The constant $c$ fixes the position; a complex $c$ gives the complex solitons that the book uses for affine Toda theory.
+
+**Why the parameter is a rapidity.** Under a boost by rapidity $\vartheta$, a solution $\Phi(t,x)$ becomes $\Phi_\vartheta(t,x)=\Phi(t\cosh\vartheta-x\sinh\vartheta,\,x\cosh\vartheta-t\sinh\vartheta)$. In light-cone variables the boost rescales, $t\pm x\to e^{\mp\vartheta}(t\pm x)$, so by the chain rule
+
+$$
+\partial_+\Phi_\vartheta=e^{-\vartheta}(\partial_+\Phi)\circ\Lambda,\qquad\partial_-\Phi_\vartheta=e^{\vartheta}(\partial_-\Phi)\circ\Lambda ,
+$$
+
+with $\Lambda$ the boost. Apply this to both equations of (-@eq-l2-bt). The first acquires a factor $e^{-\vartheta}$ on its left side, which can be absorbed into $a$; the second acquires $e^{\vartheta}$, which is absorbed into $1/a$ consistently. So a boost maps a Bäcklund pair with parameter $a$ to a pair with parameter $ae^{-\vartheta}$. With $a=-e^{-\theta}$ this is $\theta\to\theta+\vartheta$. The parameter shifts exactly like a rapidity.
+
+The geometers saw the same thing in other words. Lie noticed that Bour's equation is invariant under the scaling $(u,v)\to(\lambda u,v/\lambda)$, and that Bäcklund's transformation is Bianchi's transformation conjugated by this scaling [@rogers_schief2002, Sec. 1.2]. In light-cone coordinates Lie's scaling is a Lorentz boost, with rapidity $\ln\lambda$. So Bäcklund's machine with parameter $a$ is Bianchi's machine seen by a moving observer, and Bianchi's choice $a=-1$ creates a soliton at rest.
+
+Combine this with the geometry of (-@eq-l2-geometric-bt). With $\tan\frac\sigma2=|a|=e^{-\theta}$,
+
+$$
+\cos\sigma=\frac{1-e^{-2\theta}}{1+e^{-2\theta}}=\tanh\theta,\qquad\sin\sigma=\frac1{\cosh\theta}.
+$$
+
+The cosine of the angle between the two surfaces is the velocity of the soliton that the transformation adds, and the length of Bäcklund's segment is its Lorentz contraction factor. Bianchi's right angle adds a soliton at rest.
+
+**Running the machine backwards.** If $\Psi=\mathfrak B_a\Phi$, then exchanging $\Phi$ and $\Psi$ in (-@eq-l2-bt) and replacing $a$ by $-a$ gives back the same two equations. So $\Phi=\mathfrak B_{-a}\Psi$: the transformation with parameter $-a$ undoes the one with $a$, and removes the soliton it added (@exr-l2-inverse).
+
+## Turning it twice: Bianchi's permutability theorem {#sec-l2-bianchi}
+
+Apply the machine twice: first $\mathfrak B_{a_1}$, then $\mathfrak B_{a_2}$. Each step requires integrating a first-order system, and the second step must be done on the background of a soliton, which is much harder than on the vacuum. Bianchi found that it need not be done at all.
+
+Start from a solution $\Phi_0$ and make $\Phi_1=\mathfrak B_{a_1}\Phi_0$ and $\Phi_2=\mathfrak B_{a_2}\Phi_0$. Suppose there is a $\Phi_{12}$ that can be reached both ways, $\Phi_{12}=\mathfrak B_{a_2}\Phi_1=\mathfrak B_{a_1}\Phi_2$, as in the square of @fig-bianchi(a). The four $\partial_+$ equations along the edges are
+
+$$
+\begin{aligned}
+\partial_+(\Phi_0-\Phi_1)&=2a_1m_0\sin\tfrac{\Phi_0+\Phi_1}2, &\qquad \partial_+(\Phi_1-\Phi_{12})&=2a_2m_0\sin\tfrac{\Phi_1+\Phi_{12}}2,\\
+\partial_+(\Phi_0-\Phi_2)&=2a_2m_0\sin\tfrac{\Phi_0+\Phi_2}2, &\qquad \partial_+(\Phi_2-\Phi_{12})&=2a_1m_0\sin\tfrac{\Phi_2+\Phi_{12}}2 .
+\end{aligned}
+$$
+
+Add the two equations on the left path ($\Phi_0\to\Phi_1\to\Phi_{12}$) and the two on the right path ($\Phi_0\to\Phi_2\to\Phi_{12}$). Both sums give $\partial_+(\Phi_0-\Phi_{12})$, so their right sides are equal. Collect the terms with $a_1$ on one side and those with $a_2$ on the other:
+
+$$
+a_1\Big[\sin\tfrac{\Phi_0+\Phi_1}2-\sin\tfrac{\Phi_2+\Phi_{12}}2\Big]=a_2\Big[\sin\tfrac{\Phi_0+\Phi_2}2-\sin\tfrac{\Phi_1+\Phi_{12}}2\Big].
+$$
+
+All derivatives have gone. Use $\sin\alpha-\sin\beta=2\cos\frac{\alpha+\beta}2\sin\frac{\alpha-\beta}2$ on both sides. Both cosines are $\cos\frac{\Phi_0+\Phi_1+\Phi_2+\Phi_{12}}4$, which cancels. With $X=\frac{\Phi_0-\Phi_{12}}4$ and $Y=\frac{\Phi_1-\Phi_2}4$ what remains is
+
+$$
+a_1\sin(X+Y)=a_2\sin(X-Y).
+$$
+
+Expand both sides and divide by $\cos X\cos Y$: $a_1(\tan X+\tan Y)=a_2(\tan X-\tan Y)$, so $\tan X=-\frac{a_1+a_2}{a_1-a_2}\tan Y$. In terms of the fields:
+
+$$
+\tan\frac{\Phi_{12}-\Phi_0}4=\frac{a_1+a_2}{a_1-a_2}\,\tan\frac{\Phi_1-\Phi_2}4 .
+$$ {#eq-l2-bianchi}
+
+::: {#prp-l2-bianchi}
+## Bianchi's permutability theorem
+**[Established]** If $\Phi_1=\mathfrak B_{a_1}\Phi_0$ and $\Phi_2=\mathfrak B_{a_2}\Phi_0$ with $a_1\ne\pm a_2$, then $\Phi_{12}$ defined by (-@eq-l2-bianchi) satisfies $\Phi_{12}=\mathfrak B_{a_2}\Phi_1=\mathfrak B_{a_1}\Phi_2$: all four first-order systems, not only the $\partial_+$ equations from which we derived it [@rogers_schief2002, Sec. 1.3].
+:::
+
+We derived (-@eq-l2-bianchi) as a necessary condition. That it is also sufficient, so that the $\partial_-$ equations hold as well, is Bianchi's theorem; item (g) of `textbook_code/lectures/defects_l2_backlund.py` checks it for two solitons on the vacuum, to $10^{-6}$ in finite differences. The book states it as [Bianchi permutability](book:prp-bianchi).
+
+**Two solitons by algebra.** Take $\Phi_0=0$, and the two solitons $\Phi_k=4\arctan Y_k$ of (-@eq-l2-soliton), with $a_k=-e^{-\theta_k}$ and $Y_k=\exp\big(m_0(x\cosh\theta_k-t\sinh\theta_k)+c_k\big)$. By the subtraction formula for the tangent, $\tan\frac{\Phi_1-\Phi_2}4=\frac{Y_1-Y_2}{1+Y_1Y_2}$. The Bianchi coefficient depends only on the ratio of the parameters, a relative rapidity:
+
+$$
+\frac{a_1+a_2}{a_1-a_2}=\frac{e^{-\theta_1}+e^{-\theta_2}}{e^{-\theta_1}-e^{-\theta_2}}=-\coth\frac{\theta_1-\theta_2}2 .
+$$
+
+So the two-soliton solution is
+
+$$
+\tan\frac{\Phi_{12}}4=-\coth\frac{\theta_1-\theta_2}2\;\frac{Y_1-Y_2}{1+Y_1Y_2}.
+$$ {#eq-l2-two-soliton}
+
+To compare with the book's [multi-soliton](book:eq-n-soliton) formula, put $\tau=\tanh\frac{\theta_1-\theta_2}2$, $X_1=-Y_1/\tau$ and $X_2=Y_2/\tau$. Then $Y_2-Y_1=\tau(X_1+X_2)$ and $1+Y_1Y_2=1-\tau^2X_1X_2$, and (-@eq-l2-two-soliton) becomes
+
+$$
+\tan\frac{\Phi_{12}}4=\frac{X_1+X_2}{1-A\,X_1X_2},\qquad A=\tau^2=\tanh^2\frac{\theta_1-\theta_2}2=\Big(\frac{a_1-a_2}{a_1+a_2}\Big)^2 .
+$$
+
+Here $A$ is the sine-Gordon case of the [interaction coefficient](book:eq-interaction-coefficient) of the book. The whole interaction of two solitons is in the Bianchi coefficient: $A$ is the inverse of its square. With real constants $c_1$, $c_2$ this solution is a soliton and an antisoliton, with total charge zero; replacing $Y_2$ by $-Y_2$, that is $c_2\to c_2+i\pi$, gives two solitons of the same charge.
+
+**The collision.** Far from soliton 2, the solution looks like soliton 1 alone, but where it sits depends on which side of soliton 2 we look. Suppose $\theta_1>\theta_2$, so that soliton 1 approaches from the left. Long before the collision, near soliton 1 we have $Y_2\ll1$, so $\tan\frac{\Phi_{12}}4\simeq-\coth\frac{\theta_1-\theta_2}2\,Y_1$: soliton 1 sits where $|Y_1|=\tanh\frac{\theta_1-\theta_2}2$. Long after, $Y_2\gg1$ near soliton 1, so $\tan\frac{\Phi_{12}}4\simeq\coth\frac{\theta_1-\theta_2}2/Y_1$: it sits where $|Y_1|=\coth\frac{\theta_1-\theta_2}2$. Between the two, $\ln Y_1$ at the centre of soliton 1 has grown by $2\ln\coth\frac{\theta_1-\theta_2}2=-\ln A$. Since $\ln Y_1=m_0\cosh\theta_1\,(x-t\tanh\theta_1)+c_1$, soliton 1 is displaced forward by
+
+$$
+\Delta x=-\frac{\ln A}{m_0\cosh\theta_1}>0 ,
+$$
+
+with its shape and velocity unchanged (@fig-bianchi(b)). This is the classical counterpart of factorized scattering, as the book explains in its [time delays](book:sec-multi-solitons). Seeger and his coworkers found such collisions with the help of Bäcklund's transformation in 1953, in the theory of crystal dislocations, twelve years before Zabusky and Kruskal coined the word soliton [@rogers_schief2002, Sec. 1.1].
+
+![Bianchi's square and the collision it describes. (a) $\Phi_1$ and $\Phi_2$ are made from $\Phi_0$ with parameters $a_1$ and $a_2$; $\Phi_{12}$ is reached from both, and the permutability theorem (-@eq-l2-bianchi) gives it without integration. (b) The energy density of $\Phi_{12}$ made from the vacuum, a soliton of rapidity $\theta_1=0.9$ and one of $\theta_2=-0.4$. The dashed lines are the free world lines continued through the collision: soliton 1 emerges displaced forward by $\Delta x=-\ln A/(m_0\cosh\theta_1)$. `textbook_code/lectures/defects_l2_f2_bianchi.py` checks that the plotted field solves the sine-Gordon equation and that the ridge of soliton 1 follows the two dashed lines.](figures/l2_bianchi.svg){#fig-bianchi fig-alt="Left: a diamond of four boxes, Phi_0 at the bottom, Phi_1 and Phi_2 at the sides, Phi_12 at the top, joined by arrows labelled a_1 and a_2. Right: a space-time density plot of two crossing soliton tracks, with dashed straight lines showing that the faster soliton is displaced forward after the collision."}
+
+## Complex parameters: the breather {#sec-l2-breather}
+
+Bianchi's formula is algebraic, so nothing stops us from inserting complex parameters. Take them complex conjugate, $a_1=-e^{-i\alpha}$ and $a_2=-e^{i\alpha}$ with $0<\alpha<\frac\pi2$: two solitons with the imaginary rapidities $\pm i\alpha$. Then
+
+$$
+\frac{a_1+a_2}{a_1-a_2}=\frac{e^{-i\alpha}+e^{i\alpha}}{e^{-i\alpha}-e^{i\alpha}}=\frac{2\cos\alpha}{-2i\sin\alpha}=i\cot\alpha ,
+$$
+
+and, with $c_1=c_2=0$, $Y_1=\exp\big(m_0(x\cos\alpha-it\sin\alpha)\big)$ and $Y_2=\overline{Y_1}$. So $Y_1-Y_2=2i\operatorname{Im}Y_1=-2ie^{m_0x\cos\alpha}\sin(m_0t\sin\alpha)$ and $1+Y_1Y_2=1+e^{2m_0x\cos\alpha}$. Putting these into (-@eq-l2-bianchi),
+
+$$
+\tan\frac{\Phi_{12}}4=i\cot\alpha\cdot\frac{-2ie^{m_0x\cos\alpha}\sin(m_0t\sin\alpha)}{1+e^{2m_0x\cos\alpha}}=\cot\alpha\;\frac{\sin(m_0t\sin\alpha)}{\cosh(m_0x\cos\alpha)} .
+$$ {#eq-l2-breather}
+
+The two complex solitons have combined into a real solution, localized in space and periodic in time with frequency $m_0\sin\alpha$: the **breather**. Its energy is that of two solitons with rapidities $\pm i\alpha$, $M\cosh(i\alpha)+M\cosh(-i\alpha)=2M\cos\alpha$. As $\alpha\to0$ it becomes a soliton–antisoliton pair of energy $2M$. As $\alpha\to\frac\pi2$ its amplitude $\cot\alpha$ and its energy vanish, and its frequency tends to $m_0$, the mass of the elementary particle: the particle is the smallest breather. In the quantum theory the breathers become the bound states of solitons and antisolitons, and the lightest of them is the particle (see the book's [breathers](book:sec-breathers)).
+
+## Freezing the machine {#sec-l2-freeze}
+
+Let us take stock. Bäcklund's transformation is a pair of first-order equations relating two fields. When both equations hold everywhere, they add a soliton, and Bianchi's theorem tells us how such additions combine. The soliton that is added has the rapidity $\theta$ encoded in the parameter, and the interaction between solitons is encoded in the ratio of two parameters.
+
+Now consider a mixture. Let the field be $\Phi$ for $x<0$ and $\Psi$ for $x>0$, each satisfying the sine-Gordon equation on its own half-line, and impose the Bäcklund equations (-@eq-l2-bt) only at the single point $x=0$. These are two conditions at one point for two fields that meet there, exactly the kind of matching conditions that we wrote for the $\delta$-function defect of @sec-l1-delta.
+
+::: {.callout-tip title="Predict"}
+1. Do such conditions come from a Lagrangian, that is, from a term in the action located at $x=0$? What would it have to look like?
+2. A soliton of rapidity $\theta$ arrives from the left. Here is a solution of the frozen problem for free: take any Bäcklund pair $(\Phi,\mathfrak B_a\Phi)$ on the whole line, which satisfies the conditions at every point and so in particular at $x=0$, and keep $\Phi$ on the left and $\mathfrak B_a\Phi$ on the right. Using @exr-l2-push, guess what the soliton looks like after it has passed $x=0$.
+3. Which special value of $\theta$ might be dangerous?
+:::
+
+Lecture 3 answers the first question: the frozen Bäcklund transformation is the integrable defect of Bowcock, Corrigan and Zambon, and it is a window. Lecture 4 answers the other two.
+
+## What we have learned {#sec-l2-summary}
+
+- The sine-Gordon field is the angle between the asymptotic lines of a surface of curvature $-1$, and the static kink is the pseudosphere. Its energy sits at the rim; the vacuum is the axis.
+- Bäcklund's transformation (-@eq-l2-bt) is a first-order system that is consistent exactly on solutions of the sine-Gordon equation, and maps solutions to solutions.
+- Applied to the vacuum it creates a soliton. Its parameter $a=-e^{-\theta}$ is a rapidity, because the transformation is Bianchi's seen by a moving observer, and Lie's scaling is a Lorentz boost. Geometrically, $\cos\sigma=\tanh\theta$.
+- Bianchi's permutability theorem combines two transformations by algebra. The interaction coefficient of two solitons is the inverse square of the Bianchi coefficient $\frac{a_1+a_2}{a_1-a_2}$, and complex-conjugate parameters give the breather.
+- $\mathfrak B_{-a}$ undoes $\mathfrak B_a$.
+
+## Exercises {#sec-l2-exercises}
+
+::: {#exr-l2-chebyshev}
+*(Redo.)* For the metric $\mathrm I=E\,du^2+2F\,du\,dv+G\,dv^2$ with $E=G=1$ and $F=\cos\omega$, compute the Christoffel symbols and show that $\vec r_{uv}$ has no tangential part. Then use the Brioschi formula, or the Gauss equation for $\vec r_{uuv}=\vec r_{uvu}$, to show that the Gaussian curvature is $K=-\omega_{uv}/\sin\omega$. Why does $K=-1$ make (-@eq-l2-bour) and the second fundamental form of (-@eq-l2-forms) consistent?
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+For $E=G=1$, $F=\cos\omega$: $\Gamma^1_{11}=\omega_u\cot\omega$, $\Gamma^2_{11}=-\omega_u/\sin\omega$, and $\Gamma^1_{12}=\Gamma^2_{12}=0$. The last two say that $\vec r_{uv}$ is normal to the surface, so the coordinate net is a Chebyshev net.
+:::
+
+::: {#exr-l2-vacuum}
+*(Redo.)* Integrate (-@eq-l2-bt) on the vacuum for $a=+e^{-\theta}$ and show that $\Psi=2\pi-4\arctan\exp\big(m_0(x\cosh\theta-t\sinh\theta)-c\big)$, an antikink on the vacuum $2\pi$. Interpret this as the soliton of (-@eq-l2-soliton) at the rapidity $\theta+i\pi$. For $a=-1$, find the static kink and draw the corresponding Bianchi construction: what is the angle between the tangent planes, and why is the vacuum surface degenerate?
+:::
+
+::: {#exr-l2-inverse}
+*(Redo.)* Show that $\Psi=\mathfrak B_a\Phi$ implies $\Phi=\mathfrak B_{-a}\Psi$. Using Bianchi's formula with $a_2=-a_1$, show that applying $\mathfrak B_{a}$ and then $\mathfrak B_{-a}$ can give back the starting solution. What goes wrong in (-@eq-l2-bianchi) when $a_2=a_1$?
+:::
+
+::: {#exr-l2-push}
+*(Rediscover.)* In the two-soliton solution (-@eq-l2-two-soliton), push soliton 2 to $x=+\infty$ by letting $c_2\to-\infty$ at fixed $c_1$. Show that $\Phi_{12}$ tends to a single soliton, $\tan\frac{\Phi_{12}}4=\frac{a_1+a_2}{a_1-a_2}Y_1$: soliton 1, with $Y_1$ multiplied by the Bianchi coefficient. By how much is it displaced? What do you get if instead you push soliton 2 to $x=-\infty$? You have just found the delay of a soliton at the window of Lecture 4, before meeting the window.
+:::
+
+::: {#exr-l2-moving-breather}
+*(Rediscover.)* Repeat the calculation of @sec-l2-breather with $a_1=-e^{-(\theta+i\alpha)}$ and $a_2=-e^{-(\theta-i\alpha)}$, and show that the result is the breather (-@eq-l2-breather) boosted by $\theta$. Verify that its energy is $2M\cosh\theta\cos\alpha$.
+:::
+
+::: {#exr-l2-three}
+*(Explore.)* Bianchi's square can be stacked into a cube. Given $\Phi_{12}$, $\Phi_{13}$ and $\Phi_{23}$ made from three solitons on the vacuum, show that
+$$
+\tan\frac{\Phi_{123}-\Phi_1}4=\frac{a_2+a_3}{a_2-a_3}\tan\frac{\Phi_{12}-\Phi_{13}}4
+$$
+gives a three-soliton solution. Check numerically that it solves the sine-Gordon equation, and that each pair of solitons is shifted as if the third were absent. This is factorization, classically.
+:::
+
+::: {#exr-l2-wigner}
+*(Explore.)* By Wigner's relation, the time delay of a collision is the derivative of the scattering phase with respect to the energy. Use $\Delta x$ from @sec-l2-bianchi to show that, at leading order in $\beta_{\rm SG}$, the phase of the soliton–soliton amplitude satisfies $\frac{d\delta}{d\theta}=\frac{16}{\beta_{\rm SG}^2}\ln\tanh\frac\theta2$. Compare with the book's [time delays](book:sec-multi-solitons) and its [soliton S-matrix](book:eq-sg-smatrix).
+:::
+
+## Where this comes from {#sec-l2-sources}
+
+The history of pseudospherical surfaces, of the transformations of Bianchi and Bäcklund, of Lie's observation and of Bianchi's permutability theorem, together with their modern use in soliton theory, is told by Rogers and Schief, whose first chapter develops the geometry of @sec-l2-geometry and the construction (-@eq-l2-geometric-bt) in detail [@rogers_schief2002]. The observation that the angle between the surfaces encodes the velocity of the added soliton follows from their formulas. The book's [Bäcklund transformations](book:eq-sg-backlund) and [Bianchi permutability](book:prp-bianchi) state the results used here in the book's conventions. That Bäcklund transformations imposed at a point give integrable defects is due to Bowcock, Corrigan and Zambon [@bcz2004], and is the subject of Lecture 3.
