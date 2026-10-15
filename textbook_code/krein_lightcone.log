@@ -1,0 +1,16 @@
+PASS part 1, n=2, mu=2.313: G^T = G, G(x)G(1/x) = 1, conj G = S G^-1 S (max error 4.5e-16)
+PASS part 1, n=3, mu=1.588: G^T = G, G(x)G(1/x) = 1, conj G = S G^-1 S (max error 4.4e-16)
+PASS part 1, n=4, mu=0.435: G^T = G, G(x)G(1/x) = 1, conj G = S G^-1 S (max error 3.4e-16)
+PASS part 2, n=3, 6 sites: U^dag Pi U = Pi (error 9.4e-16)
+PASS part 3: Pi_s conj(U) Pi_s = U^-1 (error 4.6e-15)
+PASS part 4: C Pi commutes with U (error 9.2e-16)
+PASS n=3: neither Pi (3.29) nor C (3.29) alone commutes with U
+PASS n=2, 6 sites: every eigenvalue on the unit circle (max ||l|-1| 3.3e-15)
+PASS n=2, 8 sites: every eigenvalue on the unit circle (max ||l|-1| 5.9e-15)
+PASS n=3, 6 sites, mu=1.3, Lambda=0.4: sectors paired under l -> 1/conj l; two-colour sectors on the circle (max dev 3.3e-15); three-colour sectors off it (max dev 0.619)
+PASS n=3, 6 sites, mu=2.4, Lambda=0.8: sectors paired under l -> 1/conj l; two-colour sectors on the circle (max dev 2.9e-15); three-colour sectors off it (max dev 0.614)
+PASS n=3, 8 sites, mu=1.3, Lambda=0.4: sectors paired under l -> 1/conj l; two-colour sectors on the circle (max dev 6.4e-15); three-colour sectors off it (max dev 0.556)
+PASS n=3, 8 sites, mu=2.4, Lambda=0.8: sectors paired under l -> 1/conj l; two-colour sectors on the circle (max dev 6.7e-15); three-colour sectors off it (max dev 0.544)
+PASS n=3, 6 sites, mu=1.3: off-circle pairs at Lambda = 0.01, 0.03, 0.1, 0.3 (max dev 1.7e-02, 5.3e-02, 1.8e-01, 5.2e-01)
+   ratios Tr V^m / Tr |V|^m, m = 1, 2, 4, 8: 0.7782-0.0000j, 0.6559-0.0000j, 0.4943-0.0000j, 0.1769-0.0000j
+PASS Euclidean weights: ratios real and equal to 0.78, 0.66, 0.49, 0.18 to two digits

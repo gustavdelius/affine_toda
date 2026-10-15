@@ -21,7 +21,7 @@ Checks the claims of the Numerics paragraph after prp-krein-fundamental (exit st
     with N <= 6 (for N = 6, n = 4, the patterns (2,2,1,1) and (3,1,1,1));
  5. N = 5, 6: the patterns (3,1,1), (2,2,2) and (2,1,1,1) are broken at every mu sampled;
  6. the onset depends on the pattern: (2,2,1) is unbroken from mu = 2.1 on, (4,1,1) only from between 2.45 and 2.55.
-Runtime: about two minutes.
+Runtime: 33 min measured on a heavily loaded machine (17 min CPU).
 """
 import contextlib
 import io

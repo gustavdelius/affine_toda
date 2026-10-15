@@ -11,7 +11,7 @@ Z(T) = Tr exp(-T H) for T = 0.5, 2, 8; then the opposite sign for a_2 at g = 1, 
 Exits non-zero if a claim of the chapter fails (lowest level real, simple and of minimal real part with a gap of at
 least 1.3 to the next real part, Z > 0, P-independence,
 complex levels present, a_2 opposite sign negative Z(2) with complex lowest pair, c_2 sign equivalence).
-Runtime: about 2 min (the P = 20 diagonalizations dominate)."""
+Runtime: 6 min measured on a heavily loaded machine (the P = 20 diagonalizations dominate)."""
 import itertools
 import sys
 

@@ -1,4 +1,4 @@
-"""Test of Step 3 of the proof of Theorem 6.14 on random multi-scale clusters.
+"""Test of Step 3 of the proof of thm-cluster-bound (chapter 47) on random multi-scale clusters.
 
 Rescaled units (ell = 1), Dirichlet wall at y = 0, lattice cutoff b.
 For each random 1-connected cluster Q we compute
@@ -8,6 +8,10 @@ For each random 1-connected cluster Q we compute
   M  = prod_j hat s_j^{-e_j} with the exponents placed by the rules of Step 3;
 and check: facts (a),(b),(c); E_j > 0 at every node and E_j >= eta at active nodes;
 log(F/M) bounded by a constant (independent of scale separation).
+Algebras a_4^(1) (kappa=0.79), c_2^(1) and g_2^(1) (kappa=0.76), all inside the window; with and without an
+external charge.  Seed 0 by default (first argument).  Output (bookkeeping.log): 24681 samples, no bad E_j;
+max log(F/M) by scale spread 5.4, 14.1, 5.5, 1.3 for spreads [0,3), [3,6), [6,10), [10,20).  Facts (a)-(c) and
+the down-closedness of active sets are asserts.  Runtime: about 3 min (8 min on a loaded machine).
 """
 import itertools, sys
 import numpy as np

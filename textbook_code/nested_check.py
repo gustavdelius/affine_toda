@@ -1,6 +1,10 @@
-"""Check Lemma 6.13: for a rooted tree with scales s_j <= s_parent, root <= t,
+"""Check lem-nested-scales (chapter 47): for a rooted tree with scales s_j <= s_parent, root <= t,
    int prod_j s_j * max(s_j,b)^{-e_j} ds  <=  t^{2h} max(t,b)^{-C} prod_j 2/min(E_j,2h_j)
-   whenever all cumulative E_j = 2h_j - C_j > 0.  Exact recursion on a grid (piecewise power laws)."""
+   whenever all cumulative E_j = 2h_j - C_j > 0, by adaptive quadrature of the nested integrals.
+   Four tree shapes with 2-4 internal nodes, 60 draws each of exponents in [-3,3] (seed 1; draws with some
+   E_j <= 0.05 skipped), at four pairs (b,t): 708 cases, max lhs/rhs = 0.25.  Prints one PASS/FAIL line.
+   Runtime: about 30 s (1 min on a loaded machine)."""
+import sys
 import numpy as np, itertools, random
 from scipy.integrate import quad
 
@@ -27,4 +31,5 @@ for tree in trees:
             lhs=I(0,t,b,tree,e)
             rhs=t**(2*h)*max(t,b)**(-C)*np.prod([2/min(2*hh-CC,2*hh) for hh,CC in out])
             worst=max(worst,lhs/rhs); n+=1
-print(n,"cases; max lhs/rhs =",worst)
+print(("PASS" if worst <= 1 else "FAIL"), n, "cases; max lhs/rhs =", worst)
+sys.exit(0 if worst <= 1 else 1)

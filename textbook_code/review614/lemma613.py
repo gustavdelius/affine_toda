@@ -1,8 +1,11 @@
-"""Exact check of Lemma 6.13 (nested scales with signed exponents and cutoff b).
+"""Exact check of lem-nested-scales (chapter 47; nested scales with signed exponents and cutoff b).
 
 F_j(t) = int_{s_i <= s_par(i), s_j <= t} prod_{i in subtree(j)} s_i * max(s_i,b)^{-e_i} ds
 is computed exactly as a piecewise sum of powers.  Compared with the bound
-t^{2h} hat t^{-C} prod_j 2/min(E_j, 2h_j).
+t^{2h} hat t^{-C} prod_j 2/min(E_j, 2h_j)
+on 20000 random draws (seed 1): trees with 1-6 internal nodes, exponents in [-6,4], cutoff b in [1e-6,1],
+t in [1e-7,10^0.5]; draws with some E_j <= 0 or a logarithmic term are skipped.  Output (lemma613.log):
+13326 trees tested, max ratio integral/bound 0.5.  Runtime: a few seconds.
 """
 import numpy as np
 from collections import defaultdict
