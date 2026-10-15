@@ -84,7 +84,7 @@ Part VIII (`part8-defects/`, chapters 36–43) was planned, drafted, refereed an
 | `referee_defects_39.md`, `referee_defects_41.md`, `referee_defects_42.md`, `referee_defects_43.md` | Deep referee briefs for chapters 39, 41, 42 and 43; their reports are `referee_defects_<n>_report.md` when present |
 | `run_referee_agy.sh` | Runs a referee brief with a non-Claude model through the Antigravity CLI, in a throwaway copy of the repository; writes `briefs/<brief>_report.md` |
 
-The book cites only the scripts in `textbook_code/` (`defect_*.py`, listed in `textbook_code/README.md` and in appendix C, `appendices/C-code.qmd`); the referee scripts are kept for reproducibility.
+The book cites only the scripts in `textbook_code/` (`defect_*.py`, listed in `textbook_code/README.md`); the referee scripts are kept for reproducibility.
 
 ## Part II: model-diverse referee pass (from 2026-10-15)
 

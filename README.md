@@ -65,7 +65,7 @@ The book's own list of its original results is [Appendix E](appendices/E-origina
 | `requirements.txt` | Python packages needed by the scripts |
 | `LICENSE` | MIT licence for the code |
 
-[Appendix C](appendices/C-code.qmd) says which directory serves which part of the book. Each code directory has its own README with a file-by-file description.
+[Appendix C](appendices/C-code.qmd) describes the code for the reader and says which directory serves which part of the book. `textbook_code/README.md` is the index of every script, and `textbook_code/rmatrix/README.md` describes the scripts of Part VI.
 
 ## Building the book
 
