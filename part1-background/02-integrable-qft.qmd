@@ -58,7 +58,7 @@ $$
 Q_s\,|A_a(\theta)\rangle=\chi_a^{(s)}\,e^{s\theta}\,|A_a(\theta)\rangle .
 $$ {#eq-charge-eigenvalue}
 
-In affine Toda theory the spins of the conserved charges are the exponents of the affine algebra, integers determined by its root system, repeated with period $h$ (the Coxeter number) for untwisted and $kh$ for twisted algebras $\hat g=X_n^{(k)}$, and the eigenvalues $\chi^{(s)}_a$ form eigenvectors of the Cartan matrix, the matrix of inner products of the simple roots (@sec-root-systems, @sec-conserved-charges). For $a_1^{(1)}$, the sinh-Gordon and sine-Gordon case, the only exponent is 1 and $h=2$, so the spins are the odd integers $\pm1,\pm3,\pm5,\dots$. For now we only need that there are infinitely many charges with nonzero eigenvalues.
+In affine Toda theory the spins of the conserved charges are the exponents of the affine algebra, integers determined by its root system, repeated with period $h$ (the Coxeter number) for untwisted and $kh$ for twisted algebras $\hat g=X_n^{(k)}$, and for simply-laced $\hat g$ the eigenvalues $\chi^{(s)}_a$ form eigenvectors of the Cartan matrix, the matrix of inner products of the simple roots (@sec-root-systems, @sec-conserved-charges). For $a_1^{(1)}$, the sinh-Gordon and sine-Gordon case, the only exponent is 1 and $h=2$, so the spins are the odd integers $\pm1,\pm3,\pm5,\dots$. For now we only need that there are infinitely many charges with nonzero eigenvalues.
 
 **No particle production.** Conservation of $Q_s$ in a scattering process says
 

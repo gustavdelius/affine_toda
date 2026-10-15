@@ -514,3 +514,37 @@ There is no new mathematical result here needing an originality label. The exact
 
 - The word “centre” identifies the abstract finite abelian group correctly. If a later argument needs a canonical identification with a weight-lattice quotient rather than its character group, the pairing should be specified. No error in these chapters is asserted on that basis.
 - The generality of the phrase “Physical quantities do not depend on the choice” of gradation was not tested for singular parameter-dependent basis changes or special quantum-group parameters. The ordinary generic evaluation-representation interpretation is the one used in this report.
+
+## Integration
+
+Integrated 2026-10-15 by Claude (Opus 5.5) on branch `part2-referee-integration`. The referee's three scripts are in `briefs/referee_algebra_05_06_report_scripts/`. Rerun from there, all three outputs agree line for line with the stored `.out` files. Following Rule 1, every item was checked again independently: by reading the cited source line, by hand, or with the new book script `textbook_code/lie_algebra_checks.py` (31 PASS, about 8 s), which is written from the book's definitions and imports nothing from the referee.
+
+| Item | Verdict | How checked | Files changed |
+|---|---|---|---|
+| 1 Coroot rescaling, compatibility with ch. 14, list of dual pairs | verified, no change | coroot algebra redone by hand | — |
+| 1 Lie duality holds for classical masses only | verified | $c_3^{(1)}$ by hand: folded $a_5^{(1)}$ soliton masses $\propto(1,\sqrt3,1)$, the $b_3^{(1)}$ particle masses | ch. 6 |
+| 1 Strong–weak duality: status, and MacKay–Watts §6.3.1 as the source of the normalized coupling map | modified | MacKay–Watts read: "$\beta^2\beta'^2=16\pi^2kk'$" (§6.3.1). The book keeps its own coroot derivation, cites §6.3.1, and adds that for the non-simply-laced theories the coupling dependence of $H$, and with it the duality as a statement about the Lagrangian, is conjectural (as in ch. 14). The suggested rewrite of the bullet's first sentence was not used | ch. 6 |
+| 1 DGZ and CDS not to be cited for an all-orders exceptional coupling map | rejected as moot | ch. 6 makes no such citation; its Notes attribute only the role of duality in masses and S-matrices | — |
+| 2 Two parents of $a_{2n}^{(2)}$: "same classical masses" needs $m_F^2=m_A^2=2m_D^2$ | verified | script (folds of $a_{2n}^{(1)}$ and $d_{2n+2}^{(1)}$ for $n=1,2,3$; restricted mass matrices; closed form $4m_F^2\sin^2\frac{\pi a}{2n+1}$) | ch. 6, ch. 18 (wording) |
+| 2 Ch. 20's normalization $n_0^\vee=1$ fails for $a_{2n}^{(2)}$ (long node 0 has $n_0^\vee=2$) | verified | script (dual labels $(2,\dots,2,1)$). It is the same phenomenon as item 1.2 of the ch. 7–8 report: for $a_{2n}^{(2)}$, $x$ is a square root of the loop variable | ch. 20 (one sentence) |
+| 3 Numerical rows of `tbl-untwisted` and `tbl-foldings` | verified, no change | script: every twisted fold (automorphism, coprime labels, factor $k$, dual labels as null vector of $A^{\mathsf T}$, $h$, $h^\vee$) | — |
+| 3 "We follow MacKay–Watts" for the twisted labels is wrong | verified | MacKay–Watts read: "$\sum n_a=kh$" (§2, lines 80–81 of the arXiv text) and "with the $n_a$ no longer minimal" (§5.1) | ch. 6 (§`sec-twisted`, §`sec-lie-algebraic-data`) |
+| 3 No order-2 automorphism of $A_1$ | modified | by hand. The suggested "$D_n$, $n\ge4$" was not adopted, because the order-2 automorphism of $D_3=A_3$ gives $d_3^{(2)}$ | ch. 6 |
+| 3 Normalization sentence of `sec-conventions` fails for $a_{2n}^{(2)}$ | modified | by hand: deleting the long node 0 leaves squared lengths $1,\dots,1,\frac12$. Shorter wording than suggested | ch. 1 |
+| 4 Principal degrees, periods, examples; fundamental levels | verified, no change | referee's matrix computations read; levels by hand | — |
+| 4 Unqualified $2T=4\pi h/\beta^2-h^\vee$ wrong for twisted $\hat g$ in the book's coupling | verified | script (symbolic $\sum_jn_j^\vee s_j=4\pi kh/\beta^2-h^\vee$ for every twisted row); ch. 20 and 21 already state the $\beta_{\rm lit}$ form | ch. 6 |
+| 4 Principal vertex-operator construction is Kac–Kazhdan–Lepowsky–Wilson, after Lepowsky–Wilson | modified | OTU read: "the principal vertex operator construction [21], [22]", and their ref. [21] is Kac, Kazhdan, Lepowsky, Wilson, Adv. Math. 42 (1981). Segal added to the homogeneous construction. No new bibliography keys; the sentence still cites Kac's book | ch. 6 |
+| 4 Time dependence of $W_k$: cite `olive1993b` (2.29) and state the phase convention | verified | OTU (2.29a) and (2.30) read; with $z_{\rm book}=e^{i\varphi}z_{\rm OTU}$ both light-cone coefficients become $\lvert\gamma\cdot q(1)\rvert$ | ch. 6 |
+| 4 Kneipp–Olive exclude $a_{2n}^{(2)}$ | verified | Kneipp–Olive read: $A_{2n}^{(2)}$ "needs special treatment in both approaches and so will be ignored as we seek general arguments" | ch. 6 |
+| 5 Diagram symmetries do not all act by phases | verified | script ($N=3,\dots,8$: rotation multiplies species $a$ by $e^{2\pi ia/N}$; reflection maps $a\to N-a$) | ch. 6 |
+| 6 Perron–Frobenius, above-$h$ colour reversal, $D_{2n}$ degeneracy, $E_8$ masses, Ising block identity | accepted, no change | the $E_8$ radii and their Perron–Frobenius proportionality rechecked by script; the rest read, not recomputed | — |
+| 6 Scope "simply-laced" for the charge-eigenvector statements | verified (scope narrowed) | the statements are established for simply-laced $\hat g$ only (Freeman, Klassen–Melzer, Dorey); DGZ §9 was not reread, since narrowing the scope is safe either way | ch. 2, ch. 5, ch. 9 |
+| 7 Coxeter-plane radii: "long and short roots give $h$-gons of different radii" is false | verified | script: in $B_3$ the short-root orbit and one long-root orbit have the same radius; the other long orbit has a larger one | ch. 5 |
+| 7 Rank $\ge2$ for the Coxeter plane; $sl_2$ rather than $su(2)$ inside a complex algebra | modified | by hand; lighter wording | ch. 5 |
+| 7 Killing form, Casimir, lattices, the two figures | verified, no change | figures not regenerated | — |
+| 8 Citation audit; no Part II item for Appendix E | verified, no change | the errors are those integrated above. Items left "unclear" for lack of sources (Freeman, Klassen–Melzer, Dorey 1991, Steinberg, Kostant, Olive–Turok 1983, Kac, Goddard–Olive) were not acted on | — |
+| 9 Exercises; folded-mass hint for a common factor | verified | by hand ($a_3^{(1)}\to c_2^{(1)}$; the factor $c$ as in item 2) | ch. 6 |
+
+**Not integrated.** The suggested sentence on Part V's oneloop routines (the referee found their mass-ratio comparisons unaffected). Author-maintained checks of the twisted periods and of the colour-reversal identity (the referee's checks of them were read, not rerun as book scripts). A duality sentence for the self-dual $a_{2n}^{(2)}$ ($\beta^\vee=8\pi/\beta$, which MacKay–Watts' $\beta^2\beta'^2=16\pi^2kk'$ covers with $k=k'=2$): an omission in ch. 6, not an error, and ch. 14 would need to agree.
+
+**Quality.** High. Every correction the report proposes survived an independent check, and none of its "correct" verdicts was contradicted. It quotes sources exactly, says "unclear" where it could not read a source instead of inheriting earlier verdicts, separates mathematical checks from attribution checks, and recommends no label upgrades. Its scripts reproduce exactly. Weak points are minor: two replacement texts were heavier than needed, and one ("$D_n$ with $n\ge4$") was slightly off.

@@ -95,4 +95,15 @@ Part II (`part2-algebra/`, chapters 5–8) had one referee pass, on 2026-10-10, 
 | `referee_algebra_05_06.md` | Referee brief for chapters 5–6: duality of the dual pairs and its normalization against ch. 14, the two foldings to $a_{2n}^{(2)}$, the folding and label tables, exponents and vertex operators, affine-diagram symmetries, Perron–Frobenius and conserved charges, citations, exercises. Report: `referee_algebra_05_06_report.md` |
 | `referee_algebra_07_08.md` | Referee brief for chapters 7–8: twisted normalizations, the central element and the $S^2$ shift (with $a_{2n}^{(2)}$), the sign of $q$ and the Part VI dictionary, the twisted tensor-product graph for the $U_q(d_{n+1}^{(2)})$ spinor, where the graph fails, the history of the R-matrices (DGZ, GMW), roots of unity, fusion and IRF, citations, exercises. Report: `referee_algebra_07_08_report.md` |
 
-**Files under review: do not edit until the reports are in.** `part2-algebra/05-root-systems.qmd`, `06-affine-algebras.qmd`, `07-quantum-groups.qmd`, `08-r-matrices.qmd`, and the captions of the figures in `part2-algebra/figures/`.
+Both reports arrived on 2026-10-15: chapters 5–6 by GPT-Astra (high), chapters 7–8 by Gemini 3.8 Flash (high). They were integrated the same day on branch `part2-referee-integration`. Each report's `## Integration` section gives the verdict per item, and its scripts are in `briefs/<report>_scripts/`. The new check script is `textbook_code/lie_algebra_checks.py`. No labels changed, and the files are no longer frozen. Main corrections:
+- The $S^2$ shift for $a_{2n}^{(2)}$ is $q^{h^\vee}$ in Kac's labelling (ch. 7), with a matching exception in ch. 20.
+- MacKay–Watts use non-minimal twisted labels.
+- The twisted $2T$ formula in ch. 6 needs $\beta_{\rm lit}$.
+- The Coxeter-plane radii need not differ for long and short roots.
+- Diagram symmetries permute species.
+- The two parents of $a_{2n}^{(2)}$ need $m_F^2=m_A^2=2m_D^2$.
+- The $q$ in the twisted tensor-product-graph formula is normalized on the long roots.
+- The fusion formula needs no projector.
+- The vertex–IRF relation is stated precisely.
+
+Follow-up, not done: a duality sentence for the self-dual $a_{2n}^{(2)}$ ($\beta^\vee=8\pi/\beta$), to be agreed with ch. 14.
