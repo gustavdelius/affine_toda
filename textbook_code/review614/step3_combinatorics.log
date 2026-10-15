@@ -1,0 +1,7 @@
+PASS 30 random trees with 3-8 vertices: the orderings giving each Kruskal dendrogram T are exactly the linear extensions of T
+PASS their number is (n-1)!/prod_j h_j (hook-length formula)
+PASS sum over dendrograms T ~ tau of prod_j 1/h_j = 1 exactly
+PASS 4-leaf caterpillar, m=2, gamma=6/5: integral = 25/24, prod 1/E_j = 25/24 (E = [2, 2/5, 6/5])
+PASS 4-leaf balanced, m=2, gamma=6/5: integral = 5/24, prod 1/E_j = 5/24
+PASS 33 random dendrograms with 3-6 leaves, m=1,2,3, rational gamma < 2m/(m+1): integral = prod 1/E_j exactly
+PASS 9786 (configuration, point, m) samples: m-th-neighbour distance >= length of edge i(k)

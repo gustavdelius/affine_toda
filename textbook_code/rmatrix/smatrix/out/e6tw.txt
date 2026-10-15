@@ -1,0 +1,7 @@
+== e6tw: timeout 3600 python3 -u e6tw.py
+Cartan row 0: [2, 0, 0, 0, -1]  row 4: [-1, 0, 0, -1, 2] ; 14 entries for e_0
+U_q(e_6^(2)) on 27: node-0 residual 5.0e-16; all relations 5.0e-16; singlet coupled by e_0: True  [24s]
+real	0m27.951s
+user	0m5.427s
+sys	0m0.285s
+rc=0

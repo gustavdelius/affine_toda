@@ -69,7 +69,7 @@ $$
 \phi_b(x,t)=\frac4{\beta_{\rm SG}}\arctan\left(\frac{\tan u\,\sin(m_0t\cos u)}{\cosh(m_0x\sin u)}\right),\qquad 0<u<\tfrac\pi2,
 $$ {#eq-sg-breather}
 
-a localized solution oscillating with frequency $m_0\cos u$ and energy
+a localized solution (`textbook_code/sine_gordon.py` checks that it solves the sine-Gordon equation) oscillating with frequency $m_0\cos u$ and energy
 
 $$
 E_b=2M_{\rm cl}\sin u .
@@ -79,7 +79,7 @@ As $u\to0$ the breather becomes a small-amplitude oscillation and its energy ten
 
 For sine-Gordon all these solutions are real. For every other affine Toda theory at imaginary coupling the soliton solutions are complex, and the question of why such solutions should contribute to a path integral over real fields is one of the main themes of Part V.
 
-![Classical sine-Gordon solutions in units $\beta_{\rm SG}=m_0=1$. (a) Kink and antikink, joining neighbouring vacua. (b) Their energy density, which integrates to $M_{\rm cl}=8m_0/\beta_{\rm SG}^2$ (-@eq-sg-classical-mass). (c) The breather (-@eq-sg-breather) at its turning point, for three values of $u$. (d) The classical breather energy $E_b=2M\sin u$ is a continuous curve. The quantized masses $m_n=2M\sin(n\xi/2)$ of (-@eq-sg-breather-masses), here for $\xi=\pi/4$, lie on it at $u=n\xi/2$.](figures/ch3_f7_kink_breather.svg){#fig-sg-solutions fig-alt="Four panels. Top left: kink and antikink profiles rising and falling between 0 and 2 pi. Top right: a single bell-shaped energy density. Bottom left: three localized bumps of different heights for the breather. Bottom right: a rising sine curve with three marked points and dotted lines to the vertical axis."}
+![Classical sine-Gordon solutions in units $\beta_{\rm SG}=m_0=1$. (a) Kink and antikink, joining neighbouring vacua. (b) Their energy density, which integrates to $M_{\rm cl}=8m_0/\beta_{\rm SG}^2$ (-@eq-sg-classical-mass). (c) The breather (-@eq-sg-breather) at its turning point, for three values of $u$. (d) The classical breather energy $E_b=2M\sin u$ is a continuous curve. The quantized masses $m_n=2M\sin(n\xi/2)$ of (-@eq-sg-breather-masses), here for $\xi=\pi/4$, lie on it at $u=n\xi/2$. `textbook_code/figures/ch3_f7_kink_breather.py` checks that the kink and the breather solve the sine-Gordon equation by finite differences, that the kink energy is $8m_0/\beta_{\rm SG}^2$ and that the breather energy is $2M_{\rm cl}\sin u$.](figures/ch3_f7_kink_breather.svg){#fig-sg-solutions fig-alt="Four panels. Top left: kink and antikink profiles rising and falling between 0 and 2 pi. Top right: a single bell-shaped energy density. Bottom left: three localized bumps of different heights for the breather. Bottom right: a rising sine curve with three marked points and dotted lines to the vertical axis."}
 
 ## Semiclassical quantization {#sec-sg-semiclassics}
 
@@ -136,7 +136,7 @@ $$
 S_0(\theta)=-\exp\left(-i\int_0^\infty\frac{dt}t\,\frac{\sinh\frac{(\pi-\xi)t}2\,\sin\theta t}{\sinh\frac{\xi t}2\,\cosh\frac{\pi t}2}\right),
 $$ {#eq-sg-s0}
 
-where the integral converges for $\lvert\operatorname{Im}\theta\rvert<\min(\xi,\pi)$ and $S_0$ is continued meromorphically beyond. Crossing exchanges $S_0(\theta)$ with $S_T(i\pi-\theta)$ and maps $S_R$ to itself. The ratios $S_T/S_0$ and $S_R/S_0$ are the entries of the trigonometric six-vertex R-matrix, the simplest R-matrix of a quantum affine algebra (@sec-sg-quantum-group). The scalar factor $S_0$ is the minimal solution of the remaining unitarity and crossing conditions. This "R-matrix times scalar factor" structure is the form of every soliton S-matrix in Part VI.
+where the integral converges for $\lvert\operatorname{Im}\theta\rvert<\min(\xi,\pi)$ and $S_0$ is continued meromorphically beyond. Crossing exchanges $S_0(\theta)$ with $S_T(i\pi-\theta)$ and maps $S_R$ to itself. `textbook_code/sine_gordon.py` checks this numerically for the integral (-@eq-sg-s0), to 25 digits, at $\lambda=1.5$ and $1.2$. The ratios $S_T/S_0$ and $S_R/S_0$ are the entries of the trigonometric six-vertex R-matrix, the simplest R-matrix of a quantum affine algebra (@sec-sg-quantum-group). The scalar factor $S_0$ is the minimal solution of the remaining unitarity and crossing conditions. This "R-matrix times scalar factor" structure is the form of every soliton S-matrix in Part VI.
 
 **Breather poles.** The factor $1/\sinh\lambda(i\pi-\theta)$ has poles at
 
@@ -204,7 +204,7 @@ Two examples show both sides of what restriction can do.
 
 The question of which restrictions of which affine Toda theories are unitary is open in general. Part VI answers it for the fundamental kinks of $a_2^{(1)}$ (@sec-rsos).
 
-![The sine-Gordon coupling axis, with $x=\beta_{\rm SG}^2/8\pi$. The breather $B_n$ exists for $n<\lambda=8\pi/\beta_{\rm SG}^2-1$, so the number of breathers jumps at $\beta_{\rm SG}^2=8\pi/(n+1)$, where $\xi=\pi/n$. At $\beta_{\rm SG}^2=4\pi$ ($\lambda=1$, $\xi=\pi$) the last breather disappears and the solitons are free fermions. Coleman's bound is at $8\pi$. The RSOS points $\beta_{\rm SG}^2/8\pi=p/p'$ of @prp-sg-rsos include the scaling Lee–Yang model, $(p,p')=(2,5)$, with exactly one breather, and the unitary series $p'=p+1$, which lies in the repulsive regime.](figures/ch3_f6_coupling_axis.svg){#fig-sg-coupling-axis fig-alt="A horizontal axis for the squared coupling from 0 to 8 pi, shaded blue below 4 pi where breathers exist, with their number increasing towards weak coupling, and shaded orange between 4 pi and 8 pi. Marked points show the scaling Lee-Yang model below 4 pi and a sequence of unitary minimal models above it. Secondary scales show xi and lambda."}
+![The sine-Gordon coupling axis, with $x=\beta_{\rm SG}^2/8\pi$. The breather $B_n$ exists for $n<\lambda=8\pi/\beta_{\rm SG}^2-1$, so the number of breathers jumps at $\beta_{\rm SG}^2=8\pi/(n+1)$, where $\xi=\pi/n$. At $\beta_{\rm SG}^2=4\pi$ ($\lambda=1$, $\xi=\pi$) the last breather disappears and the solitons are free fermions. Coleman's bound is at $8\pi$. The RSOS points $\beta_{\rm SG}^2/8\pi=p/p'$ of @prp-sg-rsos include the scaling Lee–Yang model, $(p,p')=(2,5)$, with exactly one breather, and the unitary series $p'=p+1$, which lies in the repulsive regime. `textbook_code/figures/ch3_f6_coupling_axis.py` checks the number of breathers against the thresholds $8\pi/(n+1)$, the relation $\xi=\pi/\lambda$ and the Lee–Yang point $\xi=2\pi/3$ with one breather.](figures/ch3_f6_coupling_axis.svg){#fig-sg-coupling-axis fig-alt="A horizontal axis for the squared coupling from 0 to 8 pi, shaded blue below 4 pi where breathers exist, with their number increasing towards weak coupling, and shaded orange between 4 pi and 8 pi. Marked points show the scaling Lee-Yang model below 4 pi and a sequence of unitary minimal models above it. Secondary scales show xi and lambda."}
 
 ## What carries over, and what does not {#sec-sg-lessons}
 

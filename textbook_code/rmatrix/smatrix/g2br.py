@@ -66,7 +66,7 @@ def cds_g2(a, H):                                   # CDS eq. (3.10), H = 6 + 3B
     for x, nu in spec:
         for z, s in brace(x, nu): yl.append(z*T/H if s > 0 else -z*T/H)
     return norm_blocks(yl, 1)
-Hpred = 12*T/(T - 3) if ALG == 'g2' else 6*T/(T + 3)
+Hpred = 12*T/(T - 3) if ALG == 'g2' else 6*T/(T + 1)       # breather pole: d_4^(3) S_11, g_2^(1) S_22
 poles_ = [y for y in BB[0] if y > 0]
 Hc = sorted({c*T/y for y in poles_ for c in (1, 2, 3, 4, 5, 6, 0.5, 1.5)} | {Hpred})
 for a in (11, 22):

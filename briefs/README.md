@@ -84,7 +84,7 @@ Part VIII (`part8-defects/`, chapters 36–43) was planned, drafted, refereed an
 | `referee_defects_39.md`, `referee_defects_41.md`, `referee_defects_42.md`, `referee_defects_43.md` | Deep referee briefs for chapters 39, 41, 42 and 43; their reports are `referee_defects_<n>_report.md` when present |
 | `run_referee_agy.sh` | Runs a referee brief with a non-Claude model through the Antigravity CLI, in a throwaway copy of the repository; writes `briefs/<brief>_report.md` |
 
-The book cites only the scripts in `textbook_code/` (`defect_*.py`, listed in `textbook_code/README.md` and in appendix C, `appendices/C-code.qmd`); the referee scripts are kept for reproducibility.
+The book cites only the scripts in `textbook_code/` (`defect_*.py`, listed in `textbook_code/README.md`); the referee scripts are kept for reproducibility.
 
 ## Part II: model-diverse referee pass (from 2026-10-15)
 
@@ -113,3 +113,15 @@ Protocol for the editor:
 4. When the report is in, integrate it with the `integrate-referee-report` skill, and record here which errors each phase found.
 
 **Files under review: do not edit until the reports are in.** `part3-classical/09-lagrangian.qmd`, `10-solitons.qmd`, `11-reality.qmd`, `part.qmd`, and the captions of the figures in `part3-classical/figures/`.
+Both reports arrived on 2026-10-15: chapters 5–6 by GPT-Astra (high), chapters 7–8 by Gemini 3.8 Flash (high). They were integrated the same day on branch `part2-referee-integration`. Each report's `## Integration` section gives the verdict per item, and its scripts are in `briefs/<report>_scripts/`. The new check script is `textbook_code/lie_algebra_checks.py`. No labels changed, and the files are no longer frozen. Main corrections:
+- The $S^2$ shift for $a_{2n}^{(2)}$ is $q^{h^\vee}$ in Kac's labelling (ch. 7), with a matching exception in ch. 20.
+- MacKay–Watts use non-minimal twisted labels.
+- The twisted $2T$ formula in ch. 6 needs $\beta_{\rm lit}$.
+- The Coxeter-plane radii need not differ for long and short roots.
+- Diagram symmetries permute species.
+- The two parents of $a_{2n}^{(2)}$ need $m_F^2=m_A^2=2m_D^2$.
+- The $q$ in the twisted tensor-product-graph formula is normalized on the long roots.
+- The fusion formula needs no projector.
+- The vertex–IRF relation is stated precisely.
+
+Added afterwards, at the editor's request: the duality sentence for the self-dual $a_{2n}^{(2)}$ in ch. 6 ($\beta^\vee=8\pi/\beta$, $B=\frac{\beta^2/4\pi}{1+\beta^2/8\pi}\to2-B$). Sources: Dorey's lectures (`dorey1998`, §self-dual theories) and, for $a_2^{(2)}$, the Bullough–Dodd action and S-matrix of Alekseev, arXiv:1106.4758, eqs. (3.1) and (3.5). The book states no $a_{2n}^{(2)}$ particle S-matrix elsewhere, so ch. 13 and 14 needed no change.

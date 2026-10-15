@@ -169,7 +169,7 @@ Equation (-@eq-boundary-k-equation) is the condition (4.10) of Bowcock, Corrigan
 : Classically integrable boundary conditions with a field-independent $K$ and $\sigma$ = transposition. "Checked" means that an invertible $K(\lambda)$ solving (-@eq-boundary-k-equation) exists exactly for the listed $C_j$, tested against nearby non-listed values (`textbook_code/boundary_classical.py`). Unchecked rows are quoted from Appendix D of [@bcdr1995]. {#tbl-durham}
 
 ::: {#prp-durham}
-**[Numerical]** For the algebras marked "checked" in @tbl-durham, an invertible field-independent $K(\lambda)$ satisfying (-@eq-boundary-k-equation) exists if and only if the $C_j$ are as listed. The same holds at imaginary coupling, where (-@eq-boundary-k-equation) is unchanged (checked for $a_2^{(1)}$ and $d_4^{(1)}$). For the simply-laced algebras the "only if" direction is also the analytic result of [@bcdr1995], obtained from the order-$\lambda^2$ terms of $K$.
+**[Numerical]** For the algebras marked "checked" in @tbl-durham, an invertible field-independent $K(\lambda)$ satisfying (-@eq-boundary-k-equation) exists if and only if the $C_j$ are as listed. The same holds at imaginary coupling, where (-@eq-boundary-k-equation) is unchanged (checked for $a_2^{(1)}$ and $d_4^{(1)}$). For the simply-laced algebras the "only if" direction is also the analytic result of [@bcdr1995], obtained from the order-$\lambda^2$ terms of $K$. (`textbook_code/boundary_classical.py`)
 :::
 
 Three entries differ from Appendix D of [@bcdr1995]. The conditions listed there come from the order-$\lambda^2$ terms of $K$ alone, so they are necessary but need not be sufficient.

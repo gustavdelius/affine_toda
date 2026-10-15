@@ -67,7 +67,7 @@ def cds_g2(a, H):                                   # CDS eq. (3.10), H = 6 + 3B
         for z, s in brace(x, nu): yl.append(z*T/H if s > 0 else -z*T/H)
     return norm_blocks(yl, 1)
 
-Hpred = 12*T/(T - 3) if ALG == 'g2' else 6*T/(T + 3)
+Hpred = 12*T/(T - 3) if ALG == 'g2' else 6*T/(T + 1)       # breather pole: d_4^(3) S_11, g_2^(1) S_22
 blk = lambda y, th_: np.sinh(th_/2 + 1j*np.pi*y/(2*T))/np.sinh(th_/2 - 1j*np.pi*y/(2*T))
 def BB_for(shifts):
     yl = list(BB[0]); sgn = BB[1]

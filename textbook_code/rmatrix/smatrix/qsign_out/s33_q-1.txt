@@ -1,0 +1,45 @@
+unitarity  S(th)S(-th) = 1 : max dev 5.1e-05   (th=(0.31+0.17j))
+unitarity  S(th)S(-th) = 1 : max dev 6.0e-04   (th=(-0.8+0.9j))
+crossing   S_12(i pi - th) = (C x 1) S_21(th)^t1 (C^-1 x 1) : rel dev 1.4e-09   (th=(0.31+0.17j))
+crossing   S_12(i pi - th) = (C x 1) S_21(th)^t1 (C^-1 x 1) : rel dev 2.1e-09   (th=(1.1+0.6j))
+with CDD factor: crossing rel dev 2.0e+00;  unitarity dev 5.1e-05
+S_33 at omega=2.37: 28 norm peaks found on the grid; predicted poles: 34
+   t =  0.1100 (u = 0.04261)  breather (singlet), k=7           grid peak: NO    residue rank [1, 1]
+   t =  0.2400 (u = 0.09297)  soliton 1 (8), k=5                grid peak: NO    residue rank [8, 8]
+   t =  0.3700 (u = 0.14333)  soliton 2 (29), k=2               grid peak: NO    residue rank [29, 29]
+   t =  1.0000 (u = 0.38737)  crossed breather (singlet), k=0   grid peak: yes   residue rank [64, 64]
+   t =  1.1100 (u = 0.42998)  breather (singlet), k=6           grid peak: yes   residue rank [1, 1]
+   t =  1.2400 (u = 0.48034)  soliton 1 (8), k=4                grid peak: yes   residue rank [8, 8]
+   t =  1.3700 (u = 0.53070)  soliton 2 (29), k=1               grid peak: yes   residue rank [29, 29]
+   t =  2.0000 (u = 0.77475)  crossed breather (singlet), k=1   grid peak: yes   residue rank [64, 64]
+   t =  2.1100 (u = 0.81736)  breather (singlet), k=5           grid peak: yes   residue rank [1, 1]
+   t =  2.2400 (u = 0.86771)  soliton 1 (8), k=3                grid peak: yes   residue rank [8, 8]
+   t =  2.3700 (u = 0.91807)  soliton 2 (29), k=0               grid peak: yes   residue rank [29, 29]
+   t =  2.8700 (u = 1.11176)  crossed soliton 1 (8), k=0        grid peak: yes   residue rank [64, 64]
+   t =  3.0000 (u = 1.16212)  crossed breather (singlet), k=2   grid peak: yes   residue rank [64, 64]
+   t =  3.1100 (u = 1.20473)  breather (singlet), k=4           grid peak: yes   residue rank [1, 1]
+   t =  3.2400 (u = 1.25509)  soliton 1 (8), k=2                grid peak: yes   residue rank [8, 8]
+   t =  3.8700 (u = 1.49913)  crossed soliton 1 (8), k=1        grid peak: yes   residue rank [64, 64]
+   t =  4.0000 (u = 1.54949)  crossed breather (singlet), k=3   grid peak: yes   residue rank [64, 64]
+   t =  4.1100 (u = 1.59210)  breather (singlet), k=3           grid peak: yes   residue rank [1, 1]
+   t =  4.2400 (u = 1.64246)  soliton 1 (8), k=1                grid peak: yes   residue rank [8, 8]
+   t =  4.8700 (u = 1.88651)  crossed soliton 1 (8), k=2        grid peak: yes   residue rank [64, 64]
+   t =  5.0000 (u = 1.93686)  crossed breather (singlet), k=4   grid peak: yes   residue rank [64, 64]
+   t =  5.1100 (u = 1.97947)  breather (singlet), k=2           grid peak: yes   residue rank [1, 1]
+   t =  5.2400 (u = 2.02983)  soliton 1 (8), k=0                grid peak: yes   residue rank [8, 8]
+   t =  5.7400 (u = 2.22352)  crossed soliton 2 (29), k=0       grid peak: yes   residue rank [63, 63]
+   t =  5.8700 (u = 2.27388)  crossed soliton 1 (8), k=3        grid peak: yes   residue rank [64, 64]
+   t =  6.0000 (u = 2.32424)  crossed breather (singlet), k=5   grid peak: yes   residue rank [64, 64]
+   t =  6.1100 (u = 2.36685)  breather (singlet), k=1           grid peak: yes   residue rank [1, 1]
+   t =  6.7400 (u = 2.61089)  crossed soliton 2 (29), k=1       grid peak: yes   residue rank [63, 63]
+   t =  6.8700 (u = 2.66125)  crossed soliton 1 (8), k=4        grid peak: yes   residue rank [64, 64]
+   t =  7.0000 (u = 2.71161)  crossed breather (singlet), k=6   grid peak: yes   residue rank [64, 64]
+   t =  7.1100 (u = 2.75422)  breather (singlet), k=0           grid peak: yes   residue rank [1, 1]
+   t =  7.7400 (u = 2.99826)  crossed soliton 2 (29), k=2       grid peak: NO    residue rank [63, 63]
+   t =  7.8700 (u = 3.04862)  crossed soliton 1 (8), k=5        grid peak: NO    residue rank [64, 64]
+   t =  8.0000 (u = 3.09898)  crossed breather (singlet), k=7   grid peak: NO    residue rank [64, 64]
+unexpected peaks (t): []
+real	10m45.126s
+user	4m12.348s
+sys	0m0.928s
+rc=0

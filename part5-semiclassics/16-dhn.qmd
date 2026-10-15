@@ -115,7 +115,7 @@ These are not academic worries. For $c_n^{(1)}$, MacKay and Watts [-@mackay_watt
 
 @sec-semiclassics answers the first question with Picard–Lefschetz theory, and shows that the Gaussian integrals of the semiclassical expansion count eigenvalues by algebraic multiplicity. @sec-jordan-chains derives the algebraic multiplicities from the transmission factors. @sec-one-loop-masses applies this to every folded soliton and resolves both disagreements.
 
-Many statements in the next three chapters are labelled [Numerical], and several theorems rest on hypotheses that have only been checked numerically (@tbl-jordan-hypotheses). Each numerical statement names the script that checks it, and @sec-app-code-semiclassics lists them all.
+Many statements in the next three chapters are labelled [Numerical], and several theorems rest on hypotheses that have only been checked numerically (@tbl-jordan-hypotheses). Each numerical statement names the script that checks it, and `textbook_code/README.md` lists them all (@sec-app-code).
 
 ## Exercises {#sec-dhn-exercises}
 

@@ -1,0 +1,3 @@
+PASS A2^(2) in sl(3): E^3=z I, centralizer basis z^m E^r; residues=[1, 5] mod 6
+PASS A4^(2) in sl(5): E^5=z I, centralizer basis z^m E^r; residues=[1, 3, 7, 9] mod 10
+PASS D4^(3) in twisted so(8) loop: sigma^3=1; degree(lambda)=4; centralizer dimensions degrees 0..11 = [0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1]

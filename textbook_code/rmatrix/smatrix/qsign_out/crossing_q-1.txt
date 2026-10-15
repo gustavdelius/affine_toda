@@ -1,0 +1,9 @@
+q = exp(-i pi 2.37); projector ranks [35, 21, 7, 1]; closed form reproduces direct solve to 1.9e-14
+V*(x) = V(x t) for t = ['+q^-6']
+universal crossing  (R(x)^-1)^t1 = c(x) (C^-1 x 1) R(x t) (C x 1):  residual 1.6e-14 at x=(0.7+0.2j)
+universal crossing  (R(x)^-1)^t1 = c(x) (C^-1 x 1) R(x t) (C x 1):  residual 1.3e-14 at x=(1.9-0.4j)
+c(x) rational, degree 3, fit residual 8.5e-15;  zeros at x = ['+q^+0', '-q^-2', '+q^-4'];  poles at x = ['+q^-6', '-q^-4', '+q^-2'];  |zeros| [1. 1. 1.]
+real	0m48.030s
+user	0m50.438s
+sys	0m0.177s
+rc=0

@@ -10,7 +10,7 @@ The 26-dimensional $e_6^{(2)}$ soliton transforms under $U_q(f_4^{(1)})$. Its sc
 
 ## Representation and R-matrix {#sec-sm-e6-representation-r-matrix}
 
-The $\mathbf{26}$ of $f_4$ is quasi-minuscule: its weights are the 24 short roots, together with a 2-dimensional zero-weight space. We solved for the generators $e_i$, $f_i$ from all the defining relations at unimodular $q$, including the $q$-Serre relations and the affine node $\alpha_0=-\theta$ attached to node 1. The residual is $2\times10^{-16}$. No extra singlet is needed, as for the $b_n^{(1)}$ vector.
+The $\mathbf{26}$ of $f_4$ is quasi-minuscule: its weights are the 24 short roots, together with a 2-dimensional zero-weight space. We solved for the generators $e_i$, $f_i$ from all the defining relations at unimodular $q$, including the $q$-Serre relations and the affine node $\alpha_0=-\theta$ attached to node 1. The residual is $2\times10^{-16}$ (`textbook_code/rmatrix/smatrix/f4rep.py`). No extra singlet is needed, as for the $b_n^{(1)}$ vector.
 
 The full intertwiner system on 676 dimensions exceeds memory. We therefore work with highest-weight vectors: $\check R$ acts on each component of
 
@@ -53,7 +53,7 @@ $$
 S_{11}=[1]_0\,[H/3+1]_0,\qquad [x]_0=\{x\}_0\{H-x\}_0,\qquad B=\frac{H-12}{3},
 $$
 
-at the predicted $H=18+6/\omega$, with no adjustment. The lowest breather of the $\mathbf{26}$ is therefore CDS particle 1. A one-loop computation from the $e_6^{(2)}$ Lagrangian gives $\delta H/\tilde B_{\rm tree}=-3.000000$, exactly CDS's $H=18-3\tilde B$ at this end of their range (@sec-app-numerics), so this S-matrix is also consistent with perturbation theory. The same holds when the breather amplitude is compared directly with the Lagrangian, without reference to CDS. Its first-order term has exactly the tree-level $\theta$-dependence at eight rapidities, and that term fixes the coupling map $1/\omega=\beta^2/2\pi+O(\beta^4)$ in the coupling of this chapter (longest root of squared length 4), that is $1/\omega=\beta^2/4\pi+O(\beta^4)$ in the normalization of @sec-lie-algebraic-data. This is the gradation assumed (@sec-qg-gradation). With that map the amplitude predicts the one-loop shifts of all three mass ratios exactly.
+at the predicted $H=18+6/\omega$, with no adjustment. The lowest breather of the $\mathbf{26}$ is therefore CDS particle 1. A one-loop computation from the $e_6^{(2)}$ Lagrangian gives $\delta H/\tilde B_{\rm tree}=-3.000000$, exactly CDS's $H=18-3\tilde B$ at this end of their range (@sec-app-numerics; `textbook_code/rmatrix/smatrix/oneloop_e6.py`), so this S-matrix is also consistent with perturbation theory. The same holds when the breather amplitude is compared directly with the Lagrangian, without reference to CDS. Its first-order term has exactly the tree-level $\theta$-dependence at eight rapidities, and that term fixes the coupling map $1/\omega=\beta^2/2\pi+O(\beta^4)$ in the coupling of this chapter (longest root of squared length 4), that is $1/\omega=\beta^2/4\pi+O(\beta^4)$ in the normalization of @sec-lie-algebraic-data. This is the gradation assumed (@sec-qg-gradation). With that map the amplitude predicts the one-loop shifts of all three mass ratios exactly (`textbook_code/rmatrix/smatrix/direct_e6.py`).
 
 ## Exercises {#sec-sm-e6-exercises}
 

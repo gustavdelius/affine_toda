@@ -1,0 +1,12 @@
+== aspin_n3: NSPIN=3 QSIGN=-1 timeout 5400 python3 -u aspin_n.py
+b_3^(1) spinor: channel ranks [35, 21, 7, 1] (Lambda^k: [35, 21, 7, 1]); conjectured eigenvalues reproduce an independent solve at x1 to 7e-13; projector idempotence 3e-13  [104s]
+T = 13.850; unitarity 3e-04
+   t = a_1 =   2.370: 3+3 -> soliton 2   order 1.00 rank 22
+   t = a_2 =   8.110: 3+3 -> soliton 1   order 1.00 rank 7
+   t = T-1 =  12.850: lowest breather   order 1.00 rank 1
+   soliton masses M_a/M_n: {1: np.float64(1.211967), 2: np.float64(1.928184)}  vs 2 sin(a pi/H): {1: np.float64(1.211967), 2: np.float64(1.928184)}
+   S[B,3] fit match 1e-02;  S[B,B] vs DGZ a_5^(2) S_33 (H = T/(w+1/2) = 4.82578, B = -1/(w+1/2) = -0.34843): IDENTICAL  [146s]
+real	2m28.321s
+user	1m3.392s
+sys	0m0.269s
+rc=0

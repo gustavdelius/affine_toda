@@ -5,8 +5,7 @@
 -- a link when its first whitespace-delimited token names an existing file (or,
 -- for a token ending in "/", an existing directory) in the project. The token
 -- is tried relative to the project root, then relative to textbook_code/, so
--- that the tables of appendices/C-code.qmd may use bare names such as
--- `defect_axioms.py`. Any other code span is left alone, as is code that
+-- that a table may use bare names such as `defect_axioms.py`. Any other code span is left alone, as is code that
 -- already sits inside a link. Works for HTML and PDF.
 
 local base = "https://github.com/gustavdelius/affine_toda/"

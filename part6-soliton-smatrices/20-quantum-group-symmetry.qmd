@@ -73,7 +73,7 @@ $$
 x(\theta)=e^{2T\theta},\qquad2T=\sum_jn_j^\vee s_j ,
 $$
 
-[@delius1995; @gmw1996]. For untwisted $\hat g$, $n_j^\vee=n_j\vec\alpha_j^2/2$ and the sum is exactly $2T=\frac{4\pi h}{\beta^2}-h^\vee$. For twisted $\hat g=X^{(k)}$, $n_j^\vee=k\,n_j\vec\alpha_j^2/2$, and the same formula holds with $\beta^2$ replaced by $\beta_{\rm lit}^2=\beta^2/k$ (@sec-conventions) and $h^\vee=\sum_jn_j^\vee$. For simply-laced $\hat g$, $2T=\sum_jn_j\big(\frac{4\pi}{\beta^2}-1\big)$. For sine-Gordon, $T=\lambda$.
+[@delius1995; @gmw1996]. For untwisted $\hat g$, $n_j^\vee=n_j\vec\alpha_j^2/2$ and the sum is exactly $2T=\frac{4\pi h}{\beta^2}-h^\vee$. For twisted $\hat g=X^{(k)}$, $n_j^\vee=k\,n_j\vec\alpha_j^2/2$, and the same formula holds with $\beta^2$ replaced by $\beta_{\rm lit}^2=\beta^2/k$ (@sec-conventions) and $h^\vee=\sum_jn_j^\vee$. The exception is $a_{2n}^{(2)}$, whose long node 0 has $n_0^\vee=2$ (`textbook_code/lie_algebra_checks.py`): normalizing by $n_0^\vee=1$ halves the sum, because $x$ is then a square root of the loop variable (@sec-qg-crossing). For simply-laced $\hat g$, $2T=\sum_jn_j\big(\frac{4\pi}{\beta^2}-1\big)$. For sine-Gordon, $T=\lambda$.
 
 **Couplings in Part VI.** The chapters that follow quote $\beta$ in more than one normalization, because they follow the papers they compare with. In the normalization of @sec-lie-algebraic-data (longest roots of squared length 2), every family has the same gradation parameter
 $$

@@ -1,4 +1,6 @@
-# Lemma 6.11 step 4: the two terms of Delta_kl on Z^2 (no walls), -Laplacian normalisation.
+# lem-unit-majorant (chapter 47), step 4: the two terms of Delta_kl on Z^2 (no walls), -Laplacian normalisation,
+# with exact lattice Green functions of balls of radius 40.  The second term stays bounded (at most 0.051) for
+# every separation r.  Output: lattice_delta.log.  Runtime: about 10 s.
 import numpy as np, scipy.sparse as sp, scipy.sparse.linalg as spl
 def ball(c, rho):
     R = int(np.ceil(rho))+1

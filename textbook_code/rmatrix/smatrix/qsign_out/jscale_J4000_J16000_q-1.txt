@@ -1,0 +1,10 @@
+== J=4000
+J=  4000  S[B3,3]: max |ratio-1| = 2.97e-03
+real	1m1.995s
+user	0m30.170s
+sys	0m0.321s
+== J=16000
+J= 16000  S[B3,3]: max |ratio-1| = 7.42e-04
+real	1m37.602s
+user	0m34.657s
+sys	0m0.363s

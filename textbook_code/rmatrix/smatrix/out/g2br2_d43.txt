@@ -1,0 +1,13 @@
+== g2br2_d43_fixed: ALG=d43 AZ=1,0;2,0.333333333333;2,0.666666666667;3,1 timeout 3000 python3 -u g2br2.py
+d43, zeros [2.37  5.073 5.407 8.11 ], T = 8.110: unitarity 1e-04
+   t =   2.370 zero 0             order 1.00 rank 29
+   t =   5.073 zero 1             order 1.00 rank 8
+   t =   5.407 zero 2             order 1.00 rank 8
+   t =   7.110 lowest breather    order 1.00 rank 1
+   S[B,sol]: 8 blocks, sign +1, fit 5e-03  [475s]
+   lift shifts (0, 0, 0): IDENTICAL to CDS S_22 at H = 5.341383 (breather-pole prediction 5.341383)
+   lift shifts (0, 0, 0): IDENTICAL to CDS S_22 at H = 5.341383 (breather-pole prediction 5.341383)
+real	7m57.008s
+user	6m40.651s
+sys	0m1.809s
+rc=0

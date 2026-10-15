@@ -1,0 +1,14 @@
+== f4R2: timeout 3600 python3 -u f4R2.py
+allowed entries per generator: {1: 6, 2: 6, 3: 12, 4: 12, 0: 6}
+5 highest-weight vectors at weights [(np.int64(4), np.int64(0), np.int64(0), np.int64(0)), (np.int64(0), np.int64(0), np.int64(0), np.int64(0)), (np.int64(2), np.int64(2), np.int64(0), np.int64(0)), (np.int64(3), np.int64(1), np.int64(1), np.int64(1)), (np.int64(2), np.int64(0), np.int64(0), np.int64(0))]  [74s]
+component dimensions from descent: [324, 1, 52, 273, 26]  total 676  [79s]
+eigenvalues from the e_0 intertwining equations: residual 1.2e-15  [79s]
+rho[273]/rho[324]: zeros ['+q^+2']  poles ['+q^-2']
+rho[ 52]/rho[324]: zeros ['+q^+8']  poles ['+q^-8']
+rho[ 26]/rho[324]: zeros ['+q^+12', '+q^+2']  poles ['+q^-12', '+q^-2']
+rho[  1]/rho[324]: zeros ['+q^+18', '+q^+8']  poles ['+q^-18', '+q^-8']
+[81s]
+real	1m21.961s
+user	2m29.940s
+sys	0m15.628s
+rc=0
