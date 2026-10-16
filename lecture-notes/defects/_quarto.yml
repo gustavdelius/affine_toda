@@ -24,6 +24,7 @@ book:
     - index.qmd
     - 01-mirrors-and-windows.qmd
     - 02-backlund-machine.qmd
+    - 03-freezing.qmd
 
 bibliography:
   - ../../references.bib

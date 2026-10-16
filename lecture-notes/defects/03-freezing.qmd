@@ -1,0 +1,552 @@
+# Freezing it at a point {#sec-freezing}
+
+::: {.callout-note appearance="simple" icon=false title="In this lecture"}
+- We look for terms in the action, located at a single point, that let a field theory keep a modified momentum. Energy turns out to be free; momentum is the real test.
+- We find that the field must jump at the point, and that the two values on either side must form a pair of conjugate variables.
+- Momentum conservation then reduces to a functional equation for the defect potential. For sine-Gordon theory its only solution is Bäcklund's transformation, frozen at the point. We rediscover Lecture 2 without having looked for it.
+- We find which other theories have such windows, and why a window cannot reflect.
+- The window's parameter is a rapidity: a jump of the field across the window stores exactly the energy and momentum of a soliton, and can release it as one.
+- In the massless limit the two halves of the window act on the two chiralities separately.
+
+*Prerequisites:* @sec-mirrors-windows, in particular @sec-l1-delta and @sec-l1-momentum; @sec-backlund-machine, in particular (-@eq-l2-bt).
+:::
+
+## The question {#sec-l3-question}
+
+Lecture 1 gave us a criterion and a disappointment. The criterion: a line that conserves a modified momentum cannot reflect, so it is a window (@sec-l1-momentum). The disappointment: the simplest line we could write down, the $\delta$-function defect, reflects. Lecture 2 then gave us a hint. Bäcklund's transformation is a pair of first-order equations that relates two solutions, and nothing stops us from imposing it at a single point only. This lecture turns the hint into a construction, by asking the question the other way round:
+
+> Which terms in the action, located at a single point, conserve a modified momentum?
+
+We will not assume any answer, and in particular we will not assume Bäcklund's transformation. We will find it.
+
+::: {.callout-note title="Where it comes from"}
+In 2003 Bowcock, Corrigan and Zambon asked what Lagrangian could describe an "internal boundary" between two integrable field theories, one on each half-line [@bcz2004]. Their motivation was twofold. Delfino, Mussardo and Simonetti had shown that an interacting integrable defect cannot both reflect and transmit (Lecture 1). And the integrable boundaries were understood: Ghoshal and Zamolodchikov had found those of sine-Gordon theory by asking which boundary terms keep the charge of spin 3 [@gz1994], and the Durham group had classified those of the affine Toda theories with conserved charges and Lax pairs [@bcdr1995]. Bowcock, Corrigan and Zambon applied the same spin-3 test to a defect at which the field may jump, with a term in the action linear in time derivatives. They found a short list of possibilities, which included sinh-Gordon theory and, by continuation, sine-Gordon theory, and remarked that their defect conditions, imposed everywhere, would be a Bäcklund transformation. They also noticed that a modified momentum is conserved, and that linear waves are transmitted without any reflection, which surprised them. A year later they constructed Lax pairs for defects in the affine Toda theories and found that only the $a_r^{(1)}$ theories appear to allow them [@bcz2004b]. In 2009 Corrigan and Zambon recovered this from energy and momentum alone, and made them the starting point of the theory [@cz2009a]. We follow this last route, which needs nothing but the field equations.
+:::
+
+**The rules of the game.** We put a scalar field $\Phi$ on $x<0$ and a scalar field $\Psi$ on $x>0$, both dimensionless as in Lecture 2. Each obeys a field equation with the same potential $V$, which for sine-Gordon theory is $V(\Phi)=m_0^2(1-\cos\Phi)$. The defect is a term $L_d$ in the action, located at $x=0$:
+
+$$
+\begin{aligned}
+S&=\frac1{\beta_{\rm SG}^2}\int dt\,\Big\{\int_{-\infty}^0\ell(\Phi)\,dx+\int_0^\infty\ell(\Psi)\,dx+L_d\Big\},\\
+\ell(\Phi)&=\tfrac12\Phi_t^2-\tfrac12\Phi_x^2-V(\Phi).
+\end{aligned}
+$$ {#eq-l3-action}
+
+Subscripts $t$ and $x$ denote partial derivatives. We allow $L_d$ to depend on the values $\Phi(0,t)$ and $\Psi(0,t)$ of the fields at the defect, and on their time derivatives, but at most linearly. We allow no space derivatives and no new degrees of freedom at the defect. These are the rules of Bowcock, Corrigan and Zambon. They are natural for two reasons. A boundary term of Ghoshal and Zamolodchikov depends on the field alone, and allowing it one time derivative is the smallest step beyond it. And Bäcklund's transformation is first order.
+
+::: {.callout-tip title="Predict"}
+Before reading on, decide: must the field be continuous at $x=0$? Which terms in $L_d$ do you expect momentum conservation to allow?
+:::
+
+## Fluxes through a point {#sec-l3-fluxes}
+
+The energy and momentum of the two fields are
+
+$$
+\begin{aligned}
+E&=\frac1{\beta_{\rm SG}^2}\Big[\int_{-\infty}^0\big(\tfrac12\Phi_t^2+\tfrac12\Phi_x^2+V(\Phi)\big)dx+\int_0^\infty\big(\tfrac12\Psi_t^2+\tfrac12\Psi_x^2+V(\Psi)\big)dx\Big],\\
+P&=-\frac1{\beta_{\rm SG}^2}\Big[\int_{-\infty}^0\Phi_t\Phi_x\,dx+\int_0^\infty\Psi_t\Psi_x\,dx\Big].
+\end{aligned}
+$$
+
+The sign of $P$ gives a soliton moving to the right a positive momentum, $M\sinh\theta$ with $M=8m_0/\beta_{\rm SG}^2$: for $\Phi(x-vt)$ we have $-\Phi_t\Phi_x=v\Phi_x^2$.
+
+**The local conservation laws.** In the bulk, $\Phi_{tt}=\Phi_{xx}-V'(\Phi)$. Then
+
+$$
+\partial_t\big(\tfrac12\Phi_t^2+\tfrac12\Phi_x^2+V\big)=\Phi_t(\Phi_{xx}-V')+\Phi_x\Phi_{xt}+V'\Phi_t=\Phi_t\Phi_{xx}+\Phi_x\Phi_{tx}=\partial_x\big(\Phi_t\Phi_x\big),
+$$
+
+and
+
+$$
+\partial_t\big(-\Phi_t\Phi_x\big)=-(\Phi_{xx}-V')\Phi_x-\Phi_t\Phi_{tx}=-\partial_x\big(\tfrac12\Phi_t^2+\tfrac12\Phi_x^2-V\big).
+$$
+
+Call $T^{xx}(\Phi)=\frac12\Phi_t^2+\frac12\Phi_x^2-V(\Phi)$ the **momentum flux**. Integrate both laws over the two half-lines, and assume that the fields approach vacua as $x\to\pm\infty$. Only the ends at $x=0$ contribute:
+
+$$
+\begin{aligned}
+\beta_{\rm SG}^2\frac{dE}{dt}&=\big[\Phi_t\Phi_x\big]_{x=0^-}-\big[\Psi_t\Psi_x\big]_{x=0^+},\\
+\beta_{\rm SG}^2\frac{dP}{dt}&=\big[T^{xx}(\Psi)\big]_{x=0^+}-\big[T^{xx}(\Phi)\big]_{x=0^-}.
+\end{aligned}
+$$ {#eq-l3-fluxes}
+
+These are the flux balances of @sec-l1-momentum for spin $\pm1$. Whatever the defect is, it has to make the right-hand sides total time derivatives of functions of the fields at $x=0$. The defect conditions, which come from $L_d$, tell us how to rewrite them.
+
+## First attempt: a potential on a continuous field {#sec-l3-continuous}
+
+The simplest defect is a potential $U$ at the point, with the field continuous there, $\Phi(0^-,t)=\Psi(0^+,t)$. We write $\Phi$ on both sides. The $\delta$-defect of Lecture 1 is $U=\frac12g\Phi^2$. As in @sec-l1-delta, the field equation $\Phi_{tt}-\Phi_{xx}+V'(\Phi)+\delta(x)\,U'(\Phi)=0$ gives
+
+$$
+\Phi_x(0^+,t)-\Phi_x(0^-,t)=U'\big(\Phi(0,t)\big).
+$$
+
+**Energy.** Because $\Phi$ is continuous, so is $\Phi_t$. The energy balance (-@eq-l3-fluxes) becomes $\Phi_t\,[\Phi_x(0^-)-\Phi_x(0^+)]=-\Phi_tU'=-\frac d{dt}U$. So $E+U/\beta_{\rm SG}^2$ is conserved.
+
+**Momentum.** The terms $\frac12\Phi_t^2$ and $V$ in $T^{xx}$ are the same on both sides and cancel. What remains is a difference of squares:
+
+$$
+\beta_{\rm SG}^2\frac{dP}{dt}=\tfrac12\Phi_x(0^+)^2-\tfrac12\Phi_x(0^-)^2
+=\tfrac12U'\,\big(\Phi_x(0^+)+\Phi_x(0^-)\big)=U'\,\Phi_x(0^-)+\tfrac12U'^2 .
+$$
+
+Could this be $-\frac d{dt}P_d=-P_d'(\Phi)\,\Phi_t$ for some function $P_d$? At any one instant the three numbers $\Phi(0,t)$, $\Phi_t(0,t)$ and $\Phi_x(0^-,t)$ can be chosen freely: we can take any initial data on $x<0$ and continue them to $x>0$ so that the jump condition holds. So the two sides would have to agree as functions of three independent variables. The right-hand side contains $\Phi_x(0^-)$ and the left-hand side does not. Hence $U'=0$.
+
+**Lesson 1.** A potential at a point, on a continuous field, never conserves a modified momentum, unless it is no defect at all. The $\delta$-defect had no chance. Physically, a potential at a point is a force at a fixed position, and a fixed obstacle absorbs momentum, which is how it reflects (@exr-l3-fluxes). So the field must be allowed to **jump**: $\Phi(0^-,t)$ and $\Psi(0^+,t)$ must be independent. Corrigan and Zambon admit that this step looks drastic at first sight [@cz2009a].
+
+## Second attempt: a jump with a potential {#sec-l3-jump}
+
+Let the field jump, and take $L_d=-\mathcal B(\Phi,\Psi)$, where $\Phi$ and $\Psi$ now stand for the two values at the defect. Varying (-@eq-l3-action), the bulk of each half-line gives its field equation, and integration by parts leaves an end term at $x=0$ from each half-line:
+
+$$
+\begin{aligned}
+\delta\!\int_{-\infty}^0\!\big(-\tfrac12\Phi_x^2\big)dx&=\int_{-\infty}^0\!\Phi_{xx}\,\delta\Phi\,dx-\big[\Phi_x\,\delta\Phi\big]_{x=0},\\
+\delta\!\int_0^\infty\!\big(-\tfrac12\Psi_x^2\big)dx&=\int_0^\infty\!\Psi_{xx}\,\delta\Psi\,dx+\big[\Psi_x\,\delta\Psi\big]_{x=0}.
+\end{aligned}
+$$
+
+The signs differ because $x=0$ is the upper end of the first integral and the lower end of the second. Together with $\delta L_d=-\mathcal B_\Phi\,\delta\Phi-\mathcal B_\Psi\,\delta\Psi$, where $\mathcal B_\Phi=\partial\mathcal B/\partial\Phi$, the coefficients of $\delta\Phi(0,t)$ and $\delta\Psi(0,t)$ must vanish:
+
+$$
+\Phi_x=-\mathcal B_\Phi,\qquad\Psi_x=\mathcal B_\Psi\qquad\text{at }x=0 .
+$$
+
+These are two boundary conditions, coupled through $\mathcal B$. Energy is again conserved: $\Phi_t\Phi_x-\Psi_t\Psi_x=-\Phi_t\mathcal B_\Phi-\Psi_t\mathcal B_\Psi=-\frac d{dt}\mathcal B$. For the momentum, substitute the conditions into (-@eq-l3-fluxes):
+
+$$
+\beta_{\rm SG}^2\frac{dP}{dt}=\tfrac12\big(\Psi_t^2-\Phi_t^2\big)+\tfrac12\mathcal B_\Psi^2-\tfrac12\mathcal B_\Phi^2+V(\Phi)-V(\Psi).
+$$
+
+The velocities $\Phi_t$ and $\Psi_t$ can again be chosen freely at one instant, and the time derivative of a function of $\Phi$ and $\Psi$ is linear in them. The quadratic term $\frac12(\Psi_t^2-\Phi_t^2)$ cannot be matched.
+
+**Lesson 2.** A jump is not enough. If $\mathcal B$ is a sum $\mathcal B_1(\Phi)+\mathcal B_2(\Psi)$, the two half-lines decouple into two boundaries, two mirrors back to back, which reverse momentum: no wonder it is not conserved. The quadratic terms must be cancelled, and the only terms in the defect conditions that can do it are time derivatives: $\Phi_x$ must contain $\Psi_t$, and $\Psi_x$ must contain $\Phi_t$. The defect needs a kinetic term.
+
+## The first-order defect {#sec-l3-lagrangian}
+
+The most general $L_d$ that our rules allow is
+
+$$
+L_d=A(\Phi,\Psi)\,\Phi_t+C(\Phi,\Psi)\,\Psi_t-\mathcal B(\Phi,\Psi),
+$$
+
+with smooth functions $A$, $C$ and $\mathcal B$. Treat $\Phi(0,t)$ and $\Psi(0,t)$ as functions of $t$ and vary. The Euler–Lagrange expression for $\Phi$ is
+
+$$
+\begin{aligned}
+\frac{\partial L_d}{\partial\Phi}-\frac d{dt}\frac{\partial L_d}{\partial\Phi_t}
+&=A_\Phi\Phi_t+C_\Phi\Psi_t-\mathcal B_\Phi-\big(A_\Phi\Phi_t+A_\Psi\Psi_t\big)\\
+&=w\,\Psi_t-\mathcal B_\Phi,\qquad w=C_\Phi-A_\Psi ,
+\end{aligned}
+$$
+
+and the one for $\Psi$ is, in the same way, $-w\,\Phi_t-\mathcal B_\Psi$. Add the end terms $-\Phi_x\,\delta\Phi$ and $+\Psi_x\,\delta\Psi$ of @sec-l3-jump. The **defect conditions** are
+
+$$
+\Phi_x=w\,\Psi_t-\mathcal B_\Phi,\qquad\Psi_x=w\,\Phi_t+\mathcal B_\Psi\qquad\text{at }x=0 .
+$$ {#eq-l3-conditions}
+
+Only the combination $w=C_\Phi-A_\Psi$ appears. Adding to $L_d$ the time derivative $\frac d{dt}F(\Phi,\Psi)$ of any function changes $A$ and $C$ by $F_\Phi$ and $F_\Psi$, and leaves $w$ unchanged.
+
+**Energy is free.** Substitute (-@eq-l3-conditions) into the energy balance (-@eq-l3-fluxes):
+
+$$
+\Phi_t\Phi_x-\Psi_t\Psi_x=\Phi_t\big(w\Psi_t-\mathcal B_\Phi\big)-\Psi_t\big(w\Phi_t+\mathcal B_\Psi\big)=-\mathcal B_\Phi\Phi_t-\mathcal B_\Psi\Psi_t=-\frac d{dt}\mathcal B .
+$$
+
+The terms with $w$ cancel because the same $w$ multiplies $\Psi_t$ in the first condition and $\Phi_t$ in the second, a consequence of their origin in one action. So $E+\mathcal B/\beta_{\rm SG}^2$ is conserved for **every** $w$ and **every** $\mathcal B$. This is Noether's theorem at work: the action (-@eq-l3-action) does not depend on $t$ explicitly. As at a boundary, energy conservation selects nothing.
+
+**A mechanical system at the defect.** For $w=1$, take $A=0$ and $C=\Phi$. Then
+
+$$
+L_d=\Phi\,\Psi_t-\mathcal B(\Phi,\Psi).
+$$
+
+This is the phase-space Lagrangian $p\,\dot q-H$ of a mechanical system with one degree of freedom, its coordinate $q=\Psi(0,t)$, its momentum $p=\Phi(0,t)$ and its Hamiltonian $\mathcal B$. The energy we just found conserved is that Hamiltonian. So the two values of the field at the defect behave as a pair of conjugate variables. Keep this in mind: in Lecture 6 it gives the Poisson bracket of the defect, and in Lecture 7, after quantization, the exponentials of $\Phi$ and $\Psi$ will no longer commute.
+
+## Momentum is the test {#sec-l3-momentum}
+
+The action has no symmetry under translations in $x$, so Noether's theorem says nothing about momentum. Substitute (-@eq-l3-conditions) into the momentum balance. The squares are
+
+$$
+\Psi_x^2=w^2\Phi_t^2+2w\,\Phi_t\mathcal B_\Psi+\mathcal B_\Psi^2,\qquad
+\Phi_x^2=w^2\Psi_t^2-2w\,\Psi_t\mathcal B_\Phi+\mathcal B_\Phi^2 ,
+$$
+
+so
+
+$$
+\begin{aligned}
+\beta_{\rm SG}^2\frac{dP}{dt}={}&\tfrac12\big(1-w^2\big)\big(\Psi_t^2-\Phi_t^2\big)+w\big(\Phi_t\mathcal B_\Psi+\Psi_t\mathcal B_\Phi\big)\\
+&+\tfrac12\mathcal B_\Psi^2-\tfrac12\mathcal B_\Phi^2+V(\Phi)-V(\Psi).
+\end{aligned}
+$$ {#eq-l3-momentum-polynomial}
+
+We want this to equal $-\frac d{dt}P_d=-\partial_\Phi P_d\,\Phi_t-\partial_\Psi P_d\,\Psi_t$ for a function $P_d(\Phi,\Psi)$, so that $P+P_d/\beta_{\rm SG}^2$ is conserved. Both sides are polynomials in the velocities, which can be chosen freely at one instant. So they must agree degree by degree:
+
+1. **Quadratic terms:** $w^2=1$. Since $w$ is continuous, $w=\mathsf D$ is a constant, $\mathsf D=\pm1$.
+2. **Linear terms:** $\partial_\Phi P_d=-\mathsf D\,\mathcal B_\Psi$ and $\partial_\Psi P_d=-\mathsf D\,\mathcal B_\Phi$.
+3. **Terms without velocities:** $\frac12\mathcal B_\Phi^2-\frac12\mathcal B_\Psi^2=V(\Phi)-V(\Psi)$.
+
+Condition 1 fixes the kinetic term. The one-form $A\,d\Phi+C\,d\Psi-\mathsf D\,\Phi\,d\Psi$ has the exterior derivative $(C_\Phi-A_\Psi-\mathsf D)\,d\Phi\wedge d\Psi=0$, so it is $dF$ for a function $F$ on the plane, and $L_d=\mathsf D\,\Phi\Psi_t-\mathcal B+\frac d{dt}F$. Up to a total time derivative, the kinetic term is $\mathsf D\,\Phi\Psi_t$. It is equivalent to $\frac{\mathsf D}2(\Phi\Psi_t-\Psi\Phi_t)$, the form Bowcock, Corrigan and Zambon wrote. The coefficient is not adjustable: momentum conservation requires the kinetic term to cancel the quadratic terms exactly. The two signs give the defects called **type I$_-$** ($\mathsf D=1$) and **type I$_+$** ($\mathsf D=-1$). We take $\mathsf D=1$ until @sec-l3-types.
+
+**A wave in field space.** Condition 2 asks the one-form $-\mathsf D(\mathcal B_\Psi\,d\Phi+\mathcal B_\Phi\,d\Psi)$ to be the differential of a function. On the plane this happens exactly when it is closed, $\partial_\Psi\mathcal B_\Psi=\partial_\Phi\mathcal B_\Phi$:
+
+$$
+\frac{\partial^2\mathcal B}{\partial\Phi^2}=\frac{\partial^2\mathcal B}{\partial\Psi^2}.
+$$
+
+This is the wave equation, with $\Phi$ playing time and $\Psi$ playing space. Its general solution is d'Alembert's: with the **light-cone coordinates of field space**
+
+$$
+\Sigma=\Phi+\Psi,\qquad\Delta=\Phi-\Psi ,
+$$
+
+we have $\mathcal B=f(\Sigma)+g(\Delta)$ for two functions $f$ and $g$ of one variable. Then $\mathcal B_\Psi=f'-g'$ and $\mathcal B_\Phi=f'+g'$, and condition 2 is solved by
+
+$$
+P_d=\mathsf D\,\big(g(\Delta)-f(\Sigma)\big),
+$$
+
+as you can check by differentiating. The defect potential has two halves, one depending on $\Phi+\Psi$ and one on $\Phi-\Psi$, and the defect momentum is their difference.
+
+**The functional equation.** Now use $\frac12(\mathcal B_\Phi^2-\mathcal B_\Psi^2)=\frac12(f'+g')^2-\frac12(f'-g')^2=2f'g'$. Condition 3 becomes
+
+$$
+2\,f'(\Phi+\Psi)\;g'(\Phi-\Psi)=V(\Phi)-V(\Psi).
+$$ {#eq-l3-functional}
+
+Read it as a statement about the bulk theory. The right-hand side is a function of two variables. The left-hand side is a function of $\Sigma$ times a function of $\Delta$. A defect that conserves momentum exists only if **the difference of the bulk potentials factorizes in the light-cone coordinates of field space**, and then the two factors are the derivatives of the two halves of the defect potential.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Items (a)–(f) of `textbook_code/lectures/defects_l3_freezing.py` redo these steps symbolically: the end terms of the variation, the defect conditions for a general kinetic term, the energy identity for arbitrary $w$ and $\mathcal B$, the polynomial (-@eq-l3-momentum-polynomial), the failure of the continuous field, d'Alembert's form with its $P_d$, and the reduction to (-@eq-l3-functional).
+:::
+
+## Sine-Gordon: Bäcklund rediscovered {#sec-l3-sine-gordon}
+
+For sine-Gordon theory, $V(\Phi)-V(\Psi)=m_0^2(\cos\Psi-\cos\Phi)$. Does it factorize? It does, by the sum-to-product formula of school trigonometry:
+
+$$
+\cos\Psi-\cos\Phi=2\sin\frac{\Phi+\Psi}2\,\sin\frac{\Phi-\Psi}2 .
+$$
+
+So (-@eq-l3-functional) reads
+
+$$
+f'(\Sigma)\,g'(\Delta)=m_0^2\sin\frac\Sigma2\,\sin\frac\Delta2\qquad\text{for all }\Sigma,\Delta .
+$$
+
+Set $\Delta=\pi$. The right-hand side is $m_0^2\sin\frac\Sigma2$, which is not identically zero, so $g'(\pi)\ne0$, and
+
+$$
+f'(\Sigma)=\sigma\,m_0\sin\frac\Sigma2,\qquad\sigma=\frac{m_0}{g'(\pi)} .
+$$
+
+Put this back, and divide by $\sigma m_0\sin\frac\Sigma2$ at any $\Sigma$ where it is nonzero: $g'(\Delta)=\sigma^{-1}m_0\sin\frac\Delta2$. Integrate both, and fix the constants so that $\mathcal B$ vanishes when both fields vanish:
+
+$$
+\begin{aligned}
+\mathcal B&=-2m_0\Big[\sigma\Big(\cos\frac{\Phi+\Psi}2-1\Big)+\sigma^{-1}\Big(\cos\frac{\Phi-\Psi}2-1\Big)\Big],\\
+P_d&=\phantom{-}2m_0\Big[\sigma\Big(\cos\frac{\Phi+\Psi}2-1\Big)-\sigma^{-1}\Big(\cos\frac{\Phi-\Psi}2-1\Big)\Big].
+\end{aligned}
+$$ {#eq-l3-potential}
+
+One constant $\sigma\ne0$ is left. For a real action it is real.
+
+**This is Bäcklund's transformation.** The derivatives of $\mathcal B$ are $\mathcal B_\Phi=m_0\big(\sigma\sin\frac\Sigma2+\sigma^{-1}\sin\frac\Delta2\big)$ and $\mathcal B_\Psi=m_0\big(\sigma\sin\frac\Sigma2-\sigma^{-1}\sin\frac\Delta2\big)$. Subtract the second defect condition (-@eq-l3-conditions), with $w=1$, from the first, and then add them:
+
+$$
+\begin{aligned}
+\Phi_t+\Phi_x-\Psi_t-\Psi_x&=-\mathcal B_\Phi-\mathcal B_\Psi=-2\sigma m_0\sin\frac{\Phi+\Psi}2,\\
+\Phi_x+\Psi_x-\Phi_t-\Psi_t&=\mathcal B_\Psi-\mathcal B_\Phi=-\frac{2m_0}\sigma\sin\frac{\Phi-\Psi}2 .
+\end{aligned}
+$$
+
+With $\partial_\pm=\partial_t\pm\partial_x$ the left-hand sides are $\partial_+(\Phi-\Psi)$ and $-\partial_-(\Phi+\Psi)$. With $a=-\sigma$ these are the two equations of Bäcklund's transformation (-@eq-l2-bt), imposed at $x=0$. We asked only for momentum, and Bäcklund's machine has appeared, frozen at a point.
+
+::: {#thm-l3-momentum}
+## Momentum selects Bäcklund's transformation
+**[Theorem]** Let $\Phi$ on $x<0$ and $\Psi$ on $x>0$ be sine-Gordon fields, coupled by a defect term $L_d=A\,\Phi_t+C\,\Psi_t-\mathcal B$, with $A$, $C$ and $\mathcal B$ smooth functions of $\Phi(0,t)$ and $\Psi(0,t)$. A modified momentum $P+P_d/\beta_{\rm SG}^2$, with $P_d$ a function of $\Phi(0,t)$ and $\Psi(0,t)$, is conserved for all solutions if and only if, up to a total time derivative, $L_d=\mathsf D\,\Phi\Psi_t-\mathcal B$ with $\mathsf D=\pm1$ and $\mathcal B$ given by (-@eq-l3-potential) for some constant $\sigma\ne0$, up to an additive constant. For $\mathsf D=1$ the defect conditions are Bäcklund's transformation (-@eq-l2-bt) with $a=-\sigma$, imposed at $x=0$, and $P_d$ is given by (-@eq-l3-potential). The modified energy $E+\mathcal B/\beta_{\rm SG}^2$ is conserved as well.
+:::
+
+::: {.proof}
+Necessity is the chain of this section and @sec-l3-momentum: the momentum balance (-@eq-l3-momentum-polynomial) is a polynomial in the velocities, and at any one instant the defect values and the velocities can be prescribed freely by the initial data; its quadratic part forces $w=\mathsf D=\pm1$, its linear part forces d'Alembert's form $\mathcal B=f(\Sigma)+g(\Delta)$, and its velocity-free part is (-@eq-l3-functional), whose solutions for $V=m_0^2(1-\cos\Phi)$ we have just found. Sufficiency: for $\mathcal B$ and $P_d$ of (-@eq-l3-potential) and $\mathsf D=1$, the three conditions of @sec-l3-momentum hold, so (-@eq-l3-momentum-polynomial) equals $-\frac d{dt}P_d$. For $\mathsf D=-1$ condition 2 holds with $P_d$ replaced by $-P_d$, and conditions 1 and 3 do not involve $\mathsf D$. Energy was shown in @sec-l3-lagrangian.
+:::
+
+Two features of the answer deserve a pause.
+
+**Why the defect has one parameter.** The boundary of sine-Gordon theory has a potential $-M_0\cos\frac{\beta_{\rm SG}(\phi-\phi_0)}2$ with two parameters, a strength $M_0$ and a shift $\phi_0$ (see the book's [boundary sine-Gordon theory](book:eq-bsg-boundary)). The defect potential could a priori have two strengths and two shifts, one of each for each half. The functional equation removes three of the four. It kills the shifts, because the sum-to-product formula has no room for them. And it fixes the product of the two strengths: $f'g'$ must equal $m_0^2\sin\frac\Sigma2\sin\frac\Delta2$, so the strengths $2m_0\sigma$ and $2m_0\sigma^{-1}$ of the two halves multiply to $4m_0^2$. **The bulk mass is the product of the two halves of the defect.** Only their ratio $\sigma^2$ is free.
+
+**Why the frozen machine conserves momentum.** It is no coincidence that the answer is a Bäcklund transformation. @sec-l3-unfreeze shows that conditions 2 and 3 are exactly the conditions under which the defect conditions, imposed for all $x$, form a Bäcklund transformation.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (g) of `textbook_code/lectures/defects_l3_freezing.py` solves (-@eq-l3-functional) for sine-Gordon theory with sympy, starting from the most general $f=A\cos\frac\Sigma2+A'\sin\frac\Sigma2$ and $g=C\cos\frac\Delta2+C'\sin\frac\Delta2$ that the separation allows, and finds only $A'=C'=0$, $AC=4m_0^2$. Item (b) checks that the defect conditions with (-@eq-l3-potential) are the Bäcklund equations (-@eq-l2-bt) with $a=-\sigma$, and that $\mathcal B/\beta_{\rm SG}^2$ is the book's [defect potential](book:eq-sg-defect-potential).
+:::
+
+## Which theories have windows? {#sec-l3-which}
+
+The functional equation (-@eq-l3-functional) is a test that any bulk theory can be put to. Allow even different potentials $V_L$ on the left and $V_R$ on the right, so that its right-hand side is $V_L(\Phi)-V_R(\Psi)$, and write $F=f'$, $G=g'$.
+
+**Separation of variables.** Any function of $\Phi=\frac{\Sigma+\Delta}2$ alone satisfies $\partial_\Sigma^2h=\frac14h''=\partial_\Delta^2h$, and so does any function of $\Psi=\frac{\Sigma-\Delta}2$. So the wave operator $\partial_\Sigma^2-\partial_\Delta^2$ annihilates the right-hand side, whatever the potentials. Apply it to the left-hand side:
+
+$$
+F''(\Sigma)\,G(\Delta)-F(\Sigma)\,G''(\Delta)=0 .
+$$
+
+If $F$ or $G$ vanishes identically, then $V_L(\Phi)=V_R(\Psi)$ for all $\Phi$ and $\Psi$, and both are the same constant: massless free fields. Otherwise choose $\Delta_0$ with $G(\Delta_0)\ne0$ to get $F''=\kappa^2F$, with the constant $\kappa^2=G''(\Delta_0)/G(\Delta_0)$, and then $G''=\kappa^2G$. For $\kappa\ne0$ (real or complex),
+
+$$
+F=\alpha\,e^{\kappa\Sigma}+\alpha'e^{-\kappa\Sigma},\qquad G=\gamma\,e^{\kappa\Delta}+\gamma'e^{-\kappa\Delta}.
+$$
+
+Multiply out, using $\Sigma+\Delta=2\Phi$ and $\Sigma-\Delta=2\Psi$:
+
+$$
+2FG=\big(2\alpha\gamma\,e^{2\kappa\Phi}+2\alpha'\gamma'e^{-2\kappa\Phi}\big)+\big(2\alpha\gamma'e^{2\kappa\Psi}+2\alpha'\gamma\,e^{-2\kappa\Psi}\big).
+$$
+
+The first bracket depends only on $\Phi$ and the second only on $\Psi$. So the factorization holds exactly when $V_L$ and $V_R$ are combinations of the two exponentials $e^{\pm2\kappa\Phi}$, with $V_L=2\alpha\gamma\,e^{2\kappa\Phi}+2\alpha'\gamma'e^{-2\kappa\Phi}$ and $V_R=-2\alpha\gamma'e^{2\kappa\Psi}-2\alpha'\gamma\,e^{-2\kappa\Psi}$ up to a common constant. For $\kappa=0$, $F$ and $G$ are linear, $\mathcal B$ is quadratic, and both field equations are linear, with the same mass.
+
+::: {#prp-l3-which}
+## Which theories have windows
+**[Theorem]** A defect of the form of @sec-l3-lagrangian between fields with potentials $V_L$ and $V_R$ conserves a modified momentum only in the following cases: both potentials are combinations of $e^{2\kappa\Phi}$ and $e^{-2\kappa\Phi}$ with the coefficients just given (sinh-Gordon theory for real $\kappa$, sine-Gordon theory for imaginary $\kappa$, a Liouville theory when one coefficient vanishes, a free massless field when both do); or both field equations are linear, with equal masses, and $\mathcal B$ is quadratic; or both fields are massless and free, and $\mathcal B$ depends on $\Phi+\Psi$ only or on $\Phi-\Psi$ only.
+:::
+
+The proof is the argument above. The list is the one Bowcock, Corrigan and Zambon found from the spin-3 charge [@bcz2004, eqs. (2.10)–(2.11)], with one difference that we return to in @sec-l3-enough. Theories whose interaction is not exponential have no such window. In $\phi^4$ theory, for instance, $V(\Phi)-V(\Psi)$ does not factorize, and neither does it in the double sine-Gordon model, which has two cosines (@exr-l3-phi4). Momentum conservation at a single point is a sharp test of the bulk theory.
+
+One case in the list is famous. With $\alpha'=\gamma'=0$, the left field is a Liouville field with $V_L=2\alpha\gamma\,e^{2\kappa\Phi}$, the right field is free and massless, and $\mathcal B=\big(\alpha e^{\kappa(\Phi+\Psi)}+\gamma e^{\kappa(\Phi-\Psi)}\big)/\kappa$. Imposed everywhere, these conditions are the classical Bäcklund transformation between the Liouville equation and the wave equation, which is why the Liouville equation can be solved in closed form (@exr-l3-liouville). A window can join two different theories.
+
+## Unfreezing {#sec-l3-unfreeze}
+
+Here is why the solutions of the functional equation are Bäcklund transformations. Take any $\mathcal B$, and impose the defect conditions with $w=1$ at every $x$:
+
+$$
+\Phi_x=\Psi_t-\mathcal B_\Phi,\qquad\Psi_x=\Phi_t+\mathcal B_\Psi .
+$$
+
+This is the calculation of @sec-l2-machine for a general $\mathcal B$. Differentiate the first condition with respect to $x$, exchange the order of derivatives in $\Psi_{tx}$, and use the second:
+
+$$
+\Phi_{xx}=\partial_t\Psi_x-\partial_x\mathcal B_\Phi=\Phi_{tt}+\partial_t\mathcal B_\Psi-\partial_x\mathcal B_\Phi .
+$$
+
+By the chain rule, $\partial_t\mathcal B_\Psi=\mathcal B_{\Psi\Phi}\Phi_t+\mathcal B_{\Psi\Psi}\Psi_t$ and $\partial_x\mathcal B_\Phi=\mathcal B_{\Phi\Phi}\Phi_x+\mathcal B_{\Phi\Psi}\Psi_x$. Insert the conditions for $\Phi_x$ and $\Psi_x$ into the second:
+
+$$
+\begin{aligned}
+\Phi_{tt}-\Phi_{xx}&=\partial_x\mathcal B_\Phi-\partial_t\mathcal B_\Psi\\
+&=\mathcal B_{\Phi\Phi}\big(\Psi_t-\mathcal B_\Phi\big)+\mathcal B_{\Phi\Psi}\big(\Phi_t+\mathcal B_\Psi\big)-\mathcal B_{\Psi\Phi}\Phi_t-\mathcal B_{\Psi\Psi}\Psi_t\\
+&=\big(\mathcal B_{\Phi\Phi}-\mathcal B_{\Psi\Psi}\big)\Psi_t-\big(\mathcal B_\Phi\mathcal B_{\Phi\Phi}-\mathcal B_\Psi\mathcal B_{\Psi\Phi}\big).
+\end{aligned}
+$$
+
+The last bracket is $\partial_\Phi W$ with $W=\frac12(\mathcal B_\Phi^2-\mathcal B_\Psi^2)$. The same steps for $\Psi$ give $\Psi_{tt}-\Psi_{xx}=(\mathcal B_{\Phi\Phi}-\mathcal B_{\Psi\Psi})\Phi_t+\partial_\Psi W$. So:
+
+- the defect conditions, imposed everywhere, imply second-order field equations without velocity terms exactly when $\mathcal B_{\Phi\Phi}=\mathcal B_{\Psi\Psi}$, which is condition 2;
+- these field equations are $\Phi_{tt}-\Phi_{xx}=-V_L'(\Phi)$ and $\Psi_{tt}-\Psi_{xx}=-V_R'(\Psi)$ exactly when $W=V_L(\Phi)-V_R(\Psi)$ up to a constant, which is condition 3.
+
+**Momentum conservation at a point is the same thing as a Bäcklund transformation on the line.** This was Bowcock, Corrigan and Zambon's observation [@bcz2004]: their conditions for the momentum coincide with the conditions for a working Bäcklund transformation. Freezing Bäcklund's machine at a point gives a window, and every window of this kind, unfrozen, is a Bäcklund machine.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (i) of `textbook_code/lectures/defects_l3_freezing.py` does this calculation symbolically for an arbitrary $\mathcal B$, and then for (-@eq-l3-potential), which gives sine-Gordon on both sides, and for the Liouville-free potential, which gives the Liouville equation on one side and the wave equation on the other. Item (h) checks the exponential solutions of @sec-l3-which against the list of Bowcock, Corrigan and Zambon.
+:::
+
+## What momentum buys: no reflection {#sec-l3-no-reflection}
+
+Lecture 1 showed that a momentum-conserving line cannot reflect a particle. Here is the classical version, for linear waves, and it needs no solution of the defect conditions at all.
+
+Linearize about the vacuum $\Phi=\Psi=0$. The potential $\mathcal B$ becomes quadratic, the defect conditions become linear, and the quadratic parts of $E+\mathcal B/\beta_{\rm SG}^2$ and $P+P_d/\beta_{\rm SG}^2$ are still conserved. Send in a wave of frequency $\omega$ and wave number $k>0$, with $\omega^2=k^2+m_0^2$, and allow a reflected wave and a transmitted wave:
+
+$$
+\Phi=\operatorname{Re}\big[\big(e^{ikx}+R\,e^{-ikx}\big)e^{-i\omega t}\big]\quad(x<0),\qquad
+\Psi=\operatorname{Re}\big[T\,e^{ikx}e^{-i\omega t}\big]\quad(x>0).
+$$
+
+**Time averages.** For complex amplitudes $a$ and $b$, the time average of $\operatorname{Re}(ae^{-i\omega t})\operatorname{Re}(be^{-i\omega t})$ is $\frac12\operatorname{Re}(a\bar b)$. Write the left field as $\operatorname{Re}[u(x)e^{-i\omega t}]$ with $u=e^{ikx}+Re^{-ikx}$, so $u'=ik(e^{ikx}-Re^{-ikx})$. The energy flux is
+
+$$
+\begin{aligned}
+\langle\Phi_t\Phi_x\rangle&=\tfrac12\operatorname{Re}\big(-i\omega\,u\,\overline{u'}\big)
+=-\tfrac12\omega k\operatorname{Re}\big[\big(e^{ikx}+Re^{-ikx}\big)\big(e^{-ikx}-\bar Re^{ikx}\big)\big]\\
+&=-\tfrac12\omega k\big(1-|R|^2\big),
+\end{aligned}
+$$
+
+because the cross terms $Re^{-2ikx}-\bar Re^{2ikx}$ are imaginary. For the momentum flux, $\langle T^{xx}\rangle=\frac14\big(\omega^2|u|^2+|u'|^2-m_0^2|u|^2\big)=\frac14k^2\big(|u|^2+|u'|^2/k^2\big)$. The cross terms in $|u|^2$ and $|u'|^2/k^2$ have opposite signs, so
+
+$$
+\langle T^{xx}\rangle=\tfrac14k^2\cdot2\big(1+|R|^2\big)=\tfrac12k^2\big(1+|R|^2\big).
+$$
+
+On the right the same calculation gives $\langle\Psi_t\Psi_x\rangle=-\frac12\omega k|T|^2$ and $\langle T^{xx}\rangle=\frac12k^2|T|^2$.
+
+**The balance.** The defect terms are time derivatives of periodic functions, so their averages vanish, and (-@eq-l3-fluxes) gives
+
+$$
+\begin{aligned}
+\text{energy:}&\quad -\tfrac12\omega k\big(1-|R|^2\big)+\tfrac12\omega k|T|^2=0, &\text{so}\quad |T|^2&=1-|R|^2,\\
+\text{momentum:}&\quad \tfrac12k^2|T|^2-\tfrac12k^2\big(1+|R|^2\big)=0, &\text{so}\quad |T|^2&=1+|R|^2 .
+\end{aligned}
+$$
+
+Hence $R=0$ and $|T|=1$. The two balances disagree about a reflected wave. It takes energy away from the defect, which lowers the energy flux into it. But its momentum points to the left, and sending momentum $-k$ to the left is the same, for the balance, as delivering $+k$ to the right: it raises the momentum flux. Energy and momentum together can be balanced only if there is no reflected wave. The window is transparent to linear waves whatever its parameter, before we have solved for $T$. Lecture 4 finds $T$ itself. For the $\delta$-defect, which conserves energy but not momentum, the same averages show that the defect absorbs momentum at the rate $k^2|R|^2$, like a wall (@exr-l3-fluxes).
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (l) of `textbook_code/lectures/defects_l3_freezing.py` computes the time averages numerically for a random $R$, solves the linearized defect conditions, finds $R=0$ and $|T|=1$, and checks the result against the book's [linear transmission factor](book:eq-shg-linear-transmission). Item (e) checks the momentum absorbed by the $\delta$-defect.
+:::
+
+## The parameter is a rapidity {#sec-l3-rapidity}
+
+In Lecture 2 the parameter $a=-e^{-\theta}$ of Bäcklund's transformation was the rapidity of the soliton it adds. Here $a=-\sigma$, so we write
+
+$$
+\sigma=e^{-\theta_d}
+$$
+
+and call $\theta_d$ the **defect rapidity**. Is it a rapidity in any sense other than the name? Here are three.
+
+**Spin.** Choose the constants as in (-@eq-l3-potential). The light-cone combinations of the defect contributions are
+
+$$
+\mathcal B+P_d=-\frac{4m_0}\sigma\Big(\cos\frac{\Phi-\Psi}2-1\Big),\qquad
+\mathcal B-P_d=-4m_0\sigma\Big(\cos\frac{\Phi+\Psi}2-1\Big).
+$$
+
+So $E+P$ receives only the half of the defect potential that depends on $\Phi-\Psi$, with the coefficient $\sigma^{-1}=e^{\theta_d}$, and $E-P$ only the half that depends on $\Phi+\Psi$, with $\sigma=e^{-\theta_d}$. A boost by rapidity $\vartheta$ multiplies the $E+P$ of every particle by $e^\vartheta$ and its $E-P$ by $e^{-\vartheta}$. The defect contributions scale in the same way if $\theta_d\to\theta_d+\vartheta$. Bowcock, Corrigan and Zambon noticed that the defect parameter "has naturally the character of a spin one quantity" [@bcz2004b, Sec. 2].
+
+::: {.callout-tip title="Predict"}
+The pair $(\Phi,\Psi)=(0,2\pi)$ at the defect is a static solution: both fields sit in vacua, and $\mathcal B_\Phi=\mathcal B_\Psi=0$ there, so the defect conditions hold. How much energy and momentum does this jump store?
+:::
+
+**A jump stores a soliton.** At $\Phi=0$, $\Psi=2\pi$ both cosines in (-@eq-l3-potential) equal $-1$. So
+
+$$
+\frac{\mathcal B}{\beta_{\rm SG}^2}=\frac{4m_0}{\beta_{\rm SG}^2}\big(\sigma+\sigma^{-1}\big)=M\cosh\theta_d,\qquad
+\frac{P_d}{\beta_{\rm SG}^2}=\frac{4m_0}{\beta_{\rm SG}^2}\big(\sigma^{-1}-\sigma\big)=M\sinh\theta_d ,
+$$
+
+with $M=8m_0/\beta_{\rm SG}^2$ the soliton mass. A static jump of $2\pi$ stores exactly the energy and momentum of a soliton of rapidity $\theta_d$ (@fig-l3-landscape). It stores momentum although nothing moves. This is not a contradiction: $P_d$ is not the momentum of moving matter but the defect's share of the conserved $P+P_d/\beta_{\rm SG}^2$, which it can give back. Lecture 1 found that a particle is a window. Now we find the converse: a window can hold a particle, frozen at a point, with its rapidity intact.
+
+![The frozen Bäcklund potential and what a jump stores. (a) The defect potential (-@eq-l3-potential), in units of $m_0$, over the plane of the defect values $\Phi(0,t)$ and $\Psi(0,t)$, for $\theta_d=0.5$. It solves the wave equation in field space, so it is a sum of a function of $\Phi+\Psi$ and a function of $\Phi-\Psi$; the dotted lines are the characteristic directions. The pairs of bulk vacua $(2\pi m,2\pi n)$ are its critical points, and so static solutions of the defect conditions. Even jumps are minima, odd jumps maxima. (b) The energy and momentum stored by a static jump of $2\pi$, for $\theta_d=-1$, $0$ and $1$, in units of the soliton mass $M$: they lie on the mass shell of the soliton, at rapidity $\theta_d$. `textbook_code/lectures/defects_l3_f1_landscape.py` checks the critical points and their types, the splitting into two halves, and the stored energy and momentum.](figures/l3_landscape.svg){#fig-l3-landscape fig-alt="Left: a contour plot of the defect potential over the plane of the two defect values, an egg-crate pattern with blue minima where the jump is even and red maxima where it is odd, crossed by dotted diagonals. Right: the hyperbola E squared minus P squared equals M squared, with three red points on it for theta_d equal to minus one, zero and one, and a blue point at the origin for no jump."}
+
+**The jump can walk out.** The pair $\Phi=0$, $\Psi=\mathfrak B_{-\sigma}0$ satisfies Bäcklund's equations everywhere, so in particular at $x=0$. By (-@eq-l2-soliton), with $a=-\sigma=-e^{-\theta_d}$,
+
+$$
+\Phi=0\quad(x<0),\qquad\Psi=4\arctan\exp\big(m_0(x\cosh\theta_d-t\sinh\theta_d)+c\big)\quad(x>0)
+$$
+
+is an exact solution of the defect problem. Take $\theta_d>0$. Long before $t=-c/(m_0\sinh\theta_d)$, the centre of the kink is far to the left, outside the region where $\Psi$ lives. On $x>0$ we then see only the end of the kink, $\Psi\approx2\pi$: the defect holds a jump of $2\pi$. Long after, the kink has moved out into $x>0$ and $\Psi(0,t)\to0$. The stored energy and momentum have left as a soliton of rapidity $\theta_d$ (@fig-l3-emission). For $\theta_d<0$ the same formula describes a soliton arriving from the right with rapidity $\theta_d$ and being absorbed. When the emission happens is set by the constant $c$, which the classical equations leave free, like the moment of decay of an excited atom. Lecture 4 shows that absorption at $\theta=\theta_d$ is the one dangerous rapidity of Lecture 2's last Predict box.
+
+![A jump walks out as a soliton. (a) The energy density of the exact solution $\Phi=0$ on $x<0$, $\Psi=\mathfrak B_{-\sigma}0$ on $x>0$, for $\theta_d=0.6$ and $c=0$. The dotted line continues the soliton's world line $x=t\tanh\theta_d$ into $x<0$, where it has no field to live in. (b) The energy budget in units of $M$: the energy $\mathcal B/\beta_{\rm SG}^2$ held by the defect, the energy of the field on $x>0$, and their sum. The jump of $2\pi$ at early times holds $M\cosh\theta_d$, which leaves as the soliton. `textbook_code/lectures/defects_l3_f2_emission.py` checks the defect conditions along the solution and the constancy of $E+\mathcal B/\beta_{\rm SG}^2$ and $P+P_d/\beta_{\rm SG}^2$.](figures/l3_emission.svg){#fig-l3-emission fig-alt="Left: a space-time plot with a vertical defect line at x equals zero; a soliton track starts at the defect around t equals zero and moves to the right; a dotted line continues the track backwards into x less than zero. Right: two curves against time, the defect energy falling from M cosh theta_d to zero and the field energy rising from zero to M cosh theta_d, with a constant dashed sum."}
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Items (j) and (k) of `textbook_code/lectures/defects_l3_freezing.py` check the light-cone split, the stored energy and momentum, the types of the critical points, and the conservation of $E+\mathcal B/\beta_{\rm SG}^2$ and $P+P_d/\beta_{\rm SG}^2$ by numerical quadrature along two exact solutions: the emission solution, and the pair $(\Phi_1,\Phi_{12})$ of Lecture 2, which is a Bäcklund pair with parameter $a_2=-\sigma$ and so satisfies the defect conditions. In both cases the totals are constant to $10^{-12}$.
+:::
+
+**Negative $\sigma$.** Shifting $\Psi\to\Psi+2\pi$ changes the sign of both cosines in $\mathcal B$ and leaves the kinetic term unchanged. So a defect with $-\sigma$ is the defect with $\sigma$ seen from a sector with an odd jump, and $\sigma\to-\sigma$ is $\theta_d\to\theta_d+i\pi$. The book uses this to compare the two sectors, and to make precise the remark that a defect is [half a soliton](book:prp-half-soliton).
+
+## The other sign: type I$_+$ {#sec-l3-types}
+
+Condition 1 allowed $\mathsf D=-1$ as well. Replace $\Psi$ by $-\Psi$ in a type-I$_-$ defect. The bulk potential is even, so nothing changes on $x>0$. The kinetic term $\Phi\Psi_t$ changes sign, and the potential becomes $\mathcal B(\Phi,-\Psi)$, which is (-@eq-l3-potential) with $\sigma$ and $\sigma^{-1}$ exchanged. So the defect with $\mathsf D=-1$ is the one with $\mathsf D=1$ followed by the symmetry $\Psi\to-\Psi$ of the bulk, which exchanges solitons and antisolitons on the right. Following the book, we call the defect with $\mathsf D=1$ **type I$_-$** and the one with $\mathsf D=-1$ **type I$_+$**, and the latter has $\sigma$ and $\sigma^{-1}$ exchanged in $\mathcal B$ (see the book's [jump defect](book:sec-sg-defect-lagrangian)). For sine-Gordon theory the two types are equivalent. In the affine Toda theories of Lecture 5, $\Psi\to-\Psi$ is no longer a symmetry of the bulk, and the two types become genuinely different; they are related by time reversal instead (see the book's [defect Lagrangian](book:sec-defect-lagrangian)).
+
+## The massless limit: two chiral halves {#sec-l3-massless}
+
+The two halves of $\mathcal B$ have a meaning that becomes visible when the mass is switched off.
+
+**At $m_0=0$.** The defect conditions become $\Phi_x=\Psi_t$ and $\Psi_x=\Phi_t$, that is, $\partial_+(\Phi-\Psi)=0$ and $\partial_-(\Phi+\Psi)=0$ at $x=0$. A massless field is a sum of a left-mover and a right-mover, $\Phi=\Phi_L(t+x)+\Phi_R(t-x)$, and similarly for $\Psi$. Since $\partial_+=\partial_t+\partial_x$ annihilates functions of $t-x$ and $\partial_-$ annihilates functions of $t+x$,
+
+$$
+\partial_+(\Phi-\Psi)=2\big(\Phi_L-\Psi_L\big)'=0,\qquad\partial_-(\Phi+\Psi)=2\big(\Phi_R+\Psi_R\big)'=0\qquad\text{at }x=0,
+$$
+
+where the prime is the derivative with respect to the argument. So, up to constants,
+
+$$
+\Psi_L=\Phi_L,\qquad\Psi_R=-\Phi_R .
+$$ {#eq-l3-massless}
+
+Both chiralities pass the defect without reflection: left-movers unchanged, right-movers with a change of sign. In the massless limit the window is a **topological** interface, the gluing of a free boson to its dual $\Phi_L-\Phi_R$, with no scale at all (see the book's [massless defect](book:eq-dq-massless-defect)).
+
+**The halves are chiral.** At the defect (-@eq-l3-massless) gives $\Phi+\Psi=2\Phi_L+{}$const and $\Phi-\Psi=2\Phi_R+{}$const. So the half $\sigma\cos\frac{\Phi+\Psi}2$ of the defect potential is a function of the left-movers alone, and the half $\sigma^{-1}\cos\frac{\Phi-\Psi}2$ a function of the right-movers alone. Their coefficients are $2m_0\sigma$ and $2m_0\sigma^{-1}$. Their product is fixed by the bulk mass, and a boost rescales them oppositely. The window is a pair of chiral perturbations of a topological interface, one for each chirality, whose strengths multiply to the bulk mass squared.
+
+**A chiral window.** Now let $m_0\to0$ and $\theta_d\to+\infty$ together, keeping $\mu=m_0e^{\theta_d}=m_0/\sigma$ fixed. The bulk becomes massless, and the coefficient $m_0\sigma=m_0^2/\mu$ of the half that acts on left-movers vanishes. What is left is $\mathcal B=-2\mu\cos\frac{\Phi-\Psi}2$. The difference of the defect conditions still gives $\Psi_L=\Phi_L$: left-movers pass unchanged. Their sum gives
+
+$$
+\partial_-(\Phi+\Psi)=2\mu\sin\frac{\Phi-\Psi}2\qquad\text{at }x=0 ,
+$$
+
+a first-order equation in time for the right-movers. Linearize, and send in $\Phi_R=e^{-i\omega(t-x)}$, with the transmitted wave $\Psi_R=T_R\,e^{-i\omega(t-x)}$. At $x=0$, $\partial_-$ acts as $2\frac d{dt}$, so $-2i\omega(1+T_R)=\mu(1-T_R)$, and
+
+$$
+T_R=\frac{\mu+2i\omega}{\mu-2i\omega} .
+$$
+
+In the same limit a right-mover of rapidity $\theta\to\infty$, with $m_0e^\theta$ fixed, has $\omega=m_0\cosh\theta\to\frac12m_0e^\theta$, so $2\omega/\mu=e^{\theta-\theta_d}$, and $T_R$ depends only on $\theta-\theta_d$. One chirality passes freely, the other with a phase that turns on at the defect rapidity. This is a classical **chiral defect**, of the kind that Konik and LeClair introduced as perturbations of conformal defects by fields of one chirality [@konik_leclair1999]. In Lecture 7 we will meet a quantum counterpart of this split: the window keeps only half of the quantum group.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (n) of `textbook_code/lectures/defects_l3_freezing.py` checks the massless gluing (-@eq-l3-massless) for arbitrary chiral functions, the scaling limit of the defect conditions, the factor $T_R$, and that it is the limit of the massive transmission factor of the book's [linear waves](book:sec-sg-defect-linear) as $m_0\to0$ at fixed $m_0e^\theta$ and $m_0e^{\theta_d}$. Item (m) checks the map between the two types.
+:::
+
+## Is momentum enough? {#sec-l3-enough}
+
+We used momentum conservation as our criterion. Integrability needs infinitely many conserved charges. Is momentum enough?
+
+For classical sine-Gordon theory the answer is yes. Bowcock, Corrigan and Zambon used the charge of spin 3 and arrived at the same defect [@bcz2004, eqs. (2.6)–(2.9)], and in Lecture 6 we will construct a Lax pair for the defect, which gives infinitely many charges. In the quantum theory the question is open. Penati and Polvara found that quantum momentum conservation requires a finite rescaling of the product of the two halves of $\mathcal B$, the classical relation "bulk mass equals the product of the halves" corrected by quantum effects, and that the spin-3 charge has anomalies that no such rescaling removes [@penati_polvara2019, Sec. 5] (see the book's discussion after its [defect UV–IR relation](book:cnj-defect-parameter)).
+
+In general momentum is weaker. For massless free fields, @prp-l3-which allows a defect potential $g(\Phi-\Psi)$ with any function $g$; it is a chiral defect of the kind just described, with an arbitrary nonlinear law for the right-movers. The spin-3 charge allows only exponentials [@bcz2004, eq. (2.9)] (@exr-l3-massless-free). For the massive affine Toda theories the book conjectures that momentum is enough (see its [conjecture on momentum and integrability](book:cnj-momentum-integrability)). Lecture 5 uses momentum to find which affine Toda theories have windows.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (o) of `textbook_code/lectures/defects_l3_freezing.py` checks that (-@eq-l3-potential) satisfies the spin-3 conditions (2.6)–(2.9) of Bowcock, Corrigan and Zambon, and that for massless free fields an arbitrary $g(\Phi-\Psi)$ conserves momentum while their condition (2.9) rejects $(\Phi-\Psi)^4$.
+:::
+
+## What we have learned {#sec-l3-summary}
+
+- Energy is conserved at any defect that comes from an action. Momentum is the test: it is not protected by any symmetry.
+- A potential on a continuous field fails the test, and so does a jump without a kinetic term. The field must jump, and the two values at the defect must form a canonical pair, with the kinetic term $\pm\Phi\Psi_t$.
+- The defect potential then solves the wave equation in field space, $\mathcal B=f(\Phi+\Psi)+g(\Phi-\Psi)$, and the bulk potential must factorize: $2f'(\Phi+\Psi)g'(\Phi-\Psi)=V(\Phi)-V(\Psi)$.
+- For sine-Gordon theory this is the sum-to-product formula, and its solution is Bäcklund's transformation, frozen at the point, with one parameter. In general, momentum conservation at a point is the condition for a Bäcklund transformation on the line, and only exponential and free theories pass it.
+- Energy and momentum together forbid reflection of waves.
+- The parameter $\sigma=e^{-\theta_d}$ is a rapidity. A jump of $2\pi$ stores $M(\cosh\theta_d,\sinh\theta_d)$, the energy and momentum of a soliton of rapidity $\theta_d$, and can release them as one.
+- In the massless limit the window glues a boson to its dual, and the two halves of $\mathcal B$ act on the two chiralities separately.
+
+## Exercises {#sec-l3-exercises}
+
+::: {#exr-l3-variation}
+*(Redo.)* Derive the defect conditions from $L_d=\frac12(\Phi\Psi_t-\Psi\Phi_t)-\mathcal B$, the form of Bowcock, Corrigan and Zambon, and check that they agree with (-@eq-l3-conditions) for $w=1$. Then derive the conditions for $L_d=-\Phi\Psi_t-\mathcal B$. Why does adding $\frac d{dt}F(\Phi,\Psi)$ to $L_d$ change nothing?
+:::
+
+::: {#exr-l3-fluxes}
+*(Redo.)* Repeat the time averages of @sec-l3-no-reflection. Then apply them to the $\delta$-defect of @sec-l1-delta, with $R=g/(2ik-g)$ and $\mathbb T=2ik/(2ik-g)$. Show that energy balances and that the momentum fluxes differ by $-k^2|R|^2$. Interpret this as a radiation pressure: what force does a perfect mirror feel?
+:::
+
+::: {#exr-l3-phi4}
+*(Redo.)* Show that for $V(\Phi)=\frac12m^2\Phi^2+\frac14\lambda\Phi^4$ the difference $V(\Phi)-V(\Psi)$ is not of the form $F(\Phi+\Psi)G(\Phi-\Psi)$, so that $\phi^4$ theory has no momentum-conserving jump defect. Do the same for the double sine-Gordon potential $(1-\cos\Phi)+\epsilon(1-\cos2\Phi)$, $\epsilon\ne0$. *Hint:* a product $F(\Sigma)G(\Delta)$ satisfies $F''G=FG''$; alternatively, the matrix of its values on a grid has rank one.
+:::
+
+::: {#exr-l3-free}
+*(Redo.)* For two free fields of mass $m$, solve (-@eq-l3-functional) and show that $\mathcal B=\frac{m\lambda}4(\Phi+\Psi)^2+\frac m{4\lambda}(\Phi-\Psi)^2$, as found by Bowcock, Corrigan and Zambon [@bcz2004b, eq. (2.7)]. Compare with the expansion of (-@eq-l3-potential) to second order in the fields, and identify $\lambda$ in terms of $\sigma$. Solve for the transmitted wave and check that $R=0$, without the argument of @sec-l3-no-reflection.
+:::
+
+::: {#exr-l3-liouville}
+*(Rediscover.)* Take $\mathcal B=\big(\alpha e^{\kappa(\Phi+\Psi)}+\gamma e^{\kappa(\Phi-\Psi)}\big)/\kappa$. Using @sec-l3-unfreeze, show that the defect conditions imposed everywhere make $\Phi$ a solution of the Liouville equation $\Phi_{tt}-\Phi_{xx}=-4\alpha\gamma\kappa\,e^{2\kappa\Phi}$ and $\Psi$ a solution of the wave equation. *(Explore.)* Starting from $\Psi=\Psi_L(t+x)+\Psi_R(t-x)$, integrate the first-order system for $\Phi$ and obtain Liouville's general solution.
+:::
+
+::: {#exr-l3-hidden}
+*(Explore.)* In the emission solution of @sec-l3-rapidity, compute $P_d(t)/\beta_{\rm SG}^2$ and the momentum of the field on $x>0$, and show that their sum is $M\sinh\theta_d$ at all times. For $\theta_d<0$ the same formula describes absorption. Draw the world line of the soliton in both cases. Why can a defect with an even jump not emit a soliton? *(Hint: compare energies before and after.)*
+:::
+
+::: {#exr-l3-boundary}
+*(Explore.)* Freeze the right field completely: set $\Psi=\psi_0$, a constant. Show that $\mathcal B(\Phi,\psi_0)$ of (-@eq-l3-potential) has the form $-\mathcal M\cos\frac{\Phi-\Phi_0}2+{}$const, which is $\beta_{\rm SG}^2$ times a [boundary potential](book:eq-bsg-boundary) with $M_0=\mathcal M/\beta_{\rm SG}^2$ and $\phi_0=\Phi_0/\beta_{\rm SG}$. Find $\mathcal M$ and $\Phi_0$ in terms of $m_0$, $\sigma$ and $\psi_0$, and show that every pair $(\mathcal M,\Phi_0)$ with $\mathcal M>0$ arises. *(Hint: write $\sigma\cos\frac{\Phi+\psi_0}2+\sigma^{-1}\cos\frac{\Phi-\psi_0}2$ as the real part of $c\,e^{i\Phi/2}$; as $\psi_0$ varies, $c$ runs over an ellipse.)* Why is this not yet a derivation of the integrable boundaries from the integrable defect? Lecture 9 returns to this question.
+:::
+
+::: {#exr-l3-scaling}
+*(Rediscover.)* Redo the scaling limit of @sec-l3-massless with $\theta_d\to-\infty$ and $m_0e^{-\theta_d}$ fixed. Which chirality now passes freely, and what is the phase of the other?
+:::
+
+::: {#exr-l3-massless-free}
+*(Explore.)* For massless free fields with $\mathcal B=g(\Phi-\Psi)$, show that $E+\mathcal B/\beta_{\rm SG}^2$ and $P+P_d/\beta_{\rm SG}^2$ are conserved for any $g$, that left-movers pass unchanged, and that the right-movers obey $\dot u+\dot w=g'(X)$ at $x=0$, where $u=\Phi_R(t)$, $w=\Psi_R(t)$ and $X=u-w-c$ for a constant $c$. The charge $Q_4=\int_{-\infty}^0(\partial_-\Phi)^4dx+\int_0^\infty(\partial_-\Psi)^4dx$ is conserved in the bulk. Show that $\frac{dQ_4}{dt}=16(\dot w^4-\dot u^4)=-8g'(X)\dot X\big(g'(X)^2+\dot X^2\big)$, which is not the time derivative of a function of the defect values unless $g'=0$. The spin-3 charge of Bowcock, Corrigan and Zambon combines $(\partial\phi)^4$ with $(\partial^2\phi)^2$, and their condition (2.9) allows it to survive only for exponential $g$ [@bcz2004]. Momentum alone does not see the difference.
+:::
+
+## Where this comes from {#sec-l3-sources}
+
+The Lagrangian (-@eq-l3-action) with a jump and a kinetic term linear in time derivatives, the spin-3 classification, the observation that the defect conditions are a frozen Bäcklund transformation, the conserved modified momentum and the absence of reflection for linear waves are due to Bowcock, Corrigan and Zambon [@bcz2004]. They derived the momentum conditions $\partial_\phi^2\mathcal B=\partial_\psi^2\mathcal B$ and $\frac12(\partial_\phi\mathcal B)^2-\frac12(\partial_\psi\mathcal B)^2=V(\phi)-V(\psi)$ for a single field, with the free example, the spin of the parameter and the affine Toda generalization, in [@bcz2004b]. Corrigan and Zambon derived the general first-order defect conditions, including the matrix form of condition 1, from energy and momentum alone [@cz2009a, Sec. 2]; they found the potentials with an exponential ansatz. The solution of the single-field functional equation by d'Alembert's formula and separation of variables (@prp-l3-which), the flux argument of @sec-l3-no-reflection, the emission solution read as an energy budget, and the chiral scaling limit are our presentation; we do not claim that they are new. The book states the results in its [jump defect](book:sec-sg-defect-lagrangian), its [classification](book:prp-sg-defect-classification), its [momentum criterion](book:sec-defect-momentum), and its [massless defect](book:eq-dq-massless-defect).
