@@ -1,6 +1,7 @@
 # Author Response to the Referee Report on *"Momentum-Conserving Defects as Spatial Hamilton–Jacobi Correspondences and the Corrigan–Zambon Integrability Conjecture"*
 
-- **Manuscript:** [`briefs/defect_integrability_paper.md`](defect_integrability_paper.md) (and companion report [`briefs/corrigan_zambon_conjecture_report.md`](corrigan_zambon_conjecture_report.md))
+- **Manuscript:** [`defect-integrability/defect_integrability_paper.md`](defect_integrability_paper.md) (and companion report [`defect-integrability/corrigan_zambon_conjecture_report.md`](corrigan_zambon_conjecture_report.md))
+- **Referee Report:** [`defect-integrability/referee_report_theorem_D.md`](referee_report_theorem_D.md)
 - **Machine-Checked Formalization:** [`lean/DefectIntegrability.lean`](../lean/DefectIntegrability.lean) (Lean 4 `v4.35.0`, `lake build` passes with zero errors and zero `sorry`s)
 - **Date:** 16 October 2026
 
