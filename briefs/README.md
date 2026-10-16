@@ -85,6 +85,7 @@ Part VIII (`part8-defects/`, chapters 36–43) was planned, drafted, refereed an
 | `run_referee_agy.sh` | Runs a referee brief with a non-Claude model through the Antigravity CLI, in a throwaway copy of the repository; writes `briefs/<brief>_report.md` |
 | `corrigan_zambon_conjecture_report.md` | Formulations and complete proofs for the Corrigan–Zambon defect-integrability conjecture: verbatim literature quotes, Conjectures 1 and 2, and self-contained proofs of Theorems A, B, C and D (2026-10-16) |
 | `defect_integrability_paper.md` | Standalone paper on Theorem D: momentum-conserving defects as Ostrogradsky spatial Hamilton–Jacobi Lagrangian correspondences, symplectic intertwining, and the asymptotic jet recursion for local conservation laws, with a Lean 4 formalization in `lean/` (2026-10-16) |
+| `response_to_referee_theorem_D.md` | Point-by-point author response to the referee report on `defect_integrability_paper.md`, with line references and corresponding Lean 4 theorem names in `lean/DefectIntegrability.lean` (2026-10-16) |
 
 The book cites only the scripts in `textbook_code/` (`defect_*.py`, listed in `textbook_code/README.md`); the referee scripts are kept for reproducibility.
 
