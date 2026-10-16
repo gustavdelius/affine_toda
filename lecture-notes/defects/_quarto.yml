@@ -25,6 +25,7 @@ book:
     - 01-mirrors-and-windows.qmd
     - 02-backlund-machine.qmd
     - 03-freezing.qmd
+    - 04-what-gets-through.qmd
 
 bibliography:
   - ../../references.bib
