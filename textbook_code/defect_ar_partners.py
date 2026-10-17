@@ -38,7 +38,8 @@ Checks (book ids they support):
     couplings (for h = 2, rho = 1 and pi^{-1} = -1); a type-I_- soliton pair of species h - a mapped by (rho, pi rho)
     solves the type-I_+ conditions and not the type-I_- ones; the species-a soliton crosses type I_+ with
     z_a(theta_d - theta) = omega^a z_{h-a}(theta - theta_d).                              [prp-dc-types, prp-an-defect-delay]
- 7. Symmetries and the spin-2 charges: t -> -t maps the type-I_-(sigma) conditions to the type-I_+(1/sigma) ones;
+ 7. The cyclic rotation conjugates both bulk Lax matrices by the cyclic shift, preserving the local hierarchy
+    (h = 2..5, both couplings). Symmetries and the spin-2 charges: t -> -t maps the type-I_-(sigma) conditions to the type-I_+(1/sigma) ones;
     the composite with check 6 maps a type-I_-(sigma) soliton pair to a type-I_-(1/sigma) solution; the cubic
     invariant A(u) = 2 sum_k (mu_k.u)^3 of the spin-+-2 densities satisfies A(pi u) = A(u) and A(rho u) = -A(u).
                                                                                                          [prp-spin-two]
@@ -406,8 +407,29 @@ report("6. reflection: rho pi rho = pi^{-1}, rho D rho = D^T (the mirror defect)
        "couplings; mapped type-I_- soliton pairs solve type I_+ (not I_-); z_a(theta_d - theta) = omega^a z_{h-a}", ok6)
 
 # ---------------------------------------------------------------------------------------------------------
-# 7. time reversal, the composite map, and the cubic invariant
+# 7. cyclic invariance of the bulk hierarchy, time reversal, and the cubic invariant
+def bulk_lax_pair(S, field, plus, minus, b, lam):
+    """eq-lax-pair in the defining representation, with c_j = 1."""
+    h, U = S["h"], S["U"]
+    Ap = np.diag(b * (U @ plus) / 2).astype(complex)
+    Am = np.diag(-b * (U @ minus) / 2).astype(complex)
+    for j, alpha in enumerate(S["al"]):
+        weight = m * np.exp(b * (alpha @ field) / 2)
+        Ap[j, (j + 1) % h] += lam * weight
+        Am[(j + 1) % h, j] -= weight / lam
+    return Ap, Am
+
+
 ok7 = True
+for h in (2, 3, 4, 5):
+    S = ar_setup(h)
+    shift = np.roll(np.eye(h), -1, axis=0)
+    jets = rng.normal(size=(3, h - 1)) * 0.5
+    rotated = [S["pi"] @ v for v in jets]
+    for b in COUPLINGS.values():
+        original = bulk_lax_pair(S, *jets, b, 0.8 + 0.3j)
+        transformed = bulk_lax_pair(S, *rotated, b, 0.8 + 0.3j)
+        ok7 &= all(np.allclose(B, shift @ A @ shift.T) for A, B in zip(original, transformed))
 for h in (3, 4):
     S = ar_setup(h)
     D, E = S["D"], S["E"]
@@ -438,7 +460,7 @@ for h in (3, 4):
         u = rng.normal(size=h - 1)
         Acub = lambda v: 2 * sum((mu @ v)**3 for mu in S["mu"])
         ok7 &= np.isclose(Acub(pi @ u), Acub(u)) and np.isclose(Acub(rho @ u), -Acub(u))
-report("7. t -> -t maps the type-I_-(sigma) conditions to type I_+(1/sigma); with the reflection it maps a type-I_-(sigma) "
+report("7. pi conjugates both bulk Lax matrices by the cyclic shift (h = 2..5, both couplings); t -> -t maps the type-I_-(sigma) conditions to type I_+(1/sigma); with the reflection it maps a type-I_-(sigma) "
        "soliton pair to a type-I_-(1/sigma) solution; A(pi u) = A(u), A(rho u) = -A(u) for A(u) = 2 sum (mu_k.u)^3", ok7)
 
 raise SystemExit(0 if OK else 1)
