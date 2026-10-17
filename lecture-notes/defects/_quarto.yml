@@ -26,6 +26,7 @@ book:
     - 02-backlund-machine.qmd
     - 03-freezing.qmd
     - 04-what-gets-through.qmd
+    - 05-why-the-cycle.qmd
 
 bibliography:
   - ../../references.bib
