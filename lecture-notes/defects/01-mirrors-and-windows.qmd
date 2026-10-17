@@ -1,0 +1,569 @@
+# Mirrors and windows {#sec-mirrors-windows}
+
+::: {.callout-note appearance="simple" icon=false title="In this lecture"}
+- We ask what a line in spacetime can do to the particles of an integrable theory that meet it.
+- We solve the simplest example completely: a $\delta$-function defect in a free field, which both reflects and transmits.
+- We compare two histories of the same two-particle process and find that in an interacting theory a line cannot both reflect and transmit. It is a mirror or a window.
+- We derive the conditions that a window must satisfy: the triangle relation, unitarity, crossing and the bootstrap. We find that a particle is itself a window.
+- We solve the window of the scaling Lee–Yang model and meet the first excited window.
+- We see a window as an operator that commutes with the Hamiltonian, a symmetry line, and meet a symmetry that has no inverse.
+
+*Prerequisites:* the book's [scattering theory on the line](book:sec-integrable-qft) and [on the half-line](book:sec-boundary-scattering).
+:::
+
+## The question {#sec-l1-question}
+
+A boundary is a mirror. A particle that hits it comes back, with an amplitude $K(\theta)$ that the reflection equation, unitarity, crossing-unitarity and the bootstrap constrain so strongly that, for many boundaries, they fix it (see the book's [boundary scattering](book:sec-boundary-scattering)). Now do something less drastic. Keep the field on both sides of the point $x=0$, but let something special happen at that point. In a crystal this could be an impurity, a row of bonds with a different coupling, or the junction between two materials. In a field theory it is a term in the action that lives only at $x=0$. We call it a **defect**. What can a defect do to a particle that meets it?
+
+There are three possibilities, drawn in @fig-mirror-window. The defect can reflect every particle, as a boundary does. It can let every particle through, perhaps with a phase or with a change of its internal labels. Or it can do both, reflecting a particle with some amplitude $R$ and transmitting it with some amplitude $\mathbb T$. From quantum mechanics we expect the third possibility to be the generic one: a potential barrier reflects part of a wave and transmits the rest.
+
+![Three things a line can do. (a) A boundary reflects a particle of rapidity $\theta$ into rapidity $-\theta$. (b) A purely transmitting defect lets it through. (c) A $\delta$-function defect in a free field (@sec-l1-delta) does both, here with probabilities $|R|^2$ and $|\mathbb T|^2$ at $\theta=0.55$ and $g=1.1\,m$; the widths of the outgoing world lines are proportional to them. `textbook_code/lectures/defects_l1_f1_mirror_window.py` checks that $|R|^2+|\mathbb T|^2=1$ there and that the world lines have slopes $\pm\tanh\theta$.](figures/l1_mirror_window.svg){#fig-mirror-window fig-alt="Three space-time diagrams. Left: a particle world line hits a wall and comes back. Middle: a world line crosses a vertical defect line unchanged. Right: a world line hits a vertical defect line and splits into a reflected and a transmitted branch of similar thickness."}
+
+::: {.callout-tip title="Predict"}
+Which of the three possibilities can occur in an *interacting* integrable field theory, with infinitely many conserved charges? Write down your guess, and a reason, before you read on.
+:::
+
+::: {.callout-note title="Where the question comes from"}
+Delfino, Mussardo and Simonetti asked it in 1994, for statistical models with a line of defect [@delfino_mussardo_simonetti1994a; @delfino_mussardo_simonetti1994]. Their example was the Ising model at a temperature $T$, heated to a different temperature along one line of the lattice. In the continuum this adds to the action a term $g\int d^2r\,\delta(x)\,\epsilon(r)$, with $\epsilon$ the energy density. For the Ising model this coupling is marginal. Bariev, and McCoy and Perk, had found that the critical exponents of the magnetization near such a line then vary continuously with $g$. Delfino, Mussardo and Simonetti asked what the line does away from criticality, in the language of the scattering of the massive particles. They found the answer in this lecture.
+:::
+
+## A warm-up you already know: the $\delta$-function defect {#sec-l1-delta}
+
+Take a free real scalar field of mass $m$ and add a $\delta$-function at $x=0$:
+
+$$
+S=\int dt\int dx\,\Big[\tfrac12(\partial_t\phi)^2-\tfrac12(\partial_x\phi)^2-\tfrac12m^2\phi^2-\tfrac12\,g\,\delta(x)\,\phi^2\Big].
+$$ {#eq-l1-delta-action}
+
+The real constant $g$ is the strength of the defect. This is the bosonic example of Delfino, Mussardo and Simonetti [@delfino_mussardo_simonetti1994, Sec. 4]; we derive everything in our own normalization.
+
+**The defect conditions.** The Euler–Lagrange equation is
+
+$$
+\partial_t^2\phi-\partial_x^2\phi+m^2\phi+g\,\delta(x)\,\phi=0 .
+$$
+
+Away from $x=0$ this is the Klein–Gordon equation. At $x=0$ the $\delta$-function must be balanced by $\partial_x^2\phi$, so $\partial_x\phi$ jumps and $\phi$ is continuous; if $\phi$ itself jumped, $\partial_x^2\phi$ would contain the derivative of a $\delta$-function, which nothing else can balance. Integrate the equation over $-\epsilon<x<\epsilon$ and let $\epsilon\to0$. The terms $\partial_t^2\phi$ and $m^2\phi$ give nothing, because $\phi$ is bounded. What remains is
+
+$$
+\phi(0^-,t)=\phi(0^+,t),\qquad \partial_x\phi(0^+,t)-\partial_x\phi(0^-,t)=g\,\phi(0,t).
+$$ {#eq-l1-delta-conditions}
+
+These are the **defect conditions**. They are the whole effect of the defect.
+
+**Scattering a wave.** A particle of rapidity $\theta>0$ has energy $E=m\cosh\theta$ and momentum $p=m\sinh\theta$. Send a plane wave in from the left, and allow a reflected wave on the left and a transmitted wave on the right:
+
+$$
+\phi=e^{-iEt}\big(e^{ipx}+R\,e^{-ipx}\big)\quad(x<0),\qquad \phi=e^{-iEt}\,\mathbb T\,e^{ipx}\quad(x>0).
+$$
+
+Continuity gives $1+R=\mathbb T$. The jump condition gives $ip\,\mathbb T-ip(1-R)=g\,\mathbb T$. Substitute $R=\mathbb T-1$ into the second equation:
+
+$$
+ip\,\mathbb T-ip\,(2-\mathbb T)=g\,\mathbb T\quad\Longrightarrow\quad(2ip-g)\,\mathbb T=2ip .
+$$
+
+So
+
+$$
+\begin{aligned}
+\mathbb T(\theta)&=\frac{2ip}{2ip-g}=\frac{\sinh\theta}{\sinh\theta+\frac{ig}{2m}},\\
+R(\theta)&=\frac{g}{2ip-g}=-\frac{\frac{ig}{2m}}{\sinh\theta+\frac{ig}{2m}} .
+\end{aligned}
+$$ {#eq-l1-delta-rt}
+
+For the second forms, divide numerator and denominator by $2im$ and use $1/i=-i$. In a free theory the field is a superposition of such waves, and the amplitudes of the one-particle states are the amplitudes of the classical waves. So (-@eq-l1-delta-rt) is the exact quantum answer. You may recognize it: with $p$ in place of $m\sinh\theta$, it is the textbook result for a quantum-mechanical particle scattering off a $\delta$-potential.
+
+**What the amplitudes satisfy.** Write $s=\sinh\theta$ and $c=ig/2m$, so that $\mathbb T(\theta)=s/(s+c)$ and $R(\theta)=-c/(s+c)$. Since $\sinh(-\theta)=-s$,
+
+$$
+\mathbb T(-\theta)=\frac{s}{s-c},\qquad R(-\theta)=\frac{c}{s-c}.
+$$
+
+Multiply out:
+
+$$
+\begin{aligned}
+R(\theta)R(-\theta)+\mathbb T(\theta)\mathbb T(-\theta)&=\frac{-c^2+s^2}{s^2-c^2}=1,\\
+R(\theta)\mathbb T(-\theta)+\mathbb T(\theta)R(-\theta)&=\frac{-cs+sc}{s^2-c^2}=0 .
+\end{aligned}
+$$ {#eq-l1-delta-unitarity}
+
+For real $\theta$ and real $g$, $c$ is imaginary, and
+
+$$
+|\mathbb T|^2=\frac{s^2}{s^2+g^2/4m^2},\qquad |R|^2=\frac{g^2/4m^2}{s^2+g^2/4m^2},\qquad |R|^2+|\mathbb T|^2=1 .
+$$
+
+The last identity is conservation of probability. The two identities (-@eq-l1-delta-unitarity) look less familiar. We will see in @sec-l1-algebra that they hold for any defect, and that they are not statements about probability at all.
+
+**Bound states and resonances.** $\mathbb T$ and $R$ have a pole where $\sinh\theta=-ig/2m$. For an attractive defect, $-2m<g<0$, the pole lies on the imaginary axis at $\theta=iu$ with
+
+$$
+\sin u=\frac{|g|}{2m},\qquad 0<u<\frac\pi2 .
+$$
+
+At $\theta=iu$ the "particle" has energy $E=m\cosh(iu)=m\cos u$, below the threshold $m$. It is a particle bound to the defect. Check this against quantum mechanics: a solution $\phi=e^{-iEt}e^{-\kappa|x|}$ localized at the defect has $-2\kappa=g$ from the jump, and $E^2=m^2-\kappa^2=m^2-g^2/4$ from the Klein–Gordon equation. Indeed $m^2\cos^2u=m^2-m^2\sin^2u=m^2-g^2/4$.
+
+@fig-delta-poles follows the pole as $g$ varies. For $g<-2m$ it leaves the imaginary axis along $\operatorname{Im}\theta=\pi/2$. There $\cosh\theta$ is imaginary, so the "bound state" has an imaginary energy: the defect has made the vacuum unstable, as $E^2=m^2-g^2/4<0$ says. For a repulsive defect, $g>0$, the pole lies on the negative imaginary axis, outside the region where bound states live, and for $g>2m$ the pair of poles moves along $\operatorname{Im}\theta=-\pi/2$. Delfino, Mussardo and Simonetti call the poles of a strongly repulsive defect resonances, and point out that a strongly attractive one makes the theory unstable [@delfino_mussardo_simonetti1994, Sec. 4].
+
+![The poles of the $\delta$-defect. (a) As $g$ decreases from $0$ to $-2m$, a pole of $\mathbb T$ climbs the imaginary axis from $0$ to $i\pi/2$ through the physical strip $0<\operatorname{Im}\theta<\pi/2$ of the defect (green): a bound state. For $g<-2m$ the poles move along $\operatorname{Im}\theta=\pi/2$, where the energy is imaginary. For $g>0$ a pole descends below the real axis, and for $g>2m$ the poles move along $\operatorname{Im}\theta=-\pi/2$. The partner poles at $i\pi-\theta$ are drawn faintly. (b) The energy $m\cos u$ of the bound state at $\theta=iu$ against $-g/2m$, and the quantum-mechanical value $\sqrt{m^2-g^2/4}$. `textbook_code/lectures/defects_l1_f2_delta_poles.py` checks that every plotted pole satisfies $2im\sinh\theta=g$, that a pole is in the physical strip exactly for $-2m<g<0$, and the bound-state energy.](figures/l1_delta_poles.svg){#fig-delta-poles fig-alt="Left: the complex rapidity plane with a green band between imaginary parts 0 and pi/2. A blue pole trajectory rises along the imaginary axis to pi/2 and then runs horizontally both ways; a red one descends to minus pi/2 and then runs horizontally both ways. Right: a quarter-circle-like curve of the bound-state energy falling from 1 to 0, with orange dots on it."}
+
+Two more features are worth noting. As $\theta\to\infty$, $\mathbb T\to1$ and $R\to0$: a fast particle does not notice the defect. As $g\to+\infty$, $\mathbb T\to0$ and $R\to-1$: the defect becomes the Dirichlet condition $\phi(0)=0$, and the line falls apart into two mirrors (@exr-l1-delta).
+
+So, in a free theory, a defect can be both a mirror and a window. Hold on to that, and note what made it easy: the bulk S-matrix of a free boson is $S=1$.
+
+## The algebra of a line {#sec-l1-algebra}
+
+For an interacting theory we cannot solve wave equations; we need the bookkeeping of the Zamolodchikov–Faddeev algebra (see the book's [exchange relation](book:eq-zf-algebra)). Recall the idea. An operator $A_a(\theta)$ creates a particle of species $a$ and rapidity $\theta$, and a product of such operators, read from left to right, creates particles in that spatial order. An in-state has the fastest particle furthest to the left: $A_a(\theta_1)A_b(\theta_2)|0\rangle$ with $\theta_1>\theta_2$. Reordering two neighbours is scattering:
+
+$$
+A_a(\theta_1)A_b(\theta_2)=S_{ab}^{cd}(\theta_1-\theta_2)\,A_d(\theta_2)A_c(\theta_1),
+$$
+
+summed over repeated indices. Ghoshal and Zamolodchikov added an operator $B$ for a boundary (see the book's [boundary exchange relation](book:eq-boundary-zf)). Delfino, Mussardo and Simonetti added an operator $D$ for a defect [@delfino_mussardo_simonetti1994]. The particles to the left of $D$ are on the left of the defect, those to the right of $D$ on its right. If the defect has internal states, they span a **defect space** $\mathcal W$, and $D_\alpha$ creates the defect in the state $\alpha$.
+
+A particle on the left of the defect, moving towards it, has positive rapidity. A particle on the right, moving towards it, has negative rapidity. When it meets the defect, a particle can be reflected or transmitted:
+
+$$
+\begin{aligned}
+A_a(\theta)\,D_\alpha&=R_{a\alpha}^{b\beta}(\theta)\,A_b(-\theta)\,D_\beta+\mathbb T_{a\alpha}^{\beta b}(\theta)\,D_\beta\,A_b(\theta),\\
+D_\alpha\,A_a(-\theta)&=\bar R_{\alpha a}^{\beta b}(\theta)\,D_\beta\,A_b(\theta)+\bar{\mathbb T}_{\alpha a}^{b\beta}(\theta)\,A_b(-\theta)\,D_\beta ,
+\end{aligned}\qquad\theta>0 .
+$$ {#eq-l1-defect-zf}
+
+Lower indices label the incoming particle and defect state, upper indices the outgoing ones, each pair in spatial order. The first line describes a particle of rapidity $\theta$ arriving from the left. The second describes a particle of rapidity $-\theta$ arriving from the right; we label its amplitudes by $\theta>0$. If the defect is invariant under parity, $\bar R=R$ and $\bar{\mathbb T}=\mathbb T$, as for the $\delta$-defect. For most of the defects in these lectures it is not.
+
+**Unitarity, by doing it twice.** Take a defect without internal states, so that the amplitudes are numbers, and a single species, so that we can drop the labels. Treat (-@eq-l1-defect-zf) as valid for all $\theta$, by analytic continuation. Apply the first relation to $A(\theta)D$:
+
+$$
+A(\theta)D=R(\theta)\,A(-\theta)D+\mathbb T(\theta)\,D\,A(\theta).
+$$
+
+Now expand the two terms on the right again. The first relation at $-\theta$ gives $A(-\theta)D=R(-\theta)\,A(\theta)D+\mathbb T(-\theta)\,D\,A(-\theta)$. The second relation at $-\theta$ gives $D\,A(\theta)=\bar R(-\theta)\,D\,A(-\theta)+\bar{\mathbb T}(-\theta)\,A(\theta)D$. Substituting both,
+
+$$
+\begin{aligned}
+A(\theta)D={}&\big[R(\theta)R(-\theta)+\mathbb T(\theta)\bar{\mathbb T}(-\theta)\big]\,A(\theta)D\\
+&+\big[R(\theta)\mathbb T(-\theta)+\mathbb T(\theta)\bar R(-\theta)\big]\,D\,A(-\theta).
+\end{aligned}
+$$
+
+The two words $A(\theta)D$ and $D\,A(-\theta)$ are independent, so
+
+$$
+R(\theta)R(-\theta)+\mathbb T(\theta)\bar{\mathbb T}(-\theta)=1,\qquad R(\theta)\mathbb T(-\theta)+\mathbb T(\theta)\bar R(-\theta)=0 ,
+$$ {#eq-l1-unitarity}
+
+and the same two relations with the bars exchanged [@delfino_mussardo_simonetti1994, eq. (2.8)]. For the parity-invariant $\delta$-defect these are exactly (-@eq-l1-delta-unitarity). We now see where they come from: they say that the exchange relations are consistent, that reordering twice gets you back where you started. Like braiding unitarity $S(\theta)S(-\theta)=1$ in the bulk, they are not statements about probability.
+
+## Two particles, two histories {#sec-l1-two-histories}
+
+Now the key calculation. Send two particles $a$ and $b$ towards the defect from the left, with rapidities $\theta_1>\theta_2>0$, $a$ behind $b$. The in-state is $A_a(\theta_1)A_b(\theta_2)D$. Make three simplifying assumptions, which we will revisit:
+
+1. the bulk scattering is **diagonal**: $A_a(\theta)A_b(\theta')=S_{ab}(\theta-\theta')\,A_b(\theta')A_a(\theta)$, with a number $S_{ab}$;
+2. the defect has **no internal states**;
+3. reflection and transmission **keep the species**: $R_a$ and $\mathbb T_a$ are numbers.
+
+**Why there are two histories.** A conserved charge of spin $s>1$ acts on a wave packet by a translation that depends on its momentum (see the book's [factorization argument](book:sec-factorization)). The charges therefore let us move particle $b$ relative to particle $a$ without changing the amplitude. Moving $b$ changes the order in which things happen. If $b$ starts close to the defect, it reaches the defect before $a$ catches up with it. If $b$ starts further back, $a$ overtakes it first. Factorization says that the two orders give the same amplitude for every out-state. In the algebra, this is the statement that the result of reducing $A_a(\theta_1)A_b(\theta_2)D$ to out-states does not depend on the order in which we apply the exchange relations.
+
+**History (i): $b$ meets the defect first.** Apply the defect relation to $A_b(\theta_2)D$:
+
+$$
+\begin{aligned}
+A_a(\theta_1)A_b(\theta_2)D={}&R_b(\theta_2)\,A_a(\theta_1)A_b(-\theta_2)D\\
+&+\mathbb T_b(\theta_2)\,A_a(\theta_1)D\,A_b(\theta_2).
+\end{aligned}
+$$
+
+*First term.* $b$ now moves left and $a$ right, so they meet head on, at rapidity difference $\theta_1-(-\theta_2)=\theta_1+\theta_2$: $A_a(\theta_1)A_b(-\theta_2)=S_{ab}(\theta_1+\theta_2)A_b(-\theta_2)A_a(\theta_1)$. Then $a$ meets the defect: $A_a(\theta_1)D=R_a(\theta_1)A_a(-\theta_1)D+\mathbb T_a(\theta_1)D\,A_a(\theta_1)$. If $a$ is reflected, it moves left faster than $b$ and overtakes it, at rapidity difference $(-\theta_2)-(-\theta_1)=\theta_1-\theta_2$: $A_b(-\theta_2)A_a(-\theta_1)=S_{ba}(\theta_1-\theta_2)A_a(-\theta_1)A_b(-\theta_2)$. The first term therefore gives
+
+$$
+\begin{aligned}
+&R_bS_{ab}(\theta_1+\theta_2)R_aS_{ba}(\theta_1-\theta_2)\;A_a(-\theta_1)A_b(-\theta_2)D\\
+&+R_bS_{ab}(\theta_1+\theta_2)\mathbb T_a\;A_b(-\theta_2)D\,A_a(\theta_1).
+\end{aligned}
+$$
+
+*Second term.* $b$ has crossed. Now $a$ meets the defect. If $a$ is reflected, the particles never meet. If $a$ is transmitted, it overtakes $b$ on the right: $A_a(\theta_1)A_b(\theta_2)=S_{ab}(\theta_1-\theta_2)A_b(\theta_2)A_a(\theta_1)$. The second term gives
+
+$$
+\mathbb T_bR_a\;A_a(-\theta_1)D\,A_b(\theta_2)+\mathbb T_b\mathbb T_aS_{ab}(\theta_1-\theta_2)\;D\,A_b(\theta_2)A_a(\theta_1).
+$$
+
+Here and below the arguments are $R_a=R_a(\theta_1)$, $\mathbb T_a=\mathbb T_a(\theta_1)$, $R_b=R_b(\theta_2)$, $\mathbb T_b=\mathbb T_b(\theta_2)$.
+
+**History (ii): the particles meet first.** $a$ overtakes $b$ before either reaches the defect: $A_a(\theta_1)A_b(\theta_2)D=S_{ab}(\theta_1-\theta_2)\,A_b(\theta_2)A_a(\theta_1)D$. Now $a$ is next to the defect.
+
+*If $a$ is reflected,* it meets $b$ head on, at rapidity difference $\theta_2+\theta_1$: $A_b(\theta_2)A_a(-\theta_1)=S_{ba}(\theta_1+\theta_2)A_a(-\theta_1)A_b(\theta_2)$. Then $b$ meets the defect and is reflected or transmitted.
+
+*If $a$ is transmitted,* $b$ meets the defect next, and the particles do not meet again.
+
+Collecting, history (ii) gives
+
+$$
+\begin{aligned}
+&S_{ab}(\theta_1-\theta_2)R_aS_{ba}(\theta_1+\theta_2)R_b\;A_a(-\theta_1)A_b(-\theta_2)D\\
+&+S_{ab}(\theta_1-\theta_2)R_aS_{ba}(\theta_1+\theta_2)\mathbb T_b\;A_a(-\theta_1)D\,A_b(\theta_2)\\
+&+S_{ab}(\theta_1-\theta_2)\mathbb T_aR_b\;A_b(-\theta_2)D\,A_a(\theta_1)\\
+&+S_{ab}(\theta_1-\theta_2)\mathbb T_a\mathbb T_b\;D\,A_b(\theta_2)A_a(\theta_1).
+\end{aligned}
+$$
+
+**Compare.** Both histories end in the same four out-states, and factorization demands the same coefficient for each:
+
+| out-state | history (i) | history (ii) |
+|---|---|---|
+| both reflected | $R_aR_b\,S_{ab}(\theta_1+\theta_2)S_{ba}(\theta_1-\theta_2)$ | $R_aR_b\,S_{ab}(\theta_1-\theta_2)S_{ba}(\theta_1+\theta_2)$ |
+| $a$ reflected, $b$ transmitted | $R_a\mathbb T_b$ | $R_a\mathbb T_b\,S_{ab}(\theta_1-\theta_2)S_{ba}(\theta_1+\theta_2)$ |
+| $b$ reflected, $a$ transmitted | $R_b\mathbb T_a\,S_{ab}(\theta_1+\theta_2)$ | $R_b\mathbb T_a\,S_{ab}(\theta_1-\theta_2)$ |
+| both transmitted | $\mathbb T_a\mathbb T_b\,S_{ab}(\theta_1-\theta_2)$ | $\mathbb T_a\mathbb T_b\,S_{ab}(\theta_1-\theta_2)$ |
+
+: The coefficients of the four out-states in the two histories, for diagonal scattering and a defect without internal states. {#tbl-l1-histories}
+
+Read the table row by row, and look at @fig-histories.
+
+- **Both transmitted.** The coefficients agree identically. In both histories the particles meet once, as $a$ overtakes $b$, at rapidity difference $\theta_1-\theta_2$. They merely do so on different sides of the defect.
+- **Both reflected.** The coefficients agree if $S_{ab}=S_{ba}$, which parity guarantees. This row is the reflection equation of a boundary, which is empty for diagonal scattering.
+- **$b$ reflected, $a$ transmitted.** In history (i) the particles meet head on, at $\theta_1+\theta_2$. In history (ii) $a$ overtakes $b$, at $\theta_1-\theta_2$. Two different collisions, at two different rapidity differences, must give the same amplitude:
+$$
+R_b(\theta_2)\,\mathbb T_a(\theta_1)\,\big[S_{ab}(\theta_1+\theta_2)-S_{ab}(\theta_1-\theta_2)\big]=0 .
+$$
+- **$a$ reflected, $b$ transmitted.** In history (i) the particles never meet. In history (ii) they meet twice. So
+$$
+R_a(\theta_1)\,\mathbb T_b(\theta_2)\,\big[1-S_{ab}(\theta_1-\theta_2)\,S_{ba}(\theta_1+\theta_2)\big]=0 .
+$$
+
+![Two particles, two histories. Top: the out-state in which $b$ is reflected and $a$ transmitted. In (i) $b$ reaches the defect first, is reflected, and meets $a$ head on, at rapidity difference $\theta_1+\theta_2$. In (ii) $a$ overtakes $b$ first, at $\theta_1-\theta_2$. The two histories differ only by the starting position of $b$, so factorization demands $S(\theta_1+\theta_2)=S(\theta_1-\theta_2)$. Bottom: the out-state in which both are transmitted. Now both histories contain the same collision, $a$ overtaking $b$ at $\theta_1-\theta_2$, on the left of the defect in (iii) and on its right in (iv); there is no contradiction, only the triangle relation of @sec-l1-triangle. The dashed line marks a defect that both reflects and transmits; the solid purple line a window. Here $\theta_1=1$ and $\theta_2=0.45$. `textbook_code/lectures/defects_l1_f3_histories.py` computes the order of events, the rapidity difference at each collision and the side of the defect on which it happens from the world lines.](figures/l1_histories.svg){#fig-histories fig-alt="Four space-time diagrams with a vertical defect line. Top left: a slow red particle reflects off the defect and then crosses a fast blue particle head-on before the blue one passes the defect. Top right: the blue particle overtakes the red one, then passes the defect, and the red one reflects. Bottom left: the blue particle overtakes the red one before the defect and both pass. Bottom right: both pass the defect and the blue one overtakes the red one on the right."}
+
+The conclusion is now a short argument.
+
+::: {#thm-l1-nogo}
+## Mirror or window
+**[Theorem]** Assume diagonal bulk scattering, a defect without internal states, label-preserving reflection and transmission, and meromorphic amplitudes. If $R_b\not\equiv0$ and $\mathbb T_a\not\equiv0$, then $S_{ab}(\theta)$ is constant. If $R_a\not\equiv0$ and $\mathbb T_b\not\equiv0$, then $S_{ab}(\theta_1-\theta_2)\,S_{ba}(\theta_1+\theta_2)=1$. In particular, a particle that is both reflected and transmitted has $S_{aa}=\pm1$. If every $S_{ab}$ depends on the rapidity, the defect is either purely reflecting or purely transmitting.
+:::
+
+::: {.proof}
+A product of meromorphic functions that vanishes on an open set vanishes identically only if one of the factors does. So if $R_b\mathbb T_a\not\equiv0$, then $S_{ab}(\theta_1+\theta_2)=S_{ab}(\theta_1-\theta_2)$ for all $\theta_1>\theta_2>0$. Given $0<u<v$, choose $\theta_1=\frac{v+u}2$ and $\theta_2=\frac{v-u}2$; then $S_{ab}(v)=S_{ab}(u)$. So $S_{ab}$ is constant on the positive real axis, and, being meromorphic, constant everywhere. The second statement is the last row of @tbl-l1-histories in the same way. For $a=b$ both apply, and the constant $S_{aa}$ satisfies $S_{aa}^2=1$.
+:::
+
+This is the no-go result of Delfino, Mussardo and Simonetti [@delfino_mussardo_simonetti1994, Sec. 2]. They assumed parity; as you can check, the argument does not need it. The book's [statement](book:prp-rt-nogo) gives it with the same assumptions, and the [discussion that follows it](book:sec-rt-algebra) describes how Castro-Alvaredo, Fring and Göhmann removed the first two assumptions [@cafg2002], and what is still open.
+
+The free examples are consistent with the theorem: the free boson has $S=1$, and the free Majorana fermion of the Ising model has $S=-1$, which is why Delfino, Mussardo and Simonetti could find an Ising defect that both reflects and transmits (@exr-l1-ising). In an interacting integrable theory, such as sinh-Gordon or Lee–Yang, the amplitude depends on the rapidity, and a line must choose: it is a mirror or a window. A mirror is a pair of boundaries, one for each half-line, and the book's part on the half-line covers it. From now on we study windows.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+`textbook_code/lectures/defects_l1_mirrors_windows.py`, item (c), implements the exchange relations as a rewriting system on words of $A$'s and $D$'s, with symbolic amplitudes. It reduces $A_a(\theta_1)A_b(\theta_2)D$ once with defect moves first and once with bulk moves first, prints the coefficients of @tbl-l1-histories, and checks the four differences. As a numerical illustration, it also shows that the $\delta$-defect amplitudes combined with the Lee–Yang $S$-matrix violate the mixed rows.
+:::
+
+## Windows conserve momentum {#sec-l1-momentum}
+
+The theorem says what a line cannot do. Here is a criterion, in terms of conserved charges, for what it does.
+
+**Charges at a defect.** Let a bulk charge $Q_s$ of spin $s$ have a density $q_s$ and a flux $j_s$, with $\partial_tq_s=\partial_xj_s$. With the defect, integrate the density over both half-lines: $Q_s=\int_{-\infty}^0q_s\,dx+\int_0^\infty q_s\,dx$. The fields decay at $x\to\pm\infty$, so
+
+$$
+\frac{dQ_s}{dt}=\int_{-\infty}^0\partial_xj_s\,dx+\int_0^\infty\partial_xj_s\,dx=j_s(0^-,t)-j_s(0^+,t).
+$$
+
+The flux into the defect from the left minus the flux out of it on the right is what changes $Q_s$. If this difference is a total time derivative, $j_s(0^-)-j_s(0^+)=-\frac d{dt}\Sigma_s$ with $\Sigma_s$ a function of the fields at $x=0$, then $Q_s+\Sigma_s$ is conserved: the defect stores a contribution $\Sigma_s$ of its own. At a boundary only the combinations $Q_s+Q_{-s}$ of the charges of spin $\pm s$ can survive, because a reflected particle has the opposite rapidity (see the book's [boundary kinematics](book:sec-half-line-kinematics)). At a defect $Q_s$ and $Q_{-s}$ can survive separately. For $s=1$ these are $E+P$ and $E-P$. So the question is whether the defect conserves a **modified momentum** $P+P_d$ as well as a modified energy $E+E_d$.
+
+**A momentum-conserving defect cannot reflect.** Suppose $P+P_d$ is conserved, and the defect has a discrete set of states, with energies $e_\alpha$ and momenta $p_\alpha$. Reflect a particle of rapidity $\theta$, while the defect goes from state $\alpha$ to state $\beta$. Energy conservation gives $e_\beta=e_\alpha$, since the reflected particle has the same energy $m\cosh\theta$. Momentum conservation gives $p_\beta-p_\alpha=2m\sinh\theta$, since the particle's momentum has changed sign. For a continuum of rapidities $\theta$ the second equation cannot hold with a discrete set of $p_\beta$. So no particle is reflected, and every particle keeps its rapidity. Conversely, a window conserves the momentum of the asymptotic states.
+
+So windows and momentum conservation go together. In Lecture 3 we will turn this around and use momentum conservation to *find* the windows of a Lagrangian theory. A defect that conserves both energy and momentum can be moved, in space and in time, without changing anything except where it crosses other insertions. Such a defect is called **topological**. We come back to this in @sec-l1-operators.
+
+## The triangle relation {#sec-l1-triangle}
+
+For a window the table has only one row left, the last one, and for diagonal scattering it is empty. But for multiplets of particles, such as the soliton doublet of sine-Gordon theory, and for windows with internal states, the last row is a real constraint. Let us derive it.
+
+::: {.callout-tip title="Predict"}
+In the bottom row of @fig-histories both histories contain the same collision, once on each side of the defect. What equation do you expect when the particles can exchange labels in the collision and the defect can change its internal state?
+:::
+
+Now $S_{ab}^{cd}$ and the transmission amplitudes $\mathbb T_{a\alpha}^{\beta b}$ are matrices. We keep only transmission:
+
+$$
+A_a(\theta_1)A_b(\theta_2)=S_{ab}^{cd}(\theta_1-\theta_2)A_d(\theta_2)A_c(\theta_1),\qquad
+A_a(\theta)\,D_\alpha=\mathbb T_{a\alpha}^{\beta b}(\theta)\,D_\beta\,A_b(\theta).
+$$
+
+**History (iii): $b$ crosses first.** $A_a(\theta_1)A_b(\theta_2)D_\alpha=\mathbb T_{b\alpha}^{\beta d}(\theta_2)\,A_a(\theta_1)D_\beta A_d(\theta_2)$. Then $a$ crosses: $A_a(\theta_1)D_\beta=\mathbb T_{a\beta}^{\gamma c}(\theta_1)D_\gamma A_c(\theta_1)$. Finally $a$ overtakes $b$ on the right: $A_c(\theta_1)A_d(\theta_2)=S_{cd}^{fe}(\theta_1-\theta_2)A_e(\theta_2)A_f(\theta_1)$. The coefficient of $D_\gamma A_e(\theta_2)A_f(\theta_1)$ is
+
+$$
+\mathbb T_{b\alpha}^{\beta d}(\theta_2)\,\mathbb T_{a\beta}^{\gamma c}(\theta_1)\,S_{cd}^{fe}(\theta_1-\theta_2).
+$$
+
+**History (iv): the particles meet first.** $A_a(\theta_1)A_b(\theta_2)D_\alpha=S_{ab}^{cd}(\theta_1-\theta_2)A_d(\theta_2)A_c(\theta_1)D_\alpha$. Then $c$ crosses, $A_c(\theta_1)D_\alpha=\mathbb T_{c\alpha}^{\beta f}(\theta_1)D_\beta A_f(\theta_1)$, and then $d$ crosses, $A_d(\theta_2)D_\beta=\mathbb T_{d\beta}^{\gamma e}(\theta_2)D_\gamma A_e(\theta_2)$. The coefficient of the same out-state is
+
+$$
+S_{ab}^{cd}(\theta_1-\theta_2)\,\mathbb T_{c\alpha}^{\beta f}(\theta_1)\,\mathbb T_{d\beta}^{\gamma e}(\theta_2).
+$$
+
+Factorization equates them, for all external labels $a,b,\alpha,\gamma,e,f$:
+
+$$
+\mathbb T_{b\alpha}^{\beta d}(\theta_2)\,\mathbb T_{a\beta}^{\gamma c}(\theta_1)\,S_{cd}^{fe}(\theta_1-\theta_2)
+=S_{ab}^{cd}(\theta_1-\theta_2)\,\mathbb T_{c\alpha}^{\beta f}(\theta_1)\,\mathbb T_{d\beta}^{\gamma e}(\theta_2),
+$$ {#eq-l1-triangle-index}
+
+summed over $\beta,c,d$. This is the **triangle relation** [@konik_leclair1999; @bcz2005]. (The book's [index form](book:eq-triangle-st) writes the two sides in the other order.)
+
+**In the language of maps.** Index equations are hard to read. Let the multiplet of rapidity $\theta$ be a vector space $V(\theta)$ with basis $v_a$, and the defect space $\mathcal W$ have basis $w_\alpha$. Read a product of creation operators as a tensor product in spatial order. Then the exchange relations define linear maps
+
+$$
+\check S(\theta_1-\theta_2):V(\theta_1)\otimes V(\theta_2)\to V(\theta_2)\otimes V(\theta_1),\qquad \check S(v_a\otimes v_b)=S_{ab}^{cd}\,v_d\otimes v_c,
+$$
+$$
+\mathbb T(\theta):V(\theta)\otimes\mathcal W\to\mathcal W\otimes V(\theta),\qquad \mathbb T(v_a\otimes w_\alpha)=\mathbb T_{a\alpha}^{\beta b}\,w_\beta\otimes v_b .
+$$
+
+A subscript says on which two tensor factors a map acts: $\mathbb T_{23}$ acts on the second and third, and so on. History (iii) is then the composite $\check S_{23}\,\mathbb T_{12}(\theta_1)\,\mathbb T_{23}(\theta_2)$, read from the right: first $b$ (in the second slot) crosses the defect (in the third), then $a$ crosses, then the two particles, now in slots 2 and 3, scatter. History (iv) is $\mathbb T_{12}(\theta_2)\,\mathbb T_{23}(\theta_1)\,\check S_{12}$. The triangle relation is
+
+$$
+\check S_{23}(\theta_1-\theta_2)\,\mathbb T_{12}(\theta_1)\,\mathbb T_{23}(\theta_2)=\mathbb T_{12}(\theta_2)\,\mathbb T_{23}(\theta_1)\,\check S_{12}(\theta_1-\theta_2),
+$$ {#eq-l1-triangle}
+
+both sides mapping $V(\theta_1)\otimes V(\theta_2)\otimes\mathcal W$ to $\mathcal W\otimes V(\theta_2)\otimes V(\theta_1)$. Each side contains exactly one bulk scattering, so a scalar factor in $\check S$ drops out, and we may use the R-matrix $\check R$ of the book's [quantum-group chapters](book:sec-trigonometric-r) in place of $\check S$. The book proves that the forms agree as [three forms of one equation](book:prp-triangle-forms); you can do it in @exr-l1-forms.
+
+Compare with the [Yang–Baxter equation in braid form](book:eq-ybe-braid). It has the same shape, with three particles. In the triangle relation one of the three world lines has been replaced by the vertical line of the defect.
+
+## A particle is a window {#sec-l1-particle-window}
+
+The comparison suggests an experiment. Take the defect space to be a multiplet, $\mathcal W=V(\theta_d)$, and the transmission matrix to be the R-matrix,
+
+$$
+\mathbb T(\theta)=\check R(\theta-\theta_d):V(\theta)\otimes V(\theta_d)\to V(\theta_d)\otimes V(\theta).
+$$
+
+Substitute into (-@eq-l1-triangle):
+
+$$
+\check R_{23}(\theta_1-\theta_2)\,\check R_{12}(\theta_1-\theta_d)\,\check R_{23}(\theta_2-\theta_d)=\check R_{12}(\theta_2-\theta_d)\,\check R_{23}(\theta_1-\theta_d)\,\check R_{12}(\theta_1-\theta_2).
+$$
+
+This is the braid Yang–Baxter equation for three particles of rapidities $\theta_1$, $\theta_2$ and $\theta_d$, so it holds. A particle of rapidity $\theta_d$, drawn as a vertical line, is a window [@bajnok_george2006].
+
+For diagonal scattering the same observation says that
+
+$$
+\mathbb T_a(\theta)=S_{ae}(\theta-\theta_d),\qquad\bar{\mathbb T}_a(\theta)=S_{ea}(\theta+\theta_d)
+$$ {#eq-l1-standing-particle}
+
+is the transmission of a window that imitates a particle of species $e$ and rapidity $\theta_d$. The second formula follows in the same way: a particle of rapidity $-\theta$ arriving from the right meets the imitated particle, which stands to its left, at rapidity difference $\theta_d-(-\theta)=\theta+\theta_d$.
+
+This is more than a curiosity. Under a boost by $\vartheta$ every rapidity shifts by $\vartheta$. A window at rest is not boost invariant, so its amplitudes need not depend on $\theta$ only through differences. But the Lagrangian windows of these lectures have a parameter $\theta_d$ that behaves like a rapidity: a moving window carries the energy and momentum of a window at rest whose $\theta_d$ has been shifted by the boost [@bcz2005, Sec. 6]. Their amplitudes depend on $\theta-\theta_d$, as if the window were a particle of rapidity $\theta_d$. We call $\theta_d$ the **defect rapidity**. In Lecture 3 we will find where it comes from: the defect rapidity of a Lagrangian window is the parameter of a Bäcklund transformation, which is a rapidity in disguise.
+
+## Unitarity and crossing for windows {#sec-l1-unitarity-crossing}
+
+For a window, $R=\bar R=0$, and the unitarity relations (-@eq-l1-unitarity) become
+
+$$
+\mathbb T(\theta)\,\bar{\mathbb T}(-\theta)=1 .
+$$ {#eq-l1-window-unitarity}
+
+With internal states and multiplets this is the matrix statement $\bar{\mathbb T}(-\theta)\,\mathbb T(\theta)=1$, with $\bar{\mathbb T}(\theta):\mathcal W\otimes V(-\theta)\to V(-\theta)\otimes\mathcal W$. It relates transmission from the left to transmission from the right at the opposite rapidity.
+
+**Crossing.** In the bulk, turning an incoming particle into an outgoing antiparticle continues the amplitude to $i\pi-\theta$. Do the same with a window. Turn the incoming particle $a$ on the left into an outgoing antiparticle $\bar a$ on the left, and the outgoing particle $b$ on the right into an incoming antiparticle $\bar b$ on the right. The process becomes transmission of $\bar b$ from the right to the left. This suggests
+
+$$
+\mathbb T_{a\alpha}^{\beta b}(\theta)=\bar{\mathbb T}_{\alpha\bar b}^{\,\bar a\beta}(i\pi-\theta),
+$$ {#eq-l1-window-crossing}
+
+with the defect labels unchanged. Delfino, Mussardo and Simonetti assumed this, and Konik and LeClair required it [@delfino_mussardo_simonetti1994; @konik_leclair1999]. Bajnok and George derived it from the crossing-unitarity of a boundary, by folding the line at the defect [@bajnok_george2006], and we will repeat their derivation in Lecture 9. For a single self-conjugate particle without defect states, (-@eq-l1-window-crossing) reads $\mathbb T(\theta)=\bar{\mathbb T}(i\pi-\theta)$. Combined with unitarity at $\theta+i\pi$ it gives a condition on $\mathbb T$ alone:
+
+$$
+\mathbb T(\theta)\,\mathbb T(\theta+i\pi)=\mathbb T(\theta)\,\bar{\mathbb T}(-\theta)=1 .
+$$ {#eq-l1-window-combined}
+
+Check the window that imitates a particle, (-@eq-l1-standing-particle), for a single self-conjugate species with $S(\theta)S(-\theta)=1$ and $S(i\pi-\theta)=S(\theta)$. Unitarity: $\mathbb T(\theta)\bar{\mathbb T}(-\theta)=S(\theta-\theta_d)S(-\theta+\theta_d)=1$. Crossing: $\bar{\mathbb T}(i\pi-\theta)=S(i\pi-\theta+\theta_d)=S(i\pi-(\theta-\theta_d))=S(\theta-\theta_d)=\mathbb T(\theta)$. Both follow from the bulk properties of $S$.
+
+**Window CDD factors.** If $\mathbb T$ satisfies the conditions, so does $\Phi(\theta)\mathbb T(\theta)$, with $\bar{\mathbb T}$ multiplied by $\Phi(i\pi-\theta)$, whenever $\Phi(\theta)\Phi(\theta+i\pi)=1$. Compare a boundary, where crossing-unitarity contains the bulk amplitude $S(2\theta)$, because a reflected particle meets its own image, and the remaining freedom is the bulk CDD ambiguity in the variable $\theta$ (see the book's [boundary CDD factors](book:sec-boundary-unitarity-crossing)). A transmitted particle does not meet itself, so no $S$ appears in (-@eq-l1-window-combined). The freedom is larger. Every shifted bulk factor $f_x(\theta-\theta_0)$ of the book's [CDD factors](book:eq-fx-block) is a window CDD factor, for any $\theta_0$, and so are functions that are not built from bulk factors at all. A window can be "half a particle", and in Lecture 4 we will meet one.
+
+**Bound states of a window.** A particle of rapidity $\theta=iv$ with $0<v<\frac\pi2$ has energy $m\cos v$ between $0$ and $m$. So the **physical strip** of a transmission amplitude is $0<\operatorname{Im}\theta<\frac\pi2$, half as wide as that of a two-particle amplitude, and the same as for reflection [@bajnok_simon2008]. A simple pole of $\mathbb T$ at $\theta=iu$ in this strip can signal an excited state $\beta$ of the defect, with energy
+
+$$
+e_\beta=e_\alpha+m\cos u .
+$$
+
+**The window bootstrap.** If particle $a$, arriving from the left, is absorbed at $\theta=iu$, the excited defect behaves like the old defect with a particle of rapidity $iu$ just to its right, the side to which it was transmitted. A particle $b$ that crosses the excited defect from the left crosses the old defect and then this particle, once. For diagonal scattering
+
+$$
+\mathbb T_b^{\beta}(\theta)=S_{ba}(\theta-iu)\,\mathbb T_b^{\alpha}(\theta).
+$$ {#eq-l1-window-bootstrap}
+
+If the pole is in $\bar{\mathbb T}_a$, the absorbed particle had rapidity $-iu$ and sits just to the left of the defect, and $u$ is replaced by $-u$. Unlike a particle reflecting off an excited boundary, which meets the bound particle twice (see the book's [boundary bootstrap](book:eq-boundary-bootstrap)), a transmitted particle meets it once. Similarly, if particle $c$ is a bound state of $a$ and $b$, it crosses the window as its two constituents do, $\mathbb T_c(\theta)=\mathbb T_a(\theta+i\bar u_{ac}^b)\,\mathbb T_b(\theta-i\bar u_{bc}^a)$, with no scattering factor between them: the constituents meet the window at the same point and do not meet each other.
+
+## Worked example: the Lee–Yang window {#sec-l1-lee-yang}
+
+The [scaling Lee–Yang model](book:sec-lee-yang) has a single particle, which is its own bound state. Its S-matrix is
+
+$$
+S(\theta)=f_{2/3}(\theta)=\frac{\sinh\theta+i\sin\frac{2\pi}3}{\sinh\theta-i\sin\frac{2\pi}3},
+$$
+
+with a bound-state pole at $\theta=\frac{2\pi i}3$. The bulk bootstrap says $S(\theta)=S(\theta+\frac{i\pi}3)\,S(\theta-\frac{i\pi}3)$ (see the book's [Lee–Yang S-matrix](book:eq-lee-yang-smatrix)). What windows does this theory have?
+
+The scattering is diagonal and there is one species, so the triangle relation is empty. A window without internal states needs a single function $\mathbb T(\theta)$ with
+
+$$
+\mathbb T(\theta)\,\bar{\mathbb T}(-\theta)=1,\qquad \mathbb T(\theta)=\bar{\mathbb T}(i\pi-\theta),\qquad \mathbb T\Big(\theta+\frac{i\pi}3\Big)\,\mathbb T\Big(\theta-\frac{i\pi}3\Big)=\mathbb T(\theta),
+$$
+
+the last condition being the bootstrap for the bound state of two particles.
+
+::: {.callout-tip title="Predict"}
+Before reading on, find a solution. *Hint:* @sec-l1-particle-window.
+:::
+
+By @sec-l1-particle-window, $\mathbb T(\theta)=S(\theta-\theta_d)$ and $\bar{\mathbb T}(\theta)=S(\theta+\theta_d)$ satisfy unitarity and crossing for every $\theta_d$. They satisfy the bootstrap too, since it is the bulk bootstrap at $\theta-\theta_d$. So every theory has a one-parameter family of windows: its own particles, frozen at a rapidity. Which member describes a given physical defect is a question about dynamics. For the scaling Lee–Yang model Bajnok and Simon found the answer by pressing the window against a boundary [@bajnok_simon2008]. The conformal minimal model behind the scaling Lee–Yang model has a topological defect $\Phi$, and perturbing it gives a one-parameter family of windows. Labelled by the parameter $b$ of the boundary reflection factors (see the book's [boundary Lee–Yang](book:sec-boundary-lee-yang)), they are
+
+$$
+\mathbb T_b(\theta)=f_{2/3}(\theta-\theta_b),\qquad\bar{\mathbb T}_b(\theta)=f_{2/3}(\theta+\theta_b),\qquad\theta_b=\tfrac{i\pi}6(3-b) .
+$$ {#eq-l1-ly-window}
+
+So the physical Lee–Yang window is a particle frozen at the imaginary rapidity $\theta_b$. We will reconstruct the argument that fixes $\theta_b$ in Lecture 9; Bajnok, Holló and Watts confirmed it by comparing the finite-volume spectrum of the perturbed defect with that predicted by these amplitudes [@bhw2014]. The book has the details in its [Lee–Yang defect](book:sec-defect-lee-yang). Here we explore what (-@eq-l1-ly-window) implies.
+
+**The energy of the window.** Bajnok and Simon found the energy of the window to be $\varepsilon(b)=m\sin\frac{b\pi}6$ [@bajnok_simon2008]. Compare it with the energy of the particle the window imitates:
+
+$$
+m\cosh\theta_b=m\cos\frac{\pi(3-b)}6=m\cos\Big(\frac\pi2-\frac{b\pi}6\Big)=m\sin\frac{b\pi}6=\varepsilon(b).
+$$
+
+The window has exactly the energy of the particle it imitates. At $b=3$, $\theta_b=0$: the window scatters like a particle at rest and has the energy $m$ of one.
+
+**An excited window.** $\bar{\mathbb T}_b(\theta)=f_{2/3}(\theta+\theta_b)$ has a pole where $\theta+\theta_b=\frac{2\pi i}3$, at
+
+$$
+\theta=iu,\qquad u=\frac{2\pi}3-\frac{\pi(3-b)}6=\frac{\pi(b+1)}6 ,
+$$
+
+which lies in the physical strip $0<u<\frac\pi2$ for $-1<b<2$. It is an excited state of the window, reached by absorbing a particle arriving from the right, with energy $\varepsilon(b)+m\cos u$ [@bajnok_simon2008, Sec. 6]. The bootstrap (-@eq-l1-window-bootstrap), with $u\to-u$ for a pole of $\bar{\mathbb T}$, gives its transmission amplitude:
+
+$$
+\begin{aligned}
+\mathbb T^{\rm exc}(\theta)&=S(\theta+iu)\,\mathbb T_b(\theta)\\
+&=f_{2/3}\Big(\theta+\frac{i\pi(b+1)}6\Big)\,f_{2/3}\Big(\theta-\frac{i\pi(3-b)}6\Big).
+\end{aligned}
+$$
+
+To simplify, introduce $\varphi=\theta-\frac{i\pi(1-b)}6$. Then the two arguments are
+
+$$
+\theta+\frac{i\pi(b+1)}6=\varphi+\frac{i\pi}3,\qquad \theta-\frac{i\pi(3-b)}6=\varphi-\frac{i\pi}3 ,
+$$
+
+and the bulk bootstrap gives
+
+$$
+\begin{aligned}
+\mathbb T^{\rm exc}(\theta)&=f_{2/3}\Big(\varphi+\frac{i\pi}3\Big)f_{2/3}\Big(\varphi-\frac{i\pi}3\Big)=f_{2/3}(\varphi)\\
+&=f_{2/3}\Big(\theta-\frac{i\pi(1-b)}6\Big)=\mathbb T_{b+2}(\theta).
+\end{aligned}
+$$
+
+The excited window transmits exactly like the ground-state window with $b$ replaced by $b+2$. Its energy agrees:
+
+$$
+\begin{aligned}
+\varepsilon(b+2)-\varepsilon(b)&=m\Big[\sin\frac{(b+2)\pi}6-\sin\frac{b\pi}6\Big]\\
+&=2m\cos\frac{(b+1)\pi}6\,\sin\frac\pi6=m\cos u .
+\end{aligned}
+$$
+
+The bootstrap and the energies are consistent, and the family closes on itself. At $b=2$ the gap $m\cos u$ vanishes, and the excited window and the ground state exchange roles. The same thing happens for the Lee–Yang boundary, where the excited boundary is the ground state at $b+2$ [@dptw1998]. In Lecture 9 we will see that this is no coincidence: pressed against the boundary $\mathbb 1$, the window $\Phi(b)$ becomes the boundary $\Phi(b)$.
+
+**Is the window unitary?** For real $\theta$, $f_{2/3}(\theta)$ is a phase, but $f_{2/3}(\theta-\theta_b)$ with imaginary $\theta_b$ is not. The condition for a unitary window, $\bar{\mathbb T}(\theta)=\overline{\mathbb T(-\bar\theta)}$, here reads $f_{2/3}(\theta+\theta_b)=f_{2/3}(\theta+\bar\theta_b)$, using $\overline{f_{2/3}(z)}=f_{2/3}(-\bar z)$. It holds for all $\theta$ exactly when $\theta_b-\bar\theta_b\in2\pi i\mathbb Z$, that is, when $\operatorname{Re}b\equiv3$ modulo 6. On those two lines, modulo the period 12, $\theta_b$ is real modulo $i\pi$. On the line $\operatorname{Re}b=3$ the window imitates a real particle, at rest for $b=3$ and moving with rapidity $\frac\pi6\operatorname{Im}b$ otherwise. Elsewhere the window inherits the non-unitarity of the scaling Lee–Yang model, whose three-point coupling is imaginary.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (f) of `textbook_code/lectures/defects_l1_mirrors_windows.py` checks unitarity, crossing and the bootstrap of (-@eq-l1-ly-window) for complex $b$, the pole of $\bar{\mathbb T}_b$, the bootstrap identity $S(\theta+iu)\,\mathbb T_b(\theta)=\mathbb T_{b+2}(\theta)$ and its partner for $\bar{\mathbb T}$, the energies, and the lines on which the window is unitary.
+:::
+
+## Windows as operators {#sec-l1-operators}
+
+So far the defect has been a vertical line in spacetime, at $x=0$ for all times. A defect that conserves energy and momentum can be moved, and in Euclidean spacetime it can be rotated. Lay it horizontally, along the whole circle of a theory on a circle, at one instant of time. It then acts on the states of the theory as an operator $\hat D$. Because the defect conserves energy and momentum, $\hat D$ commutes with the Hamiltonian $H$ and the momentum $P$ [@bajnok_george2006]. A window is a symmetry of a new kind.
+
+**The simplest windows are symmetries.** Suppose the particles carry a conserved charge, such as the topological charge $\mu$ of a soliton, that the S-matrix conserves. Then
+
+$$
+\mathbb T_\mu(\theta)=e^{i\alpha\mu},\qquad\bar{\mathbb T}_\mu(\theta)=e^{-i\alpha\mu},\qquad\mathcal W=\mathbb C ,
+$$
+
+is a window for any angle $\alpha$. With $\mathcal W=\mathbb C$, $\mathbb T_{12}(\theta_1)\mathbb T_{23}(\theta_2)$ acts on two particles as $e^{i\alpha\mu}\otimes e^{i\alpha\mu}$, and the triangle relation (-@eq-l1-triangle) says $\check S\,(e^{i\alpha\mu}\otimes e^{i\alpha\mu})=(e^{i\alpha\mu}\otimes e^{i\alpha\mu})\,\check S$, which is charge conservation. Unitarity is obvious, and crossing holds because the antiparticle carries the opposite charge. Laid along space, this window is the operator $e^{i\alpha Q}$, with $Q$ the total charge: an ordinary symmetry. Laid along time, on a circle, a particle that goes around the circle crosses it once and picks up $e^{i\alpha\mu}$. These are the Bloch-twisted Bethe–Yang equations of the book's [Bloch sectors](book:prp-bloch-sectors), and the book's [twist defects](book:prp-twist-defect) make the identification precise.
+
+The window $e^{i\alpha Q}$ has an inverse, $e^{-i\alpha Q}$: placing the two windows side by side gives the trivial window. Such lines are called **invertible**. Their transmission amplitudes do not depend on $\theta$. The windows of these lectures, whose amplitudes depend on $\theta-\theta_d$, interpolate between invertible lines. In Lecture 5 we will find that the window of an affine Toda theory of type $a_r^{(1)}$ becomes transparent as $\theta_d\to+\infty$ and becomes the symmetry line of the rotation of its Dynkin diagram as $\theta_d\to-\infty$.
+
+**A symmetry without an inverse.** The Lee–Yang window $\Phi$ is a perturbation of a topological defect of the conformal field theory $\mathcal M(2,5)$. That theory has two sectors of states, built on the vacuum ($h=0$) and on the field of weight $h=-\frac15$. By Schur's lemma, a topological defect acts on each sector as a number. For the defect $\Phi$ these numbers are [@petkova_zuber2001]
+
+$$
+\hat D_\Phi=\frac{1-\sqrt5}2\ \text{on the vacuum sector},\qquad \hat D_\Phi=\frac{1+\sqrt5}2\ \text{on the sector of weight }-\tfrac15 .
+$$
+
+Both numbers are roots of $d^2=d+1$. So
+
+$$
+\hat D_\Phi\,\hat D_\Phi=1+\hat D_\Phi ,
+$$
+
+the fusion rule $\Phi\times\Phi=\mathbb 1+\Phi$. Two $\Phi$ lines side by side are not the trivial line; they are the sum of the trivial line and $\Phi$. As an operator $\hat D_\Phi$ has an inverse, $\hat D_\Phi-1$, but that is a difference of two defects, not a defect: no line placed next to $\Phi$ gives the trivial line. $\Phi$ is a **non-invertible** symmetry. The best-known example is older than the language. In the Ising model, the line that implements Kramers and Wannier's duality of 1941 is the defect $\sigma$, with $\sigma\times\sigma=\mathbb 1+\varepsilon$ [@ffrs2004]. In current language, topological lines are the generalized symmetries of a two-dimensional theory, and non-invertible ones constrain scattering in unexpected ways, which Copetti, Córdova and Komatsu found by modifying crossing [@cck2024]. The book's [topological lines](book:sec-topological-lines) collect these developments.
+
+So the window we solved in @sec-l1-lee-yang is a non-invertible symmetry line of the conformal theory, deformed into the massive theory. In Lecture 8 we will wrap the windows of sine-Gordon theory around a cylinder and find Baxter's Q-operators.
+
+## What we have learned {#sec-l1-summary}
+
+- A defect in a free field can reflect and transmit at once. Its amplitudes satisfy the unitarity relations (-@eq-l1-unitarity), which express the consistency of the exchange relations.
+- Comparing two histories of a two-particle process shows that, in an interacting integrable theory, a line cannot do both: in one history the particles collide head on, in the other one overtakes the other, and the S-matrix would have to take the same value at the two rapidity differences. A line is a mirror or a window.
+- Windows conserve momentum, and momentum-conserving defects are windows.
+- A window satisfies the triangle relation (-@eq-l1-triangle), the Yang–Baxter equation with one world line replaced by the vertical line of the defect, and unitarity and crossing, which together give $\mathbb T(\theta)\mathbb T(\theta+i\pi)=1$ for a self-conjugate particle.
+- A particle frozen at a rapidity $\theta_d$ is a window. Windows depend on a defect rapidity, and the Lee–Yang window imitates a particle at imaginary rapidity, with that particle's energy. Its excited state is another window of the same family.
+- Laid along space, a window is an operator that commutes with the Hamiltonian. The simplest ones are ordinary symmetries; the Lee–Yang window comes from a symmetry without an inverse.
+
+What we have not found is a window in an interacting Lagrangian theory: a local term at $x=0$ that turns a field theory into one with a window. The next two lectures find one, starting from a construction in the geometry of surfaces that is more than a century old.
+
+## Exercises {#sec-l1-exercises}
+
+::: {#exr-l1-delta}
+*(Redo.)* Derive the $\delta$-defect amplitudes (-@eq-l1-delta-rt) again, this time for a wave of rapidity $-\theta$ arriving from the right, and check that $\bar R=R$ and $\bar{\mathbb T}=\mathbb T$. Show that $\mathbb T(i\pi-\theta)=\mathbb T(\theta)$. Show that as $g\to+\infty$ the amplitudes tend to those of two Dirichlet boundaries, and compare with the reflection factor $K=-1$ of the book's [free boson with Dirichlet conditions](book:exr-boundary-free).
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+For the wave from the right, write $\phi=e^{-iEt}\,\bar{\mathbb T}e^{-ipx}$ on $x<0$ and $\phi=e^{-iEt}(e^{-ipx}+\bar Re^{ipx})$ on $x>0$. For crossing, $\sinh(i\pi-\theta)=\sinh\theta$.
+:::
+
+::: {#exr-l1-ising}
+*(Redo.)* Delfino, Mussardo and Simonetti found for the Ising model with a line of modified energy coupling $g$, whose particle is a free Majorana fermion with $S=-1$,
+$$
+\mathbb T(\theta)=\frac{\cos\chi\,\sinh\theta}{\sinh\theta-i\sin\chi},\qquad R(\theta)=\frac{i\sin\chi\,\cosh\theta}{\sinh\theta-i\sin\chi},\qquad \chi=-2\arctan\frac g2
+$$
+[@delfino_mussardo_simonetti1994, Sec. 3]. The defect is parity invariant, $\bar R=R$ and $\bar{\mathbb T}=\mathbb T$. Check the unitarity relations (-@eq-l1-unitarity), crossing $\mathbb T(i\pi-\theta)=\mathbb T(\theta)$, and $R(i\pi-\theta)=-R(\theta)$. Show that $g\to4/g$ changes the sign of $\mathbb T$ and leaves $R$ unchanged, and that at $g=\pm2$ the line is a pair of boundaries. Why does @thm-l1-nogo allow this defect?
+:::
+
+::: {#exr-l1-parity}
+*(Redo.)* Verify the first row of @tbl-l1-histories by drawing the two histories in which both particles are reflected. Which collisions occur, and at which rapidity differences? Show that the two coefficients agree when $S_{ab}=S_{ba}$, and explain why the reflection equation of a boundary is empty for diagonal scattering.
+:::
+
+::: {#exr-l1-forms}
+*(Rediscover.)* Show that the index form (-@eq-l1-triangle-index) and the map form (-@eq-l1-triangle) of the triangle relation are the same equation, and identify which history is which side of each. Then let $\mathbb L(\theta)=P\,\mathbb T(\theta):V\otimes\mathcal W\to V\otimes\mathcal W$, with $P$ the flip, and $R=P\check R$. Show that the triangle relation becomes
+$$
+R_{12}(\theta_1-\theta_2)\,\mathbb L_{13}(\theta_1)\,\mathbb L_{23}(\theta_2)=\mathbb L_{23}(\theta_2)\,\mathbb L_{13}(\theta_1)\,R_{12}(\theta_1-\theta_2),
+$$
+on $V\otimes V\otimes\mathcal W$ with each factor in a fixed slot. If you have met quantum spin chains, you will recognize this equation: $\mathbb L$ is an L-operator, with $\mathcal W$ as its quantum space. Compare with the book's [three forms of the triangle relation](book:prp-triangle-forms).
+:::
+
+::: {#exr-l1-standing}
+*(Rediscover.)* Let $S_{ab}(\theta)$ be the diagonal S-matrix of a theory with several species, satisfying unitarity, crossing $S_{ab}(i\pi-\theta)=S_{\bar ab}(\theta)$ and the bootstrap. Show that (-@eq-l1-standing-particle) satisfies window unitarity, crossing (-@eq-l1-window-crossing) and the bulk bootstrap for transmission. For which $\theta_d$ is $\mathbb T_a(\theta)$ a phase for real $\theta$? Bajnok and George call these windows standing particles [@bajnok_george2006].
+:::
+
+::: {#exr-l1-ly}
+*(Rediscover.)* For the Lee–Yang window (-@eq-l1-ly-window), show that $b\to b+12$ leaves it unchanged and that $b\to6-b$ exchanges $\mathbb T_b$ and $\bar{\mathbb T}_b$. Interpret the second symmetry as a reversal of the orientation of the line. Find the second pole of $\bar{\mathbb T}_b$ in the physical strip, for $1<b<4$, and compute the energy of the corresponding state if it is a bound state. Compare with the book's [Lee–Yang defect](book:sec-defect-lee-yang) and its figure of poles.
+:::
+
+::: {#exr-l1-circle}
+*(Explore.)* Put a single free boson on a circle of circumference $L$ with the $\delta$-defect at $x=0$. A particle going around the circle meets the defect once and is reflected or transmitted, so the Bethe–Yang condition is a matrix equation. Show that it reads $\det\big(1-e^{ipL}M\big)=0$ with $M=\big(\begin{smallmatrix}\mathbb T&R\\R&\mathbb T\end{smallmatrix}\big)$ acting on the two directions of motion. Show that the eigenvalues of $M$ are $\mathbb T+R=\frac{2ip+g}{2ip-g}$ and $\mathbb T-R=1$, and interpret the two families of solutions in terms of even and odd wave functions. Check the even family against $\tan\frac{pL}2=\frac g{2p}$, which you can derive directly from (-@eq-l1-delta-conditions). What would change for an interacting theory?
+:::
+
+::: {#exr-l1-fusion}
+*(Explore.)* Two windows side by side, with transmission factors $\mathbb T_1$ and $\mathbb T_2$, act as one window with $\mathbb T=\mathbb T_1\mathbb T_2$. Check that this satisfies unitarity, crossing and the bootstrap when the factors do. For the Lee–Yang windows, is $\mathbb T_b\mathbb T_{b'}$ again of the form $\mathbb T_{b''}$? At the conformal point the fusion rule is $\Phi\times\Phi=\mathbb 1+\Phi$. Speculate on how a sum of two windows could arise from two lines brought together, and compare with Runkel's perturbed defects in the book's [perturbed defects](book:sec-perturbed-defects).
+:::
+
+## Where this comes from {#sec-l1-sources}
+
+The defect operator, the reflection–transmission relations, the unitarity relations and the no-go result for diagonal scattering are due to Delfino, Mussardo and Simonetti, with the Ising and free-boson examples [@delfino_mussardo_simonetti1994a; @delfino_mussardo_simonetti1994]. Castro-Alvaredo, Fring and Göhmann extended the no-go result to non-diagonal scattering and defects with internal states [@cafg2002]. Konik and LeClair studied purely transmitting defects from the start, wrote down the triangle relation, unitarity and crossing, and solved them for sine-Gordon theory [@konik_leclair1999]. Bajnok and George derived window crossing by folding, interpreted windows as operators, and introduced the standing particles [@bajnok_george2006]. Bajnok and Simon solved the Lee–Yang and sinh-Gordon windows by fusing them onto boundaries and analysed the excited windows [@bajnok_simon2008], and Bajnok, Holló and Watts confirmed the Lee–Yang window with the truncated conformal space approach [@bhw2014]. Topological defects of conformal field theory, and their fusion, go back to Petkova and Zuber [@petkova_zuber2001] and to Fröhlich, Fuchs, Runkel and Schweigert, who identified Kramers–Wannier duality with a defect [@ffrs2004]. In the book, all of this is in its [chapter on defect scattering](book:sec-defect-scattering).

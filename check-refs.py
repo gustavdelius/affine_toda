@@ -1,7 +1,13 @@
 #!/usr/bin/env python3
 """Check the cross-references and citations of the book without rendering it.
 
-Run from anywhere: python3 check-refs.py [repo-root]  (default: this file's directory)
+Run from anywhere: python3 check-refs.py [project-root]  (default: this file's directory, the book)
+
+The project root may also be a Quarto project nested in the repository, such as
+lecture-notes/defects/; the book's own check skips such nested projects (any
+subdirectory with its own _quarto.yml), and their files are checked by running
+this script on them. The bibliography files are those named by the project's
+_quarto.yml (default references.bib).
 
 Checks, one PASS, FAIL or WARN line each; exit status 1 on any FAIL:
   1. every id ({#sec-...}, or a code cell's "#| label:" / "%%| label:") is defined once;
@@ -29,9 +35,12 @@ Checks, one PASS, FAIL or WARN line each; exit status 1 on any FAIL:
      The token must name an existing file, or an existing directory if it ends
      in "/", relative to the repository root or to textbook_code/ (the rule of
      script-links.lua, which turns such spans into GitHub links).
+  8. (nested projects only) every link [text](book:<id>) names an id that the
+     book defines; lecture-notes/book-links.lua turns such links into links to
+     the published book.
 
-Book files are all .qmd files outside briefs/, referee_scratch/ and build or
-tool directories. Fenced code blocks and inline code are ignored, except for
+Book files are all .qmd files outside briefs/, referee_scratch/, build or
+tool directories and nested Quarto projects. Fenced code blocks and inline code are ignored, except for
 the cell labels that they define.
 """
 import collections
@@ -39,7 +48,18 @@ import re
 import sys
 from pathlib import Path
 
-ROOT = Path(sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parent)
+ROOT = Path(sys.argv[1] if len(sys.argv) > 1 else Path(__file__).resolve().parent).resolve()
+
+
+def find_repo(start):
+    """The repository root: the nearest directory at or above start that holds textbook_code/."""
+    for d in (start, *start.parents):
+        if (d / 'textbook_code').is_dir():
+            return d
+    return start
+
+
+REPO = find_repo(ROOT)
 SKIP = {'briefs', 'referee_scratch', '_site', '_book', '.quarto', '.claude', '.git', 'node_modules'}
 PREFIXES = ('sec', 'eq', 'prp', 'thm', 'lem', 'cor', 'cnj', 'def', 'exm', 'exr', 'sol', 'rem',
             'alg', 'fig', 'tbl', 'lst', 'nte', 'tip', 'wrn', 'imp', 'cau', 'hyp')
@@ -58,11 +78,35 @@ SCRIPT_DIRS = ('textbook_code/', 'foundations_code/', 'soliton_rmatrix_code/')
 ORIGINAL_RESULTS = 'appendices/E-original-results.qmd'
 
 
-def book_files():
-    for f in sorted(ROOT.rglob('*.qmd')):
-        rel = f.relative_to(ROOT)
-        if not SKIP.intersection(rel.parts[:-1]):
-            yield rel
+def project_files(root=ROOT):
+    """The .qmd files of the project at root, without those of nested projects."""
+    for f in sorted(root.rglob('*.qmd')):
+        rel = f.relative_to(root)
+        if SKIP.intersection(rel.parts[:-1]):
+            continue
+        if any((root.joinpath(*rel.parts[:i]) / '_quarto.yml').exists() for i in range(1, len(rel.parts))):
+            continue
+        yield rel
+
+
+book_files = project_files
+
+
+def bibliographies():
+    """The bibliography files named by the project's _quarto.yml: a single path, [a, b], or a block list."""
+    cfg = ROOT / '_quarto.yml'
+    text = cfg.read_text() if cfg.exists() else ''
+    m = re.search(r'^bibliography:[ \t]*(.*)$', text, re.M)
+    if not m:
+        return [ROOT / 'references.bib']
+    value = m.group(1).strip()
+    if value.startswith('['):
+        names = [x.strip() for x in value.strip('[]').split(',') if x.strip()]
+    elif value:
+        names = [value]
+    else:
+        names = re.findall(r'^[ \t]+-[ \t]*(\S+)', text[m.end():].split('\n\n')[0], re.M)
+    return [(ROOT / n).resolve() for n in names]
 
 
 def prose(text):
@@ -170,9 +214,24 @@ def script_paths(raw):
             rel = token.rstrip('/')
             ok = bool(rel) and not token.startswith('/') and '..' not in token
             ok = ok and any((p.is_dir() if want_dir else p.is_file())
-                            for p in (ROOT / rel, ROOT / 'textbook_code' / rel))
+                            for p in (ROOT / rel, REPO / rel, REPO / 'textbook_code' / rel))
             if not ok:
                 bad.append(f'{f}:{lineno(t, m.start())} `{m.group(1)[:70]}`')
+    return bad
+
+
+def book_links(text):
+    """Check 8. Returns the [text](book:<id>) links whose id the book does not define."""
+    book = set()
+    for f in project_files(REPO):
+        if f.parts and f.parts[0] == 'lecture-notes':
+            continue
+        book.update(ID_DEF.findall(prose((REPO / f).read_text())))
+    bad = []
+    for f, t in text.items():
+        for m in re.finditer(r'\]\(book:([^)\s]*)\)', t):
+            if m.group(1) not in book:
+                bad.append(f'{f}:{lineno(t, m.start())} book:{m.group(1)}')
     return bad
 
 
@@ -180,7 +239,7 @@ def main():
     files = list(book_files())
     raw = {f: (ROOT / f).read_text() for f in files}
     text = {f: prose(t) for f, t in raw.items()}
-    bib = (ROOT / 'references.bib').read_text()
+    bib = '\n'.join(f.read_text() for f in bibliographies())
     keys = set(re.findall(r'^@\w+\s*\{\s*([^,\s]+)\s*,', bib, re.M))
 
     defs = collections.defaultdict(list)
@@ -221,12 +280,15 @@ def main():
         ('cross-references on unnumbered pages print titles', unnumbered, 'WARN'),
         ('status labels not parsed as citations', status, 'FAIL'),
     ]
-    orig, note = original_results(text, defs)
-    if note.startswith('no '):
-        results.append(('original results match their statements', [note], 'WARN'))
-    else:
-        results.append((f'original results match their statements ({note})', orig, 'FAIL'))
+    if (ROOT / ORIGINAL_RESULTS).exists():
+        orig, note = original_results(text, defs)
+        if note.startswith('no '):
+            results.append(('original results match their statements', [note], 'WARN'))
+        else:
+            results.append((f'original results match their statements ({note})', orig, 'FAIL'))
     results.append(('script paths in code spans resolve', script_paths(raw), 'FAIL'))
+    if REPO != ROOT:
+        results.append(('links into the book resolve', book_links(text), 'FAIL'))
     print(f'{len(files)} files, {len(defs)} ids, {len(keys)} bibliography keys')
     ok = True
     for name, bad, severity in results:
