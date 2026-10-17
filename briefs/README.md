@@ -86,6 +86,14 @@ Part VIII (`part8-defects/`, chapters 36–43) was planned, drafted, refereed an
 
 The book cites only the scripts in `code/` (`defect_*.py`, listed in `code/README.md`); the referee scripts are kept for reproducibility.
 
+## Lecture notes on defects (from 2026-10-15)
+
+The lecture notes "Windows in spacetime" (`lecture-notes/defects/`, a separate Quarto book) tell the story of Part VIII in 9 lectures. Lectures 1–5 were merged with PR #30, and the book improvements found while writing Lecture 5 with PR #33.
+
+| File | What it is |
+|---|---|
+| `defects_lectures_handoff.md` | Handoff of 2026-10-17 for the agent that writes Lectures 6–9: the editor's decisions, the infrastructure of the notes, the voice and structure of a lecture, the notation registry, a ready plan for Lecture 6 with every verified formula and the items of its check script, and the promises Lectures 1–5 make to Lectures 7–9. Read it first |
+
 ## Part II: model-diverse referee pass (from 2026-10-15)
 
 Part II (`part2-algebra/`, chapters 5–8) had one referee pass, on 2026-10-10, by Claude agents only (items 2–4 and 9–12 of `referee_textbook.md`). Much of its current text is that pass's replacement wording or was added by the reading pass (`part2_reading_fixes.md`), and has had no referee since. The two briefs below ask for a non-Claude pass, weighted toward that text. The chapters were reviewed as on main at 9d85ab7.
