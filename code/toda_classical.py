@@ -43,15 +43,20 @@ report('Lax pair zero curvature <=> a_2^(1) field equation', Fs == sp.zeros(3))
 # ---------------------------------------------------------------- 2. sinh-Gordon spin 3
 f = sp.Function('f')(xp, xm)
 T4 = sp.diff(f, xp, 2)**2 + b**2/4*sp.diff(f, xp)**4
-Th2 = m**2*sp.cosh(b*f)*sp.diff(f, xp)**2
-expr = sp.diff(T4, xm) + sp.diff(Th2, xp)
+X2 = -m**2*sp.cosh(b*f)*sp.diff(f, xp)**2  # sec-factorization: d_- T4 = d_+ X2, density T4 - X2
+expr = sp.diff(T4, xm) - sp.diff(X2, xp)
 eom = -(m**2/b)*sp.sinh(b*f)           # d+d- f for V=(m^2/b^2)(cosh b f - 1), d+-=d_t+-d_x
 expr = expr.subs(sp.Derivative(f, xp, xp, xm), sp.diff(eom, xp)).subs(sp.Derivative(f, xp, xm), eom)
-report('sinh-Gordon: d_-[(d_+^2 f)^2+(b^2/4)(d_+ f)^4] + d_+[m^2 cosh(bf)(d_+ f)^2] = 0', sp.simplify(expr) == 0)
+report('sinh-Gordon: d_-T4 = d_+X2 with T4 = (d_+^2 f)^2+(b^2/4)(d_+ f)^4, X2 = -m^2 cosh(bf)(d_+ f)^2', sp.simplify(expr) == 0)
+
+# The density T4 - X2 is conserved: d_t(T4 - X2) = d_x(T4 + X2), with d_t = (d_+ + d_-)/2, d_x = (d_+ - d_-)/2.
+dens_flux = (sp.diff(T4 - X2, xp) + sp.diff(T4 - X2, xm)) - (sp.diff(T4 + X2, xp) - sp.diff(T4 + X2, xm))
+dens_flux = dens_flux.subs(sp.Derivative(f, xp, xp, xm), sp.diff(eom, xp)).subs(sp.Derivative(f, xp, xm), eom)
+report('sinh-Gordon: d_t(T4 - X2) = d_x(T4 + X2), so Q_{-3} = int (T4 - X2) dx is conserved', sp.simplify(dens_flux) == 0)
 
 # Sign of the spin. A plane wave of rapidity th of the linearized theory has phase
 # E t - p x = m e^{-th} xp + m e^{th} xm, so d_+ brings down m e^{-th}. Per particle, the
-# quadratic part of T4 + Th2 gives 2 m^3 e^{-3 th} (spin -3), its mirror d_+ <-> d_- 2 m^3 e^{3 th}.
+# quadratic part of T4 - X2 gives 2 m^3 e^{-3 th} (spin -3), its mirror d_+ <-> d_- 2 m^3 e^{3 th}.
 amp, rap = sp.symbols('amp rap', positive=True)
 wave = amp*sp.cos(m*sp.exp(-rap)*xp + m*sp.exp(rap)*xm)
 avg = lambda g: sp.integrate(g.subs(xm, 0), (xp, 0, 2*sp.pi*sp.exp(rap)/m))*m*sp.exp(-rap)/(2*sp.pi)
