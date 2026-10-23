@@ -87,13 +87,13 @@ $$
 
 where $h=\sum_jn_j$ and $kh$ is the order of the twisted Coxeter element ([@kac1990] lists the exponents of $X_N^{(k)}$ modulo $kh$). For untwisted $\hat g=g^{(1)}$ these are the exponents of $g$ (@tbl-simple-lie) repeated modulo $h$. For $a_2^{(2)}$ they are $1,5$ mod 6; for $d_4^{(3)}$, $1,5,7,11$ mod 12; for $e_6^{(2)}$, $1,5,7,11,13,17$ mod 18; for $a_{2n}^{(2)}$, the odd integers not divisible by $2n+1$; for $a_{2n-1}^{(2)}$ and $d_{n+1}^{(2)}$ (as for $b_n^{(1)}$, $c_n^{(1)}$), all odd integers. The two members of a dual pair have the same spins. For sinh- and sine-Gordon the spins are the odd integers. For $a_n^{(1)}$ with $n\ge2$ every integer not divisible by $h=n+1$ occurs.
 
-**Example: the spin-3 charge of sinh-Gordon.** With $V=\frac{m^2}{\beta^2}(\cosh\beta\phi-1)$, one checks from the field equation $\partial_+\partial_-\phi=-\frac{m^2}\beta\sinh\beta\phi$ (symbolically in `code/toda_classical.py`) that
+**Example: the charges of spin $\pm3$ of sinh-Gordon.** With $V=\frac{m^2}{\beta^2}(\cosh\beta\phi-1)$, one checks from the field equation $\partial_+\partial_-\phi=-\frac{m^2}\beta\sinh\beta\phi$ (symbolically in `code/toda_classical.py`) that
 
 $$
 \partial_-\Big[(\partial_+^2\phi)^2+\frac{\beta^2}4(\partial_+\phi)^4\Big]+\partial_+\Big[m^2\cosh(\beta\phi)\,(\partial_+\phi)^2\Big]=0 .
 $$ {#eq-spin3-current}
 
-The charge $Q_3=\int dx\,\big(T_4+\mathcal X_2\big)$ built from this current has spin 3, and on a one-particle state it takes the value $\chi\,m^3e^{3\theta}$, as in (-@eq-charge-eigenvalue). For sine-Gordon, replace $\beta^2$ by $-\beta^2$.
+In the notation of @sec-factorization this is $\partial_-T_4=\partial_+\mathcal X_2$, with $T_4=(\partial_+^2\phi)^2+\frac{\beta^2}4(\partial_+\phi)^4$ and $\mathcal X_2=-m^2\cosh(\beta\phi)\,(\partial_+\phi)^2$. The charge $Q_{-3}=\int dx\,\big(T_4-\mathcal X_2\big)$ built from this current has spin $-3$, because each $\partial_+$ brings down a multiple of $me^{-\theta}$ on a particle of rapidity $\theta$. On a one-particle state it takes the value $\chi\,m^3e^{-3\theta}$, as in (-@eq-charge-eigenvalue). Exchanging $\partial_+$ and $\partial_-$ gives the charge $Q_3$ of spin 3. `code/toda_classical.py` also checks the factors $e^{\mp3\theta}$ on a plane wave of the linearized theory. For sine-Gordon, replace $\beta^2$ by $-\beta^2$.
 
 The higher charges have three consequences used later. They make the classical solitons scatter without changing shape (@sec-classical-solitons), they survive quantization and make the S-matrix factorize (@sec-factorization), and for simply-laced $\hat g$ their eigenvalues on the particles are the eigenvectors of the Cartan matrix [@klassen1990; @dorey1991], which restricts which particles can couple.
 
@@ -166,7 +166,7 @@ Verify the zero-curvature equation (-@eq-zero-curvature) for $a_1^{(1)}$ with $2
 :::
 
 ::: {#exr-spin3}
-Verify (-@eq-spin3-current) from the sinh-Gordon equation. Write down the corresponding current for sine-Gordon and evaluate the conserved charge $Q_3$ on the kink of @sec-sg-classical.
+Verify (-@eq-spin3-current) from the sinh-Gordon equation. Write down the corresponding current for sine-Gordon and evaluate the conserved charge $Q_{-3}$ on the kink of @sec-sg-classical.
 :::
 
 ::: {#exr-dn-masses}

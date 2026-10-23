@@ -46,13 +46,13 @@ with summation over repeated indices. Reading the relation as a reordering of cr
 
 ## Higher conserved charges and factorization {#sec-factorization}
 
-Suppose the theory has local conserved currents of Lorentz spin $s$. (In this section $s$ is a spin, not the Mandelstam variable (-@eq-mandelstam-s).) In light-cone coordinates $x^\pm=x^0\pm x^1$ such a current is a pair $(T_{s+1},\mathcal X_{s-1})$ with $\partial_-T_{s+1}=\partial_+\mathcal X_{s-1}$, and
+Suppose the theory has local conserved currents of Lorentz spin $\pm s$, with $s>0$. (In this section $s$ is a spin, not the Mandelstam variable (-@eq-mandelstam-s).) In light-cone coordinates $x^\pm=x^0\pm x^1$ a current of spin $-s$ is a pair $(T_{s+1},\mathcal X_{s-1})$ with $\partial_-T_{s+1}=\partial_+\mathcal X_{s-1}$, and
 
 $$
-Q_s=\int dx^1\,\big(T_{s+1}-\mathcal X_{s-1}\big)
+Q_{-s}=\int dx^1\,\big(T_{s+1}-\mathcal X_{s-1}\big)
 $$
 
-is conserved. The energy and momentum are the combinations $Q_{\pm1}$ of spin $\pm1$. Because $Q_s$ is the integral of a local density, it acts on asymptotic states additively. Because it has spin $s$, it acts on a one-particle state as
+is conserved. Its spin is negative because $\partial_+$ brings down a multiple of $p^0-p^1=me^{-\theta}$ on a particle of rapidity $\theta$. Parity $x^1\to-x^1$ exchanges $\partial_+$ and $\partial_-$ and gives the current and the charge $Q_s$ of spin $s$. The energy and momentum are the combinations $Q_{\pm1}$ of spin $\pm1$, with $Q_{\pm1}$ a multiple of $E\pm P$. From now on $s$ is a spin of either sign. Because $Q_s$ is the integral of a local density, it acts on asymptotic states additively. Because it has spin $s$, it acts on a one-particle state as
 
 $$
 Q_s\,|A_a(\theta)\rangle=\chi_a^{(s)}\,e^{s\theta}\,|A_a(\theta)\rangle .
