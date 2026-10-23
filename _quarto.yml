@@ -7,10 +7,10 @@ project:
 
 book:
   title: "Affine Toda field theory"
-  subtitle: "A graduate introduction, leading into current research"
+  subtitle: "A unified review, with new results"
   editor: Gustav Delius
   description: >-
-    An AI-drafted graduate textbook and research monograph, with scoped
+    An AI-drafted review and research monograph, with scoped
     subject-matter validation, on affine Toda field theory, integrable quantum
     field theory, solitons, quantum groups, exact S-matrices and integrable
     boundaries.
@@ -117,7 +117,7 @@ lang: en-GB
 # A DOI will be added here after the first versioned book release is archived.
 citation:
   type: book
-  title: "Affine Toda field theory: A graduate introduction, leading into current research"
+  title: "Affine Toda field theory: A unified review, with new results"
   editor:
     - given: Gustav
       family: Delius
@@ -126,7 +126,7 @@ citation:
   pdf-url: https://gustavdelius.github.io/affine_toda/affine-toda.pdf
   language: en
   abstract: >-
-    An AI-drafted graduate textbook and research monograph, with scoped
+    An AI-drafted review and research monograph, with scoped
     subject-matter validation, covering integrable quantum field theory,
     solitons, quantum groups, exact S-matrices, integrable boundaries and the
     foundations of the imaginary-coupling theories.

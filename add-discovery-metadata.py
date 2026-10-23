@@ -38,7 +38,7 @@ def metadata_block(path: Path) -> str:
     if path == SITE / "index.html":
         lines.extend(
             [
-                '  <meta name="citation_title" content="Affine Toda field theory: A graduate introduction, leading into current research">',
+                '  <meta name="citation_title" content="Affine Toda field theory: A unified review, with new results">',
                 '  <meta name="citation_editor" content="Delius, Gustav">',
                 '  <meta name="citation_publication_date" content="2026">',
                 '  <meta name="citation_language" content="en">',

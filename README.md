@@ -1,8 +1,8 @@
 # Affine Toda field theory
 
-A graduate textbook and research monograph on affine Toda field theories: two-dimensional quantum field theories with one theory for each affine Kac–Moody algebra. They are integrable, so many quantities can be computed exactly, and they display particles and bound states, solitons and breathers, strong–weak duality, quantum-group symmetry, integrable boundaries and, at imaginary coupling, non-unitarity.
+A unified review of affine Toda field theories, with new results: two-dimensional quantum field theories with one theory for each affine Kac–Moody algebra. They are integrable, so many quantities can be computed exactly, and they display particles and bound states, solitons and breathers, strong–weak duality, quantum-group symmetry, integrable boundaries and, at imaginary coupling, non-unitarity.
 
-The book is written for a reader who knows quantum field theory at the level of a first graduate course, and it leads from sine-Gordon theory to current research.
+The book collects results scattered over five decades of papers and presents them in a logical order, in one notation and with one set of conventions. It is a reference, not a course; companion lecture notes, such as *Windows in spacetime* on integrable defects (`lecture-notes/defects/`), teach parts of the subject step by step.
 
 **Read the book:** [gustavdelius.github.io/affine_toda](https://gustavdelius.github.io/affine_toda/) · [PDF](https://gustavdelius.github.io/affine_toda/affine-toda.pdf)
 
@@ -42,7 +42,7 @@ The record of what has been checked, and how, is in [`briefs/`](briefs/) (for ex
 | VIII. Defects | 36–43 | Integrable defects: scattering axioms, defect conditions as Bäcklund transformations, solitons through defects, Borel quantum-group symmetry, transmission amplitudes, relation to boundaries |
 | IX. Foundations | 44–49 | Whether the imaginary-coupling theories exist as quantum field theories (in progress) |
 
-An unnumbered preface comes first. Chapter 1 is the introduction and reader's guide, and the outlook is chapter 50. The guide sets out six reading paths: a course on integrable field theory, a course on quantum groups in field theory, integrable boundaries, integrable defects, non-unitary quantum field theory, and a path for specialists through Parts V–IX.
+An unnumbered preface comes first. Chapter 1 is the introduction and reader's guide, and the outlook is chapter 50. The guide sets out six reading paths: integrable field theory, quantum groups in field theory, integrable boundaries, integrable defects, non-unitary quantum field theory, and a path for specialists through Parts V–IX.
 
 The book's own list of its original results is [Appendix E](appendices/E-original-results.qmd), and [Appendix D](appendices/D-corrections.qmd) lists every correction the book makes to published papers.
 

@@ -8,7 +8,7 @@ book:
   editor: Gustav Delius
   description: >-
     Lecture notes on integrable defects in two-dimensional field theory, a
-    companion to Part VIII of the textbook "Affine Toda field theory". They tell
+    companion to Part VIII of the book "Affine Toda field theory". They tell
     the story of the ideas and work the key calculations in full.
   site-url: https://gustavdelius.github.io/affine_toda/lectures/defects/
   repo-url: https://github.com/gustavdelius/affine_toda
