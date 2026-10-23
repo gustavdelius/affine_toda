@@ -1,4 +1,4 @@
-<!-- Worker report, 2026-10-12. Model: Claude Opus 5.5, effort xhigh. Scope: full brief halfline_open_11_soliton_preserving_scalar.md, given problem 3's report as a method template. Interrupted three times by the usage limit and resumed. Saved verbatim by the coordinator. Scripts copied to briefs/halfline_open_11_scripts/; they also import unchanged copies of textbook_code/*.py and of gz.py, nk_common.py, rhonp.py from briefs/halfline_open_03_scripts/, which must be copied alongside. -->
+<!-- Worker report, 2026-10-12. Model: Claude Opus 5.5, effort xhigh. Scope: full brief halfline_open_11_soliton_preserving_scalar.md, given problem 3's report as a method template. Interrupted three times by the usage limit and resumed. Saved verbatim by the coordinator. Scripts copied to briefs/halfline_open_11_scripts/; they also import unchanged copies of code/*.py and of gz.py, nk_common.py, rhonp.py from briefs/halfline_open_03_scripts/, which must be copied alongside. -->
 
 ## Report: problem 11, scalar factors and breather amplitudes for soliton-preserving reflection in a_n^(1)
 
@@ -149,7 +149,7 @@ Nothing in the repo was edited.
 
 ### Scripts
 
-All in `/tmp/claude-1000/-home-gustav-Git-affine-toda/0e38a99d-702a-40fb-99b7-74dbe0413cf6/scratchpad/p11/`. This is a temp directory, so copy it soon. It also holds unchanged copies of `textbook_code/*.py` and of problem 3's `nk_common.py`, `gz.py` and `rhonp.py`.
+All in `/tmp/claude-1000/-home-gustav-Git-affine-toda/0e38a99d-702a-40fb-99b7-74dbe0413cf6/scratchpad/p11/`. This is a temp directory, so copy it soon. It also holds unchanged copies of `code/*.py` and of problem 3's `nk_common.py`, `gz.py` and `rhonp.py`.
 
 | Script | What it does |
 |---|---|
@@ -174,7 +174,7 @@ Not done, ranked: SP soliton bootstrap to fix the CDD (adapt problem 3's `sol_bo
 
 | Claims | Verdict | How it was checked | Book change |
 |---|---|---|---|
-| 1, 2 (SP matrices in book conventions; DVGR map) | **Verified, integrated** | The coordinator tested the formula in the book's own braid reflection equation (`boundary_common.re_preserving`, `rcheck`, physical $q$): $\le10^{-15}$ for $n=2,3$, $l=0..N$; flipped exponents fail. The gradation map to DVGR was checked numerically up to a scalar. New `textbook_code/soliton_preserving.py` (3 checks, PASS). | ch. 33 `sec-preserving-conjugating`: formula replaces "(unchecked in book conventions)". |
+| 1, 2 (SP matrices in book conventions; DVGR map) | **Verified, integrated** | The coordinator tested the formula in the book's own braid reflection equation (`boundary_common.re_preserving`, `rcheck`, physical $q$): $\le10^{-15}$ for $n=2,3$, $l=0..N$; flipped exponents fail. The gradation map to DVGR was checked numerically up to a scalar. New `code/soliton_preserving.py` (3 checks, PASS). | ch. 33 `sec-preserving-conjugating`: formula replaces "(unchecked in book conventions)". |
 | 3 ($\mathbb Z_N$ obstruction) | **Verified**, including the loopholes the coordinator's Opus prompt asked about | A diagonal gauge commutes with diagonal $K$; a scalar or twisted shift still forces equal neighbouring ratios $k_j/k_{j+1}$, which the family violates (also checked numerically for $n=2,3,4$). | Stated in ch. 33 (no separate proposition). |
 | 6 ($K_{\bar V}$ with $\bar\eta=\eta+i\pi\omega(l-N/2)$; scalar unitarity) | **Verified, integrated** | The mixed braid equation was derived from factorization in book conventions and solved to $2\times10^{-15}$; the control $\bar\eta=\eta$ fails where it differs. Uniqueness was not checked, and the text does not claim it. | ch. 33. |
 | 9 ($B_1\to\bar B_1$; particles $a\to h-a$) | **Verified by structural argument** (SP $K$ keeps $V\to V$, $\bar V\to\bar V$, so the constituent order of the singlet is reversed relative to the conjugating case), consistent with the worker's and Gemini's numerical projection | | ch. 33 bullet; open problem 11. |

@@ -20,7 +20,7 @@ from scipy.integrate import solve_ivp, solve_bvp
 from scipy.linalg import sqrtm
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-TC = os.path.join(HERE, '..', '..', 'textbook_code')
+TC = os.path.join(HERE, '..', '..', 'code')
 
 
 def load_smatrix():

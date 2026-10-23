@@ -75,7 +75,7 @@ def run():
             zerr=max(zerr,abs(cz-book))
         print('CZ2007 h,D transpose and delay relabelling residual',h,np.linalg.norm(DCZ-D.T),zerr)
     # Book import ONLY for a comparison with an independently constructed R.
-    sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'textbook_code'))
+    sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'code'))
     import boundary_common as bc
     for h in [3,4]:
       for b1,b2 in [(False,False),(True,True),(False,True)]:

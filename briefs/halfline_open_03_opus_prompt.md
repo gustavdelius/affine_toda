@@ -13,7 +13,7 @@ Read:
 - the brief `briefs/halfline_open_03_neumann_soliton_route.md`;
 - the report `briefs/halfline_open_03_report.md`;
 - the Gemini verdict;
-- the scripts in `briefs/halfline_open_03_scripts/`. They import unchanged copies of `textbook_code/*.py`, so copy those alongside.
+- the scripts in `briefs/halfline_open_03_scripts/`. They import unchanged copies of `code/*.py`, so copy those alongside.
 
 ## Items
 

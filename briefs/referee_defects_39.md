@@ -11,7 +11,7 @@ You are an adversarial mathematical-physics referee. You are working in the repo
 
 ## Context
 
-Chapter 39 (`part8-defects/39-defect-solitons.qmd`, `sec-defect-solitons`) was drafted on 2026-10-12 by a Claude agent. Its verification script is `textbook_code/defect_solitons_an.py` (9 checks). The drafting report is `briefs/draft_ch39_report.md`.
+Chapter 39 (`part8-defects/39-defect-solitons.qmd`, `sec-defect-solitons`) was drafted on 2026-10-12 by a Claude agent. Its verification script is `code/defect_solitons_an.py` (9 checks). The drafting report is `briefs/draft_ch39_report.md`.
 
 The chapter treats classical $a_r$ solitons and particles meeting a type-I defect:
 - jump classes $p\in\Lambda_W/\Lambda_R$, and the soliton delay for both types and all classes (`eq-an-defect-delay`, `prp-an-defect-delay`), built on ch. 38's `eq-dc-ar-delay`;

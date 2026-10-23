@@ -11,7 +11,7 @@ You are an adversarial mathematical-physics referee. You are working in the repo
 
 ## Context
 
-Chapter 41 (`part8-defects/41-soliton-transmission.qmd`, `sec-soliton-transmission`) was drafted on 2026-10-12 by Claude agents (commit 4258b88). Its verification script is `textbook_code/defect_an_transmission.py` (21 checks, 100–180 s). It uses helpers appended to `textbook_code/defect_common.py` after the "ch. 41" marker.
+Chapter 41 (`part8-defects/41-soliton-transmission.qmd`, `sec-soliton-transmission`) was drafted on 2026-10-12 by Claude agents (commit 4258b88). Its verification script is `code/defect_an_transmission.py` (21 checks, 100–180 s). It uses helpers appended to `code/defect_common.py` after the "ch. 41" marker.
 
 Documents:
 - the drafting report, `briefs/draft_ch41_report.md`;

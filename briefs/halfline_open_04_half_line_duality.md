@@ -10,7 +10,7 @@ Open problem 4 of `sec-boundary-open-problems` (`part7-half-line/35-particle-ref
 
 ## What the book already has
 
-`sec-neumann-duality` (ch. 35): bulk S-matrices are self-dual block by block; reflection amplitudes are not. Duality maps $\omega\to\omega'=-\omega/(\omega+1)$, and how the coideal parameters transform is not known. Since $\hat\epsilon=0$ and $\hat\epsilon=\epsilon_*$ are exchanged, the map cannot be a symmetry of the coideals at fixed $\omega$. Also `sec-solitonic-boundaries` (the amplitude $K^{(b)}_a=K_aM^{(b)}_a$ and its quantum equivalence classes), `exr-kim-expansion`, `sec-strong-weak`, and the sinh-Gordon case in `sec-shg-boundary-breathers` ("Self-duality"). Script: `textbook_code/particle_reflection.py`.
+`sec-neumann-duality` (ch. 35): bulk S-matrices are self-dual block by block; reflection amplitudes are not. Duality maps $\omega\to\omega'=-\omega/(\omega+1)$, and how the coideal parameters transform is not known. Since $\hat\epsilon=0$ and $\hat\epsilon=\epsilon_*$ are exchanged, the map cannot be a symmetry of the coideals at fixed $\omega$. Also `sec-solitonic-boundaries` (the amplitude $K^{(b)}_a=K_aM^{(b)}_a$ and its quantum equivalence classes), `exr-kim-expansion`, `sec-strong-weak`, and the sinh-Gordon case in `sec-shg-boundary-breathers` ("Self-duality"). Script: `code/particle_reflection.py`.
 
 ## Literature
 

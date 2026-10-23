@@ -11,7 +11,7 @@ You are an adversarial mathematical-physics referee. You are working in the repo
 
 ## Context
 
-Part VIII, "Affine Toda theory with defects", is being drafted by Claude agents; every key formula is checked by a script in `textbook_code/`. This brief covers two chapters.
+Part VIII, "Affine Toda theory with defects", is being drafted by Claude agents; every key formula is checked by a script in `code/`. This brief covers two chapters.
 
 **Chapter 38** (`part8-defects/38-defect-conditions.qmd`, `sec-defect-conditions`): classically integrable defects.
 - The defect Lagrangian, conditions and source dictionary `tbl-defect-dictionary`.

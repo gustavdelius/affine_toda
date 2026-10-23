@@ -1,7 +1,7 @@
 """Checks for Lecture 1 of the defect lecture notes, "Mirrors and windows"
 (lecture-notes/defects/01-mirrors-and-windows.qmd).
 
-Written from the definitions of the lecture, independently of textbook_code/defect_axioms.py.
+Written from the definitions of the lecture, independently of code/defect_axioms.py.
 One PASS or FAIL line per check; exit status 1 on any FAIL.
 
   (a) The delta-function defect of a free boson: matching conditions give R and T; unitarity

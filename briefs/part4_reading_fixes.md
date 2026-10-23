@@ -82,12 +82,12 @@ The stated ranges correspond to $B$ up to 4 for $c_n$ and $f_4$ and up to 6 for 
 - TBA equations (`eq-tba`) and $E_0(R)$ have the standard form; Watson's equation and cyclicity give $F_{\min}(i\pi-\theta)=F_{\min}(i\pi+\theta)$ (`exr-watson`).
 - $e_8$ and $c_n$ masses are the Perron–Frobenius values in Part II and III.
 - All 35 `@` labels and all 31 citation keys used in Part IV resolve.
-- `textbook_code/smatrix_simply_laced.py`: the unitarity, $S_{ab}=S_{ba}$, $B\to2-B$ and crossing checks PASS for $e_8,e_7,d_4,d_6,a_4$; $e_8$ $S_{11}=\{1\}\{11\}\{19\}\{29\}$ PASS; the $a_n$ closed form satisfies the bootstrap for $n=2..5$ PASS; the Dorey formula equals the $a_n$ closed form for all $a,b$ PASS. The bootstrap at every fusing of $e_7$ and $e_8$ passes: 112 fusings for $e_7^{(1)}$ and 224 for $e_8^{(1)}$, matching chapter 13.
+- `code/smatrix_simply_laced.py`: the unitarity, $S_{ab}=S_{ba}$, $B\to2-B$ and crossing checks PASS for $e_8,e_7,d_4,d_6,a_4$; $e_8$ $S_{11}=\{1\}\{11\}\{19\}\{29\}$ PASS; the $a_n$ closed form satisfies the bootstrap for $n=2..5$ PASS; the Dorey formula equals the $a_n$ closed form for all $a,b$ PASS. The bootstrap at every fusing of $e_7$ and $e_8$ passes: 112 fusings for $e_7^{(1)}$ and 224 for $e_8^{(1)}$, matching chapter 13.
 
 ## E. Verification checklist for the agent who makes the fixes
 
 1. Re-run the label check on `part4-real-coupling/` (exclude `.claude/` and `_site/`).
-2. The script `textbook_code/smatrix_simply_laced.py` was run to completion on 2026-10-10 (exit 0, 11 PASS, 0 FAIL). Its bootstrap checks confirm the fusing counts of chapter 13 (112 for $e_7^{(1)}$, 224 for $e_8^{(1)}$). Rerun it only if the S-matrix code changes.
+2. The script `code/smatrix_simply_laced.py` was run to completion on 2026-10-10 (exit 0, 11 PASS, 0 FAIL). Its bootstrap checks confirm the fusing counts of chapter 13 (112 for $e_7^{(1)}$, 224 for $e_8^{(1)}$). Rerun it only if the S-matrix code changes.
 3. For A2, recompute the endpoints from the literature before editing the table.
 4. For A9–A10, check the TBA plateau equation and $N_{ab}$ with a short numerical computation, not only by hand.
 5. For each notation rename (C1–C7), grep the whole book (excluding `.claude/` and `_site/`) for the old symbol in the same meaning.

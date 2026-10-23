@@ -15,7 +15,7 @@ This is a programme. The brief asks for its first two steps and a map of the res
 - $d_n$: the vector R-matrix (`eq-dn-vector-r`, `prp-dn-r`), and three reflection matrices, $\hat\epsilon=0$ (anti-diagonal) and $s=\pm1$ (`prp-dn-k`). It is not known which classical $d_n$ boundaries they describe. $\vec\phi=0$ satisfies none of the $|C_j|=1$ conditions for $d_n$ (`sec-dn-vector-k`, last paragraph).
 - $c_n$: folding of $a_{2n-1}$ images (`sec-images-cn`). Only $C\equiv-1$ (the self-conjugate species-$n$ soliton) has a continued vacuum for $c_2$; Delius's claim "whenever $C_0C_n=1$" fails for the alternating patterns.
 - The classical boundary table `tbl-durham`, including the continuous parameters of $b_n$, $c_n$, $a_{2n}^{(2)}$, $d_{n+1}^{(2)}$.
-- Scripts: `textbook_code/reflection_matrices.py` (the $d_n$ R and K), `boundary_classical.py`, `boundary_images.py`, `boundary_vacua.py`, `particle_reflection.py`.
+- Scripts: `code/reflection_matrices.py` (the $d_n$ R and K), `boundary_classical.py`, `boundary_images.py`, `boundary_vacua.py`, `particle_reflection.py`.
 
 ## Literature
 

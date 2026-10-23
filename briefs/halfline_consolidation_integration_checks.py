@@ -3,7 +3,7 @@
 Run with OPENBLAS_NUM_THREADS=1 python3 -u
 briefs/halfline_consolidation_integration_checks.py [krein|semiclassical].
 Uses the referee's independently implemented matrices and Gamma products;
-the finite-B, exact charge and d5 Hessian regressions are in textbook_code/.
+the finite-B, exact charge and d5 Hessian regressions are in code/.
 """
 from pathlib import Path
 from functools import lru_cache

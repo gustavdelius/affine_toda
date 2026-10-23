@@ -2,7 +2,7 @@
 
 Files written (nothing else touched; no git commands, no quarto render):
 - `part8-defects/42-defects-and-boundaries.qmd` (241 lines; skeleton replaced; all 73 cross-references and all citations resolve)
-- `textbook_code/defect_doubling.py` (new; imports only `boundary_common` and `defect_common`)
+- `code/defect_doubling.py` (new; imports only `boundary_common` and `defect_common`)
 - `briefs/draft_ch42_checkpoint.md`, `briefs/draft_ch42_report.md`
 - Scratch scripts: session scratchpad `ch42/` (s1–s16, dd_engine.py); not needed for the book.
 
@@ -16,7 +16,7 @@ Files written (nothing else touched; no git commands, no quarto render):
 **`sec-diagonal-qsp`.** $\Delta(U)$ and $(1\otimes\psi)\Delta(U)$ ($\psi$ Hopf automorphism) are left coideals (`eq-dbd-diagonal`). Invertible lines $\mathbb T=g$ ↔ twisted diagonals (twist line: torus $t_1=1/t_0=e^{2i\alpha}$; charge conjugation: node swap $\tau$); particle-as-defect ↔ untwisted $\Delta(U)$. $\omega_q\otimes{\rm id}:U\otimes U^{\rm cop}\to U\otimes U$ is an algebra iso and coalgebra anti-iso mapping $\Delta(U)$ onto Bao–Wang's right coideal $\varphi(U)=(\omega\otimes1)\Delta(U)$. $q=1$: fixed points of $(x,y)\mapsto(\omega(y),\omega(x))$, second kind; Satake diagram = two copies, all white, $\tau$ exchanging (by hand). "What is proved, and where" paragraph (see §5).
 - `prp-diagonal-coideal` **[Theorem (1)–(2); Established (3); Numerical (4)]**: (4) in a 21-monomial search space, the largest left coideal inside the commutant of the doubled K is exactly $(1\otimes\psi)\Delta(U)\cap X$ (5-dim), for transparent (sG spin-1/2, spin-1 probe, $a_2$), twist line, C line. Commutant itself is 17-dim (one particle), 7 or 12 (with two particles) — the coideal requirement does the work; parallel to Appel–Vlaar Thm 4.1.3.
 
-**`sec-jump-coideal`.** Conjecture block kept verbatim-style, labelled **[Conjecture; refuted as stated by the test in `textbook_code/defect_doubling.py`]**, followed by the pre-registered expectation and the test description.
+**`sec-jump-coideal`.** Conjecture block kept verbatim-style, labelled **[Conjecture; refuted as stated by the test in `code/defect_doubling.py`]**, followed by the pre-registered expectation and the test description.
 - `prp-diagonal-borel` **[Theorem (1), (4); Numerical (2), (3), (5)]**: (1) diagonal Borel $\Delta(U_q(\mathfrak b^\mp))$ is a symmetry with $\mathcal W$ the Weyl module; (2) NEW: $(1\otimes\tau)\Delta(U_q(\mathfrak b^\pm))$ is also a symmetry, on a second module structure $\tilde\rho$ of $\mathcal W$ (`eq-dbd-second-module`, explicit); (3) no twisted diagonal; (4) no coideal containing both acts on any $\mathcal W$; (5) limits $\theta_d\to\pm\infty$ restore the untwisted / $\tau$-twisted diagonal.
 - Reading: the jump defect keeps the $\mathfrak b^-$ half of the twist line's diagonal and the $\mathfrak b^+$ half of the charge-conjugation line's diagonal (quantum form of `eq-dq-massless-defect`); $\tilde\rho$ is the $\mathfrak b^+$ symmetry of the same defect read as type I$_+$ after $\psi\to-\psi$ (`prp-two-borels` (3)) — labelled as an interpretation.
 - "Beyond sine-Gordon": expectation for $a_r$ with the rotation $\pi$ in place of $\tau$ (untested; see obligations).
@@ -39,7 +39,7 @@ Files written (nothing else touched; no git commands, no quarto render):
 
 **New ids** (all prefixed, no clashes): `eq-dbd-coproduct`, `eq-dbd-diagonal`, `eq-dbd-second-module`, `eq-dbd-fused-k`, `eq-dbd-dressed-k`, `eq-dbd-sy-crossing`, `tbl-dbd-symmetries`, `exr-dbd-cop`, `exr-dbd-diagonal-coideal`, `exr-dbd-invertible`, `exr-dbd-mixed-twist`, `exr-dbd-e-one`, `exr-dbd-fusion-gz`, `exr-dbd-classical-dressing`, `exr-dbd-boundary-crossing`. All 15 skeleton ids kept.
 
-## 2. Script output (`textbook_code/defect_doubling.py`, 17 PASS, 0 FAIL, 30 s)
+## 2. Script output (`code/defect_doubling.py`, 17 PASS, 0 FAIL, 30 s)
 
 ```
 PASS doubled R-check (Rc on V V, P Rc P on V'V', flip on mixed pairs) intertwines Delta_A of U (x) U^cop for sine-Gordon and a_2 [8e-16]; with U (x) U instead it fails [1.66]
@@ -121,7 +121,7 @@ Implementation notes: `boundary_coideal`, `qsp_checks`, `boundary_classical`, `b
 - ch. 34 `sec-universal-k` or Notes: pointer to `sec-diagonal-qsp` (diagonal type; defects as QSPs).
 - ch. 37 `sec-sg-breather-transmission`: optional pointer to `prp-defect-fusion-k` (3)–(4) (soliton version gives the same $\lambda\theta_d=(\lambda+1)\theta_d^{\rm cl}$).
 
-**`textbook_code/README.md`:** row for `defect_doubling.py` (ch. 42; 17 checks; ~30 s; imports `boundary_common`, `defect_common`).
+**`code/README.md`:** row for `defect_doubling.py` (ch. 42; 17 checks; ~30 s; imports `boundary_common`, `defect_common`).
 
 **`briefs/part8_defects_status.md`:** ch. 42 row (drafted 2026-10-12, `defect_doubling.py`, 17 PASS (30 s), not refereed) and this verification record.
 

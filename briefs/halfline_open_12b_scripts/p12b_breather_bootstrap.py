@@ -5,7 +5,7 @@ w the U_q-invariant (breather) vector in V(theta_a) x V(theta_b), theta_{a,b} = 
 (BPTT (3.9) and the last formula of sec. 3.7); x_S = eta (even depth), etabar (odd depth); K_{B_m}(x;u) = Ghoshal's B_m factor.
 Also checks that the vector v is proportional to w (the breather decouples from the soliton multiplet)."""
 import sys, numpy as np
-sys.path.insert(0, '/home/gustav/Git/affine_toda/textbook_code')
+sys.path.insert(0, '/home/gustav/Git/affine_toda/code')
 from boundary_common import q_phys, sl2_spin, rcheck, cop
 from p12b_common import *
 def report(name, ok): print(('PASS ' if ok else 'FAIL ') + name, flush=True)

@@ -10,7 +10,7 @@ Never touch `referee_scratch/` or `briefs/referee_defects_*`. Do not push. Do no
 
 - Tasks 3–4: index.qmd (status, Part VIII sentence, "Defects" original-results entry, Part VIII bullet, mermaid node VIII with edges from II, III, VI, VII and no edge to IX, Part II needed for VI–VIII, VIII/IX meet at ch. 48, reading path "Integrable defects: chapters 2–3, 7–11 and 20–21, then 28–32, then Part VIII", conventions sentence, alt text); intro_f1_reading_paths.py (six paths, VIII colour #8f9a1f, regex) 7 PASS, svg regenerated. Commit 418d192 "Part VIII integration: index and reading paths".
 
-- Tasks 5–7 (commit ac0410f "Part VIII integration: appendices, READMEs and conventions brief"): outlook defects bullets; Appendix D Part VIII entries (+ kind "clarification"); Appendix C section sec-app-code-defects; textbook_code/README rows; briefs/README Part VIII section; root README; conventions brief §5/§6/§8/§9 edits and new §10–§13; status file marks + "Global integration" section; defect_common.sg_tmatrix docstring trap (verified numerically); boundary_classical.tau_bracket sign note (43 PASS).
+- Tasks 5–7 (commit ac0410f "Part VIII integration: appendices, READMEs and conventions brief"): outlook defects bullets; Appendix D Part VIII entries (+ kind "clarification"); Appendix C section sec-app-code-defects; code/README rows; briefs/README Part VIII section; root README; conventions brief §5/§6/§8/§9 edits and new §10–§13; status file marks + "Global integration" section; defect_common.sg_tmatrix docstring trap (verified numerically); boundary_classical.tau_bracket sign note (43 PASS).
 
 - Final checks (2026-10-12): all 11 defect_*.py rerun after the defect_common docstring change, all PASS (axioms 20, classical_sg 27, sg_transmission 24, classical_an 24, lax_rmatrix 6, solitons_an 9, universal_r 16, transfer 9, an_transmission 21, doubling 17, particle_transmission 8; 11 in parallel, so runtimes inflated); boundary_classical.py 43 PASS; intro_f1_reading_paths.py 7 PASS; reference checker over all book .qmd: 0 unresolved refs, 0 duplicate ids, 0 missing citation keys. Stale BCZ (3.44) comment/label in defect_sg_transmission.py refreshed, rerun 24 PASS (commit "Part VIII integration: final checks").
 
@@ -23,6 +23,6 @@ Never touch `referee_scratch/` or `briefs/referee_defects_*`. Do not push. Do no
 3. index.qmd: part bullet, original results, mermaid, reading path, conventions sentence, alt text.
 4. intro_f1_reading_paths.py + svg.
 5. Outlook defects paragraph.
-6. Appendix D, Appendix C, textbook_code/README.md, briefs/README.md, root README.md.
+6. Appendix D, Appendix C, code/README.md, briefs/README.md, root README.md.
 7. Conventions brief §10, §11, ch. 41, ch. 38–40, ch. 39 items.
 8. Final checks (refs, duplicates, citations; scripts; git status).

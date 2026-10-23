@@ -1,10 +1,10 @@
-"""Exploration helper: load definitions (not checks) from the book's textbook_code modules.
+"""Exploration helper: load definitions (not checks) from the book's code modules.
 
 boundary_classical.py and boundary_images.py run their checks at import; we exec only the definition blocks.
 """
 import os
 
-TC = '/home/gustav/Git/affine_toda/textbook_code'
+TC = '/home/gustav/Git/affine_toda/code'
 
 
 def _between(src, start, stop):

@@ -1,13 +1,13 @@
 # R-matrices and soliton S-matrices (Part VI)
 
-Scripts behind Part VI (`part6-soliton-smatrices/`) and appendix B (`sec-app-numerics`). The book cites them at the claims they check, as `textbook_code/rmatrix/smatrix/<script>.py`.
+Scripts behind Part VI (`part6-soliton-smatrices/`) and appendix B (`sec-app-numerics`). The book cites them at the claims they check, as `code/rmatrix/smatrix/<script>.py`.
 
 ## Running
 
 Run the scripts in `smatrix/` from that directory, with the parent directory on the path for `rsolve.py` and `dtw.py`:
 
 ```bash
-cd textbook_code/rmatrix/smatrix && PYTHONPATH=.. python3 s33.py
+cd code/rmatrix/smatrix && PYTHONPATH=.. python3 s33.py
 ```
 
 Several scripts read a cache written by another script, in the same directory. Run the writer first:

@@ -15,7 +15,7 @@ pi e_k = e_{k-1} (so pi alpha_j = alpha_{j-1}), D = 2 (1 - pi)^{-1}, and
 with phi_k the components in R^h and sigma = e^{-theta_d}. Imaginary coupling is phi -> i phi; its solitons are
 complex solutions of the same equations, phi_k = ln(tau_{k-1}/tau_k), tau_k = 1 + omega^{k a} E,
 E = exp(m_a (x cosh theta - t sinh theta) + xi_0), omega = e^{2 pi i/h}, m_a = 2 m sin(pi a/h).
-Written from these definitions, independently of textbook_code/defect_classical_an.py and defect_solitons_an.py.
+Written from these definitions, independently of code/defect_classical_an.py and defect_solitons_an.py.
 One PASS or FAIL line per check; exit status 1 on any FAIL. Units m = 1 in the numerics.
 
   (a) Variation: the Euler-Lagrange expressions of L_d with constant matrices give the stated defect conditions;

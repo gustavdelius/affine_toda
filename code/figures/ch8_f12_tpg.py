@@ -8,7 +8,7 @@
 Checks: C(j) = 2j(j+1) from lambda.(lambda+2 rho) with lambda = j alpha; the rule applied along the edges of
 (a) reproduces <2> and <2><1>; every edge factor and every rho_mu of (a) and (b) is unitary,
 rho(z) rho(1/z) = 1, since <a>(1/z) = 1/<a>(z).  The same eigenvalues of (a) are obtained from Jimbo's equations
-in textbook_code/spin1_tpg.py.
+in code/spin1_tpg.py.
 Writes part2-algebra/figures/ch8_f12_tpg.svg.
 """
 import numpy as np

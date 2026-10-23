@@ -23,7 +23,7 @@ The principal finding is that the finite-rapidity no-go result can be proved wit
 
 ### What the existing test actually varies
 
-In textbook_code/defect_doubling.py, generator_terms and ls_symmetry, both \(Y\) and \(\kappa\) are unknowns. Every allowed matrix entry is fitted independently, using the same entries at three rapidities. Neither operator is fixed to the original Weyl action. However:
+In code/defect_doubling.py, generator_terms and ls_symmetry, both \(Y\) and \(\kappa\) are unknowns. Every allowed matrix entry is fitted independently, using the same entries at three rapidities. Neither operator is fixed to the original Weyl action. However:
 
 * The test permits one prescribed shift of \(n\) for each unknown.
 * Generators are fitted separately, without imposing common Cartan, inverse, commutator, or Serre relations.

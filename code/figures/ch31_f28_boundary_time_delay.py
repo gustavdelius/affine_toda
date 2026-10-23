@@ -9,7 +9,7 @@ lines meet at the virtual collision point (d, d/v) with d = -(S + ln A)/(2 m_a c
 
 Checks: A = 1 - s^2 is the interaction coefficient of the pair; Delta t and d computed from S equal the closed forms of
 eq-boundary-time-delay and eq-virtual-collision; Delta t_N = (Delta t_+ + Delta t_-)/2; signs; the incoming lines meet at (d, d/v).
-The shifts S themselves are verified against the boundary condition in textbook_code/boundary_images.py.
+The shifts S themselves are verified against the boundary condition in code/boundary_images.py.
 
 Writes part7-half-line/figures/ch31_f28_boundary_time_delay.svg.
 """

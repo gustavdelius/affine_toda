@@ -17,7 +17,7 @@ Read `sec-krein-unitarity`, `prp-krein-fundamental`, `sec-sector-status` (`part8
 - In the bulk, $T_1^\dagger=\mathcal C\,T_1^{-1}\mathcal C$ for the fundamental-soliton transfer matrices (`prp-krein-fundamental`, [Theorem] for the pairing). So eigenvalues are phases or pairs $(s,1/\bar s)$, and the sector table records where reality is broken.
 - All rigid boundaries $C_j\in\{0,\pm1\}$ are $\Theta$-invariant (`prp-boundary-theta`).
 - The lattice of Part VIII has Dirichlet rows with site-by-site Wick ordering; `thm-window` covers the boundary layer.
-- Scripts: `foundations_code/krein_bethe.py` (bulk Krein and Bethe–Yang checks), `textbook_code/boundary_coideal.py`, `reflection_matrices.py`.
+- Scripts: `foundations_code/krein_bethe.py` (bulk Krein and Bethe–Yang checks), `code/boundary_coideal.py`, `reflection_matrices.py`.
 
 ## Literature
 

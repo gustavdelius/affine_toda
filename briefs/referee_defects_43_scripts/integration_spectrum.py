@@ -3,7 +3,7 @@ the Lee-Yang poles are in Tbar_b; the imaginary-theta_d particle factor is a pha
 Own code from eq-dt-tv, eq-dt-tvbar (sector blocks built directly), eq-ly-transmission, eq-dpt-particle; the scalar
 factor gbar from defect_common (book helper) only to confirm that its pole at the species-r position is not cancelled."""
 import sys, numpy as np
-sys.path.insert(0, 'textbook_code')
+sys.path.insert(0, 'code')
 from defect_common import an_scalar_gbar, an_scalar_g, an_scalar_constant
 
 def blocks(h, om, X, Q, s):

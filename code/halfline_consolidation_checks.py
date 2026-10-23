@@ -1,7 +1,7 @@
 """Checks added when the half-line consolidation round was refereed (Part VII: ch. 30 prp-soliton-preserving-half and
 the half-solitons after it; ch. 31 prp-solitonic-linear; ch. 33 sec-an-nondiagonal-k (CDD factors) and
 prp-dn-nondiagonal-scalar (the factor Xi); ch. 35 sec-neumann-duality, sec-dn-uniform, prp-dn-uniform-classical).
-Run from textbook_code/.
+Run from code/.
 
 Book conventions: blocks (x) = sinh((theta + i pi x/h)/2)/sinh((theta - i pi x/h)/2) (eq-blocks); imaginary-coupling blocks
 (y)_I = sin(pi(mu+y)/2T)/sin(pi(mu-y)/2T), mu = -i T theta/pi, T = h omega/2, so (y)_I = (2y/omega); continuation

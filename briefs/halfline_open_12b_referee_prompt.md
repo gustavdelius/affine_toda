@@ -3,7 +3,7 @@ Tier: B
 Brief: briefs/halfline_open_12_rank_one.md (part (b) only)
 Report: briefs/halfline_open_12b_report.md
 Scripts: briefs/halfline_open_12b_scripts/. Run them from a scratch copy.
-- **Imports.** `p12b_common.py` is shared. Three scripts insert `/home/gustav/Git/affine_toda/textbook_code` into `sys.path`; that is read-only use, and acceptable.
+- **Imports.** `p12b_common.py` is shared. Three scripts insert `/home/gustav/Git/affine_toda/code` into `sys.path`; that is read-only use, and acceptable.
 - **Runtimes.** `p12b_an_bootstrap.py` takes about 26 minutes. The others take seconds to minutes.
 - **Usage.** `python3 p12b_spectrum_poles.py <lambda> <eta/eta_N> <maxdepth>`.
 

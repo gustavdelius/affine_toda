@@ -1,5 +1,5 @@
 import sys
-sys.path.insert(0, '/home/gustav/Git/affine_toda/textbook_code')
+sys.path.insert(0, '/home/gustav/Git/affine_toda/code')
 exec(open('base.py').read())
 
 # ---- 8. singlet projection, s = -1

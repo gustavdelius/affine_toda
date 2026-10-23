@@ -170,10 +170,10 @@ Own code throughout. The d_n roots are those of `boundary_common.dn_vector`, and
 
 ### (A) Extended `dn_uniform.py`
 
-File: `$A6/textbook_code_new/dn_uniform.py`.
+File: `$A6/code_new/dn_uniform.py`.
 - Book checks 1–5 are unchanged, apart from location-independent loading of `smatrix_simply_laced`.
 - New checks 6–9: ε̂=0 matrix crossing factor and singlet coefficient; C≡+1 vacua of d_4, d_5; linearized reflection and absence of bound states; d_6 by shooting.
-- Runtime about 3 min. Run with `PYTHONPATH=textbook_code` from any directory. Log: `$A6/dn_uniform_ext.log`.
+- Runtime about 3 min. Run with `PYTHONPATH=code` from any directory. Log: `$A6/dn_uniform_ext.log`.
 
 ```
 PASS d_n, eps-hat = 0: K = J antidiagonal with entries +-1, independent of y, J^2 = 1 (n = 4, 5) [7e-15]
@@ -189,8 +189,8 @@ PASS d_6, C = +1: the invariant static solution (two tail modes, m_2 and m_4) sa
 
 ### (B) New `dn_nondiagonal_scalar.py`
 
-File: `$A6/textbook_code_new/dn_nondiagonal_scalar.py`.
-- 9 checks, as listed in its docstring. Imports only from `textbook_code`: `boundary_common`, plus definitions loaded from `reflection_matrices.py` and `smatrix_simply_laced.py`.
+File: `$A6/code_new/dn_nondiagonal_scalar.py`.
+- 9 checks, as listed in its docstring. Imports only from `code`: `boundary_common`, plus definitions loaded from `reflection_matrices.py` and `smatrix_simply_laced.py`.
 - Runtime about 2.5 min. Log: `$A6/dn_nondiagonal_scalar.log`. The trailing "FIN" line in the log is my end marker; the script does not print it.
 
 ```
@@ -207,7 +207,7 @@ PASS varsigma = +1 with the CDD factor is the dual K_1(theta, 2 - B) of the unif
 
 (The script's labels "(K1), (K2)" are Kim–Cho's TeX labels, printed as eqs. (29), (40).)
 
-### Proposed README rows (`textbook_code/README.md`)
+### Proposed README rows (`code/README.md`)
 
 - `dn_uniform.py`: add ids `prp-dn-uniform-vacuum` and `prp-dn-uniform-classical`. Add to "what it checks": "ε̂=0 crossing factor and singlet coefficient 1; C≡+1 vacua of d_4, d_5 (closed form) and d_6 (shooting); linearized reflection = ∏_b S_ab(θ,1); no classical bound states". Runtime about 3 min.
 - New row: `dn_nondiagonal_scalar.py` | `prp-dn-nondiagonal-scalar`, `eq-dn-nondiagonal-scalar`, `eq-dn-neumann-amplitude`, `sec-dn-uniform` | "d_n s=±1 matrices: U_ς, Ψ_ς, singlet c_ς (ς=(−1)ⁿs); scalar factors and breathers to 30 digits; continued amplitudes, axioms, bootstrap; Kim–Cho one loop; K^N_1 = dual of uniform; semiclassics" | about 2.5 min.
@@ -224,7 +224,7 @@ PASS varsigma = +1 with the CDD factor is the dual K_1(theta, 2 - B) of the unif
 
 *Structural fix.* Lines 210–232: the paragraph "**The scalar factor at $\hat\epsilon=0$.**" through "…continues to is in @sec-dn-uniform." sits between `::: {#prp-dn-r}` and that proposition's title ("## The $d_n$ vector R-matrix"), so prp-dn-scalar is nested inside prp-dn-r. Move the paragraph after the paragraph that follows @prp-dn-k, because it uses $K=AJ$ before the matrices are introduced. Restore prp-dn-r as `::: {#prp-dn-r}` / `## The $d_n$ vector R-matrix` / `**[Numerical]** …` / `:::`.
 
-*In prp-dn-scalar.* Replace "With the matrix part acting trivially on the singlet, the lowest-breather amplitude is" by "The matrix part maps the singlet of $V\otimes V$ at the pole $\langle n-1\rangle$ to itself with coefficient 1, and the lowest-breather amplitude is". After "contributes no factor." add "(computed in `textbook_code/dn_uniform.py`)".
+*In prp-dn-scalar.* Replace "With the matrix part acting trivially on the singlet, the lowest-breather amplitude is" by "The matrix part maps the singlet of $V\otimes V$ at the pole $\langle n-1\rangle$ to itself with coefficient 1, and the lowest-breather amplitude is". After "contributes no factor." add "(computed in `code/dn_uniform.py`)".
 
 *New, after it:*
 
@@ -246,7 +246,7 @@ PASS varsigma = +1 with the CDD factor is the dual K_1(theta, 2 - B) of the unif
 > $$\Xi A_+(\mu_a)F(2\mu)\,\Xi A_+(\mu_b)\,c_+=\Big(\frac\omega2-T\Big)_I\Big(\frac12\Big)_I\Big(T-\frac\omega2-\frac12\Big)_I\frac{(\frac T2-\frac\omega2)_I(\frac T2-\frac12)_I}{(\frac T2)_I(\frac T2-\frac\omega2-\frac12)_I}.$$
 > :::
 >
-> Checked in `textbook_code/dn_nondiagonal_scalar.py`: (i), (ii), (iv) at the matrix level to $10^{-13}$; (iii), (v) to $10^{-26}$. The CDD factor $\Xi$ is unitary and crossing-symmetric by itself. It is not fixed by the functional equations; it is the factor that Kim and Cho's one-loop $d_4$ amplitudes require (@sec-dn-uniform). It plays the role of the factor $(\frac T2\mp\frac\omega2)_I$ that Kim's $a_3$ amplitudes require (@sec-an-nondiagonal-k).
+> Checked in `code/dn_nondiagonal_scalar.py`: (i), (ii), (iv) at the matrix level to $10^{-13}$; (iii), (v) to $10^{-26}$. The CDD factor $\Xi$ is unitary and crossing-symmetric by itself. It is not fixed by the functional equations; it is the factor that Kim and Cho's one-loop $d_4$ amplitudes require (@sec-dn-uniform). It plays the role of the factor $(\frac T2\mp\frac\omega2)_I$ that Kim's $a_3$ amplitudes require (@sec-an-nondiagonal-k).
 
 *Replace the last paragraph (line 255):*
 
@@ -265,17 +265,17 @@ PASS varsigma = +1 with the CDD factor is the dual K_1(theta, 2 - B) of the unif
 > Each term of $V$ is a positive multiple of the exponential of a linear function of $\vec\phi$, and the $\vec\alpha_j$ span the root space. For $C_j\ge0$ the same holds for $\mathcal B$. So the static energy $\int(\frac12\vec\phi'^2+V)dx+\mathcal B(\vec\phi(0))$ is strictly convex on the convex set of finite-energy fields. Its critical points, the static solutions, are therefore global minima, and there is at most one. A diagram symmetry maps the problem with $C\equiv+1$ to itself, so it fixes the solution. On the invariant fields of $d_4^{(1)}$ the exponents are $-f$ on the four end nodes and $2f$ on the centre, and the field equation becomes $f''=2m^2(e^{2f}-e^{-f})$. For $d_5^{(1)}$ the exponents are $\mp f$ and the equation is $f''=4m^2\sinh f$. The first integral and the boundary condition fix $f(0)$, and the energies follow by quadrature.
 > :::
 >
-> Checked in `textbook_code/dn_uniform.py`. A direct minimization of the discretized energy, from random fields and without the symmetry, reaches the same values. For $d_6^{(1)}$ the invariant sector is two-dimensional, and the vacuum, found by shooting, has tails in both invariant directions, $m_2$ and $m_4$.
+> Checked in `code/dn_uniform.py`. A direct minimization of the discretized energy, from random fields and without the symmetry, reaches the same values. For $d_6^{(1)}$ the invariant sector is two-dimensional, and the vacuum, found by shooting, has tails in both invariant directions, $m_2$ and $m_4$.
 >
 > ::: {#prp-dn-uniform-classical}
 > **[Numerical]** For $d_4^{(1)}$, $d_5^{(1)}$ and $d_6^{(1)}$, the linearized reflection about the $C\equiv+1$ vacuum is diagonal in the particle basis, and for every particle $a$, spinors included, $K_a^{\rm cl}(\theta)=\prod_bS_{ab}(\theta)\big|_{B=1}$. For $a=1$ this is the limit above. The linear problem has no bound state.
 > :::
 >
-> Checked in `textbook_code/dn_uniform.py` to $10^{-11}$. So the $\hat\epsilon=0$ matrix is the uniform boundary, as for $a_n^{(1)}$; the kink adds the factor $(\frac h2-1)(\frac h2+1)/(\frac h2)^2$. The right-hand side is Castro-Alvaredo and Fring's $\hat R_a$ at $B=0$, so the classical limit of their whole family is the uniform boundary. The pole of $K_1$ at $\theta=i\pi(\frac12-\frac1h)$ is present at every $B$. Classically it is not a bound state: there $p=\frac i2m_2$, and the pole is the redundant pole of the $e^{m_2x}$ tail of the vacuum.
+> Checked in `code/dn_uniform.py` to $10^{-11}$. So the $\hat\epsilon=0$ matrix is the uniform boundary, as for $a_n^{(1)}$; the kink adds the factor $(\frac h2-1)(\frac h2+1)/(\frac h2)^2$. The right-hand side is Castro-Alvaredo and Fring's $\hat R_a$ at $B=0$, so the classical limit of their whole family is the uniform boundary. The pole of $K_1$ at $\theta=i\pi(\frac12-\frac1h)$ is present at every $B$. Classically it is not a bound state: there $p=\frac i2m_2$, and the pole is the redundant pole of the $e^{m_2x}$ tail of the vacuum.
 >
 > **The other two matrices.** Continued by $\omega\to-2/B$, the breather amplitudes of @prp-dn-nondiagonal-scalar become
 > $$K^N_1=\frac{(\frac h2-1)(\frac h2+\frac B2)(h-1+\frac B2)}{(h-1)(\frac h2)(\frac h2-1+\frac B2)(\frac B2)}=K_1\big|_{B\to2-B},\qquad K^{(-)}_1=\frac{K_1}{K_1^{\rm cl}} .$$ {#eq-dn-neumann-amplitude}
-> Both are unitary and crossing-unitary with $S_{11}$, close the bootstrap over the vector-like particles, and tend to 1, the Neumann value, as $B\to0$ ($n\le7$). At $O(\beta^2)$, $K^N_1$ and $K^N_2(\theta)=K^N_1(\theta+\frac{i\pi}6)K^N_1(\theta-\frac{i\pi}6)S_{11}(2\theta)$ of $d_4^{(1)}$ are Kim and Cho's one-loop Neumann amplitudes [@kim_cho1996, eqs. (29), (40)]. $K^{(-)}_1$ agrees with them only after $\theta\to\theta+i\pi$. The same holds against Kim's self-dual conjecture for $d_5$, $d_6$, $d_7$ [@kim1995, eq. (20)], which is Castro-Alvaredo and Fring's $\tilde R_1(\theta+i\pi)$. This is the $a_n$ pattern: (-@eq-neumann-amplitude) is the dual of the uniform amplitude, $K^{(-)}_a=K_a/K_a^{\rm cl}$ in @sec-neumann-duality, and $K^{(-)}_1$ of $a_3$ is Kim's amplitude at $\theta+i\pi$. So $\varsigma=+1$ is the Neumann boundary, given @cnj-reflection-continuation and the CDD factor $\Xi$ that one loop fixes. Neither the classical limit nor the semiclassical soliton time delay distinguishes the two matrices: both give half the phase of $F(2\theta)$, as a Neumann wall does by images (`textbook_code/dn_nondiagonal_scalar.py`).
+> Both are unitary and crossing-unitary with $S_{11}$, close the bootstrap over the vector-like particles, and tend to 1, the Neumann value, as $B\to0$ ($n\le7$). At $O(\beta^2)$, $K^N_1$ and $K^N_2(\theta)=K^N_1(\theta+\frac{i\pi}6)K^N_1(\theta-\frac{i\pi}6)S_{11}(2\theta)$ of $d_4^{(1)}$ are Kim and Cho's one-loop Neumann amplitudes [@kim_cho1996, eqs. (29), (40)]. $K^{(-)}_1$ agrees with them only after $\theta\to\theta+i\pi$. The same holds against Kim's self-dual conjecture for $d_5$, $d_6$, $d_7$ [@kim1995, eq. (20)], which is Castro-Alvaredo and Fring's $\tilde R_1(\theta+i\pi)$. This is the $a_n$ pattern: (-@eq-neumann-amplitude) is the dual of the uniform amplitude, $K^{(-)}_a=K_a/K_a^{\rm cl}$ in @sec-neumann-duality, and $K^{(-)}_1$ of $a_3$ is Kim's amplitude at $\theta+i\pi$. So $\varsigma=+1$ is the Neumann boundary, given @cnj-reflection-continuation and the CDD factor $\Xi$ that one loop fixes. Neither the classical limit nor the semiclassical soliton time delay distinguishes the two matrices: both give half the phase of $F(2\theta)$, as a Neumann wall does by images (`code/dn_nondiagonal_scalar.py`).
 
 **(d) Open problem 2 (line 342).** Replace the d_n sentences:
 
@@ -318,8 +318,8 @@ The DOI is 10.1103/PhysRevD.53.4441, from arXiv metadata. The equation numbers a
 ## 5. Files (all under `$A6/`)
 
 **Check scripts:**
-- `textbook_code_new/dn_uniform.py`, log `dn_uniform_ext.log`
-- `textbook_code_new/dn_nondiagonal_scalar.py`, log `dn_nondiagonal_scalar.log`
+- `code_new/dn_uniform.py`, log `dn_uniform_ext.log`
+- `code_new/dn_nondiagonal_scalar.py`, log `dn_nondiagonal_scalar.log`
 
 **Task 1:**
 - Classical machinery: `cl_lin.py`

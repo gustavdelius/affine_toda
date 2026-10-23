@@ -12,7 +12,7 @@ Open problem 6 of `sec-boundary-open-problems` (`part7-half-line/35-particle-ref
 
 ## What the book already has
 
-Read `sec-real-coupling-vacua`, `sec-boundary-missing-charges`, `sec-images-boundary` and `sec-images-cn` (ch. 31); `sec-solitonic-boundaries` (ch. 35); `cnj-missing-charge` and `prp-static-saddles` (`part5-semiclassics/17-thimbles.qmd`). Scripts: `textbook_code/boundary_vacua.py` (stationary pairs, `prp-dg-weights`, the table, the self-conjugate family) and `boundary_images.py`. Facts to use:
+Read `sec-real-coupling-vacua`, `sec-boundary-missing-charges`, `sec-images-boundary` and `sec-images-cn` (ch. 31); `sec-solitonic-boundaries` (ch. 35); `cnj-missing-charge` and `prp-static-saddles` (`part5-semiclassics/17-thimbles.qmd`). Scripts: `code/boundary_vacua.py` (stationary pairs, `prp-dg-weights`, the table, the self-conjugate family) and `boundary_images.py`. Facts to use:
 
 - A real-coupling static solution is $\vec\phi=-\frac1\beta\sum_j\vec\alpha_j\ln\tau_j$ with all $\tau_j>0$ on $x\le0$. Singularities may hide at $x>0$, and only static configurations qualify.
 - For $a_3^{(1)}$ the four missing weights of $\Lambda_2$ are reached statically only with species $\{1,2,3\}$, at energy $(1+\sqrt2)M_2$. Bound states of two species-1 solitons at rapidities $\pm iu$, $u\to\pi/4$, have energy $\to M_2$ and cover all of $\Lambda_2$ at $t=0$ (`prp-static-saddles`, citing Harder et al.).

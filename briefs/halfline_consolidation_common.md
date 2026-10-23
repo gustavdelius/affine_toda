@@ -2,11 +2,11 @@
 
 Prepended verbatim to each `halfline_consolidation_A*_prompt.md` when the agent is launched.
 
-You are verifying, independently, results that a worker agent obtained in round 1 on the open problems of Part VII (the half-line) of a Quarto textbook on affine Toda field theory. The repository is `/home/gustav/Git/affine_toda` (branch `half-line-consolidation`). The book's Part VII is in `part7-half-line/` (chapters 28–35); its check scripts are in `textbook_code/` (index: `textbook_code/README.md`).
+You are verifying, independently, results that a worker agent obtained in round 1 on the open problems of Part VII (the half-line) of a Quarto textbook on affine Toda field theory. The repository is `/home/gustav/Git/affine_toda` (branch `half-line-consolidation`). The book's Part VII is in `part7-half-line/` (chapters 28–35); its check scripts are in `code/` (index: `code/README.md`).
 
 **Rules.**
 - Do not edit, create or delete any file in the repository. Do not run git commands. Do not spawn subagents.
-- Work only in your own scratch directory, given below. Run book code from there with `PYTHONPATH=/home/gustav/Git/affine_toda/textbook_code`, or copy the book scripts you need into your directory.
+- Work only in your own scratch directory, given below. Run book code from there with `PYTHONPATH=/home/gustav/Git/affine_toda/code`, or copy the book scripts you need into your directory.
 - **Independence.** The point of this pass is a check that does not reuse the worker's code. You may read the worker's scripts to understand what was done, but your checks must be built on the book's own code (`boundary_common.py`, `particle_reflection.py`, `smatrix_simply_laced.py`, `an_nondiagonal_scalar.py`, `boundary_classical.py`, `boundary_vacua.py`, …) or written from scratch. Say explicitly, for every claim, which code your check uses.
 - Distrust steps that merely look plausible. Earlier referee passes on this project found real errors every time (swapped S-matrix entries, misquoted papers, fitted constants presented as derived). If a claim is wrong, say so plainly; a refutation is as useful as a confirmation.
 - When you quote a paper, read it at the source (arXiv TeX or PDF; download into your scratch directory) and give equation numbers. Never build a correction to a published paper on a paraphrase.
@@ -23,7 +23,7 @@ You are verifying, independently, results that a worker agent obtained in round 
 
 **Deliverable.** Your final message is your full report (it is saved verbatim; files you write are not read unless listed). It contains:
 1. For every claim in your task: verdict **VERIFIED / CORRECTED / REFUTED / UNCHECKED**, the evidence (precision, parameters, which code), and what remains open.
-2. A **check script for `textbook_code/`**, written in your scratch directory, in the style of `textbook_code/an_nondiagonal_scalar.py`: a docstring naming the book ids it supports, the conventions and each numbered check; one `PASS`/`FAIL` line per check via `boundary_common.report`; imports only from `textbook_code/` and standard packages; runtime a few minutes at most. Run it and include its output. (If your task says to extend an existing book script, write the extended copy in your scratch directory instead.)
+2. A **check script for `code/`**, written in your scratch directory, in the style of `code/an_nondiagonal_scalar.py`: a docstring naming the book ids it supports, the conventions and each numbered check; one `PASS`/`FAIL` line per check via `boundary_common.report`; imports only from `code/` and standard packages; runtime a few minutes at most. Run it and include its output. (If your task says to extend an existing book script, write the extended copy in your scratch directory instead.)
 3. **Proposed book text** (Quarto markdown, book notation, cross-reference ids from the chapters), with the place where it goes. Keep it short and in the register of the surrounding chapter.
 4. Any statement in the book or in Appendix D (`appendices/D-corrections.qmd`) that your results contradict.
 5. The full paths of all your scripts and logs.

@@ -12,7 +12,7 @@ Restrict to $a_n^{(1)}$ and the vector solitons first, where the reflection equa
 
 ## What the book already has
 
-Read all of ch. 34 (`sec-qsp`), especially `tbl-physics-qsp`, `prp-trig-k`, `prp-hypothesis-ii` and `sec-generalized-satake`; and `sec-sklyanin`, `sec-durham-classification`, `sec-soliton-preserving`, `sec-background-field` (ch. 30). Script: `textbook_code/qsp_checks.py`. Key facts:
+Read all of ch. 34 (`sec-qsp`), especially `tbl-physics-qsp`, `prp-trig-k`, `prp-hypothesis-ii` and `sec-generalized-satake`; and `sec-sklyanin`, `sec-durham-classification`, `sec-soliton-preserving`, `sec-background-field` (ch. 30). Script: `code/qsp_checks.py`. Key facts:
 
 - Classical side: with $\sigma$ = transposition and constant $K$, the boundaries are those of `tbl-durham`; with $\sigma$ = Hermitian conjugation and $K=1$, the soliton-preserving one. Other $\sigma$ (diagram automorphisms composed with transposition) are not studied in the book. Background-field boundaries need an inner automorphism of odd order.
 - Quantum side: three soliton-conjugating points for $a_n$ ($\hat\epsilon=0$, $s=\pm1$), torus conjugates, and the generalized Satake families of Regelskis–Vlaar.

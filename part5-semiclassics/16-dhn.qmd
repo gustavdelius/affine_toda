@@ -97,7 +97,7 @@ $$
 \Delta M_a=-m_a\Big[\frac h{2\pi}-\frac14\cot\frac\pi h\Big].
 $$ {#eq-hollowood-mass}
 
-Here $m_a=2m\sin\frac{\pi a}h$, with $m$ the mass parameter of the normal-ordered Lagrangian (@sec-feynman-rules). The calculation is Hollowood's [@hollowood1993a]. His paper prints $\frac12\cot\frac\pi h$ (his (3.28)), because its evaluations (3.3) and (3.27) of the bound-state sum (3.2) and the continuum integral (3.26) are twice the actual values of those expressions. Evaluated correctly they give $\frac14\cot\frac\pi h$, the coefficient found by MacKay and Watts [@mackay_watts1995] (`textbook_code/semiclassics.py`).
+Here $m_a=2m\sin\frac{\pi a}h$, with $m$ the mass parameter of the normal-ordered Lagrangian (@sec-feynman-rules). The calculation is Hollowood's [@hollowood1993a]. His paper prints $\frac12\cot\frac\pi h$ (his (3.28)), because its evaluations (3.3) and (3.27) of the bound-state sum (3.2) and the continuum integral (3.26) are twice the actual values of those expressions. Evaluated correctly they give $\frac14\cot\frac\pi h$, the coefficient found by MacKay and Watts [@mackay_watts1995] (`code/semiclassics.py`).
 
 Since $\Delta M_a$ is proportional to $m_a$, the soliton mass ratios are unchanged at one loop, just as the particle mass ratios are (@sec-one-loop-masses-real). With the classical mass (-@eq-soliton-mass), $M_a=m_a\big(\frac{2h}{\beta^2}-\frac h{2\pi}+\frac14\cot\frac\pi h\big)+O(\beta^2)$. For $h=2$ this is $M=\frac{8m_0}{\beta_{\rm SG}^2}-\frac{m_0}\pi$, the sine-Gordon result.
 
@@ -115,7 +115,7 @@ These are not academic worries. For $c_n^{(1)}$, MacKay and Watts [-@mackay_watt
 
 @sec-semiclassics answers the first question with Picard–Lefschetz theory, and shows that the Gaussian integrals of the semiclassical expansion count eigenvalues by algebraic multiplicity. @sec-jordan-chains derives the algebraic multiplicities from the transmission factors. @sec-one-loop-masses applies this to every folded soliton and resolves both disagreements.
 
-Many statements in the next three chapters are labelled [Numerical], and several theorems rest on hypotheses that have only been checked numerically (@tbl-jordan-hypotheses). Each numerical statement names the script that checks it, and `textbook_code/README.md` lists them all (@sec-app-code).
+Many statements in the next three chapters are labelled [Numerical], and several theorems rest on hypotheses that have only been checked numerically (@tbl-jordan-hypotheses). Each numerical statement names the script that checks it, and `code/README.md` lists them all (@sec-app-code).
 
 ## Exercises {#sec-dhn-exercises}
 

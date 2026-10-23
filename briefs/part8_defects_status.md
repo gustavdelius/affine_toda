@@ -63,7 +63,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 - Book-internal: the twist of `prp-bloch-sectors` acts at a common seam.
 
 **Pending edits elsewhere (integration phase):**
-- `textbook_code/README.md` row for `defect_axioms.py` — DONE 2026-10-12 (global integration).
+- `code/README.md` row for `defect_axioms.py` — DONE 2026-10-12 (global integration).
 - `part9-foundations/48-scattering.qmd`: pointer from `prp-exchange-twist` and `prp-bloch-sectors` to `prp-twist-defect`, plus one sentence on the common seam — DONE 2026-10-12 (global integration). New paragraph after the proof of `prp-bloch-sectors`.
 - `part7-half-line/28-boundary-scattering.qmd` `sec-boundary-lee-yang`: pointer to `sec-defect-lee-yang` (K_b = 𝕋̄_b K_𝟙 𝕋_b) — DONE 2026-10-12 (global integration).
 - `part6-soliton-smatrices/27-rsos.qmd`: pointer to the modified crossing in `sec-topological-lines` — DONE 2026-10-12 (global integration). In the Notes, citing cck2024.
@@ -131,7 +131,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 **Book-internal correction applied to ch. 36 (2026-10-11).** The excited defect is the image of the residue in 𝒲⊗V(iu), with transmission Ř₂₃𝕋₁₂ (the particle sits to the right). Ch. 36 had "a subspace of V(iu)⊗𝒲".
 
 **Pending edits elsewhere.**
-- `textbook_code/README.md` rows: `defect_classical_sg.py` (ch. 36–37, 27 checks, ~20 s) and `defect_sg_transmission.py` (ch. 37/40, 24 checks, ~100 s); the new helpers in `defect_common.py` — DONE 2026-10-12 (global integration).
+- `code/README.md` rows: `defect_classical_sg.py` (ch. 36–37, 27 checks, ~20 s) and `defect_sg_transmission.py` (ch. 37/40, 24 checks, ~100 s); the new helpers in `defect_common.py` — DONE 2026-10-12 (global integration).
 - Pointers (all DONE 2026-10-12):
   - ch. 3 `sec-sg-classical` → `sec-backlund` — DONE 2026-10-12;
   - ch. 10 `sec-multi-solitons` → `prp-bianchi` — DONE 2026-10-12;
@@ -221,8 +221,8 @@ Working record for Part VIII, kept in the repository because the session scratch
 - **Ch. 30 `prp-sklyanin`: DONE 2026-10-12** (re-derived: local {a_x⊗a_x} = +[r, a₁+a₂]δ, four-site lattice transport c = −1). Still open: `boundary_classical.py`'s `tau_bracket` docstring says {T⊗T} = +[r, TT]; harmless (homogeneous), but the docstring could note the sign (file outside the integration list). — Docstring note DONE 2026-10-12 (global integration; `boundary_classical.py` rerun, 43 PASS).
 - **Appendix D (literature corrections; not on this branch):** when the Part VIII corrections are added, include corrections 1–7 above (7: CZ 2009b (4.5) winding reversal) and state BCZ's tensor as A = 2Σ(μ·u)³ (density ⅓A), not ⅔Σ — DONE 2026-10-12 (global integration).
 - **Conventions brief:** BCZ's A_abc = 2Σμμμ (density ⅓A); {T⊗T} = −[r, T⊗T] for ∂_xT = −a_xT while {a_x⊗a_x} = +[r, a₁+a₂]δ; PP γ/2 = b_SG²/8π (sinh-Gordon); the defect bracket is for independent defect values — DONE 2026-10-12 (global integration). (§5, and the PP sign corrected in §9.)
-- **Pending (ch. 38):** retain a reproducible a₃ spin-±2 run (e.g. a separate slow script) — DONE 2026-10-13: `textbook_code/defect_spin_two_a3.py` (9 checks, about 162 s), generalizing check 5/11's a₂ construction to general r; the result is now EXACT (sympy) for a₃, not just numerical, so `prp-spin-two` item (3) and its label were upgraded to [Theorem] for a₃ too (`part8-defects/38-defect-conditions.qmd`). Verification: ran the new script to completion (all 9 PASS) and reran `defect_classical_an.py` (24 PASS, docstring-only change) in this session (label upgrade not independently refereed). Refereed 2026-10-13 (upgrades report item 7): correct, with an independent Laurent-polynomial Euler test; the `boundary_G` docstring had the Θ sign wrong (the flux is G = (T+Θ)(φ) − (T+Θ)(ψ), dQ_bulk/dt = εG, defect contribution −εF for D_tF = G, charge spin −ε·spin) — docstring fixed, script rerun 9 PASS (151 s).
-- `textbook_code/README.md` rows: `defect_classical_an.py` (24 checks, ~55 s), `defect_lax_rmatrix.py` (6 checks, <1 s) — DONE 2026-10-12 (global integration).
+- **Pending (ch. 38):** retain a reproducible a₃ spin-±2 run (e.g. a separate slow script) — DONE 2026-10-13: `code/defect_spin_two_a3.py` (9 checks, about 162 s), generalizing check 5/11's a₂ construction to general r; the result is now EXACT (sympy) for a₃, not just numerical, so `prp-spin-two` item (3) and its label were upgraded to [Theorem] for a₃ too (`part8-defects/38-defect-conditions.qmd`). Verification: ran the new script to completion (all 9 PASS) and reran `defect_classical_an.py` (24 PASS, docstring-only change) in this session (label upgrade not independently refereed). Refereed 2026-10-13 (upgrades report item 7): correct, with an independent Laurent-polynomial Euler test; the `boundary_G` docstring had the Θ sign wrong (the flux is G = (T+Θ)(φ) − (T+Θ)(ψ), dQ_bulk/dt = εG, defect contribution −εF for D_tF = G, charge spin −ε·spin) — docstring fixed, script rerun 9 PASS (151 s).
+- `code/README.md` rows: `defect_classical_an.py` (24 checks, ~55 s), `defect_lax_rmatrix.py` (6 checks, <1 s) — DONE 2026-10-12 (global integration).
 - **Conventions brief** (all items DONE 2026-10-12, §5 and §8):
   - the monodromy T₊L_d⁻¹T₋ and the bracket results;
   - λ → ∞ goes with negative spins; B₊ₛ carries σ⁻¹g_j and B₋ₛ carries σf_j;
@@ -315,7 +315,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 
 **Pending edits elsewhere.**
 - Ch. 36 `sec-defect-circle`: DONE 2026-10-12 (inverse L-operators, convergent twisted trace, Fock = Q-operators, Weyl → `prp-defect-transfer`).
-- `textbook_code/README.md` rows for `defect_universal_r.py` (16 checks, ~90 s) and `defect_transfer.py` (9 checks, ~30 s), plus the new `defect_common` helpers (`q_oscillator_module`, `fock_module_b`, `borel_l_operator`, `flip_VW`); `defect_classical_an.py` is now 24 checks, ~110 s; `defect_lax_rmatrix.py` 6 checks, ~2 s — DONE 2026-10-12 (global integration).
+- `code/README.md` rows for `defect_universal_r.py` (16 checks, ~90 s) and `defect_transfer.py` (9 checks, ~30 s), plus the new `defect_common` helpers (`q_oscillator_module`, `fock_module_b`, `borel_l_operator`, `flip_VW`); `defect_classical_an.py` is now 24 checks, ~110 s; `defect_lax_rmatrix.py` 6 checks, ~2 s — DONE 2026-10-12 (global integration).
 - Docstring trap in `defect_common.sg_tmatrix`: its Weyl module uses μ = 1, not the module the matrix intertwines — DONE 2026-10-12: re-derived (residual 1e-15 with μ = i/(q−q⁻¹), 3.7 with μ = 1) and stated in the docstring, the README and the conventions brief §6; behaviour unchanged.
 - Conventions brief §6 (all items DONE 2026-10-12):
   - q generic (not a root of unity) unless stated; at q = e^{iπ/3} extra intertwiners (S³⊗1)𝕋;
@@ -379,7 +379,7 @@ The full drafting report is in `briefs/draft_ch39_report.md`: summary, script ou
 - The quantum statements of cz2007 §6 and cz2009a (5.8).
 
 **Pending edits elsewhere.**
-- `textbook_code/README.md` row for `defect_solitons_an.py` — DONE 2026-10-12 (global integration).
+- `code/README.md` row for `defect_solitons_an.py` — DONE 2026-10-12 (global integration).
 - Ch. 38, end of `sec-defect-backlund-an`: restrict "no absorption at real rapidity except self-conjugate" to class 0, and point to `prp-ds-absorption` — DONE 2026-10-12 (global integration). Also 'neighbouring weight' → 'along its cycle of charges (@prp-stored-charge)'.
 - Optional pointers: ch. 37 `prp-half-soliton`, ch. 10 `sec-topological-charges`, ch. 16 `eq-an-transmission`, ch. 36 `sec-topological-lines` — DONE 2026-10-12 (all four: → `prp-defect-frozen-soliton`, `prp-stored-charge`, `eq-an-linear-transmission`, the π-line limits).
 - Conventions brief (all items DONE 2026-10-12, §10):
@@ -487,7 +487,7 @@ The full drafting report is in `briefs/draft_ch41_report.md`. The exploration ch
 - cz2009a §5: the tunnelling in (5.11) is made quantitative.
 
 **Pending edits elsewhere.**
-- `textbook_code/README.md` row for `defect_an_transmission.py` and the ch. 41 helpers — DONE 2026-10-12 (global integration).
+- `code/README.md` row for `defect_an_transmission.py` and the ch. 41 helpers — DONE 2026-10-12 (global integration).
 - Ch. 36 `sec-defect-bound-states` and ch. 37 `sec-sg-defect-spectrum`: "the a₂ unstable state exists only in a window of couplings" holds only for species 2; species 1 is unstable for ω > 1 — DONE 2026-10-12 (global integration).
 - Optional: ch. 39, after `prp-defect-frozen-soliton`, a pointer to `sec-defect-open-problems` — DONE 2026-10-12 (global integration).
 - Conventions brief (all items DONE 2026-10-12, §11):
@@ -595,7 +595,7 @@ The full drafting report is in `briefs/draft_ch42_report.md`, including the prop
   - ch. 34 `sec-universal-k` → `sec-diagonal-qsp` — DONE 2026-10-12;
   - optionally, ch. 37 `sec-sg-breather-transmission` → `prp-defect-fusion-k` — DONE 2026-10-12.
 - Repository files (DONE 2026-10-12, optional bib not done):
-  - `textbook_code/README.md` row for `defect_doubling.py` — DONE 2026-10-12;
+  - `code/README.md` row for `defect_doubling.py` — DONE 2026-10-12;
   - conventions brief §10 (text in the report) — DONE 2026-10-12 (now §12, in chapter order);
   - optional bib entries: Ito–Terwilliger, Kolb 2020, Lusztig's book — not done (optional; cited only through other papers).
 - The papers 2402.16676 and 2504.08375 have been copied to `~/referee-copy/papers/`.
@@ -670,7 +670,7 @@ The full drafting report is in `briefs/draft_ch43_report.md`; the checkpoint is 
   - ch. 40, `tbl-boundary-defect-algebra`: mention the a_r case — DONE 2026-10-12.
 - Ch. 35 problem 10: point to `sec-defect-open-problems` (part of the global rewrite) — DONE 2026-10-12 (global integration).
 - Repository files (DONE 2026-10-12):
-  - `textbook_code/README.md` row — DONE 2026-10-12;
+  - `code/README.md` row — DONE 2026-10-12;
   - conventions brief §11 (text in the report) — DONE 2026-10-12 (now §13, in chapter order).
 
 **Integration of the referee report (2026-10-13).** Report `briefs/referee_defects_43_report.md` (Codex items 1–4, Claude items 5–8; Integration section at its end); checkpoint `briefs/integration_43_checkpoint.md`; own scripts `briefs/referee_defects_43_scripts/integration_*.py`. All eight items verified (items 6 and 8 with small modifications); none rejected.
@@ -700,7 +700,7 @@ Done by the global-integration agent; checkpoint `briefs/global_integration_part
 - `index.qmd`: Part VIII in the part list, status note, presentation of known material and original results ("Defects", ch. 36–43); node VIII in the dependency map (edges from II, III, VI, VII; none to IX); reading path "Integrable defects"; conventions sentence; figure `intro_f1_reading_paths` regenerated (six paths).
 - `outlook/50-outlook.qmd`: three defect connections (spin chains and circuits, AdS/CFT defects, Bäcklund transformations and Q-operators) and pointers to `sec-defect-open-problems`.
 - Appendix D: the Part VIII corrections to published papers, with a fifth kind, *clarification*. Not listed there, by the appendix's rules: convention-only items (Bajnok–Simon $B_{\rm BS}=B/2$; BGKNR/BLZ translation; cz2007 (7.3)–(7.5) and Sec. 6 species labels), items that confirm or extend without correcting (cz2007 Sec. 7 remarks, Bajnok–Simon Sec. 4.2, cz2009a Sec. 5, cz2012 (2.18)), and book-internal items. cz2007 Sec. 2 after (2.22) is under "Corrections made earlier by others" (cz2009a noted it).
-- Appendix C: section `sec-app-code-defects` with all `defect_*.py` scripts. `textbook_code/README.md`, `briefs/README.md` and the root `README.md` cover Part VIII.
+- Appendix C: section `sec-app-code-defects` with all `defect_*.py` scripts. `code/README.md`, `briefs/README.md` and the root `README.md` cover Part VIII.
 - Conventions brief: ch. 38 and ch. 40 items folded into §5, §6 and §8 (PP sign in §9 corrected); new §10 (ch. 39), §11 (ch. 41), §12 (ch. 42, the report's "§10") and §13 (ch. 43, the report's "§11").
 
 ## Integration of the upgrades referee report (2026-10-13)

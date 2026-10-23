@@ -26,7 +26,7 @@ Lectures 1 to 5 are written; the others are in preparation.
 
 **Predict, then calculate.** Each lecture poses its question before answering it. Where you see a box marked *Predict*, stop and write down what you expect. A wrong prediction that you then correct teaches more than a right answer you only read.
 
-**Calculations.** The decisive calculations are written out without skipped steps. Do them with pen and paper alongside the text. Every calculation shown in detail is also checked by a script in `textbook_code/lectures/`, written from the definitions of the lectures. Run it when your algebra and the text disagree, or change it to try your own variations.
+**Calculations.** The decisive calculations are written out without skipped steps. Do them with pen and paper alongside the text. Every calculation shown in detail is also checked by a script in `code/lectures/`, written from the definitions of the lectures. Run it when your algebra and the text disagree, or change it to try your own variations.
 
 **Exercises** come in three kinds. *Redo* exercises repeat a calculation of the lecture in a slightly different setting. *Rediscover* exercises lead you to a result of the book before you read it there. *Explore* exercises are open-ended, and some of them touch the open problems of the book.
 

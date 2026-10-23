@@ -38,7 +38,7 @@ Experience in this repository is that every adversarial referee pass finds real 
 
 ## Already verified (do not redo unless you find a reason)
 
-**By script** (`textbook_code/`, see its README):
+**By script** (`code/`, see its README):
 
 - `boundary_classical.py`:
   - **`tbl-durham`.** An invertible field-independent $K$ solving `eq-boundary-k-equation` exists exactly for the listed $C_j$ in the checked rows: $a_1,a_2,a_3,d_4,c_2,c_3,b_3,g_2,a_2^{(2)},a_4^{(2)},a_6^{(2)},d_3^{(2)}$.
