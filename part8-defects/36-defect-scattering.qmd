@@ -21,7 +21,7 @@ Like @sec-boundary-scattering, this chapter is independent of affine Toda theory
 
 Take a field $\vec\phi$ on $x<0$ and a field $\vec\psi$ on $x>0$, coupled at $x=0$ by a defect term in the action (@sec-defect-lagrangian). Time translation survives, so the energy, including a defect contribution, is conserved. Space translation is broken by the defect, so momentum in general is not.
 
-**Which charges survive.** Let $Q_s$ be a local charge of the bulk theory, built on each side from a conservation law $\partial_-T_{s+1}=\partial_+\Theta_{s-1}$ (@sec-factorization) and integrated over both half-lines. In the coordinates $(t,x)$ the conservation law reads $\partial_t(T_{s+1}-\Theta_{s-1})=\partial_xJ_s$ with $J_s=T_{s+1}+\Theta_{s-1}$, so the time derivative of $Q_s$ is the jump of the flux across the defect,
+**Which charges survive.** Let $Q_s$ be a local charge of spin $s$ of the bulk theory, built on each side from a conservation law of @sec-factorization and integrated over both half-lines. In the coordinates $(t,x)$ the conservation law reads $\partial_t\rho_s=\partial_xJ_s$. For $s=-n<0$ it is $\partial_-T_{n+1}=\partial_+\Theta_{n-1}$, with $\rho_s=T_{n+1}-\Theta_{n-1}$ and $J_s=T_{n+1}+\Theta_{n-1}$. For $s=n>0$ it is the parity image, with $\partial_+$ and $\partial_-$ exchanged. So the time derivative of $Q_s$ is the jump of the flux across the defect,
 
 $$
 \frac{dQ_s}{dt}=J_s(0^-,t)-J_s(0^+,t).

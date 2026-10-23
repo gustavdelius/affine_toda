@@ -2,7 +2,8 @@
 
 1. Lax pair (sec-lax-pair): zero curvature for a_2^(1) <=> field equation, with
    coefficients sqrt(n_j alpha_j^2/2).
-2. Spin-3 conserved current of sinh-Gordon (sec-conserved-charges).
+2. Conserved current of sinh-Gordon built from d_+ (sec-conserved-charges); its charge
+   has spin -3, checked on a plane wave of the linearized theory.
 3. Masses: eigenvalues of m^2 sum n_j alpha_j alpha_j^T are proportional to the
    Perron-Frobenius vector (simply laced), sum rule sum m_a^2 = 2h m^2.
 4. Cubic couplings |C_abc| proportional to the area of the mass triangle, and
@@ -47,6 +48,21 @@ expr = sp.diff(T4, xm) + sp.diff(Th2, xp)
 eom = -(m**2/b)*sp.sinh(b*f)           # d+d- f for V=(m^2/b^2)(cosh b f - 1), d+-=d_t+-d_x
 expr = expr.subs(sp.Derivative(f, xp, xp, xm), sp.diff(eom, xp)).subs(sp.Derivative(f, xp, xm), eom)
 report('sinh-Gordon: d_-[(d_+^2 f)^2+(b^2/4)(d_+ f)^4] + d_+[m^2 cosh(bf)(d_+ f)^2] = 0', sp.simplify(expr) == 0)
+
+# Sign of the spin. A plane wave of rapidity th of the linearized theory has phase
+# E t - p x = m e^{-th} xp + m e^{th} xm, so d_+ brings down m e^{-th}. Per particle, the
+# quadratic part of T4 + Th2 gives 2 m^3 e^{-3 th} (spin -3), its mirror d_+ <-> d_- 2 m^3 e^{3 th}.
+amp, rap = sp.symbols('amp rap', positive=True)
+wave = amp*sp.cos(m*sp.exp(-rap)*xp + m*sp.exp(rap)*xm)
+avg = lambda g: sp.integrate(g.subs(xm, 0), (xp, 0, 2*sp.pi*sp.exp(rap)/m))*m*sp.exp(-rap)/(2*sp.pi)
+d_t = lambda g: (sp.diff(g, xp) + sp.diff(g, xm))/2
+d_x = lambda g: (sp.diff(g, xp) - sp.diff(g, xm))/2
+density = avg((d_t(wave)**2 + d_x(wave)**2 + m**2*wave**2)/2)/(m*sp.cosh(rap))     # particles per length
+q_m3 = avg(sp.diff(wave, xp, 2)**2 + m**2*sp.diff(wave, xp)**2)/density
+q_p3 = avg(sp.diff(wave, xm, 2)**2 + m**2*sp.diff(wave, xm)**2)/density
+report('plane wave: the d_+ density gives 2 m^3 e^{-3 theta} per particle (spin -3), the d_- density 2 m^3 e^{3 theta}',
+       sp.simplify((q_m3 - 2*m**3*sp.exp(-3*rap)).rewrite(sp.exp)) == 0
+       and sp.simplify((q_p3 - 2*m**3*sp.exp(3*rap)).rewrite(sp.exp)) == 0)
 
 # ---------------------------------------------------------------- root data
 def cartan(typ, n):
