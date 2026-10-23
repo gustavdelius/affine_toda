@@ -11,7 +11,7 @@ You are an adversarial mathematical-physics referee. You are working in the repo
 
 ## Context
 
-Chapter 42 (`part8-defects/42-defects-and-boundaries.qmd`, `sec-defect-boundary`) was drafted on 2026-10-12 by a Claude agent (commit 581bed0). Its verification script is `textbook_code/defect_doubling.py` (17 checks, about 30 s). The drafting report is `briefs/draft_ch42_report.md`.
+Chapter 42 (`part8-defects/42-defects-and-boundaries.qmd`, `sec-defect-boundary`) was drafted on 2026-10-12 by a Claude agent (commit 581bed0). Its verification script is `code/defect_doubling.py` (17 checks, about 30 s). The drafting report is `briefs/draft_ch42_report.md`.
 
 The chapter treats a defect as a boundary of the doubled theory (the doubling trick of ch. 36, `eq-doubled-k`, `prp-doubling`) and asks which quantum-group symmetry that boundary has. It also fuses defects onto boundaries, and relates the results to tensor K-matrices and non-invertible boundary scattering.
 

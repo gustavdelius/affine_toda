@@ -1,4 +1,4 @@
-<!-- Worker report, 2026-10-12. Model: Claude Opus 5.5, effort xhigh. Scope: problem 7 parts (a) and (b) only (brief halfline_open_07_nonunitary_half_line.md); part (c) deferred until problem 11 is done. Interrupted twice by the usage limit and resumed. Saved verbatim by the coordinator. Scripts and outputs copied to briefs/halfline_open_07_scripts/; they import boundary_common.py, an unchanged copy of textbook_code/boundary_common.py, which must be copied alongside. -->
+<!-- Worker report, 2026-10-12. Model: Claude Opus 5.5, effort xhigh. Scope: problem 7 parts (a) and (b) only (brief halfline_open_07_nonunitary_half_line.md); part (c) deferred until problem 11 is done. Interrupted twice by the usage limit and resumed. Saved verbatim by the coordinator. Scripts and outputs copied to briefs/halfline_open_07_scripts/; they import boundary_common.py, an unchanged copy of code/boundary_common.py, which must be copied alongside. -->
 
 ## Report: half-line open problem 7, parts (a) and (b)
 
@@ -203,7 +203,7 @@ Related edits:
 
 All in `/tmp/claude-1000/-home-gustav-Git-affine-toda/0e38a99d-702a-40fb-99b7-74dbe0413cf6/scratchpad/p07/`. Run them from that directory.
 
-- `boundary_common.py` — unchanged copy of `textbook_code/boundary_common.py`.
+- `boundary_common.py` — unchanged copy of `code/boundary_common.py`.
 - `p07_common.py` — $C$, $\nu$, cached R-checks, `k_book` (analytic branch, $\epsilon_*=1/(2\cos\frac{\pi\omega}2)$), $c_K$, $A_{\min}$.
 - `a_krein_algebra.py` — part (a) checks 1–5 (reps, R-checks, K-matrices, coideal $\tau$-stability, sine-Gordon).
 - `a_crossing_vw.py` — the $V\bar V$ amplitude is the crossed $VV$ amplitude.
@@ -221,7 +221,7 @@ The scratch directory is temporary, so copy anything worth keeping.
 
 ## Integration (branch half-line-open-problems-integration)
 
-The Opus follow-up prompt `halfline_open_07_opus_prompt.md` was not launched. Its three items were handled by the coordinator during integration (rows "claim 3", "$\zeta\ne1$ sectors" and "claim 6" below). New script: `textbook_code/boundary_krein.py` (6 checks, all PASS, seconds), using only book functions.
+The Opus follow-up prompt `halfline_open_07_opus_prompt.md` was not launched. Its three items were handled by the coordinator during integration (rows "claim 3", "$\zeta\ne1$ sectors" and "claim 6" below). New script: `code/boundary_krein.py` (6 checks, all PASS, seconds), using only book functions.
 
 | Claims | Verdict | How it was checked | Book change |
 |---|---|---|---|

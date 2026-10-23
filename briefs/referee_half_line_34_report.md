@@ -33,7 +33,7 @@ I computed all weight components for $a_{ij}=-1$ directly, without Kolb (7.10) o
 >
 > *The term $\varphi_j$.* In the same way only the part linear in both $e_i$ and $\varphi_i$ survives. The part quadratic in $\varphi_i$ vanishes because $F_{ij}(f_ik_i,f_jk_j)=F_{ij}(f_i,f_j)\,k_i^2k_j=0$. The surviving part gives $D_i\varphi_j-q^2\varphi_jD_i=q\,c_i\varphi_j$.
 >
-> Adding the three terms gives (-@eq-serre-obstruction). At $s=0$ the weight-$\pm\alpha_j$ part is Kolb's (7.10), $F_{ij}(B_i,B_j)=-q\,c_iB_j$, transported by (-@eq-kolb-dictionary). In Kolb's conventions the result reads $F_{ij}(B_i,B_j)+q\,c_iB_j=q\,s_j\big(c_i-(q^{-1}-1)^2s_i^2\big)K_i^{-2}K_j^{-1}$. Both forms are checked on $V\otimes\bar V\otimes V$ of $a_2$, on $V\otimes\bar V$ of $a_3$ and on $V\otimes V$ of $d_4$, with random $c$ and $\hat\epsilon$, at the physical and a generic $q$ (`textbook_code/qsp_checks.py`).
+> Adding the three terms gives (-@eq-serre-obstruction). At $s=0$ the weight-$\pm\alpha_j$ part is Kolb's (7.10), $F_{ij}(B_i,B_j)=-q\,c_iB_j$, transported by (-@eq-kolb-dictionary). In Kolb's conventions the result reads $F_{ij}(B_i,B_j)+q\,c_iB_j=q\,s_j\big(c_i-(q^{-1}-1)^2s_i^2\big)K_i^{-2}K_j^{-1}$. Both forms are checked on $V\otimes\bar V\otimes V$ of $a_2$, on $V\otimes\bar V$ of $a_3$ and on $V\otimes V$ of $d_4$, with random $c$ and $\hat\epsilon$, at the physical and a generic $q$ (`code/qsp_checks.py`).
 
 **Line 101:** change **[Proposition, sketch]** to **[Proposition]**.
 
@@ -43,7 +43,7 @@ The argument holds for the vector multiplets of $a_n$ ($n\ge2$) and $d_n$, for $
 
 **Replace line 137** with:
 
-> Checked in `textbook_code/qsp_checks.py`. The "only if" direction can be proved for the vector multiplets of $a_n^{(1)}$, $n\ge2$, and $d_n^{(1)}$, when $q$ is not a root of unity. Suppose the obstruction of the pair $(i,j)$ does not vanish, so that $\kappa=k_i^2k_j\in B$. Since $(2\alpha_i+\alpha_j,\alpha_i)=3$, the three elements $\kappa^rb_i\kappa^{-r}=q^{3r}e_i+q^{-3r}c_if_ik_i+\hat\epsilon_ik_i$, $r=0,1,2$, put $e_i$ and $f_ik_i$ separately into $B$. Hence $[e_i,f_ik_i]=(k_i^2-1)/(q-q^{-1})$ and $k_i^2$ are in $B$. Conjugation by $k_i^2$ multiplies $e_m$, $f_mk_m$, $k_m$ of a neighbour $m$ by $q^{-2},q^2,1$. So $e_m,f_mk_m,k_m^2\in B$, and along the connected diagram this holds for every node. For $a_n$, $K:V(\theta)\to\bar V(-\theta)$ must intertwine every $k_m^2$, which acts on $\bar V$ as $k_m^{-2}$ does on $V$. So $K$ maps the weight-$\mu$ vector to a vector of weight $-\mu$, and for $n\ge2$ the vector representation has no such vector: $K=0$. For $d_n$, $K:V(\theta)\to V(-\theta)$ (@prp-dn-k) commutes with every $k_m^2$, so it is diagonal, $K={\rm diag}(d_\mu)$. Then $K\,yE_m=y^{-1}E_m\,K$ gives $d_{\mu+\alpha_m}=y^{-2}d_\mu$ along every non-zero entry of every $E_m$. The $E_m$ act irreducibly (@exr-generic-irreducibility), so some word in them of length $L\ge1$ has a non-zero diagonal entry, and $K=0$ unless $y^{2L}=1$. The converse is the existence part of @prp-an-k-existence and @prp-dn-k.
+> Checked in `code/qsp_checks.py`. The "only if" direction can be proved for the vector multiplets of $a_n^{(1)}$, $n\ge2$, and $d_n^{(1)}$, when $q$ is not a root of unity. Suppose the obstruction of the pair $(i,j)$ does not vanish, so that $\kappa=k_i^2k_j\in B$. Since $(2\alpha_i+\alpha_j,\alpha_i)=3$, the three elements $\kappa^rb_i\kappa^{-r}=q^{3r}e_i+q^{-3r}c_if_ik_i+\hat\epsilon_ik_i$, $r=0,1,2$, put $e_i$ and $f_ik_i$ separately into $B$. Hence $[e_i,f_ik_i]=(k_i^2-1)/(q-q^{-1})$ and $k_i^2$ are in $B$. Conjugation by $k_i^2$ multiplies $e_m$, $f_mk_m$, $k_m$ of a neighbour $m$ by $q^{-2},q^2,1$. So $e_m,f_mk_m,k_m^2\in B$, and along the connected diagram this holds for every node. For $a_n$, $K:V(\theta)\to\bar V(-\theta)$ must intertwine every $k_m^2$, which acts on $\bar V$ as $k_m^{-2}$ does on $V$. So $K$ maps the weight-$\mu$ vector to a vector of weight $-\mu$, and for $n\ge2$ the vector representation has no such vector: $K=0$. For $d_n$, $K:V(\theta)\to V(-\theta)$ (@prp-dn-k) commutes with every $k_m^2$, so it is diagonal, $K={\rm diag}(d_\mu)$. Then $K\,yE_m=y^{-1}E_m\,K$ gives $d_{\mu+\alpha_m}=y^{-2}d_\mu$ along every non-zero entry of every $E_m$. The $E_m$ act irreducibly (@exr-generic-irreducibility), so some word in them of length $L\ge1$ has a non-zero diagonal entry, and $K=0$ unless $y^{2L}=1$. The converse is the existence part of @prp-an-k-existence and @prp-dn-k.
 
 ### 3. "Not a QSP" — **correct, with a nuance worth adding**
 
@@ -255,7 +255,7 @@ Integrated in the main session.
   - The torus paragraph now has the condition $\prod t_j^{n_j}=1$ and the spectral shift.
   - `exr-torus-dressing` was adjusted.
 - **Item 7.**
-  - The BK 2003 (19) paragraph replaced; marked as a numerical check outside `textbook_code`.
+  - The BK 2003 (19) paragraph replaced; marked as a numerical check outside `code`.
   - "Named it" now cites `baseilhac_koizumi2005a`. The referee's arXiv id hep-th/0503036 is wrong; the paper is math-ph/0503036, NPB 720 (2005) 325, verified via the arXiv API.
 - **Item 8.** The interpretation of `prp-one-dim-modules` (iii) is replaced: it is the kernel of $K$, with the structure of a boundary-crossing pole. The meta sentence at line 139 is removed.
 - **Item 9.**
@@ -277,7 +277,7 @@ Integrated in the main session.
   - $\det K$ factorization. As a check it needs the monomial prefactor $X^{-N^2/2}$, which the report omits; the zeros are as stated.
 
 **Not integrated:**
-- The numerical check of BK (19) (`bk03_eq19*.py`) and the one-dimensional-submodule analysis (`onedim_meaning.py`) are not ported to `textbook_code`.
+- The numerical check of BK (19) (`bk03_eq19*.py`) and the one-dimensional-submodule analysis (`onedim_meaning.py`) are not ported to `code`.
 - `appel_vlaar2025` volume and pages are not yet available.
 - `letzter1999` was not independently verified.
 - Belliard–Fomin (arXiv:1106.1317) was not added.

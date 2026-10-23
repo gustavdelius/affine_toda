@@ -92,7 +92,7 @@ Scripts in `sectors/` reuse `rsolve.py` and `dtw.py` from `rmatrix/`, copied alo
 
 ### Part V, script by script
 
-The scripts behind the [Numerical] statements of chapters 16–19, other than `semiclassics.py` (first table) and the four with `PASS`/`FAIL` lines listed above (`hirota/cn_blocks.py`, `oneloop/cn_heat_check.py`, `oneloop/imxi_check.py`, `oneloop/dirichlet_lattice.py`). Paths are relative to `textbook_code/`; run each from its own directory. They print tables or residuals, with stored output next to them.
+The scripts behind the [Numerical] statements of chapters 16–19, other than `semiclassics.py` (first table) and the four with `PASS`/`FAIL` lines listed above (`hirota/cn_blocks.py`, `oneloop/cn_heat_check.py`, `oneloop/imxi_check.py`, `oneloop/dirichlet_lattice.py`). Paths are relative to `code/`; run each from its own directory. They print tables or residuals, with stored output next to them.
 
 | Script | Chapters | What it checks |
 |---|---|---|

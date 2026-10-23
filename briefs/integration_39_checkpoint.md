@@ -8,4 +8,4 @@ One line per completed item: item, verdict, files changed, anything half-done.
 - Script defect_solitons_an.py updated (checks 1, 2, 3, 5, 6, 7 extended; check 3's zero-envelope case (a_2, a=1, p=1) excluded from the energy test and checked separately; sympy elimination added): 9 PASS, 48 s. Next: ch. 38/43 minimal edits, appendix D, conventions §10, status, integration section, final ref check, commit.
 - Appendix D, conventions §10, status file, ch. 38 and ch. 43 minimal edits done.
 - Integration section appended to the report; final ref check passed (64 files, 1149 ids). Next: commit.
-- Pending outside the allowed files: textbook_code/README.md row for defect_solitons_an.py should say '9 checks, about 50 s' (was 10 s). Committing integration now.
+- Pending outside the allowed files: code/README.md row for defect_solitons_an.py should say '9 checks, about 50 s' (was 10 s). Committing integration now.

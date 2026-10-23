@@ -10,7 +10,7 @@ L_a(th) L_{h-a}(-th) = 1; crossing L_a(i pi/2 - th) = S_aa(2 th) L_a(i pi/2 + th
 import sys
 import mpmath as mp
 
-src = open('/home/gustav/Git/affine_toda/textbook_code/particle_reflection.py').read()
+src = open('/home/gustav/Git/affine_toda/code/particle_reflection.py').read()
 ns = {}
 exec(src[:src.index('THS = [')], ns)
 blk, S = ns['blk'], ns['S']

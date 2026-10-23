@@ -2,7 +2,7 @@
 reflection matrix on excited states S = |n1,...,nk>:  K^S = [R_0 sigma(x) sigma(i vt)/(cos x cosh vt)] M(x,vt) prod_odd a_ni(eta) prod_even a_ni(etabar),
 x = eta (k even) or etabar (k odd, with s <-> sbar).  Book S_0 = a_S0 (validated against the integral representation in boundary_sine_gordon.py)."""
 import sys, numpy as np
-sys.path.insert(0, '/home/gustav/Git/affine_toda/textbook_code')
+sys.path.insert(0, '/home/gustav/Git/affine_toda/code')
 from boundary_common import q_phys, sl2_spin, rcheck
 from p12b_common import *
 def report(name, ok): print(('PASS ' if ok else 'FAIL ') + name, flush=True)

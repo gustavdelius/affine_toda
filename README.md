@@ -1,8 +1,8 @@
 # Affine Toda field theory
 
-A graduate textbook and research monograph on affine Toda field theories: two-dimensional quantum field theories with one theory for each affine Kac–Moody algebra. They are integrable, so many quantities can be computed exactly, and they display particles and bound states, solitons and breathers, strong–weak duality, quantum-group symmetry, integrable boundaries and, at imaginary coupling, non-unitarity.
+A unified review of affine Toda field theories, with new results: two-dimensional quantum field theories with one theory for each affine Kac–Moody algebra. They are integrable, so many quantities can be computed exactly, and they display particles and bound states, solitons and breathers, strong–weak duality, quantum-group symmetry, integrable boundaries and, at imaginary coupling, non-unitarity.
 
-The book is written for a reader who knows quantum field theory at the level of a first graduate course, and it leads from sine-Gordon theory to current research.
+The book collects results scattered over five decades of papers and presents them in a logical order, in one notation and with one set of conventions. It is a reference, not a course; companion lecture notes, such as *Windows in spacetime* on integrable defects (`lecture-notes/defects/`), teach parts of the subject step by step.
 
 **Read the book:** [gustavdelius.github.io/affine_toda](https://gustavdelius.github.io/affine_toda/) · [PDF](https://gustavdelius.github.io/affine_toda/affine-toda.pdf)
 
@@ -42,7 +42,7 @@ The record of what has been checked, and how, is in [`briefs/`](briefs/) (for ex
 | VIII. Defects | 36–43 | Integrable defects: scattering axioms, defect conditions as Bäcklund transformations, solitons through defects, Borel quantum-group symmetry, transmission amplitudes, relation to boundaries |
 | IX. Foundations | 44–49 | Whether the imaginary-coupling theories exist as quantum field theories (in progress) |
 
-An unnumbered preface comes first. Chapter 1 is the introduction and reader's guide, and the outlook is chapter 50. The guide sets out six reading paths: a course on integrable field theory, a course on quantum groups in field theory, integrable boundaries, integrable defects, non-unitary quantum field theory, and a path for specialists through Parts V–IX.
+An unnumbered preface comes first. Chapter 1 is the introduction and reader's guide, and the outlook is chapter 50. The guide sets out six reading paths: integrable field theory, quantum groups in field theory, integrable boundaries, integrable defects, non-unitary quantum field theory, and a path for specialists through Parts V–IX.
 
 The book's own list of its original results is [Appendix E](appendices/E-original-results.qmd), and [Appendix D](appendices/D-corrections.qmd) lists every correction the book makes to published papers.
 
@@ -53,12 +53,12 @@ The book's own list of its original results is [Appendix E](appendices/E-origina
 | `index.qmd`, `01-introduction.qmd`, `part*/`, `outlook/`, `appendices/` | The book, as Quarto source (`.qmd`) with bibliography `references.bib`; `index.qmd` is the preface and the home page |
 | `figures/`, `part*/figures/` | The committed SVG figures |
 | `lecture-notes/` | Lecture notes that accompany the book, each a Quarto book of its own: `lecture-notes/defects/` (on Part VIII), with `lecture-notes/book-links.lua`, which turns `[text](book:<id>)` into links to the published book |
-| `textbook_code/` | All the book's check scripts. Flat scripts check Parts I–IV, VII and VIII, appendix A and parts of Part IX; subdirectories hold the larger computations |
-| `textbook_code/figures/` | Scripts that draw the figures and check the formulas they plot |
-| `textbook_code/lectures/` | Check and figure scripts of the lecture notes; see its `README.md` |
-| `textbook_code/hirota/`, `oneloop/`, `thimbles/` | Hirota fluctuations, Jordan types, one-loop soliton masses and thimbles (Part V) |
-| `textbook_code/rmatrix/` | Construction of quantum-affine representations and R-matrices, soliton S-matrices and one-loop tests (Part VI, appendix B) |
-| `textbook_code/sectors/`, `irf/`, `vernier/`, `review614/` | Soliton sectors and Krein unitarity, RSOS kinks, the Vernier–Jacobsen–Saleur lattice model and the continuum-limit lemmas (Parts VI and IX) |
+| `code/` | All the book's check scripts. Flat scripts check Parts I–IV, VII and VIII, appendix A and parts of Part IX; subdirectories hold the larger computations |
+| `code/figures/` | Scripts that draw the figures and check the formulas they plot |
+| `code/lectures/` | Check and figure scripts of the lecture notes; see its `README.md` |
+| `code/hirota/`, `oneloop/`, `thimbles/` | Hirota fluctuations, Jordan types, one-loop soliton masses and thimbles (Part V) |
+| `code/rmatrix/` | Construction of quantum-affine representations and R-matrices, soliton S-matrices and one-loop tests (Part VI, appendix B) |
+| `code/sectors/`, `irf/`, `vernier/`, `review614/` | Soliton sectors and Krein unitarity, RSOS kinks, the Vernier–Jacobsen–Saleur lattice model and the continuum-limit lemmas (Parts VI and IX) |
 | `briefs/` | Referee reports, reading-fix briefs and open research tasks |
 | `add-backlinks.py`, `add-discovery-metadata.py`, `part-preamble.lua`, `status-tags.lua`, `theme*.scss` | Quarto build helpers, discovery metadata and styling |
 | `publish-pdf.sh` | Builds the PDF locally and attaches it to the `pdf-latest` release |
@@ -67,7 +67,7 @@ The book's own list of its original results is [Appendix E](appendices/E-origina
 | `requirements.txt` | Python packages needed by the scripts |
 | `LICENSE` | MIT licence for the code |
 
-[Appendix C](appendices/C-code.qmd) describes the code for the reader and says which directory serves which part of the book. `textbook_code/README.md` is the index of every script, and `textbook_code/rmatrix/README.md` describes the scripts of Part VI.
+[Appendix C](appendices/C-code.qmd) describes the code for the reader and says which directory serves which part of the book. `code/README.md` is the index of every script, and `code/rmatrix/README.md` describes the scripts of Part VI.
 
 ## Building the book
 
@@ -111,15 +111,15 @@ The scripts are Python 3 and use numpy, scipy, sympy, mpmath and matplotlib (for
 python3 -m pip install -r requirements.txt
 ```
 
-- **`textbook_code/`** — each script runs on its own and prints one `PASS` or `FAIL` line per check. For example:
+- **`code/`** — each script runs on its own and prints one `PASS` or `FAIL` line per check. For example:
   ```bash
-  cd textbook_code && python3 sine_gordon.py
+  cd code && python3 sine_gordon.py
   ```
-  Runtimes range from seconds to a few minutes; the table in [`textbook_code/README.md`](textbook_code/README.md) maps each script to the equations and results it checks.
-- **`textbook_code/figures/`** — each script writes an SVG into the book tree and checks the formulas it plots, printing `PASS` or `FAIL` per check. The SVGs are committed, so building the book does not require running them. To regenerate one, run `python3 textbook_code/figures/<name>.py` from the repository root.
-- **Subdirectories of `textbook_code/`** — run each script from its own directory, as [`textbook_code/README.md`](textbook_code/README.md) and the subdirectory READMEs describe. Many print tables rather than `PASS`/`FAIL` lines. Some need `rsolve.py` or `dtw.py` copied alongside them, and the READMEs say which.
+  Runtimes range from seconds to a few minutes; the table in [`code/README.md`](code/README.md) maps each script to the equations and results it checks.
+- **`code/figures/`** — each script writes an SVG into the book tree and checks the formulas it plots, printing `PASS` or `FAIL` per check. The SVGs are committed, so building the book does not require running them. To regenerate one, run `python3 code/figures/<name>.py` from the repository root.
+- **Subdirectories of `code/`** — run each script from its own directory, as [`code/README.md`](code/README.md) and the subdirectory READMEs describe. Many print tables rather than `PASS`/`FAIL` lines. Some need `rsolve.py` or `dtw.py` copied alongside them, and the READMEs say which.
 
-Some scripts take a long time, and a few depend on a sign convention for $q$. The `QSIGN` environment variable selects the physical sign, and `textbook_code/README.md` and `textbook_code/rmatrix/README.md` explain the default.
+Some scripts take a long time, and a few depend on a sign convention for $q$. The `QSIGN` environment variable selects the physical sign, and `code/README.md` and `code/rmatrix/README.md` explain the default.
 
 ## Contributing and feedback
 

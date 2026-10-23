@@ -4,7 +4,7 @@ You are an adversarial mathematical-physics referee. Your working directory is a
 
 ## Context
 
-Part VIII, "Affine Toda theory with defects" (`part8-defects/`, chapters 36–43), was drafted on 2026-10-11 by agents working from the defect literature. The scope is textbook plus verification: results are re-derived in the book's conventions, key formulas are checked by scripts in `textbook_code/`, and corrections to the sources are recorded in each chapter's Notes. This brief covers:
+Part VIII, "Affine Toda theory with defects" (`part8-defects/`, chapters 36–43), was drafted on 2026-10-11 by agents working from the defect literature. The scope is textbook plus verification: results are re-derived in the book's conventions, key formulas are checked by scripts in `code/`, and corrections to the sources are recorded in each chapter's Notes. This brief covers:
 
 - **Chapter 36** (`part8-defects/36-defect-scattering.qmd`, `sec-defect-scattering`): the scattering axioms with a defect.
   - The defect Zamolodchikov–Faddeev algebra `eq-defect-zf`.
@@ -53,7 +53,7 @@ Part VIII, "Affine Toda theory with defects" (`part8-defects/`, chapters 36–43
 
 ## Already verified (do not redo unless you find a reason)
 
-**By script.** Every script prints PASS/FAIL lines; run `python3 textbook_code/<script>`.
+**By script.** Every script prints PASS/FAIL lines; run `python3 code/<script>`.
 
 - `defect_axioms.py` (20 checks, chapter 36):
   - The three triangle forms are equivalent, with positive and negative controls.

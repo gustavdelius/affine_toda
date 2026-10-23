@@ -1,6 +1,6 @@
 """Test eq-bootstrap  S_dc(th) = S_da(th - i ubar_ac^b) S_db(th + i ubar_bc^a)  (ubar_ac^b = interior angle
 opposite m_b) against: (A) the sign-flipped version, (B) the swapped assignment of angles, on e8 and a2,
-using Dorey's formula from textbook_code/smatrix_simply_laced.py."""
+using Dorey's formula from code/smatrix_simply_laced.py."""
 import itertools, numpy as np
 src = open('smatrix_simply_laced.py').read().split("B = 0.37; ths")[0]
 exec(src)

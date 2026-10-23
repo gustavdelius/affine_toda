@@ -84,9 +84,9 @@ I did not edit the repository, run git or spawn subagents. All work is in `/tmp/
 
 **Claim 8 and the energies:** not in my task; not rechecked.
 
-## 2. Check script (proposed `textbook_code/solitonic_linear.py`)
+## 2. Check script (proposed `code/solitonic_linear.py`)
 
-Path: `S/solitonic_linear.py`. It is self-contained and imports only `boundary_common`, `boundary_vacua` (with its output suppressed) and `particle_reflection` (exec-split). Run with `PYTHONPATH=textbook_code`. Runtime 2 min 8 s. Output (`S/solitonic_linear.log`):
+Path: `S/solitonic_linear.py`. It is self-contained and imports only `boundary_common`, `boundary_vacua` (with its output suppressed) and `particle_reflection` (exec-split). Run with `PYTHONPATH=code`. Runtime 2 min 8 s. Output (`S/solitonic_linear.log`):
 ```
    56 backgrounds (...), 3 frequencies each; max pde = 3.4e-30, max flat = 1.1e-30, max bv = 2.9e-15, max off = 4.8e-28, max diag = 4.8e-28, max unit = 8.7e-28, max res = 3.3e-28
 PASS 1. the dressed Hirota waves solve the linearized field equation eps'' = M^2(x) eps - Omega^2 eps (residual < 1e-25)
@@ -118,7 +118,7 @@ Suggested README row: `solitonic_linear.py` | `prp-solitonic-linear` (new), `tbl
 > where $b$ is the class of the pattern given by @prp-dg-weights ($b=a$ for the pair of species $a$, $b=\frac h2$ for $C\equiv-1$). This is Bowcock's (4.14) with (4.21)–(4.22), and the limit $B\to0$ of Delius and Gandenberger's solitonic amplitudes, DG (5.7).
 > :::
 >
-> Checked in every open channel at three frequencies, to 27 digits, in `textbook_code/solitonic_linear.py`, which also checks that the diagonal entries of Bowcock and Perkins's Table 2 for these vacua are the same functions [@bowcock_perkins2003].
+> Checked in every open channel at three frequencies, to 27 digits, in `code/solitonic_linear.py`, which also checks that the diagonal entries of Bowcock and Perkins's Table 2 for these vacua are the same functions [@bowcock_perkins2003].
 
 **(b) `tbl-boundary-types`, solitonic row, column "classical bound states".** Replace "Bowcock's factors (not checked here)" with: "diagonal, DG (5.7) at $B\to0$ (@prp-solitonic-linear); e.g. $a_2^{(1)}$: one pole, at $\theta=i\pi/6$".
 - The a₂ pole is from `Prod.poles` of K_uniform·M_sol at B = 0: physical-strip pole at p = 1/2.
@@ -127,11 +127,11 @@ Suggested README row: `solitonic_linear.py` | `prp-solitonic-linear` (new), `tbl
 
 **(c) `tbl-missing-vacua`.** It contains no "not checked here". No change is needed. Optionally add to the caption: "About every counted vacuum the linearized reflection factor is Delius and Gandenberger's at $B\to0$ (@prp-solitonic-linear)."
 
-**(d) `prp-solitonic-vacua`, last sentence.** Append: "; regularity and the pattern also for $a_5^{(1)}$ ($a=1,2$) in `textbook_code/solitonic_linear.py`".
+**(d) `prp-solitonic-vacua`, last sentence.** Append: "; regularity and the pattern also for $a_5^{(1)}$ ($a=1,2$) in `code/solitonic_linear.py`".
 
 **(e) ch. 31, `sec-boundary-missing-charges`.** Replace the last sentence "The classical reflection factors about these singular backgrounds depend on how the linearization at a vanishing $\tau_j$ is defined, so their comparison with Delius and Gandenberger's amplitudes is not settled." with:
 
-> About a field that diverges at the wall the linearization is not defined as it stands, and one has to say how the singular background is approached. For the endpoint $d\to1$ of @prp-self-conjugate-vacuum the answer does not depend on it: with the boundary potential of the alternating pattern the linearized reflection matrix tends to the $C\equiv-1$ value $-(a)(h-a)$, Delius and Gandenberger's $b=2$ amplitude at $B\to0$, along the family itself and along configurations with an admixed species-1 pair, and the off-diagonal entries vanish like $1-d$. The same holds for the $a_5^{(1)}$ middle-soliton patterns such as $(+,-,+,-,-,-)$, $b=3$. At the singular endpoints of stationary pairs the limit depends on the approach. For the $a_5^{(1)}$ pattern $(+,+,-,-,-,-)$, of class $b=2$ and listed with a diagonal factor by Bowcock and Perkins [@bowcock_perkins2003, Table 2], the limit along the regular solutions $\chi\to\frac{5\pi}3$ is not diagonal, $|K_{1,h-1}|=0.719$ at $\theta=0.6$, while along static configurations with $d\to\frac1{1+s}$ it is $0.937$; for $(+,+,-,-,+,-)$ the two sides of $\chi=\frac{5\pi}3$ already differ. For the exceptional $a_4^{(1)}$ background of $(+,+,-,+,-)$ the limits we tried agree and are not diagonal, $|K_{1,4}|=0.147$. Bowcock and Perkins require instead that the perturbation of a vanishing $\tau_j$ vanish at the wall [@bowcock_perkins2003, sec. 5]. So, except at the middle-soliton endpoints, the classical reflection factor about these backgrounds is not fixed by the background and the boundary potential, and its comparison with Delius and Gandenberger's amplitudes depends on a prescription (`textbook_code/solitonic_linear.py`).
+> About a field that diverges at the wall the linearization is not defined as it stands, and one has to say how the singular background is approached. For the endpoint $d\to1$ of @prp-self-conjugate-vacuum the answer does not depend on it: with the boundary potential of the alternating pattern the linearized reflection matrix tends to the $C\equiv-1$ value $-(a)(h-a)$, Delius and Gandenberger's $b=2$ amplitude at $B\to0$, along the family itself and along configurations with an admixed species-1 pair, and the off-diagonal entries vanish like $1-d$. The same holds for the $a_5^{(1)}$ middle-soliton patterns such as $(+,-,+,-,-,-)$, $b=3$. At the singular endpoints of stationary pairs the limit depends on the approach. For the $a_5^{(1)}$ pattern $(+,+,-,-,-,-)$, of class $b=2$ and listed with a diagonal factor by Bowcock and Perkins [@bowcock_perkins2003, Table 2], the limit along the regular solutions $\chi\to\frac{5\pi}3$ is not diagonal, $|K_{1,h-1}|=0.719$ at $\theta=0.6$, while along static configurations with $d\to\frac1{1+s}$ it is $0.937$; for $(+,+,-,-,+,-)$ the two sides of $\chi=\frac{5\pi}3$ already differ. For the exceptional $a_4^{(1)}$ background of $(+,+,-,+,-)$ the limits we tried agree and are not diagonal, $|K_{1,4}|=0.147$. Bowcock and Perkins require instead that the perturbation of a vanishing $\tau_j$ vanish at the wall [@bowcock_perkins2003, sec. 5]. So, except at the middle-soliton endpoints, the classical reflection factor about these backgrounds is not fixed by the background and the boundary potential, and its comparison with Delius and Gandenberger's amplitudes depends on a prescription (`code/solitonic_linear.py`).
 
 **(f) ch. 35.**
 - Line 71: "(checked by hand)" → "(@prp-solitonic-linear)".

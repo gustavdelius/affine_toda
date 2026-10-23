@@ -1,7 +1,7 @@
 # Chapter 41 drafting checkpoint (2026-10-12)
 
 State: exploration done in the scratchpad; NOTHING written yet to `part8-defects/41-soliton-transmission.qmd`,
-`textbook_code/defect_an_transmission.py` or `textbook_code/defect_common.py`. Scratchpad (session-specific, may vanish):
+`code/defect_an_transmission.py` or `code/defect_common.py`. Scratchpad (session-specific, may vanish):
 `SP=/tmp/claude-1000/-home-gustav-Git-affine-toda--claude-worktrees-integrable-defects-framework-a54a84/cfddf2dd-7e99-4c1c-b8f5-c799ea33aced/scratchpad`.
 Key helper draft: `$SP/arhelp.py` (an_root_window, an_weyl_module, solve_intertwiner, T_vector, block_inverse,
 crossing_residual, crossing_residual_bar, tensor_rep, fusion_map, solve_intertwiner2). a_2^(2): `$SP/a22.py`, `a22d.py`, `a22e.py`, `a22j.py`.
@@ -75,9 +75,9 @@ All tests used LAM = omega = gamma = 1.37, q = q_phys(LAM) = -exp(-i pi LAM), y 
 - Robertson 1408.1960 not in ~/referee-copy/papers: fused a_3 matrix not checked.
 
 ## 5. Remaining, in order
-1. Append helpers to `textbook_code/defect_common.py` (an_root_window, an_weyl_module, an_solve_intertwiner, an_T_vector, an_block_inverse,
+1. Append helpers to `code/defect_common.py` (an_root_window, an_weyl_module, an_solve_intertwiner, an_T_vector, an_block_inverse,
    an_crossing_residual, an_scalar_g) -- append only.
-2. Write `textbook_code/defect_an_transmission.py`: checks (a) module relations + control; (b) uniqueness r=2,3 + closed forms r=2,3,4 + b^+;
+2. Write `code/defect_an_transmission.py`: checks (a) module relations + control; (b) uniqueness r=2,3 + closed forms r=2,3,4 + b^+;
    (c) triangle with rcheck r=2,3 (both V, Vbar), hypothesis (ii) a_2; (d) crossing I/II, s-independence, q-sign; scalar factor eqs;
    bootstrap a_2 (a_3 if time); (e) poles, residue rank, windows, kernel bootstrap; (f) Wigner; (g) a_2^(2); (h) selection rule & tunnelling
    suppression |X|^j/max ratio -> 0. Keep runtime < 3 min (a_3 uniqueness ~35 s, hyp. (ii) ~25 s).

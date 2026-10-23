@@ -1,7 +1,7 @@
 """Integration check, ch. 43 item 1: higher sine-Gordon breathers depend on the coupling; physical threshold of the
 lowest a_r breather.  Own code; uses only the book helpers sg_tmatrix, invariant_vector (ch. 37 matrices)."""
 import sys, numpy as np
-sys.path.insert(0, 'textbook_code')
+sys.path.insert(0, 'code')
 from boundary_common import q_phys, prop_residual
 from defect_common import sg_tmatrix, invariant_vector
 

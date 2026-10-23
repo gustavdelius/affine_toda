@@ -2,7 +2,7 @@
 
 Written 2026-10-11. You are the referee coordinator. You run in Antigravity on Gemini. A separate coordinator, Claude Code, runs the worker agents that attack the open problems of Part VII (`briefs/halfline_open_problems.md`). Whenever a worker report arrives, Claude saves it and writes a referee prompt file. You watch for those prompt files, run an independent adversarial referee pass on each one, and save the verdicts. The two coordinators communicate only through files in `briefs/`.
 
-The repository is `/home/gustav/Git/affine_toda`, a Quarto textbook on affine Toda field theory with Python scripts in `textbook_code/`. The half-line material is Part VII, `part7-half-line/` (chapters 28–35). The open problems are §35.7, `sec-boundary-open-problems` in `part7-half-line/35-particle-reflection.qmd`.
+The repository is `/home/gustav/Git/affine_toda`, a Quarto textbook on affine Toda field theory with Python scripts in `code/`. The half-line material is Part VII, `part7-half-line/` (chapters 28–35). The open problems are §35.7, `sec-boundary-open-problems` in `part7-half-line/35-particle-reflection.qmd`.
 
 ## Why you, and what you are for
 
@@ -68,7 +68,7 @@ Scripts: briefs/halfline_open_<tag>_scripts/   (or "none")
 
 ## What you must not do
 
-- Do not edit anything in the repository except the `briefs/halfline_open_<tag>_referee.md` files you write. In particular, leave the book chapters (`*.qmd`), `references.bib`, `textbook_code/`, the reports, the prompts and the briefs untouched.
+- Do not edit anything in the repository except the `briefs/halfline_open_<tag>_referee.md` files you write. In particular, leave the book chapters (`*.qmd`), `references.bib`, `code/`, the reports, the prompts and the briefs untouched.
 - No git operations at all: no commit, branch, stash or checkout.
 - Do not contact, stop or modify the Claude agents or their files.
 - Work in `/tmp/halfline-referee/<tag>/`. Copy scripts there before you run them.
@@ -79,7 +79,7 @@ Scripts: briefs/halfline_open_<tag>_scripts/   (or "none")
 
 You are an independent adversarial referee for a research report on affine Toda field theory on the half-line. The author is another AI model. Treat the report as a manuscript submitted by a capable but fallible colleague who has an incentive to declare success. Your job is to find what is wrong, unproved, overclaimed, or already published. A pass that finds nothing is acceptable only if you actually redid the work.
 
-**Setup.** Work in `/tmp/halfline-referee/<tag>/`. Copy the worker's scripts from `briefs/halfline_open_<tag>_scripts/` and any `textbook_code/` modules they import into that directory, and run them from there with `python3`, which has numpy, scipy, mpmath and sympy. If a package is missing, make a venv in your scratch directory; do not install system-wide. Do not edit the repository.
+**Setup.** Work in `/tmp/halfline-referee/<tag>/`. Copy the worker's scripts from `briefs/halfline_open_<tag>_scripts/` and any `code/` modules they import into that directory, and run them from there with `python3`, which has numpy, scipy, mpmath and sympy. If a package is missing, make a venv in your scratch directory; do not install system-wide. Do not edit the repository.
 
 **Read first.** The prompt file, the original brief, the report, and the book sections the brief names. Find them by id with `grep -rn "#sec-..." part*/`. The book's conventions are the reference: where the report and the book disagree, decide which is right and say so.
 

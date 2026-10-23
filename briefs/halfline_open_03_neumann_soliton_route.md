@@ -20,7 +20,7 @@ Read `sec-k-procedure`, `sec-an-diagonal-k`, `sec-an-nondiagonal-k` (ch. 33), `s
 
 - The matrix (`eq-an-k-matrix`) in book conventions, with $X=(-q)^{1/2}y=e^{\omega(\theta-i\pi/2)}$; `prp-an-nondiagonal` shows it is the unique intertwiner, solves the twisted reflection equation, and that **its matrix part satisfies boundary crossing-unitarity** (checked for $n=2,3$). So crossing-unitarity reduces to one scalar function.
 - The diagonal case as a template: the functional equations (`eq-an-diagonal-scalar-eqs`), the Gamma-product solution (`eq-an-diagonal-scalar`), the prefactor ambiguity $f(\theta)=-(1-i\sinh\theta)/(1+i\sinh\theta)$, and the breather projection $K_{B_1}=A\,F_{11}(2\mu)\,A$ that gives DG (3.11).
-- Scripts: `textbook_code/boundary_coideal.py` (the $s=\pm1$ intertwiners), `reflection_matrices.py` (book $\check R$, $F_{11}$, the diagonal scalar factor, the breather projection for $n=2,3$), `particle_reflection.py` (`K_neumann`, the axioms checker, block functions). Copy them to your scratch directory before running.
+- Scripts: `code/boundary_coideal.py` (the $s=\pm1$ intertwiners), `reflection_matrices.py` (book $\check R$, $F_{11}$, the diagonal scalar factor, the breather projection for $n=2,3$), `particle_reflection.py` (`K_neumann`, the axioms checker, block functions). Copy them to your scratch directory before running.
 
 ## Literature
 

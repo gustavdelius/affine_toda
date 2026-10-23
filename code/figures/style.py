@@ -20,7 +20,7 @@ build needs no Python:
   * `part9-foundations/figures/` for chapters 44-49.
 
 Each script also prints one PASS or FAIL line per formula it plots, like the
-other scripts in textbook_code/.
+other scripts in code/.
 """
 from pathlib import Path
 

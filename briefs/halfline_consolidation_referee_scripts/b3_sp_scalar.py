@@ -17,7 +17,7 @@ import sys
 import numpy as np
 import mpmath as mp
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'textbook_code'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'code'))
 import boundary_common as bc   # noqa: E402
 
 mp.mp.dps = 25

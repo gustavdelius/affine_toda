@@ -4,7 +4,7 @@
 Conventions of the lecture: Phi = beta_SG phi, d_pm = d_t pm d_x, sine-Gordon d_+ d_- Phi = -m0^2 sin Phi;
 asymptotic coordinates u = m0 (x+t)/2, v = m0 (x-t)/2; Baecklund transformation Psi = B_a Phi:
     d_+ (Phi - Psi) = 2 a m0 sin((Phi+Psi)/2),   d_- (Phi + Psi) = -(2 m0/a) sin((Phi-Psi)/2).
-Written from these definitions, independently of textbook_code/defect_classical_sg.py.
+Written from these definitions, independently of code/defect_classical_sg.py.
 One PASS or FAIL line per check; exit status 1 on any FAIL.
 
   (a) Chebyshev nets: the metric du^2 + 2 cos(w) du dv + dv^2 has Gaussian curvature -w_uv/sin(w) (Brioschi).

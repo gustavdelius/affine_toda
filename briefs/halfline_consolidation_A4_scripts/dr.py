@@ -1,6 +1,6 @@
 """Independent double-row transfer matrices for N a_2 solitons on an interval (book conventions only)."""
 import sys
-sys.path.insert(0, '/home/gustav/Git/affine_toda/textbook_code')
+sys.path.insert(0, '/home/gustav/Git/affine_toda/code')
 import numpy as np
 from boundary_common import q_phys, an_vector, rcheck
 

@@ -26,7 +26,7 @@ Experience in this repository is that every adversarial referee pass finds real 
 
 ## Already verified (do not redo unless you find a reason)
 
-**By script** (`textbook_code/`, see its README; every script prints PASS lines):
+**By script** (`code/`, see its README; every script prints PASS lines):
 
 - `boundary_axioms.py`:
   - the braid and S/K forms of the reflection equation agree on the sine-Gordon $K$, with a random-$K$ control;

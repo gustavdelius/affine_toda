@@ -6,19 +6,19 @@ You are adding diagrams to chapters that have none. The introduction and Part I 
 
 | Item | Location |
 |---|---|
-| Shared style and helpers | `textbook_code/figures/style.py` |
-| One script per figure, named `<chapter>_<fN>_<topic>.py` | `textbook_code/figures/` |
+| Shared style and helpers | `code/figures/style.py` |
+| One script per figure, named `<chapter>_<fN>_<topic>.py` | `code/figures/` |
 | Generated SVGs, committed | `figures/` (introduction) and `part1-background/figures/` (Part I) |
-| One README row per script | `textbook_code/README.md`, section "Figures" |
+| One README row per script | `code/README.md`, section "Figures" |
 | Embedded in | `01-introduction.qmd`, `part1-background/0[234]*.qmd` |
 
 Figure ids used so far: `fig-dependencies`, `fig-reading-paths`, `fig-two-regimes`, `fig-theta-strip`, `fig-factorization`, `fig-bound-state-poles`, `fig-sg-solutions`, `fig-sg-coupling-axis`, `fig-dimer-krein`, `fig-krein-geometry`. Reuse the naming pattern: `fig-` plus a topic, never a number.
 
 ## Decisions already made (do not reopen them without a reason)
 
-1. **Pre-generated SVG, committed.** The GitHub HTML build installs no Python, so figures must not be generated at render time. Put the script in `textbook_code/figures/`, run it, commit both the script and the SVG. For a new Part, create `partN-.../figures/`.
+1. **Pre-generated SVG, committed.** The GitHub HTML build installs no Python, so figures must not be generated at render time. Put the script in `code/figures/`, run it, commit both the script and the SVG. For a new Part, create `partN-.../figures/`.
 2. **matplotlib for anything quantitative or geometric.** Mermaid only for plain dependency graphs, and only when the layout is a simple left-to-right flow. The user said PDFs are not built on GitHub, so mermaid is allowed, but see the pitfalls: its layout is hard to control.
-3. **Every script checks what it plots.** Each prints one `PASS` or `FAIL` line per formula, in the convention of the other `textbook_code/` scripts, and exits non-zero on failure. A figure that is not backed by a check can silently disagree with the text. Examples: the residue of $f_x$ equals $2i\tan\pi x$; a breather solves the sine-Gordon equation by finite differences; the reading-paths figure parses `01-introduction.qmd` and compares its chapter lists with the bullets.
+3. **Every script checks what it plots.** Each prints one `PASS` or `FAIL` line per formula, in the convention of the other `code/` scripts, and exits non-zero on failure. A figure that is not backed by a check can silently disagree with the text. Examples: the residue of $f_x$ equals $2i\tan\pi x$; a breather solves the sine-Gordon equation by finite differences; the reading-paths figure parses `01-introduction.qmd` and compares its chapter lists with the bullets.
 4. **One transparent SVG for both themes.** Mid-tone colours and grey text (`style.GREY = #868b94`) read on the light and on the dark theme. No light/dark pairs.
 5. **Design for a 7 inch canvas with 8–9 pt text.** See the first pitfall.
 

@@ -21,7 +21,7 @@ Items 8–11 were added on 2026-10-13, after the chapter-42 and chapter-43 integ
 
 To find an object: `grep -rn '{#<id>}' part*/ index.qmd`.
 
-For each item, do **one independent computation**: a derivation written out, or a script of your own. You may run the book's scripts and the integration scripts (`briefs/referee_defects_{39,41}_scripts/integration_*.py`, `textbook_code/defect_spin_two_a3.py`) for comparison, but they are not evidence. A verdict without its own evidence counts as "unclear".
+For each item, do **one independent computation**: a derivation written out, or a script of your own. You may run the book's scripts and the integration scripts (`briefs/referee_defects_{39,41}_scripts/integration_*.py`, `code/defect_spin_two_a3.py`) for comparison, but they are not evidence. A verdict without its own evidence counts as "unclear".
 
 ## Items (most important first)
 
@@ -36,7 +36,7 @@ For each item, do **one independent computation**: a derivation written out, or 
    - Check the Chevalley-involution argument, (ϖ⊗ϖ)Δ = Δ^op ϖ, and the relabelling N + s → −(N + s), which together turn the inverse of `eq-dt-reversed`, with X → −X₊, into the type-I₊ intertwiner for V.
    - Check the claimed normalization: with the same μ the reversed module gives CZ2007 (5.10) with x̂ = qX; keeping x̂ = X needs μ/q.
 3. **The selection rule, `prp-an-transmission` item 5 (ch. 41), now [Theorem].** It is read off from the closed forms. Check the statement as written, including the bound min(|X|^j, |X|^{j−h+1}) and the type-I₊ exchange of V and V̄.
-4. **`prp-an-linear-transmission` (ch. 39), upgraded from [Numerical] to [Theorem].** The proof is an exact sympy elimination, `textbook_code/defect_solitons_an.py`. Check that the elimination proves the statement for every r and both types, and is not a check at sample values.
+4. **`prp-an-linear-transmission` (ch. 39), upgraded from [Numerical] to [Theorem].** The proof is an exact sympy elimination, `code/defect_solitons_an.py`. Check that the elimination proves the statement for every r and both types, and is not a check at sample values.
 5. **New corrections to the literature from the ch. 41 integration** (`appendices/D-corrections.qmd`, entry "Corrigan and Zambon 2011", and the extended "Corrigan and Zambon 2009a" entries):
    - CZ2011 (3.12) as printed pairs Gamma functions at different k and drifts like K^{−2z}; grouped at equal k it solves their (3.8) and (3.10) with z = i(θ−ν)/ξ. Hence the slip is in the printed pole positions, not in (3.12). Source: `~/referee-copy/papers/1012.4186.txt` and the PDF.
    - The CZ2009a (6.10) entry now states the normalization at z = 0.
@@ -49,7 +49,7 @@ For each item, do **one independent computation**: a derivation written out, or 
    - the dropped factor q^{c⊗d+d⊗c} at level zero, the treatment of the non-integral offset s in the Cartan factor q^t, and the extension to roots of unity by rationality;
    - whether the cited sources ([@khoroshkin_tolstoy1991], [@tolstoy_khoroshkin1992], [@frenkel_hernandez2015]) state what the proof needs. The proof gives no pinpoint references.
 
-7. **`prp-spin-two` item (3) for a₃^(1) (ch. 38), upgraded from [Numerical] to [Theorem] in commit e748b4f.** The new script `textbook_code/defect_spin_two_a3.py` (9 checks, about 3 min) builds the a_r root data exactly, takes the bulk spin-2 tensor A_abc = 2 Σ_k μ_ka μ_kb μ_kc with B = 3(1 − D), and constructs 𝓑_{±2} by the homotopy formula of check 11 of `textbook_code/defect_classical_an.py`. It then finds defect flux − d𝓑_{±2}/dt = 0 exactly in sympy, for both types, both chiralities and symbolic σ. Check in particular:
+7. **`prp-spin-two` item (3) for a₃^(1) (ch. 38), upgraded from [Numerical] to [Theorem] in commit e748b4f.** The new script `code/defect_spin_two_a3.py` (9 checks, about 3 min) builds the a_r root data exactly, takes the bulk spin-2 tensor A_abc = 2 Σ_k μ_ka μ_kb μ_kc with B = 3(1 − D), and constructs 𝓑_{±2} by the homotopy formula of check 11 of `code/defect_classical_an.py`. It then finds defect flux − d𝓑_{±2}/dt = 0 exactly in sympy, for both types, both chiralities and symbolic σ. Check in particular:
    - that the flux expression (`boundary_G`) is the correct defect flux of the spin-±2 charges for a₃: the use of the defect conditions to replace x-derivatives, the second derivative d_ε²φ via the field equation, and the sign conventions for spin (the book's spin s goes with e^{sθ}; see `sec-qg-gradation`);
    - that B = 3(1 − D), together with the A_abc formula, gives the bulk spin-2 current of a₃ in the normalization the flux uses. The script's check 4 tests conservation on shell, but is the scale of B relative to A, which the docstring ties to a factor of 3 between check 5 and check 11, consistent?
    - that the exact zero is a real identity and not an artefact, e.g. of simplification or of the homotopy construction producing G by design. The control with a non-integrable D fails; is that control sensitive enough?
@@ -60,7 +60,7 @@ For each item, do **one independent computation**: a derivation written out, or 
    - (5): the forced operators χ(Δk₁) = t⁻¹AD⁻¹ and χ(Δk₁⁻¹) = t⁻¹D⁻¹A in the diagonal limit, the charge-shifting pair in the off-diagonal limit, and the exchange of the two directions for type I₊. Is "no twisted diagonal acts on all of 𝒲" proved for every Hopf twist?
    - (2), type I₋: is the proof block complete, i.e. does it check both e-generators, both k-equations and all relations of ρ̃ (`eq-dbd-second-module`)?
    - (4), type I₊: conjugation by Δ(k₁) separates the two terms of f₁⊗k₀⁻¹ + 1⊗f₀, which isolates 1⊗f₀, whose y⁻² coefficient is uncancellable.
-   - Comparison scripts: `briefs/referee_defects_42_scripts/integration_obstructions.py`, `textbook_code/defect_doubling.py` (20 checks).
+   - Comparison scripts: `briefs/referee_defects_42_scripts/integration_obstructions.py`, `code/defect_doubling.py` (20 checks).
 9. **`prp-an-particle-transmission` (ch. 43), upgraded from [Numerical, h = 2,…,8] to [Theorem] for every h in fd38d74.** Items 1–4 are now proved by hand in the proof block (rational identities in x = e^{−(θ−θ_d)}, u = e^{iγ_a}, v = e^{iγ_b}, for both fusings and both types); item 5 is `prp-an-linear-transmission`, which is item 4 above. Check the hand proof, in particular the shifts for the fusing c = a + b − h and the type-I₊ version, which the proof gives only in outline.
 10. **`prp-dpt-doubled` (ch. 43): the new explicit second module `eq-dpt-second-module` (fd38d74).** The label stays [Numerical], but the proof now claims by hand:
     - on V, that the y² terms force κ to be the plain shift by α_j − α_{j−1};
@@ -79,7 +79,7 @@ For each item, do **one independent computation**: a derivation written out, or 
     - the new statements in `prp-dpt-vacuum`'s proof: the explicit unbounded direction φ = ψ = tv for σ < 0, and the linear-layer estimate for the total static energy;
     - the citation and novelty changes in the Notes, Corrigan–Zambon (7.11) and (6.12).
     
-    Comparison scripts: `briefs/referee_defects_43_scripts/` (Codex's, `second_module_checks.py`, and `integration_*`), `textbook_code/defect_particle_transmission.py` (11 checks).
+    Comparison scripts: `briefs/referee_defects_43_scripts/` (Codex's, `second_module_checks.py`, and `integration_*`), `code/defect_particle_transmission.py` (11 checks).
 
 ## Report format (`briefs/referee_defects_upgrades_report.md`)
 

@@ -3,7 +3,7 @@ Tier: B
 Brief: briefs/halfline_open_07_nonunitary_half_line.md (parts (a) and (b) only)
 Report: briefs/halfline_open_07_report.md
 Scripts: briefs/halfline_open_07_scripts/
-- **Setup.** The scripts import `boundary_common.py`, an unchanged copy of `textbook_code/boundary_common.py`; copy it alongside.
+- **Setup.** The scripts import `boundary_common.py`, an unchanged copy of `code/boundary_common.py`; copy it alongside.
 - **Part (a):** `a_krein_algebra.py`, `a_crossing_vw.py`, `a_dn.py`.
 - **Part (b):** `b_transfer.py`, `b_checks.py`, `b_scan.py`, `b_bisect*.py`, `b_by_n1.py`. The `*.out` files are the worker's outputs.
 

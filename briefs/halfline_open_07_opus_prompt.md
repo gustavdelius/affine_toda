@@ -14,7 +14,7 @@ Read:
 - the brief `briefs/halfline_open_07_nonunitary_half_line.md`;
 - the report `briefs/halfline_open_07_report.md`;
 - the Gemini verdict;
-- the scripts in `briefs/halfline_open_07_scripts/` (copy `textbook_code/boundary_common.py` alongside).
+- the scripts in `briefs/halfline_open_07_scripts/` (copy `code/boundary_common.py` alongside).
 
 ## Items
 

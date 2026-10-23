@@ -1,4 +1,4 @@
-"""Referee check of prp-dn-uniform-vacuum (ch. 35), independent of textbook_code.
+"""Referee check of prp-dn-uniform-vacuum (ch. 35), independent of code.
 
 Real coupling, m = beta = 1, |alpha|^2 = 2,
   V = sum_j n_j (e^{alpha_j.phi} - 1),  B = 2 sum_j C_j sqrt(n_j) (e^{alpha_j.phi/2} - 1),

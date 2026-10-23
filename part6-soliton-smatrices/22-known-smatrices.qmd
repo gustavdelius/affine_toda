@@ -52,7 +52,7 @@ Takács constructed the $d_4^{(3)}$ soliton S-matrix from $U_q(g_2^{(1)})$ [@tak
 
 ### $d_4^{(3)}$ solitons {#sec-d43-solitons}
 
-We solve $U_q(g_2^{(1)})$ on the $\mathbf7$ (the six short roots of $g_2$ plus a zero weight) from the relations, with residual $10^{-16}$. The R-matrix lives in a 4-dimensional space, since $\mathbf7\otimes\mathbf7=\mathbf1\oplus\mathbf7\oplus\mathbf{14}\oplus\mathbf{27}$. Its poles are at $x=q^{-2}$ (rank 15), $x=q^{-8}$ (rank 7, the self-fusion) and $x=q^{-12}$ (rank 1, the singlet and crossing point) (`textbook_code/rmatrix/smatrix/g2alg.py` and `textbook_code/rmatrix/smatrix/g2sol.py`, with `ALG=g2`).
+We solve $U_q(g_2^{(1)})$ on the $\mathbf7$ (the six short roots of $g_2$ plus a zero weight) from the relations, with residual $10^{-16}$. The R-matrix lives in a 4-dimensional space, since $\mathbf7\otimes\mathbf7=\mathbf1\oplus\mathbf7\oplus\mathbf{14}\oplus\mathbf{27}$. Its poles are at $x=q^{-2}$ (rank 15), $x=q^{-8}$ (rank 7, the self-fusion) and $x=q^{-12}$ (rank 1, the singlet and crossing point) (`code/rmatrix/smatrix/g2alg.py` and `code/rmatrix/smatrix/g2sol.py`, with `ALG=g2`).
 
 The self-fusion at exactly $2\pi/3$ forces $T=6\omega+3k$. The mass pattern puts the 15-plet zero at $2T/H$, and the breather pole at $y=1$ gives $H=12T/(T-3)$. The unique solution is
 
@@ -60,7 +60,7 @@ $$
 a\in\{\omega,\ 4\omega+2\},\qquad T=6\omega+3,\qquad H=12+\frac{6}{\omega},
 $$
 
-fixed before any comparison. The lowest-breather amplitude is then identical to the CDS $(g_2^{(1)},d_4^{(3)})$ amplitude $S_{11}=\{1\}_0\,\{H/2\}_{1/2}\,\{H-1\}_0$ at this $H$ (`textbook_code/rmatrix/smatrix/g2br.py`).
+fixed before any comparison. The lowest-breather amplitude is then identical to the CDS $(g_2^{(1)},d_4^{(3)})$ amplitude $S_{11}=\{1\}_0\,\{H/2\}_{1/2}\,\{H-1\}_0$ at this $H$ (`code/rmatrix/smatrix/g2br.py`).
 
 ### $g_2^{(1)}$ solitons {#sec-g21-solitons}
 
@@ -70,7 +70,7 @@ $$
 S_{22}=\{H/3-1\}_1\,\{H/3+1\}_1\,\{2H/3-1\}_1\,\{2H/3+1\}_1,\qquad H=\frac{6T}{T+1} .
 $$
 
-Here the lowest breather is particle 2, not particle 1. The representation, the special points and the comparison are in `textbook_code/rmatrix/smatrix/g2alg.py` and `textbook_code/rmatrix/smatrix/g2br2.py`, with `ALG=d43`. For a twisted multiplet the lowest breather can therefore be a heavier particle, which matters for the $f_4^{(1)}$ search.
+Here the lowest breather is particle 2, not particle 1. The representation, the special points and the comparison are in `code/rmatrix/smatrix/g2alg.py` and `code/rmatrix/smatrix/g2br2.py`, with `ALG=d43`. For a twisted multiplet the lowest breather can therefore be a heavier particle, which matters for the $f_4^{(1)}$ search.
 
 ## The missing cases {#sec-sm-introduction}
 

@@ -5,7 +5,7 @@
 > and may drift, so search for the quoted text if they do not match.
 > Working rules (from project memory): do NOT spawn subagents; do not run `quarto render` in the repo while a `quarto preview` may be running
 > (rsync to a scratch dir and render there, `--to html`); status labels and cross-references must not share one bracket;
-> use `@id` for references; keep `textbook_code` scripts in sync with any changed formula; new corrections to published papers also go
+> use `@id` for references; keep `code` scripts in sync with any changed formula; new corrections to published papers also go
 > in Appendix D (`appendices/`) and in the chapter's "Corrections to the sources" list.
 > Start with §A (errors), then §B/§D (clarity and figures), then §C (notation) only after asking the user which renames they want (see last line).
 > Items marked "decision" in §H need the user's answer before editing. Copy this file to `briefs/reader_review_part7.md` first.
@@ -13,7 +13,7 @@
 ## Context
 Review done as a QFT PhD student who is not an expert in affine Toda or integrable boundaries. All eight chapters
 (`part7-half-line/28…35`) were read line by line. I re-derived about 40 formulas by hand (list in §G), checked the six
-figures against their scripts in `textbook_code/figures/`, and checked that every `@label` in Part VII resolves
+figures against their scripts in `code/figures/`, and checked that every `@label` in Part VII resolves
 (none missing, none duplicated). No book file has been changed. The proposed work after approval is in §H.
 
 **Verdict.** The mathematics is in very good shape: nearly everything I re-derived is right. The remaining problems are
@@ -160,7 +160,7 @@ If a short "How to read Part VII" box is added to `part.qmd`: ch.28 → 29 → 3
 ---
 
 ## G. Coverage: what I actually re-derived
-Reflection equation braid↔S/K (ch.28); twisted-form domains; crossing-unitarity forms; LY block algebra incl. $K_{b+2}$ bootstrap and $b=-2$ limit; $h(b_{\rm crit})$; $\hat\epsilon\leftrightarrow(\eta,\vartheta)\leftrightarrow\xi_B,k$; coideal action on $(\eta,\vartheta)$ limits; $\mathcal B$ and $C_j$ dictionary; shG field equation and boundary condition; WKB vs bootstrap level spacing; Euler–Lagrange for $\mathcal B$; compatibility ⇒ `eq-boundary-k-equation`; $K\to K^{-1}$ and $DKD^{-1}$; Hermitian-conjugation display; image forms and Neumann condition for the mirror pair; time delays, $d$; regularity proofs; stationary pair; self-conjugate vacuum; linearized reflection; Hopf/coideal coproducts; $c_j=q_j^{-1}$; eight equations of sine-Gordon; `eq-an-k-matrix` diagonal entries; $a_n$ proof determinant; Neumann $\hat\epsilon$ and its expansion; Serre-obstruction consistency with Kolb; Onsager limit constant; ch.35 uniform/Neumann amplitudes, classical limits, $a_2$ solitonic factor, energies, rotor inertia. Not re-derived: the Gamma-function products and everything delegated to `textbook_code` scripts; the long Serre bookkeeping.
+Reflection equation braid↔S/K (ch.28); twisted-form domains; crossing-unitarity forms; LY block algebra incl. $K_{b+2}$ bootstrap and $b=-2$ limit; $h(b_{\rm crit})$; $\hat\epsilon\leftrightarrow(\eta,\vartheta)\leftrightarrow\xi_B,k$; coideal action on $(\eta,\vartheta)$ limits; $\mathcal B$ and $C_j$ dictionary; shG field equation and boundary condition; WKB vs bootstrap level spacing; Euler–Lagrange for $\mathcal B$; compatibility ⇒ `eq-boundary-k-equation`; $K\to K^{-1}$ and $DKD^{-1}$; Hermitian-conjugation display; image forms and Neumann condition for the mirror pair; time delays, $d$; regularity proofs; stationary pair; self-conjugate vacuum; linearized reflection; Hopf/coideal coproducts; $c_j=q_j^{-1}$; eight equations of sine-Gordon; `eq-an-k-matrix` diagonal entries; $a_n$ proof determinant; Neumann $\hat\epsilon$ and its expansion; Serre-obstruction consistency with Kolb; Onsager limit constant; ch.35 uniform/Neumann amplitudes, classical limits, $a_2$ solitonic factor, energies, rotor inertia. Not re-derived: the Gamma-function products and everything delegated to `code` scripts; the long Serre bookkeeping.
 
 ---
 
@@ -172,7 +172,7 @@ Reflection equation braid↔S/K (ch.28); twisted-form domains; crossing-unitarit
    - one-sentence factual corrections: A2, A3, A5, A8, A9, A10, A11; B10, B11, B13, B15, B16, B17;
    - decisions that need your call (I will ask, not guess): A1 (check BCR sign), A4 (which of the two node conventions to keep), A6 (generalized Θ), A7 (relabel), C (which symbols to rename).
 3. Larger additions as separate commits so you can drop them: new figures B1/B2; Part VII symbol table (C); preview boxes B7/B37; ch.34 reorganization B28/B29; a worked step for the $a_2$ spectrum B32.
-4. Verification: `python3 textbook_code/figures/ch28_f25…` etc. for any changed figure (they print PASS lines); re-run `boundary_classical.py` only if A1 changes `sec-background-field` (it is not checked by script); rsync-and-render in scratch (per `book-structure.md`) and grep `_site` for `?@`; run the label check used in this review (no missing/duplicate ids).
+4. Verification: `python3 code/figures/ch28_f25…` etc. for any changed figure (they print PASS lines); re-run `boundary_classical.py` only if A1 changes `sec-background-field` (it is not checked by script); rsync-and-render in scratch (per `book-structure.md`) and grep `_site` for `?@`; run the label check used in this review (no missing/duplicate ids).
 5. Update the memory notes (`half-line-part.md`, `literature-corrections-appendix.md` if any source correction is added, e.g. A1).
 
 Open decision for you: should the renaming in §C be done now (touches every chapter and the scripts' docstrings) or limited to adding a symbol table and fixing only the `ω` and `K` collisions?

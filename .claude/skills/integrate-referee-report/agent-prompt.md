@@ -4,7 +4,7 @@ Fill in every `<…>` and delete the lines that do not apply. Launch it as a bac
 
 ---
 
-You are integrating an independent referee report into a mathematical-physics textbook (a Quarto book on affine Toda field theory). Read `AGENTS.md` at the repository root first; its rules apply throughout. Work in the git worktree
+You are integrating an independent referee report into a mathematical-physics monograph (a Quarto book on affine Toda field theory). Read `AGENTS.md` at the repository root first; its rules apply throughout. Work in the git worktree
 
   `<absolute worktree path>`   (branch `<branch>`)
 
@@ -18,7 +18,7 @@ Scratch directory for your own check scripts: `<scratchpad>/<tag>/`. Before you 
 
 ## Rule 1: verify before you edit
 
-Do not trust any finding of the report. For every item, re-derive it yourself before changing the book, by hand or with your own short sympy/numpy/mpmath script. Write the script from the chapter's definitions. Do NOT import the referee's scripts. You may import the book's helpers (`<e.g. textbook_code/defect_common.py>`). Rerunning the referee's scripts is a second check, not verification.
+Do not trust any finding of the report. For every item, re-derive it yourself before changing the book, by hand or with your own short sympy/numpy/mpmath script. Write the script from the chapter's definitions. Do NOT import the referee's scripts. You may import the book's helpers (`<e.g. code/defect_common.py>`). Rerunning the referee's scripts is a second check, not verification.
 
 For claims about published papers, read the source (`<path to paper texts, e.g. ~/referee-copy/papers/*.txt>`). When a paper contradicts itself, decide which side is wrong, for example by checking which formula solves the paper's own equations.
 

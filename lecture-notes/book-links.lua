@@ -10,7 +10,7 @@
 -- project, fails on it.
 --
 -- The book is the repository root: the nearest ancestor of the notes project
--- that holds textbook_code/. Book files are the .qmd files outside
+-- that holds code/. Book files are the .qmd files outside
 -- lecture-notes/, briefs/, referee_scratch/ and build or tool directories, the
 -- same rule as in check-refs.py.
 
@@ -18,7 +18,7 @@ local base = "https://gustavdelius.github.io/affine_toda/"
 local skip = {
   ["lecture-notes"] = true, briefs = true, referee_scratch = true, _site = true,
   _book = true, [".quarto"] = true, [".git"] = true, [".claude"] = true,
-  textbook_code = true, foundations_code = true, soliton_rmatrix_code = true,
+  code = true, foundations_code = true, soliton_rmatrix_code = true,
   node_modules = true,
 }
 
@@ -37,7 +37,7 @@ end
 local function find_repo(dir)
   local d = dir
   for _ = 1, 20 do
-    if is_dir(pandoc.path.join({ d, "textbook_code" })) then return d end
+    if is_dir(pandoc.path.join({ d, "code" })) then return d end
     local parent = pandoc.path.directory(d)
     if parent == d then break end
     d = parent

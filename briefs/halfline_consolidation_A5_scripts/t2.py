@@ -1,12 +1,12 @@
 """Task 1 sweep: every regular chi-interval of the continued pair, a_2..a_5, vs DG (5.5) at B=0."""
 import sys, io, contextlib, itertools, time
-sys.path.insert(0, '/home/gustav/Git/affine_toda/textbook_code')
+sys.path.insert(0, '/home/gustav/Git/affine_toda/code')
 import numpy as np
 import mpmath as mp
 from a5lib import *
 with contextlib.redirect_stdout(io.StringIO()):
     import boundary_vacua as BV
-src = open('/home/gustav/Git/affine_toda/textbook_code/particle_reflection.py').read()
+src = open('/home/gustav/Git/affine_toda/code/particle_reflection.py').read()
 PR = {}; exec(src.split('\n# ---------------------------------------------------------------- 1. blocks')[0], PR)
 mp.mp.dps = 30
 

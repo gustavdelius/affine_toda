@@ -2,13 +2,13 @@
 
 Scratch directory: `/tmp/claude-1000/-home-gustav-Git-affine-toda/b441568d-def3-432f-aa17-ea3eda7016d3/scratchpad/a2/`. Model: Opus, effort xhigh.
 
-**Background.** Open problem 11 (§35.7, `sec-boundary-open-problems` in `part7-half-line/35-particle-reflection.qmd`) asks for the scalar factors and particle amplitudes of the soliton-preserving (SP) reflection matrices of $a_n^{(1)}$. A worker solved part of it; the book already contains the verified part (the matrices in book conventions, the antisoliton partner with $\bar\eta=\eta+i\pi\omega(l-\frac N2)$, scalar unitarity, the $\mathbb Z_N$ obstruction, $B_1\to\bar B_1$; see ch. 33 `sec-preserving-conjugating` and `textbook_code/soliton_preserving.py`). The rest was never checked independently.
+**Background.** Open problem 11 (§35.7, `sec-boundary-open-problems` in `part7-half-line/35-particle-reflection.qmd`) asks for the scalar factors and particle amplitudes of the soliton-preserving (SP) reflection matrices of $a_n^{(1)}$. A worker solved part of it; the book already contains the verified part (the matrices in book conventions, the antisoliton partner with $\bar\eta=\eta+i\pi\omega(l-\frac N2)$, scalar unitarity, the $\mathbb Z_N$ obstruction, $B_1\to\bar B_1$; see ch. 33 `sec-preserving-conjugating` and `code/soliton_preserving.py`). The rest was never checked independently.
 
 Read:
 - the brief `briefs/halfline_open_11_soliton_preserving_scalar.md`;
 - the report `briefs/halfline_open_11_report.md`, especially §2–§4 and its Integration table;
 - the Gemini verdict `briefs/halfline_open_11_referee.md` (it reran the worker's scripts; that is not independent);
-- `textbook_code/soliton_preserving.py`, `textbook_code/an_nondiagonal_scalar.py` (the template: same method for the conjugating $s=+1$ matrix), and ch. 33 `sec-preserving-conjugating`, `sec-an-nondiagonal-k`;
+- `code/soliton_preserving.py`, `code/an_nondiagonal_scalar.py` (the template: same method for the conjugating $s=+1$ matrix), and ch. 33 `sec-preserving-conjugating`, `sec-an-nondiagonal-k`;
 - for the bootstrap, the method of `briefs/halfline_open_03_scripts/sol_boot.py` (read it; write your own version on book code).
 
 **Tasks, in order of priority.**
@@ -18,4 +18,4 @@ Read:
 4. **CDD factor.** Settle it for $n=2$ and $n=3$ with the SP soliton bootstrap $V^{\otimes n}\to\bar V$ (fusion of $n$ solitons into an antisoliton, then reflection, compared with the reflection of the antisoliton by $\lambda bK_{\bar V}$), measured relative to a reference so that bulk factors cancel, as problem 3 did. Decide between $\sigma_A=(-\frac T2)_I^2$, $\sigma_B$ of report §3, or neither (then find what the bootstrap requires). Also test the $n=1$ case as a control.
 5. **Continued amplitudes** (only if 1–4 are done). With the CDD factor fixed, continue $\omega\to-\frac2B$ and check unitarity, crossing-unitarity and the bulk–boundary bootstrap for the particle amplitudes $K_{a\to h-a}$ with `particle_reflection.py`'s conventions and the book's S-matrix; the $B\to0$ limit.
 
-The check script should be a new `textbook_code/sp_scalar.py` (name it so), or an extension of `soliton_preserving.py` if that is cleaner. The proposed text replaces the parts of open problem 11 that your results settle, and adds a paragraph to ch. 33 (`sec-preserving-conjugating`) or ch. 35, as you judge.
+The check script should be a new `code/sp_scalar.py` (name it so), or an extension of `soliton_preserving.py` if that is cleaner. The proposed text replaces the parts of open problem 11 that your results settle, and adds a paragraph to ch. 33 (`sec-preserving-conjugating`) or ch. 35, as you judge.

@@ -4,7 +4,7 @@ import numpy as np
 from sp_lib import K_V, K_Vbar, etabar, Rc, q_phys
 
 # (a) my K_V, K_Vbar agree with the book's soliton_preserving.py definitions (exec up to the checks)
-src = open('/home/gustav/Git/affine_toda/textbook_code/soliton_preserving.py').read().split('\nth1, th2')[0]
+src = open('/home/gustav/Git/affine_toda/code/soliton_preserving.py').read().split('\nth1, th2')[0]
 ns = {}
 exec(src, ns)
 d = 0

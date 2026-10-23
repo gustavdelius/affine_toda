@@ -1,4 +1,4 @@
-<!-- Worker report, 2026-10-12. Model: Claude Opus 5.5, effort xhigh. Scope: brief halfline_open_02_beyond_an.md with coordinator priorities (step 1, then step 4, then step 3, then step 2); given problem 3's report and the 06_01 vacuum code as templates. Interrupted once by the usage limit and resumed. Saved verbatim by the coordinator. Scripts copied to briefs/halfline_open_02_scripts/ (dn_common.py imports textbook_code/boundary_common.py read-only from the repository). -->
+<!-- Worker report, 2026-10-12. Model: Claude Opus 5.5, effort xhigh. Scope: brief halfline_open_02_beyond_an.md with coordinator priorities (step 1, then step 4, then step 3, then step 2); given problem 3's report and the 06_01 vacuum code as templates. Interrupted once by the usage limit and resumed. Saved verbatim by the coordinator. Scripts copied to briefs/halfline_open_02_scripts/ (dn_common.py imports code/boundary_common.py read-only from the repository). -->
 
 ## Report: half-line open problem 2, the d_n ε̂=0 boundary and a map of the rest
 
@@ -144,7 +144,7 @@ The CAF coverage is from their section list. I verified it only for $d_n$, and f
 - the odd-$n$ spinor caveat.
 
 ### 7. Scripts
-All are in `/tmp/claude-1000/-home-gustav-Git-affine-toda/0e38a99d-702a-40fb-99b7-74dbe0413cf6/scratchpad/p02/`. They import `textbook_code/boundary_common.py` read-only from the repository. Copy them soon, since this is a temp directory.
+All are in `/tmp/claude-1000/-home-gustav-Git-affine-toda/0e38a99d-702a-40fb-99b7-74dbe0413cf6/scratchpad/p02/`. They import `code/boundary_common.py` read-only from the repository. Copy them soon, since this is a temp directory.
 
 **Libraries and checks:**
 - `dn_common.py`: weight-restricted Ř, K intertwiner.
@@ -177,7 +177,7 @@ All are in `/tmp/claude-1000/-home-gustav-Git-affine-toda/0e38a99d-702a-40fb-99b
 
 ## Integration (branch half-line-open-problems-integration)
 
-The Opus follow-up prompt `halfline_open_02_opus_prompt.md` was not launched; the coordinator verified instead. New script `textbook_code/dn_uniform.py` (5 checks, all PASS, about 30 s).
+The Opus follow-up prompt `halfline_open_02_opus_prompt.md` was not launched; the coordinator verified instead. New script `code/dn_uniform.py` (5 checks, all PASS, about 30 s).
 
 | Claims | Verdict | How it was checked | Book change |
 |---|---|---|---|

@@ -3,7 +3,7 @@ Tier: B
 Brief: briefs/halfline_open_02_beyond_an.md
 Report: briefs/halfline_open_02_report.md
 Scripts: briefs/halfline_open_02_scripts/
-- **Imports.** `dn_common.py` imports `textbook_code/boundary_common.py` read-only.
+- **Imports.** `dn_common.py` imports `code/boundary_common.py` read-only.
 - **Core modules:** `dn_common.py`, `dn_scalar.py`, `proj_dn.py`, `dn_particle.py`, `dn_boot.py`, `caf.py`, `caf_all.py`, `fo_cmp.py`, `dn_classical.py`, `sym_vac2.py`, `spin_cl.py`, `dn_min.py`.
 - **Small tests:** the `t*.py` files.
 - **Superseded:** `sym_vac.py`, `t8.py`, `t9.py`, `fix*.py`.

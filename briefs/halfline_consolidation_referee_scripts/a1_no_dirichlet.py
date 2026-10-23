@@ -1,4 +1,4 @@
-"""Referee check of prp-no-dirichlet (ch. 30), independent of textbook_code.
+"""Referee check of prp-no-dirichlet (ch. 30), independent of code.
 
 For a Dirichlet wall phi(0)=phi_0 the boundary value of every exponential is a
 constant w_j, and d_x phi(0) is free.  Sklyanin's compatibility condition

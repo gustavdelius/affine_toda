@@ -1,6 +1,6 @@
 # About these lectures {#sec-about-lectures .unnumbered}
 
-These lectures are a companion to the [part on integrable defects](book:sec-defect-scattering) of the textbook *Affine Toda field theory*. The book states the results, with their proofs, their checks and their place in the literature. The lectures tell the story behind them. They ask where each idea comes from and why it had to come out the way it did. They work through the decisive calculations line by line, so that you can do them yourself.
+These lectures are a companion to the [part on integrable defects](book:sec-defect-scattering) of the book *Affine Toda field theory*. The book states the results, with their proofs, their checks and their place in the literature. The lectures tell the story behind them. They ask where each idea comes from and why it had to come out the way it did. They work through the decisive calculations line by line, so that you can do them yourself.
 
 The story starts from a simple question. A boundary of an integrable field theory is a mirror: particles bounce off it, and the book's part on the half-line is about what they do there. What else can a line in spacetime be? The answer turns out to be very restrictive, and very rich. In an interacting integrable theory a line can be a mirror or a window, but not both at once. The windows are not guessed. They are a construction from 19th-century surface geometry, Bäcklund's transformation, frozen at a single point. A window behaves like a particle that has a rapidity but no mass shell, and a particle is itself a window. Asking that momentum be conserved at the window singles out one family of affine Toda theories, the cyclic Dynkin diagrams $a_r^{(1)}$. In the quantum theory a window keeps only half of the quantum group, and that half has representations that the whole cannot have. Wrapped around a cylinder, a window becomes Baxter's Q-operator.
 
@@ -26,7 +26,7 @@ Lectures 1 to 5 are written; the others are in preparation.
 
 **Predict, then calculate.** Each lecture poses its question before answering it. Where you see a box marked *Predict*, stop and write down what you expect. A wrong prediction that you then correct teaches more than a right answer you only read.
 
-**Calculations.** The decisive calculations are written out without skipped steps. Do them with pen and paper alongside the text. Every calculation shown in detail is also checked by a script in `textbook_code/lectures/`, written from the definitions of the lectures. Run it when your algebra and the text disagree, or change it to try your own variations.
+**Calculations.** The decisive calculations are written out without skipped steps. Do them with pen and paper alongside the text. Every calculation shown in detail is also checked by a script in `code/lectures/`, written from the definitions of the lectures. Run it when your algebra and the text disagree, or change it to try your own variations.
 
 **Exercises** come in three kinds. *Redo* exercises repeat a calculation of the lecture in a slightly different setting. *Rediscover* exercises lead you to a result of the book before you read it there. *Explore* exercises are open-ended, and some of them touch the open problems of the book.
 

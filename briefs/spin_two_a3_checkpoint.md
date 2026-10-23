@@ -18,7 +18,7 @@
   Logs: /tmp/.../scratchpad/spin2/r3_full.log, r2_control_test.log, control_numeric.log, bulk_cons_test.py output.
 - [DONE] Confirmed bulk spin-2 current conserved on shell EXACTLY (symbolic expr = 0, not just small) for a_3
   with this (A, B) choice -- bulk_cons_test.py.
-- [DONE] Wrote final production script textbook_code/defect_spin_two_a3.py (exact route throughout, 9 PASS
+- [DONE] Wrote final production script code/defect_spin_two_a3.py (exact route throughout, 9 PASS
   lines: root data r=1..4, A_abc/B matching equation exact (a_2 and a_3), cubic obstruction a_3 exact, bulk
   current conserved on shell a_3 exact, main spin+-2 result a_3 exact (both types, sigma symbolic), velocity
   structure (1/sigma for spin+2, sigma for spin-2), spin+-1 control pass, bad-D control FAILS as required).
@@ -31,7 +31,7 @@
 - [DONE] Edited defect_classical_an.py docstring (check 5 sentence only) to point to new script.
 - [DONE] Edited part8-defects/38-defect-conditions.qmd: prp-spin-two label (upgraded a_3 item (3) to Theorem,
   dropped the separate "Numerical for a_3" tag), item (3) text, proof paragraph (3) text.
-- [DONE] Edited textbook_code/README.md (new row) and appendices/C-code.qmd (new row, Part VIII table).
+- [DONE] Edited code/README.md (new row) and appendices/C-code.qmd (new row, Part VIII table).
 - [DONE] Edited briefs/part8_defects_status.md: "Not in the repo" line, "Pending (ch. 38)" line -> DONE, plus
   a new bullet under "By script" describing defect_spin_two_a3.py.
 - [DONE] Reran defect_classical_an.py: 24 PASS, 0 FAIL (docstring-only change confirmed harmless).

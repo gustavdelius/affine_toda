@@ -6,7 +6,7 @@ from dn_scal import DN, logprod, g2, blk
 
 mp.mp.dps = 30
 TCns = {'mp': mp}
-_src = open('/home/gustav/Git/affine_toda/textbook_code/an_nondiagonal_scalar.py').read()
+_src = open('/home/gustav/Git/affine_toda/code/an_nondiagonal_scalar.py').read()
 exec(_src.split('# ---------------------------------------------------------------- 3. scalar factor and breather identity')[1].split('d3 = 0')[0], TCns)
 exec(_src.split('# ---------------------------------------------------------------- 9. s = -1: scalar factor and breather identity')[1].split('mp.mp.dps = 30')[0], TCns)
 scalar_data, scalar_minus = TCns['scalar_data'], TCns['scalar_minus']

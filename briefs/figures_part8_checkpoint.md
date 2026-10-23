@@ -1,7 +1,7 @@
 # Part VIII figures: checkpoint (2026-10-13)
 
 Task: figures F37–F4x for Part VIII (`part8-defects/`), following `briefs/figures_for_the_book.md`.
-Only edit ch. 36, 37, 41, 42 (figure + one referring sentence), new `textbook_code/figures/chNN_fMM_*.py`, SVGs in
+Only edit ch. 36, 37, 41, 42 (figure + one referring sentence), new `code/figures/chNN_fMM_*.py`, SVGs in
 `part8-defects/figures/`, README figure rows, this file. Do not touch ch. 38, 39, 40, 43 or `referee_scratch/`.
 Commit message: "Part VIII figures F37–F4x" + Co-Authored-By line; stage named paths only.
 

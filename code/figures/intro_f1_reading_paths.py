@@ -32,7 +32,7 @@ COLORS = {"I": style.BLUE, "II": style.GREEN, "III": style.ORANGE, "IV": style.R
 
 # ---- check against the text of the introduction ---------------------------
 text = (ROOT / "01-introduction.qmd").read_text()
-bullets = re.findall(r"^- \*(?:A course on|Integrable boundaries|Integrable defects|Non-unitary|For specialists)[^\n]*", text, flags=re.M)
+bullets = re.findall(r"^- \*(?:Integrable (?:field theory|boundaries|defects)|Quantum groups|Non-unitary|For specialists)[^\n]*", text, flags=re.M)
 report("the introduction has six reading-path bullets", len(bullets) == 6)
 
 

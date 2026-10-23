@@ -14,7 +14,7 @@ coproduct and not the coproduct; (3) for the Lee-Yang defect (eq-ly-transmission
 factor (eq-shg-linear-transmission), the doubled K satisfies boundary unitarity K(theta) K(-theta) = 1 and the scalar
 form of boundary crossing-unitarity, K_{V'V}(i pi/2 - theta) = K_{VV'}(i pi/2 + theta), exactly because TT satisfies
 defect unitarity and crossing; a modification that keeps unitarity and breaks crossing fails the second.
-The full matrix statement (prp-doubling item 1) is checked in textbook_code/defect_axioms.py (d).
+The full matrix statement (prp-doubling item 1) is checked in code/defect_axioms.py (d).
 
 Writes part8-defects/figures/ch36_f38_doubling_trick.svg.
 """

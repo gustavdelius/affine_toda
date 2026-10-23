@@ -1,5 +1,5 @@
 """Referee check of prp-dn-nondiagonal-scalar (ch. 33) and eq-dn-neumann-amplitude (ch. 35).
-Written from the formulas in the book text only (no textbook_code imports).
+Written from the formulas in the book text only (no code imports).
 
 Part A (mpmath, 30 digits): with T = (n-1) omega, mu complex,
   (i)  A_s(mu) A_s(-mu) U_s = 1,

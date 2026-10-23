@@ -10,7 +10,7 @@ from quantum_checks import r_matrix, relative
 
 
 def compare_helper():
-    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'textbook_code'))
+    sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'code'))
     from boundary_common import rcheck, sl2_spin
     P=np.eye(4)[[0,2,1,3]]
     for q in (np.exp(.71j), 1.37):

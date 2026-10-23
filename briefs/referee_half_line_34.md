@@ -34,7 +34,7 @@ Experience in this repository is that every adversarial referee pass finds real 
 
 ## Already verified (do not redo unless you find a reason)
 
-**By script** (`textbook_code/qsp_checks.py`, 19 checks, all PASS, under a second):
+**By script** (`code/qsp_checks.py`, 19 checks, all PASS, under a second):
 - **q-Dolan–Grady.** The sine-Gordon coideal satisfies $F_{ij}(b_i,b_j)=qc_i[2]^2[b_i,b_j]$ for generic $\hat\epsilon$ and $c$, at physical and generic $q$, on spin $\frac12\otimes\frac12$, $1$ and $\frac12\otimes1$. A control with $\rho\to1.1\rho$ fails. $\rho=(q+q^{-1})^2=4\cos^2\pi\omega$ at the physical $q$. At $q=1$ the Onsager–Dolan–Grady relation holds with $A=2b_0$, $A^*=2b_1$.
 - **Sine-Gordon uniqueness.** $K:V(y)\to V(1/y)$ exists and is unique for generic $(\hat\epsilon_0,\hat\epsilon_1)$.
 - **Kolb's conventions.** Kolb's $B_i=F_i-c_iE_iK_i^{-1}+s_iK_i^{-1}$ is a right coideal ($a_1$, $a_2$). $\omega_q$ satisfies $\Delta\circ\omega_q=(\omega_q\otimes\omega_q)\circ\Delta^{\rm op}$, and $\omega_q(B_i)=e_i-c_if_ik_i+s_ik_i$, so $c^{\rm book}=-c^{\rm Kolb}$ and $\hat\epsilon=s$. Kolb's (7.19) (q-Onsager) and (7.10) ($a_{ij}=-1$, $s=0$) hold.

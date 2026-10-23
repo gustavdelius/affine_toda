@@ -20,7 +20,7 @@ lg = mp.loggamma
 
 
 def log_sigma(x, u):
-    """BPT form of sigma (eq. after eq-bsg-k-full); same function as in textbook_code/boundary_sine_gordon.py."""
+    """BPT form of sigma (eq. after eq-bsg-k-full); same function as in code/boundary_sine_gordon.py."""
     x, u = mp.mpmathify(x), mp.mpmathify(u)
 
     def t(l, uu):
