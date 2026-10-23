@@ -8,16 +8,16 @@
 
 You are a referee. You do not draft book text.
 
-- **Do not edit** anything under `part*/`, `appendices/`, `references.bib` or `textbook_code/`.
+- **Do not edit** anything under `part*/`, `appendices/`, `references.bib` or `code/`.
 - **Where to write.** Write only your report, plus your own scripts in a new directory `briefs/halfline_consolidation_referee_scripts/`.
 - **Replacement text.** Where you find an error, propose replacement text in the report. The coordinator re-derives every finding before it changes the book.
 - **Work independently.**
   - Re-derive by hand, or recompute with your own code. Running our scripts is useful, but it is not a check: our scripts are what is being checked.
-  - You may import the book's library modules from `textbook_code/`, for example `boundary_common.py`, `reflection_matrices.py` and `smatrix_simply_laced.py` (the S-matrix blocks).
+  - You may import the book's library modules from `code/`, for example `boundary_common.py`, `reflection_matrices.py` and `smatrix_simply_laced.py` (the S-matrix blocks).
   - Read the coordinator's own verification scripts (`briefs/halfline_consolidation_A6_scripts/coordinator/`) only after you have done your own check of an item.
 - **Git and files.** Use git only read-only (`git diff`, `git log`, `git show`). Never checkout, stash, reset, add or commit: the worktree is shared with running Claude sessions. Use the directory `briefs/halfline_consolidation_referee_scripts/` for your own scripts and scratch files.
 - **Literature.** Read every paper you rely on at the source, from the arXiv TeX or PDF, and quote equation numbers as printed. ArXiv ids are given below and in `references.bib`.
-- **Running scripts.** Run the book's check scripts from `textbook_code/` (`cd textbook_code && python3 <script>.py`). Each prints one `PASS`/`FAIL` line per check, and each takes up to about 3 minutes.
+- **Running scripts.** Run the book's check scripts from `code/` (`cd code && python3 <script>.py`). Each prints one `PASS`/`FAIL` line per check, and each takes up to about 3 minutes.
 - **Verdict for each item:** one of
   - **CONFIRMED** (re-derived or independently recomputed; say how);
   - **CONFIRMED WITH CHANGES** (give the change);
@@ -106,7 +106,7 @@ For each item, recompute at least one representative case with your own code.
 **B3. `prp-sp-scalar`** (ch. 33, around line 342), with `eq-sp-scalar-eqs`, `eq-sp-scalar`, and ch. 35 `eq-sp-breather`: the soliton-preserving scalar factors and breather amplitude. Check:
 - the crossing functions $\Phi_{1,2}$;
 - the scalar factor at one $(n,l)$;
-- the breather amplitude's block content (`textbook_code/sp_scalar.py` is the book's check).
+- the breather amplitude's block content (`code/sp_scalar.py` is the book's check).
 
 **B4. `prp-solitonic-linear`** (ch. 31, around line 237).
 - **The claim:** the linearized reflection about every regular continued vacuum ($a_2$–$a_5$) is DG's (5.7) (hep-th/9904002) at $B=0$, independent of $\chi$.

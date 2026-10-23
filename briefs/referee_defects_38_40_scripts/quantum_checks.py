@@ -1,5 +1,5 @@
 """Independent algebraic and finite-chain checks for chapter 40.
-No imports from textbook_code. Infinite auxiliary paths are evaluated exactly
+No imports from code. Infinite auxiliary paths are evaluated exactly
 at each site; only the absolutely convergent Fock trace is cut off.
 """
 import itertools

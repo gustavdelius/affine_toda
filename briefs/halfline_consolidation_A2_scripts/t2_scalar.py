@@ -5,7 +5,7 @@ from sp_mp import SP, F11, mp as _mp
 mp.mp.dps = 30
 
 # F11 against the book's an_nondiagonal_scalar.scalar_data (exec of its definitions only)
-src = open('/home/gustav/Git/affine_toda/textbook_code/an_nondiagonal_scalar.py').read()
+src = open('/home/gustav/Git/affine_toda/code/an_nondiagonal_scalar.py').read()
 defs = src[src.index('mp.mp.dps = 30'):src.index('d3 = 0')]
 ns = {'mp': mp}
 exec(defs, ns)

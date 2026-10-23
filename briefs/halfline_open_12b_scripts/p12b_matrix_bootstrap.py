@@ -1,5 +1,5 @@
 """Part (b), matrix level.  Full 2x2 boundary bootstrap for the soliton multiplet (s, sbar) with the book's coideal conventions.
-From the reflection equation (braid form, textbook_code/boundary_common.re_preserving)
+From the reflection equation (braid form, code/boundary_common.re_preserving)
    R(y1/y2)(1 x K(y1))R(y1 y2)(1 x K(y2)) = (1 x K(y2))R(y1 y2)(1 x K(y1))R(y1/y2)
 the residue at a pole of K(y2) (y2 = e^{i lam p}, K(y2) -> rho_out rho_in^T) gives, with A: V(y1) -> V(1/y1) the reflection
 matrix on the new boundary state,
@@ -11,7 +11,7 @@ the closed-form matrix claimed in BPTT (3.6)-(3.8), i.e. X K(etabar) X on |n>, K
 Runtime: seconds.
 """
 import sys, numpy as np
-sys.path.insert(0, '/home/gustav/Git/affine_toda/textbook_code')
+sys.path.insert(0, '/home/gustav/Git/affine_toda/code')
 from boundary_common import q_phys, sl2_spin, rcheck, prop_residual
 def report(name, ok): print(('PASS ' if ok else 'FAIL ') + name, flush=True)
 X = np.array([[0, 1], [1, 0]])

@@ -1,12 +1,12 @@
 """A2 library: soliton-preserving (SP) a_n^(1) reflection data in book conventions.
 
-Built on textbook_code/boundary_common.py (an_vector, rcheck, cop, q_phys) only.
-K_V, K_Vbar: the formulas of textbook_code/soliton_preserving.py, with omega as a parameter.
+Built on code/boundary_common.py (an_vector, rcheck, cop, q_phys) only.
+K_V, K_Vbar: the formulas of code/soliton_preserving.py, with omega as a parameter.
 Book notation: h = N = n+1, T = h omega/2, mu = -i T theta/pi, (x)_I = sin(pi(mu+x)/2T)/sin(pi(mu-x)/2T).
 """
 import sys
 import numpy as np
-sys.path.insert(0, '/home/gustav/Git/affine_toda/textbook_code')
+sys.path.insert(0, '/home/gustav/Git/affine_toda/code')
 from boundary_common import an_vector, rcheck, q_phys, cop, nodes_of, kron, report, prop_residual  # noqa
 
 

@@ -2,7 +2,7 @@
 import sys
 import mpmath as mp
 from a5lib import *
-src = open('/home/gustav/Git/affine_toda/textbook_code/particle_reflection.py').read()
+src = open('/home/gustav/Git/affine_toda/code/particle_reflection.py').read()
 PR = {}; exec(src.split('\n# ---------------------------------------------------------------- 1. blocks')[0], PR)
 mp.mp.dps = 60
 n = 3; T = Theory(n); h = 4

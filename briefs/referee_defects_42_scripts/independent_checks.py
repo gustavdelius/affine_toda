@@ -1,4 +1,4 @@
-"""Independent chapter-42 checks; no textbook_code imports. Run with BLAS threads=1."""
+"""Independent chapter-42 checks; no code imports. Run with BLAS threads=1."""
 import numpy as np
 import scipy.linalg as la
 import sympy as sp

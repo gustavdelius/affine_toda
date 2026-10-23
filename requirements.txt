@@ -1,4 +1,4 @@
-# Python packages for the scripts in textbook_code/ and its subdirectories.
+# Python packages for the scripts in code/ and its subdirectories.
 # Install with: python3 -m pip install -r requirements.txt
 # The minimum versions are those installed in the development environment;
 # older versions may work but have not been tested.

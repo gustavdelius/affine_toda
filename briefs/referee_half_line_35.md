@@ -33,7 +33,7 @@ Experience in this repository is that every adversarial referee pass finds real 
 
 ## Already verified (do not redo unless you find a reason)
 
-**By script** (`textbook_code/particle_reflection.py`, 43 checks, all PASS):
+**By script** (`code/particle_reflection.py`, 43 checks, all PASS):
 - **Bulk input.** Block identities; $a_n$ S-matrix unitarity, crossing and C-invariance.
 - **Uniform boundary, DG (3.16), for $n=1..7$:**
   - it follows from DG (3.12) by iterating (3.15);

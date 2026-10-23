@@ -13,7 +13,7 @@ Read:
 - the brief `briefs/halfline_open_11_soliton_preserving_scalar.md`;
 - the report `briefs/halfline_open_11_report.md`;
 - the Gemini verdict;
-- the scripts in `briefs/halfline_open_11_scripts/`. Copy `textbook_code/*.py` and `gz.py`, `nk_common.py`, `rhonp.py` from `briefs/halfline_open_03_scripts/` alongside.
+- the scripts in `briefs/halfline_open_11_scripts/`. Copy `code/*.py` and `gz.py`, `nk_common.py`, `rhonp.py` from `briefs/halfline_open_03_scripts/` alongside.
 
 ## Items
 
@@ -23,7 +23,7 @@ Read:
    - Re-derive the claim carefully. Include possible permutations of nodes by $\sigma$ (diagram automorphisms), and the stated restrictions (field-independent $K$, linear $\sigma$, fundamental representation). Say whether those restrictions leave a loophole.
    - Check prior art: Bowcock–Corrigan–Dorey–Rietdijk hep-th/9501098, Corrigan's reviews, and any paper on Dirichlet conditions in $a_n$ Toda. Is "real Dirichlet is not integrable for $n\ge2$" already known, or contradicted?
 2. **Claim 4: `sec-soliton-preserving` should allow coweights outside $2\Lambda_W^\vee$ with $K_+=e^{i\pi\mu\cdot H}$.** Gemini restated this without a check.
-   - Verify it by hand from the book's derivation in ch. 30, or with `textbook_code/boundary_classical.py`.
+   - Verify it by hand from the book's derivation in ch. 30, or with `code/boundary_classical.py`.
    - Check also that the resulting $\operatorname{Re}\phi(0)$ is a vacuum (the brief's trap: the Dirichlet value must be a vacuum).
    - Draft the corrected book sentence.
 3. **Claim 3: the $\mathbb Z_N$ obstruction.** Does it survive allowing covariance up to a diagonal gauge, a twist, or a $\theta$-dependent scalar? That is, $ZKZ^{-1}=c(\theta)DKD^{-1}$ with $D$ diagonal and constant. If a gauge-covariant SP matrix exists, the claim needs rewording.

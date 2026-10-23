@@ -11,7 +11,7 @@ You are an adversarial mathematical-physics referee. You are working in the repo
 
 ## Context
 
-Chapter 43 (`part8-defects/43-particle-transmission.qmd`, `sec-particle-transmission`) is the last chapter of Part VIII. It was drafted on 2026-10-12 by a Claude agent (commit f677c84). Its verification script is `textbook_code/defect_particle_transmission.py` (8 checks, about 60 s). The drafting report is `briefs/draft_ch43_report.md`, and the chapter-43 section of `briefs/part8_defects_status.md` lists its verification record and the drafter's own flags for the referee.
+Chapter 43 (`part8-defects/43-particle-transmission.qmd`, `sec-particle-transmission`) is the last chapter of Part VIII. It was drafted on 2026-10-12 by a Claude agent (commit f677c84). Its verification script is `code/defect_particle_transmission.py` (8 checks, about 60 s). The drafting report is `briefs/draft_ch43_report.md`, and the chapter-43 section of `briefs/part8_defects_status.md` lists its verification record and the drafter's own flags for the referee.
 
 **Notation.** ω = 4π/β² − 1 is the coupling, as in chapter 41. Chapter 39's root of unity is written e^{2πi/h} here. The physical q is q = −e^{−iπω}. The coproduct is Δe = e⊗1 + k⊗e, Δf = f⊗k⁻¹ + 1⊗f; 𝕋: V⊗𝒲 → 𝒲⊗V.
 
@@ -19,7 +19,7 @@ Read these first:
 - `briefs/part8_defects_conventions.md`;
 - ch. 37 (`sec-sg-breather-transmission`, `eq-shg-linear-transmission`);
 - ch. 39 (`eq-an-linear-transmission`);
-- ch. 41 (`eq-dt-tv`, `eq-dt-tvbar`, `eq-dt-g`, `eq-dt-crossing`, `prp-a2-unstable`; helpers at the end of `textbook_code/defect_common.py`);
+- ch. 41 (`eq-dt-tv`, `eq-dt-tvbar`, `eq-dt-g`, `eq-dt-crossing`, `prp-a2-unstable`; helpers at the end of `code/defect_common.py`);
 - ch. 42 (`prp-diagonal-borel`, `sec-jump-coideal`);
 - the book's a_r S-matrix (`eq-an-smatrix`; find it by grep);
 - source texts in `~/referee-copy/papers/*.txt`: 0705.1066 (cz2007 §7), 0712.4292 (Bajnok–Simon), 1902.10690 (Penati–Polvara), and 1703.03562 (Jiang) if present.

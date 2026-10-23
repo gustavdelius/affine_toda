@@ -2,7 +2,7 @@
 book's weight-filtered solver (reflection_matrices.rcheck_w, definition only)."""
 import sys
 import numpy as np
-TC = '/home/gustav/Git/affine_toda/textbook_code/'
+TC = '/home/gustav/Git/affine_toda/code/'
 sys.path.insert(0, TC)
 from boundary_common import (dn_vector, q_phys, k_intertwiner, nodes_of, cop, kron, coideal_gen, _mk, intertwiners,
                              report)

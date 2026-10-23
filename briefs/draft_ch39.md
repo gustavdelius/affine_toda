@@ -5,7 +5,7 @@
 You are drafting chapter 39 of Part VIII ("Affine Toda theory with defects") of a Quarto graduate textbook on affine Toda field theory, together with its verification script. You are working in the repository worktree `.claude/worktrees/integrable-defects-framework-a54a84`, branch `claude/integrable-defects-framework-a54a84`.
 
 **Rules: other agents are drafting chapters 38 and 40 in this worktree at the same time.**
-- You may edit only `part8-defects/39-defect-solitons.qmd` (replace the skeleton) and create `textbook_code/defect_solitons_an.py`.
+- You may edit only `part8-defects/39-defect-solitons.qmd` (replace the skeleton) and create `code/defect_solitons_an.py`.
 - You may also create a report file, `briefs/draft_ch39_report.md`.
 - Do not edit any other file: not `defect_common.py` (import from it only), not `references.bib`, not other chapters. List needed edits in your report instead.
 - Do not run git commands that change the index or the working tree (no commit, checkout, stash, reset, rebase, restore).
@@ -33,7 +33,7 @@ You are drafting chapter 39 of Part VIII ("Affine Toda theory with defects") of 
    - `part3-classical/10-solitons.qmd`: `eq-hirota-ansatz`, `eq-an-soliton`, `eq-n-soliton`, `eq-interaction-coefficient`, `sec-topological-charges`, `eq-soliton-mass`, `sec-multi-solitons` (time delays and Wigner's relation).
    - `part3-classical/11-reality.qmd`: Θ, complex solitons, `sec-missing-charges`.
    - `part5-semiclassics/16-dhn.qmd`: `eq-an-transmission`, Part V's $X_{ab}$.
-   - Code: `textbook_code/toda_classical.py` (`tau_funcs`, `field_residual`, `an_alpha`, `soliton_mass`), `textbook_code/defect_common.py` (`dmatrix`, `defect_potential`, `defect_condition_residual`, `an_data`).
+   - Code: `code/toda_classical.py` (`tau_funcs`, `field_residual`, `an_alpha`, `soliton_mass`), `code/defect_common.py` (`dmatrix`, `defect_potential`, `defect_condition_residual`, `an_data`).
 6. Model chapter: `part7-half-line/31-half-line-solitons.qmd` (Solitons, breathers and vacua on the half-line). Mirror its structure, depth (about 260–320 lines) and tone. Its method of images is the boundary analogue of what you do here.
 7. House style, as in chapters 36–37:
    - learning goals; `##` sections with the skeleton ids;
@@ -58,9 +58,9 @@ You are drafting chapter 39 of Part VIII ("Affine Toda theory with defects") of 
   - `prp-an-linear-transmission` [Numerical].
   - `prp-defect-frozen-soliton` [Proposition, sketch, or Conjecture]: the "frozen soliton" comparison of the defect factors with the soliton interaction coefficient and with Part V's $X_{ab}$ (`eq-an-transmission`). Report the outcome either way.
 
-## Script `textbook_code/defect_solitons_an.py`
+## Script `code/defect_solitons_an.py`
 
-Print PASS/FAIL lines in the style of the other `textbook_code/defect_*.py` scripts. The docstring lists the book ids each check supports; the runtime should be under 3 minutes. It checks:
+Print PASS/FAIL lines in the style of the other `code/defect_*.py` scripts. The docstring lists the book ids each check supports; the runtime should be under 3 minutes. It checks:
 
 - (a) the delay $z_a$ for $a_2$ and $a_3$, all species, both types: the defect conditions hold at several times (residual about $10^{-12}$), with the closed form compared against bcz2004b (6.2) and cz2007 (2.20);
 - (b) the stored charge lies in the coweight lattice, with the change in charge equal to the difference of soliton weights;

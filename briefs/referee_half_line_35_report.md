@@ -1,6 +1,6 @@
 ## Referee report: chapter 35 (`part7-half-line/35-particle-reflection.qmd`)
 
-I read everything from the worktree and edited nothing in the repository. Scratch scripts and outputs are in `/tmp/claude-1000/-home-gustav-Git-affine-toda--claude-worktrees-affine-toda-boundary-dae69e/e8814860-aa66-4a52-8bab-4efe4e4077d9/scratchpad/referee_35/`. I re-ran `textbook_code/particle_reflection.py` and all 43 checks pass.
+I read everything from the worktree and edited nothing in the repository. Scratch scripts and outputs are in `/tmp/claude-1000/-home-gustav-Git-affine-toda--claude-worktrees-affine-toda-boundary-dae69e/e8814860-aa66-4a52-8bab-4efe4e4077d9/scratchpad/referee_35/`. I re-ran `code/particle_reflection.py` and all 43 checks pass.
 
 **Headline findings:**
 - **(A) The chapter's "correction" of DG (3.11) is wrong.** The real error is a misquoted prefactor in ch. 33's `eq-an-diagonal-scalar`. It affects ch. 33 and 35 and two scripts.
@@ -49,7 +49,7 @@ Corrected text:
 
 Why: after the first reflection the state is Σcᵢ vᵢ⊗vᵢ. Ř acts on every vᵢ⊗vᵢ by the identical-soliton eigenvalue, which is 1. So K_{B₁} = A·F₁₁·A exactly. `prp-breather-amplitude` [Established] is confirmed, but only after the ch. 33 prefactor fix.
 
-**ch. 35 line 37, replace the paragraph with:** "For $n=1$ the identity with Ghoshal's formula is checked in `textbook_code/particle_reflection.py`, and the matrix-level projection is in `textbook_code/boundary_sine_gordon.py`. For $n\ge2$ the projection is simple. After the first reflection the singlet becomes $\sum_ic_i\,v_i\otimes v_i$, a sum of identical-soliton states, on which $\check R$ acts by its identical-soliton eigenvalue, normalized to 1. So $K_{B_1}(\mu)=A(\mu-\frac{h\omega}4+\frac12)F_{11}(2\mu)A(\mu+\frac{h\omega}4-\frac12)$, and with (-@eq-an-diagonal-scalar) this equals (-@eq-breather-k-imaginary). (We checked the matrix projection for $n=2,3$ and the scalar identity for $n=1,\dots,4$.) The prefactor of (-@eq-an-diagonal-scalar) matters: with $-(\frac h4\omega)_I$ instead, the product acquires $f(\theta_a)f(\theta_b)$ with $f=-(1-i\sinh\theta)/(1+i\sinh\theta)$, and for $n=1$ it would contradict Ghoshal."
+**ch. 35 line 37, replace the paragraph with:** "For $n=1$ the identity with Ghoshal's formula is checked in `code/particle_reflection.py`, and the matrix-level projection is in `code/boundary_sine_gordon.py`. For $n\ge2$ the projection is simple. After the first reflection the singlet becomes $\sum_ic_i\,v_i\otimes v_i$, a sum of identical-soliton states, on which $\check R$ acts by its identical-soliton eigenvalue, normalized to 1. So $K_{B_1}(\mu)=A(\mu-\frac{h\omega}4+\frac12)F_{11}(2\mu)A(\mu+\frac{h\omega}4-\frac12)$, and with (-@eq-an-diagonal-scalar) this equals (-@eq-breather-k-imaginary). (We checked the matrix projection for $n=2,3$ and the scalar identity for $n=1,\dots,4$.) The prefactor of (-@eq-an-diagonal-scalar) matters: with $-(\frac h4\omega)_I$ instead, the product acquires $f(\theta_a)f(\theta_b)$ with $f=-(1-i\sinh\theta)/(1+i\sinh\theta)$, and for $n=1$ it would contradict Ghoshal."
 
 ### 3. Neumann
 - **Label: correct.** `cnj-neumann-amplitude` [Conjecture] is right.

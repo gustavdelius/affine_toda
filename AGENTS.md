@@ -23,7 +23,7 @@ Do not trust any finding in a brief, a referee report or a review, including fin
 - **Corrections to published papers.** Read the source line yourself, quote it exactly, and recompute with the book's code. A misquoted prefactor once produced a false "correction". Each correction goes in the chapter's Notes and in Appendix D (`appendices/D-corrections.qmd`), in the same change. Update or drop the Appendix D entry whenever a chapter gains or loses a correction.
 - **The list of original results.** Appendix E (`appendices/E-original-results.qmd`) lists the book's original results by part, in a `::: {.original-results}` div. Each item opens with a status label and ends with the ids of the statements it summarises: `- **[Theorem]** … (@prp-x).` The label may shorten a long one, but must keep its first word and its colour. Keep the list in step with the chapters, in the same change. Add an item for a new original result. Update or drop an item when its result is proved, refuted or relabelled, when it turns out to be in earlier literature, and when a correction to a paper is added or dropped. `check-refs.py` fails when an item's label no longer matches its statement's; it cannot notice a result that is missing from the list.
 - **Moving or renumbering chapters.**
-  - File names carry global chapter numbers, figure scripts are named `chNN_fM_*.py`, and `textbook_code/figures/style.py` has one `OUT_PARTn` per part.
+  - File names carry global chapter numbers, figure scripts are named `chNN_fM_*.py`, and `code/figures/style.py` has one `OUT_PARTn` per part.
   - Regenerate the chapter list in `_quarto.yml`.
   - Make a pure-rename commit first, then a text commit.
   - Dated briefs keep the numbering of their date; `briefs/README.md` maps the old numbers.
@@ -41,9 +41,9 @@ The book's conventions are in `01-introduction.qmd`, section `sec-conventions`. 
 
 ## Check scripts and numerics
 
-- **Every new claim gets a check.** A claimed formula or [Numerical] statement needs a check in `textbook_code/` or one of its subdirectories (see `README.md`). Each new script prints one `PASS` or `FAIL` line per check. Add or update the script's row in `textbook_code/README.md` (or its subdirectory README), which is the only index of the scripts.
-- **Cite the script at the claim.** Name it in the text where the claim is made, as a full repository path in inline code, e.g. `` `textbook_code/hirota/fold.py` ``. `script-links.lua` turns such paths into GitHub links, and `check-refs.py` fails on a path that does not exist. Appendix C (`appendices/C-code.qmd`) describes the code for the reader and points to the README; it lists no scripts, so a new script needs no edit there.
-- **Shared helpers.** Only append to shared helpers such as `textbook_code/defect_common.py`, then rerun every script that imports them.
+- **Every new claim gets a check.** A claimed formula or [Numerical] statement needs a check in `code/` or one of its subdirectories (see `README.md`). Each new script prints one `PASS` or `FAIL` line per check. Add or update the script's row in `code/README.md` (or its subdirectory README), which is the only index of the scripts.
+- **Cite the script at the claim.** Name it in the text where the claim is made, as a full repository path in inline code, e.g. `` `code/hirota/fold.py` ``. `script-links.lua` turns such paths into GitHub links, and `check-refs.py` fails on a path that does not exist. Appendix C (`appendices/C-code.qmd`) describes the code for the reader and points to the README; it lists no scripts, so a new script needs no edit there.
+- **Shared helpers.** Only append to shared helpers such as `code/defect_common.py`, then rerun every script that imports them.
 - **Figures.** Follow `briefs/figures_for_the_book.md`. Figure scripts write SVGs into the repository whatever `OUT_DIR` says. After a rerun, `git restore` every SVG whose diff is only ids and timestamps.
 - **Waiting on processes.** Never use `pgrep -f` or `pkill -f` with a pattern that appears in your own command line: it matches the shell running it, and wait loops then never end. Wait on a PID (`while kill -0 $pid; do sleep 5; done`) and kill by PID.
 - **Output buffering.** Python output redirected to a file is buffered, so an empty log does not mean no progress; use `python3 -u`.

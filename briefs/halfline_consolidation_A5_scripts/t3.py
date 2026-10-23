@@ -1,10 +1,10 @@
 """Task 2: limits delta -> 0 of the linearized K (target boundary Hessian) about regular backgrounds approaching a
 boundary-singular endpoint."""
 import sys, itertools
-sys.path.insert(0, '/home/gustav/Git/affine_toda/textbook_code')
+sys.path.insert(0, '/home/gustav/Git/affine_toda/code')
 import mpmath as mp
 from a5lib import *
-src = open('/home/gustav/Git/affine_toda/textbook_code/particle_reflection.py').read()
+src = open('/home/gustav/Git/affine_toda/code/particle_reflection.py').read()
 PR = {}; exec(src.split('\n# ---------------------------------------------------------------- 1. blocks')[0], PR)
 mp.mp.dps = int(sys.argv[1]) if len(sys.argv) > 1 else 60
 def Kdg(c, b, n, th): return (PR['K_uniform'](c, n)*PR['M_sol'](c, b, n))(th, 0)

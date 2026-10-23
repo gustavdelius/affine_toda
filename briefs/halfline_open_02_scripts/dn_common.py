@@ -1,7 +1,7 @@
 """Common helpers for open problem 2 (d_n vector soliton reflection), book conventions.
 Imports the book's boundary_common.py unchanged from the repository (read only)."""
 import sys
-sys.path.insert(0, '/home/gustav/Git/affine_toda/textbook_code')
+sys.path.insert(0, '/home/gustav/Git/affine_toda/code')
 import numpy as np
 import scipy.sparse as sps
 from boundary_common import (q_phys, dn_vector, nodes_of, cop, kron, k_intertwiner, intertwiners, dual,

@@ -142,7 +142,7 @@ def check_dn_poles():
     # Load only root/block definitions; the source's unrelated E8 bootstrap
     # suite runs on import and is deliberately not part of this regression.
     ns = {}
-    source = (Path(__file__).parent / 'snapshot/textbook_code/smatrix_simply_laced.py').read_text().split('\nB = 0.37;')[0]
+    source = (Path(__file__).parent / 'snapshot/code/smatrix_simply_laced.py').read_text().split('\nB = 0.37;')[0]
     exec(compile(source, 'smatrix_simply_laced.py', 'exec'), ns)
     h, blocks, _, _ = ns['setup']('d', 5)
     powers = {}

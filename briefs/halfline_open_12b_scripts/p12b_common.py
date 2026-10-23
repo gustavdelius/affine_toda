@@ -1,5 +1,5 @@
 """Shared helpers for the part (b) scripts (higher boundary sine-Gordon states).
-Book conventions of textbook_code/boundary_sine_gordon.py: u = -i theta, BPT/BPTT (3.1)-(3.8).
+Book conventions of code/boundary_sine_gordon.py: u = -i theta, BPT/BPTT (3.1)-(3.8).
 All functions take lambda (lam) explicitly."""
 import mpmath as mp
 mp.mp.dps = 20

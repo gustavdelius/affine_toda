@@ -6,7 +6,7 @@ import cmath
 from dn_scal import blk
 
 mp.mp.dps = 30
-TC = '/home/gustav/Git/affine_toda/textbook_code/'
+TC = '/home/gustav/Git/affine_toda/code/'
 ns = {}
 src = open(TC + 'smatrix_simply_laced.py').read().split('\nB = 0.37')[0]
 src = src.replace("open('toda_classical.py')", "open('" + TC + "toda_classical.py')")

@@ -12,7 +12,7 @@ Open problem 12 of `sec-boundary-open-problems` (`part7-half-line/35-particle-re
 
 ## What the book already has
 
-Read `sec-bsg-parameters`, `sec-bsg-breathers`, `sec-bsg-spectrum`, `sec-shg-boundary-breathers` (ch. 29), `sec-uniform-boundary` (ch. 35, paragraph "Rank one") and `exr-shg-uniform`. Scripts: `textbook_code/boundary_sine_gordon.py` (GZ matrix, excited-state bootstrap for $n\le2$, breather factors), `shg_boundary_breathers.py` (Corrigan–Delius WKB, the $E(\epsilon,\beta)$ fit), `particle_reflection.py` (`K_shg`), `boundary_coideal.py` (the map $\hat\epsilon(\eta,\vartheta)$).
+Read `sec-bsg-parameters`, `sec-bsg-breathers`, `sec-bsg-spectrum`, `sec-shg-boundary-breathers` (ch. 29), `sec-uniform-boundary` (ch. 35, paragraph "Rank one") and `exr-shg-uniform`. Scripts: `code/boundary_sine_gordon.py` (GZ matrix, excited-state bootstrap for $n\le2$, breather factors), `shg_boundary_breathers.py` (Corrigan–Delius WKB, the $E(\epsilon,\beta)$ fit), `particle_reflection.py` (`K_shg`), `boundary_coideal.py` (the map $\hat\epsilon(\eta,\vartheta)$).
 
 ## A lead found while writing this brief (verify it first)
 

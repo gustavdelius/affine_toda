@@ -38,14 +38,14 @@ The book is a Quarto textbook on affine Toda field theory, in the repository `/h
 | Gemini verdicts | `briefs/halfline_open_<tag>_referee.md` |
 | Opus follow-up prompts / verdicts | `_opus_prompt.md` / `_referee_opus.md`. Verdicts exist for 03, 12a, 12b, 06_01. Prompts for 07, 11, 02 were written but not run; the coordinator handled their items while integrating, except the ones listed in A. |
 | Gemini referee-coordinator brief | `briefs/halfline_referee_coordinator.md`. The stop file `briefs/halfline_referees_done` was created on 2026-10-12. **Delete it before writing new referee prompts**, and tell the user to restart the Gemini coordinator in Antigravity. |
-| Book check scripts | `textbook_code/` (index in `textbook_code/README.md`). Round 1 added `an_nondiagonal_scalar.py`, `boundary_krein.py`, `shg_boundary_tba.py`, `soliton_preserving.py`, `dn_uniform.py`, `boundary_sine_gordon.py` check 12b and `particle_reflection.py` section 9. |
+| Book check scripts | `code/` (index in `code/README.md`). Round 1 added `an_nondiagonal_scalar.py`, `boundary_krein.py`, `shg_boundary_tba.py`, `soliton_preserving.py`, `dn_uniform.py`, `boundary_sine_gordon.py` check 12b and `particle_reflection.py` section 9. |
 | Memory | `/home/gustav/.claude/projects/-home-gustav-Git-affine-toda/memory/`. Read `MEMORY.md`, especially `half-line-open-problem-briefs`, `gemini-referee-workflow`, `subagent-workflow-lessons`, `verify-brief-findings`, `literature-corrections-appendix`, `book-structure`, `no-fable-access`. |
 
 ## The work
 
 ### A. Consolidation: integrate what round 1 left out (no new attacks needed)
 
-Each item already has worker output. What is missing is an independent check (with book code, not the worker's) and, for anything that goes into the book, a check script in `textbook_code/`. Do these yourself or with one agent each; most are a session or less.
+Each item already has worker output. What is missing is an independent check (with book code, not the worker's) and, for anything that goes into the book, a check script in `code/`. Do these yourself or with one agent each; most are a session or less.
 
 1. **The $s=-1$ scalar factor** (`03` report §3, §5; claims 6, 10).
    - Verify $A^{(-)}$ and the breather amplitude DG(3.11)$\cdot\sigma_1$, which continues to $K^{(-)}_a=-(a)(h-a)K_a^{\rm unif}$, against Gandenberger's $n=2$ (6.4).
@@ -88,7 +88,7 @@ When you launch a brief, add a coordinator note on top giving what round 1 learn
 - Every prompt says: do not edit the repo, do not spawn subagents, deliver the full report in the final message, and list full script paths.
 - At most **three agents at once**. The session limit was still hit four times. Stopped agents resume with SendMessage and keep their progress, so tell them to check the output files of their own background jobs.
 - **Give each agent its own scratch subdirectory**, e.g. `<scratchpad>/pNN/`. The scratchpad is shared.
-- **Copy an agent's scripts to `briefs/halfline_open_<tag>_scripts/` as soon as it reports.** Leave out unchanged copies of `textbook_code/*.py` (check with `cmp`) and `__pycache__`.
+- **Copy an agent's scripts to `briefs/halfline_open_<tag>_scripts/` as soon as it reports.** Leave out unchanged copies of `code/*.py` (check with `cmp`) and `__pycache__`.
 
 **Refereeing**
 - Write `briefs/halfline_open_<tag>_referee_prompt.md` for the Gemini coordinator. Tier B means a [Theorem] or a literature correction.
@@ -105,7 +105,7 @@ When you launch a brief, add a coordinator note on top giving what round 1 learn
 - Prefer the **book's own code** (`boundary_common`, `particle_reflection`, `smatrix_simply_laced`) over the worker's for that check.
 - Read quoted papers at the TeX line yourself before any Appendix D entry.
 - Record verdicts in the report's Integration table.
-- Numerical claims in the book need a passing check in `textbook_code/`, listed in its README.
+- Numerical claims in the book need a passing check in `code/`, listed in its README.
 - Corrections to published papers go into Appendix D in the same change (`appendices/D-corrections.qmd`, ordered by year).
 
 **Technical pitfalls met in round 1**

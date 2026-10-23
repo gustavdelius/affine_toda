@@ -32,7 +32,7 @@ The physical unitarity condition is therefore $A(\theta)A(-\theta) K(-\theta)^{\
 
 ### Claim 2
 **Branch in book code.**
-In `textbook_code/boundary_coideal.py`, `k_closed` computes:
+In `code/boundary_coideal.py`, `k_closed` computes:
 `w = np.sqrt(-qq + 0j)`
 `es = 1/np.sqrt((1 - qq)*(1 - 1/qq))`
 At physical $q = -e^{-i\pi\omega}$, $-q = e^{-i\pi\omega}$. When $\omega > 1$ (e.g. $\omega = 1.83$), numpy's principal square root maps $\text{Arg}(-q) \in (-\pi, \pi]$ by halving the wrapped argument, which introduces a sign flip relative to the analytic branch $w = e^{-i\pi\omega/2}$. Furthermore, `es` takes a square root of a positive real number, yielding $\epsilon_* > 0$ regardless of $\omega$, whereas the analytic continuation requires $\epsilon_* = \frac{1}{2\cos(\pi\omega/2)}$, which changes sign when $\cos(\pi\omega/2) < 0$. The book scripts only test at $\omega = 0.37$, where this issue does not manifest. The worker's `k_book` in `nk_common.py` adopts the analytic definitions $w = e^{-i\pi\omega/2}$ and $\epsilon_* = \frac{1}{2\cos(\pi\omega/2)}$, which correctly preserves the sign class for all $\omega$. Confirmed.

@@ -1,6 +1,6 @@
 # Referee report: chapters 32–33 (boundary quantum groups; soliton reflection matrices)
 
-Report of the referee pass of 2026-10-11 on `referee_half_line_32_33.md`. Line numbers refer to the files as of commit 64ed4af. The referee's scratch scripts were in the session scratchpad (`referee_32_33/`); the ones used for integrated items were copied into `textbook_code/` during integration. The integration status is recorded at the end.
+Report of the referee pass of 2026-10-11 on `referee_half_line_32_33.md`. Line numbers refer to the files as of commit 64ed4af. The referee's scratch scripts were in the session scratchpad (`referee_32_33/`); the ones used for integrated items were copied into `code/` during integration. The integration status is recorded at the end.
 
 **Summary of real errors found**
 - (a) The DM "(4.27) prints Δ(Q) twice" correction is wrong. The PDF has the bar; pdftotext dropped it.
@@ -191,7 +191,7 @@ Caveats:
 - From the 28–29 report, item 1c: the GZ (5.9) note in ch. 32 now says all four operators carry $-\theta$.
 
 **New checks:**
-- `textbook_code/boundary_coideal.py`:
+- `code/boundary_coideal.py`:
   - the $a_n$ loop now runs over $n=2,\dots,7$;
   - §5: $2\times2$ systems (sympy, $a_3$); DM's corrected (4.15)–(4.16) are solved by (4.21) only with $q_{(4.21)}=-(-q)^{1/2}$, for $n\le7$;
   - §6: dim End$_B=1$, 36 cases;
@@ -200,7 +200,7 @@ Caveats:
   - §9: the sine-Gordon $\hat\epsilon(\mu_\pm)$ map.
   
   Result: 59 PASS, about 30–50 s.
-- `textbook_code/reflection_matrices.py` §7: DG (16)–(17) for $d_4,d_5$ at the physical $q$ only (the referee also used a generic $q$). Result: 44 PASS, about 1–1.5 min.
+- `code/reflection_matrices.py` §7: DG (16)–(17) for $d_4,d_5$ at the physical $q$ only (the referee also used a generic $q$). Result: 44 PASS, about 1–1.5 min.
 
 **Not integrated:**
 - **Item 5, the $\hat\epsilon_j\leftrightarrow C_j$ node-label inconsistency.** By ch. 29's formulas, $\hat\epsilon_1$ depends on $C_0$ alone; ch. 32 asserts $\hat\epsilon_j\propto\epsilon_j\propto C_j$. This is still open. The new sine-Gordon formula in `prp-dm-first-order` is written per node with $\mu_\pm$ and deliberately avoids assigning $\pm$ to $j$.
@@ -212,4 +212,4 @@ Caveats:
   - the Chebyshev caveat on classical limits (item 1);
   - the CDD robustness of the semiclassical test (item 1);
   - DN (2.11) $R^{(1/2,j)}$, verified by the referee's helper; ch. 33 still says "not checked here entry by entry".
-- `textbook_code/README.md` was not updated; its runtime and ids columns for the two scripts are now stale.
+- `code/README.md` was not updated; its runtime and ids columns for the two scripts are now stale.

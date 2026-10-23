@@ -19,7 +19,7 @@ dx = x[1] - x[0]
 kink = lambda x, s=+1: s * 4 * np.arctan(np.exp(x))
 breather = lambda x, t, u: 4 * np.arctan(np.tan(u) * np.sin(t * np.cos(u)) / np.cosh(x * np.sin(u)))
 
-# ---- checks (same equation and energies as textbook_code/sine_gordon.py) ---
+# ---- checks (same equation and energies as code/sine_gordon.py) ---
 h = 1e-3
 xs = np.linspace(-6, 6, 13)
 res_k = (kink(xs + h) - 2 * kink(xs) + kink(xs - h)) / h**2 - np.sin(kink(xs))        # phi'' = sin phi

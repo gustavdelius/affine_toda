@@ -115,7 +115,7 @@ Under $B \leftrightarrow 2-B$, the fixed point is $B = 1$. The point $B=2$ is th
 ### Claim 12
 **Proposed replacement text and bibliography.**
 The proposed replacements for the "Rank one" paragraph of `sec-uniform-boundary`, open problem 12(a), and `cnj-bsg-uv-ir` status are mathematically accurate, adhere strictly to book style, and provide the exact required resolution.
-The proposed bib entry `brz2008` was checked against literature records: Nuclear Physics B, Vol. 796 (2008), pages 622–650. The page number 622 is confirmed. Note that `textbook_code/shg_boundary_tba.py` referenced in the proposed text should be created by promoting `briefs/halfline_open_12a_scripts/shg_btba_uniform.py`.
+The proposed bib entry `brz2008` was checked against literature records: Nuclear Physics B, Vol. 796 (2008), pages 622–650. The page number 622 is confirmed. Note that `code/shg_boundary_tba.py` referenced in the proposed text should be created by promoting `briefs/halfline_open_12a_scripts/shg_btba_uniform.py`.
 
 ## Errors and overclaims not tied to a single claim
 None. The worker explicitly limited scope to the lead and part (a), left part (b) to the assigned Sonnet worker, correctly avoided unnecessary two-loop calculations, and did not edit any repository files.
@@ -126,7 +126,7 @@ None. The worker explicitly limited scope to the lead and part (a), left part (b
 - **Synthesis:** The connection identifying the $a_n^{(1)}$ Toda uniform boundary parameter with the sinh-Gordon $s = ib/2$ point and resolving the rank-one puzzle is new to this project.
 
 ## Proposed book text
-The replacement texts proposed in Section 4 of the worker's report are recommended for adoption without modifications, subject to creating `textbook_code/shg_boundary_tba.py` from the worker's script.
+The replacement texts proposed in Section 4 of the worker's report are recommended for adoption without modifications, subject to creating `code/shg_boundary_tba.py` from the worker's script.
 
 ## Items for an Opus pass
 1. **AKR printed formula slip (Claim 9):** Verify that the printed slip in AKR eq. (972) is strictly a typographical error in the manuscript and did not affect AKR's numerical plots in their Figures 1–3.

@@ -1,12 +1,12 @@
 -- Link the scripts that the text cites to their source on GitHub.
 --
--- An inline code span such as `textbook_code/boundary_coideal.py`,
--- `textbook_code/hirota/fold.py --grid 768` or `textbook_code/hirota/` becomes
+-- An inline code span such as `code/boundary_coideal.py`,
+-- `code/hirota/fold.py --grid 768` or `code/hirota/` becomes
 -- a link when its first whitespace-delimited token names an existing file (or,
 -- for a token ending in "/", an existing directory) in the repository. The token
 -- is tried relative to the repository root (the project root, or for a nested
 -- project such as lecture-notes/defects/ the enclosing repository), then
--- relative to textbook_code/, so
+-- relative to code/, so
 -- that a table may use bare names such as `defect_axioms.py`. Any other code span is left alone, as is code that
 -- already sits inside a link. Works for HTML and PDF.
 
@@ -55,12 +55,12 @@ end
 
 -- The repository root: the project directory, or, for a project nested in the
 -- repository such as lecture-notes/defects/, the nearest ancestor that holds
--- textbook_code/. Paths are resolved and linked relative to it.
+-- code/. Paths are resolved and linked relative to it.
 local function find_repo(dir)
   if not dir then return nil end
   local d = dir
   for _ = 1, 20 do
-    if kind(pandoc.path.join({ d, "textbook_code" })) == "dir" then return d end
+    if kind(pandoc.path.join({ d, "code" })) == "dir" then return d end
     local parent = pandoc.path.directory(d)
     if parent == d then break end
     d = parent
@@ -77,7 +77,7 @@ local function resolve(token)
   local want_dir = token:sub(-1) == "/"
   local rel = want_dir and token:sub(1, -2) or token
   if rel == "" then return nil end
-  for _, prefix in ipairs({ "", "textbook_code/" }) do
+  for _, prefix in ipairs({ "", "code/" }) do
     local k = kind(root .. "/" .. prefix .. rel)
     if k == (want_dir and "dir" or "file") then
       return prefix .. rel, k

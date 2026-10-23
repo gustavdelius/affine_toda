@@ -3,7 +3,7 @@ Tier: B
 Brief: briefs/halfline_open_03_neumann_soliton_route.md
 Report: briefs/halfline_open_03_report.md
 Scripts: briefs/halfline_open_03_scripts/ (the worker's own files only)
-- **Setup.** The scripts import unchanged copies of the book modules, so copy `textbook_code/*.py` into the same scratch directory first.
+- **Setup.** The scripts import unchanged copies of the book modules, so copy `code/*.py` into the same scratch directory first.
 - **Main entry points.** `check_all.py` runs checks 1–9 in about 4 minutes; `python3 check_all.py full` adds the $n=5$ bootstrap. `closed_forms.py` gives $A^{(\pm)}$, and `particle_checks.py` does the continuation and the axioms.
 - **Other files.** The `t*.py` and `fit*.py` files are exploration.
 
@@ -12,7 +12,7 @@ Scope: the full brief, including the $s=-1$ bonus. This is the most consequentia
 ## Claims to referee
 
 1. [Correction of the brief and book] **Boundary unitarity for the non-diagonal $K$.** It is $A(\theta)A(-\theta)\,K(-\theta)^{\rm T}K(\theta)=1$, not $K(\theta)K(-\theta)\propto\mathbf 1$. The antisoliton is reflected by $JKJ=K^{\rm T}$ ($J$ = basis reversal = charge conjugation, from the diagram automorphism $j\leftrightarrow n{+}1{-}j$, which fixes $\hat\epsilon$). $K(\theta)K(-\theta)$ is not scalar for $n\ge2$.
-2. [Correction of book code] **The branch.** `k_closed` in `textbook_code/boundary_coideal.py` uses `np.sqrt(-q)` and a positive $\epsilon_*$. For odd $N$ and $\cos\frac{\pi\omega}2<0$ that is the wrong sign class. The book checks only at $\omega=0.37$, so no statement in the book is wrong.
+2. [Correction of book code] **The branch.** `k_closed` in `code/boundary_coideal.py` uses `np.sqrt(-q)` and a positive $\epsilon_*$. For odd $N$ and $\cos\frac{\pi\omega}2<0$ that is the wrong sign class. The book checks only at $\omega=0.37$, so no statement in the book is wrong.
 3. [Theorem] **The unitarity function.** $K(-\theta)^{\rm T}K(\theta)=U\mathbf 1$, $U=(s\cosh2T\theta-\cos\pi T)/(2\sin^2\frac{\pi\omega}2)$, $T=h\omega/2$. The proof goes through $K$ as a polynomial in the twisted shift $Z$ ($Z^N=s$) and the eigenvalue $\kappa(\zeta)$. The same $\kappa$ reproduces the $\det K$ formula of ch. 34.
 4. [Numerical] **The crossing function.** $\Phi_+=\sin\pi(\frac\omega2-\mu)/\sin\pi(\frac\omega2+\mu)$ and $\Phi_-=\cos\pi(\mu-\frac\omega2)/\cos\pi(\mu+\frac\omega2)$, $\mu=-iT\theta/\pi$, for $n=1..5$ (1.3e-14). For $n=2$ the resulting functional equations are Gandenberger's (4.4), (4.6).
 5. [Numerical] **The singlet projection.** $(1\otimes K)\check R(1\otimes K^{\rm T})$ maps the $B_1$ singlet to $c_\pm(\mu)$ times itself (closed forms in report §2), for $n=2..5$ (1.7e-14).

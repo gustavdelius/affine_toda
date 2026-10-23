@@ -1,12 +1,12 @@
 """Coordinator's spot check of A5 task 1 by direct ODE integration (scipy), a_3 species-1 pair vacua."""
 import sys, contextlib, io, itertools
-sys.path.insert(0, '/home/gustav/Git/affine_toda/textbook_code')
+sys.path.insert(0, '/home/gustav/Git/affine_toda/code')
 import numpy as np
 import mpmath as mp
 from scipy.integrate import solve_ivp
 with contextlib.redirect_stdout(io.StringIO()):
     import boundary_vacua as BV
-src = open('/home/gustav/Git/affine_toda/textbook_code/particle_reflection.py').read()
+src = open('/home/gustav/Git/affine_toda/code/particle_reflection.py').read()
 PR = {}; exec(src.split('\n# ---------------------------------------------------------------- 1. blocks')[0], PR)
 
 n, h, a = 3, 4, 1

@@ -1,6 +1,6 @@
 """Problem 7(a) for the d_n vector solitons (n = 4): the antilinear anti-automorphism tau_nu (e_j -> e_nu(j), ...),
 a Hermitian eta with pi(a)^dag = eta pi(tau_nu a) eta^-1 at real y, Krein property of the R-check (weight-filtered
-solver copied from textbook_code/reflection_matrices.py) and of the K-matrices of prp-dn-k."""
+solver copied from code/reflection_matrices.py) and of the K-matrices of prp-dn-k."""
 import numpy as np, scipy.sparse as sps
 from boundary_common import dn_vector, q_phys, k_intertwiner, intertwiners, cop, nodes_of
 n = 4; N = 2*n; om = 0.37; q = q_phys(om); es = 1/(2*np.cos(np.pi*om/2))

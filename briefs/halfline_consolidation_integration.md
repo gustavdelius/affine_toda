@@ -11,7 +11,7 @@ The proof arguments were reconstructed from the Lax compatibility condition,
 the energy functional and the block definitions. Numerical verification uses
 the referee's independent implementations as well as the book implementations,
 with additional independent checks in
-`textbook_code/halfline_consolidation_checks.py` and
+`code/halfline_consolidation_checks.py` and
 `briefs/halfline_consolidation_integration_checks.py`. Primary papers were read
 in arXiv TeX or extracted PDF text. Numerical scans remain numerical evidence,
 not proofs at arbitrary rank or coupling.

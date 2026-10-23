@@ -4,7 +4,7 @@ import numpy as np
 import cmath
 from cl_lin import Kink, kmatrix
 
-TC = '/home/gustav/Git/affine_toda/textbook_code/'
+TC = '/home/gustav/Git/affine_toda/code/'
 ns = {}
 src = open(TC + 'smatrix_simply_laced.py').read().split('\nB = 0.37')[0]
 src = src.replace("open('toda_classical.py')", "open('" + TC + "toda_classical.py')")

@@ -120,7 +120,7 @@ All in `/tmp/claude-1000/-home-gustav-Git-affine-toda/0e38a99d-702a-40fb-99b7-74
 
 ## Integration (branch half-line-open-problems-integration)
 
-Basis: the worker report, the Gemini verdict (tier A, which gives an analytic proof of the residue identity), and the coordinator's checks. New section 9 in `textbook_code/particle_reflection.py` uses the book's own `K1nm`, `S`, `Prod`; all 47 checks PASS.
+Basis: the worker report, the Gemini verdict (tier A, which gives an analytic proof of the residue identity), and the coordinator's checks. New section 9 in `code/particle_reflection.py` uses the book's own `K1nm`, `S`, `Prod`; all 47 checks PASS.
 
 | Claims | Verdict | How it was checked | Book change |
 |---|---|---|---|

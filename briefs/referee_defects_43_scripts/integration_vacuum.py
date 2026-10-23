@@ -1,7 +1,7 @@
 """Integration check, ch. 43 item 4: prp-dpt-vacuum, the sigma < 0 direction phi = psi = t v, and the total static energy
 with linear layers of width e^{-A t/2} (A = max_j beta alpha_j.v).  Uses defect_common.defect_potential, an_data."""
 import sys, numpy as np
-sys.path.insert(0, 'textbook_code')
+sys.path.insert(0, 'code')
 from defect_common import defect_potential, an_data, bulk_potential
 rng = np.random.default_rng(5)
 for r in (1, 2, 3):

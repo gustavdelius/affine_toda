@@ -8,7 +8,7 @@ energy E = (1/beta^2) int (Phi_t^2/2 + Phi_x^2/2 + V), momentum P = -(1/beta^2) 
 M sinh theta, M = 8 m0/beta^2); d_pm = d_t pm d_x; s = Phi + Psi, d = Phi - Psi. Baecklund transformation of
 Lecture 2:
     d_+ (Phi - Psi) = 2 a m0 sin((Phi+Psi)/2),   d_- (Phi + Psi) = -(2 m0/a) sin((Phi-Psi)/2).
-Written from these definitions, independently of textbook_code/defect_classical_sg.py.
+Written from these definitions, independently of code/defect_classical_sg.py.
 One PASS or FAIL line per check; exit status 1 on any FAIL.
 
   (a) Varying the action: bulk boundary terms -Phi_x dPhi (left) and +Psi_x dPsi (right); a kinetic term

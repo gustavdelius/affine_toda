@@ -7,7 +7,7 @@ The type-I_- defect with sigma = e^{-theta_d} has the conditions, at x = 0,
     Phi_x = Psi_t - B_Phi,  Psi_x = Phi_t + B_Psi,   B = -2 m0 [sigma (cos((Phi+Psi)/2) - 1) + (cos((Phi-Psi)/2) - 1)/sigma],
 equivalently d_+(Phi - Psi) = -2 sigma m0 sin((Phi+Psi)/2), d_-(Phi + Psi) = (2 m0/sigma) sin((Phi-Psi)/2).
 A soliton of rapidity theta is Phi = 4 arctan Y, Y = exp(m0 (x cosh theta - t sinh theta) + c); Y -> -Y is the
-antisoliton. Written from these definitions, independently of textbook_code/defect_classical_sg.py.
+antisoliton. Written from these definitions, independently of code/defect_classical_sg.py.
 One PASS or FAIL line per check; exit status 1 on any FAIL. Units m0 = beta = 1 (M = 8) in the numerics.
 
   (a) The substitution Psi = 4 arctan(z Y): sin((Phi +- Psi)/2) = 2 (1 +- z) Y (1 -+ z Y^2)/((1+Y^2)(1+z^2 Y^2)),
