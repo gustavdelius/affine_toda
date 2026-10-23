@@ -4,8 +4,8 @@ Drafted by two agents in sequence (exploration by the first, recorded in `briefs
 
 Files:
 - `part8-defects/41-soliton-transmission.qmd` (275 lines; skeleton replaced, all skeleton ids kept).
-- `textbook_code/defect_an_transmission.py` (new, 21 checks, all PASS, ~100–130 s depending on machine load).
-- `textbook_code/defect_common.py`: ch. 41 section appended after the marker line only (`git diff` is a single hunk from line 426 on). Helpers: `an_root_window`, `an_weyl_module` (with `orient`), `an_vweights`, `an_solve_intertwiner` (vectorized; drops unknowns that occur in no equation, after which the *whole* null space is one-dimensional), `an_T_vector`, `an_T_plus_vbar`, `an_block_inverse`, `defect_crossing_residual` (vectorized), `an_tensor_rep`, `an_triangle_residual` (sparse), `an_scalar_g`, `an_scalar_gbar`, `an_scalar_constant`.
+- `code/defect_an_transmission.py` (new, 21 checks, all PASS, ~100–130 s depending on machine load).
+- `code/defect_common.py`: ch. 41 section appended after the marker line only (`git diff` is a single hunk from line 426 on). Helpers: `an_root_window`, `an_weyl_module` (with `orient`), `an_vweights`, `an_solve_intertwiner` (vectorized; drops unknowns that occur in no equation, after which the *whole* null space is one-dimensional), `an_T_vector`, `an_T_plus_vbar`, `an_block_inverse`, `defect_crossing_residual` (vectorized), `an_tensor_rep`, `an_triangle_residual` (sparse), `an_scalar_g`, `an_scalar_gbar`, `an_scalar_constant`.
 
 ## 1. Chapter summary
 
@@ -23,7 +23,7 @@ Sections (skeleton ids kept):
 
 New ids: `eq-dt-weyl`, `eq-dt-tv`, `eq-dt-tvbar`, `eq-dt-tplus`, `eq-dt-crossing`, `eq-dt-bootstrap`, `eq-dt-g`, `eq-dt-pole`, `eq-dt-window`, the eight `exr-dt-*`. Skeleton ids kept: `sec-soliton-transmission`, `sec-t-procedure`, `sec-an-soliton-transmission`, `prp-an-transmission`, `sec-transmission-unitarity-crossing`, `prp-transmission-crossing`, `sec-a22-transmission`, `prp-a22-transmission`, `sec-an-defect-bound-states`, `prp-a2-unstable`, `sec-transmission-semiclassics`, `prp-transmission-semiclassical`, `sec-soliton-transmission-exercises`, `sec-soliton-transmission-notes`. All cross-references resolve to existing ids (grep), all citation keys are in references.bib (no new keys needed).
 
-## 2. Script output (`python3 textbook_code/defect_an_transmission.py`, 132 s at load ~2; 97–100 s earlier)
+## 2. Script output (`python3 code/defect_an_transmission.py`, 132 s at load ~2; 97–100 s earlier)
 
 21 lines, all PASS (abridged):
 ```
@@ -70,7 +70,7 @@ Window sizes (labels/interior/deep): a_2 R2=18: 37/19/7; a_2 R2=14: 31/13/1; a_3
 ## 5. Requests and obligations
 
 **Edits elsewhere (not made):**
-- `textbook_code/README.md`: row for `defect_an_transmission.py` (ch. 41, 21 checks, ~2 min) and the ch. 41 helpers in `defect_common.py`.
+- `code/README.md`: row for `defect_an_transmission.py` (ch. 41, 21 checks, ~2 min) and the ch. 41 helpers in `defect_common.py`.
 - Ch. 36 `sec-defect-bound-states` ("Unstable states" paragraph) and ch. 37 end of `sec-sg-defect-spectrum`: both say the a_2 unstable state exists "only in a window of couplings". In book labels that holds for species 2 only; species 1 is unstable for ω > 1, including the classical limit (`prp-a2-unstable`). Suggest "for one of the two species only in a window of couplings (@sec-an-defect-bound-states)".
 - Ch. 39, the paragraph after `prp-defect-frozen-soliton` (in `sec-classical-transmission-factors`), points the I₋I₊ open question to `@sec-an-soliton-transmission`; ch. 41 only restates it as open and points to `@sec-defect-open-problems` — optionally retarget ch. 39's pointer.
 - `briefs/part8_defects_status.md`: ch. 41 row and record (this report).

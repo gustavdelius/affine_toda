@@ -23,7 +23,7 @@ Checks:
 import os
 import mpmath as mp
 
-TC = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'textbook_code')
+TC = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'code')
 cwd = os.getcwd(); os.chdir(TC); ns = {}
 exec(compile(open('smatrix_simply_laced.py').read().split('\nB = 0.37')[0], 'smatrix_simply_laced.py', 'exec'), ns)
 os.chdir(cwd)

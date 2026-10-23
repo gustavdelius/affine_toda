@@ -70,7 +70,7 @@ $$
 [\partial_++\mathcal A_+,\partial_-+\mathcal A_-]=0\quad\text{for all }\lambda
 $$ {#eq-zero-curvature}
 
-is equivalent to the field equations (-@eq-toda-eom). The terms proportional to $E_{\pm\vec\alpha_j}$ cancel identically. The terms in the Cartan subalgebra give $-\beta\,\partial_+\partial_-\vec\phi\cdot\vec H$ from the derivatives and $-m^2\sum_jc_j^2e^{\beta\vec\alpha_j\cdot\vec\phi}\frac{2\vec\alpha_j}{\vec\alpha_j^2}\cdot\vec H$ from the commutator, because $[E_{\vec\alpha_i},E_{-\vec\alpha_j}]=0$ for $i\ne j$. With $c_j^2=n_j\vec\alpha_j^2/2$ their sum vanishes exactly when (-@eq-toda-eom) holds (@exr-lax). `textbook_code/toda_classical.py` checks the equivalence symbolically for $a_2^{(1)}$.
+is equivalent to the field equations (-@eq-toda-eom). The terms proportional to $E_{\pm\vec\alpha_j}$ cancel identically. The terms in the Cartan subalgebra give $-\beta\,\partial_+\partial_-\vec\phi\cdot\vec H$ from the derivatives and $-m^2\sum_jc_j^2e^{\beta\vec\alpha_j\cdot\vec\phi}\frac{2\vec\alpha_j}{\vec\alpha_j^2}\cdot\vec H$ from the commutator, because $[E_{\vec\alpha_i},E_{-\vec\alpha_j}]=0$ for $i\ne j$. With $c_j^2=n_j\vec\alpha_j^2/2$ their sum vanishes exactly when (-@eq-toda-eom) holds (@exr-lax). `code/toda_classical.py` checks the equivalence symbolically for $a_2^{(1)}$.
 
 Two features of (-@eq-lax-pair) should be noted.
 
@@ -87,13 +87,13 @@ $$
 
 where $h=\sum_jn_j$ and $kh$ is the order of the twisted Coxeter element ([@kac1990] lists the exponents of $X_N^{(k)}$ modulo $kh$). For untwisted $\hat g=g^{(1)}$ these are the exponents of $g$ (@tbl-simple-lie) repeated modulo $h$. For $a_2^{(2)}$ they are $1,5$ mod 6; for $d_4^{(3)}$, $1,5,7,11$ mod 12; for $e_6^{(2)}$, $1,5,7,11,13,17$ mod 18; for $a_{2n}^{(2)}$, the odd integers not divisible by $2n+1$; for $a_{2n-1}^{(2)}$ and $d_{n+1}^{(2)}$ (as for $b_n^{(1)}$, $c_n^{(1)}$), all odd integers. The two members of a dual pair have the same spins. For sinh- and sine-Gordon the spins are the odd integers. For $a_n^{(1)}$ with $n\ge2$ every integer not divisible by $h=n+1$ occurs.
 
-**Example: the spin-3 charge of sinh-Gordon.** With $V=\frac{m^2}{\beta^2}(\cosh\beta\phi-1)$, one checks from the field equation $\partial_+\partial_-\phi=-\frac{m^2}\beta\sinh\beta\phi$ (symbolically in `textbook_code/toda_classical.py`) that
+**Example: the charges of spin $\pm3$ of sinh-Gordon.** With $V=\frac{m^2}{\beta^2}(\cosh\beta\phi-1)$, one checks from the field equation $\partial_+\partial_-\phi=-\frac{m^2}\beta\sinh\beta\phi$ (symbolically in `code/toda_classical.py`) that
 
 $$
 \partial_-\Big[(\partial_+^2\phi)^2+\frac{\beta^2}4(\partial_+\phi)^4\Big]+\partial_+\Big[m^2\cosh(\beta\phi)\,(\partial_+\phi)^2\Big]=0 .
 $$ {#eq-spin3-current}
 
-The charge $Q_3=\int dx\,\big(T_4+\mathcal X_2\big)$ built from this current has spin 3, and on a one-particle state it takes the value $\chi\,m^3e^{3\theta}$, as in (-@eq-charge-eigenvalue). For sine-Gordon, replace $\beta^2$ by $-\beta^2$.
+In the notation of @sec-factorization this is $\partial_-T_4=\partial_+\mathcal X_2$, with $T_4=(\partial_+^2\phi)^2+\frac{\beta^2}4(\partial_+\phi)^4$ and $\mathcal X_2=-m^2\cosh(\beta\phi)\,(\partial_+\phi)^2$. The charge $Q_{-3}=\int dx\,\big(T_4-\mathcal X_2\big)$ built from this current has spin $-3$, because each $\partial_+$ brings down a multiple of $me^{-\theta}$ on a particle of rapidity $\theta$. On a one-particle state it takes the value $\chi\,m^3e^{-3\theta}$, as in (-@eq-charge-eigenvalue). Exchanging $\partial_+$ and $\partial_-$ gives the charge $Q_3$ of spin 3. `code/toda_classical.py` also checks the factors $e^{\mp3\theta}$ on a plane wave of the linearized theory. For sine-Gordon, replace $\beta^2$ by $-\beta^2$.
 
 The higher charges have three consequences used later. They make the classical solitons scatter without changing shape (@sec-classical-solitons), they survive quantization and make the S-matrix factorize (@sec-factorization), and for simply-laced $\hat g$ their eigenvalues on the particles are the eigenvectors of the Cartan matrix [@klassen1990; @dorey1991], which restricts which particles can couple.
 
@@ -115,7 +115,7 @@ which equals $2hm^2$ for simply-laced $\hat g$. For simply-laced $\hat g$ the ma
 | $d_n^{(1)}$ | $m_a=2\sqrt2\,m\sin\frac{\pi a}h$, $a=1,\dots,n-2$; $m_s=m_{s'}=\sqrt2\,m$, $h=2n-2$ |
 | $e_8^{(1)}$ | $m_1$, $m_2=2m_1\cos\frac\pi5$, $m_3=2m_1\cos\frac\pi{30}$, $m_4=2m_2\cos\frac{7\pi}{30}$, $m_5=2m_2\cos\frac{2\pi}{15}$, $m_6=2m_2\cos\frac\pi{30}$, $m_7=4m_2\cos\frac\pi5\cos\frac{7\pi}{30}$, $m_8=4m_2\cos\frac\pi5\cos\frac{2\pi}{15}$ |
 
-`textbook_code/toda_classical.py` checks the Perron–Frobenius property and the sum rule for $a_2$, $a_5$, $d_4$, $d_6$, $e_6$, $e_7$ and $e_8$. `textbook_code/algebra_data.py` checks the $a_n$ and $d_n$ rows of the table for $n\le8$ and the folded masses below.
+`code/toda_classical.py` checks the Perron–Frobenius property and the sum rule for $a_2$, $a_5$, $d_4$, $d_6$, $e_6$, $e_7$ and $e_8$. `code/algebra_data.py` checks the $a_n$ and $d_n$ rows of the table for $n\le8$ and the folded masses below.
 
 The degeneracies $m_a=m_{h-a}$ of $a_n^{(1)}$ reflect the $\mathbb Z_h$ symmetry of the affine diagram: particle $h-a$ is the antiparticle of $a$. For non-simply-laced $\hat g$ the masses are obtained by folding (@sec-affine-folding), as the subset of masses of the parent theory whose eigenvectors are invariant under the folding symmetry (@exr-fold-mass). For example $c_n^{(1)}$, folded from $a_{2n-1}^{(1)}$, has $m_a=2m\sin\frac{\pi a}{2n}$, $a=1,\dots,n$.
 
@@ -155,9 +155,9 @@ Each $\vec\gamma_a$ is a root. If $a$ is white, the black reflections fix $\vec\
 
 Part III quotes this rule without proof. The rule also gives the fusing angles: projecting the three roots onto the plane on which $w$ acts as a rotation by $2\pi/h$ gives a closed triangle, because the roots sum to zero, and its sides are proportional to $m_a$, $m_b$, $m_c$ [@dorey1991; @dorey1992]. The particle masses are the lengths of the projected roots, and the angles between them are multiples of $\pi/h$. This is why all fusing angles of the simply-laced theories are multiples of $\pi/h$, and why the S-matrices of Part IV are built from blocks indexed by integers modulo $2h$. @fig-dorey-d4 shows the construction for $d_4^{(1)}$.
 
-![Dorey's rule for $d_4^{(1)}$ ($h=6$). The 24 roots of $D_4$ projected onto the Coxeter plane form four regular hexagons, one per orbit $\Omega_a$, with radii proportional to the masses: the three outer nodes give the same hexagon ($m=1$) and the centre gives a larger one ($m=\sqrt3$). The three roots $\vec\gamma_1+\vec\gamma_1'+\vec\gamma_c=0$ close a triangle with sides $1,1,\sqrt3$ and angles $\pi/6,\pi/6,2\pi/3$: two outer particles fuse into the central one. `textbook_code/figures/ch9_f13_dorey_d4.py` checks the four orbits, the radii proportional to the Perron–Frobenius vector and the closing of the triangle.](figures/ch9_f13_dorey_d4.svg){#fig-dorey-d4 fig-alt="Two concentric hexagons of dots in the Coxeter plane, the outer one larger by the factor square root of three, with a shaded triangle whose three sides are arrows from the origin to a vertex of the inner hexagon, to a vertex of the outer hexagon, and back to the origin."}
+![Dorey's rule for $d_4^{(1)}$ ($h=6$). The 24 roots of $D_4$ projected onto the Coxeter plane form four regular hexagons, one per orbit $\Omega_a$, with radii proportional to the masses: the three outer nodes give the same hexagon ($m=1$) and the centre gives a larger one ($m=\sqrt3$). The three roots $\vec\gamma_1+\vec\gamma_1'+\vec\gamma_c=0$ close a triangle with sides $1,1,\sqrt3$ and angles $\pi/6,\pi/6,2\pi/3$: two outer particles fuse into the central one. `code/figures/ch9_f13_dorey_d4.py` checks the four orbits, the radii proportional to the Perron–Frobenius vector and the closing of the triangle.](figures/ch9_f13_dorey_d4.svg){#fig-dorey-d4 fig-alt="Two concentric hexagons of dots in the Coxeter plane, the outer one larger by the factor square root of three, with a shaded triangle whose three sides are arrows from the origin to a vertex of the inner hexagon, to a vertex of the outer hexagon, and back to the origin."}
 
-The rule and the area formula (-@eq-area-rule) can be checked directly against the cubic expansion of the potential: for $e_7^{(1)}$, $e_8^{(1)}$ in any eigenbasis, and for $a_n^{(1)}$, $d_n^{(1)}$, $e_6^{(1)}$ in the charge basis (`textbook_code/toda_classical.py`).
+The rule and the area formula (-@eq-area-rule) can be checked directly against the cubic expansion of the potential: for $e_7^{(1)}$, $e_8^{(1)}$ in any eigenbasis, and for $a_n^{(1)}$, $d_n^{(1)}$, $e_6^{(1)}$ in the charge basis (`code/toda_classical.py`).
 
 ## Exercises {#sec-theories-exercises}
 
@@ -166,7 +166,7 @@ Verify the zero-curvature equation (-@eq-zero-curvature) for $a_1^{(1)}$ with $2
 :::
 
 ::: {#exr-spin3}
-Verify (-@eq-spin3-current) from the sinh-Gordon equation. Write down the corresponding current for sine-Gordon and evaluate the conserved charge $Q_3$ on the kink of @sec-sg-classical.
+Verify (-@eq-spin3-current) from the sinh-Gordon equation. Write down the corresponding current for sine-Gordon and evaluate the conserved charge $Q_{-3}$ on the kink of @sec-sg-classical.
 :::
 
 ::: {#exr-dn-masses}

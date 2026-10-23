@@ -1,4 +1,4 @@
-"""Shared helpers for problem 7 (a), (b).  Imports an unchanged copy of textbook_code/boundary_common.py.
+"""Shared helpers for problem 7 (a), (b).  Imports an unchanged copy of code/boundary_common.py.
 Conventions: Part VI coproduct, q = -exp(-i pi omega), principal gradation, y = exp(omega theta) for a_n vectors.
 V = an_vector(conj=False), W = Vbar = an_vector(conj=True), both in the basis v_1..v_N (code indices 0..n)."""
 import numpy as np

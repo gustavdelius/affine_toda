@@ -6,7 +6,7 @@ Scratch dir: /tmp/claude-1000/-home-gustav-Git-affine-toda--claude-worktrees-int
 - [x] Read conventions, status, ch. 36, 40, 34 (model), 29 (GZ, shG), 37 fusion section, sources digest, cz2012 text, Bajnok-Simon text, Bao-Wang Rem. 4.10(2), Wang ICM survey.
 - [x] Fetched SY 2504.08375 and AV 2402.16676 PDFs (WebFetch saved them; pdftotext in scratch ch42/sy2025.txt, av2024.txt).
 - [x] Scratch numerics (a)-(d) done; (e) BDG by hand + to script; (f) tensor K to do in script.
-- [x] Script textbook_code/defect_doubling.py: 17 PASS, 0 FAIL, ~30 s (output copy: scratch ch42/script_output.txt).
+- [x] Script code/defect_doubling.py: 17 PASS, 0 FAIL, ~30 s (output copy: scratch ch42/script_output.txt).
 - [x] Chapter text part8-defects/42-defects-and-boundaries.qmd (241 lines; all refs and bib keys resolve).
 - [x] Report briefs/draft_ch42_report.md (final).  If resumed: only proofreading left.
 

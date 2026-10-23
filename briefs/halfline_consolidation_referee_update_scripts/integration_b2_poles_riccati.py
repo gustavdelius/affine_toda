@@ -12,7 +12,7 @@ import numpy as np
 import mpmath as mp
 from scipy.integrate import solve_ivp
 
-TC = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'textbook_code')
+TC = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'code')
 import os
 cwd = os.getcwd(); os.chdir(TC)
 ns = {}

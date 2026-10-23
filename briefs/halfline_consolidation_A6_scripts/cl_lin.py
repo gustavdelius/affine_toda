@@ -9,7 +9,7 @@ import numpy as np
 import mpmath as mp
 from scipy.integrate import solve_ivp
 
-sys.path.insert(0, '/home/gustav/Git/affine_toda/textbook_code')
+sys.path.insert(0, '/home/gustav/Git/affine_toda/code')
 
 
 def droots(n):

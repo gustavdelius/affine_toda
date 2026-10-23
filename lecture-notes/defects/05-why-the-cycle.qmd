@@ -1,0 +1,480 @@
+# Why the cycle? {#sec-why-cycle}
+
+::: {.callout-note appearance="simple" icon=false title="In this lecture"}
+- We redo the construction of Lecture 3 for $r$ fields. Energy is again free. Momentum again gives three conditions: one on the kinetic term, one on the shape of the defect potential, and a functional equation that ties the defect to the bulk.
+- The defect potential again splits into two halves, and the defect conditions take a light-cone form, as for sine-Gordon theory.
+- For the affine Toda theories the functional equation becomes a matching problem: every root needs a partner. The partners form a symmetry of the affine Dynkin diagram that moves every node.
+- One line of algebra shows that the partners of a node are its neighbours. The diagram must be a cycle, and the symmetry its rotation by one step. Only $a_r^{(1)}$ has windows.
+- We write the $a_r^{(1)}$ window in components, and find that, unfrozen, it is a Bäcklund transformation of the two-dimensional Toda lattice. Its two types are related by reflections of the diagram.
+- Linear waves and solitons cross with phases that interpolate between the identity and the rotation of the diagram. A fast particle sees the window as the symmetry line of the rotation.
+
+*Prerequisites:* @sec-freezing, in particular @sec-l3-momentum, @sec-l3-which, @sec-l3-unfreeze and @sec-l3-types; @sec-what-gets-through, in particular @sec-l4-reading and @sec-l4-waves. From the book: the [affine Toda Lagrangian](book:sec-lagrangians) and the [affine Dynkin diagrams](book:sec-affine-dynkin).
+:::
+
+## The question {#sec-l5-question}
+
+Lecture 3 asked which theories of a single scalar field have a window, and the answer was sharp. The difference of the bulk potentials must factorize in the light-cone coordinates of field space, and only exponential potentials pass the test (@prp-l3-which). The affine Toda theories are the natural candidates beyond sine-Gordon theory. Their potentials are sums of exponentials of $r$ fields, one exponential for each node of an affine Dynkin diagram, and sine-Gordon theory is the case of two nodes. Every one of them has integrable boundaries (see the book's [table of integrable boundary conditions](book:tbl-durham)). So it is natural to guess that every one of them also has windows. The guess is wrong, and this lecture asks why:
+
+> Which affine Toda theories have windows, and why only those?
+
+::: {.callout-tip title="Predict"}
+Look at the affine Dynkin diagrams in the book's tables of [untwisted](book:tbl-untwisted) and [twisted](book:sec-twisted) algebras. Each diagram defines an exponential potential. Do you expect all of them to have windows, as all of them have mirrors? If not, which feature of the diagram might decide?
+:::
+
+::: {.callout-note title="Where it comes from"}
+In 2004 Bowcock, Corrigan and Zambon extended the jump defect from sine-Gordon theory to the affine Toda theories [@bcz2004b]. They looked for a Lax pair for the defect, the subject of Lecture 6, and found that the construction needs a matrix built from a permutation of the roots, a symmetry of the affine Dynkin diagram. With the simplest choice of the inner products of the roots it worked for $a_r^{(1)}$, with the cyclic rotation of its diagram, and it appeared to work for nothing else. In 2009 Corrigan and Zambon recovered this restriction from energy and momentum alone, the route we follow, and found it surprising [@cz2009a]. In the same year they found a window for the Tzitzéica theory $a_2^{(2)}$, by giving the window a degree of freedom of its own [@cz2009b]. They also remarked that the $a_2^{(1)}$ window, imposed everywhere, is the Bäcklund transformation that Fordy and Gibbons had found for the $a_r^{(1)}$ theories in 1980 [@cz2009b, Sec. 5; @fordy_gibbons1980].
+:::
+
+## Several fields {#sec-l5-fields}
+
+**The bulk.** Let $\vec\phi$ on $x<0$ and $\vec\psi$ on $x>0$ be vectors in $\mathbb R^r$, dimensionless as in Lectures 2 to 4: $\vec\phi$ here is $\beta$ times the book's field. Each obeys the affine Toda field equation with the potential
+
+$$
+V(\vec\phi)=m^2\sum_{j=0}^rn_j\big(e^{\vec\alpha_j\cdot\vec\phi}-1\big).
+$$ {#eq-l5-potential}
+
+Here $\vec\alpha_0,\dots,\vec\alpha_r\in\mathbb R^r$ are the affine simple roots of an affine Lie algebra, with the longest roots of squared length 2. They are linearly dependent. Their only linear relation is
+
+$$
+\sum_{j=0}^rn_j\vec\alpha_j=0,
+$$
+
+with positive integers $n_j$, the Kac labels, and $n_0=1$ (see the book's [affine root system](book:eq-kac-labels)). The affine Dynkin diagram has one node for each root, and joins the nodes $i$ and $j$ when $\vec\alpha_i\cdot\vec\alpha_j\ne0$. This is the theory at real coupling, the analogue of sinh-Gordon theory. The theory at imaginary coupling, which has the solitons, follows by $\vec\phi\to i\vec\phi$ and $\beta^2\to-\beta^2$, as $\kappa\to i\kappa$ did in @sec-l3-which. None of the algebra of this lecture depends on the choice. For $a_1^{(1)}$, with $\vec\alpha_1=-\vec\alpha_0=\sqrt2$ in $\mathbb R^1$, (-@eq-l5-potential) is $2m^2(\cosh\sqrt2\phi-1)$, sinh-Gordon theory with mass $2m$.
+
+**The defect.** The action is (-@eq-l3-action) with $\beta_{\rm SG}$ replaced by $\beta$ and the products replaced by scalar products, $\ell(\vec\phi)=\frac12\vec\phi_t\cdot\vec\phi_t-\frac12\vec\phi_x\cdot\vec\phi_x-V(\vec\phi)$. The rules for the defect term $L_d$ are those of Lecture 3: it depends on the defect values $\vec\phi(0,t)$ and $\vec\psi(0,t)$, and at most linearly on their time derivatives; it has no space derivatives and no degrees of freedom of its own. We also assume, as Corrigan and Zambon did, that the coefficients of the time derivatives are constant. For one field Lecture 3 proved this; for several fields it is an assumption. A symmetric matrix $S$ in $\vec\phi\cdot S\vec\phi_t=\frac12\frac d{dt}(\vec\phi\cdot S\vec\phi)$ gives a total derivative, so the most general such term is
+
+$$
+L_d=\tfrac12\vec\phi\cdot\mathsf E\,\vec\phi_t+\vec\phi\cdot\mathsf D\,\vec\psi_t+\tfrac12\vec\psi\cdot\mathsf F\,\vec\psi_t-\mathcal B(\vec\phi,\vec\psi),
+$$ {#eq-l5-action}
+
+with real constant matrices $\mathsf D$, $\mathsf E$ and $\mathsf F$, the last two antisymmetric, and a defect potential $\mathcal B$. We write the matrices in sans-serif, to keep $E$ for the energy. For one field $\mathsf E=\mathsf F=0$, and $\mathsf D$ is the $w$ of @sec-l3-lagrangian.
+
+**The defect conditions.** Vary as in @sec-l3-lagrangian. The Euler–Lagrange expression of $L_d$ for $\vec\phi$ is $\mathsf E\vec\phi_t+\mathsf D\vec\psi_t-\nabla_{\vec\phi}\mathcal B$: the term $\frac12\mathsf E\vec\phi_t$ appears twice, once from $\partial L_d/\partial\vec\phi$ and once from $-\frac d{dt}\partial L_d/\partial\vec\phi_t=-\frac12\mathsf E^{\mathsf T}\vec\phi_t$. For $\vec\psi$ it is $\mathsf F\vec\psi_t-\mathsf D^{\mathsf T}\vec\phi_t-\nabla_{\vec\psi}\mathcal B$. With the end terms $-\vec\phi_x\cdot\delta\vec\phi$ and $+\vec\psi_x\cdot\delta\vec\psi$ the conditions at $x=0$ are
+
+$$
+\vec\phi_x=\mathsf E\,\vec\phi_t+\mathsf D\,\vec\psi_t-\nabla_{\vec\phi}\mathcal B,\qquad
+\vec\psi_x=\mathsf D^{\mathsf T}\vec\phi_t-\mathsf F\,\vec\psi_t+\nabla_{\vec\psi}\mathcal B .
+$$ {#eq-l5-conditions}
+
+**Energy is free.** As in @sec-l3-lagrangian,
+
+$$
+\vec\phi_t\cdot\vec\phi_x-\vec\psi_t\cdot\vec\psi_x=\vec\phi_t\cdot\mathsf E\vec\phi_t+\vec\phi_t\cdot\mathsf D\vec\psi_t-\vec\psi_t\cdot\mathsf D^{\mathsf T}\vec\phi_t+\vec\psi_t\cdot\mathsf F\vec\psi_t-\frac{d\mathcal B}{dt}=-\frac{d\mathcal B}{dt},
+$$
+
+because $\vec\phi_t\cdot\mathsf E\vec\phi_t=\vec\psi_t\cdot\mathsf F\vec\psi_t=0$ for antisymmetric matrices and $\vec\phi_t\cdot\mathsf D\vec\psi_t=\vec\psi_t\cdot\mathsf D^{\mathsf T}\vec\phi_t$. So $E+\mathcal B/\beta^2$ is conserved for every choice of the matrices and of $\mathcal B$. Corrigan and Zambon showed the converse: conditions of the general form $\vec\phi_x=A\vec\phi_t+B\vec\psi_t+\vec X$, $\vec\psi_x=C\vec\phi_t+D'\vec\psi_t+\vec Y$ conserve a modified energy only if they have the form (-@eq-l5-conditions) [@cz2009a, eq. (2.6)] (@exr-l5-conditions).
+
+## Momentum again {#sec-l5-momentum}
+
+The momentum balance (-@eq-l3-fluxes) now has scalar products, $\beta^2\frac{dP}{dt}=\big[T^{xx}(\vec\psi)\big]_{x=0^+}-\big[T^{xx}(\vec\phi)\big]_{x=0^-}$ with $T^{xx}(\vec\phi)=\frac12\vec\phi_t\cdot\vec\phi_t+\frac12\vec\phi_x\cdot\vec\phi_x-V(\vec\phi)$. Substitute (-@eq-l5-conditions). The squares are
+
+$$
+\begin{aligned}
+\vec\psi_x\cdot\vec\psi_x&=\big|\mathsf D^{\mathsf T}\vec\phi_t-\mathsf F\vec\psi_t\big|^2+2\big(\mathsf D^{\mathsf T}\vec\phi_t-\mathsf F\vec\psi_t\big)\cdot\nabla_{\vec\psi}\mathcal B+\big|\nabla_{\vec\psi}\mathcal B\big|^2,\\
+\vec\phi_x\cdot\vec\phi_x&=\big|\mathsf E\vec\phi_t+\mathsf D\vec\psi_t\big|^2-2\big(\mathsf E\vec\phi_t+\mathsf D\vec\psi_t\big)\cdot\nabla_{\vec\phi}\mathcal B+\big|\nabla_{\vec\phi}\mathcal B\big|^2 .
+\end{aligned}
+$$
+
+Collect the terms by their degree in the velocities. With $\mathsf E^{\mathsf T}\mathsf E=-\mathsf E^2$ and $\mathsf F^{\mathsf T}\mathsf F=-\mathsf F^2$,
+
+$$
+\begin{aligned}
+\beta^2\frac{dP}{dt}={}&\tfrac12\vec\phi_t\cdot\big(\mathsf D\mathsf D^{\mathsf T}-1+\mathsf E^2\big)\vec\phi_t+\tfrac12\vec\psi_t\cdot\big(1-\mathsf F^2-\mathsf D^{\mathsf T}\mathsf D\big)\vec\psi_t\\
+&+\vec\phi_t\cdot\big(\mathsf E\mathsf D-\mathsf D\mathsf F\big)\vec\psi_t\\
+&+\vec\phi_t\cdot\big(\mathsf D\nabla_{\vec\psi}\mathcal B-\mathsf E\nabla_{\vec\phi}\mathcal B\big)+\vec\psi_t\cdot\big(\mathsf D^{\mathsf T}\nabla_{\vec\phi}\mathcal B+\mathsf F\nabla_{\vec\psi}\mathcal B\big)\\
+&+\tfrac12\big|\nabla_{\vec\psi}\mathcal B\big|^2-\tfrac12\big|\nabla_{\vec\phi}\mathcal B\big|^2+V(\vec\phi)-V(\vec\psi).
+\end{aligned}
+$$ {#eq-l5-momentum-polynomial}
+
+We want this to be $-\frac d{dt}P_d=-\vec\phi_t\cdot\nabla_{\vec\phi}P_d-\vec\psi_t\cdot\nabla_{\vec\psi}P_d$. The velocities can be chosen freely at one instant, so the two sides must agree degree by degree:
+
+1. **Quadratic terms:** $\mathsf D\mathsf D^{\mathsf T}=1-\mathsf E^2$, $\mathsf D^{\mathsf T}\mathsf D=1-\mathsf F^2$ and $\mathsf E\mathsf D=\mathsf D\mathsf F$.
+2. **Linear terms:** $\nabla_{\vec\phi}P_d=\mathsf E\nabla_{\vec\phi}\mathcal B-\mathsf D\nabla_{\vec\psi}\mathcal B$ and $\nabla_{\vec\psi}P_d=-\mathsf D^{\mathsf T}\nabla_{\vec\phi}\mathcal B-\mathsf F\nabla_{\vec\psi}\mathcal B$.
+3. **Terms without velocities:** $\frac12\big|\nabla_{\vec\phi}\mathcal B\big|^2-\frac12\big|\nabla_{\vec\psi}\mathcal B\big|^2=V(\vec\phi)-V(\vec\psi)$.
+
+For one field these are the three conditions of @sec-l3-momentum. Corrigan and Zambon derived them in this form [@cz2009a, eqs. (2.7)–(2.9)]. We take them one at a time.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Items (a) and (b) of `code/lectures/defects_l5_cycle.py` derive (-@eq-l5-conditions) from (-@eq-l5-action) with sympy for two fields, with a generic $\mathsf D$ and antisymmetric $\mathsf E$, $\mathsf F$. They check the energy identity, and they expand the momentum balance into (-@eq-l5-momentum-polynomial).
+:::
+
+## The kinetic term {#sec-l5-kinetic}
+
+Condition 1 says that $\mathsf D\mathsf D^{\mathsf T}=1-\mathsf E^2=(1-\mathsf E)(1+\mathsf E)=(1-\mathsf E)(1-\mathsf E)^{\mathsf T}$. A real antisymmetric matrix has imaginary eigenvalues, so $1-\mathsf E$ is invertible, and $O=(1-\mathsf E)^{-1}\mathsf D$ satisfies $OO^{\mathsf T}=1$: it is orthogonal. Then $\mathsf E\mathsf D=\mathsf D\mathsf F$ reads $(1-\mathsf E)\mathsf EO=(1-\mathsf E)O\mathsf F$, since $\mathsf E$ commutes with $1-\mathsf E$, so $\mathsf F=O^{\mathsf T}\mathsf EO$. The second equation of condition 1 then holds automatically: $\mathsf D^{\mathsf T}\mathsf D=O^{\mathsf T}(1-\mathsf E^2)O=1-\mathsf F^2$.
+
+**A rotation of the right field.** Write the right field as $\vec\psi=O^{\mathsf T}\vec\psi'$. Then $\vec\phi\cdot\mathsf D\vec\psi_t=\vec\phi\cdot(1-\mathsf E)\vec\psi'_t$ and $\frac12\vec\psi\cdot\mathsf F\vec\psi_t=\frac12\vec\psi'\cdot\mathsf E\vec\psi'_t$. In the new variable,
+
+$$
+\mathsf D=1-\mathsf E,\qquad\mathsf F=\mathsf E,\qquad\mathsf D+\mathsf D^{\mathsf T}=2 .
+$$
+
+The rotation changes the bulk potential on the right: its roots become $O\vec\alpha_j$. If $O$ is a symmetry of the root system, nothing changes. In general something does, and we now make our second assumption, again following Corrigan and Zambon: after the rotation, the same theory sits on both sides with the same roots. From now on $\mathsf D=1-\mathsf E$, $\mathsf F=\mathsf E$, and we drop the prime.
+
+So the symmetric part of $\mathsf D$ is the identity, as $w=1$ was in Lecture 3. What is new is the antisymmetric part $-\mathsf E$, which vanishes for one field. For several fields it is free at this stage. The functional equation will fix it. Note also that $\mathsf D=1-\mathsf E$ commutes with $\mathsf D^{\mathsf T}=1+\mathsf E$.
+
+## Two halves again {#sec-l5-halves}
+
+In Lecture 3, condition 2 became the wave equation in field space, solved by d'Alembert's formula in the light-cone coordinates $\Phi\pm\Psi$. The same happens here once we find the right coordinates. They are
+
+$$
+\begin{aligned}
+\vec\xi&=\mathsf D^{\mathsf T}\vec\phi+\mathsf D\vec\psi,&\vec\eta&=\vec\phi-\vec\psi;\\
+\vec\phi&=\tfrac12\big(\vec\xi+\mathsf D\vec\eta\big),&\vec\psi&=\tfrac12\big(\vec\xi-\mathsf D^{\mathsf T}\vec\eta\big),
+\end{aligned}
+$$ {#eq-l5-coordinates}
+
+where the inverse uses $\mathsf D+\mathsf D^{\mathsf T}=2$. For one field, $\vec\xi=\Phi+\Psi$ and $\vec\eta=\Phi-\Psi$. By the chain rule, $\nabla_{\vec\phi}=\mathsf D\nabla_{\vec\xi}+\nabla_{\vec\eta}$ and $\nabla_{\vec\psi}=\mathsf D^{\mathsf T}\nabla_{\vec\xi}-\nabla_{\vec\eta}$.
+
+**Condition 2 in these coordinates.** Insert these into the right-hand sides of condition 2. With $\mathsf E\mathsf D-\mathsf D\mathsf D^{\mathsf T}=-\mathsf D$, $\mathsf E+\mathsf D=1$, $\mathsf D^{\mathsf T}\mathsf D+\mathsf E\mathsf D^{\mathsf T}=\mathsf D^{\mathsf T}$ and $\mathsf E-\mathsf D^{\mathsf T}=-1$, all consequences of $\mathsf D=1-\mathsf E$,
+
+$$
+\mathsf E\nabla_{\vec\phi}\mathcal B-\mathsf D\nabla_{\vec\psi}\mathcal B=-\mathsf D\nabla_{\vec\xi}\mathcal B+\nabla_{\vec\eta}\mathcal B,\qquad
+-\mathsf D^{\mathsf T}\nabla_{\vec\phi}\mathcal B-\mathsf E\nabla_{\vec\psi}\mathcal B=-\mathsf D^{\mathsf T}\nabla_{\vec\xi}\mathcal B-\nabla_{\vec\eta}\mathcal B .
+$$
+
+The left-hand sides of condition 2 are $\mathsf D\nabla_{\vec\xi}P_d+\nabla_{\vec\eta}P_d$ and $\mathsf D^{\mathsf T}\nabla_{\vec\xi}P_d-\nabla_{\vec\eta}P_d$. Adding the two equations and dividing by $\mathsf D+\mathsf D^{\mathsf T}=2$ gives $\nabla_{\vec\xi}P_d=-\nabla_{\vec\xi}\mathcal B$, and then $\nabla_{\vec\eta}P_d=\nabla_{\vec\eta}\mathcal B$. A function $P_d$ with these derivatives exists exactly when the mixed derivatives agree, $\partial_{\eta_b}(-\partial_{\xi_a}\mathcal B)=\partial_{\xi_a}(\partial_{\eta_b}\mathcal B)$, that is
+
+$$
+\frac{\partial^2\mathcal B}{\partial\xi_a\,\partial\eta_b}=0\qquad\text{for all }a,b .
+$$
+
+This is d'Alembert again. The defect potential is a sum of two halves, and the defect momentum is their difference:
+
+$$
+\mathcal B=f(\vec\xi)+g(\vec\eta),\qquad P_d=g(\vec\eta)-f(\vec\xi),
+$$
+
+with two functions $f$ and $g$ of $r$ variables each. One half depends on the jump $\vec\eta$, the other on the $r$ combinations $\vec\xi$.
+
+**The light-cone form.** Subtract the second condition (-@eq-l5-conditions) from the first. Using $\mathsf E-\mathsf D^{\mathsf T}=-1$, $\mathsf D+\mathsf E=1$ and $\nabla_{\vec\phi}\mathcal B+\nabla_{\vec\psi}\mathcal B=(\mathsf D+\mathsf D^{\mathsf T})\nabla f=2\nabla f$, we get $\vec\phi_x-\vec\psi_x=-\vec\phi_t+\vec\psi_t-2\nabla f$. Next apply $\mathsf D^{\mathsf T}$ to the first condition and $\mathsf D$ to the second and add. Using $\mathsf D^{\mathsf T}\mathsf E+\mathsf D\mathsf D^{\mathsf T}=\mathsf D^{\mathsf T}$, $\mathsf D^{\mathsf T}\mathsf D-\mathsf D\mathsf E=\mathsf D$ and $\mathsf D^{\mathsf T}\nabla_{\vec\phi}\mathcal B-\mathsf D\nabla_{\vec\psi}\mathcal B=2\nabla g$, we get $\vec\xi_x=\vec\xi_t-2\nabla g$. With $\partial_\pm=\partial_t\pm\partial_x$:
+
+$$
+\partial_+\big(\vec\phi-\vec\psi\big)=-2\nabla f(\vec\xi),\qquad\partial_-\big(\mathsf D^{\mathsf T}\vec\phi+\mathsf D\vec\psi\big)=2\nabla g(\vec\eta)\qquad\text{at }x=0 .
+$$ {#eq-l5-lightcone}
+
+For sine-Gordon theory these are (-@eq-l4-conditions). One light-cone derivative of the jump is set by the half $f$, and the other light-cone derivative of $\vec\xi$ by the half $g$.
+
+## The functional equation {#sec-l5-functional}
+
+Now condition 3. With $\nabla_{\vec\phi}\mathcal B=\mathsf D\nabla f+\nabla g$ and $\nabla_{\vec\psi}\mathcal B=\mathsf D^{\mathsf T}\nabla f-\nabla g$,
+
+$$
+\big|\nabla_{\vec\phi}\mathcal B\big|^2-\big|\nabla_{\vec\psi}\mathcal B\big|^2=\nabla f\cdot\big(\mathsf D^{\mathsf T}\mathsf D-\mathsf D\mathsf D^{\mathsf T}\big)\nabla f+2\nabla f\cdot\big(\mathsf D^{\mathsf T}+\mathsf D\big)\nabla g=4\,\nabla f\cdot\nabla g,
+$$
+
+because $\mathsf D$ commutes with $\mathsf D^{\mathsf T}$. Condition 3 becomes
+
+$$
+2\,\nabla f(\vec\xi)\cdot\nabla g(\vec\eta)=V(\vec\phi)-V(\vec\psi),\qquad\vec\phi=\tfrac12\big(\vec\xi+\mathsf D\vec\eta\big),\quad\vec\psi=\tfrac12\big(\vec\xi-\mathsf D^{\mathsf T}\vec\eta\big).
+$$ {#eq-l5-functional}
+
+For one field this is (-@eq-l3-functional). Read it the same way: **the difference of the bulk potentials must be a scalar product of a vector field of $\vec\xi$ and a vector field of $\vec\eta$**, and the two vector fields are the gradients of the two halves of the defect potential.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Items (c)–(f) of `code/lectures/defects_l5_cycle.py` check the solution of condition 1 for random antisymmetric $\mathsf E$ and orthogonal $O$, and that a non-orthogonal $O$ fails. They check the coordinates (-@eq-l5-coordinates) and condition 2 for $\mathcal B=f(\vec\xi)+g(\vec\eta)$ with nonlinear $f$, $g$ (with sympy), and that a mixed term $\xi_1\eta_2$ violates it. Finally they check the light-cone form (-@eq-l5-lightcone) and the reduction of condition 3 to (-@eq-l5-functional).
+:::
+
+## Roots look for partners {#sec-l5-partners}
+
+For one field, Lecture 3 solved the functional equation by separation of variables and found exponentials. With $r$ fields we take what it found as our third assumption, as Corrigan and Zambon did: $f$ and $g$ are finite sums of exponentials,
+
+$$
+f(\vec\xi)=\sum_{\vec x\in X}c_{\vec x}\,e^{\vec x\cdot\vec\xi/2},\qquad g(\vec\eta)=\sum_{\vec y\in Y}d_{\vec y}\,e^{\vec y\cdot\vec\eta/2},
+$$
+
+with finite sets $X$ and $Y$ of vectors and nonzero coefficients. Then $2\nabla f\cdot\nabla g=\frac12\sum_{\vec x,\vec y}(\vec x\cdot\vec y)\,c_{\vec x}d_{\vec y}\,e^{(\vec x\cdot\vec\xi+\vec y\cdot\vec\eta)/2}$, and by (-@eq-l5-coordinates)
+
+$$
+\vec x\cdot\vec\xi+\vec y\cdot\vec\eta=\big(\mathsf D\vec x+\vec y\big)\cdot\vec\phi+\big(\mathsf D^{\mathsf T}\vec x-\vec y\big)\cdot\vec\psi .
+$$ {#eq-l5-products}
+
+Three facts follow.
+
+- **No two products cancel.** Adding the two vectors on the right of (-@eq-l5-products) gives $(\mathsf D+\mathsf D^{\mathsf T})\vec x=2\vec x$, so the pair $(\vec x,\vec y)$ can be read off from the exponent.
+- **Which products are wanted.** A product is a term $e^{\vec\alpha\cdot\vec\phi}$ of $V(\vec\phi)$ only if $\mathsf D^{\mathsf T}\vec x=\vec y$ and $\mathsf D\vec x+\vec y=2\vec\alpha$, that is $\vec x=\vec\alpha$ and $\vec y=\mathsf D^{\mathsf T}\vec\alpha$. It is a term $e^{\vec\alpha\cdot\vec\psi}$ of $V(\vec\psi)$ only if $\vec x=\vec\alpha$ and $\vec y=-\mathsf D\vec\alpha$. Its coefficient is then $\pm\frac12|\vec\alpha|^2c\,d$, because $\vec\alpha\cdot\mathsf D\vec\alpha=\vec\alpha\cdot\mathsf D^{\mathsf T}\vec\alpha=|\vec\alpha|^2$.
+- **Every other product must vanish,** so its $\vec x\cdot\vec y$ must be zero.
+
+Every root must appear in $V$, since $n_j\ne0$. So $X$ contains every root $\vec\alpha_j$, and $Y$ contains every $\mathsf D^{\mathsf T}\vec\alpha_j$ and every $-\mathsf D\vec\alpha_j$. Any other $\vec x\in X$ would have to be orthogonal to all of $Y$, which spans $\mathbb R^r$, so it is $0$, a constant term; the same holds for any other $\vec y$.
+
+**Every root has a partner.** Take a root $\vec\alpha_i$ and its vector $\vec y=\mathsf D^{\mathsf T}\vec\alpha_i$ in $Y$. For $j\ne i$, the product of $\vec\alpha_j$ with $\vec y$ is wanted only if $\vec y=\mathsf D^{\mathsf T}\vec\alpha_j$, which is impossible because $\mathsf D$ is invertible, or if $\vec y=-\mathsf D\vec\alpha_j$. Suppose $\vec y$ has no such partner. Then $\vec\alpha_j\cdot\vec y=0$ for every $j\ne i$, and the affine relation gives $n_i\,\vec\alpha_i\cdot\vec y=-\sum_{j\ne i}n_j\,\vec\alpha_j\cdot\vec y=0$. But $\vec\alpha_i\cdot\vec y=\vec\alpha_i\cdot\mathsf D^{\mathsf T}\vec\alpha_i=|\vec\alpha_i|^2\ne0$. So every root has a partner $\vec\alpha_{p(i)}$:
+
+$$
+\mathsf D^{\mathsf T}\vec\alpha_i=-\mathsf D\,\vec\alpha_{p(i)} .
+$$ {#eq-l5-partner}
+
+The partner is unique, because $\mathsf D$ is invertible. It is not $\vec\alpha_i$ itself, because $\mathsf D^{\mathsf T}\vec\alpha_i=-\mathsf D\vec\alpha_i$ would give $2\vec\alpha_i=0$. Different roots have different partners. So $p$ is a permutation of the nodes without fixed points. This is where the affine root $\vec\alpha_0$ matters. Without it the roots are independent, and a $\vec y$ without partner is possible (@exr-l5-conformal).
+
+**The partners are a symmetry of the diagram.** Let $\mathsf P=-\mathsf D^{-1}\mathsf D^{\mathsf T}$. By (-@eq-l5-partner), $\mathsf P\vec\alpha_i=\vec\alpha_{p(i)}$. Since $\mathsf D=1-\mathsf E$, $\mathsf P=-(1-\mathsf E)^{-1}(1+\mathsf E)$, the Cayley transform of the antisymmetric matrix $\mathsf E$, which is orthogonal. So $\vec\alpha_{p(i)}\cdot\vec\alpha_{p(j)}=\vec\alpha_i\cdot\vec\alpha_j$: the permutation $p$ preserves the lengths of the roots and the edges of the diagram. **It is a symmetry of the affine Dynkin diagram that moves every node.** With $\mathsf D^{\mathsf T}=2-\mathsf D$, (-@eq-l5-partner) becomes
+
+$$
+\mathsf D\big(\vec\alpha_i-\vec\alpha_{p(i)}\big)=2\vec\alpha_i,\qquad\text{that is}\qquad\mathsf D=2\big(1-\mathsf P\big)^{-1}.
+$$ {#eq-l5-dmatrix}
+
+The kinetic term is fixed by the symmetry, and $\mathsf E=1-\mathsf D$ with it. The matrix $\mathsf E$, which condition 1 left free, is the Cayley transform of a symmetry of the diagram.
+
+**What is left.** By (-@eq-l5-partner) the two lists $\mathsf D^{\mathsf T}\vec\alpha_j$ and $-\mathsf D\vec\alpha_j$ are the same set $Y$. The product of $\vec\alpha_m$ with $\mathsf D^{\mathsf T}\vec\alpha_j$ is wanted exactly when $j=m$, which gives a term of $V(\vec\phi)$, or when $p(j)=m$, which gives a term of $V(\vec\psi)$. Its coefficient contains $\vec\alpha_m\cdot\mathsf D^{\mathsf T}\vec\alpha_j=\vec\alpha_j\cdot\mathsf D\vec\alpha_m$. After renaming the indices, the requirement that all other products vanish reads
+
+$$
+\vec\alpha_m\cdot\mathsf D\,\vec\alpha_j=0\qquad\text{whenever }j\notin\{m,p(m)\}.
+$$ {#eq-l5-cross}
+
+The coefficients give one more condition. Write $c_m$ for the coefficient of $e^{\vec\alpha_m\cdot\vec\xi/2}$ and $d_m$ for that of $e^{\mathsf D^{\mathsf T}\vec\alpha_m\cdot\vec\eta/2}$. The term $e^{\vec\alpha_m\cdot\vec\phi}$ has the coefficient $\frac12|\vec\alpha_m|^2c_md_m$, and $e^{\vec\alpha_m\cdot\vec\psi}$, which comes from $-\mathsf D\vec\alpha_m=\mathsf D^{\mathsf T}\vec\alpha_{p^{-1}(m)}$, has the coefficient $-\frac12|\vec\alpha_m|^2c_md_{p^{-1}(m)}$. In $V(\vec\phi)-V(\vec\psi)$ they are $m^2n_m$ and $-m^2n_m$, so $d_{p^{-1}(m)}=d_m$. The coefficients of $g$ are constant along each orbit of $p$, and those of $f$ then follow. **Each orbit carries one free parameter.**
+
+The question has become a puzzle about diagrams. Bowcock, Corrigan and Zambon wrote the defect matrix in the form (-@eq-l5-dmatrix) [@bcz2004b, eqs. (3.19)–(3.24)].
+
+::: {.callout-tip title="Predict"}
+Find the affine Dynkin diagrams that have a symmetry $p$ moving every node, for which $\mathsf D=2(1-\mathsf P)^{-1}$ exists and satisfies (-@eq-l5-cross). Try the diagrams with two, three and four nodes before reading on.
+:::
+
+## Why the cycle {#sec-l5-cycle}
+
+One line of algebra decides the puzzle. Take a node $i$ and a neighbour $m$ of it, so that $m\ne i$ and $\vec\alpha_m\cdot\vec\alpha_i\ne0$. Take the scalar product of (-@eq-l5-dmatrix) with $\vec\alpha_m$:
+
+$$
+\vec\alpha_m\cdot\mathsf D\vec\alpha_i-\vec\alpha_m\cdot\mathsf D\vec\alpha_{p(i)}=2\,\vec\alpha_m\cdot\vec\alpha_i\ne0 .
+$$
+
+At least one term on the left is nonzero. By (-@eq-l5-cross), $\vec\alpha_m\cdot\mathsf D\vec\alpha_i\ne0$ requires $i\in\{m,p(m)\}$, that is $i=p(m)$. And $\vec\alpha_m\cdot\mathsf D\vec\alpha_{p(i)}\ne0$ requires $p(i)\in\{m,p(m)\}$, that is $m=p(i)$, since $p(i)=p(m)$ would mean $m=i$. Hence:
+
+> **Every neighbour of a node $i$ is $p(i)$ or $p^{-1}(i)$.**
+
+This is the whole answer. Each node has at most two neighbours. The neighbours of $i$ lie on its orbit under $p$, and so do their neighbours. The diagram is connected, so all its nodes form a single orbit. Every node $i$ has a neighbour, which is $p(i)$ or $p^{-1}(i)$. In the second case, apply the symmetry $p$: then $p(i)$ is a neighbour of $i$ as well. So $i$ is joined to $p(i)$, and the diagram contains the closed path $i\to p(i)\to p^2(i)\to\dots\to i$ through all its $h=r+1$ nodes, and no other edges. For $h\ge3$ this path is a cycle, and the only affine Dynkin diagrams that contain a cycle are those of $a_r^{(1)}$; all the others are trees. For $h=2$ the symmetry exchanges the two nodes, so they have equal length: this is $a_1^{(1)}$, not $a_2^{(2)}$. In both cases $p$ moves every node one step along the cycle, in one direction or the other.
+
+::: {#prp-l5-cycle}
+## Only the cycle has windows
+**[Theorem]** Consider an affine Toda theory with $r$ fields on both sides of a defect (-@eq-l5-action) with constant matrices. Assume that, after the rotation of @sec-l5-kinetic, the potential on the right is the same with the same roots, and that the defect potential is a finite sum of exponentials of linear functions of the defect values. Then a modified momentum $P+P_d/\beta^2$ is conserved if and only if the theory is $a_r^{(1)}$, $r\ge1$, and $\mathsf D=2(1-\pi^{\pm1})^{-1}$, where $\pi$ is the rotation of the cycle by one step. For $\pi$, the defect potential is (-@eq-l5-ar-potential) below, up to an additive constant, with one free parameter $\sigma\ne0$. For $\pi^{-1}$ it is the mirror image of @sec-l5-types.
+:::
+
+::: {.proof}
+Necessity is the chain of @sec-l5-momentum to this section. Condition 1 gives $\mathsf D=1-\mathsf E$ and $\mathsf F=\mathsf E$ after the rotation. Condition 2 gives $\mathcal B=f(\vec\xi)+g(\vec\eta)$. Condition 3 with the exponential ansatz gives a symmetry $p$ without fixed points, the matrix (-@eq-l5-dmatrix) and the condition (-@eq-l5-cross). The neighbour argument above then gives $a_r^{(1)}$ and $p=\pi^{\pm1}$. With a single orbit, all $d_m$ are equal to some $d$, and $c_m=2m^2n_m/(|\vec\alpha_m|^2d)=m^2/d$; writing $d=m/\sigma$ gives (-@eq-l5-ar-potential), up to the constant terms that $X$ and $Y$ may contain. Sufficiency for $p=\pi$ is checked in @sec-l5-ar: the matrix satisfies (-@eq-l5-cross), and (-@eq-l5-ar-potential) satisfies the three conditions. For $p=\pi^{-1}$ it follows by the reflection of @sec-l5-types.
+:::
+
+This is the argument of Corrigan and Zambon [@cz2009a, eqs. (2.30)–(2.35)], who count neighbours with fundamental weights, written in the language of the symmetry $p$. @fig-l5-diagrams shows how the other diagrams fail. Trees fail first. A tree has a centre, a node or an edge that every symmetry fixes, so a symmetry that moves every node can exist only when the centre is an edge whose two ends are exchanged. Its two ends then form an orbit, and with three or more nodes there are other orbits. A symmetry with several orbits fails next. The sum of the roots in an orbit is fixed by $\mathsf P$, and it is not zero, because the only relation among the roots involves all of them; so $1-\mathsf P$ is not invertible. And a rotation of the cycle by more than one step fails the neighbour argument. The book confirms this by a scan of all the affine diagrams of rank at most 4 (see its proposition [only $a_r^{(1)}$ has type-I defects](book:prp-ar-only)).
+
+![How the affine Dynkin diagrams fail. Arrows go from each node $i$ to its partner $p(i)$. (a) $d_4^{(1)}$, with a symmetry that cycles three outer nodes: like every symmetry of a tree, it fixes the centre (red), and a node cannot be its own partner. (b) $a_3^{(1)}$ with the rotation $\pi^2$: two orbits, $\{0,2\}$ and $\{1,3\}$, so $\vec\alpha_0+\vec\alpha_2$ is fixed by $\mathsf P$ and $\mathsf D=2(1-\mathsf P)^{-1}$ does not exist. (c) $a_4^{(1)}$ with $\pi^2$: $\mathsf D$ exists, but the partners are not neighbours, and ten of the products $\vec\alpha_m\cdot\mathsf D\vec\alpha_j$ that (-@eq-l5-cross) forbids are nonzero. (d) $a_4^{(1)}$ with the rotation $\pi$ by one step, $\pi\vec\alpha_j=\vec\alpha_{j-1}$: the partners are the neighbours, and this is a window. `code/lectures/defects_l5_f1_diagrams.py` checks that every symmetry of $d_4^{(1)}$ fixes the centre, that $1-\mathsf P$ is singular in (b), the ten forbidden products in (c), and $\vec\alpha_m\cdot\mathsf D\vec\alpha_j=2\delta_{mj}-2\delta_{m,j+1}$ in (d).](figures/l5_diagrams.svg){#fig-l5-diagrams fig-alt="Four small diagrams of nodes and edges with arrows between nodes. First, a cross-shaped tree with a red centre node and blue arrows cycling three of the outer nodes. Second, a square of four nodes with blue arrows along both diagonals, in both directions. Third, a pentagon with orange arrows forming a five-pointed star, each node pointing two steps away. Fourth, a pentagon with green arrows along the edges, each node pointing to its neighbour."}
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Items (g)–(i) of `code/lectures/defects_l5_cycle.py` check the three facts about products, the partner relation and the Cayley transform for random $\mathsf E$. They then run the scan from scratch: 23 affine diagrams of rank at most 4, untwisted and twisted, with their 78 symmetries. Of these, 64 fix a node, 5 leave $1-\mathsf P$ singular, 2 (the rotations $\pi^{\pm2}$ of $a_4^{(1)}$) fail (-@eq-l5-cross), and 7 pass: $\pi^{\pm1}$ of $a_2^{(1)}$, $a_3^{(1)}$, $a_4^{(1)}$, and the exchange of the two nodes of $a_1^{(1)}$. These are the book's numbers. For every symmetry without fixed points and with $1-\mathsf P$ invertible, the script checks that (-@eq-l5-cross) holds exactly when the neighbour property holds, exactly when the diagram is a cycle and $p$ a rotation by one step, and exactly when condition 3 holds for the potential built from the partners.
+:::
+
+## The window of $a_r^{(1)}$ {#sec-l5-ar}
+
+**Components.** Let $h=r+1$, and realize the roots of $a_r^{(1)}$ in $\mathbb R^h$ with the standard basis $e_0,\dots,e_r$ and indices modulo $h$:
+
+$$
+\vec\alpha_j=e_j-e_{j+1},\qquad\vec\mu_k=e_k-\tfrac1h\sum_le_l,\qquad\pi e_k=e_{k-1}.
+$$
+
+The roots lie in the hyperplane of vectors whose components $v_k=e_k\cdot\vec v$ sum to zero. The fields live there too, and $\vec\mu_k\cdot\vec v=v_k$ for every $\vec v$ in it. The $\vec\mu_k$ are the weights of the defining representation, and the rotation acts by $\pi\vec\alpha_j=\vec\alpha_{j-1}$ and $(\pi\vec v)_k=v_{k+1}$, so $p(j)=j-1$. On the hyperplane $1-\pi$ is invertible, since the eigenvalues of $\pi$ there are $\omega^k$, $k=1,\dots,r$, with $\omega=e^{2\pi i/h}$.
+
+**The defect matrix.** Since $(1-\pi)\vec\mu_{j+1}=\vec\mu_{j+1}-\vec\mu_j=-\vec\alpha_j$,
+
+$$
+\mathsf D\vec\alpha_j=-2\vec\mu_{j+1},\qquad\mathsf D^{\mathsf T}\vec\alpha_j=2\vec\alpha_j-\mathsf D\vec\alpha_j=2\vec\mu_j,\qquad
+\vec\alpha_m\cdot\mathsf D\vec\alpha_j=2\delta_{mj}-2\delta_{m,j+1}.
+$$
+
+The defect matrix sends each root to a weight of the defining representation. The last product vanishes unless $j=m$ or $j=m-1=p(m)$, which is (-@eq-l5-cross). Adding the same relation with $m$ and $j$ exchanged gives $\vec\alpha_m\cdot(\mathsf D+\mathsf D^{\mathsf T})\vec\alpha_j=2\,\vec\alpha_m\cdot\vec\alpha_j$, so $\mathsf D+\mathsf D^{\mathsf T}=2$, and $\mathsf E=1-\mathsf D$ is antisymmetric, as condition 1 requires. In terms of the fundamental weights $\vec\lambda_i=\vec\mu_1+\dots+\vec\mu_i$, with $\vec\lambda_{r+1}=0$, $\mathsf D$ is the book's [defect matrix](book:eq-d-matrix) $2\sum_{i=1}^r(\vec\lambda_i-\vec\lambda_{i+1})\vec\lambda_i^{\mathsf T}$. On the eigenvector of $\pi$ with eigenvalue $\omega^k$ it is the number $2/(1-\omega^k)=1+i\cot\frac{\pi k}h$.
+
+**The defect potential.** The exponents of the two halves are $\vec\alpha_j\cdot\vec\xi/2=(\mathsf D\vec\alpha_j\cdot\vec\phi+\mathsf D^{\mathsf T}\vec\alpha_j\cdot\vec\psi)/2=\psi_j-\phi_{j+1}$ and $\mathsf D^{\mathsf T}\vec\alpha_j\cdot\vec\eta/2=\vec\mu_j\cdot\vec\eta=\phi_j-\psi_j$. With the coefficients of the proof of @prp-l5-cycle,
+
+$$
+\begin{aligned}
+\mathcal B&=m\sum_{j=0}^r\Big[\sigma\big(f_j-1\big)+\sigma^{-1}\big(g_j-1\big)\Big],\\
+f_j&=e^{\psi_j-\phi_{j+1}},\qquad g_j=e^{\phi_j-\psi_j},
+\end{aligned}
+$$ {#eq-l5-ar-potential}
+
+and $P_d=m\sum_j[\sigma^{-1}(g_j-1)-\sigma(f_j-1)]$. This is the book's [defect potential](book:eq-defect-potential). Each $f_j$ couples the right field at one site with the left field at the next site; each $g_j$ is the jump at one site. Their products are the bulk exponentials:
+
+$$
+f_jg_j=e^{\phi_j-\phi_{j+1}}=e^{\vec\alpha_j\cdot\vec\phi},\qquad f_jg_{j+1}=e^{\psi_j-\psi_{j+1}}=e^{\vec\alpha_j\cdot\vec\psi}.
+$$
+
+Check condition 3 directly. With $\nabla f=\frac{m\sigma}2\sum_j\vec\alpha_jf_j$, $\nabla g=\frac m\sigma\sum_k\vec\mu_kg_k$ and $\vec\alpha_j\cdot\vec\mu_k=\delta_{jk}-\delta_{j+1,k}$,
+
+$$
+2\nabla f\cdot\nabla g=m^2\sum_{j,k}(\vec\alpha_j\cdot\vec\mu_k)\,f_jg_k=m^2\sum_jf_j\big(g_j-g_{j+1}\big)=V(\vec\phi)-V(\vec\psi).
+$$
+
+The bulk mass is again the product of the two halves, $m\sigma\cdot m\sigma^{-1}=m^2$, and only $\sigma$ is free. As in @sec-l3-rapidity it is a rapidity, $\sigma=e^{-\theta_d}$. The light-cone combinations $\mathcal B+P_d=\frac{2m}\sigma\sum_j(g_j-1)$ and $\mathcal B-P_d=2m\sigma\sum_j(f_j-1)$ are multiplied by $e^{\vartheta}$ and $e^{-\vartheta}$ when $\theta_d\to\theta_d+\vartheta$, as $E+P$ and $E-P$ are by a boost.
+
+**The conditions in components.** Take the scalar product of the first equation (-@eq-l5-lightcone) with $\vec\mu_k$, and of the second with $\frac12\vec\alpha_k$:
+
+$$
+\begin{aligned}
+\partial_+\big(\phi_k-\psi_k\big)&=-m\sigma\big(e^{\psi_k-\phi_{k+1}}-e^{\psi_{k-1}-\phi_k}\big),\\
+\partial_-\big(\psi_k-\phi_{k+1}\big)&=\frac m\sigma\big(e^{\phi_k-\psi_k}-e^{\phi_{k+1}-\psi_{k+1}}\big)\qquad\text{at }x=0 .
+\end{aligned}
+$$ {#eq-l5-ar-lightcone}
+
+For $h=2$ these are the sinh-Gordon form of (-@eq-l4-conditions), with $\Phi=\phi_0-\phi_1$, $\Psi=\psi_0-\psi_1$ and $m_0=2m$ (@exr-l5-a2).
+
+**Unfrozen, it is a Bäcklund transformation.** Impose (-@eq-l5-lightcone) at every $x$. Apply $\partial_-$ to the first equation and $\partial_+$ to the second, and use each equation in the other:
+
+$$
+\partial_+\partial_-\vec\eta=-2H_f\,\partial_-\vec\xi=-4H_f\nabla g,\qquad\partial_+\partial_-\vec\xi=2H_g\,\partial_+\vec\eta=-4H_g\nabla f,
+$$
+
+where $H_f$ and $H_g$ are the matrices of second derivatives of $f$ and $g$. Then $\partial_+\partial_-\vec\phi=\frac12(\partial_+\partial_-\vec\xi+\mathsf D\,\partial_+\partial_-\vec\eta)=-2(H_g\nabla f+\mathsf DH_f\nabla g)$. Now differentiate the functional equation (-@eq-l5-functional) with respect to $\vec\phi$ at fixed $\vec\psi$, using $\nabla_{\vec\phi}=\mathsf D\nabla_{\vec\xi}+\nabla_{\vec\eta}$: $\nabla V(\vec\phi)=2(\mathsf DH_f\nabla g+H_g\nabla f)$. So $\partial_+\partial_-\vec\phi=-\nabla V(\vec\phi)$, which is the field equation, since $\partial_+\partial_-=\partial_t^2-\partial_x^2$. The same steps give $\partial_+\partial_-\vec\psi=-\nabla V(\vec\psi)$. **Momentum conservation at a point is again the condition for a Bäcklund transformation on the line**, as in @sec-l3-unfreeze. For $a_r^{(1)}$, in components, the field equation is
+
+$$
+\partial_+\partial_-\phi_k=-m^2\big(e^{\phi_k-\phi_{k+1}}-e^{\phi_{k-1}-\phi_k}\big),
+$$ {#eq-l5-toda}
+
+the two-dimensional Toda lattice, with $h$ sites on a ring. The window is a Bäcklund transformation of this lattice, frozen at $x=0$. For $a_2^{(1)}$ Corrigan and Zambon identified it with the transformation of Fordy and Gibbons [@cz2009b, Sec. 5].
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (j) of `code/lectures/defects_l5_cycle.py` checks, for $h=2,\dots,5$, the formulas for $\mathsf D\vec\alpha_j$, $\mathsf D^{\mathsf T}\vec\alpha_j$ and $\vec\alpha_m\cdot\mathsf D\vec\alpha_j$, the eigenvalues $1+i\cot\frac{\pi k}h$ and the book's form of $\mathsf D$. It also checks the exponents, the products $f_jg_j$ and $f_jg_{j+1}$, conditions 2 and 3, which fail for a wrong coefficient, and the equivalence of (-@eq-l5-conditions) with (-@eq-l5-ar-lightcone). Item (k) checks the reduction to Lecture 3's window for $h=2$. Item (l) checks the unfreezing and the Toda equation (-@eq-l5-toda), and that a soliton pair of $a_2^{(1)}$ satisfies (-@eq-l5-ar-lightcone) at $x=-0.7$, $0$ and $1.3$.
+:::
+
+## Two orientations, two types {#sec-l5-types}
+
+**The mirror image.** The rotation $\pi^{-1}$ gives the matrix $2(1-\pi^{-1})^{-1}=\mathsf D^{\mathsf T}$. Let $\rho$ be the reflection of the diagram, $\rho\vec\alpha_j=\vec\alpha_{-j}$. It is a symmetry of the bulk, since it permutes the terms of $V$, and $\rho\pi\rho=\pi^{-1}$, so $\rho\mathsf D\rho=\mathsf D^{\mathsf T}$. Hence the window with $\pi^{-1}$ is the window with $\pi$ seen through $\rho$ on both sides, $L_d'(\vec\phi,\vec\psi)=L_d(\rho\vec\phi,\rho\vec\psi)$. The two orientations of the cycle give equivalent windows.
+
+**The two types.** Condition 1 also allows $(\mathsf D,\mathsf E,\mathsf F)\to(-\mathsf D,-\mathsf E,-\mathsf E)$. In the form of @sec-l5-kinetic this choice has $-\mathsf D=(1+\mathsf E)O$ with $O=\pi^{-1}$, a symmetry of the bulk. With $\sigma$ and $\sigma^{-1}$ exchanged in $\mathcal B$, it is the window of **type I$_+$**; (-@eq-l5-ar-potential) is **type I$_-$**, as in @sec-l3-types and in the book's [defect Lagrangian](book:sec-defect-lagrangian). For sine-Gordon theory the two types are related by $\Psi\to-\Psi$. For $a_r^{(1)}$, with $h\ge3$, the map $\vec\psi\to-\vec\psi$ is not a symmetry of the bulk, because $-\vec\alpha_j$ is not an affine root. But reflections of the diagram take its place:
+
+$$
+L_d^{\rm I_+}(\vec\phi,\vec\psi;\sigma)=L_d^{\rm I_-}\big(\rho\vec\phi,\rho\pi^{-1}\vec\psi;\sigma\big).
+$$ {#eq-l5-types}
+
+The kinetic terms agree because $\rho\mathsf E\rho=-\mathsf E$ and $\rho\mathsf D\rho\pi^{-1}=\mathsf D^{\mathsf T}\pi^{-1}=-\mathsf D$, where the last step is (-@eq-l5-partner) in the form $\mathsf D^{\mathsf T}=-\mathsf D\pi$. The potentials agree because the map exchanges the two kinds of exponential, $f_j\to g_{-j}$ and $g_j\to f_{-j}$, and $\sigma$ with $\sigma^{-1}$ with them. **A type-I$_+$ window is a type-I$_-$ window seen through one reflection of the diagram on the left and another, $\rho\pi^{-1}$, on the right.** For sine-Gordon theory $\rho=1$ and $\pi^{-1}=-1$, which is the map $\Psi\to-\Psi$. The book relates the two types by time reversal instead (see its [defect Lagrangian](book:sec-defect-lagrangian)); both relations hold (@exr-l5-types).
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (m) of `code/lectures/defects_l5_cycle.py` checks (-@eq-l5-types) for $h=2,\dots,5$, kinetic terms and potentials. It maps type-I$_-$ soliton solutions by $(\rho,\pi\rho)$ and checks that the images satisfy the type-I$_+$ conditions but not the type-I$_-$ ones.
+:::
+
+## What a fast particle sees {#sec-l5-waves}
+
+::: {.callout-tip title="Predict"}
+In sine-Gordon theory, slow waves and slow solitons crossed the window as if it were not there, and fast ones were charge-conjugated, $\Psi=-\Phi$ (@sec-l4-reading, @sec-l4-waves). What do you expect fast particles of $a_r^{(1)}$ to see?
+:::
+
+**Linearize.** Expand (-@eq-l5-lightcone) about $\vec\phi=\vec\psi=0$. The second derivatives of the two halves at zero are $H_f=\frac{m\sigma}4\sum_j\vec\alpha_j\vec\alpha_j^{\mathsf T}=\frac{m\sigma}4(2-\pi-\pi^{-1})$ and $H_g=\frac m\sigma\sum_k\vec\mu_k\vec\mu_k^{\mathsf T}=\frac m\sigma$, the latter on the hyperplane. The bulk mass matrix is $m^2(2-\pi-\pi^{-1})$. All these matrices commute with $\pi$, so they are diagonal on the eigenvectors $\vec v_k$ of $\pi$, $\pi\vec v_k=\omega^k\vec v_k$. These are the particles of the theory, with
+
+$$
+m_k^2=m^2\big(2-\omega^k-\omega^{-k}\big)=4m^2\sin^2\gamma_k,\qquad\gamma_k=\frac{\pi k}h,\qquad k=1,\dots,r .
+$$
+
+A wave of particle $k$ stays a wave of particle $k$. On $\vec v_k$, $\mathsf D=1+i\cot\gamma_k$ and $\mathsf D^{\mathsf T}=1-i\cot\gamma_k$, so $\sin\gamma_k\,\mathsf D=ie^{-i\gamma_k}$ and $\sin\gamma_k\,\mathsf D^{\mathsf T}=-ie^{i\gamma_k}$. For fields $\vec\phi=\phi\,\vec v_k$ and $\vec\psi=\psi\,\vec v_k$ this gives $\sin\gamma_k\,\vec\xi=-i(e^{i\gamma_k}\phi-e^{-i\gamma_k}\psi)\vec v_k$, and the linearized equations become
+
+$$
+\begin{aligned}
+\partial_+\big(\phi-\psi\big)&=im_k\sigma\big(e^{i\gamma_k}\phi-e^{-i\gamma_k}\psi\big),\\
+\partial_-\big(e^{i\gamma_k}\phi-e^{-i\gamma_k}\psi\big)&=\frac{im_k}\sigma\big(\phi-\psi\big).
+\end{aligned}
+$$ {#eq-l5-mode}
+
+For $h=2$, $\gamma_1=\frac\pi2$, and these are the linearized sine-Gordon conditions of @sec-l4-waves. For $h\ge3$ the combination $\Phi+\Psi$ of sine-Gordon theory is replaced by $-i(e^{i\gamma_k}\phi-e^{-i\gamma_k}\psi)$, and the phases $e^{\pm i\gamma_k}$ are new.
+
+**Solve.** Since $\omega$ now denotes the root of unity, we write $\nu$ for the frequency. Send in $g=e^{i(\kappa x-\nu t)}$, with $(\nu,\kappa)=m_k(\cosh\theta,\sinh\theta)$, and allow a reflected wave $f=e^{-i(\kappa x+\nu t)}$: $\phi=g+Rf$ and $\psi=\mathbb T_kg$. As in @sec-l4-waves, $\partial_+g=-im_ke^{-\theta}g$, $\partial_-g=-im_ke^{\theta}g$, $\partial_+f=-im_ke^{\theta}f$ and $\partial_-f=-im_ke^{-\theta}f$. Divide the first equation by $-im_k$, multiply the second by $i\sigma e^{-\theta}/m_k$, and collect terms:
+
+$$
+\begin{aligned}
+\big(e^{-\theta}+\sigma e^{i\gamma_k}\big)-\big(e^{-\theta}+\sigma e^{-i\gamma_k}\big)\mathbb T_k+\big(e^{\theta}+\sigma e^{i\gamma_k}\big)R&=0,\\
+\big(e^{-\theta}+\sigma e^{i\gamma_k}\big)-\big(e^{-\theta}+\sigma e^{-i\gamma_k}\big)\mathbb T_k+e^{-2\theta}\big(e^{\theta}+\sigma e^{i\gamma_k}\big)R&=0 .
+\end{aligned}
+$$
+
+As in Lecture 4, the two equations differ only in the coefficient of $R$. Their difference is $(1-e^{-2\theta})(e^\theta+\sigma e^{i\gamma_k})R=0$, so $R=0$ for every wave with $\kappa\ne0$. Then
+
+$$
+\mathbb T_k(\theta)=\frac{e^{-\theta}+\sigma e^{i\gamma_k}}{e^{-\theta}+\sigma e^{-i\gamma_k}}=\frac{e^{-(\theta-\theta_d)}+e^{i\gamma_k}}{e^{-(\theta-\theta_d)}+e^{-i\gamma_k}},
+$$ {#eq-l5-Tk}
+
+the book's [classical transmission factor](book:eq-an-linear-transmission). For $h=2$ it is $\mathbb T$ of (-@eq-l4-T). The numerator and the denominator are complex conjugates for real $\theta$, so $|\mathbb T_k|=1$. A real wave is the sum of such a wave and its complex conjugate. The conditions are real, so the conjugate crosses with $\bar{\mathbb T}_k$, and real waves stay real.
+
+**From the identity to the rotation.** For slow waves, $\theta\ll\theta_d$, $\mathbb T_k\to1$: they do not see the window. At $\theta=\theta_d$, $\mathbb T_k=e^{i\gamma_k}$. For fast waves, $\theta\gg\theta_d$,
+
+$$
+\mathbb T_k\to e^{2i\gamma_k}=\omega^k,
+$$
+
+the eigenvalue of $\pi$ on the mode of particle $k$. A fast wave crosses the window as if it were the line $\vec\psi=\pi\vec\phi$, the gluing of the two fields by the symmetry $\pi$ of the bulk. The same is visible in the defect conditions themselves. As $\theta_d\to-\infty$, $\sigma\to\infty$, and the first equation (-@eq-l5-ar-lightcone) forces $\sum_j\vec\alpha_jf_j=0$. The only linear relation of the $\vec\alpha_j$ is $\sum_j\vec\alpha_j=0$, so all $f_j$ are equal. Their product is $1$. On the branch connected with the vacuum all $f_j=1$, that is $\psi_j=\phi_{j+1}$, or $\vec\psi=\pi\vec\phi$. As $\theta_d\to+\infty$, the same argument for the $g_j$ gives $\vec\psi=\vec\phi$, the invisible line. **The window of $a_r^{(1)}$ interpolates between the identity and the rotation of its Dynkin diagram, with the crossover at the defect rapidity.** In sine-Gordon theory the rotation of the two-node diagram is $\pi=-1$, and this is the interpolation between the identity and charge conjugation that we found in Lecture 4. So the cycle has a second meaning. The window is a softened version of the symmetry line of $\pi$, and $\pi$ is the symmetry that moves every node one step.
+
+## Solitons go round the cycle {#sec-l5-solitons}
+
+Lecture 4 continued the soliton's delay to find the transmission factor of linear waves. Here we go the other way. Imaginary coupling is $\vec\phi\to i\vec\phi$, so a solution at imaginary coupling is a complex solution of our equations. The soliton of species $a$ is
+
+$$
+\phi_k=\ln\tau_{k-1}-\ln\tau_k,\qquad\tau_k=1+\omega^{ka}Y,\qquad Y=\exp\big(m_a(x\cosh\theta-t\sinh\theta)+c\big),
+$$
+
+which is the book's [$a_r$ soliton](book:eq-an-soliton) (@exr-l5-delay). At first order in $Y$, $\phi_k\simeq(\omega^{(k-1)a}-\omega^{ka})Y$. This vector is an eigenvector of $\pi$ with eigenvalue $\omega^a$: it is the mode of particle $a$. And $Y$ is a plane wave at a complex rapidity: with $(\nu,\kappa)=m_a(\cosh,\sinh)(\theta-\frac{i\pi}2)=-im_a(\sinh\theta,\cosh\theta)$, $e^{i(\kappa x-\nu t)}=e^{m_a(x\cosh\theta-t\sinh\theta)}$. At first order in $Y$ the defect conditions are the linear ones. So if the soliton crosses as the same soliton with $Y\to zY$, then $z$ must be $\mathbb T_a(\theta-\frac{i\pi}2)$:
+
+$$
+z_a(u)=\frac{e^{-u}-ie^{i\gamma_a}}{e^{-u}-ie^{-i\gamma_a}},\qquad u=\theta-\theta_d .
+$$ {#eq-l5-za}
+
+That the whole soliton, and not only its first order, crosses with this factor is a longer calculation. The book does it (see its [$a_r$ soliton delay](book:prp-an-defect-delay)), and our script checks it by substitution. The pair is a Bäcklund pair: it satisfies the conditions at every $x$.
+
+**Reading $z_a$.** For the self-conjugate species $a=\frac h2$, $\gamma_a=\frac\pi2$ and $z_a=-\coth\frac u2$, the sine-Gordon delay (-@eq-l4-delay). For the other species something new happens: the delay is complex. Multiply the numerator and the denominator by the conjugate of the denominator, with $x=e^{-u}$:
+
+$$
+z_a=\frac{x^2+e^{2i\gamma_a}}{|x-ie^{-i\gamma_a}|^2},\qquad|z_a|^2=\frac{(x+\sin\gamma_a)^2+\cos^2\gamma_a}{(x-\sin\gamma_a)^2+\cos^2\gamma_a}>1 .
+$$
+
+So every soliton is still delayed, by $-\ln|z_a|/(m_a\cosh\theta)$, as in @sec-l4-reading. The phase, $\arg z_a=\arg(e^{-2u}+e^{2i\gamma_a})$, runs from $0$ for slow solitons to $2\gamma_a$, or to $2\gamma_a-2\pi$ for $a>\frac h2$, for fast ones (@fig-l5-rotation). For fast solitons $z_a\to\omega^a$, and $Y\to\omega^aY$ turns $\tau_k$ into $\tau_{k+1}$, so $\psi_k=\phi_{k+1}$: **a fast soliton comes out rotated, $\vec\psi=\pi\vec\phi$.** For sine-Gordon theory the rotation is $-1$, and this is the conversion of fast solitons into antisolitons. For $a_r^{(1)}$ the phase of $z_a$ shifts the imaginary part of $c$, and with it the topological charge of the soliton. The charge moves along its orbit under $\pi$, by at most as many steps as the phase allows (see the book's [selection rule](book:prp-stored-charge)). The pole of $z_a$ is at $u=-i(\frac\pi2-\gamma_a)$, on the real axis only for $a=\frac h2$. Without a charged jump on the window, only self-conjugate solitons are absorbed at a real rapidity (see the book's [absorption and emission](book:prp-ds-absorption)).
+
+![From the identity to the rotation, for $a_3^{(1)}$ ($h=4$). (a) The phase of the transmission factor (-@eq-l5-Tk) of linear waves of particle $k=1,2,3$, against $\theta-\theta_d$. It rises from $0$ to $2\gamma_k=\frac{\pi k}2$, the phase of the eigenvalue $\omega^k$ of the rotation, and passes $\gamma_k$ at $\theta=\theta_d$ (dots). (b) The phase of the soliton delay (-@eq-l5-za) for species $a=1,2,3$. The self-conjugate species $a=2$ jumps from $0$ to $\pi$ at $\theta=\theta_d$, as the sine-Gordon soliton does when it is converted; the others turn continuously, to $\frac\pi2$ and to $-\frac\pi2$. In both panels the phases end at the eigenvalues of $\pi$ (dotted lines). `code/lectures/defects_l5_f2_rotation.py` checks that $|\mathbb T_k|=1$, the end values, the value at $\theta_d$, the relation $z_a(u)=\mathbb T_a(u+\theta_d-\frac{i\pi}2)$, and the jump of $a=2$.](figures/l5_rotation.svg){#fig-l5-rotation fig-alt="Two panels of curves against theta minus theta_d. Left: three S-shaped curves rising from zero to pi over 2, pi and 3 pi over 2, each passing a dot at the centre, with dotted horizontal lines at the end values labelled omega, omega squared and omega cubed. Right: a blue curve rising from zero to pi over 2, a red curve falling from zero to minus pi over 2, and a purple step from zero to pi at the centre."}
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (n) of `code/lectures/defects_l5_cycle.py` solves (-@eq-l5-mode) with sympy and finds $R=0$ and (-@eq-l5-Tk). It also solves the full vector linearized conditions for $a_3^{(1)}$ and $a_4^{(1)}$, with the second derivatives of $\mathcal B$ taken by finite differences, mode by mode. It checks the properties of $\mathbb T_k$, the reduction to Lecture 4 and the limit $\vec\psi=\pi\vec\phi$. Item (o) substitutes the soliton with $Y\to z_aY$ into (-@eq-l5-ar-lightcone) for $h=2,\dots,5$, every species, real and complex rapidities and three values of $x$. The conjugate of $z_a$ fails. The item also checks $z_a(u)=\mathbb T_a(u+\theta_d-\frac{i\pi}2)$, $|z_a|>1$, the phase, the limits with $\vec\psi=\pi\vec\phi$, and the position of the pole.
+:::
+
+## What the other theories do {#sec-l5-others}
+
+Every affine Toda theory other than $a_r^{(1)}$ has no window of this kind. This includes the theories obtained by folding $a_r^{(1)}$, whose solitons are images of $a_r$ solitons (see the book's [folding](book:sec-affine-folding)). A window cannot simply be folded: the reflection of the diagram that folding uses maps $\pi$ to $\pi^{-1}$, so it maps a window to its mirror image. There are two ways out, and Lecture 9 takes them up. One gives the window a degree of freedom of its own. These are the type-II windows of Corrigan and Zambon, found first for the Tzitzéica theory $a_2^{(2)}$ [@cz2009b], and later for other series by Bristow and Bowcock [@bristow_bowcock2017] (see the book's [type-II defects](book:sec-type-two-atft)). The other fuses a window with its mirror image, which can be folded [@robertson2014a] (see the book's [folding defects](book:sec-defect-folding)).
+
+Our theorem rests on three assumptions: constant matrices, the same roots on both sides, and exponentials. The type-II windows show that dropping the rule "no degrees of freedom of its own" changes the answer. Whether momentum conservation is also sufficient for integrability is a conjecture of the book (see its [conjecture on momentum and integrability](book:cnj-momentum-integrability)). Lecture 6 constructs the Lax pair of the windows of this lecture.
+
+## What we have learned {#sec-l5-summary}
+
+- With $r$ fields, energy is again free, and momentum again gives three conditions: on the kinetic term, on the shape of $\mathcal B$, and a functional equation.
+- After a rotation of the right field, $\mathsf D=1-\mathsf E$ and $\mathsf F=\mathsf E$ with $\mathsf E$ antisymmetric. In the coordinates $\vec\xi=\mathsf D^{\mathsf T}\vec\phi+\mathsf D\vec\psi$ and $\vec\eta=\vec\phi-\vec\psi$ the defect potential splits into two halves, $\mathcal B=f(\vec\xi)+g(\vec\eta)$, and the conditions take the light-cone form (-@eq-l5-lightcone).
+- The functional equation asks that $V(\vec\phi)-V(\vec\psi)=2\nabla f\cdot\nabla g$. For exponentials, every root needs a partner, and the partners form a symmetry $p$ of the affine Dynkin diagram that moves every node, with $\mathsf D=2(1-\mathsf P)^{-1}$.
+- The neighbours of each node are its partners. So the diagram is a cycle and $p$ the rotation by one step: only $a_r^{(1)}$ has windows.
+- In components, the $a_r^{(1)}$ window couples the right field at each site with the left field at the next site. Unfrozen, it is a Bäcklund transformation of the two-dimensional Toda lattice. Its two types are related by reflections of the diagram.
+- Linear waves of particle $k$ cross with a phase that turns from $1$ to $\omega^k$, and solitons with a complex delay that turns from $1$ to $\omega^a$. Fast particles see the window as the symmetry line of the rotation $\pi$.
+
+## Exercises {#sec-l5-exercises}
+
+::: {#exr-l5-conditions}
+*(Redo.)* Derive (-@eq-l5-conditions) from (-@eq-l5-action), and show that a symmetric part of $\mathsf E$ or $\mathsf F$ would only add a total derivative. Then expand the momentum balance and obtain (-@eq-l5-momentum-polynomial). Conversely, start from conditions $\vec\phi_x=A\vec\phi_t+B\vec\psi_t+\vec X$, $\vec\psi_x=C\vec\phi_t+D'\vec\psi_t+\vec Y$ with constant matrices and functions $\vec X$, $\vec Y$ of the defect values. Show that a modified energy is conserved only if $C=B^{\mathsf T}$, $A$ and $D'$ are antisymmetric, and $\vec X$ and $\vec Y$ are gradients of a single function, up to signs [@cz2009a, eq. (2.6)].
+:::
+
+::: {#exr-l5-a2}
+*(Redo.)* For $a_2^{(1)}$, choose an orthonormal basis of the hyperplane in $\mathbb R^3$ and compute $\pi$, $\mathsf D$ and $\mathsf E$. Show that $\mathsf E=\pm J/\sqrt3$, where $J$ is the rotation by $\frac\pi2$ and the sign depends on the orientation of the basis, and that $\mathsf P=-(1-\mathsf E)^{-1}(1+\mathsf E)$ is the rotation by $\frac{2\pi}3$. Write out the six equations (-@eq-l5-ar-lightcone). Then take $h=2$, set $\Phi=\phi_0-\phi_1$ and $\Psi=\psi_0-\psi_1$, and show that (-@eq-l5-ar-lightcone) becomes the sinh-Gordon version of (-@eq-l4-conditions), with $m_0=2m$. Which normalization of the field relates (-@eq-l5-ar-potential) to (-@eq-l3-potential)?
+:::
+
+::: {#exr-l5-scan}
+*(Redo.)* Do the scan of @sec-l5-cycle by hand for small diagrams. (a) Show that every symmetry of $d_4^{(1)}$, $b_3^{(1)}$, $c_2^{(1)}$, $g_2^{(1)}$ and $a_2^{(2)}$ fixes a node. (b) The reversal of $c_3^{(1)}$ fixes no node. Show that it fixes $\vec\alpha_0+\vec\alpha_3$, so that $1-\mathsf P$ is singular. Show in general that a symmetry with more than one orbit leaves $1-\mathsf P$ singular. (c) The reflection of $a_3^{(1)}$ that exchanges the nodes $0\leftrightarrow1$ and $2\leftrightarrow3$ sends every node to a neighbour. Which step of the argument does it fail? (d) For $a_4^{(1)}$ and $p=\pi^2$, compute $\vec\alpha_m\cdot\mathsf D\vec\alpha_j$ and find the ten forbidden products of @fig-l5-diagrams.
+:::
+
+::: {#exr-l5-marks}
+*(Rediscover.)* Show that a symmetry of an affine Dynkin diagram preserves the Kac labels. *Hint:* the relation $\sum_jn_j\vec\alpha_j=0$ is unique up to a factor, and the symmetry maps it to another relation with the same sum of coefficients. Deduce that a symmetry with a single orbit requires all labels to equal $n_0=1$. Using the book's tables, show that only $a_r^{(1)}$ has all labels equal to 1. This is a second route to the cycle. Which part of the theorem does it not give, so that (-@eq-l5-cross) is still needed?
+:::
+
+::: {#exr-l5-waves}
+*(Redo.)* Derive the two equations for $R$ and $\mathbb T_k$ in @sec-l5-waves from (-@eq-l5-mode). Then send a wave of particle $k$ in from the right and show that it is not reflected and crosses with $\bar{\mathbb T}_k(\theta)=1/\mathbb T_k(-\theta)$. Show that $\mathbb T_k$ has its zero at $\theta_d+i(\pi-\gamma_k)$ and its pole at $\theta_d-i(\pi-\gamma_k)$. For real $\theta_d$ the pole lies below the real axis, so linear waves have no bound state at the window.
+:::
+
+::: {#exr-l5-delay}
+*(Rediscover.)* Show that the book's soliton $\vec\phi=\frac i\beta\sum_j\vec\alpha_j\ln\tau_j$ at imaginary coupling, written in the dimensionless real-coupling variables of this lecture, is $\phi_k=\ln\tau_{k-1}-\ln\tau_k$. Check that it solves (-@eq-l5-toda) by the Hirota form $\tau_k\partial_+\partial_-\tau_k-\partial_+\tau_k\,\partial_-\tau_k=m^2(\tau_{k-1}\tau_{k+1}-\tau_k^2)$. For $a_2^{(1)}$, substitute the pair with $Y\to zY$ on the right into (-@eq-l5-ar-lightcone), and show that the conditions reduce to polynomial identities in $Y$ that hold for $z=z_a$ of (-@eq-l5-za). Derive $|z_a|^2$ and $\arg z_a$.
+:::
+
+::: {#exr-l5-types}
+*(Explore.)* Verify (-@eq-l5-types) for $a_2^{(1)}$, using $\rho\pi\rho=\pi^{-1}$ and $\mathsf D^{\mathsf T}=-\mathsf D\pi$. Deduce that a soliton of species $a$ crosses a type-I$_+$ window with the delay $\omega^az_{h-a}(\theta-\theta_d)$. Show that this equals $z_a(\theta_d-\theta)$, the delay the book obtains by time reversal. Show that for sine-Gordon theory (-@eq-l5-types) is the map $\Psi\to-\Psi$ of @sec-l3-types, and check $z_{\rm I_+}=-z$ of @exr-l4-type-plus.
+:::
+
+::: {#exr-l5-conformal}
+*(Explore.)* In conformal Toda theory the affine root $\vec\alpha_0$ is absent, and the simple roots are linearly independent. Show that the partner argument of @sec-l5-partners fails: a vector $\vec y$ proportional to the fundamental weight $\vec\lambda_i$ is orthogonal to all $\vec\alpha_j$ with $j\ne i$, and needs no partner. For $r=1$ recover the window between Liouville theory and a free field of @exr-l3-liouville. Corrigan and Zambon found a window between $a_r$ conformal Toda theory and $a_{r-1}$ conformal Toda theory plus a free massless field, so that $r$ windows in a row reduce conformal Toda theory to free fields [@cz2009a, eqs. (2.42)–(2.44)]. Find it for $r=2$.
+:::
+
+::: {#exr-l5-rotated}
+*(Explore.)* Drop the assumption that the roots on the right are the same after the rotation of @sec-l5-kinetic, so that the right potential has roots $O\vec\alpha_j$ for an orthogonal $O$. Redo the analysis of products in @sec-l5-partners. Show that if $O$ maps the set of roots to itself, the result is the window of @sec-l5-ar followed by a symmetry of the bulk. What happens for other $O$? This case is not covered by @prp-l5-cycle.
+:::
+
+## Where this comes from {#sec-l5-sources}
+
+Bowcock, Corrigan and Zambon introduced defects in the affine Toda theories, wrote the defect matrix as $2(1-\pi)^{-1}$ for a permutation of the roots, found the $a_r^{(1)}$ defect with its potential, and observed that other algebras appear not to allow such defects [@bcz2004b]. Corrigan and Zambon derived the three momentum conditions in matrix form, the general solution of condition 1, the exponential analysis of condition 3 with the restriction to $a_r^{(1)}$, and the conformal windows [@cz2009a, Sec. 2]. Bowcock, Corrigan and Zambon also computed the delay of an $a_r$ soliton [@bcz2004b, Sec. 6]. Corrigan and Zambon studied its complex phase and the classical transmission factors of particles [@cz2007], introduced the type-II windows and identified the $a_2$ window with the Bäcklund transformation of Fordy and Gibbons [@cz2009b; @fordy_gibbons1980]. Several things are our presentation, and we do not claim that they are new: the coordinates $\vec\xi$, $\vec\eta$ in which condition 2 becomes d'Alembert's equation with a general solution, and the light-cone form (-@eq-l5-lightcone); the partner argument with the neighbour property in the form used here; the component form of the window with the unfreezing argument; the relation (-@eq-l5-types) between the two types; and the derivation of the soliton delay from the linear transmission factor. The book states the results in its [momentum criterion](book:sec-defect-momentum), its proposition that [only $a_r^{(1)}$ has type-I defects](book:prp-ar-only), its [Bäcklund transformations](book:sec-defect-backlund-an), its [$a_r$ soliton delay](book:prp-an-defect-delay) and its [classical transmission factors](book:prp-an-linear-transmission).

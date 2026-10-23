@@ -43,11 +43,11 @@ This is therefore the first **model-diverse** pass on Part II, and much of the c
 Weight your effort toward these. Neither chapter has labelled statements, items in Appendix E (original results) or Appendix D (corrections), and the text cites no check script.
 
 **Check scripts.** None is cited in the chapters. These scripts check some of their claims; each prints one PASS or FAIL line per check:
-- `textbook_code/sixvertex.py` (8 checks, about 2 s): Jimbo's equations, unitarity, braid Yang–Baxter, eigenvalues, the crossing data, the sine-Gordon dictionary.
-- `textbook_code/universal_r.py` (5 checks, about 1 s): `eq-universal-r-sl2` on spin $\frac12$ and 1.
-- `textbook_code/spin1_tpg.py` (2 checks, about 6 s): `eq-tpg-rule` and `exr-spin1`.
-- `textbook_code/rsos_qdims.py` (2 checks, under 1 s): quantum dimensions at roots of unity.
-- `textbook_code/figures/ch8_f12_tpg.py` (6 checks, about 1 s): the data of `fig-tpg`. It overwrites the committed SVG in `part2-algebra/figures/` whatever `OUT_DIR` says. If you run it, report it, and do not restore the file yourself; the editor will.
+- `code/sixvertex.py` (8 checks, about 2 s): Jimbo's equations, unitarity, braid Yang–Baxter, eigenvalues, the crossing data, the sine-Gordon dictionary.
+- `code/universal_r.py` (5 checks, about 1 s): `eq-universal-r-sl2` on spin $\frac12$ and 1.
+- `code/spin1_tpg.py` (2 checks, about 6 s): `eq-tpg-rule` and `exr-spin1`.
+- `code/rsos_qdims.py` (2 checks, under 1 s): quantum dimensions at roots of unity.
+- `code/figures/ch8_f12_tpg.py` (6 checks, about 1 s): the data of `fig-tpg`. It overwrites the committed SVG in `part2-algebra/figures/` whatever `OUT_DIR` says. If you run it, report it, and do not restore the file yourself; the editor will.
 
 ## Notation
 

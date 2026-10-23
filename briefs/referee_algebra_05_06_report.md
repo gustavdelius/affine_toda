@@ -163,7 +163,7 @@ For the other four twisted rows, the script finds respectively the common factor
 
 Khastgir–Sasaki, `hep-th/9512158`, equation (4.7), explicitly list “$a_{2n}^{(1)}\to a_{2n}^{(2)}$”; Figure 12(iv), printed p. 23, explicitly lists “$d_{2n+2}^{(1)}\to a_{2n}^{(2)}$”. Both source diagrams were checked. Their numbering at the two $D$-fork tips differs harmlessly from the book. These quotations support the two parents; the normalization and spectra above were calculated independently.
 
-Chapter 18, line 350, and `textbook_code/hirota/fold.py` use the same $A$-reflection as chapter 6. Chapter 19's route through `textbook_code/oneloop/run_twisted.py:7` uses the inverse four-cycle to the one printed in chapter 6. An automorphism and its inverse have the same orbits and invariant subspace, so this is correct. The oneloop routines retain parent masses rather than performing an explicit conversion to a shared $m_F$. Their mass-ratio comparison is unaffected. Chapter 18's phrase “the same classical masses” should reference the explicit scale identification above; no one-loop numerical result was re-refereed here.
+Chapter 18, line 350, and `code/hirota/fold.py` use the same $A$-reflection as chapter 6. Chapter 19's route through `code/oneloop/run_twisted.py:7` uses the inverse four-cycle to the one printed in chapter 6. An automorphism and its inverse have the same orbits and invariant subspace, so this is correct. The oneloop routines retain parent masses rather than performing an explicit conversion to a shared $m_F$. Their mass-ratio comparison is unaffected. Chapter 18's phrase “the same classical masses” should reference the explicit scale identification above; no one-loop numerical result was re-refereed here.
 
 ## 3. Tables, twisted labels and rank
 
@@ -498,7 +498,7 @@ At `part2-algebra/06-affine-algebras.qmd:199`, the following addition would remo
 
 > If the orbit labels have a common factor $c$ and are divided by it, use the folded mass parameter $m_F^2=c\,m_P^2$, as in @sec-affine-folding.
 
-There is no new mathematical result here needing an originality label. The exact strong–weak S-matrix statement goes beyond elementary Lie theory and should retain an explicit conjectural/proposed status, consistent with chapter 14. The two-parent normalization calculation, dual-coupling conversion, twisted-period examples and higher-spin colour identity would benefit from cited author-maintained checks under the repository's check-script rule. The existing figure scripts are not cited in these chapters. The editor can have the drafting agent add appropriate paths or independently reproduce these checks in `textbook_code/`; referee scratch paths must not be cited in the book. No [Theorem] upgrade is recommended.
+There is no new mathematical result here needing an originality label. The exact strong–weak S-matrix statement goes beyond elementary Lie theory and should retain an explicit conjectural/proposed status, consistent with chapter 14. The two-parent normalization calculation, dual-coupling conversion, twisted-period examples and higher-spin colour identity would benefit from cited author-maintained checks under the repository's check-script rule. The existing figure scripts are not cited in these chapters. The editor can have the drafting agent add appropriate paths or independently reproduce these checks in `code/`; referee scratch paths must not be cited in the book. No [Theorem] upgrade is recommended.
 
 ## Claims not fully checked
 
@@ -517,7 +517,7 @@ There is no new mathematical result here needing an originality label. The exact
 
 ## Integration
 
-Integrated 2026-10-15 by Claude (Opus 5.5) on branch `part2-referee-integration`. The referee's three scripts are in `briefs/referee_algebra_05_06_report_scripts/`. Rerun from there, all three outputs agree line for line with the stored `.out` files. Following Rule 1, every item was checked again independently: by reading the cited source line, by hand, or with the new book script `textbook_code/lie_algebra_checks.py` (31 PASS, about 8 s), which is written from the book's definitions and imports nothing from the referee.
+Integrated 2026-10-15 by Claude (Opus 5.5) on branch `part2-referee-integration`. The referee's three scripts are in `briefs/referee_algebra_05_06_report_scripts/`. Rerun from there, all three outputs agree line for line with the stored `.out` files. Following Rule 1, every item was checked again independently: by reading the cited source line, by hand, or with the new book script `code/lie_algebra_checks.py` (31 PASS, about 8 s), which is written from the book's definitions and imports nothing from the referee.
 
 | Item | Verdict | How checked | Files changed |
 |---|---|---|---|

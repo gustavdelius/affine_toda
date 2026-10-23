@@ -1,6 +1,6 @@
 # Part VIII (defects): conventions, names and id registry
 
-This file is the single source of truth for the conventions of Part VIII, "Affine Toda theory with defects" (`part8-defects/`, chapters 36–43). It was written on 2026-10-11, before drafting. Every agent drafting or refereeing a chapter of Part VIII reads it first. Where a convention is marked *verified*, the named check in `textbook_code/` derives it; where it is marked *to verify*, the first agent that needs it confirms it by script and reports.
+This file is the single source of truth for the conventions of Part VIII, "Affine Toda theory with defects" (`part8-defects/`, chapters 36–43). It was written on 2026-10-11, before drafting. Every agent drafting or refereeing a chapter of Part VIII reads it first. Where a convention is marked *verified*, the named check in `code/` derives it; where it is marked *to verify*, the first agent that needs it confirms it by script and reports.
 
 The plan of the part is recorded in the memory note `defects-part` and in the plan file `~/.claude/plans/system-reminder-you-are-operating-indexed-stroustrup.md`.
 

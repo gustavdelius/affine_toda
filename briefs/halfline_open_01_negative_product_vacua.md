@@ -12,7 +12,7 @@ Related loose ends: the quantum point $s=-1$ has no known boundary condition (`s
 
 ## What the book already has
 
-Read `sec-images-boundary`, `sec-real-coupling-vacua`, `sec-classical-reflection-factors`, `sec-boundary-types` (`tbl-boundary-types`, last two rows) in ch. 31; `sec-epsilon-constraint` in ch. 32; `sec-neumann-duality` and `sec-solitonic-boundaries` in ch. 35. Scripts: `textbook_code/boundary_vacua.py`, `boundary_images.py`, `boundary_classical.py`, `particle_reflection.py`. Facts to use:
+Read `sec-images-boundary`, `sec-real-coupling-vacua`, `sec-classical-reflection-factors`, `sec-boundary-types` (`tbl-boundary-types`, last two rows) in ch. 31; `sec-epsilon-constraint` in ch. 32; `sec-neumann-duality` and `sec-solitonic-boundaries` in ch. 35. Scripts: `code/boundary_vacua.py`, `boundary_images.py`, `boundary_classical.py`, `particle_reflection.py`. Facts to use:
 
 - At imaginary coupling, for $h$ odd, every pattern with $\prod C_j=-1$ is a coweight shift of $C\equiv-1$; for $h$ even no image solution is known (`tbl-boundary-types`).
 - At real coupling, $\vec\phi=0$ satisfies the boundary condition only when all $C_j$ are equal (or Neumann). For $C\equiv-1$ the linearized factor (`eq-linear-reflection`) has classical boundary bound states for every $a\ne h/2$.

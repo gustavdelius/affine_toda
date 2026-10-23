@@ -19,7 +19,7 @@ import sys
 import itertools
 import numpy as np
 
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'textbook_code'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'code'))
 import boundary_common as bc   # noqa: E402
 
 pi = np.pi

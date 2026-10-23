@@ -1,5 +1,5 @@
 """Referee check of prp-soliton-preserving-half (ch. 30) and the three-soliton
-images of ch. 31, written from scratch (no textbook_code imports).
+images of ch. 31, written from scratch (no code imports).
 
 Conventions (book, ch. 10 and ch. 30): a_n^(1), h=n+1, alpha_j = e_j - e_{j+1}
 (alpha_0 = e_h - e_1), |alpha|^2 = 2, m = beta = 1.

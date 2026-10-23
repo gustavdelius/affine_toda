@@ -43,7 +43,7 @@ Experience in this repository is that every adversarial referee pass finds real 
 
 ## Already verified (do not redo unless you find a reason)
 
-**By script** (`textbook_code/`, see its README).
+**By script** (`code/`, see its README).
 
 `boundary_coideal.py` (37 checks):
 - The coproduct identity, and the parity-symmetric normalization $q^{-1}fk=k^{1/2}fk^{1/2}$.

@@ -7,7 +7,7 @@ import sys
 import numpy as np
 import mpmath as mp
 from pathlib import Path
-sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'textbook_code'))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2] / 'code'))
 from defect_common import sg_transmission_scalar
 
 LAM = 1.37

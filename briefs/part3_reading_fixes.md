@@ -95,13 +95,13 @@ Scope: fix the items below in place. Items A1–A3 and A5 need a check against t
 - $\Theta$ maps solutions to solutions: $\overline{\omega^{ja}}=\omega^{j(h-a)}$ and $(a,\theta,\xi)\mapsto(\bar a,\bar\theta,\bar\xi)$.
 - Isolated zeros of $\tau_j$ in the real $(x,t)$ plane: one complex condition, two real conditions.
 - Gap ids H6 and H11 of `28-twelve-gaps.qmd` agree with the status claimed in chapter 11.
-- All 59 `@` labels and all 28 citation keys used in Part III resolve, and `textbook_code/toda_classical.py` exists.
+- All 59 `@` labels and all 28 citation keys used in Part III resolve, and `code/toda_classical.py` exists.
 
 ## E. Verification checklist for the agent who makes the fixes
 
 1. Re-run the label check: every `@sec-`, `@eq-`, `@prp-`, `@exr-`, `@cnj-` and `@thm-` in `part3-classical/` resolves to an anchor elsewhere in the book (exclude `.claude/` and `_site/`).
 2. For A1, recompute the degree of the species-$a$ soliton at a short node of $c_2^{(1)}$ from its $\tau$-function before editing the sentence.
-3. For A2, A3 and A6, check the sign and the factor by direct computation with `textbook_code/toda_classical.py` or a short script.
+3. For A2, A3 and A6, check the sign and the factor by direct computation with `code/toda_classical.py` or a short script.
 4. For each notation rename (C3–C10), grep the whole book (excluding `.claude/` and `_site/`) for the old symbol in the same meaning, and change only those occurrences.
 5. Report what changed, what was left, and anything you could not verify.
 

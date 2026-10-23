@@ -2,7 +2,7 @@
 
 Files written (nothing else touched, nothing committed):
 - `part8-defects/43-particle-transmission.qmd` (266 lines, replaces the skeleton; all skeleton ids kept)
-- `textbook_code/defect_particle_transmission.py` (new; imports only from `boundary_common`, `defect_common`)
+- `code/defect_particle_transmission.py` (new; imports only from `boundary_common`, `defect_common`)
 - `briefs/draft_ch43_checkpoint.md`, `briefs/draft_ch43_report.md`
 - Scratch (not in repo): `/tmp/claude-1000/-home-gustav-Git-affine-toda--claude-worktrees-integrable-defects-framework-a54a84/cfddf2dd-7e99-4c1c-b8f5-c799ea33aced/scratchpad/ch43/` (`breather.py`, `breather_all.py`, `doubled.py`, `b6b.py`, `b6c.py`)
 
@@ -59,7 +59,7 @@ A python check confirmed that every `@`-reference in the chapter resolves to an 
 
 ## 2. Script output and runtime
 
-`python3 textbook_code/defect_particle_transmission.py` (from `textbook_code/`): **8 PASS, 0 FAIL**: 62 s wall time when run alone (final run, after the last edits), 120 s on a first run under load from parallel scratch jobs; check (f) takes most of it.
+`python3 code/defect_particle_transmission.py` (from `code/`): **8 PASS, 0 FAIL**: 62 s wall time when run alone (final run, after the last edits), 120 s on a first run under load from parallel scratch jobs; check (f) takes most of it.
 
 ```
 PASS (a) sine-Gordon: ... = T^cl_1 at h = 2, for lambda = 1.37, 2.6 [2e-13; proportionality 8e-16]
@@ -178,7 +178,7 @@ PASS (g) real-coupling vacuum: B_d/|fields|^2 >= 2.34e-01 on random samples, B_d
 4. **Ch. 40, `tbl-boundary-defect-algebra`, third column.** It could mention the a_r case via `prp-dpt-doubled`.
 5. **Ch. 35, problem 10.** Still on the global pending list; it could now point to `sec-defect-open-problems`.
 6. **Status file.** Add the ch. 43 row (`defect_particle_transmission.py`, 8 PASS, 62 s) and the verification record of §3.
-7. **`textbook_code/README.md`.** Add a row for `defect_particle_transmission.py` (ch. 43, 8 checks, about 1 min). No changes to `defect_common.py`; all helpers are local to the script.
+7. **`code/README.md`.** Add a row for `defect_particle_transmission.py` (ch. 43, 8 checks, about 1 min). No changes to `defect_common.py`; all helpers are local to the script.
 
 **Missing bib keys:** none needed; every cited key exists.
 - Jiang 2017 is `jiang2017` (arXiv:1703.03562, verified).

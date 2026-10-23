@@ -10,7 +10,7 @@ on the e_1 equation of the untwisted diagonal with symbolic scalar)."""
 import sys
 import numpy as np
 import sympy as sp
-sys.path.insert(0, '/home/gustav/Git/affine_toda/.claude/worktrees/integrable-defects-framework-a54a84/textbook_code')
+sys.path.insert(0, '/home/gustav/Git/affine_toda/.claude/worktrees/integrable-defects-framework-a54a84/code')
 from defect_common import sg_transmission_scalar
 
 lam = 1.37

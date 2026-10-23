@@ -9,13 +9,13 @@ Brief: `briefs/referee_textbook.md`. Date: 2026-10-10. No repository file was ed
 - 14:61 (whether the breather identification fixes $B(\beta)$ exactly);
 - 22:28 (whether the $\mathbf{27}$ R-matrix is in [@gmw1996]);
 - the optional clarifications at 03:111, 04:136 and 16:70;
-- the suggested additions to `textbook_code/`;
+- the suggested additions to `code/`;
 - the open question of the time-delay claim for $a_n$, $n\ge2$ (item 13).
 
 **How it was done.**
 - Eight independent referee agents covered disjoint item sets: bibliography; q conventions and crossing; tensor-product graph and ch. 7–8; Part I; ch. 5–6 and appendix A; Part III; Parts IV–V; Parts VI–VII framing.
 - Every verdict rests on a derivation or a computation. Literature was used only to confirm, never as the sole basis.
-- The orchestrator re-ran the baseline: all nine `textbook_code/` scripts pass, with no FAIL.
+- The orchestrator re-ran the baseline: all nine `code/` scripts pass, with no FAIL.
 - The orchestrator independently spot-checked the findings that change the book most:
   - the crossing-sign resolution, by re-running the agents' scripts **and** the repository's own `sign_n1.py`/`sign_n2.py` with q → −q;
   - the floating-H bubble computation, re-run;
@@ -397,7 +397,7 @@ Replace 03:181 with:
 **Crossing of `eq-sg-s0` at λ < 1: correct.**
 - Direct integral at λ = 0.7 and 0.4: correct to 1e-21.
 - Gamma-product continuation at λ = 0.4–3.7: correct to 1e-20, including 2×2 unitarity and S_R crossing.
-- The continuation, which would be worth adding to `textbook_code/sine_gordon.py`, is S₀(θ) = −∏_{n≥0}[Γ(a_n+z)Γ(b_n−z)/(Γ(a_n−z)Γ(b_n+z))]^{(−1)ⁿ}, with a_n = 1+nλ, b_n = (n+1)λ, z = iλθ/π.
+- The continuation, which would be worth adding to `code/sine_gordon.py`, is S₀(θ) = −∏_{n≥0}[Γ(a_n+z)Γ(b_n−z)/(Γ(a_n−z)Γ(b_n+z))]^{(−1)ⁿ}, with a_n = 1+nλ, b_n = (n+1)λ, z = iλθ/π.
 - **But the convergence strip at 03:138 is wrong for λ < 1.** At large t the integrand behaves like e^{(|Im θ|−min(ξ,π))t}; at λ = 0.7 and Im θ = 3.3 it grows (1.19, 14.1, 224 at t = 20, 40, 60). Replace "converges for $\lvert\operatorname{Im}\theta\rvert<\xi$" with "converges for $\lvert\operatorname{Im}\theta\rvert<\min(\xi,\pi)$".
 - The book correctly calls λ < 1 the repulsive regime; the brief's "attractive" was a slip.
 
@@ -1004,7 +1004,7 @@ Every exercise was worked at least in outline, and every number or formula was c
 
 ## Scripts and outputs
 
-All scripts are in `referee_textbook_scripts/` next to this report. Each needs the copies of `textbook_code/*.py` or `foundations_code/hirota/*.py` that sit in the same folder. The full source and output of the essential ones are reproduced in the agents' reports. The TPG agent's report is kept verbatim as `(the TPG agent report, not kept in the repository)`.
+All scripts are in `referee_textbook_scripts/` next to this report. Each needs the copies of `code/*.py` or `foundations_code/hirota/*.py` that sit in the same folder. The full source and output of the essential ones are reproduced in the agents' reports. The TPG agent's report is kept verbatim as `(the TPG agent report, not kept in the repository)`.
 
 **`referee_textbook_scripts/part1/`**
 
@@ -1086,9 +1086,9 @@ All scripts are in `referee_textbook_scripts/` next to this report. Each needs t
 
 **`referee_textbook_scripts/spot/`** holds the orchestrator's spot-checks: the repository's sign scripts at ±q, and the texts of the DGZ papers.
 
-**Baseline.** `textbook_code/` re-run on 2026-10-10. Distinct PASS lines per script: sine_gordon 2, sixvertex 8, universal_r 5, toda_classical 11, smatrix_simply_laced 11, semiclassics 7, rsos_qdims 2, algebra_data 6, spin1_tpg 2. No FAIL.
+**Baseline.** `code/` re-run on 2026-10-10. Distinct PASS lines per script: sine_gordon 2, sixvertex 8, universal_r 5, toda_classical 11, smatrix_simply_laced 11, semiclassics 7, rsos_qdims 2, algebra_data 6, spin1_tpg 2. No FAIL.
 
-**Suggested additions to `textbook_code/`:**
+**Suggested additions to `code/`:**
 - the Gamma-product S₀ (`sg_s0.py`);
 - `bootstrap_conv.py`;
 - `qdict.py` together with a crossing-sign check;

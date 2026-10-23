@@ -7,7 +7,7 @@ Sector zeta = 1 of Z (x) Z, Z the cyclic shift; deviation = max ||Lambda| - 1| o
 """
 import sys
 import numpy as np
-sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'textbook_code'))
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..', 'code'))
 from boundary_common import an_vector, rcheck, q_phys
 
 n, d = 2, 3

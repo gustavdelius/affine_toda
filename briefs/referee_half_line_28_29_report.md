@@ -139,7 +139,7 @@ This is the report of the 2026-10-11 referee pass on `referee_half_line_28_29.md
 | `ref_uvir_shg.py` | continued UV–IR relation equals the CT/CC relation | 1e-16 |
 
 ## Integration (2026-10-11)
-Integrated into `28-boundary-scattering.qmd` and `29-boundary-sine-gordon.qmd`; new checks appended to `textbook_code/boundary_axioms.py` (check 6), `boundary_sine_gordon.py` (checks 9–13) and `shg_boundary_breathers.py` (check 8). All lines PASS (16, 31 and 9; runtimes about 1 s, 55 s and 8 s). The new keys `corrigan_taormina2000` and `friedan_konechny2004` are cited but not yet in `references.bib`.
+Integrated into `28-boundary-scattering.qmd` and `29-boundary-sine-gordon.qmd`; new checks appended to `code/boundary_axioms.py` (check 6), `boundary_sine_gordon.py` (checks 9–13) and `shg_boundary_breathers.py` (check 8). All lines PASS (16, 31 and 9; runtimes about 1 s, 55 s and 8 s). The new keys `corrigan_taormina2000` and `friedan_konechny2004` are cited but not yet in `references.bib`.
 
 **Integrated**
 - Item 11 / finding 1: boundary CDD factor is $f_x(\theta)$; ch28 text after the CDD display and `exr-boundary-cdd` corrected; check 6 of `boundary_axioms.py` (both conditions, crossing-unitarity of $K_{(\mathbb 1)}f_x$, $K_b/K_{(\mathbb 1)}$, pole positions).

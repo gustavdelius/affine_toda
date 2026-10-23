@@ -1,6 +1,6 @@
 # Draft report: chapter 39, "Solitons and particles through a defect"
 
-Drafted 2026-10-12 by Claude (Opus) from `briefs/draft_ch39.md` plus the later instructions (reuse ch. 38's `eq-dc-ar-delay`, derive the type-I₊ delays, ch. 38 obligations). Files: `part8-defects/39-defect-solitons.qmd` (236 lines, 38.5 kB; ch. 31 is 36.7 kB), `textbook_code/defect_solitons_an.py` (9 checks, all PASS, about 10 s). No other file was edited and no git command that changes the index or the working tree was run.
+Drafted 2026-10-12 by Claude (Opus) from `briefs/draft_ch39.md` plus the later instructions (reuse ch. 38's `eq-dc-ar-delay`, derive the type-I₊ delays, ch. 38 obligations). Files: `part8-defects/39-defect-solitons.qmd` (236 lines, 38.5 kB; ch. 31 is 36.7 kB), `code/defect_solitons_an.py` (9 checks, all PASS, about 10 s). No other file was edited and no git command that changes the index or the working tree was run.
 
 ## 1. Chapter summary
 
@@ -18,7 +18,7 @@ Sections (all skeleton ids kept):
 
 **New ids** (all prefixed `ds-`, only in this chapter): `eq-ds-class-shift`, `eq-ds-class-energy`, `eq-ds-delay-phase`, `eq-ds-absorption`, `eq-ds-bootstrap`, `prp-ds-absorption`, `exr-ds-class`, `exr-ds-linear`, `exr-ds-time-reversal`, `exr-ds-selection`, `exr-ds-absorption`, `exr-ds-bootstrap`, `exr-ds-breather`, `exr-ds-frozen`. All cross-references resolve to existing ids (grep), all citation keys exist in `references.bib`; no new bib keys needed.
 
-## 2. Script output (`python3 textbook_code/defect_solitons_an.py`, about 10 s)
+## 2. Script output (`python3 code/defect_solitons_an.py`, about 10 s)
 
 ```
 PASS delays (a_2, a_3, all species, both types, every class p): ... at 7 times [res 1e-13; class-0 delay in class p != 0: >= 3.98]; least-squares z agrees to 5e-16; time reversal I_-(sigma) -> I_+(1/sigma) [2e-14]; B_d(phi, psi + 2 pi lambda_p/beta; sigma) = B_d(phi, psi; sigma e^(-+2 pi i p/h)) + const, root shifts invariant [3e-14]; = BCZ (6.2) at theta -> -theta = cz2007 (2.20) at a -> h - a [2e-15]
@@ -67,7 +67,7 @@ No check failed. One development note: a first version of check (c) assumed the 
 ## 5. Requests
 
 **Edits elsewhere (integration phase):**
-- `textbook_code/README.md`: row for `defect_solitons_an.py` (ch. 39; ids `eq-an-defect-delay`, `prp-an-defect-delay`, `eq-ds-class-shift`, `eq-ds-class-energy`, `prp-stored-charge`, `prp-ds-absorption`, `eq-ds-bootstrap`, `eq-an-linear-transmission`, `prp-an-linear-transmission`, `prp-defect-frozen-soliton`; 9 checks; about 10 s).
+- `code/README.md`: row for `defect_solitons_an.py` (ch. 39; ids `eq-an-defect-delay`, `prp-an-defect-delay`, `eq-ds-class-shift`, `eq-ds-class-energy`, `prp-stored-charge`, `prp-ds-absorption`, `eq-ds-bootstrap`, `eq-an-linear-transmission`, `prp-an-linear-transmission`, `prp-defect-frozen-soliton`; 9 checks; about 10 s).
 - `part8-defects/38-defect-conditions.qmd`, end of `sec-defect-backlund-an`: it promises that "@sec-defect-solitons develops ... the absence of absorption at real rapidity except for self-conjugate solitons". With charged jumps this is only true in class 0; suggest "except for self-conjugate solitons, unless the defect carries a charged jump (@prp-ds-absorption)". Also its sentence "the phase of $z_a$ is what moves the topological charge ... to a neighbouring weight" could say "along its cycle of charges (@prp-stored-charge)".
 - `part8-defects/37-defect-sine-gordon.qmd` (`prp-half-soliton` discussion): optional pointer to `prp-defect-frozen-soliton` (the a_r version is an I₋I₊ pair up to the π-line).
 - `part3-classical/10-solitons.qmd` `sec-topological-charges`: optional pointer to `prp-stored-charge` (the defect moves charges along the π-orbit and never reaches missing charges).

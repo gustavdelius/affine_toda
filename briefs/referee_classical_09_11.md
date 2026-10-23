@@ -41,8 +41,8 @@ The part page is `part3-classical/part.qmd`. The figures and their captions are 
 - This is the first pass on Part III by a model other than Claude.
 
 **Check scripts.** Each prints one PASS or FAIL line per check. They are the drafter's checks, not evidence.
-- `textbook_code/toda_classical.py` (11 checks, about 3 minutes). It is cited in chapters 9 and 10; its row in `textbook_code/README.md` lists what it checks.
-- Four figure scripts, each 3–14 s: `textbook_code/figures/ch9_f13_dorey_d4.py` (10 checks), `ch10_f14_topological_charges.py` (4), `ch10_f15_two_soliton_shift.py` (7) and `ch11_f16_breather_theta.py` (4).
+- `code/toda_classical.py` (11 checks, about 3 minutes). It is cited in chapters 9 and 10; its row in `code/README.md` lists what it checks.
+- Four figure scripts, each 3–14 s: `code/figures/ch9_f13_dorey_d4.py` (10 checks), `ch10_f14_topological_charges.py` (4), `ch10_f15_two_soliton_shift.py` (7) and `ch11_f16_breather_theta.py` (4).
 
   The figure scripts overwrite the committed SVGs in `part3-classical/figures/` whatever `OUT_DIR` says. If you run them, report it, and do not restore the files yourself; the editor will.
 

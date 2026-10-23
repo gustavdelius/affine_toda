@@ -2,7 +2,7 @@
 
 **Referee:** Adversarial Mathematical-Physics Referee  
 **Scope:** `part8-defects/36-defect-scattering.qmd` (Chapter 36) and `part8-defects/37-defect-sine-gordon.qmd` (Chapter 37)  
-**Convention & Verification Base:** `briefs/part8_defects_conventions.md`, `briefs/part8_defects_status.md`, `textbook_code/`  
+**Convention & Verification Base:** `briefs/part8_defects_conventions.md`, `briefs/part8_defects_status.md`, `code/`  
 
 ---
 
@@ -83,7 +83,7 @@ Below is the itemized report for items 1–21 (including 17a and 17b).
 - **Verdict:** Correct.
 - **Justification:**
   - The twist defect $\mathbb T_\mu(\theta) = e^{i\alpha\cdot\mu}$ and $\bar{\mathbb T}_\mu(\theta) = e^{-i\alpha\cdot\mu}$ satisfies the braid triangle relation because $\check R$ conserves topological charge ($[\check R, \Omega \otimes \Omega] = 0$). Unitarity ($e^{i\alpha\cdot\mu}e^{-i\alpha\cdot\mu} = 1$) and crossing ($\mu_{\bar a} = -\mu_a$) hold trivially.
-  - *Common seam requirement:* In finite volume, commuting transfer matrices $[T_i^D, T_j^D] = 0$ require the twist defect to sit at a fixed spatial coordinate on the circle ($x = 0$), so that every particle crosses it at the same point. Applying the twist factor $\Omega_j$ as the last step of each particle's separate cyclic product $T_j^{\rm cyc} = \Omega_j T_j$ corresponds to inserting the twist at different positions for different particles. As verified in `textbook_code/defect_axioms.py` (lines 438–446), $T_i^{\rm cyc}$ and $T_j^{\rm cyc}$ have identical spectrum sector by sector but fail to commute (commutator norm $\approx 0.17$).
+  - *Common seam requirement:* In finite volume, commuting transfer matrices $[T_i^D, T_j^D] = 0$ require the twist defect to sit at a fixed spatial coordinate on the circle ($x = 0$), so that every particle crosses it at the same point. Applying the twist factor $\Omega_j$ as the last step of each particle's separate cyclic product $T_j^{\rm cyc} = \Omega_j T_j$ corresponds to inserting the twist at different positions for different particles. As verified in `code/defect_axioms.py` (lines 438–446), $T_i^{\rm cyc}$ and $T_j^{\rm cyc}$ have identical spectrum sector by sector but fail to commute (commutator norm $\approx 0.17$).
 
 ---
 

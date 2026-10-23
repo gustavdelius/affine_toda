@@ -1,6 +1,6 @@
 # Data for the affine algebras {#sec-app-algebra-data}
 
-This appendix collects the Lie-algebraic data used throughout the book. Normalizations are those of @sec-lie-algebraic-data: long roots have squared length 2, the potential is (-@eq-imaginary-potential), and masses are in units of the parameter $m$. The masses of the simply-laced and untwisted non-simply-laced theories are computed in `textbook_code/algebra_data.py`, which also checks the closed forms below.
+This appendix collects the Lie-algebraic data used throughout the book. Normalizations are those of @sec-lie-algebraic-data: long roots have squared length 2, the potential is (-@eq-imaginary-potential), and masses are in units of the parameter $m$. The masses of the simply-laced and untwisted non-simply-laced theories are computed in `code/algebra_data.py`, which also checks the closed forms below.
 
 ## Untwisted algebras {#sec-app-untwisted}
 

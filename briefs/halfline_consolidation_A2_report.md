@@ -127,10 +127,10 @@ Code: `particle_reflection.py` blocks and S-matrix (exec of its definitions); my
 - Claim 5: real-coupling Dirichlet is not integrable for $n\ge2$.
 - The auxiliary identities $F_{11}(x-2T)=\dots$ and $c=U(\mu_a)c_0$; the second is superseded by the full amplitude check.
 
-## 2. Check script for `textbook_code/`
+## 2. Check script for `code/`
 File: `/tmp/claude-1000/-home-gustav-Git-affine-toda/b441568d-def3-432f-aa17-ea3eda7016d3/scratchpad/a2/sp_scalar.py` (copied to `briefs/halfline_consolidation_A2_scripts/`)
 
-It imports `boundary_common` and execs the definitions part of `particle_reflection.py`, located through `boundary_common.__file__`. Run it with `PYTHONPATH=…/textbook_code`. Its docstring names the book ids and conventions. Runtime 4.5 minutes. Output (`sp_scalar.log`):
+It imports `boundary_common` and execs the definitions part of `particle_reflection.py`, located through `boundary_common.__file__`. Run it with `PYTHONPATH=…/code`. Its docstring names the book ids and conventions. Runtime 4.5 minutes. Output (`sp_scalar.log`):
 
 ```
 PASS bulk crossing with v_i <-> vbar_i: Rc_VV(mu) = t(mu) Rc_(VbarV, VVbar)(T - mu) [4e-15], transmission entries = 1 [3e-15]; so S_(VbarV) = S^T(T - mu) Rc (n = 2, 3; omega = 0.37, 1.29)
@@ -181,7 +181,7 @@ $$ {#eq-sp-scalar}
 solve (-@eq-sp-scalar-eqs) for $n=1,2,3$ and every $l$. They satisfy the soliton bootstrap $V^{\otimes n}\to\bar V$ for $n\le3$, and for $n=4$ at $l=0,2,5$: $\bar V(\theta)$ sits in $V(\theta_1)\otimes\dots\otimes V(\theta_n)$ with $\mu_k=\mu-T+k\omega$, and reflecting the $n$ constituents with $aK_V$ and the bulk S-matrix gives $\tilde b(\mu)K_{\bar V}(\theta)$, matrix and scalar. For $n=1$, $l=1$, $a(\mu)(-\frac T2)_I^2K_V$ is Ghoshal and Zamolodchikov's Dirichlet matrix at $\xi_B=\pi\varepsilon-\frac\pi2$, the limit $\vartheta\to\infty$ of (-@eq-bsg-k-full).
 :::
 
-Checked in `textbook_code/sp_scalar.py`, the functional equations to $10^{-26}$ and the matrix parts to $10^{-14}$. The equations (-@eq-sp-scalar-eqs) are invariant under $a\to a\,e^{m\theta}$, $\tilde b\to(-1)^m\tilde b\,e^{-m\theta}$, $m\in\mathbb Z$; the soliton bootstrap selects $m=0$, and it fixes the overall sign. The factor $e^{(1-l)\omega\theta}$ centres the exponents of $K_V$: $e^{(1-l)\omega\theta}K_V$ has the exponents $-(l-1),\dots,l-1$ on the block and $-(n-l),\dots,n-l$ off it.
+Checked in `code/sp_scalar.py`, the functional equations to $10^{-26}$ and the matrix parts to $10^{-14}$. The equations (-@eq-sp-scalar-eqs) are invariant under $a\to a\,e^{m\theta}$, $\tilde b\to(-1)^m\tilde b\,e^{-m\theta}$, $m\in\mathbb Z$; the soliton bootstrap selects $m=0$, and it fixes the overall sign. The factor $e^{(1-l)\omega\theta}$ centres the exponents of $K_V$: $e^{(1-l)\omega\theta}K_V$ has the exponents $-(l-1),\dots,l-1$ on the block and $-(n-l),\dots,n-l$ off it.
 
 **CDD factors.** The remaining freedom is $a\to\sigma(\mu)a$, $\tilde b\to\sigma(T-\mu)\tilde b$ with $\sigma(\mu)\sigma(-\mu)=1$ and $\sigma$ of period $2T$ in $\mu$. Unlike the soliton-conjugating case (-@eq-an-diagonal-scalar-eqs), this includes single blocks $(x)_I$. A block $(x)_I$ in $\sigma$ multiplies the soliton bootstrap by $\sin\frac{\pi(\mu-T-x)}\omega\big/\sin\frac{\pi(\mu-T+x)}\omega$, which is $1$ for $x\in\omega\mathbb Z$ and $-1$ for $x\in\omega(\mathbb Z+\frac12)$; for even $n$ a factor $-1$ can be absorbed in the overall sign. So the bootstrap does not fix the CDD factor. It excludes, for even $n$, the factor $(-\frac T2)_I^2$ that reproduces Ghoshal and Zamolodchikov at $n=1$, while other factors that reduce to it at $n=1$ pass, such as $-[(\frac T2)_I^2(\frac T2-\frac\omega2)_I(\frac T2+\frac\omega2)_I]^{-1}$ and $\sigma=(-\frac\omega2)_I^2$.
 ```
@@ -201,7 +201,7 @@ times $\sigma(\mu_a)\sigma(T-\mu_b)$ for a CDD factor $\sigma$. The reverse tran
 $$
 K_0\to\frac{(\frac h2)(\frac h2+\frac B2)(\frac h2-1)(\frac h2-1-\frac B2)(\frac h2+1+\frac B2)}{(\frac h2-1+\frac B2)} .
 $$
-The particle amplitudes $L_a=K_{a\to h-a}$ given by the bulk boundary bootstrap, $L_c(\theta)=L_a(\theta+iu_a)\,S_{a,h-b}(2\theta+iu_a-iu_b)\,L_b(\theta-iu_b)$, satisfy unitarity $L_a(\theta)L_{h-a}(-\theta)=1$ and crossing-unitarity $L_a(\frac{i\pi}2-\theta)=S_{aa}(2\theta)L_a(\frac{i\pi}2+\theta)$; for reflection into the conjugate the pair in the boundary state is $aa$, so $S_{aa}$ replaces $S_{a\bar a}$ of (-@eq-boundary-crossing-diagonal). The bootstrap closes at every fusing, and $L_n$ is the soliton-side $K_{n\to1}$, for the minimal factor and for the CDD factors allowed by the soliton bootstrap that we tested; $(-\frac T2)_I^2$ breaks it for even $n$. As $B\to0$, $L_1\to e^{-2\pi il/h}g_{h/2}\,g_{h/2-1}\,E_\eta$ with $g_x=(\sinh\theta+i\sin\frac{\pi x}h)/(\sinh\theta-i\sin\frac{\pi x}h)$, for all these factors, which depends on $\theta$ when $h\ge3$ (`textbook_code/sp_scalar.py`).
+The particle amplitudes $L_a=K_{a\to h-a}$ given by the bulk boundary bootstrap, $L_c(\theta)=L_a(\theta+iu_a)\,S_{a,h-b}(2\theta+iu_a-iu_b)\,L_b(\theta-iu_b)$, satisfy unitarity $L_a(\theta)L_{h-a}(-\theta)=1$ and crossing-unitarity $L_a(\frac{i\pi}2-\theta)=S_{aa}(2\theta)L_a(\frac{i\pi}2+\theta)$; for reflection into the conjugate the pair in the boundary state is $aa$, so $S_{aa}$ replaces $S_{a\bar a}$ of (-@eq-boundary-crossing-diagonal). The bootstrap closes at every fusing, and $L_n$ is the soliton-side $K_{n\to1}$, for the minimal factor and for the CDD factors allowed by the soliton bootstrap that we tested; $(-\frac T2)_I^2$ breaks it for even $n$. As $B\to0$, $L_1\to e^{-2\pi il/h}g_{h/2}\,g_{h/2-1}\,E_\eta$ with $g_x=(\sinh\theta+i\sin\frac{\pi x}h)/(\sinh\theta-i\sin\frac{\pi x}h)$, for all these factors, which depends on $\theta$ when $h\ge3$ (`code/sp_scalar.py`).
 ```
 
 **(c) ch. 35, open problem 11.** Replace it with:
@@ -227,7 +227,7 @@ All in `/tmp/claude-1000/-home-gustav-Git-affine-toda/b441568d-def3-432f-aa17-ea
 
 | File | Purpose |
 |---|---|
-| `sp_scalar.py` | the check script for `textbook_code/` |
+| `sp_scalar.py` | the check script for `code/` |
 | `sp_scalar.log` | its output |
 | `sp_lib.py` | book-code library: SP matrices, `rcheck` cache with gesvd fallback, `tensor_rep` |
 | `sp_mp.py` | 30-digit Ê, Λ, $F_{11}$, scalar factors |

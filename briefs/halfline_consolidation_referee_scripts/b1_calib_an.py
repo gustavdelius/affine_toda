@@ -2,7 +2,7 @@
 c_+ (prp-an-nondiagonal-scalar) was established in an earlier round: singlet in V(th_a) (x) Vbar(th_b),
 map (1 x K(th_a)) R (1 x K(th_b)^T) with K from eq-an-k-matrix."""
 import sys, numpy as np
-sys.path.insert(0,'.'); sys.path.insert(0,'../../textbook_code')
+sys.path.insert(0,'.'); sys.path.insert(0,'../../code')
 import boundary_common as bc
 from b1_dn_matrices import singlet
 pi=np.pi

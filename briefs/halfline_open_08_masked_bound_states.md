@@ -15,7 +15,7 @@ Two concrete targets in the book:
 
 ## What the book already has
 
-Read `sec-boundary-bound-states`, `sec-boundary-coleman-thun` (ch. 28, including the Mattsson–Dorey lemmas); `sec-coleman-thun` and `sec-dorey-formula` (bulk); `sec-boundary-spectrum-a2` (ch. 35). Scripts: `textbook_code/particle_reflection.py` (functions `K1nm`, `Kex`, `bbs`, `K1_a3`, `F`, `E`: excited-state amplitudes, bootstrap steps, energies), `boundary_axioms.py`, and the bulk pole tools in `foundations_code/bulk_poles.py`. The counting rule used so far: a diagram with $P$ on-shell propagators and $L$ loops gives a pole of order $P-2L$, lowered by one for every reflection at a zero (Dorey–Tateo–Watts).
+Read `sec-boundary-bound-states`, `sec-boundary-coleman-thun` (ch. 28, including the Mattsson–Dorey lemmas); `sec-coleman-thun` and `sec-dorey-formula` (bulk); `sec-boundary-spectrum-a2` (ch. 35). Scripts: `code/particle_reflection.py` (functions `K1nm`, `Kex`, `bbs`, `K1_a3`, `F`, `E`: excited-state amplitudes, bootstrap steps, energies), `boundary_axioms.py`, and the bulk pole tools in `foundations_code/bulk_poles.py`. The counting rule used so far: a diagram with $P$ on-shell propagators and $L$ loops gives a pole of order $P-2L$, lowered by one for every reflection at a zero (Dorey–Tateo–Watts).
 
 ## Literature
 

@@ -8,7 +8,7 @@ Scratch dir: `/tmp/claude-1000/-home-gustav-Git-affine-toda--claude-worktrees-in
 - [x] Step 1: scratch script `breather.py`: a_r lightest breather from ch. 41 matrices (singlet in V⊗V̄, both orders), compare with T^cl_k of eq-an-linear-transmission and cz2007 (7.5).
 - [x] Step 2: particle-factor checks (unitarity, crossing, Dorey bootstrap, CDD), sinh-Gordon/BS O(b²) check.
 - [x] Step 3: optional (f): a_r doubled-boundary expectation — TESTED, holds (see finding 4).
-- [x] Step 4: `textbook_code/defect_particle_transmission.py` written: 8 PASS lines (a, b1, b2, c, d, e, f, g), 120 s wall (f takes ~97 s). Scratch `b6b.py` running a_5 (h = 6) breathers for the record.
+- [x] Step 4: `code/defect_particle_transmission.py` written: 8 PASS lines (a, b1, b2, c, d, e, f, g), 120 s wall (f takes ~97 s). Scratch `b6b.py` running a_5 (h = 6) breathers for the record.
 - [x] Step 5: chapter written (266 lines), all refs and bib keys exist (python check), moved prp-dpt-doubled before the open-problem list.
 - [x] Step 6: report written; final script run 8 PASS in 62 s. DONE.
 - a_5 (h = 6) scratch: all five species at ω = 1.37, θ = 0.4+0.1i give T^cl_a to ≤ 5e-9 (`b6b.py`, `b6c.py`; gesdd SVD failed once for a = 4, gesvd fallback now in the script).

@@ -30,9 +30,9 @@ This is therefore the first **model-diverse** pass on Part II, and much of the c
 Weight your effort toward these. Neither chapter has labelled statements, items in Appendix E (original results) or Appendix D (corrections), and the text cites no check script.
 
 **Check scripts.** None is cited in the chapters. These scripts check some of their claims; each prints one PASS or FAIL line per check, and each runs in about a second:
-- `textbook_code/figures/ch5_f10_root_systems.py` (13 checks): $G_2$ data, $E_8$ Coxeter orbits and radii.
-- `textbook_code/figures/ch6_f11_folding.py` (8 checks): the $c_2^{(1)}$ and $g_2^{(1)}$ folds.
-- `textbook_code/algebra_data.py` (6 checks): classical masses of the untwisted theories, by folding.
+- `code/figures/ch5_f10_root_systems.py` (13 checks): $G_2$ data, $E_8$ Coxeter orbits and radii.
+- `code/figures/ch6_f11_folding.py` (8 checks): the $c_2^{(1)}$ and $g_2^{(1)}$ folds.
+- `code/algebra_data.py` (6 checks): classical masses of the untwisted theories, by folding.
 
 The figure scripts overwrite the committed SVGs in `part2-algebra/figures/` whatever `OUT_DIR` says. If you run them, report it, and do not restore the files yourself; the editor will.
 

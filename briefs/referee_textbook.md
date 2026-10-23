@@ -12,7 +12,7 @@ Find any object with `grep -rn '{#<id>}' part*/` (prefixes: `sec-`, `eq-`, `prp-
 
 ## Already verified (do not redo unless you find a reason)
 
-**By script** (`textbook_code/`, see its README; every script prints PASS lines):
+**By script** (`code/`, see its README; every script prints PASS lines):
 
 - `sine_gordon.py`: the integral representation `eq-sg-s0` satisfies crossing with `eq-sg-smatrix` (to $10^{-25}$, tested for $\lambda=1.5,1.2$ only); the breather `eq-sg-breather` solves the field equation.
 - `sixvertex.py`: `eq-six-vertex` solves Jimbo's equations; unitarity; the braid Yang–Baxter equation `eq-ybe-braid` in the printed order; `eq-six-vertex-eigenvalue`; the crossing data in `sec-qg-crossing` ($x_c=q^2$, $C=\left(\begin{smallmatrix}0&1\\-q&0\end{smallmatrix}\right)$, $c_u$); the sine-Gordon dictionary in `sec-six-vertex`, including the gauge to the principal gradation.

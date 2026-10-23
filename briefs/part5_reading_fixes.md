@@ -96,7 +96,7 @@ Scope: fix the items below in place. Items A3, A6 and A7 need the literature or 
 - Chapter 19 `prp-one-loop-mass`, step 3–5: $F_w$, the Frullani integral giving $\frac w{2\pi}\int_0^1\log(1-w^2+w^2u^2)du$, and $\int_0^1\log(\cos^2\theta+u^2\sin^2\theta)du=2\theta\cot\theta-2$, giving $\psi(\theta)$.
 - Chapter 19 phase-shift integral: $\int_0^\infty\frac{dk}{\sqrt{1+k^2}(k^2+w^2)}=\frac{\arccos w}{w\sqrt{1-w^2}}$ (check at $w\to1$ gives $1$).
 - Chapter 19 table: $\phi^4$ and sine-Gordon calibration; $a_2^{(1)}$ channel check (A1).
-- All 57 `@` labels and all 33 citation keys used in Part V resolve. The gap ids H7 and H8 match the claims in chapters 17 and 19. The code files cited in chapters 17 and 19 exist (`textbook_code/semiclassics.py`, `foundations_code/thimbles/`, `foundations_code/oneloop/`, `foundations_code/hirota/`).
+- All 57 `@` labels and all 33 citation keys used in Part V resolve. The gap ids H7 and H8 match the claims in chapters 17 and 19. The code files cited in chapters 17 and 19 exist (`code/semiclassics.py`, `foundations_code/thimbles/`, `foundations_code/oneloop/`, `foundations_code/hirota/`).
 
 ## E. Verification checklist for the agent who makes the fixes
 

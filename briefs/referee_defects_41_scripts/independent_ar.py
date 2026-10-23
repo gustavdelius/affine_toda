@@ -1,4 +1,4 @@
-"""Independent charge-sector computations; no imports from textbook_code.
+"""Independent charge-sector computations; no imports from code.
 
 All matrices use outgoing rows, incoming columns. Indices here run 0..h-1;
 node a joins a to a+1, so the affine node is h-1.

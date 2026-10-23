@@ -1,6 +1,6 @@
 import sys
-sys.path.insert(0, '/home/gustav/Git/affine_toda/textbook_code')
-src = open('/home/gustav/Git/affine_toda/textbook_code/particle_reflection.py').read()
+sys.path.insert(0, '/home/gustav/Git/affine_toda/code')
+src = open('/home/gustav/Git/affine_toda/code/particle_reflection.py').read()
 exec(src.split('# ---------------------------------------------------------------- 1. blocks')[0])
 
 def blkI(a, mu, T):

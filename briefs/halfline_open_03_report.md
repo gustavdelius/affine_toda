@@ -1,4 +1,4 @@
-<!-- Worker report, 2026-10-11. Model: Claude Opus 5.5, effort xhigh. Scope: full brief halfline_open_03_neumann_soliton_route.md, including the s=-1 bonus. Interrupted once by the usage limit and resumed. Saved verbatim by the coordinator. The worker's own scripts are in briefs/halfline_open_03_scripts/; they import unchanged copies of textbook_code/*.py, which must be copied next to them. -->
+<!-- Worker report, 2026-10-11. Model: Claude Opus 5.5, effort xhigh. Scope: full brief halfline_open_03_neumann_soliton_route.md, including the s=-1 bonus. Interrupted once by the usage limit and resumed. Saved verbatim by the coordinator. The worker's own scripts are in briefs/halfline_open_03_scripts/; they import unchanged copies of code/*.py, which must be copied next to them. -->
 
 ## Report: problem 3, Neumann amplitudes from the s=+1 soliton reflection matrix
 
@@ -134,7 +134,7 @@ All in `/tmp/claude-1000/-home-gustav-Git-affine-toda/0e38a99d-702a-40fb-99b7-74
 
 ## Integration (branch half-line-open-problems-integration)
 
-Basis: the worker report, the Gemini verdict, the Opus follow-up `halfline_open_03_referee_opus.md`, and the coordinator's own checks. The new `textbook_code/an_nondiagonal_scalar.py` (7 checks, all PASS, about 1 min) is built from the Opus follow-up scripts and the worker's closed forms, and was run by the coordinator.
+Basis: the worker report, the Gemini verdict, the Opus follow-up `halfline_open_03_referee_opus.md`, and the coordinator's own checks. The new `code/an_nondiagonal_scalar.py` (7 checks, all PASS, about 1 min) is built from the Opus follow-up scripts and the worker's closed forms, and was run by the coordinator.
 
 | Claims | Verdict | How it was checked | Book change |
 |---|---|---|---|
