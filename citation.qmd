@@ -1,6 +1,6 @@
 # Citing this book {#sec-citing .unnumbered}
 
-This is a living online book. The website is the canonical reading edition and may change as errors are corrected and further subject-matter validation is completed. Numbered releases will provide immutable snapshots for citations that need to identify an exact version.
+This is a living online book. The website is the canonical reading edition and may change as errors are corrected and readers' feedback is taken into account. Numbered releases will provide immutable snapshots for citations that need to identify an exact version.
 
 ## Current citation
 
@@ -8,7 +8,7 @@ Until the first archived release receives a DOI, cite the online book as:
 
 > Delius, Gustav, ed. (2026). *Affine Toda field theory: A unified review, with new results*. Living online monograph. <https://gustavdelius.github.io/affine_toda/>.
 
-The coordinating editor and the limited role of the subject-matter validators are described in @sec-about. Validators are not authors or editors of the whole book, and their names are not included in the book-level citation.
+The coordinating editor and the editorial model are described in @sec-about. The people thanked there for feedback are not authors or editors of the book, and their names are not included in the book-level citation.
 
 ### BibTeX
 
@@ -18,7 +18,7 @@ The coordinating editor and the limited role of the subject-matter validators ar
   title  = {Affine Toda Field Theory: A Unified Review, with New Results},
   year   = {2026},
   url    = {https://gustavdelius.github.io/affine_toda/},
-  note   = {Living online monograph; AI-drafted, with validation scoped to cited researchers' own work}
+  note   = {Living online monograph; AI-drafted and AI-validated}
 }
 ```
 
@@ -30,7 +30,7 @@ TI  - Affine Toda field theory: A unified review, with new results
 ED  - Delius, Gustav
 PY  - 2026
 UR  - https://gustavdelius.github.io/affine_toda/
-N1  - Living online monograph; AI-drafted, with validation scoped to cited researchers' own work
+N1  - Living online monograph; AI-drafted and AI-validated
 ER  -
 ```
 
@@ -41,6 +41,6 @@ The DOI is pending the first versioned archival release. Once Zenodo has reserve
 - the **concept DOI**, for citing the evolving book as a whole; and
 - a **version DOI**, for citing the exact release used.
 
-For claims depending on an equation, proof, computation or validation status, cite a version DOI and give the chapter, section or equation identifier. For a general reference to the project, use the concept DOI.
+For claims depending on an equation, proof, computation or status label, cite a version DOI and give the chapter, section or equation identifier. For a general reference to the project, use the concept DOI.
 
 The supporting software is distributed under the MIT License, while the book text and figures are distributed under CC BY 4.0. Licensing governs reuse; it does not change the preferred scholarly citation above.

@@ -10,10 +10,9 @@ book:
   subtitle: "A unified review, with new results"
   editor: Gustav Delius
   description: >-
-    An AI-drafted review and research monograph, with scoped
-    subject-matter validation, on affine Toda field theory, integrable quantum
-    field theory, solitons, quantum groups, exact S-matrices and integrable
-    boundaries.
+    An AI-drafted and AI-validated review and research monograph on affine
+    Toda field theory, integrable quantum field theory, solitons, quantum
+    groups, exact S-matrices and integrable boundaries.
   site-url: https://gustavdelius.github.io/affine_toda/
   open-graph: true
   twitter-card: true
@@ -126,10 +125,10 @@ citation:
   pdf-url: https://gustavdelius.github.io/affine_toda/affine-toda.pdf
   language: en
   abstract: >-
-    An AI-drafted review and research monograph, with scoped
-    subject-matter validation, covering integrable quantum field theory,
-    solitons, quantum groups, exact S-matrices, integrable boundaries and the
-    foundations of the imaginary-coupling theories.
+    An AI-drafted and AI-validated review and research monograph covering
+    integrable quantum field theory, solitons, quantum groups, exact
+    S-matrices, integrable boundaries and the foundations of the
+    imaginary-coupling theories.
   keyword: >-
     affine Toda field theory; integrable quantum field theory; solitons;
     quantum groups; exact S-matrices; integrable boundaries; integrable defects;
