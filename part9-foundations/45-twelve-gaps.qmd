@@ -69,7 +69,7 @@ The resulting picture is that imaginary-coupling ATFTs are valid **non-unitary**
 
 @fig-gap-map shows the same table at a glance: for each gap, the chapters that its status column cites, coloured by how far the gap is closed. The only gap coloured red, H11, is the one that remains open.
 
-![Which chapter addresses which of the twelve gaps. A filled square marks a chapter that the status column of the table below cites for that gap. Rows are coloured by status: closed (green), partly closed (orange), open (red).](figures/ch45_f33_gap_map.svg){#fig-gap-map fig-alt="Matrix with twelve rows for the gaps H1 to H12 and twelve columns for the chapters that address them. Coloured squares mark which chapters address each gap. Most gaps are addressed in chapters 45 to 49 or 17 to 19. Row H11 is red, H3, H7, H9, H10 and H12 are orange, the rest green."}
+![Which chapter addresses which of the twelve gaps. A filled square marks a chapter that the status column of the table below cites for that gap. Rows are coloured by status: closed (green), partly closed (orange), open (red).](figures/ch45_f33_gap_map.svg){#fig-gap-map fig-alt="Matrix with twelve rows for the gaps H1 to H12 and twelve columns for the chapters that address them. Coloured squares mark which chapters address each gap. Most gaps are addressed in chapters 46 to 50 or 18 to 20. Row H11 is red, H3, H7, H9, H10 and H12 are orange, the rest green."}
 
 | Gap | Content | Status |
 |---|---|---|

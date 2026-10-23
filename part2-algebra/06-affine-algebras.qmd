@@ -181,6 +181,8 @@ The algebras fall into two classes:
 
 Duality reverses the arrows of the affine Dynkin diagram. Folding a simply-laced diagram by a diagram automorphism gives every non-simply-laced algebra [@olive1983].
 
+**Superalgebras.** Lie superalgebras have even and odd generators, and their roots carry a parity. The invariant form on the roots is then indefinite in general, odd roots can be null, and a superalgebra can have several inequivalent bases of simple roots, so that its Dynkin diagram is not unique. Their affine versions are built as above [@vandeleur1989]. Everything in this chapter and in Parts III–IX concerns ordinary affine Lie algebras; the Toda theories of affine Lie superalgebras, which contain fermions, are the subject of @sec-super-toda.
+
 ## Exercises {#sec-affine-algebras-exercises}
 
 ::: {#exr-jacobi-central}

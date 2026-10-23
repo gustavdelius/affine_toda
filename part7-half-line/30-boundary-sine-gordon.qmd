@@ -294,6 +294,14 @@ Status, stated carefully:
 
 **Strong coupling and duality.** With @cnj-shg-e, $E\to0$ as $B\to2$ at fixed $a$. So in the strong-coupling limit $B\to2$ ($\beta\to\infty$; the self-dual point of $B\to2-B$ is $B=1$) every reflection factor with $\epsilon<0$ tends to the same function $-1/(1)^2$. This function also arises in a different limit: it is the classical ($B\to0$) reflection factor (-@eq-linear-reflection) of the uniform boundary $\epsilon=1$ [@corrigan_delius1999]. The Dirichlet factor $K_D$ is self-dual under $B\to2-B$.
 
+## Supersymmetric boundaries {#sec-bsg-super}
+
+The supersymmetric sine-Gordon theory adds a Majorana fermion to the boson, with the Yukawa coupling fixed by supersymmetry (@sec-super-shg). On the half-line, a boundary condition is supersymmetric if the boundary analogue of the supercharge is conserved, and integrable if, as in @sec-bsg-classical, a higher-spin charge is. The construction of the conserved charges is that of Ghoshal and Zamolodchikov: a bulk current with densities $T_{s+1},\Theta_{s-1}$ gives a conserved charge on the half-line if a combination of them is a total time derivative at the boundary, now for $s=\frac12$ (the supercharge) as well as for $s=3$.
+
+If the boundary action contains only the bulk fields, these two requirements leave no free parameter. Nepomechie showed that this restriction is too strong [@nepomechie2001]. He added a Hermitian fermionic degree of freedom $a$ that lives on the boundary, with kinetic term $ia\,\partial_ya$, as Ghoshal and Zamolodchikov did for the Ising model in a boundary magnetic field [@gz1994]. The boundary Lagrangian then contains a bosonic potential $B(\phi)$ and a coupling $f(\phi)\,a$ to the bulk fermion. Conservation of the spin-3 charge forces $B$ to be the bosonic boundary potential of @sec-bsg-classical, with its two parameters, and conservation of the supercharge determines $f$ up to an integration constant, which the spin-3 charge then fixes. The result is a two-parameter family of boundary conditions that are classically integrable and supersymmetric [@nepomechie2001, eqs. (16), (29)–(30)].
+
+For the reflection of the lowest breather supermultiplet Nepomechie proposed the breather factor of @sec-bsg-breathers times a $2	imes2$ supersymmetric factor. It satisfies the boundary Yang–Baxter equation, unitarity and boundary cross-unitarity, and commutes with a boundary supercharge. It has three parameters, between which one relation is expected but has not been determined [@nepomechie2001, Sec. 4]. Whether a boundary degree of freedom is needed is the same question as for the dynamical boundary of @sec-bsg-dynamical. Here it is forced by supersymmetry, not added by choice. These are classical results and a conjecture; no supersymmetric version of the soliton reflection matrix is derived in this book.
+
 ## Exercises {#sec-boundary-sine-gordon-exercises}
 
 ::: {#exr-bsg-dictionary}

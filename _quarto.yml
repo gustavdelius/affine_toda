@@ -53,6 +53,7 @@ book:
         - part4-real-coupling/13-simply-laced.qmd
         - part4-real-coupling/14-non-simply-laced.qmd
         - part4-real-coupling/15-beyond-smatrix.qmd
+        - part4-real-coupling/16-superalgebra-toda.qmd
     - part: part5-semiclassics/part.qmd
       chapters:
         - part5-semiclassics/17-dhn.qmd

@@ -7,7 +7,7 @@ This appendix lists the original results of the book, part by part, so that a re
 
 - **[Theorem, given additivity of the higher charges]** A selection rule from the antilinear symmetry $\Theta$. If the asymptotic data of a classical solution are $\Theta$-invariant, every conserved charge is real or imaginary according to its parity under $\Theta$, and the energy and momentum are real. The reality results of Olive, Turok and Underwood, of Zhu and Caldi and of Freeman, and the complex energies of Khastgir and Sasaki, fit this one criterion, and the earlier restriction to "good" solutions becomes a symmetry statement. Singular solutions are not covered (@sec-reality-energy-momentum).
 
-**Semiclassical quantization of complex solitons (chapters 17–19).**
+**Semiclassical quantization of complex solitons (chapters 18–20).**
 
 - **[Proposition, sketch]** Picard–Lefschetz theory applied to the saddles of affine Toda theory. Static soliton saddles alone cannot fill the quantum-group multiplets of topological charges (@prp-static-saddles).
 - **[Conjecture]** The static solitons and the complexified two-soliton bound states have nonzero intersection numbers exactly in the sectors needed to fill the multiplets (@cnj-missing-charge).
@@ -15,10 +15,10 @@ This appendix lists the original results of the book, part by part, so that a re
 - **[Theorem]** Wherever the fluctuation solutions are reflectionless and species-diagonal near an eigenvalue, the zeros of the transmission factors give Jordan chains whose lengths are the orders of the zeros (@thm-jordan-chains).
 - **[Theorem]** A transmission-factor formula for one-loop masses. It extends the formula of Cahill, Comtet and Glauber to several channels, to poles as well as zeros, and to complex solitons. The proof reduces each mass level to reflectionless Pöschl–Teller wells, whose heat traces in a single real channel are known (@prp-one-loop-mass).
 - **[Theorem, conditional]** The fluctuation solutions about the solitons of $d_n^{(1)}$, $e_n^{(1)}$ and their foldings have the Hirota form, given a degree bound @hyp-D. The bound is checked numerically for $d_4^{(1)},\dots,d_8^{(1)}$, $e_{6,7,8}^{(1)}$ and 19 foldings (@prp-hirota-form).
-- **[Numerical]** One-loop masses of the folded solitons, for the families and ranks tabulated in chapter 19. With the counting rule, all soliton mass ratios of a family follow one floating Coxeter number (@sec-one-loop-masses-folded).
+- **[Numerical]** One-loop masses of the folded solitons, for the families and ranks tabulated in chapter 20. With the counting rule, all soliton mass ratios of a family follow one floating Coxeter number (@sec-one-loop-masses-folded).
 - **[Numerical, one loop]** A prediction of the four $f_4^{(1)}$ soliton masses (@sec-one-loop-masses-folded).
 
-**Soliton S-matrices (chapters 23–27).** Among the non-simply-laced theories, $c_n^{(1)}$, $a_{2n-1}^{(2)}$, $e_6^{(2)}$ and $f_4^{(1)}$ had no soliton S-matrix in the literature.
+**Soliton S-matrices (chapters 24–28).** Among the non-simply-laced theories, $c_n^{(1)}$, $a_{2n-1}^{(2)}$, $e_6^{(2)}$ and $f_4^{(1)}$ had no soliton S-matrix in the literature.
 
 - **[Numerical for $n=3,4$; Conjecture for $n\ge5$]** The S-matrix of the spinor solitons of $c_n^{(1)}$, $n\ge3$, built on the R-matrix of Delius, Gould and Zhang, and the complete $c_3^{(1)}$ S-matrix. The soliton masses agree with one loop (@sec-sm-cn).
 - **[Numerical for $n=3,4$; Conjecture for $n\ge5$]** The S-matrix of the spinor solitons of $a_{2n-1}^{(2)}$, $n\ge3$. The soliton masses agree with one loop and with the lattice model of Vernier, Jacobsen and Saleur (@sec-sm-a2n).
@@ -27,7 +27,7 @@ This appendix lists the original results of the book, part by part, so that a re
 - **[Theorem, given a unitary and real-analytic scalar factor]** For the RSOS-restricted $a_2^{(1)}$ theory, the perturbed $W_3(p,p')$ model with $p\ge4$, the S-matrix of the fundamental kinks is Hermitian analytic and unitary exactly when $p'\equiv\pm1\pmod p$. With the breathers included, only $p'=p+1$ gives a unitary S-matrix (@prp-rsos-kinks).
 - **[Conjecture]** A general criterion: an RSOS-restricted affine Toda theory has a unitary S-matrix exactly when its restricted S-matrix, breathers included, is Hermitian analytic in some basis (@cnj-unitary-rsos).
 
-**Half-line (chapters 28–35).**
+**Half-line (chapters 29–36).**
 
 - **[Conjecture]** The Neumann boundary of $a_n^{(1)}$ has the non-diagonal soliton reflection matrix with $s=+1$, and the diagonal one belongs to the uniform boundary $C_j\equiv+1$, as Delius and Gandenberger had assigned it. This contradicts the reading of Delius and MacKay's first-order computation. For $n=2$ the Neumann half is Gandenberger's (@cnj-neumann-coideal).
 - **[Numerical]** The soliton derivation of the Neumann particle amplitudes for $n\le4$, given @cnj-neumann-coideal, the continuation in the coupling, and a CDD factor chosen for exact duality with the uniform amplitude, which one loop supports but does not fix. In the literature it was done only for $a_2^{(1)}$ (@prp-an-nondiagonal-scalar).
@@ -38,7 +38,7 @@ This appendix lists the original results of the book, part by part, so that a re
 - **[Theorem]** For every $g^{(1)}\ne a_1^{(1)}$, Dirichlet conditions on all components admit no Sklyanin construction with a field-independent $K$ in any finite-dimensional evaluation representation without trivial summands. Corrigan had remarked, without proof, that Dirichlet conditions are not generally permitted (@prp-no-dirichlet).
 - **[Numerical]** The classically integrable boundary conditions of @tbl-durham include a new branch for $c_2^{(1)}=b_2^{(1)}$, and correct those of Bowcock, Corrigan, Dorey and Rietdijk for $g_2^{(1)}$ and $d_4^{(3)}$ (@prp-durham).
 
-**Defects (chapters 36–43).**
+**Defects (chapters 37–44).**
 
 - **[Theorem for $a_2^{(1)}$ and $a_3^{(1)}$; Proposition, sketch for all $a_r^{(1)}$]** Both the spin $+2$ and the spin $-2$ charges survive both types of defect of $a_r^{(1)}$, contrary to Bowcock, Corrigan and Zambon and to Penati and Polvara. The obstruction they found vanishes for every $r$ (@prp-spin-two).
 - **[Theorem]** The type-I$_+$ defect of $a_r^{(1)}$ is the type-I$_-$ defect seen through two different reflections of the Dynkin diagram on its two sides, the analogue of the map $\psi\to-\psi$ of sine-Gordon theory. With time reversal, this shows that a defect cannot keep the spin-$+2$ charge and lose the spin-$-2$ charge for every value of its parameter (@prp-dc-types).
@@ -48,7 +48,7 @@ This appendix lists the original results of the book, part by part, so that a re
 - **[Numerical]** In the book's conventions, crossing of the $a_r^{(1)}$ transmission matrices, $r=2,3,4$, selects the sign of $q$ when $h$ is odd, and only together with the conjugation matrix when $h$ is even (@prp-transmission-crossing).
 - **[Conjecture]** The particles of the real-coupling $a_r^{(1)}$ theory cross a type-I defect without reflection, with transmission factors obtained from the soliton transmission matrices by continuation in the coupling (@cnj-transmission-continuation).
 
-**Foundations of the non-unitary theory (chapters 44–49).**
+**Foundations of the non-unitary theory (chapters 45–50).**
 
 - **[Theorem]** A lattice regularization of every imaginary-coupling theory whose partition function is a convergent sum of positive Coulomb-gas weights, so that the complex action gives no sign problem (@thm-bounded-weight; @thm-coulomb-gas).
 - **[Theorem]** The lattice transfer matrix is self-adjoint for an indefinite (Krein) inner product and commutes with the antilinear symmetry $\Theta$ (@thm-krein-transfer).

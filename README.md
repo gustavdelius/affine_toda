@@ -33,14 +33,14 @@ The record of what has been checked, and how, is in [`briefs/`](briefs/) (for ex
 | I. Physical background | 1–4 | Factorized scattering, sine-Gordon theory, non-Hermitian quantum mechanics |
 | II. Algebraic background | 5–8 | Root systems, affine Kac–Moody algebras, quantum groups, R-matrices |
 | III. Classical theory | 9–11 | Lagrangians, integrability, solitons, reality of their energies |
-| IV. Real coupling | 12–15 | Quantum theory at real coupling: exact particle S-matrices for every algebra |
-| V. Semiclassics | 16–19 | Semiclassical quantization of complex solitons (Picard–Lefschetz, one-loop masses) |
-| VI. Soliton S-matrices | 20–27 | Exact soliton S-matrices, including $c_n^{(1)}$, $a_{2n-1}^{(2)}$, $e_6^{(2)}$ and the open case $f_4^{(1)}$ |
-| VII. Half-line | 28–35 | Integrable boundaries, boundary solitons, boundary quantum groups, quantum symmetric pairs, reflection amplitudes |
-| VIII. Defects | 36–43 | Integrable defects: scattering axioms, defect conditions as Bäcklund transformations, solitons through defects, Borel quantum-group symmetry, transmission amplitudes, relation to boundaries |
-| IX. Foundations | 44–49 | Whether the imaginary-coupling theories exist as quantum field theories (in progress) |
+| IV. Real coupling | 12–16 | Quantum theory at real coupling: exact particle S-matrices for every algebra, and the theories based on Lie superalgebras |
+| V. Semiclassics | 17–20 | Semiclassical quantization of complex solitons (Picard–Lefschetz, one-loop masses) |
+| VI. Soliton S-matrices | 21–28 | Exact soliton S-matrices, including $c_n^{(1)}$, $a_{2n-1}^{(2)}$, $e_6^{(2)}$ and the open case $f_4^{(1)}$ |
+| VII. Half-line | 29–36 | Integrable boundaries, boundary solitons, boundary quantum groups, quantum symmetric pairs, reflection amplitudes |
+| VIII. Defects | 37–44 | Integrable defects: scattering axioms, defect conditions as Bäcklund transformations, solitons through defects, Borel quantum-group symmetry, transmission amplitudes, relation to boundaries |
+| IX. Foundations | 45–50 | Whether the imaginary-coupling theories exist as quantum field theories (in progress) |
 
-An unnumbered preface comes first. Chapter 1 is the introduction and reader's guide, and the outlook is chapter 50. The guide sets out six reading paths: integrable field theory, quantum groups in field theory, integrable boundaries, integrable defects, non-unitary quantum field theory, and a path for specialists through Parts V–IX.
+An unnumbered preface comes first. Chapter 1 is the introduction and reader's guide, and the outlook is chapter 51. The guide sets out six reading paths: integrable field theory, quantum groups in field theory, integrable boundaries, integrable defects, non-unitary quantum field theory, and a path for specialists through Parts V–IX.
 
 The book's own list of its original results is [Appendix E](appendices/E-original-results.qmd), and [Appendix D](appendices/D-corrections.qmd) lists every correction the book makes to published papers.
 
