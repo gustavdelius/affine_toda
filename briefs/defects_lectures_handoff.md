@@ -18,7 +18,7 @@ On 2026-10-15 the editor (Gustav Delius) asked for lecture notes on Part VIII of
 | 3 | Freezing it at a point | | merged |
 | 4 | What gets through | | merged |
 | 5 | Why the cycle? | | merged |
-| 6 | The classical algebra of a window | Why are the windows integrable, in the language of Lax pairs and r-matrices? | scripts and figures on branch `claude/defects-lecture-6`; text to write (§6) |
+| 6 | The classical algebra of a window | Why are the windows integrable, in the language of Lax pairs and r-matrices? | written 2026-10-23 on branch `claude/defects-lecture-6` (PR #34); §6 is now its record |
 | 7 | Quantizing the window | Which symmetry survives in the quantum theory, and what does it fix? | not started (§7) |
 | 8 | Windows, L-operators and Q-operators | What is a window wrapped around a cylinder? | not started (§7) |
 | 9 | Folding, fusing and the classical breather | How are windows and mirrors related, and what is left of $\hbar$? | not started (§7) |
@@ -115,6 +115,8 @@ Re-read the previous lecture before drafting, for voice. Every lecture has this 
 - Literature: every attribution in the notes was checked against the arXiv abstract or the paper. Keep doing it. The book's chapters cite equation numbers of the sources, which were checked during the book's referee passes, and the notes may reuse them.
 
 ## 6. Lecture 6, "The classical algebra of a window": the plan, ready to write
+
+**Done (2026-10-23).** Lecture 6 is written from this plan in `lecture-notes/defects/06-classical-algebra.qmd`. Every formula below was re-derived independently before drafting, and all were confirmed. The suggested extra checks are items (p)–(r) of `defects_l6_lax.py`. Two additions beyond the plan: the $a_r^{(1)}$ matrix satisfies both light-cone equations, so it is a gauge transformation and not only a solution of the time equation; and the density at order $\lambda^{-2}$ vanishes. Lecture 6 writes $\beta$ for $\beta_{\rm SG}$ from `sec-l6-charges` on. Its ids: `thm-l6-gauge`, `thm-l6-frozen`, `thm-l6-monodromy`, `prp-l6-bulk-r`, `thm-l6-sklyanin`, `eq-l6-Ld`, `eq-l6-D3`, `eq-l6-rmatrix`, `eq-l6-ar-Ld`. The next agent starts at §7.
 
 File: `lecture-notes/defects/06-classical-algebra.qmd`. The scripts are already on this branch:
 

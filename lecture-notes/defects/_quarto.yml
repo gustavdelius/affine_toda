@@ -27,6 +27,7 @@ book:
     - 03-freezing.qmd
     - 04-what-gets-through.qmd
     - 05-why-the-cycle.qmd
+    - 06-classical-algebra.qmd
 
 bibliography:
   - ../../references.bib

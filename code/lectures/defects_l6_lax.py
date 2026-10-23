@@ -83,8 +83,21 @@ any FAIL. Units m0 = beta = 1 in the numerics.
       (L_d)_{j+1,j} = (sigma/lambda) f_j^{1/2} satisfies d_t L_d = L_d a_t(psi) - a_t(phi) L_d on Lecture 5's light-cone
       conditions d_+(phi_k - psi_k) = -m sigma (f_k - f_{k-1}), d_-(psi_k - phi_{k+1}) = (m/sigma)(g_k - g_{k+1})
       (numeric, h = 2..5, complex lambda); it fails for 1.2 sigma. For h = 2 it is the sinh-Gordon form of L_d.
+  (p) The block identities of the freezing calculation, with D = e^{i Delta h/4}, O = e^{-i Sigma h/4} s,
+      Ob = e^{i Sigma h/4} s = s e^{-i Sigma h/4} and s_F = e^{i F/2} e + e^{-i F/2} f:
+      D s_Psi = s_Phi D, Ob s_Psi = s_Phi Ob, D^-1 s_-Psi = s_-Phi D^-1, O s_-Psi = s_-Phi O,
+      O s_Psi - s_Phi O = -2i sin(Sigma/2) h D, D^-1 s_Psi - s_Phi D^-1 = -2i sin(Delta/2) h Ob,
+      D s_-Psi - s_-Phi D = 2i sin(Delta/2) h O, Ob s_-Psi - s_-Phi Ob = 2i sin(Sigma/2) h D^-1 (a wrong sign fails);
+      A_pm(-Psi) = s A_pm(Psi) s and L_d^+ = L_d(Phi, -Psi) s; L_d = e^{i Delta h/4}(1 + (sigma/lambda) s_-Phi).
+  (q) A soliton of rapidity theta carries (1/8m0^3) int q_-+ dx = -(2/3) e^{-+3 theta} (quadrature for four theta;
+      -(2/3) e^{-+theta} fails); the odd jump (0, 2 pi) stores D_-+3 = -(2/3) sigma^{+-3} relative to the even
+      vacuum, where D_-+3 = sigma^{+-3}/3.
+  (r) The a_r^(1) matrix of (o) satisfies d_+ L_d = L_d A_+(psi) - A_+(phi) L_d and the same for d_-, separately, on
+      the light-cone conditions (h = 2..5, complex lambda; 1.2 sigma fails), so that it is a gauge transformation, and
+      alpha_j . w = psi_j + psi_{j+1} - 2 phi_{j+1} for the book's w = D^T phi - E psi, D = 2(1 - pi)^{-1} (the
+      transpose D^T fails for h >= 3).
 
-Runtime: about a minute and a half.
+Runtime: about two minutes.
 """
 import cmath
 import math
@@ -962,5 +975,127 @@ for hh in (2, 3, 4, 5):
     ok_o = ok_o and oks and r1 < 1e-8 and r2 > 1e-2
 report("(o) a_r^(1) in components: zero curvature is the Toda equation (h = 3); (L_d)_kk = g_k^1/2, "
        "(L_d)_{j+1,j} = (sigma/lambda) f_j^1/2 satisfies the time equation for h = 2..5; fails for 1.2 sigma", ok_o)
+
+# ---------------------------------------------------------------------------------------------------------
+# (p) the block identities of the freezing calculation, A_pm(-Psi) = s A_pm(Psi) s, the book's form of L_d
+Dd, Ddi = ex(I * Dl / 4), ex(-I * Dl / 4)
+Od, Obd = ex(-I * S / 4) * s, s * ex(-I * S / 4)
+blocks = [
+    Dd * Xm(Q) - Xm(P) * Dd,
+    Obd * Xm(Q) - Xm(P) * Obd,
+    Ddi * Ym(Q) - Ym(P) * Ddi,
+    Od * Ym(Q) - Ym(P) * Od,
+    Od * Xm(Q) - Xm(P) * Od + 2 * I * sp.sin(S / 2) * h * Dd,
+    Ddi * Xm(Q) - Xm(P) * Ddi + 2 * I * sp.sin(Dl / 2) * h * Obd,
+    Dd * Ym(Q) - Ym(P) * Dd - 2 * I * sp.sin(Dl / 2) * h * Od,
+    Obd * Ym(Q) - Ym(P) * Obd - 2 * I * sp.sin(S / 2) * h * Ddi,
+    Obd - ex(I * S / 4) * s,
+]
+ok_p1 = all(zero_mat(B_) for B_ in blocks)
+ok_p2 = not zero_mat(Od * Xm(Q) - Xm(P) * Od - 2 * I * sp.sin(S / 2) * h * Dd)      # control: wrong sign
+ok_p3 = (zero_mat(Apv(-Q, -Qp) - s * Apv(Q, Qp) * s) and zero_mat(Amv(-Q, -Qm) - s * Amv(Q, Qm) * s)
+         and zero_mat(s * ex(-I * S / 4) + sig / lam * ex(-I * Dl / 4) - Ld(G=-Q) * s))
+ok_p4 = zero_mat(Ld() - ex(I * Dl / 4) * (E2 + sig / lam * Ym(P)))
+report("(p) the eight block identities of the freezing calculation (a wrong sign fails); "
+       "A_pm(-Psi) = s A_pm(Psi) s and L_d^+ = L_d(Phi, -Psi) s; L_d = e^{i Delta h/4}(1 + (sigma/lambda) s_-Phi)",
+       ok_p1 and ok_p2 and ok_p3 and ok_p4)
+
+# ---------------------------------------------------------------------------------------------------------
+# (q) the spin -+3 charges of a soliton and the charges stored by the odd jump
+uq = sp.Symbol('u', real=True)
+thq = sp.Symbol('theta_q', real=True)
+Fq = 4 * sp.atan(sp.exp(uq))                       # soliton, u = m0 (x cosh theta - t sinh theta)
+
+
+def q_soliton(sign):
+    # d_pm u = m0 e^{-+theta} (sign = +1 for d_+, -1 for d_-); fields depend on u only
+    k = m0 * sp.exp(-sign * thq) * sign
+    d1 = k * sp.diff(Fq, uq)
+    d2 = k**2 * sp.diff(Fq, uq, 2)
+    dens = d2**2 - d1**4 / 4 + m0**2 * sp.cos(Fq) * d1**2
+    return sp.lambdify((uq, thq), (dens / (8 * m0**3) / (m0 * sp.cosh(thq))).subs(m0, 1), 'numpy')
+
+
+ok_q = True
+for sign in (1, -1):
+    fq = q_soliton(sign)
+    for thv_ in (-0.7, 0.0, 0.45, 1.3):
+        Qv = quad(lambda uu: fq(uu, thv_), -40, 40, limit=400)[0]
+        ok_q = ok_q and abs(Qv + 2 / 3 * math.exp(-3 * sign * thv_)) < 1e-9
+        if thv_ != 0.0:          # control: the wrong spin
+            ok_q = ok_q and abs(Qv + 2 / 3 * math.exp(-sign * thv_)) > 1e-3
+for sgv in (0.4, 1.0, 2.3):
+    Dm3 = lambda Sg_: sgv**3 * (math.cos(Sg_ / 2) - 2 / 3 * math.cos(Sg_ / 2)**3)
+    Dp3 = lambda Dg_: sgv**-3 * (math.cos(Dg_ / 2) - 2 / 3 * math.cos(Dg_ / 2)**3)
+    ok_q = ok_q and abs(Dm3(2 * math.pi) - Dm3(0.0) + 2 / 3 * sgv**3) < 1e-12
+    ok_q = ok_q and abs(Dp3(-2 * math.pi) - Dp3(0.0) + 2 / 3 * sgv**-3) < 1e-12
+    ok_q = ok_q and abs(Dm3(0.0) - sgv**3 / 3) < 1e-12 and abs(Dp3(0.0) - sgv**-3 / 3) < 1e-12
+report("(q) a soliton of rapidity theta carries the spin -+3 charges -(2/3) e^{-+3 theta} (quadrature; the wrong spin "
+       "fails); the odd jump (0, 2 pi) stores -(2/3) sigma^{+-3} relative to the even vacuum, where D_-+3 = sigma^{+-3}/3",
+       ok_q)
+
+# ---------------------------------------------------------------------------------------------------------
+# (r) the a_r^(1) matrix is a gauge transformation in both light-cone directions; the book's form of L_d
+rngr = np.random.default_rng(7)
+
+
+def ar_gauge(hh, scale=1.0, mv=0.9, sg=0.7, lv=0.8 + 0.6j):
+    hyp = lambda v: v - v.mean()
+    phi, psi = hyp(rngr.normal(size=hh)), hyp(rngr.normal(size=hh))
+    pp_phi, pm_phi = hyp(rngr.normal(size=hh)), hyp(rngr.normal(size=hh))
+    ff = np.exp(psi - np.roll(phi, -1))
+    gg = np.exp(phi - psi)
+    pp_psi = pp_phi + mv * sg * (ff - np.roll(ff, 1))                    # d_+(phi_k - psi_k) = -m s (f_k - f_{k-1})
+    pm_psi = np.roll(pm_phi, -1) + mv / sg * (gg - np.roll(gg, -1))      # d_-(psi_k - phi_{k+1}) = (m/s)(g_k - g_{k+1})
+
+    def Apl(F, dF):
+        M = np.diag(dF / 2).astype(complex)
+        for j in range(hh):
+            M[j, (j + 1) % hh] += mv * lv * np.exp((F[j] - F[(j + 1) % hh]) / 2)
+        return M
+
+    def Amn(F, dF):
+        M = -np.diag(dF / 2).astype(complex)
+        for j in range(hh):
+            M[(j + 1) % hh, j] += -mv / lv * np.exp((F[j] - F[(j + 1) % hh]) / 2)
+        return M
+
+    def Lar(F, G):
+        M = np.diag(np.exp((F - G) / 2)).astype(complex)
+        for j in range(hh):
+            M[(j + 1) % hh, j] += scale * sg / lv * np.exp((G[j] - F[(j + 1) % hh]) / 2)
+        return M
+
+    def dL(dF, dG, eps=1e-6):
+        return (Lar(phi + eps * dF, psi + eps * dG) - Lar(phi - eps * dF, psi - eps * dG)) / (2 * eps)
+    rp = dL(pp_phi, pp_psi) - (Lar(phi, psi) @ Apl(psi, pp_psi) - Apl(phi, pp_phi) @ Lar(phi, psi))
+    rm = dL(pm_phi, pm_psi) - (Lar(phi, psi) @ Amn(psi, pm_psi) - Amn(phi, pm_phi) @ Lar(phi, psi))
+    return max(np.abs(rp).max(), np.abs(rm).max())
+
+
+def ar_w(hh, transpose=False):
+    # orthonormal basis of the hyperplane, pi with (pi v)_k = v_{k+1}, D = 2 (1 - pi)^{-1}, E = 1 - D, w = D^T phi - E psi
+    Bh = np.linalg.qr(np.vstack([np.ones(hh), rngr.normal(size=(hh - 1, hh))]).T)[0][:, 1:]
+    piM = np.roll(np.eye(hh), 1, axis=1)
+    Dh = 2 * np.linalg.inv(np.eye(hh - 1) - Bh.T @ piM @ Bh)
+    if transpose:
+        Dh = Dh.T
+    Eh = np.eye(hh - 1) - Dh
+    phi, psi = Bh @ rngr.normal(size=hh - 1), Bh @ rngr.normal(size=hh - 1)
+    w = Bh @ (Dh.T @ (Bh.T @ phi) - Eh @ (Bh.T @ psi))
+    lhs = np.array([w[j] - w[(j + 1) % hh] for j in range(hh)])
+    rhs = np.array([psi[j] + psi[(j + 1) % hh] - 2 * phi[(j + 1) % hh] for j in range(hh)])
+    return np.abs(lhs - rhs).max()
+
+
+ok_r = True
+for hh in (2, 3, 4, 5):
+    ok_r = ok_r and ar_gauge(hh) < 1e-8 and ar_gauge(hh, scale=1.2) > 1e-2
+    ok_r = ok_r and ar_w(hh) < 1e-12
+    if hh > 2:
+        ok_r = ok_r and ar_w(hh, transpose=True) > 1e-3
+report("(r) a_r^(1): d_pm L_d = L_d A_pm(psi) - A_pm(phi) L_d separately on the light-cone conditions, h = 2..5 "
+       "(fails for 1.2 sigma); alpha_j . w = psi_j + psi_{j+1} - 2 phi_{j+1} for w = D^T phi - E psi (fails for D^T)",
+       ok_r)
 
 raise SystemExit(0 if OK else 1)
