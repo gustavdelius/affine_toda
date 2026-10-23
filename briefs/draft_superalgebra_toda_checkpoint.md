@@ -11,3 +11,4 @@ Worktree `.claude/worktrees/superalgebra-toda`, branch `claude/superalgebra-toda
 - Chapter drafted (about 6,100 words); integration edits done in ch. 6, 12, 14, 15, 23, 30, 38, intro, preface, Part IV preamble, outlook, README, App. D (3 entries: Evans–Madsen 1999, DGPZ (B.1), and Gandenberger 1998 (5.10) sign (`gandenberger_scalar.py`). Reading-paths and gap-map figures regenerated (content changes from renumbering).
 - Conventions document, drafting report and referee brief written. Remaining: scratch render result and final script log into the report.
 - Renders done: HTML (612 s) and PDF (796 s, 669 pages), no unresolved references. Two wide displays split after the PDF check; D(2,1;alpha) mass sentence made precise. Nothing committed; the index holds the pure-rename commit.
+- 2026-10-23: on the editor's decision, the two-sentence ch. 9 edit was applied in its own commit while Part III is still frozen; the report says the Part III integration must merge it.

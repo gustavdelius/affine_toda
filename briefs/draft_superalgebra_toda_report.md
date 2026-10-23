@@ -33,12 +33,14 @@ Hard-coded chapter numbers updated in the text commit: the dependency diagram an
 
 **Coordination.** The open Part III integration branches `part3-int-ch9-10` and `part3-int-ch11` (no commits since 2026-10-15) were told to record edits to Part IX and chapter 21 (now 22) as pending; those files are renamed here, so their patches will need the new paths. The rename-only commit keeps git's rename detection working for a later merge.
 
-## Deferred integration edit (frozen file)
+## Chapter 9 edit, applied while Part III is frozen
 
-Chapter 9 is frozen (`briefs/README.md`, "Part III: two-phase referee pass": files under review until the reports are integrated; integration not finished). The handover's chapter-9 edit is therefore deferred. Proposed patch, for `part3-classical/09-lagrangian.qmd`:
+Chapter 9 is frozen (`briefs/README.md`, "Part III: two-phase referee pass": files under review until the reports are integrated). The integration of those reports stalled on 2026-10-15 with no book edits and was restarted on 2026-10-23 in a separate session. On 2026-10-23 the editor decided to apply this two-sentence edit now, in its own commit on `claude/superalgebra-toda` ("Chapter 9: point to the superalgebra chapter"), rather than wait. Edits to `part3-classical/09-lagrangian.qmd`:
 
-- In `sec-lagrangians`, after the paragraph defining $\vec\phi$, the sums and the $n_j$ ("Here $\vec\phi$ takes values in $\mathbb R^r$ … because $\sum_jn_j\vec\alpha_j=0$."), add: "Here $\hat g$ is an affine Lie algebra. Replacing it by an affine Lie superalgebra gives theories with fermions, which are the subject of @sec-super-toda; the formulas of this chapter do not apply to them without change."
-- In `sec-lax-pair`, after "`code/toda_classical.py` checks the equivalence symbolically for $a_2^{(1)}$.", add: "The same construction works in superspace for an affine Lie superalgebra, with odd generators for odd simple roots (@sec-super-lax)."
+- In `sec-lagrangians`, appended to the paragraph defining $\vec\phi$, the sums and the $n_j$ (ending "… because $\sum_jn_j\vec\alpha_j=0$."): "Throughout this chapter $\hat g$ is an affine Lie algebra. Replacing it by an affine Lie superalgebra gives theories with fermions, which are the subject of @sec-super-toda; the formulas of this chapter do not apply to them without change."
+- In `sec-lax-pair`, appended after "`code/toda_classical.py` checks the equivalence symbolically for $a_2^{(1)}$.": "The same construction works in superspace for an affine Lie superalgebra, with odd generators for the odd simple roots (@sec-super-lax)."
+
+**The Part III integration must merge this commit.** Its branch `part3-referee-integration` was cut before it. Neither sentence changes a claim under review. In the four Part III reports, the only replacement text for these two sections is Codex's for the sentences that specify the generators (`09-lagrangian.qmd:57` at 2d36c9c, phase 1, item 5), a different paragraph. Gemini's phase 2 verifies the paragraph that ends at the second insertion (09:59–73) as correct, and no report targets the paragraph that ends at the first (09:28). Whichever of the two branches reaches main second must keep both sentences when it resolves any conflict in these two paragraphs.
 
 Chapters 10 and 11 needed no edit; chapter 16 cross-references `sec-classical-solitons`, `eq-soliton-mass` and `sec-theta-classical` without changing them.
 
@@ -244,7 +246,7 @@ How the handover's instructions were handled. "Verified" means checked as descri
 | Required checks: components, Hessian and fermion mass matrix, Lax/current with odd signs and a documented Grassmann ordering, scattering identities, soliton formulas | Done; see the verification record. |
 | Quantum-group comparison with `eq-q-physical` | Not included: the chapter makes no quantum-group comparison. |
 | Chapter 6 forward pointer | Done (paragraph "Superalgebras" in `sec-lie-algebraic-data`; Part II is no longer frozen). |
-| Chapter 9 scope note | Deferred: chapter 9 is frozen. Exact patch above. |
+| Chapter 9 scope note | Applied in a separate commit while Part III is frozen; the Part III integration must merge it (see "Chapter 9 edit" above). |
 | Chapters 12–14 Notes | Done for 12 and 14; chapter 13 needed none. |
 | Chapter 15 `sec-ode-im` | Done. |
 | Chapter 22 (now 23) Gandenberger | Done, with the verified content: identities between scalar factors at $\lambda=1/h$, one of them up to a sign, explicitly not an equivalence of theories. |
