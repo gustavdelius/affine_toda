@@ -4,7 +4,7 @@ You are integrating independent referee reports into a mathematical-physics text
 
 Run every command from that directory, and never `cd` to the main repository. Never use `git stash`. Never use `git add -A` or `git add .`; stage files by name. Do not push. Do not spawn subagents.
 
-Scratch directory for your own check scripts: `/tmp/claude-1000/-home-gustav-Git-affine-toda/7fa1324b-155d-4b76-8703-4c3aaf6d6c0d/scratchpad/part3_int_A/`. Before you commit, copy the scripts the record relies on into `briefs/referee_classical_09_11_integration_scripts/`, with the prefix `integration_A_`.
+Scratch directory for your own check scripts: `/tmp/claude-1000/-home-gustav-Git-affine-toda/9c07f392-e3e8-4ca2-b46e-1f546a1c5e41/scratchpad/part3_int_A/`. Before you commit, copy the scripts the record relies on into `briefs/referee_classical_09_11_integration_scripts/`, with the prefix `integration_A_`.
 
 ## The task
 
@@ -20,7 +20,7 @@ Calibration: Codex's report has been reliable so far. Gemini located real proble
 
 ## Rule 1: verify before you edit
 
-Do not trust any finding of the reports. For every item, re-derive it yourself before changing the book, by hand or with your own short sympy/numpy/mpmath script written from the chapter's definitions. Do NOT import the referees' scripts. You may import the book's helpers (`textbook_code/toda_classical.py`, `textbook_code/lie_algebra_checks.py`). Rerunning a referee's script is a second check, not verification. For claims about papers, read the source: texts are in `~/referee-copy/papers/*.txt` (named by arXiv id with `/` replaced by `_`); fetch anything else from arXiv. Mark each item verified, modified or rejected, with the reason.
+Do not trust any finding of the reports. For every item, re-derive it yourself before changing the book, by hand or with your own short sympy/numpy/mpmath script written from the chapter's definitions. Do NOT import the referees' scripts. You may import the book's helpers (`code/toda_classical.py`, `code/lie_algebra_checks.py`). Rerunning a referee's script is a second check, not verification. For claims about papers, read the source: texts are in `~/referee-copy/papers/*.txt` (named by arXiv id with `/` replaced by `_`); fetch anything else from arXiv. Mark each item verified, modified or rejected, with the reason.
 
 ## Read first
 
@@ -57,14 +57,14 @@ Chapter 10:
 
 ## Scripts
 
-`textbook_code/toda_classical.py` must reflect the corrected claims and check what the chapters newly assert (for example the spin −3 scaling, a vanishing coupling with an existing triangle, the fusion range, the breather band and the zero for 0<A<1, the position formula). Keep its runtime reasonable (now about 3 minutes). Note that `smatrix_simply_laced.py` and `algebra_data.py` import it: rerun both afterwards, in the background, waiting on PIDs (never with `pgrep -f` loops), with `python3 -u`. The figure scripts `textbook_code/figures/ch9_f13_dorey_d4.py`, `ch10_f14_topological_charges.py` and `ch10_f15_two_soliton_shift.py` may need changes only if a caption changes what they check; they write SVGs into the repository; `git restore` any SVG whose diff is only ids and timestamps. Cite a script at each new claim, as a full repository path in inline code. Do not edit `textbook_code/README.md`; put the row changes it needs in your final message.
+`code/toda_classical.py` must reflect the corrected claims and check what the chapters newly assert (for example the spin −3 scaling, a vanishing coupling with an existing triangle, the fusion range, the breather band and the zero for 0<A<1, the position formula). Keep its runtime reasonable (now about 3 minutes). Note that `smatrix_simply_laced.py` and `algebra_data.py` import it: rerun both afterwards, in the background, waiting on PIDs (never with `pgrep -f` loops), with `python3 -u`. The figure scripts `code/figures/ch9_f13_dorey_d4.py`, `ch10_f14_topological_charges.py` and `ch10_f15_two_soliton_shift.py` may need changes only if a caption changes what they check; they write SVGs into the repository; `git restore` any SVG whose diff is only ids and timestamps. Cite a script at each new claim, as a full repository path in inline code. Do not edit `code/README.md`; put the row changes it needs in your final message.
 
 ## Files you may edit
 
 - `part3-classical/09-lagrangian.qmd` and `part3-classical/10-solitons.qmd`.
 - Minimal consistency edits in other chapters that repeat a claim you correct (find them by grepping ids and formulas), except: `part3-classical/11-reality.qmd`, `appendices/E-original-results.qmd`, `references.bib`, `part9-foundations/44-twelve-gaps.qmd`, `part6-soliton-smatrices/21-construction.qmd` (record needed edits as pending instead). If you need a new bibliography entry, put it in your final message instead.
 - `appendices/D-corrections.qmd`, only if a verified correction to a published paper arises (unlikely; follow AGENTS.md exactly).
-- `textbook_code/toda_classical.py` and the three figure scripts above, with their SVGs.
+- `code/toda_classical.py` and the three figure scripts above, with their SVGs.
 - Your checkpoint, your scripts, and `briefs/part3_integration_A.md`: write the integration record there (a table of item, source in the reports, verdict, how you checked it, files changed; then what was not integrated and why). The coordinator will merge it into the reports' `## Integration` sections. Do not edit the reports themselves.
 
 ## Style
@@ -73,7 +73,7 @@ Adapt the referees' text to the book's style; do not paste it. Short declarative
 
 ## Final checks, then commit
 
-- `textbook_code/toda_classical.py`, `smatrix_simply_laced.py`, `algebra_data.py` and any figure script you touched print only PASS.
+- `code/toda_classical.py`, `smatrix_simply_laced.py`, `algebra_data.py` and any figure script you touched print only PASS.
 - `python3 check-refs.py` passes. Do not run a Quarto render.
 - Commit the files by name, in one commit (or one per chapter), with a message that lists the verdicts and ends with the line `Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>`.
-- In your final message: the verdict per item, any label change (none expected), pending edits for files you may not touch, the `textbook_code/README.md` row change, and anything the coordinator must decide (especially item 12).
+- In your final message: the verdict per item, any label change (none expected), pending edits for files you may not touch, the `code/README.md` row change, and anything the coordinator must decide (especially item 12).

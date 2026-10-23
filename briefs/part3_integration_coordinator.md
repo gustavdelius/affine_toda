@@ -9,8 +9,9 @@ Written 2026-10-15 by the coordinating Claude session, so that the integration s
   - 3b38470: reruns of the referee scripts. All of Codex's reproduce exactly, and Gemini's run cleanly.
 - **Agent A** (chapters 9–10, `toda_classical.py`, figures ch9/ch10): worktree `.claude/worktrees/part3-int-ch9-10`, branch `part3-int-ch9-10`. Checkpoint: `briefs/part3_integration_A_checkpoint.md`. Scratch: `<scratchpad>/part3_int_A/`.
 - **Agent B** (chapter 11, Appendix E, `references.bib`, H6 in ch. 44, `classical_reality.py`, figure ch11_f16): worktree `.claude/worktrees/part3-int-ch11`, branch `part3-int-ch11`. Checkpoint: `briefs/part3_integration_B_checkpoint.md`. Scratch: `<scratchpad>/part3_int_B/`.
-- `<scratchpad>` = `/tmp/claude-1000/-home-gustav-Git-affine-toda/7fa1324b-155d-4b76-8703-4c3aaf6d6c0d/scratchpad`. It is temporary. If it has gone, the agents' scratch scripts are lost, and a restarted agent must recreate the ones it needs.
+- `<scratchpad>` = `/tmp/claude-1000/-home-gustav-Git-affine-toda/9c07f392-e3e8-4ca2-b46e-1f546a1c5e41/scratchpad`. It is temporary. If it has gone, the agents' scratch scripts are lost, and a restarted agent must recreate the ones it needs.
 - Both agents were launched as background general-purpose agents on Opus. They commit only at the end, on their own branches.
+- **Restart, 2026-10-23.** Both agents of 2026-10-15 stopped within about 20 minutes, at a usage limit. Neither edited the book or committed; each left only a checkpoint, and the old scratchpad (`7fa1324b-…`) is gone, so the verifications recorded there are leads, not evidence. A new coordinator session committed this file and the prompts (e87ce53), merged `origin/main` (64f2cdb; 31 commits, including the `textbook_code/` → `code/` rename f24f364 and the chapter 9 edits 0c1e204 and 2fa0691, which already relabel the sinh-Gordon example as spin −3), updated the paths here and in the prompts, and fast-forwarded both agent branches to the merged head. The agents now run one at a time, A first, with scratch directories under the new scratchpad `9c07f392-…`.
 
 ## Restart procedure (after a usage-limit stop)
 
@@ -48,7 +49,7 @@ The prompt as launched is reproduced in `part3_integration_B_prompt.md` next to 
    - Spot-check the key edits: the breather band in ch. 10 and ch. 11 must agree; so must the spin −3 sign, the domain of `prp-hirota-energy` and the Appendix E entry.
    - Run `python3 check-refs.py` in each worktree.
 3. **Merge** `part3-int-ch9-10` and `part3-int-ch11` into `part3-referee-integration`. Their file sets are disjoint; resolve any conflict by hand. Apply the pending edits each agent recorded for files it could not touch.
-4. **`textbook_code/README.md`:** apply the row changes from both final messages (`toda_classical.py`, the new `classical_reality.py`, the figure rows).
+4. **`code/README.md`:** apply the row changes from both final messages (`toda_classical.py`, the new `classical_reality.py`, the figure rows).
 5. **Integration record.**
    - Merge `part3_integration_A.md` and `part3_integration_B.md` into one `## Integration` section, appended to `briefs/referee_classical_09_11_phase1_combined.md`.
    - Append a short `## Integration` section to each of the four referee reports that points there.
