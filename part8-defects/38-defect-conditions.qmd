@@ -234,7 +234,7 @@ So the two types are not distinguished by which spin-$\pm2$ charge survives. The
 $$
 q_{\mp3}(\phi)=\frac{\beta^2}{8m_0^3}\Big[(\partial_\pm^2\phi)^2-\frac{\beta^2}4(\partial_\pm\phi)^4+m_0^2\cos(\beta\phi)\,(\partial_\pm\phi)^2\Big],
 $$
-which for the upper sign is $\beta^2/8m_0^3$ times the density $T_4+\mathcal X_2$ of (-@eq-spin3-current) continued to sine-Gordon theory, and let
+which for the upper sign is $\beta^2/8m_0^3$ times the density $T_4-\mathcal X_2$ of (-@eq-spin3-current) continued to sine-Gordon theory, and let
 $$
 \mathcal D_{-3}=\frac{\sigma\beta^2}{2m_0^2}\,c_+\,\partial_+\phi\,\partial_+\psi+\sigma^3\Big(c_+-\frac23c_+^3\Big),\qquad
 \mathcal D_{+3}=-\frac{\beta^2}{2m_0^2\sigma}\,c_-\,\partial_-\phi\,\partial_-\psi+\frac1{\sigma^3}\Big(c_--\frac23c_-^3\Big)
