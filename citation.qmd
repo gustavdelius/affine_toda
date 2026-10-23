@@ -6,7 +6,7 @@ This is a living online book. The website is the canonical reading edition and m
 
 Until the first archived release receives a DOI, cite the online book as:
 
-> Delius, Gustav, ed. (2026). *Affine Toda field theory: A graduate introduction, leading into current research*. Living online monograph. <https://gustavdelius.github.io/affine_toda/>.
+> Delius, Gustav, ed. (2026). *Affine Toda field theory: A unified review, with new results*. Living online monograph. <https://gustavdelius.github.io/affine_toda/>.
 
 The coordinating editor and the limited role of the subject-matter validators are described in @sec-about. Validators are not authors or editors of the whole book, and their names are not included in the book-level citation.
 
@@ -15,7 +15,7 @@ The coordinating editor and the limited role of the subject-matter validators ar
 ```bibtex
 @book{delius_affine_toda_2026,
   editor = {Delius, Gustav},
-  title  = {Affine Toda Field Theory: A Graduate Introduction, Leading into Current Research},
+  title  = {Affine Toda Field Theory: A Unified Review, with New Results},
   year   = {2026},
   url    = {https://gustavdelius.github.io/affine_toda/},
   note   = {Living online monograph; AI-drafted, with validation scoped to cited researchers' own work}
@@ -26,7 +26,7 @@ The coordinating editor and the limited role of the subject-matter validators ar
 
 ```text
 TY  - BOOK
-TI  - Affine Toda field theory: A graduate introduction, leading into current research
+TI  - Affine Toda field theory: A unified review, with new results
 ED  - Delius, Gustav
 PY  - 2026
 UR  - https://gustavdelius.github.io/affine_toda/

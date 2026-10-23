@@ -4,7 +4,7 @@ Fill in every `<…>` and delete the lines that do not apply. Launch it as a bac
 
 ---
 
-You are integrating an independent referee report into a mathematical-physics textbook (a Quarto book on affine Toda field theory). Read `AGENTS.md` at the repository root first; its rules apply throughout. Work in the git worktree
+You are integrating an independent referee report into a mathematical-physics monograph (a Quarto book on affine Toda field theory). Read `AGENTS.md` at the repository root first; its rules apply throughout. Work in the git worktree
 
   `<absolute worktree path>`   (branch `<branch>`)
 
