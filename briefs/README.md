@@ -82,6 +82,7 @@ Part VIII (`part8-defects/`, chapters 36–43) was planned, drafted, refereed an
 | `referee_defects_36_37_deep.md`, `referee_defects_36_37_deep_report.md` | Deep referee brief for the high-risk claims of chapters 36–37 (Codex) and its report; scripts in `referee_defects_36_37_deep_scripts/` |
 | `referee_defects_38_40.md`, `referee_defects_38_40_report.md` | Deep referee brief for chapters 38 and 40 and its report, with the integration notes of 2026-10-12 at the end; scripts and outputs in `referee_defects_38_40_scripts/` |
 | `referee_defects_39.md`, `referee_defects_41.md`, `referee_defects_42.md`, `referee_defects_43.md` | Deep referee briefs for chapters 39, 41, 42 and 43; their reports are `referee_defects_<n>_report.md` when present |
+| `referee_defects_38_l6.md` | Referee brief (Codex, 2026-10-23) for the three [Theorem] labels that PR #40 added to chapter 38 from Lecture 6 of the defect lecture notes: the $a_1$ case of `prp-defect-involution` and the uniqueness of its r-matrix, `prp-sg-spin-three` (spin-$\mp3$ defect charges of sine-Gordon), and `prp-dc-gauge` (the $a_r$ defect matrix as a gauge transformation in both light-cone directions). Report: `referee_defects_38_l6_report.md` |
 | `run_referee_agy.sh` | Runs a referee brief with a non-Claude model through the Antigravity CLI, in a throwaway copy of the repository; writes `briefs/<brief>_report.md` |
 
 The book cites only the scripts in `code/` (`defect_*.py`, listed in `code/README.md`); the referee scripts are kept for reproducibility.

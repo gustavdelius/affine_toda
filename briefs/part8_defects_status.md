@@ -8,7 +8,7 @@ Working record for Part VIII, kept in the repository because the session scratch
 |---|---|---|---|---|
 | 36 | 2026-10-11 | `defect_axioms.py` | 20 PASS (2 s) | Gemini (light) + Codex deep, integrated 2026-10-12 |
 | 37 | 2026-10-11 | `defect_classical_sg.py`, `defect_sg_transmission.py` | 27 + 24 PASS (18 s, 103 s) | Gemini (light) + Codex deep, integrated 2026-10-12 |
-| 38 | 2026-10-12 | `defect_classical_an.py`, `defect_lax_rmatrix.py`, `defect_spin_two_a3.py` | 24 + 6 + 9 PASS (114 s, 2 s, 151 s) | Codex deep, integrated 2026-10-12; upgrades pass (item 7) integrated 2026-10-13 |
+| 38 | 2026-10-12 | `defect_classical_an.py`, `defect_lax_rmatrix.py`, `defect_spin_two_a3.py`; since 2026-10-23 also `defect_sklyanin_a1.py`, `defect_sg_spin3.py`, `defect_ar_gauge.py` | 24 + 6 + 9 PASS (114 s, 2 s, 151 s); 7 + 7 + 3 PASS (7 s, 15 s, 10 s) | Codex deep, integrated 2026-10-12; upgrades pass (item 7) integrated 2026-10-13; the 2026-10-23 additions are **under referee** (`referee_defects_38_l6.md`) |
 | 39 | 2026-10-12 | `defect_solitons_an.py` | 9 PASS (48 s) | Codex deep, integrated 2026-10-13 |
 | 40 | 2026-10-12 | `defect_universal_r.py`, `defect_transfer.py` | 16 + 9 PASS (92 s, 29 s) | Codex deep, integrated 2026-10-12 |
 | 41 | 2026-10-12 | `defect_an_transmission.py` | 28 PASS (192 s) | Codex deep, integrated 2026-10-13; upgrades pass (items 1–3, 5, 6) integrated 2026-10-13 |
@@ -251,6 +251,27 @@ Working record for Part VIII, kept in the repository because the session scratch
   - the equal-time reduction: can the defect values be treated as independent coordinates Poisson-commuting with the bulk (for a_r; Caudrelier's time-like route for sine-Gordon)?
   - the all-rank Drinfeld–Sokolov argument of `prp-spin-two` (2): infinite-line regularization, exceptional defect values;
   - priority of the spin-two correction is not established (bounded literature search).
+
+### Additions from Lecture 6 (2026-10-23, PR #40; under referee)
+
+Drafted by Claude in commit 62d4bb6 (merged with main in ccb4c15). **Under referee: `briefs/referee_defects_38_l6.md` (Codex), report `briefs/referee_defects_38_l6_report.md`.** Until the report is in, nobody edits `prp-defect-involution`, `prp-sg-spin-three`, `eq-dc-spin-three`, `prp-dc-gauge`, `eq-dc-gauge`, the paragraphs around them and the new sentences in the Notes of ch. 38, or the three scripts below.
+
+- **`prp-defect-involution`, $a_1^{(1)}$ upgraded [Numerical] → [Theorem].**
+  - The hand proof: brackets of $\mathsf J$, $\mathsf O$ with $\kappa=-b^2\epsilon/2$; the commutators with $H\otimes H$ and $\Pi$; the matching, which gives $r=-\epsilon\,r_{\rm book}$.
+  - Uniqueness of $r$ up to the identity without an ansatz, for $\lambda_1^2\ne\lambda_2^2$, from the commutant of $L_d(\lambda_1)\otimes L_d(\lambda_2)$.
+  - Type I$_+$ via $L_d^{\rm I_+}\sigma_x=\frac\lambda\sigma L_d^{\rm I_-}(\phi,-\psi)$.
+  - Checked in `code/defect_sklyanin_a1.py` (7 PASS), which also derives the bulk bracket of $a_x$ for $a_1$.
+- **`prp-sg-spin-three`, new [Theorem].**
+  - Window terms $\mathcal D_{\mp3}$ for the sine-Gordon defect at rest: the flux identity is exact, with $\sigma$ symbolic, for both signs.
+  - Soliton charges $-\frac23e^{\mp3\theta}$; the stored and half-soliton values.
+  - The closed form of $\mathcal D_{-3}$ is Caudrelier 2008, eq. (3.28), in light-cone coordinates. No Appendix E item.
+  - Checked in `code/defect_sg_spin3.py` (7 PASS).
+- **`prp-dc-gauge`, new [Theorem for type I$_-$; Numerical for type I$_+$].**
+  - $\partial_\pm L_d=L_d\mathcal A_\pm(\vec\psi)-\mathcal A_\pm(\vec\phi)L_d$ on the unfrozen conditions.
+  - Order by order in $\lambda$, the two equations are the two halves of the component Bäcklund transformation.
+  - Checked in `code/defect_ar_gauge.py` (3 PASS: sympy for $h=3,4$; numerics for $h=2,\dots,5$, both types and both couplings).
+- **Found in passing, not changed.** Ch. 9, after `eq-spin3-current`, labels the $\partial_+$ charge spin $+3$ with eigenvalue $e^{3\theta}$; the convention of this part gives spin $-3$. A separate session is handling it.
+- **Sources read** for the novelty statements: hep-th/0305022, hep-th/0401020, 0704.2326 and 0709.4611 (Sec. 5).
 
 ## Chapter 40 (`sec-defect-qg`)
 
