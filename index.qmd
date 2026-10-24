@@ -1,0 +1,61 @@
+---
+keywords:
+  - affine Toda field theory
+  - integrable quantum field theory
+  - sine-Gordon theory
+  - solitons
+  - exact S-matrices
+  - quantum groups
+  - integrable boundaries
+  - integrable defects
+  - non-Hermitian quantum field theory
+  - non-unitary
+---
+
+<!-- The home page of the site. It is HTML only: the PDF of the book opens with the preface, and home-page.lua removes the heading that Quarto would still turn into an empty PDF chapter. -->
+
+::: {.content-visible when-format="html"}
+
+# About this site {#sec-about-site .unnumbered}
+
+This site holds a book on affine Toda field theory and two courses of lecture notes that accompany it.
+
+Affine Toda field theories are two-dimensional quantum field theories, one for each affine Kac–Moody algebra. They are integrable, so many of their properties can be computed exactly. They have particles and bound states, solitons and breathers, strong–weak duality and quantum-group symmetry. They admit integrable boundaries and defects, and at imaginary coupling they are non-unitary.
+
+## The book {#sec-about-book .unnumbered}
+
+*Affine Toda field theory: A unified review, with new results* gathers results from five decades of papers. It presents them in a logical order, in one notation and with one set of conventions. Most statements come with a proof, and many formulas with a script that checks them. The book is a reference, not a course. Its nine parts run from the physical and algebraic background, through the classical theory and the quantum theory at real and at imaginary coupling, to the half-line, defects and the foundations of the non-unitary theory.
+
+- The [preface](preface.qmd) describes the nine parts, and the [introduction](01-introduction.qmd) sets out six reading paths through them.
+- Two appendices list the book's [original results](appendices/E-original-results.qmd) and its [corrections to published papers](appendices/D-corrections.qmd).
+- The whole book is also available as a [PDF](https://gustavdelius.github.io/affine_toda/affine-toda.pdf).
+
+## Two courses on integrable defects {#sec-about-lectures .unnumbered}
+
+The book states results but does not teach them step by step. Lecture notes do that for single parts. There are two courses so far, and both accompany Part VIII, on integrable defects. A defect is a line in spacetime that particles and solitons cross without being reflected. Both courses link into the book for its statements and proofs. They were drafted by different AI models, and they teach the subject in different ways.
+
+- [*Windows in spacetime*](https://gustavdelius.github.io/affine_toda/lectures/defects/), drafted by Claude, tells the story of the ideas. Each lecture asks one question and answers it. Lectures 1–6, on the classical theory, are written. Lectures 7–9, on the quantum theory, are in preparation.
+- [*Lectures on integrable defects in affine Toda field theory*](https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/), drafted by Gemini, is organized around six big ideas. Its six lectures are complete and cover both the classical and the quantum theory.
+
+### How they differ {#sec-about-differences .unnumbered}
+
+| | *Windows in spacetime* | *Lectures on integrable defects* |
+|---|---|---|
+| Written so far | Lectures 1–6 of 9 | All 6 lectures |
+| Scope | The classical theory: what a line can do to particles, Bäcklund transformations, the defect conditions, solitons and waves crossing a defect, why only $a_r^{(1)}$ has such defects, Lax matrices and $r$-matrices | The classical theory in Lectures 1–3. The quantum theory in Lectures 4–6: Borel subalgebras, $q$-oscillators and Baxter's $Q$-operators, crossing and the sign of $q$, quantum tunnelling in $a_2^{(1)}$, defects meeting boundaries, breathers |
+| Pace | Slow. The classical theory takes six lectures. It starts from a $\delta$-function defect in a free field and from the surface geometry behind Bäcklund's construction | Fast. The classical theory takes three lectures, with sine-Gordon theory and $a_2^{(1)}$ as the main examples |
+| Style | One question per lecture, *Predict* boxes that ask you to guess a result before you calculate it, short declarative sentences, figures | Six big ideas, set-piece "blackboard calculations" with every step written out, an enthusiastic voice, no figures |
+| Exercises | 53 so far, of three kinds: redo, rediscover and explore | 14 guided problems |
+| Checks | Every calculation shown in detail is checked by a script in `code/lectures/`, written from the lectures' own definitions | No check scripts of their own; they cite the book's scripts |
+
+### Which to read {#sec-about-which .unnumbered}
+
+Read *Windows in spacetime* if you want to see where each idea comes from and to do every calculation yourself, and if the classical theory is enough for now. Read the other course if you want the whole arc in six lectures, from the no-go theorem for reflection and transmission to the quantum transmission matrices, or if you are heading for the quantum theory. The first halves of the two courses cover the same ground, so they can be read side by side. Where they do the same calculation in different ways, comparing them is instructive.
+
+## How the site was made {#sec-about-made .unnumbered}
+
+The book and *Windows in spacetime* were drafted by Claude, an AI model made by Anthropic, and the second course by Gemini, an AI model made by Google. They worked from outlines, source papers and briefs assembled by the editor, Gustav Delius. Further instances of Claude, Codex and Gemini have checked the book as referees. Validation is by AI agents only; human readers contribute by giving feedback. Main results carry a status label, such as **[Theorem]**, **[Established]**, **[Numerical]** or **[Conjecture]**, that says how they were established, and the [preface](preface.qmd) describes how the book was written. Where a result matters to you, check the proof, and run the scripts.
+
+The Quarto sources, the check scripts and the record of the checks are on [GitHub](https://github.com/gustavdelius/affine_toda). If you find an error or something unclear, please [open an issue](https://github.com/gustavdelius/affine_toda/issues) there.
+
+:::

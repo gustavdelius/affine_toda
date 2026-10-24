@@ -10,7 +10,7 @@ Affine Toda field theories are a family of two-dimensional quantum field theorie
 
 **Background assumed.** Quantum field theory at the level of a first graduate course (path integrals, perturbation theory, renormalization, the S-matrix), finite-dimensional Lie algebras at the level of $su(n)$, and complex analysis. Parts I and II collect the remaining background in the book's notation.
 
-**Lecture notes.** The book is a reference, not a course: it states results with their proofs, checks and sources, but does not teach them step by step. Companion lecture notes do that for individual parts. The first, [*Windows in spacetime*](https://gustavdelius.github.io/affine_toda/lectures/defects/), accompanies Part VIII on integrable defects.
+**Lecture notes.** The book is a reference, not a course: it states results with their proofs, checks and sources, but does not teach them step by step. Companion lecture notes do that for individual parts. Two courses accompany Part VIII on integrable defects, [*Windows in spacetime*](https://gustavdelius.github.io/affine_toda/lectures/defects/) and [*Lectures on integrable defects in affine Toda field theory*](https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/). The [home page of the site](https://gustavdelius.github.io/affine_toda/) compares them.
 
 ::: {.content-visible when-format="html"}
 The whole book is also available as a [PDF](affine-toda.pdf).
@@ -70,7 +70,7 @@ The theories are not only of historical interest. They are rich enough to show g
 
 ## How this book is organised {#sec-reader-guide}
 
-The [preface](index.qmd) describes the nine parts. Parts I–IV review established material. Parts V, VI and IX present research results, many of them new. Part VII reviews the theory on the half-line, developed in the research literature since 1993, in the book's unified notation, and Part VIII does the same for integrable defects, studied since 1994.
+The [preface](preface.qmd) describes the nine parts. Parts I–IV review established material. Parts V, VI and IX present research results, many of them new. Part VII reviews the theory on the half-line, developed in the research literature since 1993, in the book's unified notation, and Part VIII does the same for integrable defects, studied since 1994.
 
 The dependencies between the parts are shown below. Chapter 4 is needed only for Parts V and IX, and Part II is needed in full only for Parts VI–VIII. Parts VIII and IX meet in one place: the Bloch twists of chapter 49 are the simplest defects.
 

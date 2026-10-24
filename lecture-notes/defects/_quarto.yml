@@ -15,6 +15,10 @@ book:
   reader-mode: true
   navbar:
     background: primary
+    right:
+      - icon: house
+        text: "Affine Toda field theory"
+        href: https://gustavdelius.github.io/affine_toda/
   search:
     location: navbar
     type: textbox

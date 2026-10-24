@@ -1,17 +1,3 @@
----
-keywords:
-  - affine Toda field theory
-  - integrable quantum field theory
-  - sine-Gordon theory
-  - solitons
-  - exact S-matrices
-  - quantum groups
-  - integrable boundaries
-  - integrable defects
-  - non-Hermitian quantum field theory
-  - non-unitary
----
-
 # Preface {#sec-preface .unnumbered}
 
 At the intersection of quantum field theory and mathematics lies the quiet, extraordinary world of two-dimensional integrable systems. In four spacetime dimensions, interacting relativistic field theories present a daunting landscape. Particle production is ubiquitous, multi-particle scattering amplitudes depend on a prohibitive proliferation of kinematic invariants, and non-perturbative control remains elusive except through numerical simulation or isolated supersymmetry benchmarks. In two dimensions, however, the geometry of spacetime and kinematics conspire differently. When a theory possesses an infinite family of conserved, higher-spin local charges, the S-matrix simplifies drastically: particle production ceases, all scattering becomes purely elastic and factorizes into sequences of pairwise collisions, and the dynamics is governed by global consistency conditions—the Yang–Baxter equation, unitarity, and crossing—rather than unmanageable dynamical equations.

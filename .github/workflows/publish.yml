@@ -26,13 +26,18 @@ jobs:
       - name: Render
         run: quarto render --to html
       # The lecture notes are separate Quarto projects, which the book's render
-      # skips. Each is published under lectures/<name>/ of the same site.
+      # skips. Each lecture-notes/<name>/ is published under lectures/<name>/
+      # of the same site.
       - name: Render the lecture notes
         run: |
-          (cd lecture-notes/defects && quarto render --to html)
           mkdir -p _site/lectures
-          rm -rf _site/lectures/defects
-          cp -r lecture-notes/defects/_site _site/lectures/defects
+          for dir in lecture-notes/*/; do
+            name=$(basename "$dir")
+            [ -f "$dir/_quarto.yml" ] || continue
+            (cd "$dir" && quarto render --to html)
+            rm -rf "_site/lectures/$name"
+            cp -r "$dir/_site" "_site/lectures/$name"
+          done
       - name: Add the latest PDF
         env:
           GH_TOKEN: ${{ github.token }}

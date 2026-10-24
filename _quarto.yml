@@ -22,6 +22,13 @@ book:
   reader-mode: true
   navbar:
     background: primary
+    left:
+      - text: "Lecture notes"
+        menu:
+          - text: "Windows in spacetime"
+            href: https://gustavdelius.github.io/affine_toda/lectures/defects/
+          - text: "Lectures on integrable defects in affine Toda field theory"
+            href: https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/
   search:
     location: navbar
     type: textbox
@@ -30,6 +37,7 @@ book:
     collapse-level: 1
   chapters:
     - index.qmd
+    - preface.qmd
     - 01-introduction.qmd
     - part: part1-background/part.qmd
       chapters:
@@ -159,6 +167,7 @@ format:
     filters:
       - path: part-preamble.lua
         at: post-render
+      - path: home-page.lua
       - path: hyp-names.lua
       - path: script-links.lua
     include-in-header:
