@@ -416,6 +416,20 @@ Folding gives non-simply-laced theories from simply-laced ones (@sec-affine-fold
 
 Momentum conservation in the folded theory forces the two parameters of the pair to be equal up to sign. Opposite signs give no defect at all, the second defect annihilating the first; equal signs give a genuine defect, through which folded solitons pass with a delay [@robertson2014a, Sec. 3]. For $c_2^{(1)}$ the result agrees with the defect found by Bristow and Bowcock directly. These defects are not type I, consistent with @prp-ar-only, and Robertson notes that they need not be the only ones. The folding of solitons is the same as on the half-line (@sec-images-cn), where $c_n$ solitons are invariant $a_{2n-1}$ solitons. In a sequel Robertson introduced fusing rules for $a_r^{(1)}$ defects, classically and quantum mechanically, and used them to build a new $a_3^{(1)}$ transmission matrix [@robertson2014b]. We have not re-derived these results.
 
+**Linear waves see the condition.** Write $x=\sigma e^\theta=e^{\theta-\theta_d}$ and $\gamma=\gamma_k$. The linear factors (-@eq-an-linear-transmission) are $\mathbb T^{\rm cl}_k=(1+xe^{i\gamma})/(1+xe^{-i\gamma})$ and, since $\gamma_{h-k}=\pi-\gamma_k$, $\mathbb T^{\rm cl}_{h-k}=(1-xe^{-i\gamma})/(1-xe^{i\gamma})$. The reflection maps the mode of particle $k$ to that of particle $h-k$, so the mirror image transmits particle $k$ with $\mathbb T^{\rm cl}_{h-k}$, as it delays solitons (@exr-dc-d-matrix). A defect with parameter $\sigma_1$ next to a mirror image with $\sigma_2$ therefore transmits particle $k$ with $\mathbb T^{\rm cl}_k(\sigma_1)\mathbb T^{\rm cl}_{h-k}(\sigma_2)$ and particle $h-k$ with $\mathbb T^{\rm cl}_{h-k}(\sigma_1)\mathbb T^{\rm cl}_k(\sigma_2)$. A wave that is invariant under the reflection stays invariant only if the two agree for every $\theta$, that is, if
+$$
+\frac{\mathbb T^{\rm cl}_k}{\mathbb T^{\rm cl}_{h-k}}=\frac{1-x^2e^{2i\gamma}}{1-x^2e^{-2i\gamma}}
+$$
+takes the same value at $\sigma_1$ and at $\sigma_2$. For $2k\ne h$ this is an injective Möbius map of $x^2$, so the pair folds exactly when $\sigma_2=\pm\sigma_1$. At $\sigma_2=-\sigma_1$, $\mathbb T^{\rm cl}_k(\sigma)\,\mathbb T^{\rm cl}_{h-k}(-\sigma)=1$, and the pair is transparent. At $\sigma_2=\sigma_1$, with $u=\theta-\theta_d$ and the block (-@eq-fx-block),
+$$
+\mathbb T^{\rm cl}_k\,\mathbb T^{\rm cl}_{h-k}=\frac{\sinh u-i\sin\gamma_k}{\sinh u+i\sin\gamma_k}=\frac1{f_{k/h}(u)} ,
+$$
+and continued to $\theta-\frac{i\pi}2$ this gives the delay of a folded soliton,
+$$
+z_kz_{h-k}=\frac{\cosh u+\sin\gamma_k}{\cosh u-\sin\gamma_k} .
+$$
+It is real for real rapidities, so folded solitons are delayed or advanced and keep their charge. Robertson found the condition $\sigma_2=\pm\sigma_1$ and the reality of the delay from the solitons themselves [@robertson2014a, Sec. 3.1]; the linear waves show both in two lines. For $a_2^{(1)}\to a_2^{(2)}$, $\gamma_1=\frac\pi3$, and $z_1z_2$ is the delay $z_1$ of the Tzitzéica defect of @sec-type-two-atft as a function of $\theta-\theta_d$. We have not matched the defect parameters of the two descriptions; Corrigan and Zambon rescale $\sigma$ when they fold [@cz2009b, Sec. 5]. All of this is checked in `code/defect_fused_boundary.py`.
+
 ## Reality and the defect {#sec-defect-theta}
 
 In the bulk the antilinear map $\Theta:\vec\phi\mapsto-\bar{\vec\phi}$ maps solutions of the imaginary-coupling theory to solutions (@sec-theta-classical). @prp-boundary-theta showed that a boundary respects it exactly when its parameters are real. For a defect, $\Theta$ acts on both fields.
