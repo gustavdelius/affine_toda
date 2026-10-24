@@ -1,4 +1,4 @@
-# Handoff: the lecture notes "Windows in spacetime" (Lectures 6–9)
+# Handoff: the lecture notes "Integrable defects, from Bäcklund to Baxter" (Lectures 6–9)
 
 Written 2026-10-17 by the Claude session that drafted Lectures 1–5, for the Claude agent that writes Lectures 6–9. Read `AGENTS.md` first: its rules apply unchanged. This file adds what is specific to the notes, the state of the work, and a ready plan for Lecture 6. It can be given verbatim as the prompt of a fresh session started in this repository. Do not spawn subagents.
 
@@ -6,7 +6,7 @@ Written 2026-10-17 by the Claude session that drafted Lectures 1–5, for the Cl
 
 On 2026-10-15 the editor (Gustav Delius) asked for lecture notes on Part VIII of the book (integrable defects). They are separate from the book and tell a compelling story: where each idea came from, and the decisive calculations written out in full, so that students can rediscover the results. Depth matters more than breadth. The editor approved this plan unchanged:
 
-- a standalone Quarto book in `lecture-notes/defects/`, titled "Windows in spacetime", with 9 lectures of 12–18 pages each;
+- a standalone Quarto book in `lecture-notes/defects/`, titled "Integrable defects, from Bäcklund to Baxter" (until 2026-10-24 "Windows in spacetime"), with 9 lectures of 12–18 pages each;
 - sine-Gordon theory is the worked laboratory;
 - $a_r^{(1)}$ appears in Lectures 5 and 9 only, but see §6.9 for the small $a_r$ section that Lecture 6 owes Lecture 5;
 - the lecture list and the questions are in `lecture-notes/defects/index.qmd`.
@@ -18,10 +18,10 @@ On 2026-10-15 the editor (Gustav Delius) asked for lecture notes on Part VIII of
 | 3 | Freezing it at a point | | merged |
 | 4 | What gets through | | merged |
 | 5 | Why the cycle? | | merged |
-| 6 | The classical algebra of a window | Why are the windows integrable, in the language of Lax pairs and r-matrices? | written 2026-10-23 on branch `claude/defects-lecture-6` (PR #34); §6 is now its record |
-| 7 | Quantizing the window | Which symmetry survives in the quantum theory, and what does it fix? | not started (§7) |
-| 8 | Windows, L-operators and Q-operators | What is a window wrapped around a cylinder? | not started (§7) |
-| 9 | Folding, fusing and the classical breather | How are windows and mirrors related, and what is left of $\hbar$? | not started (§7) |
+| 6 | The classical algebra of a defect | Why are these defects integrable, in the language of Lax pairs and r-matrices? | written 2026-10-23 on branch `claude/defects-lecture-6` (PR #34); §6 is now its record |
+| 7 | Quantizing the defect | Which symmetry survives in the quantum theory, and what does it fix? | not started (§7) |
+| 8 | Defects, L-operators and Q-operators | What is a defect wrapped around a cylinder? | not started (§7) |
+| 9 | Folding, fusing and the classical breather | How are defects and boundaries related, and what is left of $\hbar$? | not started (§7) |
 
 **Workflow, as the editor has used it.** The editor says "start Lecture N". Draft it, verify it, render it, and report. Commit or push only when asked. Each lecture went into a PR as one commit. The lecture notes PR #30 (Lectures 1–5) and the book PR #33 are both merged into `main`. The branch `claude/defects-lecture-6` holds the Lecture 6 scripts and this file.
 
@@ -60,6 +60,7 @@ Re-read the previous lecture before drafting, for voice. Every lecture has this 
 **Style.**
 
 - Short declarative sentences. Define every symbol.
+- Say "defect", not "window", and "boundary", not "mirror" (the editor, 2026-10-24). The analogy of mirrors and windows names Lecture 1 and its no-go theorem, and Lecture 1 then says that the notes call purely transmitting defects simply defects. Use "window" only where the analogy itself does work, and "purely transmitting" only where the contrast with reflection matters. A defect's share of a conserved charge is its "defect contribution"; "defect term" is the Lagrangian $L_d$. The plans in §6 and §7 below predate this rule and still say "window".
 - Status labels as in the book: `**[Theorem]**` only with a complete proof in the text, `**[Established]**` for literature results the notes check. Every new [Theorem] has had no referee pass yet, so list it in the PR description.
 - Never cite `briefs/` or `referee_scratch/`, and never mention a referee.
 - At most one quotation per response from a source, under 15 words.

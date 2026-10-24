@@ -1,22 +1,22 @@
-"""Lecture notes on defects, Lecture 6, figure 2 (fig-l6-charges): the window holds every charge of a soliton.
+"""Lecture notes on defects, Lecture 6, figure 2 (fig-l6-charges): the defect holds every charge of a soliton.
 
 The exact passage Phi = 4 arctan Y on x < 0, Psi = 4 arctan(z Y) on x > 0, Y = exp(m0 (x cosh theta - t sinh theta)),
 z = -coth((theta - theta_d)/2), for theta_d = 0.8 and theta = theta_d - 0.01 (m0 = beta = 1): the soliton is held
-by the window for a time ln|z|/(m0 sinh theta) and then released. For the charges of spin -1, +1, -3, +3 of the
-generating function (Lecture 6), the parts carried by the field on x < 0, by the window and by the field on x > 0,
+by the defect for a time ln|z|/(m0 sinh theta) and then released. For the charges of spin -1, +1, -3, +3 of the
+generating function (Lecture 6), the parts carried by the field on x < 0, by the defect and by the field on x > 0,
 and their sum, in units of the total:
-    spin -1:  int (1/2 (d_+Phi)^2 + V) dx,  window B - P_d;
-    spin +1:  int (1/2 (d_-Phi)^2 + V) dx,  window B + P_d;
+    spin -1:  int (1/2 (d_+Phi)^2 + V) dx,  defect B - P_d;
+    spin +1:  int (1/2 (d_-Phi)^2 + V) dx,  defect B + P_d;
     spin -3:  (1/8 m0^3) int [(d_+^2 Phi)^2 - (d_+Phi)^4/4 + m0^2 cos Phi (d_+Phi)^2] dx,
-              window D_-3 = (sigma/2m0^2) cos(Sigma/2) d_+Phi d_+Psi + sigma^3 (cos(Sigma/2) - (2/3) cos^3(Sigma/2)) - sigma^3/3;
-    spin +3:  the same with d_- and Delta, window D_+3 = -(1/(2 m0^2 sigma)) cos(Delta/2) d_-Phi d_-Psi
+              defect D_-3 = (sigma/2m0^2) cos(Sigma/2) d_+Phi d_+Psi + sigma^3 (cos(Sigma/2) - (2/3) cos^3(Sigma/2)) - sigma^3/3;
+    spin +3:  the same with d_- and Delta, defect D_+3 = -(1/(2 m0^2 sigma)) cos(Delta/2) d_-Phi d_-Psi
               + sigma^-3 (cos(Delta/2) - (2/3) cos^3(Delta/2)) - sigma^-3/3,
-with V = m0^2 (1 - cos Phi), B, P_d of Lecture 3, Sigma = Phi + Psi, Delta = Phi - Psi at x = 0. The window terms
+with V = m0^2 (1 - cos Phi), B, P_d of Lecture 3, Sigma = Phi + Psi, Delta = Phi - Psi at x = 0. The defect contributions
 vanish on even jumps.
 
 Checks: the pair satisfies the defect conditions; each sum is constant to 1e-8; the totals are the charges of a
 soliton of rapidity theta (8 m0 e^-+theta for spin -+1, computed by quadrature for spin -+3); half-way through the
-hold each window term is within 5 % of the total; the window terms at the odd jump (0, 2 pi) are the charges of a
+hold each defect contribution is within 5 % of the total; the defect contributions at the odd jump (0, 2 pi) are the charges of a
 soliton of rapidity theta_d: 8 m0 sigma, 8 m0/sigma, and the spin -+3 charges at theta_d, to 1e-8.
 Writes lecture-notes/defects/figures/l6_charges.svg.
 """
@@ -68,7 +68,7 @@ def bulk(t, fac, side, k, th=None):
     return quad(lambda x: densities(t, x, fac, th)[k], a, b, limit=400, epsabs=1e-13)[0]
 
 
-def window(P, Q, upL, upR, umL, umR):
+def defect_parts(P, Q, upL, upR, umL, umR):
     S, D = P + Q, P - Q
     B = -2 * m0 * (sig * (math.cos(S / 2) - 1) + (math.cos(D / 2) - 1) / sig)
     Pd = 2 * m0 * (sig * (math.cos(S / 2) - 1) - (math.cos(D / 2) - 1) / sig)
@@ -78,10 +78,10 @@ def window(P, Q, upL, upR, umL, umR):
     return B - Pd, B + Pd, Dm3, Dp3
 
 
-def window_at(t):
+def defect_parts_at(t):
     PL = jets(t, 0.0, 1.0)
     PR = jets(t, 0.0, z)
-    return window(PL[0], PR[0], PL[1], PR[1], PL[3], PR[3])
+    return defect_parts(PL[0], PR[0], PL[1], PR[1], PL[3], PR[3])
 
 
 # defect conditions
@@ -96,7 +96,7 @@ report(f"the plotted pair satisfies the defect conditions (residual {res:.0e})",
 ts = np.linspace(-6, 16, 177)
 parts = np.zeros((4, 3, len(ts)))
 for i, t in enumerate(ts):
-    w = window_at(t)
+    w = defect_parts_at(t)
     for k in range(4):
         parts[k, 0, i] = bulk(t, 1.0, 0, k)
         parts[k, 1, i] = w[k]
@@ -114,10 +114,10 @@ report("the totals are the charges of the incoming soliton (8 m0 e^-theta, 8 m0 
        and abs(tot[2, 0] - Qsol[2]) < 1e-8 and abs(tot[3, 0] - Qsol[3]) < 1e-8)
 t_a = brentq(lambda t: jets(t, 0.0, 1.0)[0] - math.pi, -20, 20)
 t_b = brentq(lambda t: jets(t, 0.0, z)[0] - math.pi, -20, 40)
-wmid = window_at(0.5 * (t_a + t_b))
-report("half-way through the hold each window term is within 5 % of the total",
+wmid = defect_parts_at(0.5 * (t_a + t_b))
+report("half-way through the hold each defect contribution is within 5 % of the total",
        all(abs(wmid[k] / tot[k, 0] - 1) < 0.05 for k in range(4)))
-wodd = window(0.0, 2 * math.pi, 0.0, 0.0, 0.0, 0.0)
+wodd = defect_parts(0.0, 2 * math.pi, 0.0, 0.0, 0.0, 0.0)
 Qd = [soliton_charge(k, thd) for k in range(4)]
 report("the odd jump (0, 2 pi) stores the charges of a soliton of rapidity theta_d, for spins -1, +1, -3, +3 "
        f"(spin -3: {Qd[2]:.6f} = -(2/3) sigma^3 = {-2 / 3 * sig**3:.6f})",
@@ -128,7 +128,7 @@ titles = ["(a) spin $-1$: $E-P$", "(b) spin $+1$: $E+P$", "(c) spin $-3$", "(d) 
 fig, axes = plt.subplots(2, 2, figsize=(7.0, 4.5), sharex=True)
 for k, ax in enumerate(axes.ravel()):
     ax.plot(ts, parts[k, 0] / tot[k], color=style.BLUE, label=r"field on $x<0$")
-    ax.plot(ts, parts[k, 1] / tot[k], color=style.PURPLE, label="window")
+    ax.plot(ts, parts[k, 1] / tot[k], color=style.PURPLE, label="defect")
     ax.plot(ts, parts[k, 2] / tot[k], color=style.RED, label=r"field on $x>0$")
     ax.plot(ts, tot[k] / tot[k], color=style.GREY, ls="--", lw=1.1, label="sum")
     ax.axvspan(t_a, t_b, color=style.LIGHTGREY, lw=0)

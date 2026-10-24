@@ -3,8 +3,8 @@ project:
   output-dir: _site
 
 book:
-  title: "Windows in spacetime"
-  subtitle: "Lectures on integrable defects"
+  title: "Integrable defects, from Bäcklund to Baxter"
+  subtitle: "Lecture notes"
   editor: Gustav Delius
   description: >-
     Lecture notes on integrable defects in two-dimensional field theory, a

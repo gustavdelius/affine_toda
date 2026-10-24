@@ -1,4 +1,4 @@
-"""Lecture notes on defects, Lecture 5, figure 1 (fig-l5-diagrams): why only the cycle has windows.
+"""Lecture notes on defects, Lecture 5, figure 1 (fig-l5-diagrams): why only the cycle has type-I defects.
 
 Four affine Dynkin diagrams with a symmetry p of their nodes, drawn as arrows from i to p(i):
 (a) d_4^(1) with a 3-cycle of its outer nodes: like every tree, it has a centre that every symmetry fixes;
@@ -116,7 +116,7 @@ draw(axes[2], pos5, [(j, (j + 1) % 5) for j in range(5)], [(j, (j - 2) % 5) for 
      arrow_col=style.ORANGE, title=r"(c) $a_4^{(1)}$, $\pi^2$: cross terms")
 # (d)
 draw(axes[3], pos5, [(j, (j + 1) % 5) for j in range(5)], [(j, (j - 1) % 5) for j in range(5)], rad=-0.45,
-     arrow_col=style.GREEN, title=r"(d) $a_4^{(1)}$, $\pi$: a window")
+     arrow_col=style.GREEN, title=r"(d) $a_4^{(1)}$, $\pi$: a defect")
 fig.tight_layout(w_pad=0.3)
 style.save(fig, "l5_diagrams", OUT)
 raise SystemExit(0 if style.all_ok() else 1)
