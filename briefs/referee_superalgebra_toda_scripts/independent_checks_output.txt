@@ -1,0 +1,35 @@
+PASS Berezin kinetic coefficients including +F^2/2 {(2, 4): I/2, (): F**2/2 + phim*phip/2, (3, 5): I/2}
+PASS odd exponential: auxiliary minus, Yukawa plus
+PASS even spurion gives negative potential
+PASS SSG mass squared and Yukawa mass
+PASS SSG bosonic truncation
+PASS all SSG Chevalley relations
+PASS osp ansatz obstruction
+PASS superspin 3/2 current on shell
+PASS superspin 7/2 current on shell
+PASS printed partner -1/2 of correct first partner fails
+PASS A n=2 Hessian masses [2. 6.]
+PASS A n=2 tree fixes gamma negative theta=0.71 error=2.9e-17; C4=2
+PASS A n=2 tree fixes gamma negative theta=1.19 error=9.9e-18; C4=2
+PASS C n=2 Hessian masses [4. 8.]
+PASS A n=3 Hessian masses [2.         2.76393202 7.23606798]
+PASS A n=3 tree fixes gamma negative theta=0.71 error=3.3e-17; C4=2
+PASS A n=3 tree fixes gamma negative theta=1.19 error=1.5e-17; C4=2
+PASS C n=3 Hessian masses [2. 6. 8.]
+PASS n=2 braid YBE 1.6653345369377348e-16
+PASS n=2 algebraic unitarity
+PASS n=2 free fermion correct sign
+PASS n=2 printed B.1 fails
+PASS n=2 Majorana amplitude crossing
+PASS n=3 braid YBE 1.3877787807814457e-17
+PASS n=3 algebraic unitarity
+PASS n=3 free fermion correct sign
+PASS n=3 printed B.1 fails
+PASS n=3 Majorana amplitude crossing
+PASS C n=2 fermion unitarity/crossing
+PASS C n=3 fermion unitarity/crossing
+PASS C n=4 fermion unitarity/crossing
+PASS C n=5 fermion unitarity/crossing
+PASS D(2,1;alpha) null roots and fermion eigenvalues
+PASS D-family canonical cubic coefficient is negative
+Independent algebraic checks complete.

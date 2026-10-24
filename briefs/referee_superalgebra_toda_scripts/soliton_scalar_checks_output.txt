@@ -1,0 +1,45 @@
+PASS m=2 root rank/nullity 
+PASS m=2 J antisymmetric 
+PASS m=2 Vreal+Vimag 
+PASS m=2,a=1 soliton eom 1.7763568394002505e-15
+PASS m=2,a=1 first order lambda negative (homogeneous form) 9.930136612989092e-16
+PASS m=2,a=1 rest energy and central boundary term E=(8.000000000000002+4.943448703280839e-14j), Z=(8+0j)
+PASS m=3 root rank/nullity 
+PASS m=3 J antisymmetric 
+PASS m=3 Vreal+Vimag 
+PASS m=3,a=1 soliton eom 3.1130819905933363e-15
+PASS m=3,a=1 first order lambda negative (homogeneous form) 1.900395703982448e-15
+PASS m=3,a=1 rest energy and central boundary term E=(10.39230484541326+3.4628762411630818e-15j), Z=(10.392304845413264+2.8844440295753455e-16j)
+PASS m=3,a=2 soliton eom 5.063396036227354e-15
+PASS m=3,a=2 first order lambda negative (homogeneous form) 2.6131546473217737e-15
+PASS m=3,a=2 rest energy and central boundary term E=(10.392304845413259+8.967074573937265e-15j), Z=(10.392304845413264+4.462250443001235e-17j)
+PASS m=4 root rank/nullity 
+PASS m=4 J antisymmetric 
+PASS m=4 Vreal+Vimag 
+PASS m=4,a=1 soliton eom 8.881784197001252e-15
+PASS m=4,a=1 first order lambda negative (homogeneous form) 3.3306690738754696e-15
+PASS m=4,a=1 rest energy and central boundary term E=(11.313708498984765+1.489714156292078e-14j), Z=(11.31370849898476+0j)
+PASS m=4,a=2 soliton eom 1.432144669219779e-14
+PASS m=4,a=2 first order lambda negative (homogeneous form) 1.6011864169946886e-15
+PASS m=4,a=2 rest energy and central boundary term E=(15.999999999999995+9.046450989845772e-14j), Z=(16+0j)
+PASS m=4,a=3 soliton eom 3.972054645195637e-15
+PASS m=4,a=3 first order lambda negative (homogeneous form) 3.76985705904379e-15
+PASS m=4,a=3 rest energy and central boundary term E=(11.313708498984763+3.845165591650325e-14j), Z=(11.313708498984761+0j)
+PASS G/F partial ratio M=1 
+PASS G/F partial ratio M=2 
+PASS G/F partial ratio M=7 
+PASS fusion makes sign (-1)^(ab), not universal minus 
+PASS n=2 Gamma scalar unitarity 2.50045928407161e-09
+PASS n=2 physical unitarity 
+PASS n=2,a=1 positive direct residue and rank one eigenvalues=[2.44119784e-13-1.97669919e-17j 6.57874324e-01-1.41947923e-07j]
+PASS n=2,a=1 1/epsilon pole scaling 
+PASS n=2,a=1 bootstrap S_an 1.3949016612253498e-09
+PASS n=3 Gamma scalar unitarity 4.411085385847002e-09
+PASS n=3 physical unitarity 
+PASS n=3,a=1 positive direct residue and rank one eigenvalues=[4.93337360e-13+4.24607728e-18j 4.78404291e-01+3.72544007e-08j]
+PASS n=3,a=1 1/epsilon pole scaling 
+PASS n=3,a=1 bootstrap S_an 2.6517975277917417e-10
+PASS n=3,a=2 positive direct residue and rank one eigenvalues=[4.16138231e-01-1.96834390e-07j 4.29027764e-13+1.23082435e-17j]
+PASS n=3,a=2 1/epsilon pole scaling 
+PASS n=3,a=2 bootstrap S_an 8.304644514978216e-10
+Independent soliton and scalar checks complete.

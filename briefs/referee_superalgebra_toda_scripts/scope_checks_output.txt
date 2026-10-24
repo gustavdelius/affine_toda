@@ -1,0 +1,8 @@
+PASS ODE elimination gives centrifugal term l(l+1)/x^2
+PASS boundary supercharge equations g*f=N and dg/dphi=-2f
+PASS exceptional twisted kinetic signature positive
+PASS exceptional twisted kinetic signature middle
+PASS exceptional twisted kinetic signature negative
+PASS C nth boson is at two-fermion threshold, u=0
+PASS N=1 Gamma numerator arguments coincide; denominator follows u->-u
+PASS gl extension can source interacting fields through a free null coordinate
