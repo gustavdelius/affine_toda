@@ -60,7 +60,7 @@ Differences of convention are not listed; the dictionaries between conventions a
 
 **Gandenberger 1998** [@gandenberger1998], supersymmetric S-matrices.
 
-- **(5.10).** The paper states that the minimal $N=2$ scalar factor (5.6) is identical to its $a_{2n}^{(1)}$ soliton scalar factor (3.28) at $\lambda=1/h$. The two infinite products differ in one pair of Gamma functions, and their ratio is $\prod_{j\ge1}\frac{(j-\mu)(\mu+j-1)}{(j-1-\mu)(\mu+j)}=-1$, so $G^{(N=2)}_{1,1}=-F_{1,1}\big|_{\lambda=1/h}$. *Misprint* (@sec-known-smatrices-notes; `code/super_toda/gandenberger_scalar.py`).
+- **(5.10).** The paper states that the minimal $N=2$ scalar factor (5.6) is identical to its $a_{2n}^{(1)}$ soliton scalar factor (3.28) at $\lambda=1/h$. The two infinite products differ in one pair of Gamma functions, and their ratio is $\prod_{j\ge1}\frac{(j-\mu)(\mu+j-1)}{(j-1-\mu)(\mu+j)}=-1$, so $G^{(N=2)}_{1,1}=-F_{1,1}\big|_{\lambda=1/h}$. Since (3.12) and (5.7) fuse both factors with the same shifts, $G^{(N=2)}_{a,b}=(-1)^{ab}F_{a,b}\big|_{\lambda=1/h}$. *Misprint* (@sec-known-smatrices-notes; `code/super_toda/gandenberger_scalar.py`).
 
 **Evans and Madsen 1999** [@evans_madsen1999], conserved currents of the super sinh-Gordon theory.
 

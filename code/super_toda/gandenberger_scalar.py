@@ -12,7 +12,11 @@ Checks:
     G(-mu+j-1)G(-mu+j+1)/[G(mu+j-1)G(mu+j+1)].  The ratio of the partial products up to
     j = M is -(M - mu)/(M + mu), exactly, so G^(N=2)_11 = -F_11|_(lambda=1/h): the identity
     (5.10) holds up to an overall sign -1.  Checked for N = 2, 4 at complex mu.
- 2. N = 1 (his (4.4), (5.14), (5.17)).  For a_2n^(2), h = 2n + 1, the infinite product of
+ 2. Fusion.  His (3.12) and (5.7) build F_ab and G^(N=2)_ab from ab copies of the (1,1)
+    factor with the same shifts (lambda/2)(a + b - 2j - 2k + 2), lambda = 1/h.  The partial
+    products then differ by prod_jk [-(M - mu_jk)/(M + mu_jk)], so G_ab = (-1)^(ab) F_ab
+    at lambda = 1/h, not -F_ab.  Checked for N = 4 and (a, b) = (1, 2), (2, 1), (2, 2), (1, 3).
+ 3. N = 1 (his (4.4), (5.14), (5.17)).  For a_2n^(2), h = 2n + 1, the infinite product of
     (4.4) at lambda = 1/h equals the infinite product in (5.14) factor by factor, so (5.17)
     holds with the stated trigonometric prefactor.  Checked for n = 1, 2.
 """
@@ -61,6 +65,19 @@ for N in (2, 4):
             ok &= abs(r + (M - mu) / (M + mu)) < 1e-20
 report('N = 2: the partial products of (5.6) and of (3.28) at lambda = 1/h differ by the factor '
        '-(M - mu)/(M + mu), so G^(N=2)_11 = -F_11 (Gandenberger (5.10) holds up to the sign -1)', ok)
+
+ok = True
+N, M = 4, 40
+h = N + 1
+for a, b in ((1, 2), (2, 1), (2, 2), (1, 3)):
+    for mu in (mp.mpc('0.13', '0.07'), mp.mpc('0.31', '-0.2')):
+        shifts = [mu + mp.mpf(a + b - 2 * j - 2 * k + 2) / (2 * h) for j in range(1, a + 1) for k in range(1, b + 1)]
+        logG = sum(G11_N2(s, h, M) for s in shifts)                       # (5.7)
+        logF = sum(F11_an(s, N, mp.mpf(1) / h, M) for s in shifts)       # (3.12) at lambda = 1/h
+        finite_M = mp.fprod((M - s) / (M + s) for s in shifts)
+        ok &= abs(mp.exp(logG - logF) - (-1) ** (a * b) * finite_M) < 1e-20
+report('N = 2, fused: by (3.12) and (5.7), G^(N=2)_ab = (-1)^(ab) F_ab at lambda = 1/h '
+       '((a, b) = (1, 2), (2, 1), (2, 2), (1, 3); N = 4)', ok)
 
 
 def F11_a2n2(mu, n, lam, M):

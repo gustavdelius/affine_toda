@@ -26,13 +26,20 @@ Checks:
  5. D(2,1;alpha)^(1) (Evans-Madsen 1999): masses m(1+alpha), m, m alpha; kinetic
     coefficients -1/(1+alpha), 1, 1/alpha; the twisted reality condition (1)
     makes the kinetic term definite for alpha > 0; the Yukawa couplings of the
-    canonically normalized fields are 4 mu sqrt(alpha(1+alpha)) psibar_i psi_j phi_k.
+    canonically normalized fields have modulus 4 mu sqrt(alpha(1+alpha)).  Their sign
+    is checked separately from Evans-Madsen's own twisted Lagrangian (3.29)-(3.32):
+    expanding (3.32) to first order in the bosons, reversing the overall sign to make
+    the kinetic terms positive and normalizing the fields gives
+    -4 mu sqrt(alpha(1+alpha)) (psibar_1 psi_2 phi_3 + psibar_1 psi_3 phi_2 + psibar_2 psi_3 phi_1),
+    their L_yuk of Sec. 3.3.
  6. A(1,1)^(1) (sl(2|2)^(1)): with twisted reality and gamma = 1 the bosonic
     sector is a sinh-Gordon plus a sine-Gordon theory of equal mass, with a
     positive kinetic term (Evans-Madsen (7.10)-(7.12)).
  7. The Delius-Grisaru-Penati-Zanon families A^(2)(0,2n-1) and C^(2)(n+1) for
     n = 2, 3, 4: bosonic masses and fermion masses in the ratios of their
-    eqs. (2.2) and (3.2).
+    eqs. (2.2) and (3.2); the exponents of the bosonic potential (-2 eps_1 occurs
+    only for C); in C^(2)(n+1), m_n = 2 m_psi (threshold, theta = 0) and a boson is
+    degenerate with the fermions exactly when n = 3k, namely phi_k.
  8. The second supersymmetry condition (lambda_i + lambda_j) a_ij = 0,
     lambda_j^2 = -1 (Evans-Hollowood 1992 (2.5)): solutions for A(1,1)^(1),
     none for C(2)^(2), B(1,1)^(1) and D(2,1;alpha)^(1).
@@ -195,6 +202,23 @@ gEM = sp.simplify(coefL * sp.sqrt(8) / sp.sqrt(sp.Abs(Ge[0, 0] * Ge[1, 1] * Ge[2
 report('D(2,1;alpha)^(1): in Evans-Madsen field normalization the Yukawa coupling of '
        'psibar_1 psi_2 phi_3 has modulus 4 mu sqrt(alpha(1+alpha)) (Evans-Madsen after (3.32))',
        sp.simplify(sp.Abs(gEM) - 4 * mu_ * sp.sqrt(al * (1 + al))) == 0)
+# Sign of the cubic Yukawa couplings, from Evans-Madsen's twisted Lagrangian.  Their (3.31)-(3.32):
+# kinetic coefficients -1/(1+alpha), -1, -1/alpha for (phi, psi)_1, _2, _3, and the off-diagonal part
+# of L_int below (b_ij = psibar_i psi_j).  Reverse the overall sign, as they do for the quantum theory,
+# and normalize: (phi, psi)_1 = sqrt(1+alpha) (hat), _2 unchanged, _3 = sqrt(alpha) (hat).
+f1, f2, f3, b12, b13, b23, mm = sp.symbols('phi1 phi2 phi3 b12 b13 b23 m')
+Lint_off = (-2 * mm * b12 * (sp.sinh(f1) * sp.sin(f2) * sp.cos(f3) - sp.cosh(f1) * sp.cos(f2) * sp.sin(f3))
+            - 2 * mm * b13 * (sp.sinh(f1) * sp.cos(f2) * sp.sin(f3) - sp.cosh(f1) * sp.sin(f2) * sp.cos(f3))
+            + 2 * mm * b23 * (sp.cosh(f1) * sp.sin(f2) * sp.sin(f3) + sp.sinh(f1) * sp.cos(f2) * sp.cos(f3)))
+sc = {1: sp.sqrt(1 + al), 2: 1, 3: sp.sqrt(al)}
+lin = sum(sp.diff(Lint_off, f).subs({f1: 0, f2: 0, f3: 0}) * f for f in (f1, f2, f3))
+canon = sp.expand(-lin.subs({f1: sc[1] * f1, f2: f2, f3: sc[3] * f3,
+                             b12: sc[1] * sc[2] * b12, b13: sc[1] * sc[3] * b13, b23: sc[2] * sc[3] * b23}))
+target = -4 * mu_ * sp.sqrt(al * (1 + al)) * (b12 * f3 + b13 * f2 + b23 * f1)
+report('D(2,1;alpha)^(1): with positive kinetic terms and normalized fields the cubic Yukawa couplings are '
+       '-4 mu sqrt(alpha(1+alpha)) (psibar_1 psi_2 phi_3 + psibar_1 psi_3 phi_2 + psibar_2 psi_3 phi_1), '
+       'from Evans-Madsen (3.31)-(3.32) with m = 2 mu (their L_yuk, Sec. 3.3)',
+       sp.simplify(canon.subs(mm, 2 * mu_) - target) == 0)
 
 # ======================================================= 6. A(1,1)^(1), N = 2
 # simple roots: four null roots on a circle; Evans-Madsen Cartan matrix (5.? Section 5 (4)):
@@ -266,6 +290,24 @@ for n in (2, 3, 4):
         name = 'A^(2)(0,2n-1)' if kind == 'A' else 'C^(2)(n+1)'
         report(f'{name}, n = {n}: phi = 0 stationary; boson and fermion masses^2 are those of '
                f'Delius-Grisaru-Penati-Zanon (2.2)/(3.2) with h = {h}', okB and okF and stat)
+        # exponents of the bosonic potential: the even simple roots and 2 eps_n, and -2 eps_1 only for C
+        phis = [J.phi(k) for k in range(n)]
+        expos = {tuple(sp.diff(ex.args[0], ph) for ph in phis) for ex in sp.powsimp(sp.expand(U, power_exp=False)).atoms(sp.exp)}
+        E_ = sp.eye(n)
+        want = {tuple(E_[:, i] - E_[:, i + 1]) for i in range(n - 1)} | {tuple(2 * E_[:, n - 1])}
+        want |= {tuple(-2 * E_[:, 0])} if kind == 'C' else {tuple(-E_[:, 0] - E_[:, 1])}
+        report(f'{name}, n = {n}: the bosonic potential has exactly the exponents of the even simple roots '
+               f'and 2 eps_n' + (', and -2 eps_1' if kind == 'C' else '; -2 eps_1 does not occur'),
+               expos == want)
+
+# C^(2)(n+1): the heaviest boson sits at the fermion-fermion threshold, and phi_a is degenerate
+# with the fermions (m_psi^2 = 2) exactly when 3a = n.  With s = 2 m_psi^2 (1 + cosh theta), a pole
+# at s = m_n^2 = 8 lies at theta = 0, not in the open physical strip.
+deg_ok = all({a for a in range(1, n) if abs(8 * np.sin(np.pi * a / (2 * n)) ** 2 - 2) < 1e-12}
+             == ({n // 3} if n % 3 == 0 else set()) for n in range(2, 13))
+report('C^(2)(n+1): m_n^2 = 8 = 4 m_psi^2, so the phi_n pole of the fermion amplitude would be at the '
+       'threshold theta = 0; phi_a is degenerate with the fermions iff n = 3a (checked n = 2..12)',
+       abs(2 * 2 * (1 + np.cosh(0.0)) - 8) < 1e-14 and deg_ok)
 
 
 # ================================= 8. the second supersymmetry (N = 2) condition

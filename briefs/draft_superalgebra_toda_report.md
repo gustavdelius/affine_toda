@@ -257,7 +257,7 @@ How the handover's instructions were handled. "Verified" means checked as descri
 | Introduction, README, Part IV preamble, outlook | Done. Universal wording: the introduction's "one for each affine Kac–Moody algebra" refers to the bosonic family and is kept, with a sentence pointing to chapter 16; the Part IV preamble now states that not all theories of its last chapter are real-coupling, unitary or purely massive. |
 | `references.bib`, briefs and code READMEs | Done; see the bibliography caveat below. |
 | Numbering and file migration | Done as a staged pure-rename step plus a text step; see above. |
-| Validation: scripts, check-refs, scratch render | Done; see outputs. The PDF render was not run. |
+| Validation: scripts, check-refs, scratch render | Done; see outputs. HTML and PDF scratch renders, see "Render". |
 
 ## Literature corrections
 
@@ -267,7 +267,7 @@ Each is in the chapter Notes (or chapter 23's) and in Appendix D.
 2. **DGPZ NPB, (B.1)** (misprint). Printed "$BF+T^2-D^2-R^2=0$". With (2.34) and the sign convention of (2.4), $BF+T^2-D^2-R^2=2\gamma^2T^2/\cosh^2\frac{h\theta}2\neq0$, while $BF+T^2+D^2-R^2=0$, which is Felderhof's $a_1a_2+b_1b_2=c_1c_2+d_1d_2$ with $d_1d_2=D\cdot(-D)$ (`dgpz_smatrix.py`).
 3. **Gandenberger 1998, (5.10)** (misprint). The paper writes "$G^{(N=2)}_{a,b}(\mu)=F_{a,b}(\mu)|_{\lambda=\frac1h}$" after "we indeed find that they are identical". From his (5.6) and (3.28), the ratio of the partial products is $-(M-\mu)/(M+\mu)$ exactly, so $G^{(N=2)}_{1,1}=-F_{1,1}|_{\lambda=1/h}$ (`gandenberger_scalar.py`). His (5.17) holds as printed.
 
-Two signs that the sources leave open or state differently are fixed by our checks and stated in the Notes, not entered as corrections: $\gamma=-\sin\pi\Omega$ (DGPZ fix only $\gamma^2$; our own tree amplitude from the potential fixes the sign), and the sign of $\lambda$ in Evans–Hollowood's first-order soliton equation (5.7)–(5.8), which in our conventions is $-\sqrt{(1-v)/(1+v)}$ with $J\alpha_j=i(-1)^j\alpha_j$; this may reflect the unstated sign conventions of their (5.5), which we did not check.
+Two signs that the sources leave open or state differently are fixed by our checks and stated in the Notes, not entered as corrections: $\gamma=-\sin\pi\Omega$ (DGPZ fix only $\gamma^2$; our own tree amplitude from the potential fixes the sign), and the sign of $\lambda$ in Evans–Hollowood's first-order soliton equation (5.7)–(5.8), which in our conventions is $-\sqrt{(1-v)/(1+v)}$ with $J\alpha_j=i(-1)^j\alpha_j$; this may reflect the unstated sign conventions of their (5.5), which we did not check. (Superseded by the referee integration of 2026-10-24: Evans–Hollowood fix only $\rho^2$, and the sign of $\lambda$ follows the orientation of $\rho$. The integration of the referee report on this chapter is in the `## Integration` section of `briefs/referee_superalgebra_toda_report.md`.)
 
 A further slip in DGPZ's reference list is described under "Bibliography".
 
@@ -282,7 +282,6 @@ A further slip in DGPZ's reference list is described under "Bibliography".
 - `prp-super-bosonic` uses Evans–Madsen's sign conditions on the $\mu_j$ only as "suitable signs".
 - Evans–Hollowood 1991's erratum was not obtained.
 - No figure was added.
-- The PDF render was not run.
 
 ## Appendix E
 

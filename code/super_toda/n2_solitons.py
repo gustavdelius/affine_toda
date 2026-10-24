@@ -10,7 +10,7 @@ root parametrization (5.1)
 j = 1..m, indices mod m, with traceless Phi^(1), Phi^(2) and the bilinear
 (not hermitian) Euclidean inner product.
 
-Checks (m = 3 and m = 4):
+Checks (m = 2, 3, 4; for the solitons all a = 1..m-1, including a = m/2):
  1. The 2m roots are null and form a cycle with alternating products +-1; the
     Cartan matrix has rank 2m - 2, with the two null vectors (1,0,1,0,...),
     (0,1,0,1,...) (Evans-Hollowood (2.8)).
@@ -21,14 +21,17 @@ Checks (m = 3 and m = 4):
  4. Its energy, integrated numerically with the Lagrangian of check 2, is
     M_a = 4 m mu sin(pi a/m)/beta^2 (5.4) = 2 h m_a/beta^2 of sec-soliton-masses.
  5. The central-charge formula (5.9), evaluated from the asymptotic values of the
-    fields, gives the same M_a.
+    fields, gives the same M_a.  It is used in the form of eq-n2-central,
+    c_a = i e^{i pi a/m} = (1 + i sigma)/(1 - i sigma) with sigma = tan(pi a/2m + pi/4) of
+    their (5.8); the identity is checked where sigma is finite, and c_a also covers
+    a = m/2, where sigma is infinite.
  6. The soliton satisfies a first-order equation of the form (5.7),
     -(1 - sigma J) d_+phi + lambda (1 + sigma J) F = 0, F = -(mu/beta) sum_j alpha_j e^{beta alpha_j.phi},
     taken componentwise with u_j = alpha_j.phi and J alpha_j = i(-1)^j alpha_j (Evans-Hollowood
-    (2.9)), with sigma = tan(pi a/2m + pi/4) as in their (5.8) but lambda = -sqrt((1-v)/(1+v)).
-    With lambda = +sqrt((1-v)/(1+v)) it fails for either sign of J; the sign of lambda depends
-    on the sign conventions of the supersymmetry variations (5.5), which are not checked here.
-    For a = m/2, sigma is infinite and the check is skipped.
+    (2.9)), multiplied by cos(pi a/2m + pi/4) so that a = m/2 is included.  Evans-Hollowood
+    fix only rho^2 in (5.3).  For rho > 0 the equation holds with lambda = -sqrt((1-v)/(1+v)),
+    for rho < 0 with lambda = +sqrt((1-v)/(1+v)), and the other sign fails in each case, for
+    either sign of J: the sign of lambda is a choice of orientation.
 """
 import itertools
 import os
@@ -65,7 +68,7 @@ def roots_slmm(m):
     return al
 
 
-for m in (3, 4):
+for m in (2, 3, 4):
     al = roots_slmm(m)
     C = sp.Matrix(2 * m, 2 * m, lambda i, j: sum(a * b for a, b in zip(al[i], al[j])))
     cyc = all(C[i, i] == 0 for i in range(2 * m)) and all(
@@ -97,22 +100,22 @@ for m in (3,):
 mp.mp.dps = 30
 
 
-def soliton(m, a, beta, mu, v, xi, x, t):
-    rho = 2 * mu * mp.sin(mp.pi * a / m) / mp.sqrt(1 - v ** 2)
+def soliton(m, a, beta, mu, v, xi, x, t, orient=1):
+    rho = orient * 2 * mu * mp.sin(mp.pi * a / m) / mp.sqrt(1 - v ** 2)
     w = mp.exp(2j * mp.pi * a / m)
     E = mp.exp(rho * (x - v * t) + xi)
     # separate logarithms keep phi continuous along the soliton
     return [-1 / (1j * beta) * (mp.log(1 + E * w ** j) - mp.log(1 + E * w ** (j - 1))) for j in range(1, m + 1)]
 
 
-def phi_d(m, a, beta, mu, v, xi, x, t, kt, kx):
-    f = lambda tt, xx, j: soliton(m, a, beta, mu, v, xi, xx, tt)[j]
+def phi_d(m, a, beta, mu, v, xi, x, t, kt, kx, orient=1):
+    f = lambda tt, xx, j: soliton(m, a, beta, mu, v, xi, xx, tt, orient)[j]
     return [mp.diff(lambda tt, xx: f(tt, xx, j), (t, x), (kt, kx)) for j in range(m)]
 
 
-ok3 = ok4 = ok5 = True
+ok3 = ok4 = ok5 = ok5c = True
 ok6, ok6bad = True, True
-for m, a in ((3, 1), (3, 2), (4, 1), (4, 2)):
+for m, a in ((2, 1), (3, 1), (3, 2), (4, 1), (4, 2), (4, 3)):
     # a complex xi keeps 1 + E w^j away from zero (for real xi the solitons with
     # w^j = -1 are singular)
     beta, mu, v, xi = mp.mpf('0.8'), mp.mpf('1.3'), mp.mpf('0.35'), mp.mpc('0.2', '0.3')
@@ -137,8 +140,12 @@ for m, a in ((3, 1), (3, 2), (4, 1), (4, 2)):
     mp.mp.dps = 30
     Ma = 4 * m * mu * mp.sin(mp.pi * a / m) / beta ** 2
     ok4 &= abs(E - Ma) < 1e-8
-    # 5. central-charge formula (5.9) from the asymptotic values
-    sig = mp.tan(mp.pi * a / (2 * m) + mp.pi / 4)
+    # 5. central-charge formula (5.9) from the asymptotic values, with c_a = (1+i sigma)/(1-i sigma)
+    xa = mp.pi * a / (2 * m) + mp.pi / 4
+    ca = 1j * mp.exp(1j * mp.pi * a / m)
+    if 2 * a != m:
+        sig = mp.tan(xa)
+        ok5c &= abs(ca - (1 + 1j * sig) / (1 - 1j * sig)) < 1e-25
     al = roots_slmm(m)
 
     def u_vals(x):
@@ -150,39 +157,42 @@ for m, a in ((3, 1), (3, 2), (4, 1), (4, 2)):
         u = u_vals(x)
         ev = sum(mp.exp(beta * u[k]) for k in range(0, 2 * m, 2))
         od = sum(mp.exp(beta * u[k]) for k in range(1, 2 * m, 2))
-        return mu / beta ** 2 * ((1 + 1j * sig) / (1 - 1j * sig) * ev + (1 - 1j * sig) / (1 + 1j * sig) * od)
+        return mu / beta ** 2 * (ca * ev + od / ca)
     M59 = boundary(mp.mpf(40)) - boundary(mp.mpf(-40))
     ok5 &= abs(M59 - Ma) < 1e-10
-    # 6. first-order equation (5.7), componentwise
+    # 6. first-order equation (5.7) times cos(xa), componentwise, for both orientations of rho
     lam = mp.sqrt((1 - v) / (1 + v))
+    cx, sx = mp.cos(xa), mp.sin(xa)
     Cm = [[sum(complex(p) * complex(q) for p, q in zip(al[i], al[j])) for j in range(2 * m)] for i in range(2 * m)]
-    if 2 * a == m:
-        continue
-    for sgn, store, lamv in ((+1, 'good', -lam), (+1, 'bad', lam), (-1, 'bad', lam)):
-        lj = [sgn * 1j * (-1) ** k for k in range(2 * m)]
-        res = 0
-        for (x, t) in ((mp.mpf('0.31'), mp.mpf('0.17')), (mp.mpf('-0.6'), mp.mpf('0.4'))):
-            ph = soliton(m, a, beta, mu, v, xi, x, t)
-            dt = phi_d(m, a, beta, mu, v, xi, x, t, 1, 0)
-            dx = phi_d(m, a, beta, mu, v, xi, x, t, 0, 1)
-            fld = [0] * m + ph
-            dpl = [0] * m + [dt[j] + dx[j] for j in range(m)]        # d_+ = d_t + d_x
-            u = [sum(complex(c) * f for c, f in zip(al[k], fld)) for k in range(2 * m)]
-            du = [sum(complex(c) * f for c, f in zip(al[k], dpl)) for k in range(2 * m)]
-            for k in range(2 * m):
-                aF = -(mu / beta) * sum(Cm[k][l] * mp.exp(beta * u[l]) for l in range(2 * m))
-                res = max(res, abs(-(1 + sig * lj[k]) * du[k] + lamv * (1 - sig * lj[k]) * aF))
-        if store == 'good':
-            ok6 &= res < 1e-15
-        else:
-            ok6bad &= res > 1e-3
+    for orient in (+1, -1):
+        for sgn, store, lamv in ((+1, 'good', -orient * lam), (+1, 'bad', orient * lam), (-1, 'bad', orient * lam)):
+            lj = [sgn * 1j * (-1) ** k for k in range(2 * m)]
+            res = 0
+            for (x, t) in ((mp.mpf('0.31'), mp.mpf('0.17')), (mp.mpf('-0.6'), mp.mpf('0.4'))):
+                ph = soliton(m, a, beta, mu, v, xi, x, t, orient)
+                dt = phi_d(m, a, beta, mu, v, xi, x, t, 1, 0, orient)
+                dx = phi_d(m, a, beta, mu, v, xi, x, t, 0, 1, orient)
+                fld = [0] * m + ph
+                dpl = [0] * m + [dt[j] + dx[j] for j in range(m)]        # d_+ = d_t + d_x
+                u = [sum(complex(c) * f for c, f in zip(al[k], fld)) for k in range(2 * m)]
+                du = [sum(complex(c) * f for c, f in zip(al[k], dpl)) for k in range(2 * m)]
+                for k in range(2 * m):
+                    aF = -(mu / beta) * sum(Cm[k][l] * mp.exp(beta * u[l]) for l in range(2 * m))
+                    res = max(res, abs(-(cx + sx * lj[k]) * du[k] + lamv * (cx - sx * lj[k]) * aF))
+            if store == 'good':
+                ok6 &= res < 1e-15
+            else:
+                ok6bad &= res > 1e-3
 
-report('the one-soliton (5.3) solves the complex Toda equation (5.2) (m = 3, 4; a = 1, 2)', ok3)
+report('the one-soliton (5.3) solves the complex Toda equation (5.2) (m = 2, 3, 4; all a)', ok3)
 report('its energy at rest is M_a = 4 m mu sin(pi a/m)/beta^2 (5.4) = 2 h m_a/beta^2 with m_a = 2 mu sin(pi a/h)',
        ok4)
-report('the central-charge formula (5.9) from the asymptotic values gives the same M_a', ok5)
-report('for a != m/2 the soliton satisfies the first-order equation (5.7) with J alpha_j = i(-1)^j alpha_j, '
-       'sigma = tan(pi a/2m + pi/4) and lambda = -sqrt((1-v)/(1+v)); with lambda = +sqrt((1-v)/(1+v)) '
-       'it fails for either sign of J', ok6 and ok6bad)
+report('c_a = i exp(i pi a/m) equals (1 + i sigma)/(1 - i sigma), sigma = tan(pi a/2m + pi/4) (their (5.8)), '
+       'for a != m/2', ok5c)
+report('the central-charge formula eq-n2-central with c_a, from the asymptotic values, gives the same M_a, '
+       'including a = m/2 where sigma is infinite', ok5)
+report('the soliton satisfies the first-order equation (5.7), multiplied by cos(pi a/2m + pi/4), with '
+       'J alpha_j = i(-1)^j alpha_j and lambda = -sqrt((1-v)/(1+v)) for rho > 0, +sqrt((1-v)/(1+v)) for '
+       'rho < 0; the other sign fails for either sign of J (all a, including a = m/2)', ok6 and ok6bad)
 
 sys.exit(1 if FAILS else 0)
