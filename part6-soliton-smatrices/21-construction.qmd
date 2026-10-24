@@ -4,10 +4,10 @@
 - Assemble a soliton S-matrix from an R-matrix, a gradation and a scalar factor.
 - Impose unitarity and crossing, and see what they leave undetermined.
 - Fix the remaining freedom by the soliton masses, and test the result against the particle S-matrices through the breathers.
-- Work through the construction for $a_n^{(1)}$, where every step can be done by hand.
+- Work through the construction for $a_n^{(1)}$, and see where its scalar factor needs self-conjugate multiplets.
 :::
 
-@sec-qg-symmetry showed that soliton S-matrices have the form $\Phi\,\check R$. This chapter turns that observation into a procedure. It is the procedure used for every new S-matrix in this part, and it reproduces the known ones. The worked example in @sec-an-example applies it to $a_n^{(1)}$, Hollowood's case, where the R-matrix is the simplest one beyond sine-Gordon.
+@sec-qg-symmetry showed that soliton S-matrices have the form $\Phi\,\check R$. This chapter turns that observation into a procedure. It is the procedure used for every new S-matrix in this part, and it reproduces the known ones whose multiplets are self-conjugate. The worked example in @sec-an-example applies it to $a_n^{(1)}$, Hollowood's case, where the R-matrix is the simplest one beyond sine-Gordon but the multiplets are not self-conjugate.
 
 Every amplitude in this part is built in the same five steps. The case-specific inputs are the representation, the R-matrix and the integer lifts of the scalar factor's zeros.
 
@@ -29,7 +29,7 @@ In this formula $h$ and $h^\vee$ are the Coxeter and dual Coxeter numbers of $\h
 
 ## Unitarity and crossing {#sec-unitarity-crossing}
 
-With the normalisation above, $\check R(x)\check R(1/x)=1$, so unitarity requires $\Phi(\theta)\Phi(-\theta)=1$. The dual representation satisfies $V^*(x)\cong V(x\,x_c)$ for a unique crossing point $x_c$, which we compute numerically in each case. The universal R-matrix then gives
+With the normalisation above, $\check R(x)\check R(1/x)=1$, so unitarity requires $\Phi(\theta)\Phi(-\theta)=1$. For a self-conjugate multiplet the dual representation satisfies $V^*(x)\cong V(x\,x_c)$ for a unique crossing point $x_c$, which we compute numerically in each case. The universal R-matrix then gives
 
 $$
 \big(R(x)^{-1}\big)^{t_1}=c_u(x)\,(C^{-1}\otimes 1)\,R(x\,x_c)\,(C\otimes 1),
@@ -50,6 +50,8 @@ f(t)=\prod_{m\ge1}\frac{f^{(1)}\big(t+2T(m-1)\big)\,f^{(1)}\big(-t+2T(m-\tfrac12
 $$
 
 The product as written does not converge. The precise definition is: in the $m$-th factor, replace each $f^{(1)}(\pm t+A)$, with $A$ the $t$-independent part of its argument, by $f^{(1)}(\pm t+A)/f^{(1)}(A+r)$, with one fixed generic offset $r$ (the scripts use $r=0.371$; see for example `code/rmatrix/smatrix/spinorn.py`). The $t$-dependent part of the product then converges, and what remains is a $t$-independent constant, which grows logarithmically with the truncation and is fixed by $F(\theta)F(-\theta)=1$ and the sign $F(0)=1$. This makes $f(T-t)=f(t)$ and $f(t)f(-t)=1/\big(c(t)c(-t)\big)$, so $F$ is unitary and carries the crossing factor. Then $c\,\check R$ has no poles at all. The only physical-strip poles of $S$ come from the Gamma functions, at $t=a_j-m$ with $m=0,1,2,\dots$, and their crossed images. At $t=a_j$ the residue is $\check R$'s residue at the corresponding R-matrix pole, so it projects onto the bound-state multiplet.
+
+The condition $f(T-t)=f(t)$ builds in the crossing relation of @sec-unitarity-crossing, which maps $\Phi$ to itself. The form $c\,f$ therefore applies only to self-conjugate multiplets. That covers every amplitude built in this part: their horizontal algebras are $b_n$, $f_4$ and $g_2$, and every representation of these is self-conjugate. It does not cover $a_n^{(1)}$ with $n\ge2$ (@sec-an-example).
 
 ## The integer lifts {#sec-integer-lifts}
 
@@ -99,9 +101,11 @@ $$
 M_a=M_1\frac{\sin(\pi a/h)}{\sin(\pi/h)} ,
 $$
 
-the classical ratio, now exact. No integer lift is needed: the scalar factor can place its zero at $t=\omega$ itself. This is special to the self-dual, simply-laced case. In Chapters [-@sec-sm-cn]–[-@sec-sm-f4] the lifts are what decides the masses.
+the classical ratio, now exact. No integer lift is needed: Hollowood's amplitude has its tower of bound-state poles at $t=\omega-p$, $p=0,1,2,\dots$ [@hollowood1993b, eq. (4.7)], so the tower starts at $t=\omega$ itself. This is special to the self-dual, simply-laced case. In Chapters [-@sec-sm-cn]–[-@sec-sm-f4] the lifts are what decides the masses.
 
 **Crossing.** The dual of $V_1$ is $V_n$, the antisoliton. Crossing therefore relates $S_{11}$ to $S_{1n}$, and the crossing point $x(i\pi)=e^{2\pi iT}=e^{i\pi h\omega}=(-1)^hq^{-h}$ is a power of $q$ up to the sign $(-1)^h$, which @sec-qg-crossing leaves open. The scalar factor is fixed by unitarity, crossing and minimality as an infinite product of Gamma functions, given explicitly by Hollowood [-@hollowood1993b].
+
+This scalar factor is not of the form $c\,f$ of @sec-scalar-factor. Let $S_T$ be the amplitude in which two species-1 solitons of different weights keep their weights. Its ratio to the amplitude for equal weights is $\tau(t)=-\sin\pi t/\sin\pi(t-\omega)$, read off from $\check R_{11}$, so $S_T=\Phi_{11}\tau$. Crossing one of the two solitons turns $S_T$ into the amplitude of an antisoliton and a soliton of different weights. Its charge sector is one-dimensional, so unitarity requires $S_T(T-t)\,S_T(T+t)=1$. With $\Phi_{11}=c\,f$ and $a_1=\omega$, the product is instead $(\sin^2\pi T-\sin^2\pi t)/(\sin^2\pi\omega-\sin^2\pi t)$. This equals 1 for $h=2$, but not for $h\ge3$ at generic coupling. Hollowood's $S_T$ [@hollowood1993b, eq. (4.5)] satisfies the condition for $h=2,3,4$, and its leading semiclassical phase reproduces the time delay of @sec-multi-solitons. For $h=3$ and $h=4$ the $c\,f$ amplitude does neither [Numerical] (`code/an_soliton_scalar.py`).
 
 **Breathers.** In the soliton–antisoliton channel $V_a\otimes V_{\bar a}$ the singlet carries towers of breather poles. Gandenberger [@gandenberger1995] showed for $a_2^{(1)}$ that the lowest breathers $\mathcal B_1,\bar{\mathcal B}_1$ scatter as the two particles of $a_2^{(1)}$, with the S-matrix (-@eq-an-smatrix) continued to imaginary coupling; Smirnov [@smirnov1991] had found the analogous identification for $a_2^{(2)}$.
 
