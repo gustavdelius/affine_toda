@@ -174,7 +174,7 @@ where $s \in \mathbb{C}$ is a representation shift parameter (the even defect ha
 
 #### Step 1: Charge Conservation ($k_1$ Intertwining)
 
-First, impose $\mathbb{T}(y)\,(\pi_y(k_1) \otimes \rho_{y_d}(k_1)) = (\rho_{y_d}(k_1) \otimes \pi_y(k_1))\,\mathbb{T}(y)$ (where for convenience we write states in both incoming and outgoing spaces in the order $v_\pm \otimes |n\rangle$). On a basis vector $v_\pm \otimes |n\rangle$, the total $k_1$-eigenvalue is $q^{\mp 1 - 2n - s} = q^{-(2n \pm 1) - s}$. Therefore, $\mathbb{T}(y)$ can only mix $v_+ \otimes |n\rangle$ with $v_- \otimes |n+1\rangle$! Its action must take the block-2$\times$2 form:
+First, impose $\mathbb{T}(y)\,(\pi_y(k_1) \otimes \rho_{y_d}(k_1)) = (\rho_{y_d}(k_1) \otimes \pi_y(k_1))\,\mathbb{T}(y)$ (where for convenience we write states in both incoming and outgoing spaces in the order $v_\pm \otimes |n\rangle$). On a basis vector $v_\pm \otimes |n\rangle$, the total $k_1$-eigenvalue is $q^{\mp 1 - 2n - s} = q^{-(2n \pm 1) - s}$. Therefore, $\mathbb{T}(y)$ can only mix $v_+ \otimes |n\rangle$ with $v_- \otimes |n+1\rangle$! Its action must take the block-$2\times 2$ form:
 $$
 \begin{aligned}
 \mathbb{T}(y)\big(v_+ \otimes |n\rangle\big) &= A_n(y)\,v_+ \otimes |n\rangle + B_n(y)\,v_- \otimes |n+1\rangle, \\

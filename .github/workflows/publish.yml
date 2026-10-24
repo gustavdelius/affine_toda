@@ -45,6 +45,12 @@ jobs:
         run: |
           gh release download pdf-latest --pattern affine-toda.pdf --dir _site \
             || echo "::warning::No pdf-latest release yet, so the PDF download link will 404. Run publish-pdf.sh locally."
+          for dir in lecture-notes/*/; do
+            name=$(basename "$dir")
+            [ -d "_site/lectures/$name" ] || continue
+            gh release download pdf-latest --pattern "$name.pdf" --dir "_site/lectures/$name" \
+              || echo "::warning::No $name.pdf in pdf-latest release yet. Run publish-pdf.sh locally."
+          done
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
