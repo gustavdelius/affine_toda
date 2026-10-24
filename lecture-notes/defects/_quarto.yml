@@ -35,6 +35,7 @@ book:
     - 05-why-the-cycle.qmd
     - 06-classical-algebra.qmd
     - 07-quantizing.qmd
+    - 08-q-operators.qmd
 
 bibliography:
   - ../../references.bib

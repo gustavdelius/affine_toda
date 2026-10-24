@@ -1,0 +1,387 @@
+# Defects, L-operators and Q-operators {#sec-wrapping}
+
+::: {.callout-note appearance="simple" icon=false title="In this lecture"}
+- Turned through a right angle, the classical defect acts on the whole field at one instant. It is Bäcklund's transformation, with its rapidity rotated by $\frac{i\pi}2$, and it keeps every conserved charge.
+- In the quantum theory a defect laid around the circle is an operator built from the L-operators of Lecture 7, a transfer matrix whose auxiliary space is the space of defect states. The train argument makes it commute with the transfer matrices of the solitons.
+- The defect has one state for every integer jump, and all of them are equivalent up to a twist line, so the trace over them diverges. The trace per state is finite, and with it the train argument becomes a proof.
+- At the rapidity where the transmission matrix degenerates, a soliton fused with the defect contains two odd defects. This gives Baxter's TQ relation, the defect bootstrap of Lecture 7 in operator form.
+- The eigenvalues of the defect operator are polynomials whose zeros are the Bethe roots of the solitons: the defect wrapped around the cylinder is Baxter's Q-operator.
+
+*Prerequisites:* @sec-mirrors-windows, in particular @sec-l1-particle-window and @sec-l1-operators; @sec-l2-machine and @sec-l2-bianchi; @sec-l4-delay; @sec-l6-gauge, @sec-l6-monodromy and @sec-l6-space-time; @sec-quantizing, in particular @sec-l7-triangle and @sec-l7-resonance. From the book: the [Bethe–Yang equations](book:sec-bethe-yang), [defects on the circle](book:sec-defect-circle) and [defect operators and Q-operators](book:sec-q-operators).
+:::
+
+## The question {#sec-l8-question}
+
+Lecture 1 noticed that a defect which conserves energy and momentum can be moved, and in Euclidean spacetime it can be rotated (@sec-l1-operators). Laid along space, around the circle of a theory on a cylinder, it acts at one instant on the states of the theory, as an operator $\hat D$ that commutes with the Hamiltonian. For the invertible lines of Lecture 1 the operator was a symmetry, $e^{i\alpha Q}$. The defects of these lectures are more than symmetries: they have a rapidity, internal states and a quantum transmission matrix. Lecture 6 found that a chain of classical defects has commuting traces (@exr-l6-chain), and Lecture 7 found that the transmission matrix is an L-operator (@sec-l7-triangle). So we ask:
+
+> What is a defect wrapped around a cylinder?
+
+::: {.callout-tip title="Predict"}
+Laid along space at one instant, a classical defect relates the field just before it to the field just after. Which map between the two do you expect, and what should it do to the conserved charges? In the quantum theory the defect crosses every soliton on the circle once, and its state changes at each crossing. What kind of operator is that? The defect has a state for every integer jump: what happens when you take a trace over all of them? Lecture 7 found that a soliton is absorbed at a rapidity near $\theta_d$, and leaves behind an odd defect. What relation would you expect between defect operators at different rapidities?
+:::
+
+::: {.callout-note title="Where it comes from"}
+In 1972 Baxter solved the eight-vertex model with an auxiliary matrix $Q$ that commutes with the transfer matrix $T$. The two satisfy a functional equation, $TQ$ equal to a sum of two shifted $Q$'s, and the zeros of the eigenvalues of $Q$ are the Bethe roots [@baxter1972]. In 1992 Pasquier and Gaudin built $Q$ for the periodic Toda chain as an integral operator, and found that the logarithm of its kernel generates the Bäcklund transformation of the classical chain [@pasquier_gaudin1992]. Kuznetsov and Sklyanin developed this into a Hamiltonian theory of Bäcklund transformations as classical Q-operators [@kuznetsov_sklyanin1998; @sklyanin2000]. In 1997 Bazhanov, Lukyanov and Zamolodchikov constructed Q-operators in conformal field theory, as traces over infinite-dimensional representations of the $q$-oscillator algebra [@blz1997]. Rossi and Weston generalized the construction to a wider family of infinite-dimensional modules, and derived generalized TQ relations [@rossi_weston2002]. Bajnok and George noticed that a defect rotated in Euclidean spacetime acts as an operator on the states on the circle [@bajnok_george2006], and Runkel found that perturbed defects of conformal field theory satisfy functional relations of the same kind [@runkel2008]. Weston pointed out that a suitably regularized trace of the defect L-operator over the defect space is a Q-operator, with the TQ relation coming from a short exact sequence of modules [@weston2010, Sec. 2.4.1]. He left the regularization unspecified. For the type-I defects of these lectures the book shows that no twist makes the ordinary trace converge (see its proposition that [defect operators commute](book:prp-defect-transfer)). It states the TQ relation as [Numerical] for up to six solitons, and conjectures it in general (see its [TQ relation for the Weyl defect operator](book:cnj-defect-tq)). Frenkel and Hernandez showed that Baxter's relations hold for all quantum affine algebras, as relations between representations of their Borel subalgebras [@frenkel_hernandez2015].
+:::
+
+**Conventions.** As in Lecture 7, $\lambda=8\pi/\beta^2-1$ is the coupling, $q=-e^{-i\pi\lambda}$, $y=e^{\lambda\theta}$ and $y_d=e^{\lambda\theta_d}$. We take $\lambda$ irrational, so that $q$ is a phase that is not a root of unity. The sans-serif $\mathsf h=\operatorname{diag}(1,-1)$ acts on the soliton doublet $(v_+,v_-)$, and $h_{\mathcal W}|n\rangle=(2n+s)|n\rangle$ on the defect states, so that $k_1=q^{\mathsf h}$ and $k_1=q^{h_{\mathcal W}}$. We write $\omega$ for a twist; it has nothing to do with the breather vector of Lecture 7.
+
+## Turning the defect {#sec-l8-turning}
+
+Start with the classical theory, which tells us what to expect. In Euclidean spacetime the type-I$_-$ defect can be turned through a right angle. Then it runs along space at one instant, with $\Phi$ before it and $\Psi$ after it.
+
+**The turned conditions.** The defect conditions (-@eq-l4-conditions), in the form of @sec-l3-lagrangian, read
+
+$$
+\Phi_x=\Psi_t-\mathcal B_\Phi,\qquad\Psi_x=\Phi_t+\mathcal B_\Psi\qquad\text{at }x=0,
+$$
+
+with $\mathcal B=-2m_0\big[\sigma(\cos\frac\Sigma2-1)+\sigma^{-1}(\cos\frac\Delta2-1)\big]$, $\sigma=e^{-\theta_d}$, $\Sigma=\Phi+\Psi$ and $\Delta=\Phi-\Psi$. Continue to Euclidean time, $t=-i\tau$, so that $\partial_t=i\partial_\tau$. Turn the plane through $90^\circ$, $(x,\tau)\mapsto(x',\tau')=(-\tau,x)$. The line $x=0$ becomes the line $\tau'=0$, and the side $x<0$ of $\Phi$ becomes the side $\tau'<0$, before the line. Now $\partial_x=\partial_{\tau'}$ and $\partial_\tau=-\partial_{x'}$. Continue back to real time, $\tau'=it'$. Altogether $\partial_x\to-i\partial_{t'}$ and $\partial_t\to-i\partial_{x'}$, and the conditions become, dropping the primes,
+
+$$
+\Phi_t=\Psi_x-i\,\mathcal B_\Phi,\qquad\Psi_t=\Phi_x+i\,\mathcal B_\Psi\qquad\text{at }t=0 .
+$$ {#eq-l8-turned}
+
+These relate the fields and their time derivatives just before and just after $t=0$, at every point of space.
+
+**Bäcklund's transformation at one instant.** Lecture 2's machine $\Psi=\mathfrak B_a\Phi$ (-@eq-l2-bt) consists of the two equations $\partial_+(\Phi-\Psi)=2am_0\sin\frac\Sigma2$ and $\partial_-\Sigma=-\frac{2m_0}a\sin\frac\Delta2$. Add them and subtract them. With $\partial_\pm=\partial_t\pm\partial_x$,
+
+$$
+\Phi_t=\Psi_x-\partial_\Phi\mathcal G_a,\qquad\Psi_t=\Phi_x+\partial_\Psi\mathcal G_a,\qquad\mathcal G_a=2m_0\Big[a\cos\frac\Sigma2-\frac1a\cos\frac\Delta2\Big].
+$$ {#eq-l8-bt-instant}
+
+Compare with (-@eq-l8-turned): we need $\mathcal G_a=i\mathcal B$ up to a constant. The coefficients of $\cos\frac\Sigma2$ give $2m_0a=-2im_0\sigma$, and those of $\cos\frac\Delta2$ give $-2m_0/a=-2im_0/\sigma$. Both say $a=-i\sigma$.
+
+::: {#thm-l8-turned}
+## The turned defect is Bäcklund's transformation
+**[Theorem]** The type-I$_-$ defect of rapidity $\theta_d$, turned through a right angle with $\Phi$ before it and $\Psi$ after it, imposes $\Psi=\mathfrak B_a\Phi$ at $t=0$ with
+
+$$
+a=-i\sigma=-e^{-(\theta_d-i\pi/2)} ,
+$$
+
+Bäcklund's transformation of rapidity $\theta_d-\frac{i\pi}2$. Turned the other way, with $\Psi$ before it, it imposes $\Phi=\mathfrak B_{-i\sigma}\Psi$. If $\Phi$ and $\Psi$ satisfy (-@eq-l8-turned) on a circle, then the transport matrices of Lecture 6 satisfy $\operatorname{tr}T^\Psi=\operatorname{tr}T^\Phi$ for every value of the spectral parameter, so all the conserved charges of Lecture 6 are the same before and after the line.
+:::
+
+::: {.proof}
+The first statement is the comparison above. For the second, repeat the calculation with the plane turned the other way. For the third, @thm-l6-gauge holds for complex $\sigma$, since it is an identity between matrices. With $\sigma$ replaced by $i\sigma$, the matrix $L=L_d$ of (-@eq-l6-Ld) satisfies $\partial_\pm L=L\mathcal A_\pm(\Psi)-\mathcal A_\pm(\Phi)L$, and so $\partial_xL=L\,a_x(\Psi)-a_x(\Phi)\,L$. Let $G(x)=T^\Phi(x,-\ell)L(-\ell)-L(x)T^\Psi(x,-\ell)$. Since $\partial_xT=-a_xT$ (@sec-l6-lax), $\partial_xG=-a_x(\Phi)\,G$, and $G(-\ell)=0$, so $G=0$. At $x=\ell$, with $L(\ell)=L(-\ell)$ on the circle, $T^\Psi=L^{-1}T^\Phi L$, and the traces agree.
+:::
+
+Rotating the defect rotates its rapidity by $\frac{i\pi}2$. A particle's world line does the same under a Euclidean rotation, which is why crossing involves $i\pi-\theta$ (@sec-l1-unitarity-crossing). Several things follow.
+
+- **What it does to solitons.** Lecture 4 found that a soliton crossing the defect has $Y$ multiplied by $z(\theta)=\frac{e^{-\theta}+\sigma}{e^{-\theta}-\sigma}$ (-@eq-l4-delay). Under the turned defect $\sigma$ becomes $i\sigma$, so each soliton of a multi-soliton state has $Y_k$ multiplied by
+
+  $$
+  z_k=\frac{e^{-\theta_k}+i\sigma}{e^{-\theta_k}-i\sigma}=-\coth\frac{\theta_k-\theta_d+\frac{i\pi}2}2,\qquad|z_k|=1 .
+  $$
+
+  The factor is a phase. Since $Y_k=\exp\big(m_0(x\cosh\theta_k-t\sinh\theta_k)+c_k\big)$, the turned defect shifts each soliton's position $c_k$ by an imaginary amount. It changes no energy and no momentum.
+- **A canonical transformation.** Let $\Pi_\Phi=\Phi_t/\beta^2$ and $\Pi_\Psi=\Psi_t/\beta^2$ be the momenta, and
+
+  $$
+  F[\Phi,\Psi]=\frac1{\beta^2}\int dx\,\big(\Phi\Psi_x-i\mathcal B(\Phi,\Psi)\big).
+  $$ {#eq-l8-F}
+
+  Integrating by parts, $\delta F/\delta\Phi=(\Psi_x-i\mathcal B_\Phi)/\beta^2=\Pi_\Phi$ and $-\delta F/\delta\Psi=(\Phi_x+i\mathcal B_\Psi)/\beta^2=\Pi_\Psi$, by (-@eq-l8-turned). So $F$ is the generating function of the map $(\Phi,\Pi_\Phi)\mapsto(\Psi,\Pi_\Psi)$, which is canonical. It is the defect term $\Phi\Psi_t-\mathcal B$ of Lecture 3, turned. For real $\theta_d$ it is complex: the turned defect maps real fields to complex ones, as the phases $z_k$ show. Lecture 6 found the same structure with the roles of $x$ and $t$ exchanged (@sec-l6-space-time).
+- **Two turned defects commute.** Bianchi's theorem (@prp-l2-bianchi) says that $\mathfrak B_{a_2}\mathfrak B_{a_1}\Phi_0$ and $\mathfrak B_{a_1}\mathfrak B_{a_2}\Phi_0$ can be chosen equal. Two turned defects at one instant can therefore be applied in either order.
+
+So classically the turned defect is a family of commuting canonical transformations, labelled by a rapidity, that preserve all the charges. In quantum mechanics a canonical transformation with generating function $F$ becomes, to leading order in $\hbar$, an operator whose kernel between field configurations is $e^{-iF/\hbar}$. This is the relation between Bäcklund transformations and Q-operators that Pasquier and Gaudin found for the Toda chain [@pasquier_gaudin1992]. We use it only as a guide, and turn to the quantum theory of the solitons.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (a) of `code/lectures/defects_l8_qoperators.py` does the continuation, the rotation and the comparison with sympy, finds $a=-i\sigma$ and not $+i\sigma$, does the same for the rotation the other way, and checks that $F$ generates (-@eq-l8-turned). Item (b) applies the turned defect to two solitons, with 30-digit arithmetic. The phases $z_k$ solve $\mathfrak B_{-i\sigma}$ at $t=0$ to $10^{-30}$, and the opposite sign fails. The energy and momentum of the complex $\Psi$ equal those of $\Phi$. Item (c) integrates the transport matrices of both fields and checks $T^\Phi L(-\ell)=L(\ell)T^\Psi$ to $10^{-13}$; with $-i\sigma$ in place of $i\sigma$ it fails.
+:::
+
+## Wrapping the quantum defect {#sec-l8-wrapping}
+
+**Solitons on a circle.** Put $N$ solitons of rapidities $\theta_1,\dots,\theta_N$ on a large circle. Their internal states span $V(\theta_1)\otimes\cdots\otimes V(\theta_N)$, and in each sector of total charge $m$ their momenta are fixed by the Bethe–Yang equations, which involve the **transfer matrix**
+
+$$
+t_\omega(\theta)=\operatorname{Tr}_a\big[\omega^{\mathsf h_a}R_{aN}(\theta-\theta_N)\cdots R_{a1}(\theta-\theta_1)\big],\qquad R=P\check R
+$$ {#eq-l8-t}
+
+(see the book's [Bethe–Yang equations](book:sec-bethe-yang)). Here $a$ is an auxiliary soliton of rapidity $\theta$. It runs once around the circle and crosses every soliton, and at the end its state is traced over. $\check R$ is the R-matrix of @sec-l7-bulk, and the flip $P$ keeps each space in a fixed slot. The twist $\omega^{\mathsf h_a}$ is a phase that the auxiliary soliton picks up when it passes the point where the circle is closed. The Yang–Baxter equation makes the $t_\omega(\theta)$ commute for different $\theta$.
+
+**The defect along time.** A defect at a point of the circle is one more site of this chain (@fig-l8-cylinder (a)). The auxiliary soliton crosses it with the L-operator $\mathbb L_{a\mathcal W}(\theta)$ of Lecture 7, $\mathbb L=P\mathbb T$ (-@eq-l7-L). The triangle relation, in the form $R_{12}\mathbb L_{13}\mathbb L_{23}=\mathbb L_{23}\mathbb L_{13}R_{12}$, keeps the transfer matrices with the extra site commuting. These are the defect Bethe–Yang equations of the book's [defects on the circle](book:sec-defect-circle). They are the quantum version of the classical defect monodromy (-@eq-l6-monodromy), in which the transport crossed the defect with $L_d^{-1}$.
+
+**The defect along space.** Now lay the defect around the circle at one instant (@fig-l8-cylinder (b)). It crosses soliton $1$, then soliton $2$, and so on, and its state changes at each crossing. When it comes back to its starting point, it closes on itself. So its operator should be a trace over $\mathcal W$ of a product of one L-operator for each soliton:
+
+$$
+\mathcal D_\omega(\theta_d)=\operatorname{Tr}_{\mathcal W}\big[\omega^{h_{\mathcal W}}\,M\big],\qquad M=\mathbb L_{N\mathcal W}(\theta_N-\theta_d)^{-1}\cdots\mathbb L_{1\mathcal W}(\theta_1-\theta_d)^{-1} .
+$$ {#eq-l8-D}
+
+The same L-operator is read in the other direction. Lecture 7 read $\mathbb L$ as a $2\times2$ matrix in the soliton's space whose entries are operators on $\mathcal W$. Here it is a matrix in $\mathcal W$ whose entries are operators on the soliton's space, and the defect plays the part of the auxiliary particle. A particle is a defect (@sec-l1-particle-window), and here a defect is the auxiliary particle. The inverses match the $L_d^{-1}$ of the classical monodromy. By unitarity, $\mathbb L^{-1}$ is also, up to the scalar factor and the flip, the transmission from the other side. But what fixes them is the argument that follows.
+
+![Two ways to put a defect on a cylinder. Space is the circle, time runs upwards, and three solitons (green) wind around it. (a) The defect along time (purple) is one more site of the soliton chain. The transfer matrix $t(\theta)$ is an auxiliary soliton (orange) that runs once around the circle at one instant. (b) The defect along space crosses each soliton once, with $\mathbb L_j^{-1}$, and closes on itself: the operator $\mathcal D(\theta_d)$. The train argument moves $t(\theta)$ through it. `code/lectures/defects_l8_f1_cylinder.py` checks that the turned defect imposes $\mathfrak B_{-i\sigma}$, and that for the three solitons drawn, the product in the order drawn, with inverses, commutes with $t_\omega$ in every sector. The reversed order and the product without inverses do not.](figures/l8_cylinder.svg){#fig-l8-cylinder fig-alt="Two drawings of a vertical cylinder with three green curves winding up its surface. On the left a purple vertical line runs up the front of the cylinder, and an orange dashed ring goes around it halfway up. On the right a thick purple ring goes around the cylinder, crossing the three green curves at points labelled L one inverse, L two inverse and L three inverse; an orange dashed ring higher up has an arrow pointing down towards the purple ring."}
+
+**The train argument.** Write $X=\mathbb L_{a\mathcal W}(\theta-\theta_d)$ and $\mathbb L_j=\mathbb L_{j\mathcal W}(\theta_j-\theta_d)$. The triangle relation with the spaces $a$, $j$ and $\mathcal W$ is $R_{aj}X\mathbb L_j=\mathbb L_jXR_{aj}$. Multiply it by $\mathbb L_j^{-1}$ on the left and on the right:
+
+$$
+X\,R_{aj}\mathbb L_j^{-1}=\mathbb L_j^{-1}R_{aj}\,X .
+$$ {#eq-l8-train}
+
+Now $R_{aj}$ commutes with $\mathbb L_k^{-1}$ for $k\ne j$, because they act on different spaces. So the product $T_a=R_{aN}\cdots R_{a1}$ of the transfer matrix and $M$ can be interleaved, $T_aM=(R_{aN}\mathbb L_N^{-1})\cdots(R_{a1}\mathbb L_1^{-1})$, and likewise $MT_a=(\mathbb L_N^{-1}R_{aN})\cdots(\mathbb L_1^{-1}R_{a1})$. Applying (-@eq-l8-train) site by site gives
+
+$$
+X\,T_aM\,X^{-1}=M\,T_a .
+$$
+
+The twist $\Omega=\omega^{\mathsf h_a}\omega^{h_{\mathcal W}}$ commutes with $X$, because $X$ conserves the total charge. Hence, formally,
+
+$$
+t_\omega\,\mathcal D_\omega=\operatorname{Tr}_{a\mathcal W}\big[\Omega\,T_aM\big]=\operatorname{Tr}_{a\mathcal W}\big[\Omega X^{-1}MT_aX\big]=\operatorname{Tr}_{a\mathcal W}\big[X\Omega X^{-1}MT_a\big]=\mathcal D_\omega\,t_\omega .
+$$
+
+The third step moves $X$ around the trace. Without the inverses, or with the factors in the other order, the products cannot be interleaved in this way, and the operators do not commute (@exr-l8-train).
+
+The argument is formal, because it moves an operator around a trace over an infinite-dimensional space. Is that allowed?
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (f) of `code/lectures/defects_l8_qoperators.py` builds $t_\omega$ and the operator $\mathcal D$ of the next section for $N=2,\dots,7$ solitons, with random rapidities and complex $\theta_d$. In every sector the two commute to $10^{-14}$ for the twist found below. They do not commute with the untwisted transfer matrix, without the inverses, or with the factors in the reversed order.
+:::
+
+## Infinitely many defect states {#sec-l8-trace}
+
+::: {.callout-tip title="Predict"}
+The defect states $|n\rangle$, $n\in\mathbb Z$, differ only in the jump the defect holds. Can a soliton crossing the defect tell $|n\rangle$ from $|n+1\rangle$? If only by a phase, what does that do to the trace in (-@eq-l8-D)?
+:::
+
+**Shifting the jump is a twist.** Let $S|n\rangle=|n+1\rangle$. In the form (-@eq-l7-L) of the L-operator, $U=q^{N+s/2}$ and $X_\pm$ satisfy $S^{-1}US=qU$ and $S^{-1}X_\pm S=q^{\mp2}X_\pm$. The entries of $\mathbb L$ in the column of an incoming $v_+$ are $q^{s/2}U^{-1}$ and $-iYq^{s/2}UX_+$, which both acquire $q^{-1}$. Those in the column of $v_-$ acquire $q$. So
+
+$$
+S^{-1}\,\mathbb L\,S=\mathbb L\,q^{-\mathsf h},
+$$ {#eq-l8-covariance}
+
+with $\mathsf h$ acting on the incoming soliton. Raising the jump of the defect by $4\pi$ is the same as composing it with the twist line $q^{-\mathsf h}$ of Lecture 1, an invertible symmetry line. A soliton cannot tell the defect states apart, except by this phase.
+
+For the inverses, (-@eq-l8-covariance) gives $S^{-1}\mathbb L^{-1}S=q^{\mathsf h}\mathbb L^{-1}$, with $\mathsf h$ on the outgoing soliton. Each factor of $M$ contributes the charge of its outgoing soliton, so on the sector of charge $m=\sum_j\mathsf h_j$,
+
+$$
+\langle n|M|n\rangle=q^{mn}\,\langle0|M|0\rangle .
+$$ {#eq-l8-shift}
+
+**The trace diverges.** In the sector of charge $m$, (-@eq-l8-D) is $\sum_n\omega^{2n+s}q^{mn}\langle0|M|0\rangle=\omega^s\langle0|M|0\rangle\sum_n(\omega^2q^m)^n$. For a phase $\omega$ the terms never decay. For $\omega^2=q^{-m}$ every term is the same, and the trace counts the defect states. The infinity is not a defect of the construction. It is the number of equivalent states of the defect, like the volume of space for a free particle. The cure is the same: divide by it.
+
+**The trace per state.** For an operator $A$ on $\mathcal W$ let
+
+$$
+\tau(A)=\lim_{K\to\infty}\frac1{2K+1}\sum_{|n|\le K}\langle n|A|n\rangle .
+$$ {#eq-l8-tau}
+
+Two facts make $\tau$ useful.
+
+- *It is cyclic.* Let $A$ and $B$ be **banded**, with $\langle n|A|n'\rangle=0$ for $|n-n'|$ larger than some $b$, and with bounded entries. Then $\sum_{|n|\le K}\langle n|AB-BA|n\rangle$ contains only entries within $2b$ of the edges $n=\pm K$, so it is bounded, and divided by $2K+1$ it tends to $0$. So $\tau(AB)=\tau(BA)$ whenever one side exists.
+- *It sees one twist.* Since $q$ is not a root of unity, the average of $(\omega^2q^m)^n$ tends to $0$ unless $\omega^2q^m=1$. So in the sector of charge $m$,
+
+  $$
+  \tau\big(\omega^{h_{\mathcal W}}M\big)=\begin{cases}\omega^s\,\mathcal D(\theta_d), & \omega^2=q^{-m},\\ 0 & \text{otherwise,}\end{cases}\qquad\mathcal D(\theta_d)=\langle0|M|0\rangle .
+  $$ {#eq-l8-Dm}
+
+All the operators in the train argument are banded with bounded entries. $\mathbb L$ and $\mathbb L^{-1}$ shift $n$ by at most one, and their entries are phases $q^{\pm n}$ times constants, because $|q|=1$. The twist is a phase. So the train argument holds with $\tau$ in place of $\operatorname{Tr}_{\mathcal W}$.
+
+::: {#thm-l8-commute}
+## The defect operator commutes with the transfer matrix
+**[Theorem]** Let $\lambda$ be irrational and $Y_j^2\ne-1$, with $Y_j=e^{\lambda(\theta_j-\theta_d)}$. On the states of charge $m$, the defect operator $\mathcal D(\theta_d)=\langle0|\mathbb L_N^{-1}\cdots\mathbb L_1^{-1}|0\rangle$ commutes with $t_\omega(\theta)$ for $\omega=\pm q^{-m/2}$ and every $\theta$ at which $t_\omega$ is defined.
+:::
+
+::: {.proof}
+By (-@eq-l8-Dm), $\omega^s\mathcal D=\tau(\omega^{h_{\mathcal W}}M)$ on the states of charge $m$. The train argument of @sec-l8-wrapping with $\operatorname{Tr}_a\otimes\tau$ in place of $\operatorname{Tr}_{a\mathcal W}$ gives $t_\omega\,\tau(\omega^{h_{\mathcal W}}M)=\tau(\omega^{h_{\mathcal W}}M)\,t_\omega$ on all states. The only step that needs care is moving $X$ around the trace, which the cyclicity of $\tau$ allows. The trace over $a$ makes $T_a$ preserve the charge of the solitons, so the identity can be restricted to the states of charge $m$.
+:::
+
+The twist $\omega=\pm q^{-m/2}$ is the one that makes all defect states contribute equally. In the neutral sector it is trivial. The book obtained the same operator by factoring a formal delta function out of the trace, as Rossi and Weston had done for their bilateral modules [@rossi_weston2002] (see its proposition that [defect operators commute](book:prp-defect-transfer)). The trace per state turns that observation into a proof.
+
+::: {#prp-l8-dd}
+## Defect operators commute with each other
+**[Numerical]** $\mathcal D(\theta_d)$ and $\mathcal D(\theta_d')$ commute.
+:::
+
+Classically this is Bianchi's theorem. A proof along the lines above would need an exchange matrix for two defects, the quantum form of the refactorization of @sec-l6-two-windows. We do not construct it.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (d) of `code/lectures/defects_l8_qoperators.py` checks (-@eq-l8-covariance) on a window of $\mathcal W$, (-@eq-l8-shift) for four solitons and several $n$, and that $\mathcal D$ depends on the offset only through the factor $q^{-s(N-m)/2}$. Item (e) computes the averages (-@eq-l8-tau) directly. They tend to $\omega^s\mathcal D$ for $\omega=\pm q^{-m/2}$, and to $0$ for another phase, whose partial sums stay bounded. The plain trace grows like $K$. For random banded matrices with bounded entries, the averages of $AB$ and $BA$ agree up to $O(1/K)$. Item (f) checks @prp-l8-dd for five solitons, to $10^{-12}$.
+:::
+
+## A soliton inside the defect {#sec-l8-tq}
+
+::: {.callout-tip title="Predict"}
+At $\theta=\theta_d\pm\frac{i\pi}{2\lambda}$ the matrix part of the transmission matrix has rank one in every block (@thm-l7-poles). At one of these rapidities $\mathbb T$ has a pole, the resonance, and the absorbed soliton turns the even defect into an odd one (@sec-l7-resonance). What should happen to the product $t_\omega(\theta)\,\mathcal D(\theta_d)$ there?
+:::
+
+**The fused operator.** By the interleaving of @sec-l8-wrapping, $T_aM=\mathbb F_N\cdots\mathbb F_1$ with
+
+$$
+\mathbb F_j=R_{aj}(\theta-\theta_j)\,\mathbb L_{j\mathcal W}(\theta_j-\theta_d)^{-1}.
+$$ {#eq-l8-fused}
+
+Each $\mathbb F_j$ acts on soliton $j$ and on $V_a\otimes\mathcal W$, the defect with the auxiliary soliton beside it. So $t_\omega\,\tau(\omega^{h_{\mathcal W}}M)=(\operatorname{Tr}_a\otimes\tau)(\Omega\,\mathbb F_N\cdots\mathbb F_1)$ is itself a defect operator, whose defect space is $V_a\otimes\mathcal W$.
+
+**The kernel.** Take $\theta=\theta_d+\frac{i\pi}{2\lambda}$, so $y=iy_d$ and $X=\mathbb L_{a\mathcal W}(\theta-\theta_d)$ has $Y=i$. In the block of $v_+\otimes|n\rangle$ and $v_-\otimes|n+1\rangle$, by (-@eq-l7-block),
+
+$$
+X=\begin{pmatrix}1&1\\1&1\end{pmatrix}\begin{pmatrix}q^{-n}&0\\0&q^{n+1+s}\end{pmatrix},
+$$
+
+with the kernel spanned by
+
+$$
+e_n=v_+\otimes|n\rangle-q^{-2n-1-s}\,v_-\otimes|n+1\rangle .
+$$ {#eq-l8-kernel}
+
+Let $\mathcal S$ be the span of all $e_n$. It is the kernel of $X$. Now (-@eq-l8-train) says that $X\,\mathbb F_j=\mathbb L_j^{-1}R_{aj}\,X$. For $v$ in the kernel of $X$ the right side vanishes on $v$, so $\mathbb F_jv$ is in the kernel too. **Every $\mathbb F_j$ maps (soliton $j$)$\,\otimes\,\mathcal S$ into itself.** In a basis that starts with $\mathcal S$, each $\mathbb F_j$, and so their product, is block triangular.
+
+**The two blocks.** On $\mathcal S$, in the basis $\tilde e_n=q^ne_n$, and on the quotient by $\mathcal S$, spanned by the classes $f_n$ of $v_-\otimes|n\rangle$, in the basis $\tilde f_n=q^{-n}f_n$,
+
+$$
+\mathbb F_j\big|_{\mathcal S}=\frac{1+q^2Y_j^2}{1+Y_j^2}\,\mathbb L^{-1}_{s+1}(qY_j),\qquad\mathbb F_j\big|_{\text{quotient}}=q^{-1}\,\mathbb L^{-1}_{s-1}(Y_j/q),
+$$ {#eq-l8-blocks}
+
+where $\mathbb L^{-1}_{s'}(Y)$ is the inverse L-operator of a defect with offset $s'$. Since $qY_j=y_j/(y_d/q)$, the first block is a defect of parameter $y_d/q$. The second is a defect of parameter $qy_d$. The offsets follow from the charges: $e_n$ has charge $2n+s+1$ and $f_n$ has $2n+s-1$. Deriving (-@eq-l8-blocks) takes four short calculations (@exr-l8-blocks).
+
+::: {#thm-l8-tq}
+## The TQ relation
+**[Theorem]** Under the assumptions of @thm-l8-commute, and with $Y_j^2\ne-q^{\pm2}$, on the states of charge $m$ with $\omega=q^{-m/2}$,
+
+$$
+t_\omega\Big(\theta_d+\frac{i\pi}{2\lambda}\Big)\,\mathcal D(y_d)=q^{-N/2}\,\mathcal D(qy_d)+q^{-N/2}\prod_{j=1}^N\frac{1+q^2Y_j^2}{1+Y_j^2}\;\mathcal D(y_d/q).
+$$ {#eq-l8-tq}
+:::
+
+::: {.proof}
+Write $M_s(y_d)$ for $M$ with offset $s$. The change from the basis $v_\pm\otimes|n\rangle$ to the basis $\tilde e_n,\tilde f_n$ of $V_a\otimes\mathcal W$ is banded with bounded entries, and so is its inverse ($v_+\otimes|n\rangle=e_n+q^{-2n-1-s}f_{n+1}$). So $\operatorname{Tr}_a\otimes\tau$ can be computed in the new basis, by cyclicity. There the product $\Omega\,\mathbb F_N\cdots\mathbb F_1$ is block triangular. Its trace per state is the sum of those of the two diagonal blocks, each of which has one state for each $n$. $\Omega$ acts on $\tilde e_n$ as $\omega^{2n+s+1}$ and on $\tilde f_n$ as $\omega^{2n+s-1}$, the twists of defects with offsets $s\pm1$. By (-@eq-l8-blocks),
+
+$$
+t_\omega\,\tau\big(\omega^{h_{\mathcal W}}M_s(y_d)\big)=\prod_j\frac{1+q^2Y_j^2}{1+Y_j^2}\,\tau\big(\omega^{h_{\mathcal W}}M_{s+1}(y_d/q)\big)+q^{-N}\,\tau\big(\omega^{h_{\mathcal W}}M_{s-1}(qy_d)\big).
+$$
+
+Now use (-@eq-l8-Dm). Each $\mathbb L^{-1}$ multiplies an outgoing $v_-$ by $q^{-s}$ and an outgoing $v_+$ by $1$, so $\mathcal D_{s\pm1}=q^{\mp(N-m)/2}\mathcal D_s$ on the states of charge $m$. Divide by $\omega^s$. The first term acquires $\omega\,q^{-(N-m)/2}=q^{-N/2}$, and the second $q^{-N}\omega^{-1}q^{(N-m)/2}=q^{-N/2}$.
+:::
+
+This is the relation that the book states as [Numerical] for up to six solitons and conjectures in general (see its [TQ relation for the Weyl defect operator](book:cnj-defect-tq)), with the coefficients written as $q^{1/2}(qz_j^2+q^{-1})/(z_j^2+1)$, $z_j=Y_j$. For $\omega=-q^{-m/2}$ both sides change sign. The mechanism is Weston's short exact sequence: the defect with a soliton beside it contains one defect as a submodule, and the quotient is another [@weston2010, Sec. 2.4.1]. Here the submodule is the kernel of the transmission matrix, and the trace per state is the regularization that his construction needed.
+
+**Reading it as the bootstrap.** $\mathcal D$ depends on $y_d$ only through $y_d^2$, because the conversions in $\langle0|M|0\rangle$ come in pairs, each raising the defect's charge by one and lowering it by one. And $q^{\pm1}y_d=-e^{\lambda(\theta_d\mp i\pi)}$. So the two operators on the right of (-@eq-l8-tq) are the defects at $\theta_d\mp i\pi$. These are the odd defects: Lecture 3 found that $\sigma\to-\sigma$, which is $\theta_d\to\theta_d\pm i\pi$, is the defect seen from a sector with an odd jump (@sec-l3-rapidity), and Lecture 7 found the odd defect at $\theta_d-i\pi$ in the bootstrap at the resonance (@sec-l7-resonance). **An auxiliary soliton fused with the defect, at the rapidity where their transmission matrix degenerates, contains the two odd defects, one as the kernel and one as the image.** This is the defect bootstrap of @sec-l7-resonance in operator form. It is also Baxter's relation, with the defect in the role of Baxter's $Q$.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (g) of `code/lectures/defects_l8_qoperators.py` checks with sympy, identically in $n$, that $\mathcal S$ is invariant, and both blocks (-@eq-l8-blocks). At $\theta=\theta_d+1.1\frac{i\pi}{2\lambda}$, $\mathcal S$ is not invariant. Item (h) checks (-@eq-l8-tq) for $N=1,\dots,7$ solitons in every sector, with $s=0.37$ and complex $\theta_d$, to $10^{-14}$. It fails at $\theta_d+1.1\frac{i\pi}{2\lambda}$, and with $q^{\pm2}$ in place of $q^{\pm1}$.
+:::
+
+## Baxter's Q {#sec-l8-baxter}
+
+**A polynomial.** Let
+
+$$
+\mathcal Q(y_d)=\prod_{j=1}^N\big(1+Y_j^2\big)\,\mathcal D(y_d).
+$$
+
+The factors $1+Y_j^2$ clear the denominators of the $\mathbb L_j^{-1}$. Each entry is then $1$ or a phase times $Y_j=y_j/y_d$, and the factor $Y_j$ comes with a conversion. In $\langle0|M|0\rangle$ the defect returns to $|0\rangle$, so the conversions $v_+\to v_-$, which raise $n$, are as many as the conversions $v_-\to v_+$, which lower it. On the states of charge $m$ there are at most $(N-|m|)/2$ of each, the number of solitons of the minority charge. So $\mathcal Q$ is a polynomial in $1/y_d^2$ of degree at most $(N-|m|)/2$.
+
+**Baxter's equation.** Take an eigenvector of $t_\omega(\theta_0)$, for some $\theta_0$, whose eigenvalue is simple. The $t_\omega(\theta)$ commute with each other, and by @thm-l8-commute with every $\mathcal D(y_d)$, so it is an eigenvector of all of them. Write $\Lambda(\theta)$ and $\mathcal D(y_d)$ for the eigenvalues. Substitute $\mathcal D(y)=\mathcal Q(y)/\prod_j(1+y_j^2/y^2)$ into (-@eq-l8-tq), and write $\theta_d=\theta-\frac{i\pi}{2\lambda}$, $y_d=-iy$, $z_j=y_j/y_d$:
+
+$$
+\Lambda(\theta)\,\mathcal Q(y_d)=q^{-N/2}\prod_{j=1}^N\frac{1+z_j^2}{1+q^{-2}z_j^2}\;\mathcal Q(qy_d)+q^{-N/2}\,\mathcal Q(y_d/q).
+$$ {#eq-l8-baxter}
+
+The eigenvalue of the transfer matrix at every $\theta$ is fixed by one polynomial.
+
+::: {#prp-l8-baxter}
+## The defect operator is Baxter's Q
+**[Theorem]** On the states of charge $m$, $\mathcal Q(y_d)$ is a polynomial in $1/y_d^2$ of degree at most $(N-|m|)/2$. On an eigenvector of $t_\omega(\theta_0)$ with a simple eigenvalue, its eigenvalue satisfies (-@eq-l8-baxter). At a zero $y_k$ of this eigenvalue at which $\mathcal Q(q^{\pm1}y_k)$ do not both vanish,
+
+$$
+\prod_{j=1}^N\frac{1+z_j^2}{1+q^{-2}z_j^2}=-\frac{\mathcal Q(y_k/q)}{\mathcal Q(qy_k)},\qquad z_j=\frac{y_j}{y_k} .
+$$ {#eq-l8-bethe}
+:::
+
+::: {.proof}
+The degree was counted above. Baxter's equation is (-@eq-l8-tq) on the eigenvector. At a zero of $\mathcal Q$, the left side of (-@eq-l8-baxter) vanishes.
+:::
+
+Writing $\mathcal Q(y)\propto\prod_k(1-y_k^2/y^2)$, the right side of (-@eq-l8-bethe) is a product over the other zeros. So (-@eq-l8-bethe) is a system of equations for the zeros alone: the **Bethe equations** of the soliton chain. The zeros of the eigenvalues of the defect operator are the Bethe roots, as the zeros of Baxter's $Q$ are. Their number is the number of solitons of the minority charge, as for the magnons of a spin chain (@fig-l8-bethe).
+
+On the line $\operatorname{Im}\theta_k=\frac\pi2$, $y_k^2=e^{2\lambda\operatorname{Re}\theta_k}e^{i\pi\lambda}$. With $q^{-2}=e^{2\pi i\lambda}$, $z_j^2$ and $q^{-2}z_j^2$ are then $r_je^{-i\pi\lambda}$ and $r_je^{i\pi\lambda}$ with $r_j>0$, complex conjugates of each other. The left side of (-@eq-l8-bethe) is a phase, and the Bethe equations become equations between phases, as for the real roots of a spin chain. On the line $\operatorname{Im}\theta_k=\frac\pi2+\frac\pi{2\lambda}$, half a period away, both acquire a factor $-1$, and the same holds. Most zeros lie on one of the two lines (@fig-l8-bethe (a)).
+
+![The zeros of the defect operator are Bethe roots. Six solitons with rapidities $\theta_j=-1,-0.55,-0.15,0.2,0.6,1.05$ (green ticks), at $\lambda=\sqrt5+0.3$. (a) The zeros of the eigenvalues of $\mathcal Q(y_d)$ in the plane of $\theta_d$, for the 20 states of charge $0$ (circles, 3 zeros each) and the 15 states of charge $2$ (crosses, 2 zeros each). $\mathcal Q$ depends on $e^{2\lambda\theta_d}$, so $\theta_d$ is shown modulo $\frac{i\pi}\lambda$; the upper and lower edges of the strip are one line. Most zeros lie on the line $\operatorname{Im}\theta_d=\frac\pi2$ or on the edges. The others come in pairs placed symmetrically about the line. (b) $|\mathcal Q|$ along $\operatorname{Im}\theta_d=\frac\pi2$ for three neutral states, divided by $\sum_j|c_jw^j|$, where $\mathcal Q=\sum_jc_jw^j$ and $w=1/y_d^2$. The dips are the zeros on the line (triangles). `code/lectures/defects_l8_f2_bethe.py` checks that $\mathcal D$ is diagonal on the eigenvectors of $t_\omega$, the degrees $3$ and $2$, the Bethe equations (-@eq-l8-bethe) at the plotted zeros to $10^{-12}$, Baxter's formula (-@eq-l8-baxter) for the eigenvalues of $t_\omega$, and that the marked dips are zeros.](figures/l8_bethe.svg){#fig-l8-bethe fig-alt="Left: a shaded horizontal strip with a dashed centre line; six short green vertical ticks sit on the centre line; blue circles and red crosses cluster near the ticks, most on the centre line or on the upper and lower edges of the strip, a few in symmetric pairs above and below the centre line. Right: three curves near the value one on a logarithmic axis, each with one or two sharp dips towards zero at points marked by triangles, between dotted vertical lines at the soliton rapidities."}
+
+**Bazhanov, Lukyanov and Zamolodchikov.** BLZ used another module of a Borel subalgebra, the Fock module of the $q$-oscillator, in which the charge is bounded below (see the book's [Fock modules](book:eq-fock-module)). There the twisted trace converges for $|\omega|<1$, and the book finds a TQ relation of the same form numerically (see its [TQ relation for the Fock module](book:eq-dq-tq-fock)). The Lagrangian defects of these lectures carry the bilateral Weyl module, since their jump can be any multiple of $2\pi$. For them the trace per state replaces the convergent twisted trace, and the twist is tied to the charge.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (i) of `code/lectures/defects_l8_qoperators.py` diagonalizes $t_\omega$ for five and six solitons in every sector of non-negative charge. It finds the eigenvalues of $\mathcal Q$ as polynomials of degree exactly $(N-|m|)/2$, checks the Bethe equations at their zeros to $10^{-12}$ and Baxter's formula (-@eq-l8-baxter) at two complex rapidities, and checks that the left side of (-@eq-l8-bethe) is a phase on the line $\operatorname{Im}\theta_k=\frac\pi2$.
+:::
+
+## Far from the solitons {#sec-l8-limits}
+
+Lecture 1 said that the defects of these lectures interpolate between invertible lines (@sec-l1-operators). On the circle this can be seen in $\mathcal D$.
+
+- **$\theta_d\to+\infty$.** All $Y_j\to0$, and $\mathbb L^{-1}$ becomes diagonal, $1$ on an outgoing $v_+$ and $q^{-s}$ on an outgoing $v_-$ at $n=0$. So $\mathcal D\to q^{-s(N-m)/2}$, a function of the charge alone: up to a constant, the twist line $e^{i\alpha Q}$ with $e^{i\alpha}=q^{s/2}$.
+- **$\theta_d\to-\infty$.** All $Y_j\to\infty$, and $\mathbb L^{-1}$ becomes $i/Y$ times its converting part. In $\langle0|M|0\rangle$ every soliton is then converted, and the defect can return to $|0\rangle$ only if the conversions balance, that is in the neutral sector. So $\prod_j(Y_j/i)\,\mathcal D$ tends to charge conjugation, up to phases, on the neutral sector, and to $0$ on the charged sectors.
+
+These are the two limits of the book's proposition on [defects far from the particles' rapidities](book:prp-defect-twist-limit), read on the circle. Between them the defect operator is not invertible in general, since it vanishes at the Bethe roots.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (j) of `code/lectures/defects_l8_qoperators.py` checks both limits for four solitons, at $\theta_d=\pm3$ and $\pm4.5$, with errors that fall exponentially.
+:::
+
+## What we have learned {#sec-l8-summary}
+
+- Turned through a right angle, the classical defect of rapidity $\theta_d$ is Bäcklund's transformation of rapidity $\theta_d-\frac{i\pi}2$, applied to the field at one instant. It is a canonical transformation, generated by the turned defect term, and it preserves the monodromy and so every charge. Bianchi's theorem makes two of them commute.
+- In the quantum theory the defect laid around the circle is a transfer matrix whose auxiliary space is the defect space, a product of the inverse L-operators of Lecture 7. The train argument makes it commute with the transfer matrices of the solitons.
+- Shifting the defect's jump is the same as adding a twist line. All defect states are equivalent, and the trace over them diverges. The trace per state is finite and cyclic. It makes the train argument a proof, and it selects the twist $\pm q^{-m/2}$.
+- At $\theta=\theta_d+\frac{i\pi}{2\lambda}$ the transmission matrix has a kernel that every factor preserves. The kernel and the quotient are the two odd defects at $\theta_d\mp i\pi$, and this gives Baxter's TQ relation for any number of solitons: the defect bootstrap in operator form.
+- The eigenvalues of the defect operator are polynomials whose zeros are the Bethe roots. The defect wrapped around the cylinder is Baxter's Q-operator.
+
+## Exercises {#sec-l8-exercises}
+
+::: {#exr-l8-turn}
+*(Redo.)* Derive (-@eq-l8-turned) from the defect conditions, keeping track of every factor of $i$. Then turn the plane the other way, $(x,\tau)\mapsto(\tau,-x)$, so that $\Psi$ lies before the line, and show that $\Phi=\mathfrak B_{-i\sigma}\Psi$. Since $\mathfrak B_{-a}$ undoes $\mathfrak B_a$ (@exr-l2-inverse), how is this related to the first result?
+:::
+
+::: {#exr-l8-soliton}
+*(Rediscover.)* Show that under the turned defect a single soliton $4\arctan Y$ becomes $4\arctan(zY)$, with $z=-\coth\frac12(\theta-\theta_d+\frac{i\pi}2)$, and that $|z|=1$ for real $\theta$ and $\theta_d$. By how much is the soliton's position shifted? Check that its energy is unchanged by moving the contour of the energy integral.
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+At fixed $t$ the energy density is a constant times $\operatorname{sech}^2(m_0x\cosh\theta-m_0t\sinh\theta+c)$. Shifting $c$ by $i\alpha$ moves the line of integration by an imaginary amount. The function $\operatorname{sech}^2$ is the derivative of $\tanh$, so its poles have no residue.
+:::
+
+::: {#exr-l8-train}
+*(Redo.)* Derive (-@eq-l8-train) from the triangle relation. Write out the train argument for $N=2$ and check each step. Then try it with $M'=\mathbb L_N\cdots\mathbb L_1$ in place of $M$, and with $M''=\mathbb L_1^{-1}\cdots\mathbb L_N^{-1}$. Which identity is missing in each case?
+:::
+
+::: {#exr-l8-covariance}
+*(Redo.)* Prove (-@eq-l8-covariance) from (-@eq-l7-L), and deduce (-@eq-l8-shift). Show also that $\mathcal D$ with offset $s$ is $q^{-s(N-m)/2}$ times $\mathcal D$ with offset $0$. What does (-@eq-l8-covariance) say about a defect whose jump is raised by $4\pi$, seen by a soliton?
+:::
+
+::: {#exr-l8-cyclic}
+*(Rediscover.)* Show that $\tau(S^k)=\delta_{k0}$, $\tau(q^{kN})=\delta_{k0}$ and $\tau(S^jq^{kN}S^{j'}q^{k'N})=\tau(S^{j'}q^{k'N}S^jq^{kN})$, with $N|n\rangle=n|n\rangle$. So $\tau$ is a trace on the algebra generated by $S^{\pm1}$ and $q^{\pm N}$, which satisfy $q^NS=qSq^N$. Why does the argument fail when $q$ is a root of unity?
+:::
+
+::: {#exr-l8-one}
+*(Rediscover.)* Take a single soliton, $N=1$. Show that $\mathcal D(y_d)=\operatorname{diag}(1,q^{-s})/(1+Y^2)$ on $(v_+,v_-)$, and that on $v_+$ the transfer matrix at $y=iy_d$ is $t_\omega=\omega+\omega^{-1}q(1+Y^2)/(q^2+Y^2)$. Verify (-@eq-l8-tq) by hand for $\omega=q^{-1/2}$. Which identity between the two sides would fail for $\omega=1$?
+:::
+
+::: {#exr-l8-blocks}
+*(Redo.)* Compute $\mathbb F_j(v_\pm\otimes e_n)$ with $\mathbb L^{-1}$ from @sec-l7-scalar and $R(v_+\otimes v_-)=\alpha\,v_+\otimes v_-+\beta\,v_-\otimes v_+$, $\alpha=\frac{q(z^2-1)}{q^2z^2-1}$, $\beta=\frac{z(q^2-1)}{q^2z^2-1}$, at $z=i/Y_j$. Show that the result lies in $V_j\otimes\mathcal S$ and derive the first formula of (-@eq-l8-blocks). Then derive the second, working modulo $\mathcal S$.
+:::
+
+::: {#exr-l8-bethe}
+*(Rediscover.)* For two solitons in the neutral sector, show that $\mathcal Q(y_d)=c_0+c_1/y_d^2$ on each of the two eigenvectors of $t_\omega$, and find the Bethe root of each from (-@eq-l8-bethe). Compare $\Lambda(\theta)$ from (-@eq-l8-baxter) with a direct diagonalization of the $2\times2$ matrix $t_1(\theta)$.
+:::
+
+::: {#exr-l8-fock}
+*(Explore.)* Repeat @sec-l8-tq for the Fock module $\mathsf a_-|0\rangle=0$ of the book's [Fock modules](book:eq-fock-module), for which the twisted trace converges when $|\omega|<1$. Is the kernel of $\mathbb L$ at its degenerate point again a Fock module? Recover the book's [TQ relation for the Fock module](book:eq-dq-tq-fock). Why is the twist no longer tied to the charge?
+:::
+
+::: {#exr-l8-semiclassical}
+*(Explore.)* Pasquier and Gaudin found that the logarithm of the kernel of $Q$ generates the Bäcklund transformation of the Toda chain [@pasquier_gaudin1992]. For sine-Gordon theory, the soliton operator $\mathcal D$ of this lecture has the parameter $q$, which does not tend to $1$ as $\beta\to0$, while a semiclassical kernel $e^{-iF/\hbar}$ would quantize the classical defect matrix with Lecture 7's $\hat q\to1$. How might the two descriptions of one operator be related? Lecture 7's two Weyl pairs of the defect values (@sec-l7-weyl) are a place to start.
+:::
+
+## Where this comes from {#sec-l8-sources}
+
+Baxter introduced the Q-operator and the TQ relation in his solution of the eight-vertex model [@baxter1972]. Pasquier and Gaudin related it to the Bäcklund transformation of the Toda chain [@pasquier_gaudin1992], and Kuznetsov and Sklyanin made Bäcklund transformations the classical counterparts of Q-operators [@kuznetsov_sklyanin1998; @sklyanin2000]. Bazhanov, Lukyanov and Zamolodchikov built Q-operators as traces over $q$-oscillator representations of a Borel subalgebra [@blz1997]. Rossi and Weston generalized them, and isolated the formal delta factor of a bilateral trace [@rossi_weston2002]. Bajnok and George read a rotated defect as an operator on the circle [@bajnok_george2006]. Runkel found functional relations for perturbed defects of conformal field theory [@runkel2008]. Weston identified Q-operators with regularized traces of the defect L-operator, with the TQ relation from a short exact sequence [@weston2010]. Frenkel and Hernandez proved Baxter's relations in general [@frenkel_hernandez2015]. Several things are our presentation, and we do not claim that they are new:
+
+- the turned defect as Bäcklund's transformation of rapidity $\theta_d-\frac{i\pi}2$, with its phases $z_k$ and the generating function (-@eq-l8-F);
+- the covariance (-@eq-l8-covariance) read as a twist line;
+- the trace per state as the regularization of the bilateral trace, and with it the proofs of @thm-l8-commute and @thm-l8-tq;
+- the kernel of the transmission matrix as the invariant subspace of the fusion;
+- the reading of the TQ relation as the bootstrap of the two odd defects;
+- the limits read on the circle.
+
+The book states the results in its sections on [defects on the circle](book:sec-defect-circle) and [defect operators and Q-operators](book:sec-q-operators). In particular see its proposition that [defect operators commute](book:prp-defect-transfer), its [TQ relation for the Weyl defect operator](book:cnj-defect-tq) and its proposition on [defects far from the particles' rapidities](book:prp-defect-twist-limit).

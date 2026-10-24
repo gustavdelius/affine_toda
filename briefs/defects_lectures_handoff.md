@@ -20,7 +20,7 @@ On 2026-10-15 the editor (Gustav Delius) asked for lecture notes on Part VIII of
 | 5 | Why the cycle? | | merged |
 | 6 | The classical algebra of a defect | Why are these defects integrable, in the language of Lax pairs and r-matrices? | written 2026-10-23 on branch `claude/defects-lecture-6` (PR #34); §6 is now its record |
 | 7 | Quantizing the defect | Which symmetry survives in the quantum theory, and what does it fix? | written 2026-10-24 on branch `claude/defects-lecture-7`; §7.1 is its record |
-| 8 | Defects, L-operators and Q-operators | What is a defect wrapped around a cylinder? | not started (§7) |
+| 8 | Defects, L-operators and Q-operators | What is a defect wrapped around a cylinder? | written 2026-10-24 on branch `claude/defects-lecture-8`; §7.3 is its record |
 | 9 | Folding, fusing and the classical breather | How are defects and boundaries related, and what is left of $\hbar$? | not started (§7) |
 
 **Workflow, as the editor has used it.** The editor says "start Lecture N". Draft it, verify it, render it, and report. Commit or push only when asked. Each lecture went into a PR as one commit. The lecture notes PR #30 (Lectures 1–5) and the book PR #33 are both merged into `main`. The branch `claude/defects-lecture-6` holds the Lecture 6 scripts and this file.
@@ -432,6 +432,65 @@ Written 2026-10-24 by the session that wrote Lecture 7, for the agent that write
 - **Reusable technique: uniqueness on a window.** To test that an intertwiner is unique, do not assume charge conservation in the ansatz: allow every matrix entry that shifts $n$ by up to a band, impose all equations the window allows, and compute the rank of the solutions restricted to the central entries. At a root of unity the extra solutions shift the charge by several units (three at $q=e^{i\pi/3}$, with the converting part four), so the band must be wide enough, or the test misses them. Item (c) of `defects_l7_quantum.py` does this.
 - **Sympy pitfalls met in Lecture 7.** `simplify` does not combine $(e^{a})^{n+s/2}$ with symbolic $n$; use `powdenest(..., force=True)`. Matrix entries with $\sinh$ and $\cosh$ need `.rewrite(sp.exp)` before `simplify`. Powers $q^{s+4}$ need `expand_power_exp`.
 - **Notation.** $\lambda$ is the coupling; Lecture 6's spectral parameter appears only through $e^{\theta-\theta_d}$. Lecture 7 uses $q$ for the soliton parameter and $\hat q=e^{-i\hbar\beta^2/8}$ for the quantized classical matrix; keep them apart, and mind the sign of $q$ (`AGENTS.md`).
+
+### 7.3 Lecture 8, "Defects, L-operators and Q-operators": what was done (2026-10-24)
+
+File `lecture-notes/defects/08-q-operators.qmd`. Scripts in `code/lectures/`:
+
+- `defects_l8_qoperators.py`: 10 checks, (a)–(j), about a minute. Mutation-tested: a wrong fusion vector fails (g), a wrong phase in $\mathbb L^{-1}$ fails (h) and (i), a wrong TQ coefficient fails (h), an unrotated Bäcklund parameter fails (c).
+- `defects_l8_f1_cylinder.py`, which writes `l8_cylinder.svg`.
+- `defects_l8_f2_bethe.py`, which writes `l8_bethe.svg`.
+
+**Conventions.** Those of §7.1. The new symbols:
+
+- $\mathsf h=\operatorname{diag}(1,-1)$ on $V$, and $h_{\mathcal W}|n\rangle=(2n+s)|n\rangle$;
+- $t_\omega(\theta)=\operatorname{Tr}_a[\omega^{\mathsf h_a}R_{aN}\cdots R_{a1}]$ with $R=P\check R$;
+- $M=\mathbb L_N^{-1}\cdots\mathbb L_1^{-1}$, $\mathcal D(y_d)=\langle0|M|0\rangle$ and $\mathcal Q=\prod_j(1+Y_j^2)\mathcal D$;
+- the trace per state $\tau(A)=\lim(2K+1)^{-1}\sum_{|n|\le K}\langle n|A|n\rangle$;
+- the twist is written $\omega$, as in the book. It clashes with Lecture 7's breather vector, and the lecture says so.
+
+**Ids.**
+
+- `thm-l8-turned` (classical): the defect turned through 90°, with $\Phi$ before it, imposes $\mathfrak B_{-i\sigma}$, of rapidity $\theta_d-\frac{i\pi}2$, and preserves $\operatorname{tr}T$.
+- `thm-l8-commute`: $\mathcal D$ commutes with $t_\omega$ for $\omega=\pm q^{-m/2}$, proved with the trace per state.
+- `prp-l8-dd` [Numerical]: $[\mathcal D,\mathcal D']=0$.
+- `thm-l8-tq`: the TQ relation for all $N$, proved by fusion.
+- `prp-l8-baxter`: $\mathcal Q$ is a polynomial of degree at most $(N-|m|)/2$ in $1/y_d^2$, with Baxter's equation and the Bethe equations.
+
+Four new [Theorem]s, `turned`, `commute`, `tq` and `baxter`. List them in the PR description.
+
+**Findings.**
+
+1. *The trace per state.* It is cyclic for banded operators with bounded entries, which needs $|q|=1$. On the sector of charge $m$ it equals $\omega^s\mathcal D$ for $\omega^2=q^{-m}$, and it is $0$ otherwise. This makes the train argument rigorous for the bilateral Weyl module.
+2. *The fusion.*
+   - At $\theta=\theta_d+\frac{i\pi}{2\lambda}$ the kernel of $\mathbb L_{a\mathcal W}$ is $\mathcal S=\operatorname{span}\{v_+|n\rangle-q^{-2n-1-s}v_-|n+1\rangle\}$. By the triangle relation it is invariant under every $R_{aj}\mathbb L_j^{-1}$, in one line.
+   - In the basis $q^ne_n$, the block on $\mathcal S$ is $\frac{1+q^2Y^2}{1+Y^2}\mathbb L^{-1}_{s+1}(qY)$.
+   - In the basis $q^{-n}f_n$, the block on the quotient is $q^{-1}\mathbb L^{-1}_{s-1}(Y/q)$.
+   - Together with $\mathcal D_{s\pm1}=q^{\mp(N-m)/2}\mathcal D_s$, this gives exactly the book's `cnj-defect-tq`, for all $N$. It is checked numerically for $N\le7$, beyond the book's $N\le6$.
+3. *Prior art.* Weston (arXiv 1006.1555, Sec. 2.4.1) has the same exact sequence, says that a "suitably regularised trace" gives TQ, and does not specify the regularization.
+4. *Bethe roots.* Most zeros of $\mathcal Q$ lie on $\operatorname{Im}\theta_d=\frac\pi2$, or on the line half a period $\frac\pi{2\lambda}$ away. There the Bethe factor is a phase.
+5. *Limits.* As $\theta_d\to+\infty$, $\mathcal D\to q^{-s(N-m)/2}$. As $\theta_d\to-\infty$, $\prod_j(Y_j/i)\mathcal D$ tends to charge conjugation times phases on $m=0$, and to $0$ on charged sectors.
+6. *Literature, all checked.*
+   - Pasquier and Gaudin (J. Phys. A 25 (1992) 5243; the author order is Pasquier first, per IOP): the logarithm of the kernel of Q generates the Bäcklund transformation.
+   - Kuznetsov and Sklyanin (J. Phys. A 31 (1998) 2241). The arXiv title begins "Few remarks"; the published title is "On Bäcklund transformations for many-body systems".
+   - Sklyanin (nlin/0009009).
+   - New keys in `references-notes.bib`: `baxter1972`, `pasquier_gaudin1992`, `kuznetsov_sklyanin1998`, `sklyanin2000`.
+
+**Candidate improvements to the book, for a separate PR:**
+
+- (1) and (2) upgrade `prp-defect-transfer` (2) from a sketch to a proof, and `cnj-defect-tq` to a theorem. These need an independent referee pass, and the Appendix E list must be updated.
+- `thm-l8-turned` could go into ch. 37 `sec-defect-circle`.
+
+**Left open.**
+
+- $[\mathcal D,\mathcal D']=0$ is only numerical. A proof needs a defect–defect exchange matrix, the quantum form of Lecture 6's refactorization.
+- The sign of the $\pm\frac{i\pi}2$ that relates $\mathcal D(\theta)$ to the physical turned defect is not fixed in the quantum theory. The lecture says so and does not rely on it.
+- `exr-l8-semiclassical` asks how the soliton $q$ and Lecture 7's $\hat q$ descriptions of one operator are related.
+
+**Promises to Lecture 9.**
+
+- Fusing a defect onto a boundary: the defect operator against a boundary state.
+- The doubled theory. Its boundary state equals the defect operator [@bajnok_george2006].
 
 ## 8. Follow-ups
 
