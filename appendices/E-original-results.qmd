@@ -5,7 +5,7 @@ This appendix lists the original results of the book, part by part, so that a re
 ::: {.original-results}
 **Classical solitons (chapter 11).**
 
-- **[Theorem, given additivity of the higher charges]** A selection rule from the antilinear symmetry $\Theta$. If the asymptotic data of a classical solution are $\Theta$-invariant, every conserved charge is real or imaginary according to its parity under $\Theta$, and the energy and momentum are real. The reality results of Olive, Turok and Underwood, of Zhu and Caldi and of Freeman, and the complex energies of Khastgir and Sasaki, fit this one criterion, and the earlier restriction to "good" solutions becomes a symmetry statement. Singular solutions are not covered (@sec-reality-energy-momentum).
+- **[Numerical]** The higher conserved charges of spins 2 and 4 of $a_2^{(1)}$, which are odd under $\Theta$, evaluated on neutral breathers by integrating currents constructed from the field equation. They are imaginary, as the reality condition from $\Theta$ requires, and equal to the sum of the single-soliton values at the complex rapidities $\theta_0\pm iu$ of the constituents (@prp-breather-charges).
 
 **Semiclassical quantization of complex solitons (chapters 17–19).**
 
