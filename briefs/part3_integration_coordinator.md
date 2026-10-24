@@ -68,7 +68,7 @@ The prompt as launched is reproduced in `part3_integration_B_prompt.md` next to 
 - Agent A committed 81a93cd (and 0a5b6ef), agent B 89a2cf8. Both were merged into this branch without conflict (e7e8d9c, 06b609d).
 - Coordinator steps 1–7 are done: Rule 1 on both agents (including an independent recomputation of `prp-breather-charges`, `briefs/referee_classical_09_11_integration_scripts/integration_coord_breather_charges.py`), the `code/README.md` rows, the merged `## Integration` section at the end of `briefs/referee_classical_09_11_phase1_combined.md` (with the overlap table; the separate records `part3_integration_A.md` and `part3_integration_B.md` were folded into it and removed), pointer sections in the four reports, `briefs/README.md` (rows, outcome, the Part III files no longer frozen), all check scripts PASS, `check-refs.py` and `./render-scratch.sh` clean.
 - Not pushed; no PR. Step 8 (memory) done by the coordinator session. Step 9 (cleanup of the untracked copies in the main checkout) waits until this branch is merged into main.
-- Decisions for the editor are listed in the `## Integration` section, under "Decisions for the editor".
+- Decisions for the editor are listed in the `## Integration` section, under "Decisions for the editor". On 2026-10-24 the editor kept the [Established; reformulated] label of `prp-theta-reality` and the [Numerical] Appendix E item, and asked for the branch to be pushed and the PR opened with the draft below.
 
 ### Draft PR description
 
