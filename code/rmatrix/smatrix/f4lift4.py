@@ -12,7 +12,7 @@ def Fmaker(A, J=3000):
         return np.sum(d(t + Aj, Aj + r) - d(t + Aj + T, Aj + T + r) + d(-t + Aj + T, Aj + T + r) - d(-t + Aj + 2*T, Aj + 2*T + r))
     c_of = lambda t: np.prod([np.sin(np.pi*(t - a)) for a in A])
     K = c_of(0.123)*c_of(-0.123)*np.exp(logf(0.123) + logf(-0.123)); nrm = np.sqrt(K + 0j)
-    Fr = lambda t: c_of(t)*np.exp(logf(t))/nrm; sg = np.sign(Fr(1e-6).real)
+    Fr = lambda t: c_of(t)*np.exp(logf(t))/nrm; sg = -np.sign(Fr(1e-6).real)  # F(0) = -1, the sign of Zamolodchikov and Hollowood (sec-scalar-factor)
     return lambda theta: sg*Fr(2*T*theta/(2j*np.pi))
 blk = lambda y, th: np.sinh(th/2 + 1j*np.pi*y/(2*T))/np.sinh(th/2 - 1j*np.pi*y/(2*T))
 F0 = Fmaker(A0); ths = [0.37+0.21j, -0.8+1.3j, 1.1-0.4j]

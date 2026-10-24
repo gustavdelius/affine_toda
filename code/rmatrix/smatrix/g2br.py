@@ -11,7 +11,7 @@ def logf(t):
     d = lambda z, z0: lf1(z) - lf1(z0); r = 0.371
     return np.sum(d(t + Aj, Aj + r) - d(t + Aj + T, Aj + T + r) + d(-t + Aj + T, Aj + T + r) - d(-t + Aj + 2*T, Aj + 2*T + r))
 _K = c_of(0.123)*c_of(-0.123)*np.exp(logf(0.123) + logf(-0.123)); _nm = np.sqrt(_K + 0j)
-_F = lambda t: c_of(t)*np.exp(logf(t))/_nm; _sg = np.sign(_F(1e-6).real)
+_F = lambda t: c_of(t)*np.exp(logf(t))/_nm; _sg = -np.sign(_F(1e-6).real)  # F(0) = -1, the sign of Zamolodchikov and Hollowood (sec-scalar-factor)
 def S(theta): return _sg*_F(mu*theta/(2j*np.pi))*Rcoef(np.exp(mu*theta))
 th = 0.31+0.17j; print(f"{ALG}, zeros {np.round(A, 3)}, T = {T:.3f}: unitarity {np.abs(S(th) @ S(-th) - np.eye(N2)).max():.0e}")
 rng = np.random.default_rng(0); X = rng.normal(size=(N2, 20)) + 1j*rng.normal(size=(N2, 20))

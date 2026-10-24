@@ -19,7 +19,7 @@ def logF(theta, J=None, rich=True):
     if rich:
         l1, l2 = logf_J(t, JJ), logf_J(t, 2*JJ); lf = 2*l2 - l1
     else: lf = logf_J(t, J or JJ)
-    return np.log(c_of(t) + 0j) + lf - np.log(c_of(0.0) + 0j)
+    return np.log(c_of(t) + 0j) + lf - np.log(c_of(0.0) + 0j) + 1j*np.pi  # F(0) = -1, the sign of Zamolodchikov and Hollowood (sec-scalar-factor)
 def R33(theta): return S.R(np.exp(mu*theta))
 def S33(theta): return np.exp(logF(theta))*R33(theta)
 u1 = np.pi*(2*omega + 0.5)/T; u2 = np.pi*omega/T
