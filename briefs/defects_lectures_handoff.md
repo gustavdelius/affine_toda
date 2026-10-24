@@ -19,7 +19,7 @@ On 2026-10-15 the editor (Gustav Delius) asked for lecture notes on Part VIII of
 | 4 | What gets through | | merged |
 | 5 | Why the cycle? | | merged |
 | 6 | The classical algebra of a defect | Why are these defects integrable, in the language of Lax pairs and r-matrices? | written 2026-10-23 on branch `claude/defects-lecture-6` (PR #34); §6 is now its record |
-| 7 | Quantizing the defect | Which symmetry survives in the quantum theory, and what does it fix? | not started (§7) |
+| 7 | Quantizing the defect | Which symmetry survives in the quantum theory, and what does it fix? | written 2026-10-24 on branch `claude/defects-lecture-7`; §7.1 is its record |
 | 8 | Defects, L-operators and Q-operators | What is a defect wrapped around a cylinder? | not started (§7) |
 | 9 | Folding, fusing and the classical breather | How are defects and boundaries related, and what is left of $\hbar$? | not started (§7) |
 
@@ -410,6 +410,15 @@ Lecture 5 says "Lecture 6 constructs the Lax pair of the windows of this lecture
 - Lecture 8: ch. 40 `sec-universal-r-affine` and `sec-q-operators` (defect operators commute, the TQ relation, BLZ L-operators) and ch. 36 `sec-defect-circle`, `sec-topological-lines`, `sec-defect-finite-size`.
 - Lecture 9: ch. 42 (the doubled theory, diagonal symmetric pairs, jump defects in the doubled picture, defect–boundary fusion, tensor K-matrices) and ch. 43 (breather and particle transmission, continuation, the defect spectrum). Also ch. 38 `sec-type-two-atft` and `sec-defect-folding`.
 - The book's conventions for Part VIII are in `briefs/part8_defects_conventions.md`. Mind the traps in `AGENTS.md`, above all the sign of $q$ in the quantum lectures.
+
+### 7.1 Lecture 7, "Quantizing the defect": what was done (2026-10-24)
+
+File `lecture-notes/defects/07-quantizing.qmd`; scripts `code/lectures/defects_l7_quantum.py` (12 checks, (a)–(l), about a minute; mutation-tested), `defects_l7_f1_classical_limit.py` and `defects_l7_f2_resonances.py`.
+
+- **Conventions.** From Lecture 7 on, $\lambda=8\pi/\beta^2-1$ is the coupling, as in Lecture 4 and the book, not Lecture 6's spectral parameter; Lecture 6's matrix is written in $\theta$, $L_d(\theta)=e^{i\Delta\mathsf h/4}-e^{\theta-\theta_d}e^{-i\Sigma\mathsf h/4}\mathsf s$. $q=-e^{-i\pi\lambda}$, Part VI coproduct, $V(\theta)$ with $e_1v_-=yv_+$, $f_1v_+=v_-/y$, $e_0v_+=yv_-$, $f_0v_-=v_+/y$, $y=e^{\lambda\theta}$; defect module $f_1|n\rangle=c|n-1\rangle$, $f_0|n\rangle=c|n+1\rangle$, $c=\mu/y_d$, $\mu=i/(q-q^{-1})$; $u=\theta-\theta_d$, $Y=e^{\lambda u}$; the scalar factor is $\Phi(u)$.
+- **Ids.** `thm-l7-half` (the Weyl module does not extend), `thm-l7-T` (uniqueness, eight equations), `prp-l7-triangle` [Established], `thm-l7-crossing` (crossing fixes $\Phi\Phi(1+Y^2)=q^{-s}$ and $q=-e^{-i\pi\lambda}$), `thm-l7-poles` (poles of $\Phi$ at $-i(2n+1)\pi/2\lambda$), `thm-l7-breather` ($\mathbb T_{B_1}=\mathbb T^{\rm cl}$, proved by the integral representation). Five new [Theorem]s, `half`, `T`, `crossing`, `poles` and `breather`: list them in the PR description.
+- **Findings beyond the plan, all checked.** (1) The integral representation `eq-l7-Phi` of the minimal scalar factor equals the Konik–LeClair Gamma product to $10^{-11}$; with it the lightest-breather result has a six-line proof: crossing turns the product into $\Phi(v-\frac{i\pi}{2\lambda})/\Phi(v+\frac{i\pi}{2\lambda})$ and the shift cancels the $\lambda$-dependent factor $\sinh\frac{\pi k}{2\lambda}$ of the kernel. The book's `prp-sg-breather-transmission` is labelled [Numerical]. (2) $\Phi$ has a ladder of poles $u_n$, widths $\Gamma_n=m_{2n+1}\sinh\theta_d\to(2n+1)m_0\sinh\theta_d$; the odd jump has one growing mode of rate $m_0\sinh\theta_d$ (linearized defect conditions), and the ladder matches the decaying states of an inverted oscillator. Bowcock–Corrigan–Zambon discuss only the first pole (their Sec. 4). (3) The canonical pair $[\Phi,\Psi]=-i\hbar\beta^2$ contains two Weyl pairs, $e^{-i\Delta/4},e^{\pm i\Phi/2}$ with $\hat q=e^{-i\hbar\beta^2/8}$ (quantized $L_d$) and $e^{2\pi i\Delta/\hbar\beta^2},e^{\mp4\pi i\Phi/\hbar\beta^2}$ with the soliton $q$; they commute up to signs: Faddeev's modular double (math/9912078, eqs. (14)–(20), now `faddeev2000` in `references-notes.bib`). (4) $\delta'(0)=\frac\lambda\pi(\ln\frac{8\lambda}\pi+\gamma_E)+o(1)$, numerically to $10^{-6}$. (5) The odd-sector matrix of the book (`sec-sg-defect-spectrum`) re-derived independently, item (l). Items (1), (2) and (3) are candidate improvements to the book (ch. 38 and 41), for a separate PR.
+- **Promises to later lectures.** Lecture 9: the other Borel half survives twisted by charge conjugation (book `prp-diagonal-borel`). Lecture 8 can start from the L-operator form `eq-l7-L` and the RTT reading of the triangle relation.
 
 ## 8. Follow-ups
 
