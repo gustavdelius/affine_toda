@@ -1,0 +1,556 @@
+# Folding, fusing and the classical breather {#sec-folding-fusing}
+
+::: {.callout-note appearance="simple" icon=false title="In this lecture"}
+- Folded along the defect, a theory with a defect becomes a theory with a boundary. The crossing-unitarity of Ghoshal and Zamolodchikov for that boundary is the crossing relation of the defect, which Lecture 1 assumed.
+- In the folded picture the other half of the quantum group returns, twisted by charge conjugation, on a second action of the same defect states.
+- A defect pressed against a boundary is a new boundary. For the Lee–Yang model this fixes the defect, and the defect's bound state becomes the boundary's.
+- Freezing the field on one side of a sine-Gordon defect is fusing the defect onto a Dirichlet boundary. Every integrable boundary of sine-Gordon theory arises in this way. Classically it keeps the spin-3 charge, and quantum mechanically it has the exact reflection matrix of Ghoshal and Zamolodchikov, scalar factor included.
+- Comparing the two sides tells us what is left of $\hbar$. The defect rapidity is rescaled by the anomalous spin of the defect fields, the lightest breather sees the classical defect exactly, and the higher breathers turn into the classical breather, with its delay and the shift of its internal clock.
+- Folding the Dynkin diagram needs a defect fused with its mirror image. The two parameters must then be equal up to sign, and in the linear sector the folded pair is the Tzitzéica defect of Corrigan and Zambon.
+
+*Prerequisites:* @sec-mirrors-windows, in particular @sec-l1-unitarity-crossing and @sec-l1-lee-yang; @sec-l3-lagrangian and @exr-l3-boundary; @sec-l4-many; @sec-l5-types and @sec-l5-waves; @sec-l6-charges; @sec-quantizing, in particular @sec-l7-half, @sec-l7-scalar, @sec-l7-weyl and @sec-l7-breathers; @sec-l8-turning. From the book: [boundary scattering](book:sec-boundary-scattering), [boundary sine-Gordon theory](book:sec-boundary-sine-gordon) and its chapter on [defects meeting boundaries](book:sec-defect-boundary).
+:::
+
+## The question {#sec-l9-question}
+
+Lecture 1 began with mirrors and windows. A boundary reflects, a defect transmits, and in an interacting integrable theory a line cannot do both. Since then the two have been studied apart. But each lecture has left a thread that ties them together. Lecture 1 assumed that transmission crosses as bulk scattering does, and said that Bajnok and George had derived this from a boundary (@sec-l1-unitarity-crossing). It found the Lee–Yang defect and its excited state, and noticed that the boundary of the same model has an excited state of the same kind (@sec-l1-lee-yang). Lecture 3 froze the field on one side of the defect and found the integrable boundary potential, and asked why that is not yet a derivation (@exr-l3-boundary). Lecture 5 found that no theory other than $a_r^{(1)}$ has a defect of type I, and named two ways out (@sec-l5-others). Lecture 7 found that the lightest breather crosses the quantum defect with exactly the classical factor (@thm-l7-breather). So we ask:
+
+> How are defects and boundaries related, and what is left of $\hbar$?
+
+::: {.callout-tip title="Predict"}
+Fold the plane along the defect line, so that the field on the right lies on top of the field on the left. What becomes of the defect, and of a particle that crosses it? Now press a defect against a boundary. A particle crosses the defect, is reflected and crosses back: what is the reflection amplitude of the combination? Classically, the defect matrix and the reflection parameters are built from $\sigma=e^{-\theta_d}$ and the boundary data. In the quantum theory the soliton matrix depends on $e^{\lambda(\theta-\theta_d)}$, with $\lambda=8\pi/\beta^2-1$. If a classical and a quantum calculation describe the same fused boundary, what relation between the classical and the quantum $\theta_d$ do you expect?
+:::
+
+::: {.callout-note title="Where it comes from"}
+In 1993 Ghoshal and Zamolodchikov rotated a boundary in Euclidean spacetime into an initial state, and derived from its consistency the crossing-unitarity of the reflection amplitude [@gz1994]. In 1988 Sklyanin had dressed a reflection matrix with a monodromy matrix on one side and its inverse on the other, and obtained again a solution of the reflection equation [@sklyanin1988]. Bajnok and George noticed that a theory with a defect is a theory with a boundary in disguise: reflect the field on the right onto the left [@bajnok_george2006]. From the boundary they derived the crossing relation of the defect, which earlier work had assumed, and from the boundary state the operator of the defect. They found that the defect can be moved onto a boundary, where it dresses the reflection factor. Bajnok and Simon used this fusion to solve the defects of sinh-Gordon theory and of the Lee–Yang model [@bajnok_simon2008]. Classically, a defect fused onto a Dirichlet boundary of sinh-Gordon theory gives the general integrable boundary, and onto a Neumann boundary a new boundary that depends on time. From the quantum reflection factors they read off the transmission factors and the defect energies. Comparing with the boundary UV–IR relation, they found that the defect rapidity is renormalized, and confirmed it at one loop. Habibullin had observed that two Bäcklund transformations turn a Dirichlet condition of sine-Gordon theory into the general integrable one [@habibullin1998], as Corrigan and Zambon report. Corrigan and Zambon fused type-I defects onto sine-Gordon boundaries with reflection matrices that keep track of the topological charge, and found the matrix of Ghoshal and Zamolodchikov [@cz2012, Sec. 2]. Corrigan and Zambon introduced the type-II defects, with a degree of freedom of their own, for the Tzitzéica theory [@cz2009b], and showed that they are fused pairs of type-I defects [@cz2010]. Robertson folded fused pairs of $a_r^{(1)}$ defects into defects of non-simply-laced theories [@robertson2014a].
+:::
+
+**Conventions.** As in Lecture 7, $\lambda=8\pi/\beta^2-1$, $q=-e^{-i\pi\lambda}$, $y=e^{\lambda\theta}$, $y_d=e^{\lambda\theta_d}$, $Y=y/y_d$, and $\mathbb T$ is the transmission matrix (-@eq-l7-T) with the scalar factor $\Phi$ of (-@eq-l7-Phi). We write $\theta_d^{\rm cl}=-\ln\sigma$ for the parameter of the Lagrangian defect, and $\theta_d$ for the rapidity in the quantum transmission matrix. Lectures 2–6 wrote $\theta_d$ for the first, and Lectures 7 and 8 for the second. How the two are related is one of the subjects of this lecture. A boundary at $x=0$ has the reflection matrix $K(\theta):V(\theta)\to V(-\theta)$, with any defect space standing on the right of the particles, as in the book's [boundary scattering](book:sec-boundary-scattering).
+
+## Folding the line {#sec-l9-folding}
+
+**The doubled theory.** Reflect the right half-line onto the left one. The fields
+
+$$
+\Phi(x)\quad\text{and}\quad\Psi(-x),\qquad x\le0,
+$$
+
+now both live on $x\le0$. They do not interact in the bulk, and the defect at $x=0$ becomes a boundary term that couples them [@bajnok_george2006, eq. (8)]. A $\Psi$-particle of rapidity $\theta$ becomes a particle of the second copy with rapidity $-\theta$. So the particles of the doubled theory form $V\oplus V'$, with $V'$ a copy of $V$ for the reflected $\Psi$-particles. Two particles of the first copy scatter as before, and two of the second copy with the mirror image of the S-matrix. Two particles of different copies do not scatter at all, so their S-matrix is the flip with amplitude $1$ [@bajnok_george2006, eq. (11)].
+
+**The doubled boundary.** A $\Phi$-particle that crosses the defect comes back from the boundary as a $V'$-particle, and a $V'$-particle as a $\Phi$-particle. The reflection matrix of the doubled boundary is off-diagonal,
+
+$$
+K(\theta)=\begin{pmatrix}0&\bar{\mathbb T}(\theta)P\\P\,\mathbb T(\theta)&0\end{pmatrix}\qquad\text{on }(V\oplus V')\otimes\mathcal W ,
+$$ {#eq-l9-doubled-K}
+
+where the flips $P$ move the defect space $\mathcal W$ to the right (@fig-l9-fold-fuse (a), (b)). A defect that also reflected would put its reflection amplitudes on the diagonal. The no-go theorem of Lecture 1 says that in an interacting theory only one kind of block survives (@thm-l1-nogo).
+
+**Unitarity.** Boundary unitarity $K(\theta)K(-\theta)=1$ reads, block by block, $\bar{\mathbb T}(\theta)\mathbb T(-\theta)=1$ and $\mathbb T(\theta)\bar{\mathbb T}(-\theta)=1$, the unitarity (-@eq-l1-window-unitarity) of the defect.
+
+**Crossing-unitarity.** Ghoshal and Zamolodchikov rotate the Euclidean half-plane through a right angle, so that the boundary becomes an initial state $|B\rangle$ of the theory on the whole line (see the book's [boundary state](book:eq-boundary-state)). It contains only pairs of particles with opposite rapidities, created with the amplitudes
+
+$$
+k(\theta)=\sum_{a,b}K_{b\bar a}\Big(\frac{i\pi}2-\theta\Big)\,v_a\otimes v_b ,
+$$
+
+where $K_{b\bar a}$ is the matrix element from the antiparticle $\bar a$ to $b$. For $\theta>0$ the pair is an out-state, for $\theta<0$ an in-state, and the two are related by the bulk S-matrix. Consistency requires
+
+$$
+k(\theta)=\check S(2\theta)\,k(-\theta),
+$$ {#eq-l9-crossing-unitarity}
+
+boundary crossing-unitarity (see the book's [crossing-unitarity](book:eq-boundary-crossing-unitarity)).
+
+Take first a single self-conjugate particle without defect states, so that $V$ and $V'$ are one-dimensional with basis $v$ and $v'$. The doubled $K$ has no diagonal entries, so
+
+$$
+k(\theta)=\mathbb T\Big(\frac{i\pi}2-\theta\Big)\,v\otimes v'+\bar{\mathbb T}\Big(\frac{i\pi}2-\theta\Big)\,v'\otimes v .
+$$
+
+Both terms are pairs from different copies, on which $\check S(2\theta)$ is the flip. So $\check S(2\theta)k(-\theta)=\mathbb T(\frac{i\pi}2+\theta)\,v'\otimes v+\bar{\mathbb T}(\frac{i\pi}2+\theta)\,v\otimes v'$, and (-@eq-l9-crossing-unitarity) says
+
+$$
+\mathbb T\Big(\frac{i\pi}2-\theta\Big)=\bar{\mathbb T}\Big(\frac{i\pi}2+\theta\Big).
+$$
+
+With $\theta'=\frac{i\pi}2-\theta$ this is $\mathbb T(\theta')=\bar{\mathbb T}(i\pi-\theta')$: **the crossing-unitarity of the folded boundary is the crossing of the defect.** The bulk S-matrix, which carries all the dynamics of a reflection off an ordinary boundary, has dropped out, because the reflected particle is in the other copy and does not meet its partner.
+
+With multiplets and defect states the calculation is the same, component by component. For $a$ in $V$ and $b$ in $V'$, the coefficient of $v_a\otimes v_b$ in $k(\theta)$ is the transmission $\mathbb T(\frac{i\pi}2-\theta)$ from $\bar a$ to $b$, an operator on $\mathcal W$. In $\check S(2\theta)k(-\theta)$ it is the transmission $\bar{\mathbb T}(\frac{i\pi}2+\theta)$ from $\bar b$ to $a$, the same operator on $\mathcal W$, since the flip does not touch the defect space.
+
+::: {#thm-l9-crossing}
+## Crossing from folding
+**[Theorem]** The doubled boundary (-@eq-l9-doubled-K) satisfies boundary unitarity and crossing-unitarity (-@eq-l9-crossing-unitarity) if and only if the defect satisfies unitarity (-@eq-l1-window-unitarity) and crossing (-@eq-l1-window-crossing), with the defect labels unchanged.
+:::
+
+::: {.proof}
+Unitarity was compared block by block above. For crossing, the components of (-@eq-l9-crossing-unitarity) with $a$ in $V$ and $b$ in $V'$ read $\mathbb T_{\bar a\alpha}^{\beta b}(\frac{i\pi}2-\theta)=\bar{\mathbb T}_{\alpha\bar b}^{a\beta}(\frac{i\pi}2+\theta)$. With $c=\bar a$ and $\theta'=\frac{i\pi}2-\theta$ this is $\mathbb T_{c\alpha}^{\beta b}(\theta')=\bar{\mathbb T}_{\alpha\bar b}^{\bar c\beta}(i\pi-\theta')$, which is (-@eq-l1-window-crossing). The components with $a$ in $V'$ and $b$ in $V$ give the same relations, and those with $a$, $b$ in the same copy vanish on both sides.
+:::
+
+Bajnok and George derived crossing for transmission in this way [@bajnok_george2006, eq. (15)]. The doubled reflection equation is likewise the set of triangle relations: its block from two $V$-particles to two $V'$-particles is (-@eq-l1-triangle), entry by entry (see the book's [doubling trick](book:prp-doubling)). Every axiom of Lecture 1 is a boundary axiom of the folded theory.
+
+**The boundary state is the defect operator.** Write out the boundary state of the folded theory. Its exponent creates pairs $A_V(-\theta)A_{V'}(\theta)$ with the amplitude $\mathbb T(\frac{i\pi}2-\theta)$; the pairs $A_{V'}(-\theta)A_V(\theta)$ give the same terms, by crossing. Unfold the plane. The initial state becomes a horizontal line at one instant, and the $V'$-particle becomes an outgoing $\Psi$-particle. The result is an operator that turns each $\Phi$-particle of rapidity $\theta$ into a $\Psi$-particle of the same rapidity, with the amplitude $\bar{\mathbb T}(\frac{i\pi}2-\theta)=\mathbb T(\theta+\frac{i\pi}2)$ [@bajnok_george2006, eq. (16)]. This is the defect laid along space of Lecture 8, for particles. For the classical factor $\mathbb T^{\rm cl}(\theta-\theta_d)$ of linear waves, the amplitude $\mathbb T^{\rm cl}(\theta-\theta_d+\frac{i\pi}2)$ is the factor of the defect with $\theta_d$ replaced by $\theta_d-\frac{i\pi}2$, the defect turned through a right angle (@thm-l8-turned).
+
+![Folding the line and fusing a defect. (a) A defect (purple) with $\Phi$ on its left and $\Psi$ on its right. A particle of rapidity $\theta$ (green) crosses it from the left with $\mathbb T(\theta)$, and one of rapidity $-\theta'$ (orange) from the right with $\bar{\mathbb T}(\theta')$. (b) The same, folded: $\Psi(-x)$ lies on top of $\Phi(x)$, the defect is a boundary, and the transmitted pieces of the world lines come back from it as particles of the second copy (dashed). The reflection matrix is off-diagonal. (c) A defect at distance $a$ in front of a boundary with reflection matrix $K$. A particle crosses the defect, is reflected and crosses back. The amplitude $\bar{\mathbb T}K\mathbb T$ does not depend on $a$, and as $a\to0$ the composite is a new boundary. `code/lectures/defects_l9_f1_fold_fuse.py` checks that the mirror map sends the transmitted segments to reflected ones, joined at the boundary, and that the amplitude along the path of (c), with the Lee–Yang factors of @sec-l9-lee-yang, is the reflection factor $K_b$ for three values of $a$.](figures/l9_fold_fuse.svg){#fig-l9-fold-fuse fig-alt="Three spacetime diagrams. Left: a vertical purple line with a green world line crossing it from left to right and an orange one from right to left. Middle: the same folded onto the left half, with a grey wall at the purple line; the green and orange world lines now bounce off the wall, their outgoing parts dashed. Right: a purple vertical line in front of a grey wall; a green world line crosses the purple line, bounces off the wall, and crosses the purple line again; an arrow labelled a to zero joins the two lines."}
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (a) of `code/lectures/defects_l9_fusion.py` builds the doubled $K$ for the Lee–Yang defect and for the classical factor, and checks both forms of unitarity and of crossing. With $\mathbb T$ and $\bar{\mathbb T}$ both multiplied by $e^{0.2\theta}$, unitarity survives and both forms of crossing fail together. For the sine-Gordon soliton matrix with its scalar factor, it compares the components of the doubled crossing-unitarity with the defect labels unchanged: they hold at $q=-e^{-i\pi\lambda}$ and fail at $-q$. It also checks the factor $\mathbb T(\theta+\frac{i\pi}2)$ of the defect operator against the turned defect.
+:::
+
+## The other half returns {#sec-l9-borel}
+
+Lecture 7 found that a defect keeps only half of the quantum group, the Borel subalgebra $U_q(\mathfrak b^-)$ (@thm-l7-half), and promised that the other half is not lost altogether. Folding shows where it is.
+
+**The reflected copy.** The reflection $x\to-x$ exchanges left- and right-movers, and the second copy lists its particles in the reversed order. The charges act on a product of $\Psi$-particles through the coproduct (-@eq-l7-coproduct) in their original order, so on the reflected order they act through the opposite coproduct $\Delta^{\rm op}=P\Delta P$. Correspondingly, two particles of the second copy scatter with $P\check RP$, which intertwines $\Delta^{\rm op}$. So the bulk symmetry of the doubled theory is $U_q(\widehat{sl}_2)\otimes U_q(\widehat{sl}_2)^{\rm cop}$, the second factor with the opposite coproduct (see the book's [reflected copy](book:prp-reflected-copy)). A symmetry of the doubled boundary must be a subalgebra $B$ whose coproduct leaves its last factor in $B$, because the boundary is the last factor of every state (@sec-l7-half).
+
+**The half we knew.** The diagonal Borel subalgebra $\Delta(U_q(\mathfrak b^-))$ is such a subalgebra. On the first copy it acts through $\Delta$, on the second through $\Delta^{\rm op}$, and the block $P\mathbb T$ of (-@eq-l9-doubled-K) intertwines the two exactly when $\mathbb T$ satisfies the intertwining equation (-@eq-l7-intertwiner) of Lecture 7.
+
+**The half that returns.** Let $\tau$ exchange the nodes $0$ and $1$; on solitons it is charge conjugation. Try the generator
+
+$$
+x=e_1\otimes1+k_1\otimes e_0\in\big(1\otimes\tau\big)\Delta\big(U_q(\mathfrak b^+)\big),
+$$
+
+the opposite Borel half, twisted by $\tau$ on the second copy. In the coproduct of $U_q\otimes U_q^{\rm cop}$ it acts on a $\Phi$-particle and the defect as $e_1\otimes1+k_1\otimes Z$, and on a reflected particle and the defect as $1\otimes Z+e_0\otimes\kappa$, where $Z$ and $\kappa$ are unknown operators on $\mathcal W$. In fixed slots the block $P\mathbb T$ is the L-operator $\mathbb L$ of (-@eq-l7-L), and $x$ is a symmetry if
+
+$$
+\mathbb L\,\big(e_1\otimes1+k_1\otimes Z\big)=\big(1\otimes Z+e_0\otimes\kappa\big)\,\mathbb L .
+$$ {#eq-l9-twisted}
+
+Write $\mathbb L=\mathcal D+y\,\mathcal O$, with $\mathcal D=\operatorname{diag}(A,D)$ and $\mathcal O=\begin{pmatrix}0&B\\C&0\end{pmatrix}$ in the basis $(v_+,v_-)$, where
+
+$$
+\begin{aligned}
+A|n\rangle&=q^{-n}|n\rangle,&D|n\rangle&=q^{n+s}|n\rangle,\\
+C|n\rangle&=-\frac i{y_d}\,q^{-n}|n+1\rangle,&B|n\rangle&=-\frac i{y_d}\,q^{n+s}|n-1\rangle ,
+\end{aligned}
+$$
+
+and use $e_1=yE_+$, $e_0=yE_-$ with $E_+v_-=v_+$, $E_-v_+=v_-$. Both sides of (-@eq-l9-twisted) are polynomials in $y$. At order $y^2$ the left side is $\mathcal O(E_+\otimes1)$, which maps $v_-\otimes w$ to $v_-\otimes Cw$ and annihilates $v_+\otimes w$. The right side is $(E_-\otimes\kappa)\mathcal O$, which maps $v_-\otimes w$ to $v_-\otimes\kappa Bw$ and annihilates $v_+\otimes w$. So
+
+$$
+\kappa=C\,B^{-1},\qquad\kappa\,|n\rangle=q^{-2n-2-s}\,|n+2\rangle .
+$$
+
+The element $k_1\otimes k_0$, which on a single copy would be diagonal, acts on the defect states as a shift by two. The order $y$ then fixes $Z|n\rangle=a\,q^{-2n}|n+1\rangle$ with $a=iy_dq^{-s}/(q^2-1)$, up to a constant that the relation $\kappa Z\kappa^{-1}=q^2Z$ removes, and the generator $e_0\otimes1+k_0\otimes e_1$ works in the same way, with $\kappa'=BC^{-1}$. These operators satisfy the relations of $U_q(\mathfrak b^+)$: **the opposite Borel half acts on the same defect states, twisted by charge conjugation, through a second module structure.** The untwisted generator $e_1\otimes1+k_1\otimes e_1$ fails already at order $y^2$: there the right side is $(E_+\otimes\kappa)\,\mathcal O$, which has no component along $v_-$, while the left side has one. The book proves all this for type I$_-$, and shows that no single coideal contains both halves (see its [two Borel symmetries of a jump defect](book:prp-diagonal-borel)).
+
+Why charge conjugation? The map $\Psi\to-\Psi$ turns a type-I$_-$ defect into a type-I$_+$ defect (@sec-l3-types), and on the doubled theory it is charge conjugation of the second copy. A type-I$_+$ defect keeps $U_q(\mathfrak b^+)$ (@exr-l7-plus). So the twisted half can be read as the $U_q(\mathfrak b^+)$ symmetry of the same defect, seen as a defect of type I$_+$ between $\Phi$ and $-\Psi$. This is an interpretation; the calculation above is the check.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (b) of `code/lectures/defects_l9_fusion.py` checks that $P\check RP$ intertwines $\Delta^{\rm op}$ and not $\Delta$. On a window of $\mathcal W$ it solves (-@eq-l9-twisted) by least squares for operators $Z$ and $\kappa$ that do not depend on $y$, at three values of $y$ at once. It finds $\kappa=CB^{-1}$ and the stated $Z$, and the same for the $e_0$ generator, and checks the relations $\kappa\kappa'=1$, $\kappa Z\kappa^{-1}=q^2Z$ and $ZZ'=Z'Z=abq^2$, with $b=iy_dq^s/(q^2-1)$. The untwisted generator leaves a residual of $0.88$.
+:::
+
+## A defect in front of a boundary {#sec-l9-fusing}
+
+A defect that conserves momentum can be moved (@sec-l1-operators). Place it at $x=-a$ in front of a boundary at $x=0$ with reflection matrix $K$ (@fig-l9-fold-fuse (c)). A particle crosses the defect, is reflected and crosses back, so the combination reflects with
+
+$$
+K_{\rm f}(\theta)=\bar{\mathbb T}(\theta)\,\big(1_{\mathcal W}\otimes K(\theta)\big)\,\mathbb T(\theta):\ V(\theta)\otimes\mathcal W\to V(-\theta)\otimes\mathcal W .
+$$ {#eq-l9-fused}
+
+Nothing depends on $a$, so we may let $a\to0$: a defect pressed against a boundary is a new boundary, with the defect space as its boundary space. This is Sklyanin's dressing of a reflection matrix [@sklyanin1988], and the fusion of Bajnok and George and of Bajnok and Simon [@bajnok_george2006, eq. (19); @bajnok_simon2008, eq. (7)]. With multiplets, the triangle relations carry the reflection equation of $K$ over to $K_{\rm f}$ (see the book's [defect–boundary fusion](book:prp-defect-fusion-k)). For a single species everything commutes, and the proof takes two lines.
+
+::: {#thm-l9-fusion}
+## Fusion keeps the boundary axioms
+**[Theorem]** Let the bulk scattering be diagonal, with a single self-conjugate species. If $K$ satisfies boundary unitarity and crossing-unitarity, $K(\frac{i\pi}2-\theta)=S(2\theta)K(\frac{i\pi}2+\theta)$, and $\mathbb T$, $\bar{\mathbb T}$ satisfy defect unitarity and crossing, then $K_{\rm f}=\bar{\mathbb T}K\mathbb T$ satisfies boundary unitarity and crossing-unitarity.
+:::
+
+::: {.proof}
+Unitarity: $K_{\rm f}(\theta)K_{\rm f}(-\theta)=\big[\bar{\mathbb T}(\theta)\mathbb T(-\theta)\big]\big[\mathbb T(\theta)\bar{\mathbb T}(-\theta)\big]K(\theta)K(-\theta)=1$. Crossing-unitarity: defect crossing at $\frac{i\pi}2\mp\theta$ gives $\mathbb T(\frac{i\pi}2-\theta)=\bar{\mathbb T}(\frac{i\pi}2+\theta)$ and $\bar{\mathbb T}(\frac{i\pi}2-\theta)=\mathbb T(\frac{i\pi}2+\theta)$, so
+
+$$
+K_{\rm f}\Big(\frac{i\pi}2-\theta\Big)=\mathbb T\Big(\frac{i\pi}2+\theta\Big)\,S(2\theta)\,K\Big(\frac{i\pi}2+\theta\Big)\,\bar{\mathbb T}\Big(\frac{i\pi}2+\theta\Big)=S(2\theta)\,K_{\rm f}\Big(\frac{i\pi}2+\theta\Big).
+$$
+:::
+
+### The Lee–Yang defect {#sec-l9-lee-yang}
+
+Lecture 1 quoted the Lee–Yang defect, $\mathbb T_b(\theta)=f_{2/3}(\theta-\theta_b)$ and $\bar{\mathbb T}_b(\theta)=f_{2/3}(\theta+\theta_b)$ with $\theta_b=\frac{i\pi}6(3-b)$, and promised the argument that fixes $\theta_b$ (@sec-l1-lee-yang). Here it is, after Bajnok and Simon [@bajnok_simon2008, Sec. 3.2].
+
+**The conformal input.** The minimal model behind the scaling Lee–Yang model has two conformal boundary conditions, $\mathbb 1$ and $\Phi$, and a topological defect $\Phi$. Pressed against the boundary $\mathbb 1$, the topological defect $\Phi$ gives the boundary $\Phi$. Perturb the bulk, the boundary and the defect. The boundary $\mathbb 1$ reflects with $K_{(\mathbb 1)}$, and the perturbed boundaries $\Phi(b)$ reflect with $K_b$, both known (see the book's [boundary Lee–Yang](book:eq-ly-reflection)). Bajnok and Simon required that the perturbed defect pressed against $\mathbb 1$ gives the perturbed boundary $\Phi(b)$:
+
+$$
+K_b(\theta)=\bar{\mathbb T}(\theta)\,K_{(\mathbb 1)}(\theta)\,\mathbb T(\theta).
+$$ {#eq-l9-ly-fusion}
+
+**What fusion fixes.** Unitarity gives $\bar{\mathbb T}(\theta)=1/\mathbb T(-\theta)$, so (-@eq-l9-ly-fusion) says
+
+$$
+\frac{\mathbb T(\theta)}{\mathbb T(-\theta)}=\frac{K_b(\theta)}{K_{(\mathbb 1)}(\theta)} .
+$$
+
+Fusion fixes the odd part of $\ln\mathbb T$, and leaves the even part free. Lecture 1 found that every theory has a family of defects that imitate its own particle, $\mathbb T=f_{2/3}(\theta-\theta_d)$ (@sec-l1-particle-window). For them the left side is $f_{2/3}(\theta-\theta_d)\,f_{2/3}(\theta+\theta_d)$, which is even in $\theta_d$. The right side is a product of four blocks of the book, and the equation holds for all $\theta$ exactly when $\theta_d=\pm\theta_b$ (@exr-l9-ly). The two signs are the two orientations of the line: $b\to6-b$ reverses $\theta_b$ and exchanges $\mathbb T_b$ with $\bar{\mathbb T}_b$ (@exr-l1-ly). So fusion fixes the defect among the frozen particles, up to its orientation. An even factor $E(\theta)=E(-\theta)$ with $E(\theta)E(\theta+i\pi)=1$, compatible with the bootstrap, would survive the argument; Bajnok and Simon take the simplest solution, without one.
+
+**The energies.** The defect energy is the difference of the two boundary energies, $\varepsilon_{\Phi(b)}-\varepsilon_{\mathbb 1}=m\sin\frac{b\pi}6$ [@bajnok_simon2008, Sec. 3.2]. Lecture 1 found that this is $m\cosh\theta_b$, the energy of the particle that the defect imitates.
+
+**The bound states, and why they agree.** $\bar{\mathbb T}_b$ has a pole at $\theta=iu$, $u=\frac{\pi(b+1)}6$, the excited defect of Lecture 1. At that point $K_{(\mathbb 1)}$ and $\mathbb T_b$ are finite and nonzero for $-1<b<2$, $b\ne0$, so $K_b$ has the same pole. Ghoshal and Zamolodchikov's bootstrap for a boundary bound state at $iu$ gives the excited boundary $S(\theta-iu)S(\theta+iu)K_b(\theta)$ (see the book's [boundary bootstrap](book:eq-boundary-bootstrap)): the reflected particle meets the bound particle twice. The defect bootstrap gives the excited defect $\mathbb T^{\rm exc}=S(\theta+iu)\mathbb T_b$ and $\bar{\mathbb T}^{\rm exc}=S(\theta-iu)\bar{\mathbb T}_b$ (-@eq-l1-window-bootstrap): a transmitted particle meets it once. Pressed against $\mathbb 1$,
+
+$$
+\bar{\mathbb T}^{\rm exc}\,K_{(\mathbb 1)}\,\mathbb T^{\rm exc}=S(\theta-iu)\,S(\theta+iu)\,K_b(\theta).
+$$
+
+A particle that crosses the excited defect, is reflected and crosses back meets the absorbed particle once on the way in and once on the way out: twice, as at the excited boundary. **Fusion maps the defect bootstrap onto the boundary bootstrap.** Both sides equal $K_{b+2}$, and $\mathbb T^{\rm exc}=\mathbb T_{b+2}$. This is why the excited Lee–Yang defect and the excited Lee–Yang boundary both behave as the ground state at $b+2$, the coincidence that Lecture 1 noticed (@fig-l9-lee-yang).
+
+![The Lee–Yang defect pressed against the boundary $\mathbb 1$. The poles $\theta=i\pi y$ in the physical strip $0<y<\frac12$, against real $b$. (a) The defect: the poles of $\bar{\mathbb T}_b$ at $y=\frac{b+1}6$ (red), the excited defect, and $y=\frac{b-1}6$ (blue), the second one, and those of $\mathbb T_b$ (dashed). (b) The fused boundary $K_b=\bar{\mathbb T}_bK_{(\mathbb 1)}\mathbb T_b$ has the same poles, and the poles of $K_{(\mathbb 1)}$ at $y=\frac16$ and $\frac12$ (orange). The bound state of the defect is the bound state of the boundary. The zeros (dotted) come from the defect factors. At $b=0$ the red line, the orange line at $\frac16$ and a zero meet, and $K_0=K_{(\mathbb 1)}$. At $b=2$ the gap closes; beyond it (shaded) the family is relabelled. `code/lectures/defects_l9_f2_lee_yang.py` checks the fusion on a grid of complex rapidities, that every plotted pole and zero is simple and belongs to the factor it is drawn for, that a scan of the strip finds no other poles of $K_b$, and the cancellation at $b=0$.](figures/l9_lee_yang.svg){#fig-l9-lee-yang fig-alt="Two panels plotting the positions of poles in the physical strip against the parameter b from minus 3 to 3. In both, a red line rises from b = -1 to b = 2 and a blue line from b = 1 to 3; dotted lines mark zeros. The right panel adds two horizontal orange lines at one sixth and one half. An arrow labels the red line as the bound state of the defect and of the boundary."}
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (c) of `code/lectures/defects_l9_fusion.py` checks that (-@eq-l9-fused) satisfies the reflection equation on a window of $\mathcal W$, for sine-Gordon solitons with a generic reflection matrix of Ghoshal and Zamolodchikov and with the Dirichlet one, and boundary unitarity, and that it fails when $Y$ is multiplied by $1.1$ in $\mathbb T$ alone. It checks @thm-l9-fusion for the Lee–Yang factors. Item (d) checks that $S=f_{2/3}=-(2)(4)$ in the book's blocks and the fusion (-@eq-l9-ly-fusion). It searches the strip of $\theta_d$ for all solutions of $f_{2/3}(\theta-\theta_d)f_{2/3}(\theta+\theta_d)=K_b/K_{(\mathbb 1)}$ and finds only $\pm\theta_b$. It also checks the pole of $K_b$ by $1/\varepsilon$ scaling, the fused bootstrap identity, $K_{b+2}$ and the energies.
+:::
+
+## Freezing is fusing {#sec-l9-freezing}
+
+Lecture 3 froze the field on the right of a sine-Gordon defect, $\Psi=\psi_0$, and found that the defect potential becomes an integrable boundary potential (@exr-l3-boundary). With $\Sigma=\Phi+\psi_0$ and $\Delta=\Phi-\psi_0$,
+
+$$
+\begin{aligned}
+\mathcal B(\Phi,\psi_0)&=-2m_0\,\operatorname{Re}\big(c\,e^{i\Phi/2}\big)+{\rm const},\\
+c&=\sigma e^{i\psi_0/2}+\sigma^{-1}e^{-i\psi_0/2}=2\cosh\Big(\theta_d^{\rm cl}-\frac{i\psi_0}2\Big),
+\end{aligned}
+$$
+
+which is $-\mathcal M\cos\frac{\Phi-\Phi_0}2$ plus a constant, with $\mathcal Me^{-i\Phi_0/2}=2m_0c$. In the book's boundary parameters (see its [dictionary for the boundary potential](book:eq-bsg-c-dictionary)),
+
+$$
+C_0=\cosh\Big(\theta_d^{\rm cl}+\frac{i\psi_0}2\Big),\qquad C_1=\cosh\Big(\theta_d^{\rm cl}-\frac{i\psi_0}2\Big).
+$$ {#eq-l9-C}
+
+Every complex $C_0=\cos(\frac{\psi_0}2-i\theta_d^{\rm cl})$ arises from real $\psi_0$ and $\theta_d^{\rm cl}$, and then $C_1=\bar C_0$: every integrable boundary of sine-Gordon theory. Why was this not yet a derivation?
+
+**Two gaps.** First, a constant $\Psi=\psi_0$ on the whole half-line solves the field equation only if $\sin\psi_0=0$. Then $\Phi_0$ is a multiple of $\pi$, and only one parameter is left. Second, the defect conserves charges that involve $\Psi$, and freezing $\Psi$ by hand gives no reason to expect the boundary to keep any of them.
+
+**The resolution.** Keep $\Psi$ on a short interval $0<x<a$, and impose the Dirichlet condition $\Psi(t,a)=\psi_0$ at its end: a defect in front of a Dirichlet boundary, the classical form of (-@eq-l9-fused). As $a\to0$, $\Psi(t,0)\to\psi_0$ and $\Psi_t(t,0)\to0$, while $\Psi_x(t,0)$ stays finite: it is fixed by the second defect condition, $\Psi_x=\Phi_t+\partial_\Psi\mathcal B$. The first defect condition becomes
+
+$$
+\Phi_x=-\partial_\Phi\mathcal B(\Phi,\psi_0)\qquad\text{at }x=0,
+$$
+
+the boundary condition of the potential $\mathcal B(\Phi,\psi_0)$, now for any $\psi_0$. **Freezing is fusing onto a Dirichlet boundary.** This is the classical fusion of Bajnok and Simon [@bajnok_simon2008, eq. (4)], and, since the defect is a frozen Bäcklund transformation, Habibullin's construction of the general boundary from a Dirichlet one [@habibullin1998], as Corrigan and Zambon point out [@cz2012, Sec. 2].
+
+**The charges.** Lecture 6 found that the defect conserves the charges $Q_{-3}$ and $Q_{+3}$ separately, each with its defect contribution $\mathcal D_{\mp3}$ (-@eq-l6-D3). A boundary reflects every particle, $\theta\to-\theta$, which exchanges the two spins, so it can keep at most their sum. A Dirichlet boundary keeps it. With the currents $j_\mp$ of the densities $q_\mp$ (@exr-l6-spin3), the flux of $q_-+q_+$ through a point is $j_-+j_+$. At a Dirichlet boundary $\Phi_t=0$, so $(\partial_\pm\Phi)^2=\Phi_x^2$ and the terms with $\cos\Phi$ and $(\partial_\pm\Phi)^4$ cancel between $j_-$ and $j_+$. What is left is $j_-+j_+=(\partial_-^2\Phi)^2-(\partial_+^2\Phi)^2$, and $\partial_\pm^2\Phi=\pm2\Phi_{tx}+m_0^2\sin\psi_0$ by the field equation, so
+
+$$
+j_-+j_+=-8m_0^2\sin\psi_0\,\partial_t\Phi_x .
+$$
+
+The flux is a total time derivative. So the defect, the interval and the Dirichlet boundary together conserve $Q_{-3}+Q_{+3}-\frac{\sin\psi_0}{m_0}\Psi_x(t,a)$, where $Q_{\mp3}$ are the charges of Lecture 6, with the integrals of $q_\mp(\Psi)$ over the interval and the defect contributions $\mathcal D_{\mp3}$. As $a\to0$ the integrals over the interval vanish, and the fused boundary conserves
+
+$$
+Q_3^{\rm f}=\frac1{8m_0^3}\int_{-\infty}^0\big(q_-+q_+\big)\,dx+\mathcal D_{-3}+\mathcal D_{+3}-\frac{\sin\psi_0}{m_0}\,\Psi_x ,
+$$ {#eq-l9-Q3}
+
+with $\mathcal D_{\mp3}$ evaluated at $\Psi=\psi_0$, $\partial_\pm\Psi=\pm\Psi_x$, and $\Psi_x=\Phi_t+\partial_\Psi\mathcal B(\Phi,\psi_0)$. Ghoshal and Zamolodchikov found the integrable boundaries by demanding the spin-3 charge [@gz1994]; here the charge comes with the defect. The limiting argument explains (-@eq-l9-Q3), and the script checks it directly on the boundary condition, for every $\psi_0$ and $\sigma$. The two parameters of Ghoshal and Zamolodchikov are the defect rapidity and the Dirichlet value, as Bajnok and Simon noted for sinh-Gordon theory [@bajnok_simon2008, Sec. 2].
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (e) of `code/lectures/defects_l9_fusion.py` checks with sympy that $\mathcal B(\Phi,\psi_0)$ has the stated form, that every complex $C_0$ arises, the conservation laws $\partial_tq_\mp+\partial_xj_\mp=0$, the Dirichlet flux, and that $Q_3^{\rm f}$ of (-@eq-l9-Q3) is conserved identically on the boundary condition and the field equation. Without the last term, or with $q_--q_+$ in place of $q_-+q_+$, it is not.
+:::
+
+## Fusing in the quantum theory {#sec-l9-quantum-fusion}
+
+Now fuse the quantum defect onto the quantum Dirichlet boundary. Solitons cannot change their charge at a Dirichlet boundary, and its reflection matrix is diagonal (see the book's [soliton reflection matrix](book:eq-bsg-k-full)):
+
+$$
+\begin{aligned}
+K_D(\theta)&=\frac{R_0(u)\,\sigma_{\rm GZ}(\eta,u)}{2\cos\eta}\begin{pmatrix}k_+&0\\0&k_-\end{pmatrix},\\
+k_\pm&=y\,e^{\pm i\eta}+y^{-1}e^{\mp i\eta},\qquad u=-i\theta,
+\end{aligned}
+$$
+
+with $\eta=\frac{(\lambda+1)\psi_0}2$, the relation of Ghoshal and Zamolodchikov (see the book's [Dirichlet relation](book:eq-bsg-dirichlet)), and the boundary-independent factor $R_0$ and the factor $\sigma_{\rm GZ}$ of the book. (We write $\sigma_{\rm GZ}$ for the book's $\sigma$, which has nothing to do with the defect parameter.)
+
+**On a charge sector.** The matrices conserve the total charge, so $K_{\rm f}$ maps the pair $v_+\otimes|n\rangle$, $v_-\otimes|n+1\rangle$ to itself. On it, $\mathbb T(\theta)$ is $\Phi(\theta-\theta_d)\,A(Y)\,D_n$ with
+
+$$
+A(Y)=\begin{pmatrix}1&-iY\\-iY&1\end{pmatrix},\qquad D_n=\operatorname{diag}\big(q^{-n},q^{n+1+s}\big)
+$$
+
+(-@eq-l7-block), and $\bar{\mathbb T}(\theta)=\mathbb T(-\theta)^{-1}$ is $D_n^{-1}A(Y')^{-1}/\Phi(-\theta-\theta_d)$ with $Y'=1/(yy_d)$. So
+
+$$
+K_{\rm f}=\frac{\Phi(\theta-\theta_d)}{\Phi(-\theta-\theta_d)}\,\frac{R_0\,\sigma_{\rm GZ}(\eta,u)}{2\cos\eta}\;D_n^{-1}\,G\,D_n,\qquad G=A(Y')^{-1}\begin{pmatrix}k_+&0\\0&k_-\end{pmatrix}A(Y).
+$$
+
+Since $YY'=y_d^{-2}$ and $A(Y')^{-1}=\begin{pmatrix}1&iY'\\iY'&1\end{pmatrix}/(1+Y'^2)$,
+
+$$
+G=\frac1{1+y^{-2}y_d^{-2}}\begin{pmatrix}k_++y_d^{-2}k_-&\frac i{y_d}e^{i\eta}\big(y^{-2}-y^2\big)\\\frac i{y_d}e^{-i\eta}\big(y^{-2}-y^2\big)&k_-+y_d^{-2}k_+\end{pmatrix}.
+$$
+
+**Comparison.** The matrix of Ghoshal and Zamolodchikov has the entries $P_0^\pm=\cos\lambda u\cos\eta\cosh\vartheta\mp\sin\lambda u\sin\eta\sinh\vartheta$ on the diagonal and $Q_0=-\sin\lambda u\cos\lambda u$ off it. With $\cos\lambda u=\frac12(y+y^{-1})$ and $\sin\lambda u=\frac1{2i}(y-y^{-1})$, a line of algebra shows that at $\vartheta=\lambda\theta_d$
+
+$$
+k_\pm+y_d^{-2}k_\mp=\frac4{y_d}P_0^\pm,\qquad\frac i{y_d}\big(y^{-2}-y^2\big)=-\frac4{y_d}Q_0 .
+$$
+
+So $G$ is $\frac4{y_d}(1+y^{-2}y_d^{-2})^{-1}$ times the matrix of Ghoshal and Zamolodchikov, conjugated by $\operatorname{diag}(1,-e^{-i\eta})$. The matrices $D_n$ do no more than a diagonal change of basis that depends on $n$: they keep the books of the topological charge stored in the defect. With $\vartheta=-\lambda\theta_d$ or $\vartheta=\theta_d$ the comparison fails.
+
+::: {#thm-l9-dirichlet}
+## A defect fused onto a Dirichlet boundary
+**[Theorem]** Fused onto the Dirichlet boundary with parameter $\eta$, the type-I$_-$ defect with rapidity $\theta_d$ and any offset $s$ gives, on each charge sector and after a diagonal change of basis, the reflection matrix of Ghoshal and Zamolodchikov with the same $\eta$ and
+
+$$
+\vartheta=\lambda\,\theta_d ,
+$$
+
+scalar factor included.
+:::
+
+::: {.proof}
+The matrix parts were compared above. The offset multiplies the scalar factors of $\mathbb T$ and of $\bar{\mathbb T}$ by $q^{\mp s/2}$, which cancel. The scalar factors agree if
+
+$$
+\sigma_{\rm GZ}(i\lambda\theta_d,-i\theta)=\frac{1+y_d^{-2}}{1+y^{-2}y_d^{-2}}\,\frac{\Phi(\theta-\theta_d)}{\Phi(-\theta-\theta_d)} .
+$$
+
+Take $\theta$ and $\theta_d$ real; both sides are analytic, so the identity extends. The factor $\sigma_{\rm GZ}(x,u)$ is $\cos x/\cos(x+\lambda u)$ times a product over $l\ge1$ of four Gamma functions, divided by the same product at $-u$ (see the book's [scalar factor](book:eq-bsg-k-full)). Apply Malmstén's formula $\ln\Gamma(a-w)-\ln\Gamma(a+w)=\int_0^\infty\big[-2we^{-t}+2\sinh(wt)\,e^{-at}/(1-e^{-t})\big]\frac{dt}t$ to each pair, with $w=\lambda u/\pi$. The terms in $e^{-t}$ cancel, the sums over $l$ are geometric, and
+
+$$
+\ln\sigma_{\rm GZ}(x,u)=\ln\frac{\cos x}{\cos(x+\lambda u)}-\int_0^\infty\frac{\sinh\frac{\lambda ut}\pi\,\sinh\big(\frac{xt}\pi+\frac{\lambda t}2\big)}{\sinh\frac t2\,\cosh\frac{\lambda t}2}\,\frac{dt}t
+$$
+
+(@exr-l9-sigma). At $x=i\lambda\theta_d$, $u=-i\theta$, and with $t=\pi k/\lambda$, this is
+
+$$
+\ln\sigma_{\rm GZ}=\ln\frac{\cosh\lambda\theta_d}{\cosh\lambda(\theta_d-\theta)}+i\int_0^\infty\frac{\sin k\theta\,\sinh\big(\frac{\pi k}2+ik\theta_d\big)}{\sinh\frac{\pi k}{2\lambda}\,\cosh\frac{\pi k}2}\,\frac{dk}k .
+$$
+
+The integral representation (-@eq-l7-Phi) gives in the same way
+
+$$
+\ln\frac{\Phi(\theta-\theta_d)}{\Phi(-\theta-\theta_d)}=-\lambda\theta+i\int_0^\infty\frac{\sin k\theta\,\sinh\big(\frac{\pi k}2-ik\theta_d\big)}{\sinh\frac{\pi k}{2\lambda}\,\cosh\frac{\pi k}2}\,\frac{dk}k .
+$$
+
+The two integrals differ by $-2\int_0^\infty\sin k\theta\,\sin k\theta_d\,\frac{dk}{k\sinh(\pi k/2\lambda)}$. Write $2\sin k\theta\sin k\theta_d=\cos k(\theta-\theta_d)-\cos k(\theta+\theta_d)$ and use $\int_0^\infty(1-\cos kv)\frac{dk}{k\sinh(\pi k/2\lambda)}=\ln\cosh\lambda v$ (@sec-l7-scalar): the difference is $\ln\cosh\lambda(\theta-\theta_d)-\ln\cosh\lambda(\theta+\theta_d)$. The remaining terms are elementary: with $\ln(1+y^{\pm2}y_d^{-2})=\pm\lambda\theta-\lambda\theta_d+\ln2\cosh\lambda(\theta\mp\theta_d)$, everything cancels.
+:::
+
+The matrix part is Corrigan and Zambon's observation that a type-I defect fused onto a Dirichlet boundary gives the solution of Ghoshal and Zamolodchikov [@cz2012, eqs. (2.16)–(2.18)]. The scalar identity tells us more: no CDD factor appears, and the fused boundary is the minimal solution itself. The book states the identity as checked numerically (see its [defect–boundary fusion](book:prp-defect-fusion-k)). The infinite-dimensional space $\mathcal W$ shows up only in the bookkeeping of the charge.
+
+**Sinh-Gordon.** The sinh-Gordon particle is the continuation of the lightest breather, and crosses the defect with the classical factor (@thm-l7-breather). A two-line calculation (@exr-l9-shg) gives $\bar{\mathbb T}(\theta)\mathbb T(\theta)=(\cosh\theta_d+i\sinh\theta)/(\cosh\theta_d-i\sinh\theta)$, which is a block factor of the sinh-Gordon reflection factor of Corrigan and Delius, so that
+
+$$
+\bar{\mathbb T}(\theta)\,K_D(\theta;E)\,\mathbb T(\theta)=K\Big(\theta;E,F=\frac{2i\theta_d}\pi\Big)
+$$
+
+exactly (see the book's [sinh-Gordon reflection factor](book:eq-shg-reflection)). Bajnok and Simon used this identity backwards: from the two reflection factors they read off the transmission factor [@bajnok_simon2008, Sec. 3.1].
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (f) of `code/lectures/defects_l9_fusion.py` checks with sympy, identically in $y$, $y_d$, $e^{i\eta}$, $q^n$ and $s$, that $D_n^{-1}GD_n$ equals the stated multiple of the conjugated matrix of Ghoshal and Zamolodchikov at $\vartheta=\lambda\theta_d$, and not at $-\lambda\theta_d$. On a window it checks that the gauge invariants of the blocks do not depend on $n$ and agree with those at $\vartheta=\lambda\theta_d$, not at $\vartheta=\theta_d$. It checks the scalar identity with $\sigma_{\rm GZ}$ from its Gamma product, extrapolated in the cutoff, and $\Phi$ from Lecture 7's, to $2\times10^{-9}$ (with $(\lambda+1)\theta_d$ in place of $\lambda\theta_d$ it fails), the integral representation of $\ln\sigma_{\rm GZ}$, and the integral for $\ln\cosh\lambda v$. Item (g) checks the sinh-Gordon fusion in blocks; $F=i\theta_d/\pi$ fails.
+:::
+
+## What is left of $\hbar$ {#sec-l9-hbar}
+
+We now have the same fused boundary twice. Classically, @sec-l9-freezing gives the parameters (-@eq-l9-C), built from $\theta_d^{\rm cl}=-\ln\sigma$ and $\psi_0$. Quantum mechanically, @thm-l9-dirichlet gives $(\eta,\vartheta)=(\eta,\lambda\theta_d)$. What connects them is the relation between the parameters of the Lagrangian of a boundary and those of its reflection matrix, which is dynamical. For sine-Gordon theory it is the boundary UV–IR relation of Bajnok, Palla, Takács and Tóth and of Al. Zamolodchikov (see the book's [UV–IR relation](book:cnj-bsg-uv-ir)):
+
+$$
+\cos\frac{\eta\mp i\vartheta}{\lambda+1}=\mu_\pm,
+$$
+
+where $\mu_\pm$ are the two normal-ordered boundary couplings, divided by a critical value, which in the classical limit are $C_0$ and $C_1$. For the fused boundary, $\cos\frac{\eta-i\vartheta}{\lambda+1}=\cosh(\theta_d^{\rm cl}+\frac{i\psi_0}2)=\cos(\frac{\psi_0}2-i\theta_d^{\rm cl})$ and its partner give
+
+$$
+\eta=\frac{(\lambda+1)\psi_0}2,\qquad\vartheta=(\lambda+1)\,\theta_d^{\rm cl}.
+$$
+
+The first is the Dirichlet relation, a consistency check. The second, with $\vartheta=\lambda\theta_d$, says:
+
+::: {#cnj-l9-uvir}
+## The defect UV–IR relation
+**[Conjecture]** The quantum defect rapidity and the parameter $\sigma=e^{-\theta_d^{\rm cl}}$ of the normal-ordered Lagrangian are related by
+
+$$
+\lambda\,\theta_d=(\lambda+1)\,\theta_d^{\rm cl},
+$$
+
+that is, $\theta_d=\theta_d^{\rm cl}/(1-\hbar\beta^2/8\pi)$ and $y_d=\sigma^{-8\pi/\hbar\beta^2}$.
+:::
+
+This is the book's [defect UV–IR relation](book:cnj-defect-parameter). The argument above fixes it only in the classical limit, where $\lambda/(\lambda+1)\to1$. At finite coupling it assumes that the boundary UV–IR relation holds for the fused boundary with the couplings of the fused defect. For sinh-Gordon theory, Bajnok and Simon made the same argument with the Dirichlet and the general boundary of sinh-Gordon theory. They found $\theta_d=(1-\frac B2)\theta_d^{\rm cl}$, which is the continuation of the conjecture, and confirmed its first correction, $\theta_d=\theta_d^{\rm cl}(1-\frac{b^2}{8\pi}+\dots)$, in perturbation theory at one loop [@bajnok_simon2008, eqs. (17), (23)]. So the naive identification $\theta_d=\theta_d^{\rm cl}$ is wrong already at one loop.
+
+**Why this relation: the spin of the defect fields.** There is a second way to see the factor, which needs no boundary. The amplitudes depend on $\theta-\theta_d$, so a boost by a rapidity $\zeta$ shifts $\theta_d$ by $\zeta$. In the Lagrangian, shifting $\theta_d^{\rm cl}$ by $\zeta$ multiplies the half of $\mathcal B$ with $\sigma$ by $e^{-\zeta}$ and the half with $\sigma^{-1}$ by $e^\zeta$, as a boost multiplies $E-P$ and $E+P$ (@sec-l5-ar). That is why $\sigma=e^{-\theta_d^{\rm cl}}$ behaves classically as a rapidity. In the quantum theory the two halves are perturbations by chiral fields. At $m_0=0$ the defect conditions are $\Phi_x=\Psi_t$ and $\Psi_x=\Phi_t$ at $x=0$. Write $\Phi=\phi_L(t+x)+\phi_R(t-x)$ on the left and $\Psi=\psi_L(t+x)+\psi_R(t-x)$ on the right: the conditions say $\psi_L'=\phi_L'$ and $\psi_R'=-\phi_R'$. The defect lets the left-movers through unchanged and flips the right-movers, so at the defect $\Sigma=2\phi_L$ and $\Delta=2\phi_R$ up to constants, each of one chirality. With the normalization of the free field, $e^{i\Sigma/2}$ is a chiral field of conformal weight
+
+$$
+h=\frac{\hbar\beta^2}{8\pi}=\frac1{\lambda+1}.
+$$
+
+This normalization agrees with Lecture 7. Raised to the power $8\pi/\hbar\beta^2$, the field $e^{i\Sigma/2}$ becomes $e^{4\pi i\Sigma/\hbar\beta^2}$, of weight $(8\pi/\hbar\beta^2)^2h=\lambda+1$: the chiral vertex operator of Bernard and LeClair's currents, whose integrals are the non-local charges of spin $\lambda$ (see the book's [spin of the non-local charges](book:eq-nonlocal-spin)). A boost multiplies $\int dx^+\,\mathcal O(x^+)$, for a chiral field $\mathcal O$ of weight $h$, by $e^{(1-h)\zeta}$, so its coupling must be multiplied by $e^{-(1-h)\zeta}$. Classically $h=0$, and the couplings are $m_0\sigma^{\pm1}$. In the quantum theory the coupling of the $\sigma$-half is proportional to $e^{-(1-h)\theta_d}$, and setting it equal to $m_0e^{-\theta_d^{\rm cl}}$ gives
+
+$$
+\theta_d^{\rm cl}=(1-h)\,\theta_d=\frac\lambda{\lambda+1}\,\theta_d ,
+$$
+
+the conjecture again, up to an additive constant that depends on how the two couplings are normalized. Konik and LeClair noted that the coupling of their chiral defect perturbation has dimension $1-h$, and left the parameter of their matrix as an unknown function of it [@konik_leclair1999, Sec. 5]. For the Lee–Yang defect, Bajnok, Holló and Watts fixed the two defect couplings from the boundary UV–IR relation and the chiral limits $b=-3+i\alpha$, $\alpha\to\pm\infty$ [@bhw2014, eqs. (97)–(102)]. Their couplings are $e^{\pm\frac65(\theta_b-i\pi)}$ times a constant, and $\frac65=1-h$ for the Lee–Yang defect fields, whose weight is $h=-\frac15$. This is the same rule. We offer the boost argument as a heuristic. It explains the conjecture; it does not prove it.
+
+**What is left.** For the lightest particle, almost nothing. $B_1$ crosses with exactly the classical factor $\mathbb T^{\rm cl}(\theta-\theta_d)$ (@thm-l7-breather), and $\hbar$ survives only in the rescaled rapidity: the quantum particle sees the classical defect, displaced by $\theta_d-\theta_d^{\rm cl}=\frac h{1-h}\theta_d^{\rm cl}$. For solitons, $Y=e^{\lambda\theta}/y_d=e^{\lambda\theta}\sigma^{8\pi/\hbar\beta^2}$. The defect enters through its classical parameter raised to the power $8\pi/\hbar\beta^2$, the power that turns the exponentials of the classical defect matrix into the soliton Weyl pair of Lecture 7, up to a sign in the exponent. The soliton's rapidity enters with $\lambda=8\pi/\hbar\beta^2-1$, because the non-local charges are integrals of currents of spin $\lambda+1$. This is where the $-1$ of Lecture 7, which the canonical pair alone did not explain, sits (@sec-l7-weyl). Penati and Polvara found quantum anomalies in the conservation laws of the Lagrangian defect [@penati_polvara2019], so whether it is quantum integrable as it stands is open (see the book's [open problems](book:sec-defect-open-problems)).
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (h) of `code/lectures/defects_l9_fusion.py` checks that the classical limit of the boundary UV–IR relation maps (-@eq-l9-C) to $\eta=\frac{(\lambda+1)\psi_0}2$ and $\vartheta=(\lambda+1)\theta_d^{\rm cl}$, and $y_d=\sigma^{-(\lambda+1)}$. With sympy it checks that the defect conditions at $m_0=0$ give $\psi_L'=\phi_L'$ and $\psi_R'=-\phi_R'$. It checks the weights $h=\frac1{\lambda+1}$ and $(8\pi/\beta^2)^2h=\lambda+1$, that $\theta_d^{\rm cl}=(1-h)\theta_d$ continued to sinh-Gordon theory is $(1-\frac B2)\theta_d^{\rm cl}$ with the one-loop term of Bajnok and Simon, and that the Lee–Yang couplings of Bajnok, Holló and Watts are $e^{\pm\frac65\theta_b}$ times constants.
+:::
+
+## The classical breather {#sec-l9-breather}
+
+Lecture 7 found that the lightest breather sees the classical defect at every coupling. What do the heavier breathers see?
+
+**The quantum breathers.** The breather $B_{n+1}$ is a bound state of $B_n$ and $B_1$, so the bulk bootstrap gives $\mathbb T_{B_{n+1}}(\theta)=\mathbb T_{B_n}(\theta+\frac{i\pi}{2\lambda})\,\mathbb T_{B_1}(\theta-\frac{in\pi}{2\lambda})$, and starting from $\mathbb T_{B_1}=\mathbb T^{\rm cl}$,
+
+$$
+\mathbb T_{B_n}(\theta)=\prod_{k=1}^n\mathbb T^{\rm cl}\Big(\theta+\frac{i\pi(n+1-2k)}{2\lambda}\Big)
+$$ {#eq-l9-TBn}
+
+(see the book's [breathers through the defect](book:prp-sg-breather-transmission)). Since $\mathbb T^{\rm cl}(\theta)=z(\theta-\theta_d+\frac{i\pi}2)$ with $z(u)=-\coth\frac u2$ (@sec-l4-waves), the factor is $\prod_kz(u+ix_k)$, $u=\theta-\theta_d$, at the points
+
+$$
+x_k=\frac\pi2+\frac{(n+1-2k)\pi}{2\lambda},\qquad k=1,\dots,n .
+$$
+
+These are the midpoints of $n$ intervals of width $\frac\pi\lambda$ that tile $[\alpha_n,\pi-\alpha_n]$, with $\alpha_n=\frac\pi2-\frac{n\pi}{2\lambda}$. **The quantum breather is a string of $n$ particles, each of which crosses with the classical factor.**
+
+**The classical breather.** Lecture 4 found that a breather whose constituents have rapidities $\theta\pm i\alpha$ crosses the classical defect with $Y_{1,2}\to z(u\pm i\alpha)Y_{1,2}$ (@sec-l4-many, @exr-l4-breather). Its envelope is delayed by
+
+$$
+\Delta t=\frac{\ln|z(u+i\alpha)|}{m_0\cos\alpha\,\sinh\theta},\qquad|z(u+i\alpha)|^2=\frac{\cosh u+\cos\alpha}{\cosh u-\cos\alpha},
+$$
+
+and the phase of $Y_1$, the clock of its oscillation, is shifted by $\arg z(u+i\alpha)$. The constituents of $B_n$ sit at $\theta\mp\frac{i}2(\pi-\frac{n\pi}\lambda)=\theta\mp i\alpha_n$, so $B_n$ is the classical breather with $\alpha=\alpha_n$, and its mass $2M\cos\alpha_n=2M\sin\frac{n\pi}{2\lambda}$ is the classical mass at that $\alpha$. The quantum breathers select a discrete set of classical breathers, as the semiclassical quantization of Dashen, Hasslacher and Neveu does [@dhn1975]. In the classical limit the string becomes dense.
+
+::: {#thm-l9-breather}
+## The quantum breathers become the classical breather
+**[Theorem]** Fix $\alpha\in(0,\frac\pi2)$ and real $u=\theta-\theta_d$, and let $\lambda\to\infty$ with $\frac{n\pi}{2\lambda}=\frac\pi2-\alpha$. Write $\mathbb T_{B_n}=e^{i\delta_n}$. Then
+
+$$
+\begin{aligned}
+&\frac\pi\lambda\ln\mathbb T_{B_n}\to\int_\alpha^{\pi-\alpha}\ln z(u+ix)\,dx,\qquad\frac\pi\lambda\,\frac{d\delta_n}{d\theta}\to2\ln|z(u+i\alpha)|,\\
+&e^{i(\delta_{n+1}-\delta_n)}\to\frac{z(u+i\alpha)}{|z(u+i\alpha)|} .
+\end{aligned}
+$$
+
+Consequently the delay $\frac{d\delta_n}{dE}$ of Wigner's relation, with $E=m_n\cosh\theta$, tends to the delay $\Delta t$ of the classical breather, and $\delta_{n+1}-\delta_n$ tends to the shift of its clock.
+:::
+
+::: {.proof}
+On the segment $\operatorname{Re}w=u$, $\alpha\le\operatorname{Im}w\le\pi-\alpha$, the function $z(w)$ has no zero or pole, since these lie at $w\in i\pi\mathbb Z$, so $g(x)=\ln z(u+ix)$ has a smooth branch. The first limit is the midpoint rule for $\int g$ with step $\frac\pi\lambda$. For the second, $\frac d{d\theta}\ln\mathbb T_{B_n}=\sum_kg'(x_k)/i$, and the midpoint rule gives $\frac\lambda\pi\int_\alpha^{\pi-\alpha}g'(x)\frac{dx}i=\frac\lambda{i\pi}\big[g(\pi-\alpha)-g(\alpha)\big]$. Since $z(w+i\pi)=1/z(w)$, $g(\pi-\alpha)=-\ln z(u-i\alpha)$, and with $\overline{z(u+i\alpha)}=z(u-i\alpha)$ the imaginary part is $\frac\lambda\pi\cdot2\ln|z(u+i\alpha)|$. For the third, the $n+1$ points of $B_{n+1}$ are $\alpha_n+\frac{j\pi}\lambda$, $j=0,\dots,n$, the endpoints and inner points of the intervals whose midpoints are the $n$ points of $B_n$. The difference of the two sums is $\frac12\big[g(\alpha_n)+g(\pi-\alpha_n)\big]+O(\frac1\lambda)$, and $\frac12\big[\ln z(u+i\alpha)-\ln z(u-i\alpha)\big]=i\arg z(u+i\alpha)$. Finally $\frac{dE}{d\theta}=m_n\sinh\theta$, with $m_n=2M\cos\alpha$ and $M=\frac{(\lambda+1)m_0}\pi$, so $\frac{d\delta_n}{dE}\to\frac\lambda{\lambda+1}\frac{\ln|z(u+i\alpha)|}{m_0\cos\alpha\sinh\theta}\to\Delta t$.
+:::
+
+The delay is the derivative of the phase with respect to the energy, and the shift of the clock is its derivative with respect to the quantum number $n$, the action of the breather in units of $\hbar$. This is the semiclassical correspondence between a phase and the classical motion, and the exact breather factors realize it (@fig-l9-breather). Lecture 7 found the same for the soliton, through the Gamma functions of its scalar factor. For the breathers no Gamma function survives. The factor (-@eq-l9-TBn) is a finite product of classical factors, and $\hbar$ enters only through the spacing $\frac\pi\lambda\simeq\frac{\hbar\beta^2}8$ of the string. For $B_1$ there is a single point, and no $\hbar$ at all.
+
+![The classical breather and the quantum breathers. (a) A classical breather with constituents at $\theta\pm i\alpha$, $\theta=0.55$, $\alpha=0.7$, crosses a defect with $\theta_d=0.15$ ($m_0=1$). Shown is the field, red positive and blue negative, with the centre of the envelope (grey on the left, black on the right) and its continuation without the defect (dashed). (b) The delay $m_0\cos\alpha\sinh\theta\,\Delta t$ against $\theta-\theta_d$: the classical $\ln|z(u+i\alpha)|$ (dashed), and the delays of the quantum breathers $B_n$ from Wigner's relation applied to (-@eq-l9-TBn), for $n=3$, $6$, $24$ at the coupling where $\alpha_n=\alpha$. (c) The shift of the clock: $\arg z(u+i\alpha)$ (dashed) and $\delta_{n+1}-\delta_n$ for the same $n$. `code/lectures/defects_l9_f3_breather.py` checks that the plotted solution satisfies the defect conditions to $10^{-30}$ and the conjugate factors do not, that the centre lines are where $|Y_1|=1$ and $|zY_1|=1$, the quantum delays by two methods, and that their deviations from the classical curves fall as $n$ grows.](figures/l9_breather.svg){#fig-l9-breather fig-alt="Left: a colour map in the x-t plane with diagonal stripes of alternating red and blue moving to the right, crossing a vertical purple line at x = 0; a grey line follows the stripes on the left, a black line on the right starts later than the dashed continuation of the grey one. Middle: three bell-shaped curves peaked at zero, approaching a dashed curve of height one as n grows. Right: three S-shaped curves rising from zero to pi, nearly on top of a dashed curve."}
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (i) of `code/lectures/defects_l9_fusion.py` checks the bootstrap that gives (-@eq-l9-TBn), unitarity and crossing of $\mathbb T_{B_n}$, and the three limits of @thm-l9-breather at $\alpha=0.5$ for $n=6,\dots,48$: the errors fall like $\frac1{\lambda^2}$, $\frac1\lambda$ and $\frac1\lambda$. With 30-digit arithmetic it checks that the classical breather crosses with $Y_{1,2}\to z(u\pm i\alpha)Y_{1,2}$, that the conjugate factors fail, and the displacement $-\ln|z(u+i\alpha)|/(m_0\cos\alpha\cosh\theta)$ of the envelope.
+:::
+
+## Folding the diagram {#sec-l9-diagram}
+
+Lecture 5 found that only $a_r^{(1)}$ has defects of type I, and named two ways out for the other affine Toda theories (@sec-l5-others). Several of those theories are obtained from $a_r^{(1)}$ by folding its Dynkin diagram: their fields are the fields of $a_r^{(1)}$ that are invariant under a reflection $\rho$ of the diagram (see the book's [folding](book:sec-affine-folding)). A defect of the folded theory should be a defect of $a_r^{(1)}$ that maps $\rho$-invariant fields to $\rho$-invariant fields. Test this on the linear waves of Lecture 5.
+
+**A defect is not folded into itself.** The reflection satisfies $\rho\pi\rho=\pi^{-1}$, so it turns the defect with the rotation $\pi$ into its mirror image, the defect with $\pi^{-1}$ (@sec-l5-types). It also maps the mode of particle $k$ to that of particle $h-k$. So the mirror image transmits particle $k$ with the factor $\mathbb T_{h-k}$ of (-@eq-l5-Tk). A $\rho$-invariant wave is a combination of the particles $k$ and $h-k$, and it stays invariant only if both cross with the same factor. With $x=\sigma e^\theta$ and $\gamma=\frac{\pi k}h$,
+
+$$
+\mathbb T_k=\frac{1+xe^{i\gamma}}{1+xe^{-i\gamma}},\qquad\mathbb T_{h-k}=\frac{1-xe^{-i\gamma}}{1-xe^{i\gamma}},
+$$
+
+and these differ unless $2k=h$.
+
+**A defect and its mirror image.** Place a defect with parameter $\sigma_1$ and, next to it, the mirror image with parameter $\sigma_2$. A linear wave crosses each without reflection, so the pair transmits particle $k$ with $\mathbb T_k(\sigma_1)\mathbb T_{h-k}(\sigma_2)$ and particle $h-k$ with $\mathbb T_{h-k}(\sigma_1)\mathbb T_k(\sigma_2)$. They are equal exactly when the ratio
+
+$$
+\frac{\mathbb T_k}{\mathbb T_{h-k}}=\frac{1-x^2e^{2i\gamma}}{1-x^2e^{-2i\gamma}}
+$$
+
+takes the same value at $\sigma_1$ and $\sigma_2$, for every $\theta$. The ratio depends on $\sigma$ only through $\sigma^2$, and it is a Möbius map of $x^2$. So **the pair can be folded exactly when $\sigma_2=\pm\sigma_1$.**
+
+- *$\sigma_2=-\sigma_1$.* Then $\mathbb T_k(\sigma)\mathbb T_{h-k}(-\sigma)=1$: the mirror image at $-\sigma$ undoes the defect, and the pair is transparent.
+- *$\sigma_2=\sigma_1$.* Then, with $u=\theta-\theta_d^{\rm cl}$,
+
+  $$
+  \mathbb T_k\mathbb T_{h-k}=\frac{\sinh u-i\sin\gamma}{\sinh u+i\sin\gamma}=\frac1{f_{k/h}(u)} ,
+  $$
+
+  the inverse of a bulk scattering factor, frozen at $\theta_d^{\rm cl}$. Folded solitons, at rapidity $\theta-\frac{i\pi}2$, cross with $z_kz_{h-k}=\frac{\cosh u+\sin\gamma}{\cosh u-\sin\gamma}$ (-@eq-l5-za). This is real, so they are delayed and keep their charge.
+
+Robertson found both cases from solitons, at the full nonlinear level: the folded pair conserves momentum, and keeps folded solitons intact, only when the two parameters are equal up to sign; opposite signs annihilate, and equal signs give a genuine defect with a real delay [@robertson2014a, Sec. 3]. For $a_2^{(1)}$, folded into the Tzitzéica theory $a_2^{(2)}$, $\gamma=\frac\pi3$ and
+
+$$
+\frac{\cosh u+\frac{\sqrt3}2}{\cosh u-\frac{\sqrt3}2}=\coth\Big(\frac u2-\frac{i\pi}{12}\Big)\coth\Big(\frac u2+\frac{i\pi}{12}\Big),
+$$
+
+which as a function of $u$ is the delay $z_1$ of the Tzitzéica type-II defect of Corrigan and Zambon, in the sector connected with the vacuum [@cz2009b, eqs. (4.9)–(4.10)] (see the book's [type-II defects](book:sec-type-two-atft)). We have not compared the dictionaries between the two defect rapidities. Corrigan and Zambon had found the Tzitzéica defect conditions in this way, by squeezing an $a_2^{(1)}$ defect and its mirror image together and folding [@cz2009b, Sec. 5].
+
+**The degree of freedom.** As the two defects are squeezed together, the field between them does not disappear. It leaves behind a variable $\Lambda(t)$ that lives only at the defect: the degree of freedom of a type-II defect [@cz2010, Sec. 2]. For sine-Gordon theory $h=2$, the mirror image is the defect itself, and a pair with rapidities $\theta_d^{\rm cl}\pm\tau$ is the type-II defect, which transmits linear waves with $\mathbb T^{\rm cl}(\theta-\theta_d^{\rm cl}-\tau)\,\mathbb T^{\rm cl}(\theta-\theta_d^{\rm cl}+\tau)$ (see the book's [type-II defects and fused pairs](book:sec-type-two)). The two ways out of Lecture 5 are one: a type-II defect is a fused pair, and folding needs the pair. Bristow and Bowcock found momentum-conserving type-II defects for further series [@bristow_bowcock2017], and Robertson folded pairs into defects of $c_n^{(1)}$, $d_n^{(2)}$ and $a_{2n}^{(2)}$ (see the book's [folding defects](book:sec-defect-folding)).
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (j) of `code/lectures/defects_l9_fusion.py` checks, for $h=3,\dots,6$, that $\rho\pi\rho=\pi^{-1}$ and that $\rho$ maps the mode of particle $k$ to that of $h-k$. It checks that the factors of $k$ and $h-k$ through the pair agree for $\sigma_2=\pm\sigma_1$ and not for four other values, the transparency at $-\sigma_1$, the folded factor $1/f_{k/h}$, the soliton delay, its equality with the Tzitzéica delay for $h=3$, and the case $h=2$.
+:::
+
+## What we have learned {#sec-l9-summary}
+
+- Folded along the defect, a theory with a defect is a theory with a boundary, whose reflection matrix is off-diagonal. Boundary unitarity is defect unitarity, and the crossing-unitarity of Ghoshal and Zamolodchikov is defect crossing, because the reflected particle lives in the other copy. The boundary state, unfolded, is the defect operator.
+- The reflected copy carries the opposite coproduct. The doubled boundary keeps the diagonal Borel half of Lecture 7, and the other half as well, twisted by charge conjugation, on a second action of the defect states.
+- A defect pressed against a boundary is a new boundary, $K_{\rm f}=\bar{\mathbb T}K\mathbb T$, and fusion keeps the boundary axioms. For the Lee–Yang model, fusion fixes the defect up to its orientation, and maps the defect bootstrap onto the boundary bootstrap.
+- Freezing the field on one side of a sine-Gordon defect is fusing the defect onto a Dirichlet boundary. Every integrable boundary arises, with the spin-3 charge inherited from the defect. Quantum mechanically the fused boundary is exactly the solution of Ghoshal and Zamolodchikov with $\vartheta=\lambda\theta_d$, scalar factor included.
+- The boundary UV–IR relation then gives $\lambda\theta_d=(\lambda+1)\theta_d^{\rm cl}$. The same factor is the boost weight $1-h$ of the defect fields. What is left of $\hbar$ in the lightest particle is this rescaling; the heavier breathers are strings of particles that become, in the classical limit, the classical breather with its delay and the shift of its clock.
+- Folding the Dynkin diagram requires a defect fused with its mirror image, with equal parameters. Squeezed together, the pair is a type-II defect, and its folded image in $a_2^{(2)}$ has the Tzitzéica delay.
+
+**Where the story stands.** These lectures began with a line that lets particles through and asked what it can be. The answer has come in layers: a frozen Bäcklund transformation, the rotation of a Dynkin diagram, a gauge transformation of the Lax pair, an L-operator of half a quantum group, Baxter's Q-operator, and finally a boundary in disguise. Several threads remain loose, and the book lists them (see its [open problems](book:sec-defect-open-problems)). Two defect operators commute numerically, but the exchange matrix that would prove it has not been built (@prp-l8-dd). The defect UV–IR relation rests on conjectures, and the anomalies of Penati and Polvara leave the quantum integrability of the Lagrangian defect open. The quantum theory of the $a_r^{(1)}$ defects has been tested only through its classical limits. Type-II defects are known classically for several series, but their quantum transmission matrices have been found only in a few cases [@cz2010; @cz2011; @robertson2014b]. And a defect in front of a boundary is a natural place to look for Q-operators of boundaries (see the book's [tensor K-matrices](book:sec-tensor-k)).
+
+## Exercises {#sec-l9-exercises}
+
+::: {#exr-l9-crossing}
+*(Redo.)* Write out (-@eq-l9-crossing-unitarity) for the doubled boundary of a defect with multiplets and defect states, and derive (-@eq-l1-window-crossing). Then write the doubled reflection equation for two incoming $\Phi$-particles, follow the copies of the particles through each side, and show that it is the triangle relation (-@eq-l1-triangle). Which relation do two incoming $V'$-particles give?
+:::
+
+::: {#exr-l9-borel}
+*(Redo.)* Repeat the calculation of @sec-l9-borel for the generator $e_0\otimes1+k_0\otimes e_1$. Show that $\kappa'=BC^{-1}$, and that the order $y$ gives $Z'|n\rangle=b\,q^{2n}|n-1\rangle$ with $b=iy_dq^s/(q^2-1)$, up to a constant. Show that $\kappa\kappa'=1$ and $ZZ'=Z'Z=abq^2$, and that $\kappa$ does not commute with $k_1$ acting on $\mathcal W$ as in Lecture 7, although $k_1\otimes k_1$ and $k_1\otimes k_0$ commute in $U_q\otimes U_q^{\rm cop}$. What does this say about the two module structures?
+:::
+
+::: {#exr-l9-ly}
+*(Redo.)* Show that $f_{2/3}(\theta)=-(2)(4)$ in the blocks $(x)=\sinh(\frac\theta2+\frac{i\pi x}{12})/\sinh(\frac\theta2-\frac{i\pi x}{12})$, and verify (-@eq-l9-ly-fusion) for $\mathbb T_b$ and $\bar{\mathbb T}_b$. Then show that $f_{2/3}(\theta-\theta_d)f_{2/3}(\theta+\theta_d)=K_b/K_{(\mathbb 1)}$ for all $\theta$ only if $\theta_d\equiv\pm\theta_b$ modulo $2\pi i$. Compare the poles of both sides.
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+$f_x(\theta)=\tanh\frac{\theta+i\pi x}2\big/\tanh\frac{\theta-i\pi x}2$. Both sides are periodic in $\theta$ with period $2\pi i$; match the positions of their poles in one period.
+:::
+
+::: {#exr-l9-dirichlet}
+*(Redo.)* Derive the Dirichlet flux $j_-+j_+=-8m_0^2\sin\psi_0\,\partial_t\Phi_x$. Then check the fused conservation law (-@eq-l9-Q3) at spin $\pm1$: show that $E+\mathcal B(\Phi,\psi_0)/\beta^2$ is conserved for the boundary condition $\Phi_x=-\partial_\Phi\mathcal B(\Phi,\psi_0)$, and that the defect contributions $\mathcal B\mp P_d$ of Lecture 3, at $\Psi=\psi_0$, add up to $2\mathcal B$.
+:::
+
+::: {#exr-l9-gz}
+*(Redo.)* Compute the matrix $G$ of @sec-l9-quantum-fusion, and show that $k_\pm+y_d^{-2}k_\mp=\frac4{y_d}P_0^\pm$ at $\vartheta=\lambda\theta_d$. Find the diagonal change of basis that turns $D_n^{-1}GD_n$ into a multiple of the matrix of Ghoshal and Zamolodchikov. Why must it depend on $n$?
+:::
+
+::: {#exr-l9-sigma}
+*(Rediscover.)* Derive the integral representation of $\ln\sigma_{\rm GZ}$ used in the proof of @thm-l9-dirichlet from Malmstén's formula. Show that the signed sum of $e^{-a t}$ over the four Gamma functions of the $l$-th factor and over all $l\ge1$ is $-e^{-t/2}\sinh(\frac{xt}\pi+\frac{\lambda t}2)/\cosh\frac{\lambda t}2$. Show that $\sigma_{\rm GZ}(x,u)$ is even in $x$. Which strip of $u$ does the integral cover?
+:::
+
+::: {#exr-l9-shg}
+*(Redo.)* With $\mathbb T(\theta)=\mathbb T^{\rm cl}(\theta-\theta_d)$ and $\bar{\mathbb T}(\theta)=\mathbb T^{\rm cl}(i\pi-\theta-\theta_d)$, show that $\bar{\mathbb T}\mathbb T=(\cosh\theta_d+i\sinh\theta)/(\cosh\theta_d-i\sinh\theta)$. Use the block identity $(1-F)(1+F)=(\cos\frac{\pi F}2-i\sinh\theta)/(\cos\frac{\pi F}2+i\sinh\theta)$, in the blocks of the book with $h=2$, to prove the sinh-Gordon fusion with $F=\frac{2i\theta_d}\pi$. Why does the sign of $F$ not matter?
+:::
+
+::: {#exr-l9-weight}
+*(Explore.)* Make the boost argument of @sec-l9-hbar precise at the conformal point. Show that $\int dx^+\,\mathcal O(x^+)$, for a chiral field of weight $h$, scales as $e^{(1-h)\zeta}$ under a boost, and deduce how the two couplings $c_\pm$ of a defect perturbed by fields of weights $(h,0)$ and $(0,h)$ depend on $\theta_d$. The integrability condition fixes $c_+c_-$ in terms of the bulk coupling, as for the Lee–Yang defect [@bhw2014]. Which combination of $c_+$ and $c_-$ is left for $\theta_d$, and what fixes the additive constant in $\theta_d^{\rm cl}=(1-h)\theta_d+\rm const$?
+:::
+
+::: {#exr-l9-breather}
+*(Rediscover.)* Derive (-@eq-l9-TBn) from the bootstrap $\mathbb T_{B_{n+1}}(\theta)=\mathbb T_{B_n}(\theta+\frac{i\pi}{2\lambda})\mathbb T_{B_1}(\theta-\frac{in\pi}{2\lambda})$, and check that the rapidities are those of a bound state of $B_n$ and $B_1$ with mass $m_{n+1}$. Then quantize the classical breather by requiring its action, in units of $\hbar$, to be an integer: show that this selects $\alpha_n=\frac\pi2-\frac{n\pi}{2\lambda'}$ with $\lambda'=8\pi/\hbar\beta^2$, and compare with the exact $\lambda$.
+:::
+
+::: {#exr-l9-fold}
+*(Rediscover.)* Show that $\mathbb T_k(\sigma)\mathbb T_{h-k}(\sigma)=1/f_{k/h}(\theta-\theta_d^{\rm cl})$ and $z_kz_{h-k}=\frac{\cosh u+\sin\gamma_k}{\cosh u-\sin\gamma_k}$. For $h=3$, show that this is the Tzitzéica delay $z_1$ of the book's [type-II defects](book:sec-type-two-atft). What do the other two Tzitzéica delays, $z_2$ and $z_3$, correspond to in the language of a fused pair?
+:::
+
+::: {#exr-l9-neumann}
+*(Explore.)* Fuse the sine-Gordon defect onto a Neumann boundary instead. Show that the boundary condition now involves $\Psi(t)$, which is conjugate to $\Phi(t,0)$ through the defect's kinetic term, and is not frozen. Bajnok and Simon found that in sinh-Gordon theory the reflection factor is the Neumann one times a boundary CDD factor [@bajnok_simon2008, eqs. (19)–(20)]. Compare this boundary with the oscillator boundary of Baseilhac, Delius and George (see the book's [fused boundaries and the oscillator boundary](book:prp-fused-bdg)).
+:::
+
+## Where this comes from {#sec-l9-sources}
+
+Ghoshal and Zamolodchikov derived boundary crossing-unitarity from the boundary state [@gz1994]. Sklyanin dressed reflection matrices with transfer matrices [@sklyanin1988]. Bajnok and George found that a defect theory is a boundary theory, derived defect crossing and the defect operator from the boundary, and fused defects onto boundaries [@bajnok_george2006]. Bajnok and Simon solved the sinh-Gordon and Lee–Yang defects by fusion, fused the classical sinh-Gordon defect onto Dirichlet and Neumann boundaries, and found the renormalization of the defect rapidity, which they confirmed at one loop [@bajnok_simon2008]. Bajnok, Holló and Watts fixed the couplings of the Lee–Yang defect and tested it in finite volume [@bhw2014]. Habibullin obtained the general sine-Gordon boundary from a Dirichlet one by two Bäcklund transformations [@habibullin1998], and Corrigan and Zambon fused type-I and type-II defects onto sine-Gordon boundaries [@cz2012]. Corrigan and Zambon introduced type-II defects [@cz2009b] and showed that they are fused pairs [@cz2010], and Robertson folded fused pairs of $a_r^{(1)}$ defects [@robertson2014a]. Konik and LeClair noted the dimension of the coupling of a chiral defect perturbation [@konik_leclair1999]. Dashen, Hasslacher and Neveu quantized the breathers semiclassically [@dhn1975]. Several things are our presentation, and we do not claim that they are new:
+
+- the reading of crossing-unitarity component by component, with the defect labels unchanged, and of the boundary state as the turned defect of Lecture 8;
+- the calculation that gives the twisted Borel half from the order $y^2$;
+- the proof of @thm-l9-fusion, the statement that fusion fixes the odd part of $\ln\mathbb T$, and the reading of the Lee–Yang bound states as the defect bootstrap mapped onto the boundary bootstrap;
+- the answer to Lecture 3's question, with the spin-3 charge (-@eq-l9-Q3) of the fused boundary and its Dirichlet term;
+- the proof of the scalar identity in @thm-l9-dirichlet from the integral representations;
+- the boost argument for the defect UV–IR relation, and its reading as the anomalous spin of the defect fields;
+- @thm-l9-breather and the breather as a string of particles;
+- the derivation of the folding condition $\sigma_2=\pm\sigma_1$ and of the Tzitzéica delay from the linear waves.
+
+The book states the results in its chapter on [defects meeting boundaries](book:sec-defect-boundary), in particular in its propositions on [the reflected copy](book:prp-reflected-copy), [the two Borel symmetries of a jump defect](book:prp-diagonal-borel) and [defect–boundary fusion](book:prp-defect-fusion-k), in its [Lee–Yang defect](book:sec-defect-lee-yang), in its sections on [breathers and sinh-Gordon](book:sec-sg-breather-transmission) and [type-II defects](book:sec-type-two-atft), and in its [defect UV–IR relation](book:cnj-defect-parameter).
