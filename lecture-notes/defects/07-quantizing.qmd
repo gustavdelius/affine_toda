@@ -1,0 +1,670 @@
+# Quantizing the defect {#sec-quantizing}
+
+::: {.callout-note appearance="simple" icon=false title="In this lecture"}
+- The solitons of sine-Gordon theory carry a quantum-group symmetry. A defect keeps half of it, a Borel subalgebra. Its states form a module of that half on which the whole quantum group cannot act.
+- The surviving half fixes the transmission matrix of solitons up to one function. We solve its eight linear equations by hand, and the triangle relation follows.
+- The phases in the transmission matrix come from the canonical pair of defect values of Lecture 3: their exponentials $q$-commute. The same pair also quantizes the defect matrix of Lecture 6, with a different $q$.
+- Unitarity and crossing fix the remaining function, and the sign of $q$. Its poles turn absorption into a ladder of resonances. In the classical limit their widths match those of a quantum system sitting on an unstable equilibrium, the odd jump.
+- Wigner's relation turns the phase of the transmission matrix into the delay of Lecture 4. The lightest breather crosses with exactly the classical factor of linear waves, at every coupling.
+
+*Prerequisites:* @sec-mirrors-windows, in particular @sec-l1-triangle and @sec-l1-unitarity-crossing; @sec-l3-lagrangian and @sec-l3-massless; @sec-what-gets-through, in particular @sec-l4-reading, @sec-l4-absorption and @sec-l4-waves; @sec-l6-frozen and @sec-l6-poisson. From the book: [quantum affine algebras](book:sec-uqghat) and the [six-vertex R-matrix](book:sec-six-vertex), the [non-local charges](book:sec-nonlocal-charges) of sine-Gordon theory, and its chapter on [quantum groups and defects](book:sec-defect-qg).
+:::
+
+## The question {#sec-l7-question}
+
+Lecture 6 showed that the classical defect is integrable. Its matrix glues the two Lax pairs at $x=0$, and the kinetic term gives it exactly the Poisson bracket that the bulk r-matrix requires. In the quantum theory two things change. The defect values $\Phi(t,0)$ and $\Psi(t,0)$ become operators that do not commute. And the solitons acquire a symmetry with no classical counterpart of the same form: the non-local charges of Bernard and LeClair, which generate the quantum affine algebra $U_q(\widehat{sl}_2)$ and fix the soliton S-matrix up to one function. A quantum defect must have a transmission matrix $\mathbb T$ that satisfies the triangle relation (-@eq-l1-triangle), unitarity and crossing. The triangle relation is quadratic in $\mathbb T$, and solving it directly is how the matrix was first found. Here we ask for the symmetry first:
+
+> Which symmetry survives in the quantum theory, and what does it fix?
+
+::: {.callout-tip title="Predict"}
+A defect can hold a jump of any multiple of $2\pi$ (@sec-l4-kinematics), so its quantum states are labelled by an unbounded integer. Can they form a finite-dimensional representation of $U_q(\widehat{sl}_2)$, as a soliton multiplet does? Lecture 6's defect matrix is a polynomial in one direction of the spectral parameter, and in Lecture 3's chiral limit one chirality passes freely. How much of the quantum group do you expect the defect to keep? Finally, a classical soliton is absorbed at exactly $\theta=\theta_d$ and emitted again at a time nothing determines. What should the quantum transmission matrix do near $\theta_d$?
+:::
+
+::: {.callout-note title="Where it comes from"}
+In 1991 Bernard and LeClair found the non-local conserved charges of sine-Gordon theory and showed that they generate $U_q(\widehat{sl}_2)$ at zero centre, so that the soliton S-matrix is an R-matrix times a scalar [@bernard1991]. In 1997 Konik and LeClair proposed to build purely transmitting defects by perturbing a conformal defect with a field of one chirality [@konik_leclair1999]. For sine-Gordon theory they labelled the defect by a charge, solved the triangle relation directly with an ansatz, and found that it forces the phase parameter of the defect to be $q=-e^{\pm i\pi\lambda}$ [@konik_leclair1999, eqs. (5.16)–(5.21)]. They gave the minimal solution of unitarity and crossing as a product of Gamma functions, and obtained the breather factors by the bootstrap, independent of the defect charge [@konik_leclair1999, eqs. (5.25), (5.26), (5.36)]. All this was before any Lagrangian defect was known. In 2005 Bowcock, Corrigan and Zambon rederived the matrix from the triangle relation and related it to the Lagrangian of Lecture 3: in a path integral, the kinetic term $\Phi\Psi_t$ produces exactly the phases of the matrix [@bcz2005, eqs. (3.51)–(3.53)]. They read its pole at $\theta_d-\frac{i\pi}{2\lambda}$ as an unstable state on the soliton mass shell, the quantum version of the odd defect [@bcz2005, Sec. 4], and found that the lightest breather crosses with a factor that does not depend on the coupling and equals the classical one [@bcz2005, eq. (5.7)], a result they called surprising. Weston placed the transmission matrices in the representation theory of the Borel subalgebras of $U_q(\widehat{sl}_2)$, as L-operators on representations of the $q$-oscillator algebra [@weston2010], and Corrigan and Zambon used this linear method for other affine Toda theories [@cz2011]. For sinh-Gordon theory Bajnok and Simon found the transmission factor, and the relation between the quantum and the classical defect rapidity, by pressing the defect against a boundary [@bajnok_simon2008].
+:::
+
+**Conventions.** From now on $\lambda$ is the coupling of Lecture 4 and of the book,
+
+$$
+\lambda=\frac{8\pi}{\beta^2}-1,\qquad M=\frac{8m_0}{\beta^2}=\frac{(\lambda+1)m_0}\pi,
+$$
+
+with $\beta=\beta_{\rm SG}$ and $M$ the soliton mass. It is not the spectral parameter of Lecture 6, which we will not need: at its soliton value $-e^{-\theta}$ the defect matrix (-@eq-l6-Ld) reads
+
+$$
+L_d(\theta)=e^{i\Delta\mathsf h/4}-e^{\theta-\theta_d}\,e^{-i\Sigma\mathsf h/4}\mathsf s .
+$$ {#eq-l7-Ld}
+
+We set $\hbar=1$, except in @sec-l7-weyl.
+
+## The symmetry of the solitons {#sec-l7-bulk}
+
+**The charges.** Bernard and LeClair's charges are integrals of vertex operators of one chirality of the field (see the book's [non-local charges](book:sec-nonlocal-charges)). We call those built from left-movers $e_0$ and $e_1$. Those built from right-movers, multiplied by a power of $q^T$, we call $f_0$ and $f_1$. The topological charge $T$ gives $k_1=q^{T}$ and $k_0=k_1^{-1}$. Here
+
+$$
+q=e^{-8\pi^2i/\beta^2}=-e^{-i\pi\lambda},
+$$ {#eq-l7-q}
+
+which is a phase. A boost by rapidity $\vartheta$ multiplies the $e_j$ by $e^{\lambda\vartheta}$ and the $f_j$ by $e^{-\lambda\vartheta}$: the charges have Lorentz spin $\pm\lambda$. They satisfy the relations of $U_q(\widehat{sl}_2)$ at zero centre (see the book's [quantum affine algebras](book:sec-uqghat)),
+
+$$
+k_ie_jk_i^{-1}=q^{a_{ij}}e_j,\qquad k_if_jk_i^{-1}=q^{-a_{ij}}f_j,\qquad[e_i,f_j]=\delta_{ij}\frac{k_i-k_i^{-1}}{q-q^{-1}},
+$$
+
+with $a_{00}=a_{11}=2$, $a_{01}=a_{10}=-2$, and the $q$-Serre relations, which will hold trivially below.
+
+**The coproduct.** The density of a non-local charge at a point contains the field integrated from $-\infty$ to that point. When the density moves past a soliton, it picks up a phase set by the soliton's topological charge. So a charge acts on two particles, the first to the left of the second, as
+
+$$
+\begin{aligned}
+\Delta(e_j)&=e_j\otimes1+k_j\otimes e_j,\qquad\Delta(k_j)=k_j\otimes k_j,\\
+\Delta(f_j)&=f_j\otimes k_j^{-1}+1\otimes f_j
+\end{aligned}
+$$ {#eq-l7-coproduct}
+
+(see the book's [coproduct](book:sec-qg-coproduct)). The tensor order is the spatial order. Since $\Delta$ is not symmetric, the order of the particles matters, and an operator that exchanges them must intertwine $\Delta$ on one order with $\Delta$ on the other.
+
+**One soliton.** The soliton $v_+$ and the antisoliton $v_-$ of rapidity $\theta$ span the representation $V(\theta)$:
+
+$$
+\begin{aligned}
+&k_1v_\pm=q^{\pm1}v_\pm,\qquad y=e^{\lambda\theta},\\
+&e_1v_-=y\,v_+,\quad f_1v_+=\frac1yv_-,\qquad e_0v_+=y\,v_-,\quad f_0v_-=\frac1yv_+,
+\end{aligned}
+$$ {#eq-l7-V}
+
+and all other actions vanish. The powers of $y$ carry the spins $\pm\lambda$.
+
+**Two solitons.** The S-matrix of two solitons is $S_0(\theta_1-\theta_2)\check R$, where $\check R:V(\theta_1)\otimes V(\theta_2)\to V(\theta_2)\otimes V(\theta_1)$ is the unique map that intertwines (-@eq-l7-coproduct), normalized to $1$ on $v_+\otimes v_+$. With $z=y_1/y_2=e^{\lambda(\theta_1-\theta_2)}$ it has
+
+$$
+\check R(v_+\otimes v_-)=\frac{(q^2-1)z}{q^2z^2-1}\,v_+\otimes v_-+\frac{q(z^2-1)}{q^2z^2-1}\,v_-\otimes v_+ ,
+$$
+
+and the second coefficient, the amplitude for the two particles to keep their charges, is Zamolodchikov's $\sinh\lambda\theta/\sinh\lambda(i\pi-\theta)$ at $\theta=\theta_1-\theta_2$ (see the book's [six-vertex R-matrix](book:sec-six-vertex)).
+
+**The lightest breather.** At the bound-state point $\theta_1-\theta_2=-iu_1$, $u_1=\pi-\frac\pi\lambda$, the ratio $y_1/y_2=e^{-i\lambda u_1}=-e^{-i\pi\lambda}$ equals $q$. Exactly there the vector
+
+$$
+\omega=v_+\otimes v_--v_-\otimes v_+\in V\big(\theta-\tfrac{iu_1}2\big)\otimes V\big(\theta+\tfrac{iu_1}2\big)
+$$ {#eq-l7-omega}
+
+is annihilated by $\Delta(e_j)$ and $\Delta(f_j)$, and fixed by $\Delta(k_j)$. Check one: $\Delta(f_1)\omega=\big(\frac q{y_1}-\frac1{y_2}\big)v_-\otimes v_-$, which vanishes for $y_1=qy_2$. So $\omega$ spans the trivial representation: the lightest breather $B_1$ carries no quantum-group charge. We will need it in @sec-l7-breathers.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (a) of `code/lectures/defects_l7_quantum.py` checks with sympy that (-@eq-l7-V) is a representation at level zero, that (-@eq-l7-coproduct) is a homomorphism on $V\otimes V$, that $\check R$ is unique and has Zamolodchikov's amplitude at $q=-e^{-i\pi\lambda}$, and that it solves the Yang–Baxter equation. It checks that $\omega$ is invariant exactly for $y_1/y_2=q$, which is the breather point for this sign of $q$ and not for the other, and that $\omega$ spans the image of the residue of $\check R$ at its pole.
+:::
+
+## What a defect can keep {#sec-l7-half}
+
+**The defect states.** A defect holds a jump $\Psi(0)-\Phi(0)$, a multiple of $2\pi$ in each static state. Write $|n\rangle$, $n\in\mathbb Z$, for the defect whose jump is $2\pi(2n+s)$. Lecture 4 found that jumps of $4\pi$ store no energy. So the **even sector** $s=0$ consists of the stable defects, and the odd sector $s=1$ of the defects that hold a soliton (@sec-l4-kinematics). The defect space $\mathcal W$ is spanned by the $|n\rangle$. The topological charge acts on it as $k_1|n\rangle=q^{2n+s}|n\rangle$. A soliton that is converted into an antisoliton leaves two units of charge behind, so it takes $|n\rangle$ to $|n+1\rangle$ (@sec-l4-reading).
+
+**Which charges commute with the defect?** Three observations point the same way.
+
+1. *Classically, half the loop group.* The defect matrix (-@eq-l7-Ld) is a polynomial in $e^{\theta-\theta_d}$, and its constant term $e^{i\Delta\mathsf h/4}$ is diagonal. Matrix functions of this kind, power series in one direction of the spectral parameter with a triangular constant term, form a **Borel subgroup** of the loop group, half of it. The type-I$_+$ matrix of @thm-l6-frozen is a polynomial in the other direction (@exr-l6-types).
+2. *Chirality.* The two halves of the defect potential are chiral defect fields of opposite chiralities (@sec-l3-massless). Konik and LeClair showed, to first order in conformal perturbation theory, that a defect perturbed by a field of one chirality leaves the currents of the other chirality continuous [@konik_leclair1999, eq. (2.9)]. The non-local charges come in two chiralities, the $e_j$ and the $f_j$. So a chiral defect keeps the charges of one chirality, and the topological charge. The Lagrangian defect contains both halves, so this is a hint, not a derivation.
+3. *A defect sits between particles.* In $V\otimes\mathcal W\otimes V$ the charges act through the iterated coproduct, and the middle factor sees both legs of $\Delta$. A symmetry of the defect must therefore be a subalgebra $B$ with $\Delta(B)\subset B\otimes B$, a Hopf subalgebra. A boundary is always the last factor, and needs only $\Delta(B)\subset U_q\otimes B$, a coideal (see the book's [coideal subalgebras](book:sec-coideal)).
+
+The Borel subalgebras
+
+$$
+U_q(\mathfrak b^+)=\langle e_0,e_1,k_1^{\pm1}\rangle,\qquad U_q(\mathfrak b^-)=\langle f_0,f_1,k_1^{\pm1}\rangle
+$$
+
+satisfy all three. By (-@eq-l7-coproduct), $\Delta(f_j)$ contains only $f_j$ and $k_j$, so $U_q(\mathfrak b^-)$ is a Hopf subalgebra, and likewise $U_q(\mathfrak b^+)$. For the type-I$_-$ defect the right choice is $U_q(\mathfrak b^-)$. We will find that its transmission matrix is then a polynomial in $e^{\lambda(\theta-\theta_d)}$, as (-@eq-l7-Ld) is in $e^{\theta-\theta_d}$, and that it converts fast solitons, as the type-I$_-$ defect does.
+
+**The module of the defect.** The generators $f_1$ and $f_0$ lower and raise the charge by two, so $f_1|n\rangle=c_1|n-1\rangle$ and $f_0|n\rangle=c_0|n+1\rangle$. In (-@eq-l7-Ld) the two off-diagonal entries are $e^{\mp i\Sigma/4}$, and their product is $1$. We take as the quantum counterpart that $f_0f_1$ is a constant, so that $c_0$ and $c_1$ do not depend on $n$. (Type-II defects, which carry a degree of freedom of their own, do not have this property; see the book's [type-II defects](book:sec-type-two).) Rescaling the basis vectors by $\rho^n$ makes them equal. Since the $f_j$ have spin $-\lambda$, their common value scales like $e^{-\lambda\theta_d}$. We write
+
+$$
+\begin{aligned}
+&k_1|n\rangle=q^{2n+s}|n\rangle,\qquad f_1|n\rangle=c\,|n-1\rangle,\qquad f_0|n\rangle=c\,|n+1\rangle,\\
+&c=\frac{\mu}{y_d},\qquad\mu=\frac i{q-q^{-1}},\qquad y_d=e^{\lambda\theta_d}.
+\end{aligned}
+$$ {#eq-l7-W}
+
+The constant $\mu$ is a choice of what $\theta_d$ means; we will see in @sec-l7-scalar that it makes $\theta_d$ the rapidity at which a soliton is converted with probability $\frac12$. The relations of $U_q(\mathfrak b^-)$ hold: $k_1f_1k_1^{-1}=q^{-2}f_1$, $k_1f_0k_1^{-1}=q^2f_0$, and the $q$-Serre relations hold because $f_0f_1=f_1f_0=c^2$. This is a **Weyl module** of the Borel subalgebra (see the book's [Weyl modules](book:eq-weyl-module)). It has no highest and no lowest weight, as befits a defect that can hold any jump.
+
+::: {#thm-l7-half}
+## The defect keeps only half
+**[Theorem]** Let $q$ not be a root of unity. There are no operators $e_0,e_1$ on $\mathcal W$ that, together with (-@eq-l7-W), satisfy the relations of $U_q(\widehat{sl}_2)$.
+:::
+
+::: {.proof}
+Since $k_1e_1k_1^{-1}=q^2e_1$, $e_1$ maps the eigenspace of $k_1$ with eigenvalue $q^{2n+s}$ into the one with $q^{2n+s+2}$, which is spanned by $|n+1\rangle$ because $q$ is not a root of unity. So $e_1|n\rangle=c_n|n+1\rangle$. The relation $[e_1,f_0]=0$ gives $c\,(c_{n+1}-c_n)|n+2\rangle=0$, so $c_n$ is a constant. Then $e_1$ is a multiple of the shift $|n\rangle\mapsto|n+1\rangle$ and $f_1$ a multiple of its inverse, so $[e_1,f_1]=0$. But $[e_1,f_1]$ must be $(k_1-k_1^{-1})/(q-q^{-1})$, which is nonzero on $|n\rangle$ unless $q^{2(2n+s)}=1$, that is for all $n$ but at most one.
+:::
+
+A defect that can hold any charge, with invertible shifts between its states, can carry only half of the quantum group. A soliton multiplet escapes the theorem because there the $f_j$ are nilpotent (@exr-l7-particle). The other half is not lost altogether. Twisted by charge conjugation, it acts on the defect space through a second module structure (see the book's [two Borel symmetries of a jump defect](book:prp-diagonal-borel)); we meet it again in Lecture 9.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (b) of `code/lectures/defects_l7_quantum.py` checks the relations of $U_q(\mathfrak b^-)$ and the $q$-Serre relations on a window of $\mathcal W$, repeats the proof of @thm-l7-half with sympy, and searches by least squares for any raising operator $e_1$ that satisfies $[e_1,f_0]=0$ and $[e_1,f_1]=(k_1-k_1^{-1})/(q-q^{-1})$: the best one misses by a relative residual of $0.65$.
+:::
+
+## The transmission matrix from its symmetry {#sec-l7-intertwiner}
+
+A soliton that crosses the defect from the left turns $V(\theta)\otimes\mathcal W$ into $\mathcal W\otimes V(\theta)$. If the defect keeps $U_q(\mathfrak b^-)$, the transmission matrix commutes with it:
+
+$$
+\mathbb T(\theta)\,(\pi_\theta\otimes\rho)\Delta(b)=(\rho\otimes\pi_\theta)\Delta(b)\,\mathbb T(\theta)\qquad\text{for all }b\in U_q(\mathfrak b^-),
+$$ {#eq-l7-intertwiner}
+
+with $\pi_\theta$ the representation (-@eq-l7-V) and $\rho$ the representation (-@eq-l7-W). The same coproduct appears on both sides, because tensor order is spatial order: before the crossing the soliton is the left factor, after it the right one. The equation is linear in $\mathbb T$. Compare the bulk, where $\check R$ intertwines all of $U_q(\widehat{sl}_2)$, and the boundary, where $K$ intertwines a coideal (see the book's [transmission matrices as intertwiners](book:sec-t-intertwiner)).
+
+::: {.callout-tip title="Predict"}
+Count. How many unknown amplitudes does $\mathbb T$ have for each $n$, once the topological charge is conserved? How many equations do $f_0$ and $f_1$ give for each $n$? How many solutions do you expect?
+:::
+
+**Charge conservation.** The equation for $k_1$ says that $\mathbb T$ conserves the total charge. A soliton on $|n\rangle$ has charge $2n+s+1$, and so do $|n\rangle\otimes v_+$ and $|n+1\rangle\otimes v_-$, and no other states, because $q$ is not a root of unity. So
+
+$$
+\begin{aligned}
+\mathbb T(v_+\otimes|n\rangle)&=A_n\,|n\rangle\otimes v_++C_n\,|n+1\rangle\otimes v_-,\\
+\mathbb T(v_-\otimes|n\rangle)&=B_n\,|n-1\rangle\otimes v_++D_n\,|n\rangle\otimes v_-.
+\end{aligned}
+$$ {#eq-l7-form}
+
+$A_n$ and $D_n$ keep the soliton's charge, $C_n$ and $B_n$ convert it.
+
+**The two generators on both sides.** From (-@eq-l7-coproduct), $\Delta(f_1)=f_1\otimes k_1^{-1}+1\otimes f_1$ and $\Delta(f_0)=f_0\otimes k_1+1\otimes f_0$. With (-@eq-l7-V) and (-@eq-l7-W), on $V\otimes\mathcal W$:
+
+$$
+\begin{aligned}
+\Delta(f_1)(v_+\otimes|n\rangle)&=\tfrac1yq^{-2n-s}\,v_-\otimes|n\rangle+c\,v_+\otimes|n-1\rangle,\\
+\Delta(f_1)(v_-\otimes|n\rangle)&=c\,v_-\otimes|n-1\rangle,\\
+\Delta(f_0)(v_+\otimes|n\rangle)&=c\,v_+\otimes|n+1\rangle,\\
+\Delta(f_0)(v_-\otimes|n\rangle)&=\tfrac1yq^{2n+s}\,v_+\otimes|n\rangle+c\,v_-\otimes|n+1\rangle,
+\end{aligned}
+$$
+
+and on $\mathcal W\otimes V$:
+
+$$
+\begin{aligned}
+\Delta(f_1)(|m\rangle\otimes v_+)&=cq^{-1}\,|m-1\rangle\otimes v_++\tfrac1y\,|m\rangle\otimes v_-,\\
+\Delta(f_1)(|m\rangle\otimes v_-)&=cq\,|m-1\rangle\otimes v_-,\\
+\Delta(f_0)(|m\rangle\otimes v_+)&=cq\,|m+1\rangle\otimes v_+,\\
+\Delta(f_0)(|m\rangle\otimes v_-)&=cq^{-1}\,|m+1\rangle\otimes v_-+\tfrac1y\,|m\rangle\otimes v_+ .
+\end{aligned}
+$$
+
+**The eight equations.** Apply (-@eq-l7-intertwiner) with $b=f_1$ to $v_-\otimes|n\rangle$ and $v_+\otimes|n\rangle$, and with $b=f_0$ to $v_+\otimes|n\rangle$ and $v_-\otimes|n\rangle$. Each gives two components:
+
+$$
+\begin{aligned}
+&(1)\quad B_n=qB_{n-1},\\
+&(2)\quad c\,(D_{n-1}-qD_n)=\tfrac1yB_n,\\
+&(3)\quad c\,(q^{-1}A_n-A_{n-1})=\tfrac1yq^{-2n-s}B_n,\\
+&(4)\quad \tfrac1y\big(q^{-2n-s}D_n-A_n\big)=c\,(qC_n-C_{n-1}),\\
+&(5)\quad C_{n+1}=q^{-1}C_n,\\
+&(6)\quad c\,(A_{n+1}-qA_n)=\tfrac1yC_n,\\
+&(7)\quad \tfrac1y\big(q^{2n+s}A_n-D_n\big)=c\,(qB_n-B_{n+1}),\\
+&(8)\quad c\,(D_{n+1}-q^{-1}D_n)=-\tfrac1yq^{2n+s}C_n .
+\end{aligned}
+$$ {#eq-l7-eight}
+
+For example, (1) and (2) are the components along $|n-2\rangle\otimes v_+$ and $|n-1\rangle\otimes v_-$ of $\mathbb T\Delta(f_1)(v_-\otimes|n\rangle)=\Delta(f_1)\mathbb T(v_-\otimes|n\rangle)$. Derive the others yourself (@exr-l7-eight).
+
+**Solving them.**
+
+- Equations (1) and (5) are recursions: $B_n=b\,q^n$ and $C_n=\gamma\,q^{-n}$ with constants $b$, $\gamma$.
+- Then $qC_n-C_{n-1}=0$ and $qB_n-B_{n+1}=0$. So (4) and (7) say the same thing: $D_n=q^{2n+s}A_n$.
+- Equation (6) is a first-order recursion for $A_n$ with the source $\gamma q^{-n}/(cy)$. Its general solution is $A_n=\alpha q^n+\kappa q^{-n}$, with $\kappa=-\gamma/\big(cy(q-q^{-1})\big)$ and $\alpha$ free.
+- In (3) the term $\alpha q^n$ drops out, and the left side is $c\kappa(q^{-1}-q)q^{-n}=\frac\gamma yq^{-n}$. The right side is $\frac by q^{-n-s}$. So $b=\gamma q^s$.
+- Now $D_n=\alpha q^{3n+s}+\kappa q^{n+s}$. In (2) the terms in $q^n$ agree, by the same identity, and the term in $q^{3n}$ leaves $c\,\alpha\,(q^{-3}-q)q^{3n+s}=0$. So $\alpha=0$, unless $q^4=1$.
+- Equation (8) then holds identically.
+
+One constant is left, and it is an overall factor. With $c=\mu/y_d$ of (-@eq-l7-W), $-cy(q-q^{-1})=-iy/y_d$. Choose $\kappa=1$ and write
+
+$$
+Y=e^{\lambda(\theta-\theta_d)}=\frac y{y_d}.
+$$
+
+::: {#thm-l7-T}
+## The transmission matrix from its symmetry
+**[Theorem]** Let $q$ not be a root of unity. The maps $\mathbb T(\theta):V(\theta)\otimes\mathcal W\to\mathcal W\otimes V(\theta)$ that satisfy (-@eq-l7-intertwiner) form a one-dimensional space, spanned by
+
+$$
+\begin{aligned}
+\mathbb T(\theta)\,(v_+\otimes|n\rangle)&=q^{-n}\big(|n\rangle\otimes v_+-iY\,|n+1\rangle\otimes v_-\big),\\
+\mathbb T(\theta)\,(v_-\otimes|n\rangle)&=q^{n+s}\big(-iY\,|n-1\rangle\otimes v_++|n\rangle\otimes v_-\big).
+\end{aligned}
+$$ {#eq-l7-T}
+:::
+
+::: {.proof}
+The equation for $k_1$ gives the form (-@eq-l7-form). The equations for $f_1$ and $f_0$ are (-@eq-l7-eight), whose solutions were found above.
+:::
+
+The physical transmission matrix is $\Phi(\theta-\theta_d)$ times (-@eq-l7-T), with a scalar factor $\Phi$ that the symmetry cannot fix. This is the matrix of Konik and LeClair and of Bowcock, Corrigan and Zambon (see the book's [quantum transmission matrix](book:eq-sg-transmission-matrix)). Read it.
+
+- *What gets through.* A soliton keeps its charge with an amplitude proportional to $1$, and is converted with an amplitude proportional to $Y$. @sec-l7-scalar shows that the probability of conversion is $Y^2/(1+Y^2)$. It is $\frac12$ at $\theta=\theta_d$, small for slow solitons and close to $1$ for fast ones. This is Lecture 4's rule, fast solitons are converted, softened into a probability (@fig-l7-classical-limit (a)).
+- *The bookkeeping.* Conversion takes $|n\rangle$ to $|n+1\rangle$, so the jump grows by $4\pi$, as in @sec-l4-reading.
+- *Only the relative rapidity.* $\mathbb T$ depends on $\theta$ and $\theta_d$ only through $Y=e^{\lambda(\theta-\theta_d)}$, as everything classical did. Where the classical matrix (-@eq-l7-Ld) has $e^{\theta-\theta_d}$, the quantum one has its $\lambda$-th power.
+- *The phases.* The amplitudes depend on the defect state only through $q^{\mp n}$. @sec-l7-weyl shows where these phases come from.
+
+The other Borel subalgebra gives the type-I$_+$ defect, whose converting amplitudes are proportional to $y_d/y$, so that it converts slow solitons (@exr-l7-plus; see the book's [two Borel subalgebras and the two defect types](book:prp-two-borels)). At a root of unity the first step fails, because the charges are then distinguished only modulo the period, and there are more intertwiners.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (c) of `code/lectures/defects_l7_quantum.py` checks with sympy that (-@eq-l7-T) solves the eight equations identically in $n$, and that the term $\alpha q^n$ is excluded. Without assuming charge conservation, it solves the intertwining equations for all maps on a window of $\mathcal W$ that change $n$ by at most three or five. The solutions restricted to the central amplitudes form a one-dimensional space at generic $q$, and a three-dimensional one at the root of unity $q=e^{i\pi/3}$. For $U_q(\mathfrak b^+)$ it finds the type-I$_+$ matrix, with converting amplitudes proportional to $y_d/y$.
+:::
+
+## The triangle relation {#sec-l7-triangle}
+
+The triangle relation (-@eq-l1-triangle) is quadratic in $\mathbb T$. Why should a solution of a linear equation satisfy it? The argument is the one that gives the Yang–Baxter equation from the uniqueness of $\check R$.
+
+Both sides of (-@eq-l1-triangle) map $V(\theta_1)\otimes V(\theta_2)\otimes\mathcal W$ to $\mathcal W\otimes V(\theta_2)\otimes V(\theta_1)$. On both spaces $U_q(\mathfrak b^-)$ acts through the iterated coproduct $\Delta^{(2)}=(1\otimes\Delta)\Delta=(\Delta\otimes1)\Delta$. Each factor commutes with this action:
+
+- $\check R$ intertwines $\Delta(a)$ for every $a\in U_q(\widehat{sl}_2)$, in particular for the parts of $\Delta(b)$.
+- $\mathbb T_{23}$ acts on the last two factors. Write $\Delta(b)=\sum b_{(1)}\otimes b_{(2)}$, so that $\Delta^{(2)}(b)=\sum b_{(1)}\otimes\Delta(b_{(2)})$. Since $U_q(\mathfrak b^-)$ is a Hopf subalgebra, $b_{(2)}\in U_q(\mathfrak b^-)$, and $\mathbb T$ intertwines $\Delta(b_{(2)})$.
+- $\mathbb T_{12}$ acts on $V\otimes\mathcal W$ inside $V\otimes\mathcal W\otimes V$. Use $\Delta^{(2)}(b)=\sum\Delta(b_{(1)})\otimes b_{(2)}$ and $b_{(1)}\in U_q(\mathfrak b^-)$.
+
+Here both legs of the coproduct had to stay in the subalgebra, which is observation 3 of @sec-l7-half. So both sides of the triangle relation are intertwiners. If the intertwiners between these two spaces form a one-dimensional space, the two sides are proportional, and one matrix element fixes the constant. The book proves the one-dimensionality for generic parameters (see its theorem that [intertwiners solve the triangle relation](book:thm-t-triangle)).
+
+::: {#prp-l7-triangle}
+## The triangle relation
+**[Established]** [@konik_leclair1999; @bcz2005] The matrix (-@eq-l7-T) satisfies the triangle relation (-@eq-l1-triangle) with the $\check R$ of @sec-l7-bulk, for every $s$, $\theta_d$ and generic $q$.
+:::
+
+The scalar factors drop out of the triangle relation, as they do from the Yang–Baxter equation. In each block of fixed total charge the relation is a $4\times4$ matrix identity, and the script checks it exactly.
+
+**An L-operator.** With $\mathbb L=P\,\mathbb T$, $P$ the flip, the triangle relation takes the form $R_{12}\mathbb L_{13}\mathbb L_{23}=\mathbb L_{23}\mathbb L_{13}R_{12}$ of @exr-l1-forms. So $\mathbb L$ is an L-operator, a $2\times2$ matrix in $V$ whose entries are operators on $\mathcal W$. Let $N|n\rangle=n|n\rangle$ and $S|n\rangle=|n+1\rangle$, and
+
+$$
+U=q^{N+s/2},\qquad X_+=q^{-N-s}\,S\,q^{-N},\qquad X_-=q^{N}S^{-1}q^{N+s} .
+$$
+
+Then (-@eq-l7-T) reads
+
+$$
+\begin{aligned}
+\mathbb L(\theta)&=q^{s/2}\begin{pmatrix}U^{-1}&0\\0&U\end{pmatrix}\Big[1-iY\big(\mathsf f\otimes X_++\mathsf e\otimes X_-\big)\Big],\\
+UX_\pm&=q^{\pm1}X_\pm U,\qquad X_+X_-=1,
+\end{aligned}
+$$ {#eq-l7-L}
+
+with the matrices $\mathsf e$, $\mathsf f$ of Lecture 6 acting on $(v_+,v_-)$. Compare (-@eq-l7-Ld):
+
+$$
+L_d(\theta)=\begin{pmatrix}e^{i\Delta/4}&0\\0&e^{-i\Delta/4}\end{pmatrix}\Big[1-e^{\theta-\theta_d}\big(\mathsf f\,e^{i\Phi/2}+\mathsf e\,e^{-i\Phi/2}\big)\Big].
+$$ {#eq-l7-Ld-form}
+
+The two have the same form. The diagonal factor is an exponential of the jump, and the bracket contains exponentials that shift it. Lecture 6 found that $L_d$ is a classical L-operator, with the bracket of the defect values (@thm-l6-sklyanin). The quantum transmission matrix is a quantum L-operator, with operators that $q$-commute. The next section explains the match.
+
+**Exchanging a soliton and a defect.** Lecture 6 found that two defects can be exchanged, if the field between them changes (@sec-l6-two-windows). A soliton is itself a defect (@sec-l1-particle-window), and the triangle relation is the quantum form of this exchange. In the form $R_{12}\mathbb L_{13}=\mathbb L_{23}\mathbb L_{13}R_{12}\mathbb L_{23}^{-1}$, read space $1$ as a probe soliton, space $2$ as a soliton seen as a defect, whose L-operator in the probe's space is $R_{12}$, and space $3$ as the jump defect. The probe sees the two in one order on the left and in the other order on the right, conjugated by $\mathbb L_{23}$, the matrix that lets the soliton cross the defect. Classically, the change of the field between the two defects plays this role.
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (d) of `code/lectures/defects_l7_quantum.py` checks the triangle relation exactly, with sympy, in a block of fixed total charge, with $q$, $Y_1$, $Y_2$ and $q^n$ as symbols, and numerically on a window of $\mathcal W$ for two unrelated values of $q$. It fails if one $Y$ is multiplied by $1.1$. Item (e) checks the form (-@eq-l7-L) and the relations of $U$ and $X_\pm$.
+:::
+
+## Where the phases come from {#sec-l7-weyl}
+
+Lecture 3 noticed that the defect term $\Phi\Psi_t-\mathcal B$ is the phase-space Lagrangian of one degree of freedom, and promised that after quantization the exponentials of $\Phi$ and $\Psi$ would stop commuting (@sec-l3-lagrangian). Lecture 6 turned this into the bracket $\{\Phi,\Psi\}=-\beta^2$ of the type-I$_-$ defect (@sec-l6-poisson). Quantize it, with $\hbar$ restored:
+
+$$
+[\Phi,\Psi]=-i\hbar\beta^2,\qquad[\Delta,\Sigma]=-2i\hbar\beta^2,\qquad[\Delta,\Phi]=-i\hbar\beta^2 .
+$$ {#eq-l7-ccr}
+
+Here $\Phi$ and $\Psi$ are the operators of the defect values. For operators $X$ and $Y$ whose commutator is a number, $e^Xe^Y=e^{[X,Y]}e^Ye^X$. So any two exponentials of linear combinations of $\Phi$ and $\Psi$ commute up to a phase. Two pairs of them matter.
+
+**The pair of the classical matrix.** Let $U_{\rm cl}=e^{-i\Delta/4}$ and $W_\pm=e^{\pm i\Phi/2}$, the exponentials in (-@eq-l7-Ld-form). Since $[-\frac{i\Delta}4,\frac{i\Phi}2]=\frac18[\Delta,\Phi]=-\frac{i\hbar\beta^2}8$,
+
+$$
+U_{\rm cl}W_\pm=\hat q^{\pm1}\,W_\pm U_{\rm cl},\qquad\hat q=e^{-i\hbar\beta^2/8} .
+$$
+
+With this ordering, (-@eq-l7-Ld-form) becomes an operator-valued matrix of exactly the form (-@eq-l7-L), with $\hat q$ in place of $q$ and $e^{\theta-\theta_d}$ in place of $iY$. The calculation that checks the triangle relation does not care which value $q$ has, so this matrix is a quantum L-operator for $U_{\hat q}(\widehat{sl}_2)$: Lecture 6's classical L-operator, quantized. As $\hbar\beta^2\to0$, $\hat q\to1$. L-operators built from such Weyl pairs are those of the lattice sine-Gordon model of the quantum inverse scattering method [@faddeev2000, Sec. 2].
+
+**The pair of the solitons.** Now let
+
+$$
+U=e^{2\pi i\Delta/(\hbar\beta^2)},\qquad X_\pm=e^{\mp4\pi i\Phi/(\hbar\beta^2)} .
+$$
+
+Their commutator is $[\frac{2\pi i\Delta}{\hbar\beta^2},-\frac{4\pi i\Phi}{\hbar\beta^2}]=\frac{8\pi^2}{\hbar^2\beta^4}[\Delta,\Phi]=-\frac{8\pi^2i}{\hbar\beta^2}$, so
+
+$$
+UX_\pm=q^{\pm1}X_\pm U,\qquad q=e^{-8\pi^2i/(\hbar\beta^2)} .
+$$
+
+At $\hbar=1$ this is Bernard and LeClair's $q$ of (-@eq-l7-q). Act on a defect state. The jump is $\Psi(0)-\Phi(0)=2\pi(2n+s)$, so $\Delta=-2\pi(2n+s)$, and
+
+$$
+U|n\rangle=e^{-4\pi^2i(2n+s)/\beta^2}|n\rangle=q^{n+s/2}|n\rangle .
+$$
+
+And $[\Delta,X_+]=-\frac{4\pi i}{\hbar\beta^2}[\Delta,\Phi]X_+=-4\pi X_+$, so $X_+$ lowers $\Delta$ by $4\pi$, which takes $|n\rangle$ to $|n+1\rangle$. These are the operators $U$ and $X_\pm$ of (-@eq-l7-L), up to phases that depend on how the states $|n\rangle$ are normalized.
+
+So the phases $q^{\mp n}$ in the transmission matrix are the $q$-commutation of the canonical pair of defect values, read with the exponentials that measure and change the topological charge. This is the operator form of the path-integral argument of Bowcock, Corrigan and Zambon, in which the kinetic term produces the same phases [@bcz2005, eqs. (3.52)–(3.53)]. It also explains the sign. The type-I$_+$ bracket $\{\Phi,\Psi\}=+\beta^2$ gives $q^{-1}$ in place of $q$, and indeed the type-I$_+$ matrix has the phases $q^{\pm n}$ reversed (@exr-l7-plus).
+
+**Two Weyl algebras in one.** The two pairs live in the quantization of the same two defect values, and they commute with each other up to signs: $U_{\rm cl}X_+=-X_+U_{\rm cl}$, $UW_+=-W_+U$, and the other cross pairs commute, being functions of the same variable. Their parameters are
+
+$$
+\hat q=e^{i\pi\tau},\qquad q=e^{i\pi/\tau},\qquad\tau=-\frac{\hbar\beta^2}{8\pi} .
+$$
+
+Faddeev observed that a Heisenberg pair defines two commuting Weyl pairs, with the parameters $e^{i\pi\tau}$ and $e^{-i\pi/\tau}$, and proposed to unite the two corresponding quantum groups into the **modular double** of a quantum group [@faddeev2000, eqs. (14)–(20)]. Here the two parameters are $\hat q=e^{i\pi\tau}$ and $q^{-1}=e^{-i\pi/\tau}$. The defect values are such a Heisenberg pair. One Weyl pair quantizes the classical defect matrix, with $\hat q\to1$ in the classical limit. The other builds the soliton transmission matrix, with a $q$ that oscillates ever faster as $\beta\to0$. The book describes the correspondence between the two matrices as one of structure, not of parameters (see its [classical limit of the Weyl L-operator](book:eq-dq-weyl-l)). The two Weyl pairs show where the two parameters come from. The correspondence is not complete. The spectral parameters are related in the same way, $e^{\theta-\theta_d}$ against $e^{\lambda(\theta-\theta_d)}$, but with $\lambda=8\pi/\beta^2-1$ rather than $8\pi/\beta^2$. The $-1$ is a quantum correction that the canonical pair alone does not explain. And how the quantum $\theta_d$ is related to the $\sigma$ of the Lagrangian is a dynamical question, which this argument does not touch (see the book's [defect UV–IR relation](book:cnj-defect-parameter)).
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (e) of `code/lectures/defects_l7_quantum.py` computes the phases $e^{[X,Y]}$ from (-@eq-l7-ccr) with sympy: $\hat q=e^{-i\hbar\beta^2/8}$ for the classical pair, $q=e^{-8\pi^2i/(\hbar\beta^2)}=-e^{-i\pi\lambda}$ for the soliton pair, the action $q^{n+s/2}$ of $U$ and the shift of $\Delta$ by $-4\pi$ under $X_+$, and the signs between the two pairs.
+:::
+
+## Unitarity, crossing and the scalar factor {#sec-l7-scalar}
+
+**Blocks.** Write $u=\theta-\theta_d$, so that the physical transmission matrix is $\Phi(u)$ times (-@eq-l7-T). The matrix (-@eq-l7-T) conserves the total charge, so it splits into blocks of two states. In the block of charge $2n+s+1$, with the basis $v_+\otimes|n\rangle$, $v_-\otimes|n+1\rangle$ on the left and $|n\rangle\otimes v_+$, $|n+1\rangle\otimes v_-$ on the right, it is
+
+$$
+\Phi(u)\,M_n,\qquad M_n=\begin{pmatrix}1&-iY\\-iY&1\end{pmatrix}\begin{pmatrix}q^{-n}&0\\0&q^{n+1+s}\end{pmatrix},
+$$ {#eq-l7-block}
+
+with $\det M_n=q^{1+s}(1+Y^2)$.
+
+**Unitarity.** For real $\theta$, real $s$ and $|q|=1$, $M_n^\dagger M_n=(1+Y^2)\,1$, because the first factor times its adjoint is $(1+Y^2)\,1$ and the second factor is unitary. So $\mathbb T$ is unitary exactly when
+
+$$
+|\Phi(u)|^2\,(1+Y^2)=1\qquad(u\in\mathbb R).
+$$ {#eq-l7-U}
+
+The keeping and converting probabilities are $1/(1+Y^2)$ and $Y^2/(1+Y^2)$, as promised.
+
+**Crossing.** Crossing (-@eq-l1-window-crossing) relates $\mathbb T$ to the transmission $\bar{\mathbb T}$ from the right, and unitarity (-@eq-l1-window-unitarity) gives $\bar{\mathbb T}(i\pi-\theta)=\mathbb T(\theta-i\pi)^{-1}$. The conjugate of $v_\pm$ is $v_\mp$. Invert (-@eq-l7-block) at $\theta'=\theta-i\pi$, with $u'=\theta'-\theta_d$, $Y'=e^{\lambda u'}$ and $\Phi'=\Phi(u')$:
+
+$$
+\begin{aligned}
+\mathbb T(\theta')^{-1}(|n\rangle\otimes v_+)&=\frac{q^n\,v_+\otimes|n\rangle+iY'q^{-n-1-s}\,v_-\otimes|n+1\rangle}{\Phi'(1+Y'^2)},\\
+\mathbb T(\theta')^{-1}(|m\rangle\otimes v_-)&=\frac{iY'q^{m-1}\,v_+\otimes|m-1\rangle+q^{-m-s}\,v_-\otimes|m\rangle}{\Phi'(1+Y'^2)} .
+\end{aligned}
+$$
+
+Take first the amplitude for a soliton on $|n\rangle$ to keep its charge, $\Phi(u)q^{-n}$. Crossing equates it with the amplitude of $\bar{\mathbb T}(i\pi-\theta)$ from $|n\rangle\otimes v_-$ to $v_-\otimes|n\rangle$, which is $q^{-n-s}/\big(\Phi'(1+Y'^2)\big)$. The phases $q^{-n}$ cancel, and
+
+$$
+\Phi(u')\,\Phi(u'+i\pi)\,\big(1+Y'^2\big)=q^{-s}.
+$$
+
+The amplitude for an antisoliton to keep its charge gives the same condition. Now take the converting amplitude $-iY\Phi(u)q^{-n}$. Crossing equates it with the amplitude from $|n\rangle\otimes v_+$ to $v_-\otimes|n+1\rangle$, which by the condition just found is $iY'q^{-n-1}\Phi(u)$. So $Y'=-qY$. Since $Y'=e^{-i\pi\lambda}Y$, this says $e^{-i\pi\lambda}=-q$.
+
+::: {#thm-l7-crossing}
+## Crossing fixes the scalar factor and the sign of $q$
+**[Theorem]** $\Phi(u)$ times (-@eq-l7-T) satisfies defect crossing with the conjugation $v_\pm\leftrightarrow v_\mp$ if and only if $q=-e^{-i\pi\lambda}$ and $\Phi(u)\Phi(u+i\pi)(1+Y^2)=q^{-s}$, with $Y=e^{\lambda u}$. In the even sector,
+
+$$
+\Phi(u)\,\Phi(u+i\pi)\,\big(1+e^{2\lambda u}\big)=1 .
+$$ {#eq-l7-C}
+:::
+
+::: {.proof}
+The four kinds of amplitude, keeping and converting for a soliton and for an antisoliton, were treated above.
+:::
+
+So crossing of the defect selects Bernard and LeClair's $q$, with its sign. At $-q$ the converting amplitudes demand the opposite sign from the keeping ones, and no scalar factor helps. An antisymmetric conjugation, $v_+\mapsto v_-$, $v_-\mapsto-v_+$, would repair crossing at $-q$, but it changes the exchange conventions of the bulk as well (see the book's [sign of $q$](book:sec-crossing-sign)). In the conventions of these lectures, crossing selects (-@eq-l7-q). From now on $s=0$; for $s\ne0$ replace $\Phi$ by $q^{-s/2}\Phi$ (@exr-l7-crossing).
+
+**The scalar factor.** We need a function with (-@eq-l7-U) and (-@eq-l7-C). Let $F=\ln\Phi$. Differentiate the logarithm of (-@eq-l7-C):
+
+$$
+F'(u)+F'(u+i\pi)=-\lambda\,(1+\tanh\lambda u).
+$$
+
+Look for $F'(u)=-\frac\lambda2+\int g(k)\,e^{iku}\,dk$. The shift by $i\pi$ multiplies $e^{iku}$ by $e^{-\pi k}$, and the Fourier transform of $\tanh$ is $-\lambda\tanh\lambda u=\frac i2\,\mathrm{PV}\!\int e^{iku}\,dk/\sinh\frac{\pi k}{2\lambda}$. So $g(k)(1+e^{-\pi k})=\frac i2/\sinh\frac{\pi k}{2\lambda}$, and
+
+$$
+F'(u)=-\frac\lambda2+i\,\mathrm{PV}\!\int_{-\infty}^\infty K(k)\,e^{iku}\,dk,\qquad K(k)=\frac{e^{\pi k/2}}{4\cosh\frac{\pi k}2\,\sinh\frac{\pi k}{2\lambda}} .
+$$ {#eq-l7-K}
+
+For real $u$ the real part of the integral pairs $K(k)$ with $K(-k)$, the factors $e^{\pm\pi k/2}$ add up to $2\cosh\frac{\pi k}2$, and what is left is $-\frac\lambda2\tanh\lambda u$: unitarity (-@eq-l7-U) holds automatically. Integrate once, and fix the constant so that $\Phi\to1$ as $u\to-\infty$: a slow soliton does not see the defect.
+
+::: {.callout-note title="The scalar factor"}
+For $-\frac\pi{2\lambda}<\operatorname{Im}u<\pi+\frac\pi{2\lambda}$,
+
+$$
+\ln\Phi(u)=-\frac{\lambda u}2+\frac{i\pi\lambda}4-\frac12\ln2+\int_0^\infty\frac{dk}{2k\,\sinh\frac{\pi k}{2\lambda}}\Big[\frac{\cosh\big(\frac{\pi k}2+iku\big)}{\cosh\frac{\pi k}2}-1\Big].
+$$ {#eq-l7-Phi}
+
+For real $u$ this is $\ln\Phi=-\frac12\ln(1+Y^2)+i\delta(u)$, with the phase
+
+$$
+\delta(u)=\frac{\pi\lambda}4+\int_0^\infty\frac{\tanh\frac{\pi k}2\,\sin ku}{2k\,\sinh\frac{\pi k}{2\lambda}}\,dk .
+$$ {#eq-l7-delta}
+:::
+
+The integral converges in the strip because the integrand decays like $e^{-k(\frac\pi2+\frac\pi{2\lambda}-|\frac\pi2-\operatorname{Im}u|)}$. So $\Phi$ is analytic and has no zeros there. This is the **minimal** solution: any other solution of (-@eq-l7-U) and (-@eq-l7-C) is $\Phi$ times a defect CDD factor (@sec-l1-unitarity-crossing), which brings poles or zeros into the strip, or makes the solution grow faster than exponentially there. It equals the product of Gamma functions of Konik and LeClair, in the form of Bowcock, Corrigan and Zambon (see the book's [scalar factor](book:eq-sgd-scalar)).
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (f) of `code/lectures/defects_l7_quantum.py` checks $M_n^\dagger M_n=(1+Y^2)$ and $\det M_n$, and crossing for all four kinds of amplitude: with a scalar factor it holds exactly at $q=-e^{-i\pi\lambda}$; at $-q$ the converting and keeping entries demand opposite signs; the antisymmetric conjugation repairs them. Item (g) checks that (-@eq-l7-Phi) equals the Gamma-function product to $10^{-11}$ at real and complex $u$, the real part through $\int_0^\infty\frac{1-\cos ku}{k\sinh(\pi k/2\lambda)}dk=\ln\cosh\lambda u$, the limit $\Phi\to1$, the absence of zeros and poles on a grid of the strip, and the derivative (-@eq-l7-K).
+:::
+
+## Absorption becomes a ladder of resonances {#sec-l7-resonance}
+
+::: {.callout-tip title="Predict"}
+Classically the defect matrix (-@eq-l7-Ld) has the determinant $1-e^{2(\theta-\theta_d)}$, which vanishes at $\theta=\theta_d$, where the matrix has rank one (@sec-l6-knows). The quantum block (-@eq-l7-block) has $\det M_n\propto1+Y^2$. Where does it vanish? Which of those points can be poles of $\mathbb T$?
+:::
+
+**The degenerate points.** $1+Y^2=0$ where $Y=\pm i$, that is at $u=\pm\frac{i\pi}{2\lambda},\pm\frac{3i\pi}{2\lambda},\dots$ There the matrix $M_n$ has rank one. As $\lambda\to\infty$ these points crowd onto $u=0$, where the classical determinant vanishes. Whether they are poles of $\mathbb T$ is decided by $\Phi$.
+
+::: {#thm-l7-poles}
+## The poles of the transmission matrix
+**[Theorem]** In the strip $-\pi-\frac\pi{2\lambda}<\operatorname{Im}u<\pi+\frac\pi{2\lambda}$ the only singularities of $\Phi$ are simple poles at
+
+$$
+u_n=-\frac{(2n+1)\,i\pi}{2\lambda},\qquad n=0,1,2,\dots,\quad n<\lambda,
+$$ {#eq-l7-poles}
+
+with residues $-1/\big(2\lambda\,\Phi(u_n+i\pi)\big)$. At each of them the residue of $\mathbb T$ has rank one in every block. At the points $u=+\frac{(2n+1)i\pi}{2\lambda}$ of the strip, $\mathbb T$ is finite and has rank one in every block.
+:::
+
+::: {.proof}
+In $-\frac\pi{2\lambda}<\operatorname{Im}u<\pi+\frac\pi{2\lambda}$, $\Phi$ is analytic and nonzero by (-@eq-l7-Phi). Below that, by (-@eq-l7-C), $\Phi(u)=1/\big((1+e^{2\lambda u})\Phi(u+i\pi)\big)$, and $u+i\pi$ lies in the strip where $\Phi$ is analytic and nonzero. So the singularities of $\Phi(u)$ are the zeros of $1+e^{2\lambda u}$, which are simple, with the stated residues. The rank statements follow from (-@eq-l7-block).
+:::
+
+The classical point $\theta_d$, where the defect matrix degenerates, has split into two ladders, a ladder of poles below the real axis and a ladder of rank-one points above it, with spacing $\pi/\lambda$ (@fig-l7-resonances (a)). A pole whose residue has rank one means a single intermediate state in each block: the soliton has been absorbed, and the defect holds one more unit of charge.
+
+**The resonance.** Bowcock, Corrigan and Zambon read the pole at $u_0$ as a state of the defect [@bcz2005, Sec. 4]. Its energy and momentum, relative to the even defect, are those of a soliton of complex rapidity $\theta_d-\frac{i\pi}{2\lambda}$:
+
+$$
+\Delta E=M\cosh\theta_d\cos\frac\pi{2\lambda}-iM\sinh\theta_d\sin\frac\pi{2\lambda},\qquad\Delta E^2-\Delta P^2=M^2 .
+$$
+
+For $\theta_d>0$ and $\lambda>1$, $\operatorname{Im}\Delta E<0$: the state decays. It is the quantum odd defect, which Lecture 4 compared with an excited atom (@sec-l4-absorption). Its width $\Gamma=-2\operatorname{Im}\Delta E$ is
+
+$$
+\Gamma_n=2M\sinh\theta_d\,\sin\frac{(2n+1)\pi}{2\lambda}=m_{2n+1}\sinh\theta_d
+$$ {#eq-l7-widths}
+
+for the pole $u_n$, where $m_k=2M\sin\frac{k\pi}{2\lambda}$; for $k<\lambda$ these are the masses of the breathers $B_k$. The resonance itself, $n=0$, has exactly the width $m_1\sinh\theta_d$.
+
+**The classical limit of the widths.** As $\beta\to0$, $M\sin\frac{k\pi}{2\lambda}\to\frac{k\pi M}{2\lambda}\to\frac{km_0}2$, so
+
+$$
+\Gamma_n\to(2n+1)\,m_0\sinh\theta_d .
+$$
+
+In units of the soliton mass the widths vanish, as Bowcock, Corrigan and Zambon noted, but in absolute units they tend to a ladder of finite values. What sets the scale $m_0\sinh\theta_d$? Linearize the defect conditions (-@eq-l4-conditions) about the odd jump $(\Phi,\Psi)=(0,2\pi)$. Both sines change sign, and with $\Phi=\varphi$, $\Psi=2\pi+\psi$,
+
+$$
+\partial_+(\varphi-\psi)=\sigma m_0(\varphi+\psi),\qquad\partial_-(\varphi+\psi)=-\frac{m_0}\sigma(\varphi-\psi)\qquad\text{at }x=0 .
+$$
+
+Look for a mode localized at the defect, $\varphi=Ae^{\gamma t+\kappa x}$ on $x<0$ and $\psi=Be^{\gamma t-\kappa x}$ on $x>0$. The Klein–Gordon equation gives $\kappa^2=\gamma^2+m_0^2$, so write $\gamma=m_0\sinh\vartheta$, $\kappa=m_0\cosh\vartheta$. The two conditions are linear in $A$ and $B$, and their determinant is
+
+$$
+4m_0^2\cosh\vartheta\,\big(\cosh\vartheta-\cosh\theta_d\big).
+$$
+
+So $\vartheta=\pm\theta_d$. For $\theta_d>0$, $\vartheta=\theta_d$ is a mode that grows like $e^{\gamma t}$ with $\gamma=m_0\sinh\theta_d$. It has $A=0$, and it is the start of the emission of Lecture 3: there $2\pi-\Psi(t,0)\simeq4e^{-c}e^{m_0t\sinh\theta_d}$ (@fig-l3-emission). The mode $\vartheta=-\theta_d$ decays, the end of an absorption. **The odd jump is an unstable equilibrium with one growing and one decaying mode, of rates $\pm m_0\sinh\theta_d$.**
+
+Near such an equilibrium the dynamics is that of an inverted oscillator, $H=\frac12(p^2-\gamma^2x^2)$. With $X=(p+\gamma x)/\sqrt{2\gamma}$ and $P=(p-\gamma x)/\sqrt{2\gamma}$, which have $[X,P]=[x,p]$, this is $H=\frac\gamma2(XP+PX)$. In the representation $P=-i\hbar\,d/dX$, $H=-i\hbar\gamma\big(X\frac d{dX}+\frac12\big)$, and the powers $X^n$ are eigenfunctions:
+
+$$
+H\,X^n=-i\hbar\gamma\Big(n+\frac12\Big)X^n .
+$$
+
+These are the decaying states of the inverted oscillator, with widths $(2n+1)\hbar\gamma$. **The poles of the exact transmission matrix reproduce, in the classical limit, the whole ladder of decaying states of the unstable mode of the odd jump** (@fig-l7-resonances (b)). This is a heuristic match, not a derivation. The defect is coupled to a continuum of radiation, and we have not constructed its decaying states. But it explains why the widths do not vanish in absolute units, and why the poles of $\Phi$ form a ladder with spacing $\pi/\lambda$, and not a single pole.
+
+![The poles of the transmission matrix. (a) On the line $\operatorname{Re}\theta=\theta_d$, for $\lambda=4.6$. The scalar factor $\Phi$ has no poles and no zeros in the shaded strip $-\frac\pi{2\lambda}<\operatorname{Im}(\theta-\theta_d)<\pi+\frac\pi{2\lambda}$. Below it, $\mathbb T$ has simple poles at $\theta_d-\frac{(2n+1)i\pi}{2\lambda}$ (crosses), with residues of rank one; the nearest is the resonance. Inside the strip, $\mathbb T$ has rank one at $\theta_d+\frac{(2n+1)i\pi}{2\lambda}$ (circles). The classical defect matrix degenerates at $\theta_d$ and $\theta_d+i\pi$ (squares). (b) The widths $\Gamma_n=m_{2n+1}\sinh\theta_d$ of the first four poles, in units of $m_0\sinh\theta_d$, against $b^2=\beta^2/8\pi$; each curve ends where $2n+1=\lambda$. As $b^2\to0$ they tend to $1,3,5,7$ (dotted), the widths of the decaying states of an inverted oscillator whose growth rate is that of the odd jump. `code/lectures/defects_l7_f2_resonances.py` checks that the plotted poles are simple poles of the Gamma-function product, that $\Phi$ is finite where $\mathbb T$ has rank one, that there are no other poles between them, and the widths and their limits.](figures/l7_resonances.svg){#fig-l7-resonances fig-alt="Left: a vertical axis of imaginary parts with a shaded band from slightly below zero to slightly above one. In a column labelled quantum, red crosses run down from just below zero to about minus one, and blue open circles run up from just above zero to about one. In a column labelled classical, two grey squares sit at zero and one. Right: four curves against b squared from zero to one half, starting at heights one, three, five and seven at b squared equal to zero, with dotted horizontal lines at those heights."}
+
+**The odd sector.** The bootstrap at the resonance gives the transmission matrix of the odd defect: the even defect with the absorbed soliton just to its right, crossed by a second soliton (@exr-l7-odd). It has the form (-@eq-l7-T) with $s=1$ and $\theta_d$ replaced by $\theta_d-i\pi$, the quantum form of Lecture 3's $\sigma\to-\sigma$, and it is not unitary, as befits an unstable state [@bcz2005, eq. (4.15)] (see the book's [stable defects and resonances](book:sec-sg-defect-spectrum)).
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (h) of `code/lectures/defects_l7_quantum.py` checks the poles $u_0,\dots,u_3$ and their residues on the Gamma-function product by $1/\varepsilon$ scaling, that $\Phi$ is finite at $+\frac{i\pi}{2\lambda}$, the rank of the blocks, the widths (-@eq-l7-widths) and their limit $2n+1$. It linearizes the defect conditions about the odd jump with sympy, finds the determinant above, the growing mode with $A=0$ and the tail of the emission solution, and checks the eigenfunctions of the inverted oscillator and the canonical change of variables. Item (l) checks the odd sector: at the resonance the residue has the image spanned by $|n\rangle\otimes v_+-|n+1\rangle\otimes v_-$, and $\check R_{23}\mathbb T_{12}$ restricted to it has the gauge invariants of (-@eq-l7-T) with $s+1$ and $\theta_d-i\pi$.
+:::
+
+## Wigner's delay {#sec-l7-wigner}
+
+Lecture 4 asked you to turn the classical delay into a phase by Wigner's relation (@exr-l4-wigner). Now we can go the other way. For real $\theta$ both amplitudes of a soliton, keeping and converting, have the phase $\delta(\theta-\theta_d)$ of $\Phi$, up to constants. By Wigner's relation the time delay is $\Delta t=d\delta/dE$, with $E=M\cosh\theta$, so $\Delta t=\delta'(u)/(M\sinh\theta)$. From (-@eq-l7-delta),
+
+$$
+\delta'(u)=\int_0^\infty\frac{\tanh\frac{\pi k}2\,\cos ku}{2\sinh\frac{\pi k}{2\lambda}}\,dk .
+$$ {#eq-l7-dprime}
+
+**The classical limit.** As $\lambda\to\infty$ at fixed $k$, $2\sinh\frac{\pi k}{2\lambda}\to\frac{\pi k}\lambda$, and
+
+$$
+\delta'(u)\to\frac\lambda\pi\int_0^\infty\frac{\tanh\frac{\pi k}2\,\cos ku}k\,dk=\frac\lambda\pi\ln\Big|\coth\frac u2\Big| .
+$$
+
+The last integral is a classic (@exr-l7-wigner). With $M=(\lambda+1)m_0/\pi$,
+
+$$
+\Delta t\to\frac{\ln\big|\coth\frac{\theta-\theta_d}2\big|}{m_0\sinh\theta}=\frac{\ln|z(\theta)|}{m_0\sinh\theta},
+$$
+
+the delay of Lecture 4 (@sec-l4-reading). The quantum transmission matrix contains the classical delay, as Bowcock, Corrigan and Zambon's identification of the matrix with the Lagrangian defect requires.
+
+**What the quantum theory adds.** The classical delay diverges logarithmically at $\theta=\theta_d$, where the soliton is held for ever. The quantum delay does not. At $u=0$ the integral (-@eq-l7-dprime) converges, because $\sinh\frac{\pi k}{2\lambda}$ cuts it off at $k\sim\lambda$, and one finds
+
+$$
+\delta'(0)=\frac\lambda\pi\Big(\ln\frac{8\lambda}\pi+\gamma_E\Big)+o(1),
+$$
+
+with $\gamma_E$ Euler's constant. The divergence is cut off at $|\theta-\theta_d|\sim1/\lambda$, the width of the threshold for conversion, which is also the distance of the resonance from the real axis (@fig-l7-classical-limit (b)).
+
+![The quantum defect becomes the classical one. (a) The probability $Y^2/(1+Y^2)$ that a soliton of rapidity $\theta$ is converted into an antisoliton, for $\lambda=1$, $4$ and $16$, against the classical step of Lecture 4. (b) The time delay $m_0\sinh\theta\,\Delta t=\pi\delta'(\theta-\theta_d)/(\lambda+1)$ given by Wigner's relation, for the same $\lambda$, against the classical delay $\ln|\coth\frac{\theta-\theta_d}2|$. The quantum delay is finite at $\theta_d$. `code/lectures/defects_l7_f1_classical_limit.py` checks the probability $\frac12$ at $\theta_d$, that $\delta'$ of (-@eq-l7-dprime) agrees with the derivative of the phase of the Gamma-function product, that the delays approach the classical one with deviations that fall as $\lambda$ grows, and that the quantum delay is finite at $\theta_d$.](figures/l7_classical_limit.svg){#fig-l7-classical-limit fig-alt="Left: three S-shaped curves rising from zero to one, all passing through one half at theta minus theta_d equal to zero; the steepest is nearly the dashed step function. Right: three peaked curves centred at zero, the lowest broad with height about 0.8, the next with height about 2.3, the highest with height about 4, which follows a dashed curve with a logarithmic spike at zero."}
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (i) of `code/lectures/defects_l7_quantum.py` checks (-@eq-l7-dprime) against a finite difference of the phase of the Gamma-function product, the approach of $\frac\pi\lambda\delta'(u)$ to $\ln|\coth\frac u2|$ with deviations $0.058$, $0.0029$ and $0.0002$ at $\lambda=10$, $40$ and $160$, the integral $\int_0^\infty\tanh\frac{\pi k}2\cos ku\,\frac{dk}k=\ln\coth\frac{|u|}2$, and the asymptotic value of $\delta'(0)$, to $10^{-6}$ at $\lambda=640$.
+:::
+
+## The lightest breather {#sec-l7-breathers}
+
+::: {.callout-tip title="Predict"}
+The lightest breather is the elementary particle, and Lecture 4 found that classical linear waves cross with $\mathbb T^{\rm cl}(\theta)=z(\theta+\frac{i\pi}2)$ (@sec-l4-waves). The breather is a bound state of a soliton and an antisoliton, each of which crosses with the quantum matrix (-@eq-l7-T), with its Gamma functions. How should its factor depend on the coupling?
+:::
+
+**The bootstrap.** The breather $B_1$ of rapidity $\theta$ is the vector $\omega$ of (-@eq-l7-omega), made of constituents at $\theta\mp\frac{iu_1}2$. When it crosses the defect, the constituent nearer the defect, the right one, crosses first (@sec-l1-unitarity-crossing). So its transmission is $\mathbb T_{12}(\theta-\frac{iu_1}2)\,\mathbb T_{23}(\theta+\frac{iu_1}2)$ applied to $\omega\otimes|n\rangle$. Write $Y_1$ and $Y_2$ for $Y$ at the two constituents, so that $Y_1=qY_2$ and $Y_1Y_2=Y^2$, with $Y=e^{\lambda u}$, $u=\theta-\theta_d$. Apply (-@eq-l7-T) twice to $v_+\otimes v_-\otimes|n\rangle$:
+
+$$
+q^{s}\Big[-iqY_2\,|n-1\rangle v_+v_+-qY_1Y_2\,|n\rangle v_-v_++|n\rangle v_+v_--iY_1\,|n+1\rangle v_-v_-\Big],
+$$
+
+and to $v_-\otimes v_+\otimes|n\rangle$:
+
+$$
+q^{s}\Big[-iY_1\,|n-1\rangle v_+v_++|n\rangle v_-v_+-qY_1Y_2\,|n\rangle v_+v_--iqY_2\,|n+1\rangle v_-v_-\Big],
+$$
+
+where $|m\rangle v_av_b$ stands for $|m\rangle\otimes v_a\otimes v_b$ and the scalar factors are left out. In the difference the terms with $|n\pm1\rangle$ cancel, because $Y_1=qY_2$, and what is left is $q^s(1+qY^2)\,|n\rangle\otimes\omega$. So
+
+$$
+\mathbb T_{B_1}(\theta)=\Phi\big(u-\tfrac{iu_1}2\big)\,\Phi\big(u+\tfrac{iu_1}2\big)\,(1+qY^2)
+$$ {#eq-l7-TB1}
+
+in the even sector. It does not depend on the state of the defect, as Konik and LeClair found [@konik_leclair1999, eq. (5.36)]: the breather carries no charge, and the defect cannot tell its states apart.
+
+::: {#thm-l7-breather}
+## The lightest breather sees the classical defect
+**[Theorem]** For every coupling $\lambda>1$,
+
+$$
+\mathbb T_{B_1}(\theta)=\frac{i-\sinh(\theta-\theta_d)}{\cosh(\theta-\theta_d)}=-i\,\frac{\sinh\big(\frac{\theta-\theta_d}2-\frac{i\pi}4\big)}{\sinh\big(\frac{\theta-\theta_d}2+\frac{i\pi}4\big)},
+$$
+
+the transmission factor (-@eq-l4-T) of classical linear waves.
+:::
+
+::: {.proof}
+*Crossing.* Let $w=u-\frac{iu_1}2$. Then $Y(w)^2=Y^2e^{-i\pi\lambda+i\pi}=qY^2$, so (-@eq-l7-C) at $w$ reads $\Phi(w)\,\Phi(u+\frac{i\pi}2+\frac{i\pi}{2\lambda})\,(1+qY^2)=1$. The factor $1+qY^2$ cancels, and
+
+$$
+\mathbb T_{B_1}=\frac{\Phi(v-\varepsilon)}{\Phi(v+\varepsilon)},\qquad v=u+\frac{i\pi}2,\quad\varepsilon=\frac{i\pi}{2\lambda},
+$$
+
+with both arguments inside the strip of (-@eq-l7-Phi).
+
+*The kernel loses $\lambda$.* By (-@eq-l7-K), $\frac d{du}\ln\mathbb T_{B_1}=i\int K(k)\,e^{ikv}\big(e^{\pi k/2\lambda}-e^{-\pi k/2\lambda}\big)\,dk$. Now $2\sinh\frac{\pi k}{2\lambda}\,K(k)=e^{\pi k/2}/\big(2\cosh\frac{\pi k}2\big)$: the shift by $\frac{i\pi}\lambda$ cancels exactly the $\lambda$-dependent factor of the kernel. With $e^{\pi k/2}e^{ikv}=e^{iku}$,
+
+$$
+\frac d{du}\ln\mathbb T_{B_1}=\frac i2\int_{-\infty}^\infty\frac{e^{iku}}{\cosh\frac{\pi k}2}\,dk=\frac i{\cosh u} .
+$$
+
+*The constant.* $\frac1{\cosh u}$ is the derivative of the Gudermannian $\operatorname{gd}u=2\arctan\tanh\frac u2$. As $u\to-\infty$, $\Phi\to1$ throughout the strip, so $\mathbb T_{B_1}\to1$, while $\operatorname{gd}u\to-\frac\pi2$. Hence $\mathbb T_{B_1}=i\,e^{i\operatorname{gd}u}=i\big(\frac1{\cosh u}+i\tanh u\big)$, which is the stated expression. The second form follows by writing both in exponentials of $u/2$.
+:::
+
+So the delicate cancellation that Bowcock, Corrigan and Zambon found in the Gamma products has a short reason. The breather's constituents sit $i\pi-\frac{i\pi}\lambda$ apart. Crossing absorbs the $i\pi$, and the remaining $\frac{i\pi}\lambda$ is exactly the shift whose Fourier image, $2\sinh\frac{\pi k}{2\lambda}$, appears in the denominator of the kernel. Only $B_1$ has this property: for $B_n$ the constituents are $i\pi-\frac{in\pi}\lambda$ apart, and the factor depends on the coupling (@exr-l7-higher).
+
+The quantum particle crosses with the classical factor. It has no pole in the physical strip, so the particle has no bound state at the defect (@sec-l4-waves). Since the sinh-Gordon particle is the continuation of $B_1$, the sinh-Gordon defect crosses with the same factor, which is what Bajnok and Simon found [@bajnok_simon2008] (see the book's [breathers through the defect](book:prp-sg-breather-transmission)).
+
+::: {.callout-note collapse="true" title="Check it yourself"}
+Item (j) of `code/lectures/defects_l7_quantum.py` applies $\mathbb T_{12}\mathbb T_{23}$ to $\omega\otimes|n\rangle$ on a window of $\mathcal W$, for three couplings, complex $\theta$ and $s=0$ and $0.41$. It finds $q^s(1+qY^2)$ times $|n\rangle\otimes\omega$, independent of $n$. It checks $\mathbb T_{B_1}=\mathbb T^{\rm cl}$ with the Gamma-function product, the ratio form of the proof with (-@eq-l7-Phi), the kernel identity, and the two integrals. With $u_1$ replaced by $\pi-1.1\pi/\lambda$ the identity fails.
+:::
+
+## What we have learned {#sec-l7-summary}
+
+- The non-local charges of sine-Gordon theory generate $U_q(\widehat{sl}_2)$ with $q=-e^{-i\pi\lambda}$. A defect keeps a Borel subalgebra, half of it, as the classical defect matrix lies in a Borel subgroup of the loop group. The defect states, labelled by the charge of the jump, form a Weyl module of the half, which no extension makes into a module of the whole.
+- The surviving half fixes the transmission matrix up to a scalar factor: eight linear equations, solved by hand. The triangle relation follows from uniqueness and the Hopf property of the subalgebra. The matrix is an L-operator of the same form as Lecture 6's defect matrix.
+- The phases $q^{\mp n}$ are the $q$-commutation of the defect's canonical pair. The same pair contains a second Weyl algebra, with $\hat q=e^{-i\hbar\beta^2/8}$, which quantizes the classical defect matrix. The two parameters form a modular pair.
+- Unitarity and crossing fix the scalar factor, and the sign of $q$. Its poles form a ladder below $\theta_d$, with residues of rank one. The first is the resonance of the odd defect. In the classical limit the widths tend to $(2n+1)m_0\sinh\theta_d$, the decaying states of the unstable mode of the odd jump.
+- Wigner's relation turns the phase of the scalar factor into Lecture 4's delay, cut off at $|\theta-\theta_d|\sim1/\lambda$.
+- The lightest breather crosses with exactly the classical factor of linear waves, at every coupling: crossing and the shift $\frac{i\pi}\lambda$ remove the coupling from the kernel.
+
+## Exercises {#sec-l7-exercises}
+
+::: {#exr-l7-eight}
+*(Redo.)* Derive the eight equations (-@eq-l7-eight) from the actions of $\Delta(f_1)$ and $\Delta(f_0)$. Which components of which equation give (3) and (4)? Then redo the solution with a general constant $c$ in (-@eq-l7-W), and show that the ratio of the converting to the keeping amplitude is $-c\,y\,(q-q^{-1})$. Why is $|\mu|=1/|q-q^{-1}|$ the natural choice when $\theta_d$ is defined by equal probabilities?
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+Equations (3) and (4) are the components along $|n-1\rangle\otimes v_+$ and $|n\rangle\otimes v_-$ of $\mathbb T\Delta(f_1)(v_+\otimes|n\rangle)=\Delta(f_1)\mathbb T(v_+\otimes|n\rangle)$.
+:::
+
+::: {#exr-l7-plus}
+*(Redo.)* Let $U_q(\mathfrak b^+)$ act on $\mathcal W$ by $k_1|n\rangle=q^{2n+s}|n\rangle$, $e_1|n\rangle=c\,|n+1\rangle$ and $e_0|n\rangle=c\,|n-1\rangle$. Solve the intertwining equations and show that, up to a factor, $A_n=q^n$, $D_n=q^{-n-s}$, and that the converting amplitudes are proportional to $y_d/y$. Which solitons does this defect convert? Compare with the type-I$_+$ matrix of @thm-l6-frozen, which at the soliton value of Lecture 6's spectral parameter is, up to a factor, a polynomial in $e^{\theta_d-\theta}$, and with the book's [two Borel subalgebras](book:prp-two-borels).
+:::
+
+::: {#exr-l7-particle}
+*(Rediscover.)* By @sec-l1-particle-window, a soliton multiplet $V(\theta_d)$ is a defect, with $\mathbb T=\check R$. Show that $V(\theta_d)$ is a module of all of $U_q(\widehat{sl}_2)$. Which step of the proof of @thm-l7-half fails for it? Show that on $V(\theta_d)$ the product $f_0f_1$ is not a multiple of the identity. What does this say about the difference between a particle and a jump defect?
+:::
+
+::: {#exr-l7-crossing}
+*(Redo.)* Complete the proof of @thm-l7-crossing for the antisoliton amplitudes. For $s\ne0$, show that $q^{-s/2}\Phi$ satisfies both (-@eq-l7-U) and the crossing condition. Then redo the converting amplitude at $-q$ with the conjugation $v_+\mapsto v_-$, $v_-\mapsto-v_+$, and find the sign that repairs it.
+:::
+
+::: {#exr-l7-fourier}
+*(Rediscover.)* Derive (-@eq-l7-Phi) from (-@eq-l7-K). Show that its real part, for real $u$, is $-\frac12\ln(1+Y^2)$, using $\int_0^\infty\frac{1-\cos ku}{k\sinh(\pi k/2\lambda)}dk=\ln\cosh\lambda u$. Show that $\delta(u)\to0$ as $u\to-\infty$, and that the approach is like $e^{u}$. Which pole of the integrand in the complex $k$-plane sets this rate?
+:::
+
+::: {.callout-tip collapse="true" title="Hint"}
+For $\ln\cosh\lambda u$, differentiate with respect to $u$ and use $\int_0^\infty\frac{\sin ku}{\sinh ak}dk=\frac\pi{2a}\tanh\frac{\pi u}{2a}$. For the approach of $\delta$ to $0$, close the contour in the half-plane where $e^{iku}$ decays, and find the nearest singularity of $\tanh\frac{\pi k}2$.
+:::
+
+::: {#exr-l7-wigner}
+*(Rediscover.)* Show that $\int_0^\infty\tanh\frac{\pi k}2\,\cos ku\,\frac{dk}k=\ln\coth\frac{|u|}2$, by differentiating with respect to $u$ and comparing the limits $u\to\infty$. This completes @exr-l4-wigner: at leading order the phase of the transmission matrix satisfies $\frac{d\delta}{d\theta}=\frac8{\beta^2}\ln|\coth\frac{\theta-\theta_d}2|$. Then estimate $\delta'(0)$ for large $\lambda$ and recover the leading term $\frac\lambda\pi\ln\lambda$.
+:::
+
+::: {#exr-l7-higher}
+*(Redo.)* The breather $B_2$ is a bound state of two $B_1$ at rapidities $\theta\pm\frac{i\pi}{2\lambda}$ (see the book's [breathers through the defect](book:prp-sg-breather-transmission)). Show that $\mathbb T_{B_2}(\theta)=\mathbb T^{\rm cl}(\theta+\frac{i\pi}{2\lambda})\,\mathbb T^{\rm cl}(\theta-\frac{i\pi}{2\lambda})$, and that it depends on the coupling. Where are its poles? Bowcock, Corrigan and Zambon found two, whose meaning is unclear [@bcz2005, eqs. (5.10)–(5.11)].
+:::
+
+::: {#exr-l7-weyl}
+*(Redo.)* From (-@eq-l7-ccr), compute the phases between $U_{\rm cl}$, $W_\pm$, $U$ and $X_\pm$. Show that replacing $U_{\rm cl}$ and $W_\pm$ by their squares makes the two Weyl pairs commute exactly. What becomes of the parameter $\hat q$? Faddeev's condition for commuting pairs is $\alpha\tilde\beta=\tilde\alpha\beta=\hbar$ in his normalization [@faddeev2000]; translate it into the exponents used here.
+:::
+
+::: {#exr-l7-gamow}
+*(Explore.)* For the inverted oscillator $H=\frac12(p^2-\gamma^2x^2)$, show that the states $X^n$ of @sec-l7-resonance decay like $e^{-\gamma(n+1/2)t}$. Compare the real parts of the energies $M\cosh(\theta_d+u_n)$ with the top of the barrier, $M\cosh\theta_d$: by how much do they lie below it, and how does this vanish as $\beta\to0$? The widths are exactly $m_{2n+1}\sinh\theta_d$, with breather masses in place of $(2n+1)m_0$. Can you find a reason for this?
+:::
+
+::: {#exr-l7-odd}
+*(Explore.)* At the resonance pole $\theta_P=\theta_d-\frac{i\pi}{2\lambda}$, find the image of the residue of $\mathbb T$ in $\mathcal W\otimes V(\theta_P)$: the even defect with the absorbed soliton to its right. Let a second soliton cross the defect and then the absorbed soliton, and restrict $\check R_{23}(\theta-\theta_P)\mathbb T_{12}(\theta)$ to this image. Show that the result has the form (-@eq-l7-T) with $s=1$ and $\theta_d\to\theta_d-i\pi$, up to a change of basis and a scalar factor. Compare with the book's [odd sector](book:sec-sg-defect-spectrum).
+:::
+
+## Where this comes from {#sec-l7-sources}
+
+Bernard and LeClair found the non-local charges of sine-Gordon theory and their quantum-group symmetry [@bernard1991]. Konik and LeClair introduced purely transmitting defects as chiral perturbations, found the quantum transmission matrix of sine-Gordon solitons by solving the triangle relation, found that it fixes the phase parameter up to the sign in its exponent, gave the minimal scalar factor, and computed the breather factors, independent of the defect state [@konik_leclair1999]. Bowcock, Corrigan and Zambon rederived the matrix, related its phases to the kinetic term of the Lagrangian defect, interpreted the pole at $\theta_d-\frac{i\pi}{2\lambda}$ as an unstable state on the soliton mass shell, found the odd-sector matrix, and found that the lightest breather crosses with the classical factor at every coupling [@bcz2005]. Weston identified the transmission matrices with L-operators of Borel subalgebras on $q$-oscillator representations [@weston2010], and Corrigan and Zambon extended the linear method to other affine Toda theories [@cz2011]. Bajnok and Simon solved the sinh-Gordon defect by fusing it onto boundaries [@bajnok_simon2008]. Faddeev introduced the modular double [@faddeev2000]. Several things are our presentation, and we do not claim that they are new: the three observations that point to a Borel subalgebra, including the Borel subgroup of the classical matrix; the solution of the eight equations in this form, and the proof of @thm-l7-half, which the book gives in its discussion of [which non-local charges survive](book:sec-perturbed-defects); the operator derivation of the phases from the canonical commutator and the two Weyl pairs of the defect values as a modular pair; the integral representation (-@eq-l7-Phi), the proof of @thm-l7-poles from it, and the proof of @thm-l7-breather by the cancellation of the kernel; the widths $m_{2n+1}\sinh\theta_d$ of the ladder of poles and their comparison with the decaying states of the unstable mode of the odd jump; and the asymptotic value of the delay at $\theta_d$. The book states the results in its chapter on [quantum groups and defects](book:sec-defect-qg), in particular its propositions on [the transmission matrix from its symmetry](book:prp-sg-t-unique) and [the two Borel subalgebras](book:prp-two-borels), its theorem that [intertwiners solve the triangle relation](book:thm-t-triangle), its [classical limit of the Weyl L-operator](book:eq-dq-weyl-l), and in its sections on [the sine-Gordon transmission matrix](book:prp-sg-transmission), [stable defects and resonances](book:sec-sg-defect-spectrum) and [breathers through the defect](book:prp-sg-breather-transmission).
