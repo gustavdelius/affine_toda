@@ -23,6 +23,8 @@ book:
   navbar:
     background: primary
     left:
+      - text: "Book"
+        href: preface.qmd
       - text: "Lecture notes"
         menu:
           - text: "Integrable defects, from Bäcklund to Baxter"

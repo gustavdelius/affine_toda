@@ -63,11 +63,13 @@ if [ -n "$warnings" ]; then
   echo "$warnings" | head -20 | sed 's/^/  /'
 fi
 
-pdf=$site/affine-toda.pdf
-if [ ${#formats[@]} -eq 0 ] && [ -f "$pdf" ]; then
-  pages=$(pdfinfo "$pdf" 2>/dev/null | awk '/^Pages:/ {print $2}')
-  marks=$(pdftotext "$pdf" - 2>/dev/null | grep -c '??' || true)
-  echo "PDF: ${pages:-?} pages; $marks lines contain '??' (unresolved LaTeX references, or genuine text)."
+if [ ${#formats[@]} -eq 0 ]; then
+  for pdf in "$site"/*.pdf; do
+    [ -f "$pdf" ] || continue
+    pages=$(pdfinfo "$pdf" 2>/dev/null | awk '/^Pages:/ {print $2}')
+    marks=$(pdftotext "$pdf" - 2>/dev/null | grep -c '??' || true)
+    echo "PDF ($(basename "$pdf")): ${pages:-?} pages; $marks lines contain '??' (unresolved LaTeX references, or genuine text)."
+  done
 fi
 
 exit "$status"

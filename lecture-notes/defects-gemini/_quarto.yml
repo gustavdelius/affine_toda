@@ -14,6 +14,8 @@ book:
     matrices and the breather cancellation.
   site-url: https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/
   repo-url: https://github.com/gustavdelius/affine_toda
+  output-file: defects-gemini
+  downloads: [pdf]
   reader-mode: true
   navbar:
     background: primary
@@ -56,3 +58,15 @@ format:
         at: pre-ast
       - path: ../book-links.lua
       - path: ../../script-links.lua
+  pdf:
+    documentclass: scrreprt
+    classoption: [enabledeprecatedfontcommands]  # math uses \rm, \bf
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    filters:
+      - path: ../book-links.lua
+      - path: ../../script-links.lua
+    include-in-header:
+      text: |
+        \usepackage{cancel}

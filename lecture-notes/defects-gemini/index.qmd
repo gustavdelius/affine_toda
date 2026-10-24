@@ -6,6 +6,10 @@ These notes are designed as a pedagogical companion to Part VIII of the book, fr
 
 In these lectures we take the opposite approach. We trade breadth for **depth of understanding, physical origin stories, and hands-on calculational fluency**. Rather than surveying all twenty-three affine Dynkin diagrams or every exceptional case, we use **sine-Gordon / sinh-Gordon theory ($a_1^{(1)}$)** and the **three-state affine Toda theory ($a_2^{(1)}$)** as our two laboratories. Every crucial calculation is worked out on the blackboard from start to finish, with no steps skipped, so that you can acquire the technical craft of integrable field theory and rediscover its surprising connections for yourself.
 
+::: {.content-visible when-format="html"}
+These lectures are also available as a [PDF](defects-gemini.pdf).
+:::
+
 ---
 
 ## Six Big Ideas That Drive These Lectures {#sec-lec-big-ideas}

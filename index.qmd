@@ -1,4 +1,5 @@
 ---
+sidebar: false
 keywords:
   - affine Toda field theory
   - integrable quantum field theory
@@ -34,8 +35,8 @@ Affine Toda field theories are two-dimensional quantum field theories, one for e
 
 The book states results but does not teach them step by step. Lecture notes do that for single parts. There are two courses so far, and both accompany Part VIII, on integrable defects. A defect is a line in spacetime that particles and solitons cross without being reflected. Both courses link into the book for its statements and proofs. They were drafted by different AI models, and they teach the subject in different ways.
 
-- [*Integrable defects, from Bäcklund to Baxter*](https://gustavdelius.github.io/affine_toda/lectures/defects/), drafted by Claude, tells the story of the ideas. Each lecture asks one question and answers it. Lectures 1–6, on the classical theory, are written. Lectures 7–9, on the quantum theory, are in preparation.
-- [*Lectures on integrable defects in affine Toda field theory*](https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/), drafted by Gemini, is organized around six big ideas. Its six lectures are complete and cover both the classical and the quantum theory.
+- [*Integrable defects, from Bäcklund to Baxter*](https://gustavdelius.github.io/affine_toda/lectures/defects/) ([PDF](https://gustavdelius.github.io/affine_toda/lectures/defects/defects.pdf)), drafted by Claude, tells the story of the ideas. Each lecture asks one question and answers it. Lectures 1–6, on the classical theory, are written. Lectures 7–9, on the quantum theory, are in preparation.
+- [*Lectures on integrable defects in affine Toda field theory*](https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/) ([PDF](https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/defects-gemini.pdf)), drafted by Gemini, is organized around six big ideas. Its six lectures are complete and cover both the classical and the quantum theory.
 
 ### How they differ {#sec-about-differences .unnumbered}
 

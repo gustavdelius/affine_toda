@@ -12,6 +12,8 @@ book:
     the story of the ideas and work the key calculations in full.
   site-url: https://gustavdelius.github.io/affine_toda/lectures/defects/
   repo-url: https://github.com/gustavdelius/affine_toda
+  output-file: defects
+  downloads: [pdf]
   reader-mode: true
   navbar:
     background: primary
@@ -55,5 +57,14 @@ format:
     filters:
       - path: ../../status-tags.lua
         at: pre-ast
+      - path: ../book-links.lua
+      - path: ../../script-links.lua
+  pdf:
+    documentclass: scrreprt
+    classoption: [enabledeprecatedfontcommands]  # math uses \rm, \bf
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    filters:
       - path: ../book-links.lua
       - path: ../../script-links.lua

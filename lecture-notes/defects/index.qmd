@@ -20,6 +20,10 @@ The story starts from a simple question. A boundary of an integrable field theor
 
 Lectures 1 to 7 are written; the others are in preparation.
 
+::: {.content-visible when-format="html"}
+These lectures are also available as a [PDF](defects.pdf).
+:::
+
 ## How to use them {#sec-how-to-use}
 
 **What you need.** You should know the book's [scattering theory on the line](book:sec-integrable-qft) and [on the half-line](book:sec-boundary-scattering), and [sine-Gordon theory](book:sec-sine-gordon). From Lecture 5 on you also need the [classical affine Toda theory](book:sec-theories) and its [solitons](book:sec-classical-solitons), and later the book's [quantum groups](book:sec-quantum-groups). You do not need to have done many calculations with these tools. These lectures are where you do them.
