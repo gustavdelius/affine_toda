@@ -230,7 +230,7 @@ $$
 \partial_+(\phi - \psi) = -\frac{2\sigma m_0}{\beta_{\rm SG}}\,\sin\frac{\beta_{\rm SG}(\phi+\psi)}{2}, \qquad
 \partial_-(\phi + \psi) = \frac{2m_0}{\sigma\beta_{\rm SG}}\,\sin\frac{\beta_{\rm SG}(\phi-\psi)}{2}.
 $$ {#eq-lec2-sg-lc}
-When imposed for all $(x,t)$ with $a = -\sigma = -e^{-\theta_d}$, this is the classic **sine-Gordon Bäcklund transformation** $\psi = \mathfrak{B}_a\phi$ (see [the book](book:eq-sg-backlund)) [@bcz2004].
+When imposed for all $(x,t)$ with $a = -\sigma = -e^{-\theta_d}$, this is the classic **sine-Gordon Bäcklund transformation** $\psi = \mathfrak{B}_a\phi$ (see [the book](book:eq-sg-backlund)) [@rogers_schief2002; @bcz2004].
 
 To understand how our defect interacts with solitons, let us first see how the Bäcklund transformation $\mathfrak{B}_a$ generates solitons in the bulk (see the book: [The Bäcklund transformation](book:prp-sg-backlund), [Bianchi permutability](book:prp-bianchi)).
 

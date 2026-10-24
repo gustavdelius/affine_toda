@@ -235,7 +235,7 @@ Where does (-@eq-lec4-sg-t-explicit) come from in the general theory of quantum 
 $$
 \mathcal{R} \in U_q(\mathfrak{b}^+) \,\widehat{\otimes}\, U_q(\mathfrak{b}^-).
 $$ {#eq-lec4-universal-r-borel}
-By the Khoroshkin–Tolstoy multiplicative formula (see [the book](book:eq-dq-kt)), $\mathcal{R} = \mathcal{R}_+ \mathcal{R}_0 \mathcal{R}_- K$, where $\mathcal{R}_\pm$ are products of $q$-exponentials over the real root vectors and $\mathcal{R}_0$ is an exponential of a power series in the imaginary (Cartan-like) root vectors!
+By the Khoroshkin–Tolstoy multiplicative formula [@khoroshkin_tolstoy1991; @tolstoy_khoroshkin1992] (see [the book](book:eq-dq-kt)), $\mathcal{R} = \mathcal{R}_+ \mathcal{R}_0 \mathcal{R}_- K$, where $\mathcal{R}_\pm$ are products of $q$-exponentials over the real root vectors and $\mathcal{R}_0$ is an exponential of a power series in the imaginary (Cartan-like) root vectors!
 
 Because the right leg of $\mathcal{R}$ lies entirely inside $U_q(\mathfrak{b}^-)$, we do **not** need a representation of all of $U_q(\widehat{\mathfrak{sl}}_2)$ on the second factor to evaluate $\mathcal{R}$—a representation $\rho : U_q(\mathfrak{b}^-) \to \operatorname{End}(\mathcal{W})$ of the Borel subalgebra alone suffices! Applying $(\pi_y \otimes \rho)$ to $\mathcal{R}$ gives the quantum $L$-operator $\mathbb{L}^-(\theta) = (\pi_y \otimes \rho)(\mathcal{R})$ (see the book: [The two Borel subalgebras and the two defect types](book:prp-two-borels), [Transmission matrices and BLZ L-operators from the universal R-matrix](book:prp-l-operator), [equation](book:eq-l-operator); see `code/defect_universal_r.py`):
 $$
@@ -251,7 +251,7 @@ Look closely at the top-left entry of (-@eq-lec4-blz-l):
 
 ## Defect Operators on the Circle and Baxter's $TQ$ Relations {#sec-lec4-tq-relations}
 
-Now let us close the circle between integrable defects and Baxter's method of commuting transfer matrices and $Q$-operators!
+Now let us close the circle between integrable defects and Baxter's method of commuting transfer matrices and $Q$-operators [@baxter1972; @blz1997; @rossi_weston2002; @weston2010]!
 
 Consider an $N$-site quantum spin chain (or discretized sine-Gordon theory on a spatial circle of circumference $L$) with bulk transfer matrix
 $$

@@ -41,7 +41,7 @@ For a generic bulk theory (such as $\phi^4$ theory), $V(p+q) - V(p-q)$ *cannot* 
 3. **turns the defect equations of motion at $x=0$ into a frozen Bäcklund transformation**, which automatically guarantees the existence of a defect Lax matrix $L_d(\lambda)$ and the conservation of the entire infinite tower of higher-spin charges $Q_{\pm s}$!
 
 ### 3. A Defect is a "Frozen Bäcklund Transformation"—and Literally "Half a Soliton"
-In nineteenth-century differential geometry, Bäcklund and Bianchi discovered how to generate a new solution $\psi(x,t)$ of the sine-Gordon equation from an old solution $\phi(x,t)$ via first-order differential equations that add one soliton. In **[Lecture 2](02-momentum-and-backlund.qmd)**, we will see that the integrable jump defect is simply a **Bäcklund transformation frozen at the single point $x=0$**.
+In nineteenth-century differential geometry, Bäcklund and Bianchi discovered how to generate a new solution $\psi(x,t)$ of the sine-Gordon equation from an old solution $\phi(x,t)$ via first-order differential equations that add one soliton [@rogers_schief2002]. In **[Lecture 2](02-momentum-and-backlund.qmd)**, we will see that the integrable jump defect is simply a **Bäcklund transformation frozen at the single point $x=0$**.
 
 When we send a classical sine-Gordon soliton of rapidity $\theta$ through this defect, four remarkable things happen:
 

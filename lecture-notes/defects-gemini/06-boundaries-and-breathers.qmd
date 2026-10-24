@@ -59,7 +59,7 @@ Look at the four Sweedler indices $(1)(1), (1)(2), (2)(1), (2)(2)$: by coassocia
 $$
 \Delta_A\big(x_\psi(u)\big) = \sum \big(u_{(1)} \otimes \psi(u_{(4)})\big) \otimes \underbrace{\big(u_{(2)} \otimes \psi(u_{(3)})\big)}_{x_\psi(u_{(2)}) \in B_\psi} \in \big(U \otimes U^{\text{cop}}\big) \otimes B_\psi!
 $$ {#eq-lec6-coideal-proof}
-Look at the right leg of (-@eq-lec6-coideal-proof): because the second factor of $A = U \otimes U^{\text{cop}}$ used $\Delta^{\text{op}}$, the inner Sweedler indices $u_{(2)}$ and $\psi(u_{(3)})$ paired up into $x_\psi(u_{(2)}) \in B_\psi = (1 \otimes \psi)\Delta(U)$! Thus $B_\psi = (1 \otimes \psi)\Delta(U)$ is a **left coideal subalgebra** of $U \otimes U^{\text{cop}}$ (see the book: [Transparent defects and invertible lines are diagonal-type pairs](book:prp-diagonal-coideal), [equation](book:eq-dbd-diagonal))—in fact, it is the canonical **diagonal quantum symmetric pair** of Bao and Wang!
+Look at the right leg of (-@eq-lec6-coideal-proof): because the second factor of $A = U \otimes U^{\text{cop}}$ used $\Delta^{\text{op}}$, the inner Sweedler indices $u_{(2)}$ and $\psi(u_{(3)})$ paired up into $x_\psi(u_{(2)}) \in B_\psi = (1 \otimes \psi)\Delta(U)$! Thus $B_\psi = (1 \otimes \psi)\Delta(U)$ is a **left coideal subalgebra** of $U \otimes U^{\text{cop}}$ (see the book: [Transparent defects and invertible lines are diagonal-type pairs](book:prp-diagonal-coideal), [equation](book:eq-dbd-diagonal))—in fact, it is the canonical **diagonal quantum symmetric pair** of Bao and Wang [@bao_wang2018; @bao_wang2018b]!
 
 ### Step 3: Why the Jump Defect Splits into Two Twisted-Diagonal Borel Subalgebras
 
@@ -149,7 +149,7 @@ e^{\lambda\theta}\cosh(\lambda\theta + i\eta) - e^{-\lambda\theta}\cosh(\lambda\
 $$
 and the matrix (-@eq-lec6-kgz-explicit) reproduces the **exact 2-parameter Ghoshal–Zamolodchikov reflection matrix** [@gz1994] with second boundary parameter $\vartheta = \lambda\theta_d$ (see the book: [Defect–boundary fusion](book:prp-defect-fusion-k))!
 
-Even better: because the UV–IR parameter map between the classical boundary Lagrangian (-@eq-lec6-gz-potential) and the quantum Ghoshal–Zamolodchikov parameters $(\eta, \vartheta)$ is known from Al. Zamolodchikov's boundary TBA/bootstrap analysis, comparing our classical fusion (-@eq-lec6-gz-potential) with our quantum fusion (-@eq-lec6-kgz-explicit) immediately determines the exact quantum renormalization of the defect parameter (see the book: [The defect UV–IR relation](book:cnj-defect-parameter); Bajnok–Simon [@bajnok_simon2008]):
+Even better: because the UV–IR parameter map between the classical boundary Lagrangian (-@eq-lec6-gz-potential) and the quantum Ghoshal–Zamolodchikov parameters $(\eta, \vartheta)$ is known from Al. Zamolodchikov's boundary TBA/bootstrap analysis [@bptt2002; @bpt2002], comparing our classical fusion (-@eq-lec6-gz-potential) with our quantum fusion (-@eq-lec6-kgz-explicit) immediately determines the exact quantum renormalization of the defect parameter (see the book: [The defect UV–IR relation](book:cnj-defect-parameter); Bajnok–Simon [@bajnok_simon2008]):
 $$
 \theta_d = \left(1 - \frac{B}{2}\right)\theta_d^{\text{cl}} = \frac{\lambda}{\lambda + 1}\,\theta_d^{\text{cl}}, \qquad \sigma_{\text{quantum}} = e^{-\theta_d} = \big(\sigma_{\text{cl}}\big)^{1 - \frac{B}{2}}!
 $$ {#eq-lec6-uv-ir-map}

@@ -34,8 +34,11 @@ book:
     - 04-quantum-groups-and-q-operators.qmd
     - 05-crossing-resonances-and-tunnelling.qmd
     - 06-boundaries-and-breathers.qmd
+    - references.qmd
 
-bibliography: ../../references.bib
+bibliography:
+  - ../../references.bib
+  - references-notes.bib
 csl: ../../aps.csl
 lang: en-GB
 

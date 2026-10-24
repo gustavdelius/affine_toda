@@ -478,7 +478,7 @@ This equation is a revelation [@bajnok_george2006]: if we view $\mathbb{L}(\thet
 $$
 \mathbb{L}_a^{\ b}(\theta)\,w_\alpha = \sum_\beta \mathbb{T}_{a\alpha}^{\beta b}(\theta)\,w_\beta,
 $$
-then (-@eq-lec1-triangle-rtt) is **Faddeev's $RLL$ relation** defining the Yang–Baxter algebra of $R$! Every integrable defect transmission matrix is a **quantum $L$-operator** whose auxiliary space is the particle multiplet $V(\theta)$ and whose quantum space is the defect Hilbert space $\mathcal{W}$. In Lecture 4 (@sec-lec4-quantum-groups), this insight will connect defects directly to Baxter's $Q$-operators.
+then (-@eq-lec1-triangle-rtt) is **Faddeev's $RLL$ relation** [@faddeev1980; @faddeev_takhtajan1987] defining the Yang–Baxter algebra of $R$! Every integrable defect transmission matrix is a **quantum $L$-operator** whose auxiliary space is the particle multiplet $V(\theta)$ and whose quantum space is the defect Hilbert space $\mathcal{W}$. In Lecture 4 (@sec-lec4-quantum-groups), this insight will connect defects directly to Baxter's $Q$-operators.
 
 ---
 
