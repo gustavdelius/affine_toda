@@ -39,7 +39,7 @@ V_{\rm real}=\frac{m^2}{\beta^2}\sum_jn_j\left(e^{\beta\vec\alpha_j\cdot\vec\phi
 V_{\rm imag}=-\frac{m^2}{\beta^2}\sum_jn_j\left(e^{i\beta\vec\alpha_j\cdot\vec\phi}-1\right).
 $$
 
-The sums run over the $r+1$ simple roots $\vec\alpha_0,\dots,\vec\alpha_r\in\mathbb R^r$ of $\hat g$, the $n_j$ are positive integers called Kac labels, $m$ sets the mass scale and $\beta>0$ is the coupling. Part II defines the roots and labels (@sec-affine-dynkin), and Part III takes up the theory again from these potentials (-@eq-imaginary-potential). Until then two facts suffice. The labels satisfy $\sum_jn_j\vec\alpha_j=0$, so $\vec\phi=0$ is a stationary point of both potentials. For the smallest algebra, $a_1^{(1)}$, one has $r=1$, $\alpha_1=-\alpha_0=\sqrt2$ and $n_0=n_1=1$, and the two potentials are those of sinh-Gordon and sine-Gordon theory (@sec-sg-dictionary).
+The sums run over the $r+1$ simple roots $\vec\alpha_0,\dots,\vec\alpha_r\in\mathbb R^r$ of $\hat g$, the $n_j$ are positive integers called Kac labels, $m$ sets the mass scale and $\beta>0$ is the coupling. Part II defines the roots and labels (@sec-affine-dynkin), and Part III takes up the theory again from these potentials (-@eq-imaginary-potential). Until then two facts suffice. The labels satisfy $\sum_jn_j\vec\alpha_j=0$, so $\vec\phi=0$ is a stationary point of both potentials. For the smallest algebra, $a_1^{(1)}$, one has $r=1$, $\alpha_1=-\alpha_0=\sqrt2$ and $n_0=n_1=1$, and the two potentials are those of sinh-Gordon and sine-Gordon theory (@sec-sg-dictionary). Replacing the affine algebra by an affine Lie superalgebra gives related integrable theories that also contain fermions, some of them supersymmetric. They are not part of the family above, and @sec-super-toda describes them.
 
 These theories have been a laboratory for several central ideas in two-dimensional quantum field theory:
 
@@ -72,7 +72,7 @@ The theories are not only of historical interest. They are rich enough to show g
 
 The [preface](index.qmd) describes the nine parts. Parts I–IV review established material. Parts V, VI and IX present research results, many of them new. Part VII reviews the theory on the half-line, developed in the research literature since 1993, in the book's unified notation, and Part VIII does the same for integrable defects, studied since 1994.
 
-The dependencies between the parts are shown below. Chapter 4 is needed only for Parts V and IX, and Part II is needed in full only for Parts VI–VIII. Parts VIII and IX meet in one place: the Bloch twists of chapter 48 are the simplest defects.
+The dependencies between the parts are shown below. Chapter 4 is needed only for Parts V and IX, and Part II is needed in full only for Parts VI–VIII. Parts VIII and IX meet in one place: the Bloch twists of chapter 49 are the simplest defects.
 
 ```{mermaid}
 %%| label: fig-dependencies
@@ -81,20 +81,20 @@ The dependencies between the parts are shown below. Chapter 4 is needed only for
 flowchart LR
   I["I. Physical background<br/>ch. 2–3"] --> III["III. Classical theory<br/>ch. 9–11"]
   II["II. Algebraic background<br/>ch. 5–8"] --> III
-  I --> IV["IV. Real coupling<br/>ch. 12–15"]
+  I --> IV["IV. Real coupling<br/>ch. 12–16"]
   III --> IV
-  III --> V["V. Semiclassics<br/>ch. 16–19"]
-  IV --> VI["VI. Soliton S-matrices<br/>ch. 20–27"]
+  III --> V["V. Semiclassics<br/>ch. 17–20"]
+  IV --> VI["VI. Soliton S-matrices<br/>ch. 21–28"]
   II --> VI
   V --> VI
-  VI --> VII["VII. Half-line<br/>ch. 28–35"]
+  VI --> VII["VII. Half-line<br/>ch. 29–36"]
   III --> VII
   IV --> VII
-  VII --> VIII["VIII. Defects<br/>ch. 36–43"]
+  VII --> VIII["VIII. Defects<br/>ch. 37–44"]
   II --> VIII
   III --> VIII
   VI --> VIII
-  V --> IX["IX. Foundations<br/>ch. 44–49"]
+  V --> IX["IX. Foundations<br/>ch. 45–50"]
   I4["I. Non-Hermitian QM<br/>ch. 4"] --> V
   I4 --> IX
   VI --> IX
@@ -102,16 +102,16 @@ flowchart LR
 
 **Reading paths.**
 
-- *Integrable field theory:* chapters 2–3, 5–6, 9–10, 12–14, then 20–22. This covers sine-Gordon, the classical theory, the particle S-matrices and the known soliton S-matrices.
-- *Quantum groups in field theory:* chapters 2–3 and 5–8, then 20–22 and 27.
-- *Integrable boundaries:* chapters 2–3, 7–10 and 13, then Part VII, consulting chapters 20–21 for the quantum-group method.
-- *Integrable defects:* chapters 2–3, 7–11 and 20–21, then 28–32, then Part VIII, consulting chapters 13 and 33–35 for its last chapters.
+- *Integrable field theory:* chapters 2–3, 5–6, 9–10, 12–14, then 21–23. This covers sine-Gordon, the classical theory, the particle S-matrices and the known soliton S-matrices.
+- *Quantum groups in field theory:* chapters 2–3 and 5–8, then 21–23 and 28.
+- *Integrable boundaries:* chapters 2–3, 7–10 and 13, then Part VII, consulting chapters 21–22 for the quantum-group method.
+- *Integrable defects:* chapters 2–3, 7–11 and 21–22, then 29–33, then Part VIII, consulting chapters 13 and 34–36 for its last chapters.
 - *Non-unitary quantum field theory:* chapters 2–4, 9–11, then Part IX, consulting Parts V–VI as needed.
 - *For specialists:* Parts V–IX, which can be read on their own by a reader who already knows affine Toda theory.
 
 The six paths are drawn in @fig-reading-paths.
 
-![The six reading paths, by chapter. An arrow means "then", and the colour of a box is the Part its chapters belong to.](figures/intro_f1_reading_paths.svg){#fig-reading-paths fig-alt="Six rows of boxes joined by arrows. The first row runs through chapters 2 to 3, 5 to 6, 9 to 10, 12 to 14 and 20 to 22. The second runs through chapters 2 to 3, 5 to 8, 20 to 22 and 27. The third runs through chapters 2 to 3, 7 to 8, 9 to 10, 13 and Part VII. The fourth runs through chapters 2 to 3, 7 to 8, 9 to 11, 20 to 21, 28 to 32 and Part VIII. The fifth runs through chapters 2 to 4, 9 to 11 and Part IX. The sixth is a single box for Parts V to IX."}
+![The six reading paths, by chapter. An arrow means "then", and the colour of a box is the Part its chapters belong to.](figures/intro_f1_reading_paths.svg){#fig-reading-paths fig-alt="Six rows of boxes joined by arrows. The first row runs through chapters 2 to 3, 5 to 6, 9 to 10, 12 to 14 and 21 to 23. The second runs through chapters 2 to 3, 5 to 8, 21 to 23 and 28. The third runs through chapters 2 to 3, 7 to 8, 9 to 10, 13 and Part VII. The fourth runs through chapters 2 to 3, 7 to 8, 9 to 11, 21 to 22, 29 to 33 and Part VIII. The fifth runs through chapters 2 to 4, 9 to 11 and Part IX. The sixth is a single box for Parts V to IX."}
 
 **What Part I borrows from Part II.** Part I uses some algebraic terms before Part II defines them. They appear in statements about general affine Toda theories, which a first reading can take on trust, and the sine-Gordon case of @sec-sine-gordon needs none of them in more than its simplest form. In brief:
 

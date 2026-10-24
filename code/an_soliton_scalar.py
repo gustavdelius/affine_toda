@@ -1,7 +1,7 @@
-"""Scalar factor of the a_{h-1}^(1) soliton S-matrix: chapter 21 (sec-scalar-factor,
+"""Scalar factor of the a_{h-1}^(1) soliton S-matrix: chapter 22 (sec-scalar-factor,
 sec-an-example), h = 2, 3, 4, at the generic coupling omega = 1 + sqrt(2)/2.
 
-Variables of chapter 21: t = T theta/(i pi), x = e^{2 pi i t}, q = -e^{-i pi omega},
+Variables of chapter 22: t = T theta/(i pi), x = e^{2 pi i t}, q = -e^{-i pi omega},
 2T = h omega.  Species-1 solitons, R_11 = P_sym + rho P_antisym.
 
 - tau(t) = (x - 1)/(q x - 1/q) = -sin(pi t)/sin(pi(t - omega)) is the transmission entry

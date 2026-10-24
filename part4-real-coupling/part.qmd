@@ -2,4 +2,4 @@
 title: "Part IV: The real-coupling quantum theory"
 ---
 
-Perturbation theory and the exact particle S-matrices, which have been proposed for every affine algebra (for the non-simply-laced algebras as conjectures), together with the thermodynamic Bethe ansatz, form factors and related exact results.
+Perturbation theory and the exact particle S-matrices, which have been proposed for every affine algebra (for the non-simply-laced algebras as conjectures), together with the thermodynamic Bethe ansatz, form factors and related exact results. The last chapter replaces the affine algebra by an affine Lie superalgebra. Its core is again massive particle theories with exact S-matrices, two families of which keep the masses of the non-simply-laced theories from floating. It also treats theories that are supersymmetric, have kinetic terms of indefinite sign, or need complex reality conditions, and the solitons of the theories with $N=2$ supersymmetry. Not all of these are real-coupling, unitary or purely massive theories.

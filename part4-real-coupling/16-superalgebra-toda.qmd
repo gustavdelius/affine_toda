@@ -1,0 +1,373 @@
+# Affine Toda theories based on Lie superalgebras {#sec-super-toda}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Tell a theory built on a Lie superalgebra from a supersymmetric theory.
+- Write the superspace action for any set of simple roots, eliminate the auxiliary field, and read off the bosonic potential, the Yukawa couplings and the masses.
+- Derive the zero-curvature representation, and check it for the super sinh-Gordon theory.
+- Work with a non-diagonal boson–fermion S-matrix: graded Yang–Baxter equation, unitarity, crossing and bound states.
+- Know the massive theories with $N=2$ supersymmetry, their solitons, and what is known about their quantum theory.
+:::
+
+Can fermions be added to affine Toda theory without losing integrability? There is no obvious way to give every boson a fermionic partner and supersymmetrize the potential while keeping integrability [@evans_hollowood1992, Sec. 1], and the extensions that have been examined lose conserved charges (@sec-super-superspace). The systematic route replaces the affine Lie algebra in the Lax pair by an affine Lie superalgebra [@olshanetsky1983; @evans_hollowood1991]. The zero-curvature construction of @sec-lax-pair goes through, and the theory acquires fermions, which couple to the bosons through the odd simple roots.
+
+The word "super" then has two meanings, which must be kept apart. The algebra is always graded: it has even and odd generators, and the odd ones produce the fermions. The theory has spacetime supersymmetry, with supercharges that act on the physical states and relate bosons to fermions, only when every simple root is odd (@prp-super-susy). Many of the theories of this chapter are not supersymmetric. The auxiliary superalgebra lives in the Lax pair, and the supercharges, when they exist, are not elements of it.
+
+The chapter belongs to Part IV because two families of these theories bear directly on @sec-non-simply-laced. Their bosons are the particles of the non-simply-laced theories $a_{2n-1}^{(2)}$ and $c_n^{(1)}$. Their kinetic terms are positive, the fermion loops keep the classical mass ratios at one loop, and the exact S-matrices proposed for them are built from blocks with a fixed Coxeter number (@sec-super-scattering). Other theories in the chapter have kinetic terms of indefinite sign. Some become sensible only with complex reality conditions, and the $N=2$ theories of @sec-super-n2 have solitons. These are excursions from the real-coupling theme of the part, and we say so where they occur.
+
+## Graded algebras and their roots {#sec-super-roots}
+
+**Lie superalgebras.** A Lie superalgebra is a vector space $\mathfrak g=\mathfrak g_{\bar0}\oplus\mathfrak g_{\bar1}$ split into an even and an odd part, with a bracket that respects the grading. For homogeneous elements of parities $\lvert X\rvert,\lvert Y\rvert\in\{0,1\}$ it is realized on supermatrices by
+
+$$
+[X,Y\}=XY-(-1)^{\lvert X\rvert\lvert Y\rvert}\,YX ,
+$$ {#eq-super-bracket}
+
+a commutator unless both elements are odd, when it is an anticommutator. It is graded antisymmetric and obeys a graded Jacobi identity. The basic example is $\mathfrak{gl}(m|n)$, the $(m+n)\times(m+n)$ matrices with rows and columns split into $m$ even and $n$ odd ones. A matrix unit $E_{rs}$ is even when $r$ and $s$ have the same parity and odd otherwise. The supertrace $\operatorname{str}\begin{pmatrix}A&B\\C&D\end{pmatrix}=\operatorname{tr}A-\operatorname{tr}D$ vanishes on brackets, so the supertraceless matrices form a subalgebra $\mathfrak{sl}(m|n)$, and $(X,Y)=\operatorname{str}(XY)$ is an invariant bilinear form.
+
+In $\mathfrak{sl}(2|1)$, with rows of parities $(0,0,1)$, the odd matrix units are $E_{13},E_{23},E_{31},E_{32}$, and $\{E_{13},E_{31}\}=E_{11}+E_{33}$ is diagonal and supertraceless. The Cartan subalgebra consists of the diagonal matrices $\operatorname{diag}(h_1,h_2,h_3)$ with $h_1+h_2=h_3$. The roots are $\pm(\epsilon_1-\epsilon_2)$, which are even, and $\pm(\epsilon_i-\delta)$, which are odd. The form $\operatorname{str}$ induces the inner product $\epsilon_i\cdot\epsilon_j=\delta_{ij}$, $\delta\cdot\delta=-1$, $\epsilon_i\cdot\delta=0$, which is **indefinite**.
+
+**Roots and their parities.** Two things are new compared with @sec-root-systems. First, an odd root can be **null**, $\alpha\cdot\alpha=0$, like $\epsilon_1-\delta$ above; these roots are also called isotropic. Second, for an odd root of nonzero length, $\{E_\alpha,E_\alpha\}=2E_\alpha^2$ need not vanish, and $2\alpha$ is then an even root. In Dynkin diagrams, following Evans and Madsen [-@evans_madsen1997], even simple roots are white nodes, odd simple roots of nonzero length are black nodes, and null odd roots are grey nodes.
+
+A contragredient Lie superalgebra is defined, like a Kac–Moody algebra (@sec-affine-dynkin), by simple roots $\alpha_j$ with given parities and generators $e_j,f_j$ of the same parity as $\alpha_j$, with
+
+$$
+[\vec H,e_j]=\vec\alpha_j\,e_j,\qquad[\vec H,f_j]=-\vec\alpha_j\,f_j,\qquad[e_i,f_j\}=\delta_{ij}\,\vec\alpha_j\cdot\vec H ,
+$$ {#eq-super-chevalley}
+
+together with Serre relations [@kac1977]. For odd $e_i$ and $f_j$ the last bracket is an anticommutator. Here, as in @sec-lax-pair, the Cartan matrix is the symmetric matrix $a_{ij}=\vec\alpha_i\cdot\vec\alpha_j$ of inner products.
+
+**The choice of simple roots.** For a Lie algebra all bases of simple roots are related by the Weyl group, so the Dynkin diagram is unique. For a superalgebra this fails. Reflections in odd roots can change the number of odd simple roots, and a superalgebra has in general several inequivalent bases of simple roots, with different Cartan matrices and Dynkin diagrams [@kac1977]. Arguments that rely on Weyl-group conjugacy of simple root systems therefore do not transfer. The Toda theory of this chapter is built from a basis of simple roots, not from the algebra, and different bases of the same algebra give different theories. For $\mathfrak{sl}(2|1)$ the basis $\{\epsilon_1-\delta,\delta-\epsilon_2\}$, with two odd null roots, gives a supersymmetric conformal theory, while the basis $\{\epsilon_1-\epsilon_2,\epsilon_2-\delta\}$ gives a theory that is not supersymmetric [@evans_madsen1997, Sec. 4].
+
+**Affine superalgebras.** Affine superalgebras, untwisted and twisted, are constructed from the finite ones as in @sec-affine-algebras [@vandeleur1989]. All the Toda theory needs is the projection of the simple roots $\vec\alpha_0,\dots,\vec\alpha_r$ onto a space $V$ on which the inner product is non-degenerate, their parities, and the linear relation $\sum_jn_j\vec\alpha_j=0$. For the family $A(m-1,m-1)^{(1)}$ there are two such relations (@sec-super-n2).
+
+**Normalization.** The convention of @sec-conventions, longest roots of squared length 2, cannot be imposed on null roots, and the overall sign of the inner product is also a convention: Penati and Zanon's form for $B(1,1)^{(1)}$ is minus that of Evans and Madsen [@penati_zanon1992; @evans_madsen1997]. Where the bosonic sector is a single Toda theory, we normalize so that its longest roots have squared length 2. Otherwise we quote the normalization of the source.
+
+@tbl-super-examples lists the root systems used in the chapter.
+
+| Algebra | Simple roots | Bosonic sector | Supersymmetric | Kinetic term |
+|---|---|---|---|---|
+| $C(2)^{(2)}\simeq A(1,0)^{(2)}$ | 2 odd, $\vec\alpha_0=-\vec\alpha_1$, $\vec\alpha_1^2=\frac12$ | $a_1^{(1)}$ | yes | positive |
+| $C^{(2)}(n+1)$, $n\ge2$ | 2 odd (black), $n-1$ even | $c_n^{(1)}$ | no | positive |
+| $A^{(2)}(0,2n-1)$, $n\ge2$ | 1 odd (black), $n$ even | $a_{2n-1}^{(2)}$ | no | positive |
+| $B(1,1)^{(1)}$ | 1 black, 2 grey | $a_1^{(1)}\oplus a_1^{(1)}$, masses $2m$, $m$ | yes | indefinite |
+| $A(1,1)^{(1)}$ | 4 grey, on a cycle | $a_1^{(1)}\oplus a_1^{(1)}$, equal masses | $N=2$ | indefinite; positive with twisted reality |
+| $D(2,1;\alpha)^{(1)}$ | 4 grey, all joined | $a_1^{(1)}\oplus a_1^{(1)}\oplus a_1^{(1)}$ | yes | indefinite; positive with twisted reality |
+
+: Root systems used in this chapter [@evans_madsen1997; @dgpz1991b; @evans_madsen1999]. The superalgebra notation is Kac's, except that $C^{(2)}(n+1)$ and $A^{(2)}(0,2n-1)$ are written as in Delius, Grisaru, Penati and Zanon; Evans and Madsen write $C(n+1)^{(2)}$ and $A(2n-1,0)^{(2)}$. "Twisted reality" is explained in @sec-super-n2. {#tbl-super-examples}
+
+## Superspace and the component Lagrangian {#sec-super-superspace}
+
+**Superspace.** Write $x^\pm=\frac12(t\pm x)$, so that $\partial_\pm=\partial/\partial x^\pm=\partial_t\pm\partial_x$ are the light-cone derivatives of @sec-lagrangians. Add two real Grassmann coordinates $\theta^+,\theta^-$, which anticommute with each other and with all fermions and square to zero. The superspace derivatives and supercharges are
+
+$$
+D_\pm=\frac{\partial}{\partial\theta^\pm}-i\theta^\pm\partial_\pm,\qquad
+Q_\pm=\frac{\partial}{\partial\theta^\pm}+i\theta^\pm\partial_\pm ,
+$$ {#eq-super-derivatives}
+
+with $D_\pm^2=-i\partial_\pm$, $Q_\pm^2=i\partial_\pm$, and all other anticommutators among $D_\pm,Q_\pm$ zero. The derivatives $\partial/\partial\theta^\pm$ act from the left. A transformation generated by $\epsilon^+Q_++\epsilon^-Q_-$ is a supersymmetry, and since the $D_\pm$ anticommute with the $Q_\pm$, any Lagrangian built from superfields and $D_\pm$ is invariant up to a total derivative. These are the conventions of Evans, Hollowood and Madsen [@evans_hollowood1992; @evans_madsen1997]. There is one supercharge of each chirality. In the notation $(p,q)$ for the numbers of chiral and antichiral supercharges this is $(1,1)$ supersymmetry, which the papers call $N=1$; their $N=2$ is $(2,2)$, and the $(1,0)$ theories of [@evans_madsen1996] have a single chiral supercharge.
+
+A scalar superfield with values in the space $V$ of the roots is
+
+$$
+\Phi=\vec\phi+i\theta^+\vec\psi_++i\theta^-\vec\psi_-+i\theta^+\theta^-\vec\sigma .
+$$ {#eq-super-field}
+
+$\vec\psi_\pm$ are the two components of a Majorana fermion, and $\vec\sigma$ is an auxiliary field. The Berezin integral is normalized by $\int d^2\theta\,\theta^+\theta^-=i$; the factor $i$ makes the action of real superfields real, since $(\theta^+\theta^-)^*=\theta^-\theta^+=-\theta^+\theta^-$.
+
+**The action.** Let $\tau$ and $\varepsilon$ be the sets of odd and even simple roots. The Toda theory of the simple roots $\vec\alpha_j$ has the superspace Lagrangian [@evans_madsen1997, eq. (3.2)]
+
+$$
+\mathcal L=\frac i2\,D_+\Phi\cdot D_-\Phi+\frac1{\beta^2}\sum_{j\in\tau}\mu_j\,e^{\beta\vec\alpha_j\cdot\Phi}+\frac i{\beta^2}\,\theta^+\theta^-\sum_{j\in\varepsilon}\mu_j\,e^{\beta\vec\alpha_j\cdot\Phi},
+$$ {#eq-super-action}
+
+with constants $\mu_j$ of dimension mass for odd and mass squared for even roots. The explicit $\theta^+\theta^-$ in the last term is what breaks supersymmetry when there are even simple roots. The field equation is
+
+$$
+iD_+D_-\Phi=\frac1\beta\sum_{j\in\tau}\mu_j\vec\alpha_j\,e^{\beta\vec\alpha_j\cdot\Phi}+\frac i\beta\,\theta^+\theta^-\sum_{j\in\varepsilon}\mu_j\vec\alpha_j\,e^{\beta\vec\alpha_j\cdot\Phi}.
+$$ {#eq-super-eom}
+
+**Components.** Expanding in $\theta^\pm$, integrating, and eliminating $\vec\sigma=\frac1\beta\sum_{j\in\tau}\mu_j\vec\alpha_je^{\beta\vec\alpha_j\cdot\vec\phi}$ gives
+
+$$
+\begin{aligned}
+\mathcal L&=\tfrac12\partial_+\vec\phi\cdot\partial_-\vec\phi+\tfrac i2\big(\vec\psi_+\cdot\partial_-\vec\psi_++\vec\psi_-\cdot\partial_+\vec\psi_-\big)-V(\vec\phi)
++i\sum_{j\in\tau}\mu_j\,(\vec\alpha_j\cdot\vec\psi_+)(\vec\alpha_j\cdot\vec\psi_-)\,e^{\beta\vec\alpha_j\cdot\vec\phi},\\
+V(\vec\phi)&=\frac1{\beta^2}\sum_{j\in\varepsilon}\mu_j\,e^{\beta\vec\alpha_j\cdot\vec\phi}+\frac1{2\beta^2}\sum_{i,j\in\tau}\mu_i\mu_j\,(\vec\alpha_i\cdot\vec\alpha_j)\,e^{\beta(\vec\alpha_i+\vec\alpha_j)\cdot\vec\phi} .
+\end{aligned}
+$$ {#eq-super-components}
+
+This is Evans and Madsen's (3.4) with the coupling restored. `code/super_toda/components.py` derives it from (-@eq-super-action) for generic root data with a symbolic inner product, including the signs of the fermion kinetic and Yukawa terms, and `code/super_toda/lax_currents.py` checks for the super sinh-Gordon theory that the $\theta$-components of (-@eq-super-eom) are the Euler–Lagrange equations of (-@eq-super-components). All inner products are those of $V$, so the kinetic term is indefinite when the inner product is.
+
+**Why the bosonic potential is not that of a Toda theory.** The odd roots enter $V$ through the square $\frac12\lvert\nabla W\rvert^2$ of $W=\beta^{-2}\sum_{j\in\tau}\mu_je^{\beta\vec\alpha_j\cdot\vec\phi}$. The exponents of the bosonic potential are therefore sums $\vec\alpha_i+\vec\alpha_j$ of odd simple roots, weighted by $\vec\alpha_i\cdot\vec\alpha_j$: $2\vec\alpha_j$ for a black node, and $\vec\alpha_i+\vec\alpha_j$ for neighbouring nodes. A null root never appears alone. The bosonic sector is therefore not obtained by adding a fermion to a given bosonic Toda Lagrangian. Evans and Madsen showed what it is:
+
+::: {#prp-super-bosonic}
+**[Established]** Let $B_\pm$ be the even simple roots of positive or negative squared length, together with the sums $\vec\alpha_i+\vec\alpha_j$ of odd simple roots with $\vec\alpha_i\cdot\vec\alpha_j\gtrless0$ (including $i=j$). Then $B_+$ and $B_-$ are orthogonal, the inner product is positive on the span of $B_+$ and negative on that of $B_-$, and at $\vec\psi_\pm=0$ the Lagrangian (-@eq-super-components) is a sum of two bosonic Toda Lagrangians, based on $B_+$ and $B_-$, and free massless fields on the orthogonal complement. If every even-root $\mu_j$ has the sign of $\vec\alpha_j^2$ and all odd-root $\mu_j$ have the same sign, the Lagrangians based on $B_+$ and $B_-$ are positive and negative definite, respectively [@evans_madsen1997, Props. 1–2].
+:::
+
+Setting $\vec\psi_\pm=0$ is consistent, because the fermion equations are linear and homogeneous in the fermions. For an affine root system, the theory is **purely massive** if and only if its Dynkin diagram has no grey node, or all its simple roots are odd [@evans_madsen1997, Prop. 6]. The hypothesis matters: a single black simple root gives the super-Liouville theory, whose potential $V$ is a single exponential with no stationary point. The first class consists of the bosonic affine theories and of $B^{(1)}(0,n)$, $A^{(2)}(0,2n-1)$, $A^{(4)}(0,2n)$ and $C^{(2)}(n+1)$, which also have positive kinetic terms [@olshanetsky1983]. The second class is the supersymmetric one:
+
+::: {#prp-super-susy}
+**[Established]** The theory (-@eq-super-action) is invariant under $(1,1)$ supersymmetry if and only if all simple roots are odd [@evans_hollowood1991, Sec. 3.3; @evans_madsen1997, Prop. 4]. The massive cases are $A(m,m)^{(1)}$, $A(2m,2m)^{(4)}$, $A(2m+1,2m+1)^{(2)}$, $A(2m+1,2m)^{(2)}$, $B(m,m)^{(1)}$, $D(m+1,m)^{(1)}$, $D(m,m)^{(2)}$ and $D(2,1;\alpha)^{(1)}$, $m\ge1$, each with a unique purely odd basis of simple roots; their kinetic terms are in general indefinite [@evans_madsen1997, Table 1].
+:::
+
+**Masses.** Let $\vec\phi=0$ be stationary, $\sum_{j\in\tau}\mu_j\vec\alpha_j=0$ when all roots are odd. The fermion mass matrix is $M_F=\sum_{j\in\tau}\mu_j\,\vec\alpha_j\vec\alpha_j^{\mathsf T}$, read as an operator on $V$ through the inner product, and the bosonic mass matrix is $M_B^2=M_F^2$ (@exr-super-masses). Bosons and fermions have equal masses, as supersymmetry requires, even when the kinetic term is indefinite; the relative sign of kinetic and potential terms within each sector is the physical one [@evans_madsen1997, Sec. 5]. `code/super_toda/components.py` checks $M_B^2=M_F^2$ for $C(2)^{(2)}$, $B(1,1)^{(1)}$, $A(1,1)^{(1)}$ and $D(2,1;\alpha)^{(1)}$.
+
+**Supersymmetrizing a bosonic theory.** The converse route, adding superpartners to a given bosonic Toda theory, has no obvious form that keeps integrability [@evans_hollowood1992, Sec. 1]. At rank one the two routes meet in the super sinh-Gordon theory of @sec-super-shg. Evans and Madsen examined one construction, the $(1,0)$-supersymmetric extensions of the conformal Toda theories of simple Lie algebras. For low rank they showed that none of the higher-spin $W$-currents survives, and for every classical algebra that at least one fails [@evans_madsen1996]. This concerns one family of extensions and is not a general no-go theorem, but it supports the view that integrable Toda theories with fermions come from superalgebras.
+
+## The graded Lax pair {#sec-super-lax}
+
+Let all simple roots be odd, and let $e_j,f_j$ satisfy (-@eq-super-chevalley) in a matrix realization. Define the superspace connection
+
+$$
+\mathcal A_+=\beta\,D_+\Phi\cdot\vec H+\lambda\sum_je_j,\qquad
+\mathcal A_-=\frac1\lambda\sum_j\eta_j\,e^{\beta\vec\alpha_j\cdot\Phi}f_j ,
+$$ {#eq-super-lax}
+
+with a spectral parameter $\lambda$ and constants $\eta_j$ [@evans_hollowood1991, eq. (3.18); @dgpz1991b, eq. (1.2)]. Both components are odd: $D_+\Phi$ is odd and multiplies even generators, and the exponentials are even and multiply odd generators. Odd generators anticommute with $\theta^\pm$ and with the fermions. The operators $D_\pm+\mathcal A_\pm$ are odd, and the zero-curvature condition is their anticommutator,
+
+$$
+\{D_++\mathcal A_+,\,D_-+\mathcal A_-\}=D_+\mathcal A_-+D_-\mathcal A_++\{\mathcal A_+,\mathcal A_-\}=0 .
+$$ {#eq-super-zero-curvature}
+
+Order by order in $\lambda$:
+
+- At $\lambda^1$ there is nothing, because the $e_j$ are constant.
+- At $\lambda^{-1}$, $D_+\mathcal A_-$ gives $\beta(\vec\alpha_j\cdot D_+\Phi)\eta_je^{\beta\vec\alpha_j\cdot\Phi}f_j$, and $\{\beta D_+\Phi\cdot\vec H,\mathcal A_-\}$ gives the same with the opposite sign, because $[\vec H,f_j]=-\vec\alpha_jf_j$.
+- At $\lambda^0$, $D_-\mathcal A_+=\beta(D_-D_+\Phi)\cdot\vec H$, and by (-@eq-super-chevalley) only the diagonal terms of $\{\sum e_i,\sum\eta_je^{\beta\vec\alpha_j\cdot\Phi}f_j\}$ survive, giving $\sum_j\eta_je^{\beta\vec\alpha_j\cdot\Phi}\,\vec\alpha_j\cdot\vec H$.
+
+With $\eta_j=-i\mu_j$ and $D_-D_+=-D_+D_-$, the curvature is therefore $i\beta\,\big(iD_+D_-\Phi-\beta^{-1}\sum_j\mu_j\vec\alpha_je^{\beta\vec\alpha_j\cdot\Phi}\big)\cdot\vec H$, and (-@eq-super-zero-curvature) holds for all $\lambda$ exactly when the field equation (-@eq-super-eom) does. This is the superspace version of @sec-lax-pair. The cross terms $\{e_i,f_j\}$ with $i\neq j$ must vanish; this is a property of the chosen simple roots of a contragredient superalgebra, and it fails in some tempting realizations (@sec-super-shg). When some simple roots are even, Evans and Hollowood give their coefficients in (-@eq-super-lax) explicit factors $\theta^\pm$, so that every term remains odd, and obtain (-@eq-super-eom) with its $\theta^+\theta^-$ term [@evans_hollowood1991, eqs. (3.12)–(3.13)]. As in the bosonic case, the zero-curvature condition yields infinitely many conserved charges, now superfield currents.
+
+## The super sinh-Gordon theory {#sec-super-shg}
+
+**Root data.** Take two odd simple roots $\vec\alpha_1=-\vec\alpha_0=\vec\alpha$, both black, with $\vec\alpha^2=\frac12$. The superalgebra is the twisted affine superalgebra $A(1,0)^{(2)}\simeq C(2)^{(2)}$, that is $\mathfrak{osp}(2|2)^{(2)}$ [@evans_madsen1997, Table 4; @ito_zhu2022, Sec. 3]. The normalization $\vec\alpha^2=\frac12$ gives the even root $2\vec\alpha$ of the bosonic sector squared length 2, the convention of @sec-conventions; Evans and Madsen take $\vec\alpha^2=2$. With $\mu_0=\mu_1=\mu=2m$ and a single superfield $\Phi$, so that $\vec\alpha\cdot\Phi=\Phi/\sqrt2$,
+
+$$
+\mathcal L=\frac i2\,D_+\Phi\,D_-\Phi+\frac{4m}{\beta^2}\cosh\frac{\beta\Phi}{\sqrt2},
+$$ {#eq-ssg-action}
+
+and (-@eq-super-components) becomes
+
+$$
+\begin{aligned}
+\mathcal L={}&\tfrac12\partial_+\phi\,\partial_-\phi+\tfrac i2\big(\psi_+\partial_-\psi_++\psi_-\partial_+\psi_-\big)\\
+&-\frac{m^2}{\beta^2}\big(e^{\sqrt2\beta\phi}+e^{-\sqrt2\beta\phi}-2\big)+2im\,\psi_+\psi_-\cosh\frac{\beta\phi}{\sqrt2}.
+\end{aligned}
+$$ {#eq-ssg-components}
+
+The constant $-2$ is not added by hand: it is the cross term $\vec\alpha_0\cdot\vec\alpha_1=-\frac12$ of (-@eq-super-components). The boson and the fermion both have mass $2m$.
+
+**Bosonic truncation.** At $\psi_\pm=0$, (-@eq-ssg-components) is exactly the real-coupling $a_1^{(1)}$ Lagrangian of (-@eq-imaginary-potential), with the same $m$ and the same $\beta$, whose particle has mass $2m$ (@sec-tree-level). No rescaling of the coupling is needed in this normalization, and the dictionary to the sine-Gordon conventions of @sec-sine-gordon is the book's $\beta_{\rm SG}^2=2\beta^2$. The fermion does change the quantum theory: it runs in loops.
+
+**Analytic continuation.** Replacing $\beta$ by $i\beta$ in (-@eq-ssg-action) gives the supersymmetric sine-Gordon theory. Its bosonic potential is $V_{\rm imag}$ of (-@eq-imaginary-potential) for $a_1^{(1)}$, and its Yukawa term $2im\,\psi_+\psi_-\cos(\beta\phi/\sqrt2)$ is real, because $i\psi_+\psi_-$ is real for real Grassmann fields. Evans and Madsen obtain the same theory from the twisted reality condition $\Phi\to i\Phi$, which reverses the sign of the whole Lagrangian [@evans_madsen1999, eq. (1.6)]. The overall sign is irrelevant classically. `code/super_toda/components.py` checks (-@eq-ssg-components), the truncation and the two masses.
+
+**A matrix realization of the Lax pair.** The relations (-@eq-super-chevalley) for this root system, with $h=\vec\alpha\cdot\vec H$, are $[h,e_1]=\frac12e_1$, $[h,e_0]=-\frac12e_0$, $\{e_1,f_1\}=h$, $\{e_0,f_0\}=-h$ and $\{e_1,f_0\}=\{e_0,f_1\}=0$. In $\mathfrak{sl}(2|1)$, with rows of parities $(0,0,1)$,
+
+$$
+h=\tfrac12\operatorname{diag}(1,-1,0),\qquad
+e_1=E_{13}+E_{32},\quad f_1=\tfrac12(E_{31}-E_{23}),\qquad
+e_0=-\tfrac12(E_{23}+E_{31}),\quad f_0=E_{13}-E_{32}
+$$ {#eq-ssg-realization}
+
+satisfy them, and with (-@eq-super-lax) and $\eta_0=\eta_1=-2im$ the curvature (-@eq-super-zero-curvature) is $i\sqrt2\,\beta$ times the field equation times $h$ (`code/super_toda/lax_currents.py`, which implements the Grassmann algebra and supermatrices with Grassmann entries and checks their sign rules). A realization in the loop algebra of $\mathfrak{osp}(1|2)$, with $e_1$ and $f_0$ proportional to its odd raising generator $F_+$ and $e_0$, $f_1$ to $F_-$, fails: $\{e_0,f_1\}\propto\{F_-,F_-\}=2F_-^2\neq0$, so the cross terms do not cancel. This only shows that the obvious loop algebra does not carry the relations; the identification of the algebra as the twisted $A(1,0)^{(2)}$ rests on the classification [@evans_madsen1997, Table 4]. The untwisted $\mathfrak{osp}(1|2)^{(1)}=B(0,1)^{(1)}$ has an even simple root, and its Toda theory is not supersymmetric.
+
+**Conserved currents.** In superspace a conservation law reads $D_-J=D_+\bar J$. Its $\theta$-components contain an ordinary conservation law for a bosonic current of spin one half more than that of $J$, and a fermionic one only when $\bar J=-iD_+K$ for some $K$, as for the supercurrent [@evans_madsen1999, Sec. 5.1]. Write $\hat\Phi=\beta\Phi/\sqrt2$, so that $\mathcal L=\frac{2}{\beta^2}\big[\frac i2D_+\hat\Phi D_-\hat\Phi-M\cosh\hat\Phi\big]$ with $M=-2m$, the normalization of Evans and Madsen. Then
+
+$$
+\begin{aligned}
+J&=T=D_+\hat\Phi\,D_+^2\hat\Phi-D_+^3\hat\Phi,&\bar J&=-iM\,D_+e^{-\hat\Phi},\\
+J&=T\,D_+T,&\bar J&=iM\big(D_+\hat\Phi\,(D_+^2\hat\Phi)^2-D_+^2\hat\Phi\,D_+^3\hat\Phi\big)e^{-\hat\Phi}
+\end{aligned}
+$$ {#eq-ssg-currents}
+
+satisfy $D_-J=D_+\bar J$ on shell. The first is the super stress tensor, with superspin $\frac32$. The second has superspin $\frac72$. Its bosonic current has spin 4. At $\psi_\pm=0$ its density is $\big((\partial_+\hat\phi)^2-\partial_+^2\hat\phi\big)^2$, which up to a total derivative and the rescaling of the field is the density $T_4$ of (-@eq-spin3-current). `code/super_toda/lax_currents.py` checks both laws by reducing them on shell with the component field equations. Evans and Madsen print these currents with $D_+J=D_-\bar J$ and with $\bar J$ normalized by $\frac M2$ in both lines; the component equations they derive are those of $D_-J=D_+\bar J$ (@sec-super-notes).
+
+## Quantum integrability and scattering {#sec-super-scattering}
+
+### Masses that do not float {#sec-super-fixed-masses}
+
+In the bosonic non-simply-laced theories the one-loop corrections do not keep the classical mass ratios, and the exact S-matrices of @sec-non-simply-laced need a floating Coxeter number. Grisaru, Penati and Zanon computed the one-loop masses of the four superalgebra theories with positive kinetic terms [@gpz1991]. For $A^{(2)}(0,2n-1)$ and $C^{(2)}(n+1)$ the fermion loops restore the classical ratios at this order. For $A^{(4)}(0,2n)$ and $B^{(1)}(0,n)$ they do not [@dgpz1991b, Sec. 1].
+
+In the orthonormal basis $\epsilon_1,\dots,\epsilon_n$ of $V$, the simple roots are
+
+- $A^{(2)}(0,2n-1)$: the even roots $-\epsilon_1-\epsilon_2$, $\epsilon_i-\epsilon_{i+1}$ ($i=1,\dots,n-1$) and the odd root $\epsilon_n$;
+- $C^{(2)}(n+1)$: the odd roots $-\epsilon_1$ and $\epsilon_n$, and the even roots $\epsilon_i-\epsilon_{i+1}$.
+
+The bosonic potential contains the even simple roots listed and $2\epsilon_n$, and for $C^{(2)}(n+1)$ also $-2\epsilon_1$; by @prp-super-bosonic it is the $a_{2n-1}^{(2)}$ or the $c_n^{(1)}$ Toda potential. This is the normalization of Delius, Grisaru, Penati and Zanon, with even simple roots of squared length 2; in the convention of @sec-conventions all roots are divided by $\sqrt2$ and $\beta^2$ is doubled. With the coefficients that make $\vec\phi=0$ stationary, the masses are, in their units [@dgpz1991b, eqs. (2.2), (3.2)],
+
+$$
+\begin{aligned}
+A^{(2)}(0,2n-1):&\quad m_a^2=8\sin^2\frac{\pi a}{2n-1}\ (a=1,\dots,n-1),\qquad m_n^2=m_\psi^2=2,\\
+C^{(2)}(n+1):&\quad m_a^2=8\sin^2\frac{\pi a}{2n}\ (a=1,\dots,n-1),\qquad m_n^2=8,\qquad m_{\psi_1}^2=m_{\psi_2}^2=2,
+\end{aligned}
+$$ {#eq-dgpz-masses}
+
+checked from the root data for $n=2,3,4$ in `code/super_toda/components.py`. The bosonic masses are those of $a_{2n-1}^{(2)}$ and $c_n^{(1)}$ (@sec-masses-couplings). In $A^{(2)}(0,2n-1)$ one boson, $\phi_n$, is degenerate with the fermion, and their scattering is not diagonal.
+
+### The boson–fermion S-matrix {#sec-super-dgpz}
+
+**The scattering operator.** Let $V=\mathbb C\phi_n\oplus\mathbb C\psi$ be graded, with $\phi_n$ even and $\psi$ odd. We write the two-particle S-matrix as an operator $\check S(\theta)$ on $V\otimes V$ in the braid form of @sec-trigonometric-r: the in-state $a(\theta_1)b(\theta_2)$, $\theta_1>\theta_2$, is mapped to out-states listed in their spatial order after the collision. Delius, Grisaru, Penati and Zanon define five amplitudes as matrix elements: $B$ for $\phi_n\phi_n\to\phi_n\phi_n$, $F$ for $\psi\psi\to\psi\psi$, $D$ for $\phi_n\phi_n\to\psi\psi$ (and $-D$ for the reverse), $T$ for transmission and $R$ for reflection of a boson–fermion pair [@dgpz1991b, eq. (2.4)]. Then
+
+$$
+\check S(\theta):\quad
+\begin{aligned}
+\phi\phi&\mapsto B\,\phi\phi+D\,\psi\psi, &\psi\psi&\mapsto-D\,\phi\phi+F\,\psi\psi,\\
+\psi\phi&\mapsto T\,\phi\psi+R\,\psi\phi, &\phi\psi&\mapsto T\,\psi\phi+R\,\phi\psi .
+\end{aligned}
+$$ {#eq-dgpz-operator}
+
+In the free limit $B=T=1$, $F=-1$ and $R=D=0$, so $\check S$ is the **graded permutation**, which exchanges the two particles with a sign $-1$ when both are fermions. The scattering operator therefore includes the graded permutation. On $V\otimes V\otimes V$ the operators $\check S_{12}=\check S\otimes1$ and $\check S_{23}=1\otimes\check S$ are formed with the graded tensor product; for the even operator $\check S$ this produces no extra signs. The Yang–Baxter equation in braid form (-@eq-ybe-braid),
+
+$$
+\check S_{12}(\theta')\,\check S_{23}(\theta+\theta')\,\check S_{12}(\theta)=\check S_{23}(\theta)\,\check S_{12}(\theta+\theta')\,\check S_{23}(\theta'),
+$$ {#eq-dgpz-ybe}
+
+has as components Yang–Baxter equations of the form (2.7) of [@dgpz1991b], and unitarity is $\check S(\theta)\check S(-\theta)=1$. If the free limit were the ordinary permutation, with $F\to-F$, (-@eq-dgpz-ybe) would fail for the solution below.
+
+**The solution.** Delius et al. solved these equations, with unitarity and crossing, under the assumption that all five amplitudes are nonzero and distinct. The general solution is elliptic: it is the free-fermion eight-vertex model [@dgpz1991b, App. B]. The trigonometric case relevant to the Toda theory is, with $h=2n-1$ and a parameter $\Omega\in(0,1)$,
+
+$$
+\begin{aligned}
+R&=\frac{i\gamma}{\sinh\frac{h\theta}2}\,T, &D&=(-1)^{n+1}\frac{i\gamma}{\cosh\frac{h\theta}2}\,T,\\
+B&=\Big(1+\frac{2i\gamma}{\sinh h\theta}\Big)T, &F&=\Big(-1+\frac{2i\gamma}{\sinh h\theta}\Big)T,\qquad\gamma=-\sin\pi\Omega,
+\end{aligned}
+$$ {#eq-dgpz-amplitudes}
+
+where $T(\theta)=\Pi(\theta)\,\Pi(i\pi-\theta)$ with $\eta=-ih\theta/2\pi$ and
+
+$$
+\begin{aligned}
+\Pi(\theta)=\prod_{l=1}^\infty\;&\frac{\Gamma\big(\eta-\Omega+1+h(l-1)\big)\,\Gamma\big(\eta+\Omega+h(l-1)\big)}{\Gamma\big(\eta-\Omega+1+h(l-\frac12)\big)\,\Gamma\big(\eta+\Omega+h(l-\frac12)\big)}\\
+\times\;&\frac{\Gamma\big(\eta+1+h(l-\frac12)\big)\,\Gamma\big(\eta+h(l-\frac12)\big)}{\Gamma\big(\eta+1+h(l-1)\big)\,\Gamma\big(\eta+h(l-1)\big)}
+\end{aligned}
+$$ {#eq-dgpz-pi}
+
+[@dgpz1991b, eqs. (2.34)–(2.41)]. The function $T$ has no poles in the physical strip, and it satisfies $T(i\pi-\theta)=T(\theta)$ and
+
+$$
+T(\theta)\,T(-\theta)=\frac{\sinh^2\frac{h\theta}2}{\sinh^2\frac{h\theta}2+\gamma^2},
+$$ {#eq-dgpz-unitarity}
+
+which with (-@eq-dgpz-amplitudes) is equivalent to $\check S(\theta)\check S(-\theta)=1$ (@exr-super-dgpz). Delius et al. fix only $\gamma^2=\sin^2\pi\Omega$. The sign $\gamma<0$ is fixed by the tree-level amplitudes, for which $\Omega=\beta^2/4\pi+O(\beta^4)$ in their normalization of $\beta$: we computed the tree amplitude for $\phi_n\phi_n\to\phi_n\phi_n$ from the bosonic potential, with contact and exchange diagrams, and compared it with the first order of $B$.
+
+**Properties.** The amplitudes $B$, $F$ and $T$ are crossing symmetric, and crossing exchanges the other two as $D(i\pi-\theta)=iR(\theta)$. The factor $i$ matches the analytic continuation of the Majorana spinors in the basis of [@dgpz1991b, App. A], $u(\theta+i\pi)=i\,v(\theta)$. We use their crossing convention for the amplitudes; it is not derived here from charge conjugation and ordered asymptotic states. Two identities hold for all $\theta$: $B-F=2T$, and the free-fermion condition $a_1a_2+b_1b_2=c_1c_2+d_1d_2$ of the eight-vertex weights of $\check S$, which here reads $BF+T^2=R^2-D^2$, since $d_1d_2=D\cdot(-D)$.
+
+**Bound states.** $B$, $F$ and $D$ have simple poles at $\theta=i\pi\frac{2(n-a)-1}{2n-1}$, $a=1,\dots,n-1$, where $s=8\cos^2\big(\frac\pi2-\frac{\pi a}h\big)=8\sin^2\frac{\pi a}h=m_a^2$. The residues of $B$ and $F$ are $i$ times positive numbers, and the $2\times2$ matrix of residues in the channels $\phi_n\phi_n$ and $\psi\psi$ has rank one: each pole is a single bound state $\phi_a$ that couples to both channels. The poles of $R$, $B$ and $F$ at $\theta=2\pi ia/h$ are their crossed images. So the remaining bosons of the theory appear as bound states of the degenerate boson–fermion pair, and their amplitudes follow from the bootstrap [@dgpz1991b, eqs. (2.45)–(2.51)]:
+
+$$
+S_{a n}(\theta)=S_{a\psi}(\theta)=\prod_{p=1}^a\Big\{\frac h2-a+2p-1\Big\},\qquad
+S_{ab}(\theta)=\prod_{p=1}^{a}\{h-a-b+2p-1\}\{b-a+2p-1\},
+$$ {#eq-dgpz-san}
+
+for $a\le b\le n-1$, in the blocks (-@eq-blocks) with Coxeter number $h=2n-1$ and $B=2\Omega$. `code/super_toda/dgpz_smatrix.py` checks, for $n=2$ and 3: the crossing and unitarity of $T$; the Yang–Baxter equations (2.7) and (-@eq-dgpz-ybe); unitarity, including $\check S\check S^\dagger=1$ for real $\theta$; crossing; the two identities; the poles and residues; agreement with the tree amplitudes; and that the bootstrap expression (2.45) equals the first product in (-@eq-dgpz-san).
+
+**The $C^{(2)}(n+1)$ theory.** When $n=3k$ the boson $\phi_k$ has the mass of the fermions, $m_k^2=8\sin^2\frac\pi6=2$, and a pair of fermions could in principle annihilate into a pair of bosons. Guided by the tree amplitudes, Delius et al. assume that this does not happen; the S-matrix is then diagonal in a suitable basis [@dgpz1991b, Sec. 3]. For even $n$, in the complex basis $\chi=(\psi_1+i\psi_2)/\sqrt2$ and its conjugate $\bar\chi$,
+
+$$
+S_{\chi\chi}=-\{1\}\{5\}\cdots\{2n-3\},\qquad S_{\chi\bar\chi}=-\{3\}\{7\}\cdots\{2n-1\},
+$$ {#eq-dgpz-cn}
+
+with $h=2n$, and crossing exchanges the two. For odd $n$ the real combinations $(\psi_1\pm\psi_2)/\sqrt2$ diagonalize the S-matrix, with amplitudes $-\{3\}\{7\}\cdots\{2n-3\}$ and $-\{1\}\{5\}\cdots\{2n-1\}$, each crossing symmetric. The bosons $\phi_a$, $a=1,\dots,n-1$, are bound states of the fermions, with $S_{\chi a}=\{n-a+1\}\{n-a+3\}\cdots\{n+a-1\}$, and
+
+$$
+S_{ab}=\{a+b-1\}\{a+b-3\}\cdots\{\lvert a-b\rvert+1\}\cdot\{2n-\lvert a-b\rvert-1\}\cdots\{2n-a-b+1\} .
+$$
+
+for $a,b\le n-1$. The heaviest boson has $m_n=2m_\psi$. Its pole would lie at the threshold $\theta=0$, it is absent from the fermion amplitudes, and its amplitudes are not determined by this bootstrap. Delius et al. extend the formulas to $a=n$ or $b=n$, which is consistent with the tree amplitudes [@dgpz1991b, after eq. (3.17)].
+
+The last expression had been proposed for the bosonic $c_n^{(1)}$ theory by folding the $a_{2n-1}^{(1)}$ S-matrix [@braden1990]. It agrees with the bosonic theory at tree level, but its double poles are not explained by the bosonic Lagrangian. At one loop, Delius et al. find that the double pole of $S_{n-1,n-1}$ at $\theta=i\pi/n$ receives a contribution from a box diagram with fermions, and that the coefficient matches only when it is included [@dgpz1991a].
+
+::: {#cnj-dgpz-smatrix}
+**[Conjecture]** The amplitudes (-@eq-dgpz-amplitudes)–(-@eq-dgpz-san) are the exact S-matrix of the $A^{(2)}(0,2n-1)$ theory, and (-@eq-dgpz-cn) with the bootstrap amplitudes above that of the $C^{(2)}(n+1)$ theory, with $\Omega=\beta^2/4\pi+O(\beta^4)$ in the normalization of [@dgpz1991b] [@dgpz1991a; @dgpz1991b]. The evidence: the classical masses and their one-loop stability [@gpz1991]; agreement with all tree-level two-particle amplitudes; the exact solution of the Yang–Baxter equations in the boson–fermion sector; and the explanation of the double poles by one-loop anomalous thresholds, in which the fermions are needed for $C^{(2)}(n+1)$ and cancel against the boson $\phi_n$ for $A^{(2)}(0,2n-1)$ [@dgpz1991b, Sec. 4]. In the $C^{(2)}(n+1)$ theory the amplitudes of the heaviest boson are extensions of the bootstrap formulas, and their one-loop test is complicated by $m_n=2m_\psi$ [@dgpz1991b, Sec. 3]. The coupling dependence beyond one loop has not been checked.
+:::
+
+The comparison with @sec-non-simply-laced is instructive. The bosonic $a_{2n-1}^{(2)}$ Lagrangian has the same masses and couplings as the bosonic part of $A^{(2)}(0,2n-1)$. Delius, Grisaru and Zanon later found that its S-matrix has the same $S_{an}$ and $S_{ab}$ with $h$ replaced by the floating $H$, and a different $S_{nn}$ [@dgz1992, Sec. 2.3]. In the proposed superalgebra S-matrices $H$ stays at its classical value, as the one-loop masses suggest. For $A^{(4)}(0,2n)$ and $B^{(1)}(0,n)$, whose masses do float, Delius, Grisaru and Zanon also proposed S-matrices with a floating Coxeter number [@dgz1992].
+
+### Quantum conserved currents {#sec-super-quantum-currents}
+
+The S-matrices above assume quantum integrability. Direct evidence comes from currents computed in perturbation theory. Penati and Zanon treated the supersymmetric $B(1,1)^{(1)}$ theory [@penati_zanon1992]. They realize its three odd simple roots as complex vectors, $\vec\alpha_1=(1,-i)$, $\vec\alpha_2=(0,i)$, $\vec\alpha_0=(-1,-i)$, with the bilinear (not hermitian) inner product. The classical masses are $m_1^2=2$, $m_2^2=8$, real although the Lagrangian is not manifestly unitary, with the second particle exactly at the two-particle threshold. In massless perturbation theory around the conformal $B(1,1)$ theory, an anomaly in the conservation of a current can only come from the first order in the interaction. Penati and Zanon used this to construct a spin-3 superfield current whose conservation holds to all orders in $\beta$, with explicit $\beta$-dependent coefficients up to $\beta^6$. At one loop they found no mass renormalization, a charge ratio $\omega_2/\omega_1=\frac14$ unchanged from its classical value, and a vanishing three-point function $\langle\Phi_2\Phi_2\Phi_2\rangle$, all as the conserved current requires. This is a perturbative statement, made in their regularization; it is not a non-perturbative proof.
+
+For the family $D(2,1;\alpha)^{(1)}$ Evans and Madsen found two classical currents of superspin $\frac72$ and showed, by the same method, that both survive quantization for every admissible $\alpha$, with corrections they give explicitly [@evans_madsen1999, Sec. 6]. The calculation does not depend on the reality conditions of the fields.
+
+## $N=2$ theories, solitons and reality {#sec-super-n2}
+
+**When is there a second supersymmetry?** Evans and Hollowood looked for a second supersymmetry of the form $Q_\pm'\Phi=JD_\pm\Phi$, with a linear map $J$ on $V$ [@evans_hollowood1992, Sec. 2]. It must obey $J^2=-1$, be antisymmetric for the inner product, and have the simple roots as eigenvectors, $J\vec\alpha_j=\lambda_j\vec\alpha_j$. Together these conditions say
+
+$$
+(\lambda_i+\lambda_j)\,a_{ij}=0,\qquad\lambda_j^2=-1 .
+$$ {#eq-n2-condition}
+
+So every simple root is null, and the graph of the nonzero $a_{ij}$ must admit $\lambda_j=\pm i$ with opposite signs on neighbours, that is, it must be bipartite. Among the massive theories this leaves the family $\mathfrak{sl}(m|m)^{(1)}$ of Evans and Hollowood, with $2m$ null simple roots on a cycle with $a_{j,j\pm1}=\pm1$ alternating, and $\lambda_j=\pm i(-1)^j$. The four null roots of $D(2,1;\alpha)^{(1)}$ are all joined to each other for every admissible $\alpha$, and (-@eq-n2-condition) has no solution (@exr-super-n2).
+
+**Notation.** Kac's $A(m-1,m-1)$ is $\mathfrak{psl}(m|m)$, the quotient of $\mathfrak{sl}(m|m)$ by its centre, the multiples of the identity [@evans_hollowood1991, Sec. 3.2]. Evans and Hollowood write $\mathfrak{sl}(m,m)^{(1)}$ for the affine algebra, and Evans and Madsen write $A(m-1,m-1)^{(1)}$. The Cartan matrix has rank $2m-2$ and two null vectors, so there are two linear relations among the simple roots and two mass parameters $\mu$ (odd-numbered roots) and $\mu'$ (even-numbered roots). The Toda theory uses only the projections of the simple roots onto the $(2m-2)$-dimensional space on which the form is non-degenerate. In a formulation with one superfield for each simple root, each null vector of the Cartan matrix gives a combination $\Phi'$ of superfields that obeys the free equation $D_+D_-\Phi'=0$, and setting these combinations to zero is consistent [@evans_hollowood1992, Sec. 1]. A larger Cartan subalgebra, such as that of $\mathfrak{gl}(m|m)$, is a different matter: the simple roots do not vanish on its extra generator $\operatorname{diag}(1_m,-1_m)$, and the extra field couples to the others.
+
+**Reality.** With real superfields (-@eq-n2-condition) has no real solution. The theory is $N=2$ supersymmetric either for complex superfields, or with the **twisted reality condition** $\vec\alpha_j\cdot\Phi^*=\vec\alpha_{\sigma(j)}\cdot\Phi$, $\sigma(j)=2m-1-j$, which requires $\mu=\mu'$ [@evans_hollowood1992, eq. (2.14)]. A twisted reality condition takes some field combinations imaginary, chosen so that the Lagrangian stays real; it selects a real form of the superalgebra [@evans_madsen1999, Sec. 3.2]. It is not the antilinear symmetry $\Theta$ of @sec-theta-classical, which is a symmetry of a complex Lagrangian, and neither is related to supersymmetry. For $m=2$ the result is the $N=2$ supersymmetric sine-Gordon theory. With the fermions set to zero it is a sine-Gordon and a sinh-Gordon theory of equal mass, decoupled, both with positive kinetic terms [@evans_madsen1997, eqs. (7.10)–(7.12)]. In $N=2$ superspace it has a single chiral superfield with superpotential proportional to $\cosh\beta\Psi$ [@evans_hollowood1992, Sec. 3].
+
+**Solitons.** In the complex theory, write $\vec\alpha_{2j-1}\cdot\Phi=\Phi^{(1)}_j-i\Phi^{(2)}_j$ and $\vec\alpha_{2j-2}\cdot\Phi=i\Phi^{(2)}_{j-1}-\Phi^{(1)}_j$, $j=1,\dots,m$ mod $m$, with traceless $\Phi^{(1)},\Phi^{(2)}$ and the bilinear Euclidean inner product [@evans_hollowood1992, eq. (5.1)]. At zero fermions and $\mu=\mu'$ the bosonic potential is
+
+$$
+V=V_{\rm real}\big[\vec\phi^{(1)}\big]+V_{\rm imag}\big[\vec\phi^{(2)}\big],
+$$
+
+the two $a_{m-1}^{(1)}$ potentials of (-@eq-imaginary-potential), with the book's mass parameter equal to $\mu$ and the same $\beta$ (`code/super_toda/n2_solitons.py`). The real sector $\vec\phi^{(1)}$ has a unique vacuum. The second sector is the imaginary-coupling theory of @sec-classical-solitons, and its solitons, with $\vec\phi^{(1)}=0$, are solitons of the $N=2$ theory. Their classical masses are those of (-@eq-soliton-mass),
+
+$$
+M_a=\frac{4m\mu}{\beta^2}\sin\frac{\pi a}m=\frac{2h\,m_a}{\beta^2},\qquad h=m,\quad m_a=2\mu\sin\frac{\pi a}h ,
+$$ {#eq-n2-masses}
+
+[@evans_hollowood1992, eq. (5.4)]. These solitons are invariant under one combination of the supercharges $Q_\pm$ and $Q'_\pm$, so that they satisfy a first-order equation, and their mass is a boundary term [@evans_hollowood1992, eqs. (5.7)–(5.9)]:
+
+$$
+M=\frac\mu{\beta^2}\Big[c_a\sum_{j\ \rm even}e^{\beta\vec\alpha_j\cdot\vec\phi}+c_a^{-1}\sum_{j\ \rm odd}e^{\beta\vec\alpha_j\cdot\vec\phi}\Big]_{x=-\infty}^{x=\infty},\qquad c_a=i\,e^{i\pi a/m}.
+$$ {#eq-n2-central}
+
+Evans and Hollowood write $c_a=(1+i\sigma)/(1-i\sigma)$ with $\sigma=\tan(\frac{\pi a}{2m}+\frac\pi4)$; the form above agrees wherever $\sigma$ is finite and also covers $a=m/2$, where $\sigma$ is infinite. The two terms are complex conjugates, which is another way to see that the masses are real. This is the classical form of the Witten–Olive relation between the mass of a soliton and the central charge of the supersymmetry algebra, which here depends on the vacua at the two ends [@witten_olive1978]. `code/super_toda/n2_solitons.py` checks, for $m=2,3,4$ and every $a$, that the one-soliton solutions solve the field equations, that their energy integrated from the Lagrangian is (-@eq-n2-masses), that (-@eq-n2-central) evaluated on the asymptotic vacua gives the same value, and that the first-order equation holds, with the sign of $\lambda$ set by the orientation of the soliton (@sec-super-notes). These are classical statements. Whether the central charge receives quantum corrections or anomalies is not treated here.
+
+::: {#cnj-n2-sine-gordon}
+**[Conjecture]** The S-matrix of the $N=2$ supersymmetric sine-Gordon theory is the sine-Gordon soliton S-matrix times a minimal $N=2$ supersymmetric S-matrix, $S_{\rm SG}^{N=2}=S_{\rm SG}\otimes S^{N=2}[m=2]$, with the coupling of the bosonic sine-Gordon theory [@evans_hollowood1992, eq. (5.10); @kobayashi_uematsu1992; @fendley_intriligator1992]. Evans and Hollowood suggest that for $m>2$ the bosonic factor is the $a_{m-1}^{(1)}$ soliton S-matrix of @sec-known-smatrices without its minimal factor, whose poles the $N=2$ factor would supply.
+:::
+
+**The family $D(2,1;\alpha)^{(1)}$.** The exceptional superalgebra $D(2,1;\alpha)$ depends on a continuous parameter. In an orthogonal basis with $\epsilon_1^2=-\frac{1+\alpha}2$, $\epsilon_2^2=\frac12$, $\epsilon_3^2=\frac\alpha2$, its odd simple roots are $\vec\alpha_1=-\epsilon_1+\epsilon_2+\epsilon_3$, $\vec\alpha_2=\epsilon_1-\epsilon_2+\epsilon_3$, $\vec\alpha_3=\epsilon_1+\epsilon_2-\epsilon_3$, and the affine root is $\vec\alpha_0=-\epsilon_1-\epsilon_2-\epsilon_3$. All four are null, with $\vec\alpha_1\cdot\vec\alpha_2=\alpha$, $\vec\alpha_1\cdot\vec\alpha_3=1$ and $\vec\alpha_2\cdot\vec\alpha_3=-1-\alpha$ [@evans_madsen1999, Sec. 2]. The parameter $\alpha\in\mathbb C\setminus\{0,-1\}$ is a coupling of the theory in addition to $\beta$, because it enters the inner product. Evans and Madsen take $\alpha$ real and, using isomorphisms between the algebras at different $\alpha$, positive [@evans_madsen1999, Sec. 3]; so do we. With real fields the bosonic sector consists of three sinh-Gordon theories of masses $m(1+\alpha)$, $m$ and $m\alpha$, $m=2\mu$, whose kinetic terms have the coefficients $-\frac1{1+\alpha}$, $1$ and $\frac1\alpha$ (relative to the normalization of Evans and Madsen): indefinite. The fermion masses are the same. Up to signs and the factor $m$, they are the three mutual products $\vec\alpha_1\cdot\vec\alpha_2$, $\vec\alpha_1\cdot\vec\alpha_3$ and $\vec\alpha_2\cdot\vec\alpha_3$; the bond opposite to each, such as $\vec\alpha_0\cdot\vec\alpha_3=\alpha$, carries the same product. The twisted reality condition $\Phi_2\to i\Phi_2$, $\Phi_3\to i\Phi_3$ makes the kinetic term definite for $\alpha>0$. The result is a supersymmetric theory whose bosons form a sinh-Gordon theory of mass $m(1+\alpha)$ and two sine-Gordon theories of masses $m$ and $m\alpha$, with a bounded potential. With the overall sign chosen to make the kinetic terms positive, and canonically normalized fields, the cubic Yukawa couplings are $-4\mu\sqrt{\alpha(1+\alpha)}\,(\bar\psi_1\psi_2\phi_3+\bar\psi_1\psi_3\phi_2+\bar\psi_2\psi_3\phi_1)$; the full interaction is non-polynomial [@evans_madsen1999, Secs. 3.2–3.3]. `code/super_toda/components.py` checks the Cartan matrix, the masses, the signs of the kinetic terms for the three twisted reality conditions, and the Yukawa coupling. The quantum currents of @sec-super-quantum-currents make the family quantum integrable in the perturbative sense. Evans and Madsen relate the other theories with positive kinetic terms to this family [@evans_madsen1999, Sec. 4]. Folding the Dynkin diagram by the symmetry of the twisted reality condition gives $C(2)^{(2)}$. Folding $D(2,1;1)^{(1)}$ by the exchange of $\vec\alpha_2$ and $\vec\alpha_3$ gives $B(1,1)^{(1)}$. The singular limit $\alpha\to0$, in which $\vec\alpha_2=-\vec\alpha_1$ and $\Phi_3$ is set to zero, gives $A(1,1)^{(1)}$. Evans and Madsen left its S-matrix as an open problem.
+
+A positive kinetic term matters because only then is the quantization standard. With an indefinite kinetic term the classical spectrum can still be real, as for $B(1,1)^{(1)}$, but a real classical spectrum does not make the quantum theory unitary. For such theories unitarity is a separate question, as for the imaginary-coupling theories of Part IX (@sec-krein-unitarity).
+
+## Connections {#sec-super-connections}
+
+**ODE/IM.** Ito and Zhu formulated the linear problem of the supersymmetric affine Toda equations for the affine superalgebras with purely odd simple roots [@ito_zhu2022]. After a superconformal transformation and the conformal limit, setting the fermions to zero reduces the linear problem to ordinary differential equations, one set for each bosonic subalgebra. For $C(2)^{(2)}=\mathfrak{osp}(2|2)^{(2)}$, the super sinh-Gordon theory of @sec-super-shg, the result is a second-order equation whose potential is the square of a monomial potential, which is known from earlier work to correspond to the $N=1$ supersymmetric minimal models. The correspondence for the massive theories is not established there (@sec-ode-im).
+
+**Boundaries and defects.** Nepomechie's two-parameter family of supersymmetric boundary conditions for the supersymmetric sine-Gordon theory uses a fermionic boundary degree of freedom (@sec-bsg-super). Integrable defects of the super sinh-Gordon theory are frozen supersymmetric Bäcklund transformations with a fermionic defect field (@sec-sgd-super).
+
+## Exercises {#sec-super-toda-exercises}
+
+::: {#exr-super-gl11}
+In $\mathfrak{gl}(1|1)$, with rows of parities $(0,1)$, compute $\{E_{12},E_{21}\}$, $[E_{11},E_{12}]$ and $\{E_{12},E_{12}\}$. Show that $\operatorname{str}[X,Y\}=0$ for homogeneous $X,Y$, and check the graded Jacobi identity for $X=E_{12}$, $Y=E_{21}$, $Z=E_{12}$. Show that the root of $E_{12}$ is null for the form $\operatorname{str}(XY)$ on the diagonal matrices.
+:::
+
+::: {#exr-super-auxiliary}
+Derive (-@eq-ssg-components) from (-@eq-ssg-action). Expand $\Phi$ as in (-@eq-super-field), use $e^{a+n}=e^a(1+n+\frac12n^2)$ for the nilpotent part $n$, integrate with $\int d^2\theta\,\theta^+\theta^-=i$, and eliminate $\sigma$. Check that the boson and the fermion have mass $2m$. (*Hint:* the fermion equations are $\partial_-\psi_+=-M\psi_-$, $\partial_+\psi_-=M\psi_+$ for a Yukawa term $iM\psi_+\psi_-$, so $\partial_+\partial_-\psi_+=-M^2\psi_+$.)
+:::
+
+::: {#exr-super-masses}
+Let all simple roots be odd, with $\sum_j\mu_j\vec\alpha_j=0$. Write $V=\frac12\nabla W\cdot\nabla W$ with $W$ as in @sec-super-superspace, and show that at $\vec\phi=0$ the Hessian of $V$ is $(\operatorname{Hess}W)G^{-1}(\operatorname{Hess}W)$, where $G$ is the Gram matrix of $V$. Deduce $M_B^2=M_F^2$ with $M_F=G^{-1}\sum_j\mu_jG\vec\alpha_j(G\vec\alpha_j)^{\mathsf T}$, and conclude that bosons and fermions have equal masses.
+:::
+
+::: {#exr-super-b11}
+For $B(1,1)^{(1)}$ take the Cartan matrix $a=\begin{pmatrix}1&-1&-1\\-1&0&2\\-1&2&0\end{pmatrix}$ of three odd roots, with $2\vec\alpha_1+\vec\alpha_2+\vec\alpha_3=0$. Find $B_\pm$ of @prp-super-bosonic, and show that the bosonic sector consists of two sinh-Gordon theories with masses in the ratio $2:1$ and kinetic terms of opposite sign. Compare with the masses $m_1^2=2$, $m_2^2=8$ of Penati and Zanon.
+:::
+
+::: {#exr-super-n2}
+Show that (-@eq-n2-condition) forces $a_{jj}=0$ for all $j$ and opposite $\lambda$ on any two roots with $a_{ij}\neq0$. Solve it for the cycle of four null roots of $A(1,1)^{(1)}$, with $a_{j,j\pm1}=\pm1$ alternating, and show that it has no solution for $D(2,1;\alpha)^{(1)}$, whose four simple roots have nonzero mutual products.
+:::
+
+::: {#exr-super-dgpz}
+Using (-@eq-dgpz-amplitudes), show that $B-F=2T$ and $BF+T^2+D^2-R^2=0$, and that $\check S(\theta)\check S(-\theta)=1$ is equivalent to (-@eq-dgpz-unitarity). Given $T(i\pi-\theta)=T(\theta)$, show $D(i\pi-\theta)=iR(\theta)$. For $n=2$, find the $s$-channel pole of $B$ in the physical strip and check that it lies at $s=m_1^2=6$ in the units of (-@eq-dgpz-masses).
+:::
+
+## Notes and references {#sec-super-notes}
+
+**Constructions.** Toda theories based on Lie superalgebras go back to Olshanetsky, who singled out the theories with positive kinetic terms [@olshanetsky1983]. Evans and Hollowood gave the superspace Lax construction, classified the theories with $N=1$ and $N=2$ superconformal symmetry, and studied which integrable deformations keep supersymmetry [@evans_hollowood1991]. Their paper has an erratum (Nucl. Phys. B382 (1992) 662), which we have not been able to consult; the formulas used here are taken from the later papers of Evans, Hollowood and Madsen or checked independently. The massive $N=2$ family and its solitons are in [@evans_hollowood1992]. Evans and Madsen gave the diagrammatic rule for the bosonic sector, the classifications of purely massive theories and of positive kinetic terms with twisted reality conditions [@evans_madsen1997], the $D(2,1;\alpha)^{(1)}$ family [@evans_madsen1999], and the analysis of $(1,0)$ extensions [@evans_madsen1996]. The conventions of this chapter and the scripts that check it are described in `code/super_toda/README.md`.
+
+**Quantum theory and scattering.** The one-loop masses are due to Grisaru, Penati and Zanon [@gpz1991], the exact S-matrices of $A^{(2)}(0,2n-1)$ and $C^{(2)}(n+1)$ and their one-loop tests to Delius, Grisaru, Penati and Zanon [@dgpz1991a; @dgpz1991b], and the quantum conserved currents to Penati and Zanon [@penati_zanon1992], Gualzetti, Penati and Zanon [@gualzetti1993] and Evans and Madsen [@evans_madsen1999]. Delius et al. note that formally at $n=1$, where there are no bound states, their boson–fermion S-matrix reduces to the supersymmetric S-matrix of Shankar and Witten and Schoutens [@shankar1978; @schoutens1990]. The S-matrix of the supersymmetric sine-Gordon theory was proposed by Ahn [@ahn1991]. All of these S-matrices are conjectures in the sense of @cnj-dgpz-smatrix.
+
+**Corrections and conventions.** Two misprints were found in checking the sources (@sec-app-corrections). Evans and Madsen's conservation law for the super sinh-Gordon currents is printed as $D_+J=D_-\bar J$, with $\bar J=\frac M2iD_+e^{-\Phi}$ and $\frac M2i(\cdots)e^{-\Phi}$ [@evans_madsen1999, eqs. (5.44)–(5.46)]. Their own component equations (5.48)–(5.51) are those of $D_-J=D_+\bar J$, and with their Lagrangian (1.5) the partners are $-iMD_+e^{-\Phi}$ and $iM(\cdots)e^{-\Phi}$, as in (-@eq-ssg-currents). The free-fermion condition printed by Delius et al. as $BF+T^2-D^2-R^2=0$ [@dgpz1991b, eq. (B.1)] holds for their amplitudes (2.34) with $+D^2$, as the eight-vertex weights $D$ and $-D$ require. Two signs are fixed by our checks rather than by the sources. The sign $\gamma=-\sin\pi\Omega$ in (-@eq-dgpz-amplitudes) follows from the tree level. In the first-order soliton equation of Evans and Hollowood, the coefficient $\lambda$ of their (5.8) is $-\sqrt{(1-v)/(1+v)}$ for the solitons (5.3) with $\rho>0$ and $+\sqrt{(1-v)/(1+v)}$ for $\rho<0$. They fix only $\rho^2$, so the sign is a choice of orientation, not a correction.
+
+**Not treated here.** Superconformal Toda theories and super-$W$-algebras [@evans_hollowood1991]; non-abelian superalgebra Toda theories; the supersymmetric Liouville theory; the thermodynamic Bethe ansatz and form factors of the supersymmetric theories; and the relation between the minimal supersymmetric S-matrices and the soliton S-matrices of Part VI, which Gandenberger found at the level of scalar factors (@sec-known-smatrices-notes).

@@ -25,7 +25,7 @@ V_{\rm real}=\frac{m^2}{\beta^2}\sum_jn_j\left(e^{\beta\vec\alpha_j\cdot\vec\phi
 V_{\rm imag}=-\frac{m^2}{\beta^2}\sum_jn_j\left(e^{i\beta\vec\alpha_j\cdot\vec\phi}-1\right).
 $$ {#eq-imaginary-potential}
 
-Here $\vec\phi$ takes values in $\mathbb R^r$, the sums run over the $r+1$ simple roots of the affine algebra $\hat g$, the $n_j$ are its Kac labels (@sec-affine-dynkin), and $\beta>0$ in both cases. Expanding about $\vec\phi=0$ gives the classical mass matrix $\mathsf M^2=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$ (sans-serif, to keep $M$ for soliton masses). The linear term vanishes because $\sum_jn_j\vec\alpha_j=0$.
+Here $\vec\phi$ takes values in $\mathbb R^r$, the sums run over the $r+1$ simple roots of the affine algebra $\hat g$, the $n_j$ are its Kac labels (@sec-affine-dynkin), and $\beta>0$ in both cases. Expanding about $\vec\phi=0$ gives the classical mass matrix $\mathsf M^2=m^2\sum_jn_j\vec\alpha_j\vec\alpha_j^{\mathsf T}$ (sans-serif, to keep $M$ for soliton masses). The linear term vanishes because $\sum_jn_j\vec\alpha_j=0$. Throughout this chapter $\hat g$ is an affine Lie algebra. Replacing it by an affine Lie superalgebra gives theories with fermions, which are the subject of @sec-super-toda; the formulas of this chapter do not apply to them without change.
 
 The sign in $V_{\rm imag}$ matters. It makes the quadratic term at $\vec\phi=0$ positive definite, $V\simeq\tfrac12\vec\phi^{\mathsf T}\mathsf M^2\vec\phi$. A complex function has no minimum, but on real fields $\operatorname{Re}V_{\rm imag}=\frac{m^2}{\beta^2}\sum_jn_j\big(1-\cos\beta\vec\alpha_j\cdot\vec\phi\big)\ge0$, so its real part is minimal at $\vec\phi=0$. In the Euclidean theory the sign gives positive fugacities (@sec-lattice).
 
@@ -70,7 +70,7 @@ $$
 [\partial_++\mathcal A_+,\partial_-+\mathcal A_-]=0\quad\text{for all }\lambda
 $$ {#eq-zero-curvature}
 
-is equivalent to the field equations (-@eq-toda-eom). The terms proportional to $E_{\pm\vec\alpha_j}$ cancel identically. The terms in the Cartan subalgebra give $-\beta\,\partial_+\partial_-\vec\phi\cdot\vec H$ from the derivatives and $-m^2\sum_jc_j^2e^{\beta\vec\alpha_j\cdot\vec\phi}\frac{2\vec\alpha_j}{\vec\alpha_j^2}\cdot\vec H$ from the commutator, because $[E_{\vec\alpha_i},E_{-\vec\alpha_j}]=0$ for $i\ne j$. With $c_j^2=n_j\vec\alpha_j^2/2$ their sum vanishes exactly when (-@eq-toda-eom) holds (@exr-lax). `code/toda_classical.py` checks the equivalence symbolically for $a_2^{(1)}$ and, with $3\times3$ matrices, for $a_2^{(2)}$.
+is equivalent to the field equations (-@eq-toda-eom). The terms proportional to $E_{\pm\vec\alpha_j}$ cancel identically. The terms in the Cartan subalgebra give $-\beta\,\partial_+\partial_-\vec\phi\cdot\vec H$ from the derivatives and $-m^2\sum_jc_j^2e^{\beta\vec\alpha_j\cdot\vec\phi}\frac{2\vec\alpha_j}{\vec\alpha_j^2}\cdot\vec H$ from the commutator, because $[E_{\vec\alpha_i},E_{-\vec\alpha_j}]=0$ for $i\ne j$. With $c_j^2=n_j\vec\alpha_j^2/2$ their sum vanishes exactly when (-@eq-toda-eom) holds (@exr-lax). `code/toda_classical.py` checks the equivalence symbolically for $a_2^{(1)}$ and, with $3\times3$ matrices, for $a_2^{(2)}$. The same construction works in superspace for an affine Lie superalgebra, with odd generators for the odd simple roots (@sec-super-lax).
 
 Two features of (-@eq-lax-pair) should be noted.
 

@@ -17,15 +17,15 @@ from style import ROOT, plt, report
 style.setup()
 
 PATHS = [
-    ("Integrable field theory", [(2, 3), (5, 6), (9, 10), (12, 14), (20, 22)]),
-    ("Quantum groups in field theory", [(2, 3), (5, 8), (20, 22), (27, 27)]),
+    ("Integrable field theory", [(2, 3), (5, 6), (9, 10), (12, 14), (21, 23)]),
+    ("Quantum groups in field theory", [(2, 3), (5, 8), (21, 23), (28, 28)]),
     ("Integrable boundaries", [(2, 3), (7, 8), (9, 10), (13, 13), "VII"]),
-    ("Integrable defects", [(2, 3), (7, 8), (9, 11), (20, 21), (28, 32), "VIII"]),
+    ("Integrable defects", [(2, 3), (7, 8), (9, 11), (21, 22), (29, 33), "VIII"]),
     ("Non-unitary field theory", [(2, 4), (9, 11), "IX"]),
     ("For specialists", ["V–IX"]),
 ]
-PART_OF = lambda c: ("I" if c <= 4 else "II" if c <= 8 else "III" if c <= 11 else "IV" if c <= 15
-                     else "V" if c <= 19 else "VI" if c <= 27 else "VII" if c <= 35 else "VIII" if c <= 43 else "IX")
+PART_OF = lambda c: ("I" if c <= 4 else "II" if c <= 8 else "III" if c <= 11 else "IV" if c <= 16
+                     else "V" if c <= 20 else "VI" if c <= 28 else "VII" if c <= 36 else "VIII" if c <= 44 else "IX")
 COLORS = {"I": style.BLUE, "II": style.GREEN, "III": style.ORANGE, "IV": style.RED,
           "V": style.PURPLE, "VI": style.TEAL, "VII": "#c2569b", "VIII": "#8f9a1f",
           "IX": style.GREY}

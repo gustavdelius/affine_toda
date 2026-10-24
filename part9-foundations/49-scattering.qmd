@@ -1,0 +1,269 @@
+# Scattering without unitarity {#sec-scattering}
+
+::: {.callout-note appearance="simple" icon=false title="Learning goals"}
+- Separate the properties of the S-matrix that follow from the quantum-group symmetry from QFT unitarity.
+- Define Krein-unitarity and derive its consequences for S-matrix and transfer-matrix eigenvalues.
+- Classify sectors of the imaginary-coupling theories as $\Theta$-broken or unbroken.
+:::
+
+The soliton S-matrices of Part VI satisfy every axiom of @sec-integrable-qft except one: they are not unitary in the QFT sense. This chapter asks what replaces unitarity. The answer is Krein-unitarity, the scattering counterpart of the Krein-space structure of @sec-hamiltonian-structure-krein-space, and its consequences can be checked sector by sector.
+
+## What survives, and why {#sec-what-survives}
+
+Every known imaginary-coupling soliton S-matrix satisfies:
+
+- factorization and the Yang–Baxter equation;
+- crossing;
+- braiding (R-matrix) unitarity, $\check S_{ab}(\theta)\check S_{ba}(-\theta)=1$;
+- the bootstrap.
+
+These are not independent assumptions. Delius [-@delius1995] showed that all four follow from the defining properties of the universal R-matrix, for any theory whose conserved charges generate $U_q(\hat g)$ and have definite Lorentz spins:
+
+- the intertwining property $R\Delta=\Delta^{\mathsf T}R$ gives braiding unitarity and factorization;
+- $(\mathcal S\otimes1)R=R^{-1}$ gives crossing;
+- $(\Delta\otimes1)R=R_{13}R_{12}$ gives the bootstrap.
+
+Two further consequences of his analysis matter here.
+
+- **Crossing constrains the gradation.** Crossing is possible only for gradations satisfying a constraint that introduces a coupling-dependent "quantum" dual Coxeter number. The particle poles, and hence the quantum mass ratios, are therefore not rigid.
+- **Real masses need $\lvert q\rvert=1$.** Particle poles lie on the imaginary rapidity axis, as stable particles require, only when $q$ is a pure phase. In imaginary-coupling ATFT, $q$ is a pure phase for real $\beta$ [@bernard1991], so this condition holds.
+
+Given the quantum affine symmetry, these statements are [Established]. What they do not give is unitarity in the quantum-field-theory sense, $S(\theta)S(\theta)^\dagger=1$ for real $\theta$. Delius states explicitly that braiding unitarity is unrelated to whether the field theory is unitary. The S-matrices do not in general satisfy parity [@tw1999], and braiding unitarity plus real analyticity plus parity would be needed to give QFT unitarity. The question is what replaces it.
+
+## Krein-unitarity {#sec-krein-unitarity}
+
+::: {#prp-krein-unitarity}
+**[Proposition, sketch]** Suppose the theory is realized on a Krein space with fundamental symmetry $P$ (@thm-krein-transfer, in the continuum limit), its Hamiltonian is $P$-self-adjoint, and asymptotic completeness holds in the Krein sense. Then the S-matrix is Krein-unitary:
+
+$$
+S^{-1}=PS^\dagger P .
+$$
+
+Consequently the eigenvalues of $S_{ab}(\theta)$ for real $\theta$, and of every multi-particle Bethe–Yang transfer matrix $T_A$, are either pure phases or occur in pairs $(s,1/\bar s)$.
+
+:::
+
+::: {.proof}
+## Sketch
+If $H$ is $P$-self-adjoint, then $e^{-iHt}$ is Krein-unitary, and so are the Møller operators and $S$. For a Krein-unitary operator, $\sigma(S^{-1})=\sigma(PS^\dagger P)=\overline{\sigma(S)}$. The transfer matrices are products of two-body S-matrices acting on tensor products of Krein spaces, so they are Krein-unitary as well.
+
+:::
+
+**Check against known results.** Takács and Watts found that the $U_q(a_2^{(1)})$ R-matrix eigenvalues
+
+$$
+e_1=\frac{1+q\sqrt x}{q+\sqrt x},\qquad e_2=\frac{1-q\sqrt x}{q-\sqrt x}
+$$
+
+are not phases for $\lvert q\rvert=1$ and $x<0$. Writing $\sqrt x=iy$, a short computation gives $1/\bar e_2=e_1$ exactly. The non-phase eigenvalues are precisely a pair $(s,1/\bar s)$, as @prp-krein-unitarity requires.
+
+::: {#prp-krein-regularization}
+## An exactly Krein-unitary integrable regularization
+**[Theorem]** Let $q=e^{i\mu}$ with $0<\mu<\pi$, and let $x>0$. Let $R(x)$ be Jimbo's $U_q(\widehat{sl}_n)$ R-matrix on $\mathbb C^n\otimes\mathbb C^n$ in the homogeneous gradation,
+
+$$
+R(x)=(xq-x^{-1}q^{-1})\sum_iE_{ii}\otimes E_{ii}+(x-x^{-1})\sum_{i\ne j}E_{ii}\otimes E_{jj}+(q-q^{-1})\sum_{i\ne j}x^{\operatorname{sgn}(j-i)}E_{ij}\otimes E_{ji},
+$$
+
+let $S$ be the swap of the two factors, and let $G(x)=S\,R(x)/(xq-x^{-1}q^{-1})$. On $2M$ sites with periodic conditions, the light-cone (brickwork) evolution is $U=U_eU_o$. Here $U_o$ is the product of $G$ over the bonds $(1,2),(3,4),\dots$ and $U_e$ the product over $(2,3),\dots,(2M,1)$. The light-cone cutoff rapidity $\Lambda$ enters through $x=e^{2\Lambda}$ [@destri1987]. Let $\Pi$ be the reflection $j\mapsto2M+1-j$ about a bond centre, $\Pi_s$ the reflection $j\mapsto2-j$ (mod $2M$) about a site, $C$ the colour reversal $i\mapsto n+1-i$ on every site, and $K$ complex conjugation in the standard basis. Then:
+
+1. $G(x)^{\mathsf T}=G(x)$, $G(x)G(x^{-1})=1$, and $\overline{G(x)}=S\,G(x)^{-1}S$.
+2. $U^\dagger\Pi U=\Pi$, so $U$ is unitary for the Krein form $[\psi,\chi]=\langle\psi,\Pi\chi\rangle$.
+3. $\Pi_s\overline U\,\Pi_s=U^{-1}$, so the antilinear operator $\Theta_{\rm lat}=\Pi_sK$ satisfies $\Theta_{\rm lat}U\Theta_{\rm lat}^{-1}=U^{-1}$ and commutes with $H=\frac ia\log U$.
+4. $C\Pi$ commutes with $U$.
+
+Consequently the spectrum of $U$ is invariant under $\lambda\mapsto1/\bar\lambda$, and quasi-energies that are not real come in complex-conjugate pairs.
+
+:::
+
+::: {.proof}
+1. The diagonal parts of $R(x)$ are symmetric and swap-invariant, and transposition and conjugation by $S$ both send $E_{ij}\otimes E_{ji}$ to $E_{ji}\otimes E_{ij}$. So $R^{\mathsf T}=SRS$, and $G^{\mathsf T}=R^{\mathsf T}S/(xq-x^{-1}q^{-1})=G$. The second identity is the unitarity relation $R_{12}(x)R_{21}(x^{-1})=(xq-x^{-1}q^{-1})(x^{-1}q-xq^{-1})$ [Established]. For the third, an entrywise check using $\bar q=q^{-1}$ and $x$ real gives $R(x)^\dagger=-R(x^{-1})$ and $\overline{xq-x^{-1}q^{-1}}=-(x^{-1}q-xq^{-1})$. Hence $\overline{G(x)}=G(x)^\dagger=R(x^{-1})S/(x^{-1}q-xq^{-1})=S\,G(x^{-1})\,S$, and $G(x^{-1})=G(x)^{-1}$.
+2. $\Pi$ maps each layer to itself and conjugates the gate on a bond $b$ into $SGS$ on the mirror bond $b'$. By part 1, $G_b^\dagger=\Pi\,G_{b'}^{-1}\Pi$. Gates in one layer commute, so $U_o^\dagger=\Pi U_o^{-1}\Pi$ and $U_e^\dagger=\Pi U_e^{-1}\Pi$, and $U^\dagger=U_o^\dagger U_e^\dagger=\Pi U^{-1}\Pi$.
+3. $\Pi_s$ exchanges the two layers. The same computation with $\overline G=SG^{-1}S$ gives $\Pi_s\overline{U_e}\Pi_s=U_o^{-1}$ and $\Pi_s\overline{U_o}\Pi_s=U_e^{-1}$, hence $\Pi_s\overline U\Pi_s=U_o^{-1}U_e^{-1}=U^{-1}$.
+4. $C$ reverses $\operatorname{sgn}(j-i)$, so $(C\otimes C)R(C\otimes C)=SRS$ and $(C\otimes C)G(C\otimes C)=SGS$. Combined with step 2, $C\Pi$ maps each gate to the same gate on the mirror bond.
+
+:::
+
+*Checks.* The identities of part 1 hold to machine precision for $n=2,3,4$, and parts 2–4 for $n=3$ on 6 sites. For $n=3$ neither $\Pi$ nor $C$ alone commutes with $U$. For $n=2$ every eigenvalue of $U$ lies on the unit circle, as for the unitary Destri–de Vega lattice. For $n=3$, on 6 and 8 sites, pairs $(\lambda,1/\bar\lambda)$ off the unit circle occur only in sectors that contain all three colours; sectors with two colours reduce to $n=2$. The pairs appear as soon as $\Lambda>0$, so at these sizes they are lattice-scale effects. Whether the low-lying ones survive the scaling limit is a question for the non-linear integral equations of open problem 8. Unlike @thm-coulomb-gas, the Euclidean weights ($\lvert x\rvert=1$) carry the phases $x^{\pm1}$. In this gauge, on 6 sites with $\mu=1$ and $x=e^{i(\pi-\mu)/2}$, the ratio of $\operatorname{Tr}V^m$ to the same trace with the phases removed is $0.78$, $0.66$, $0.49$ and $0.18$ for $m=1,2,4,8$. `code/krein_lightcone.py` checks every statement of this paragraph.
+
+Heuristically, $C$ acts on the weights of the vector representation as the longest Weyl element $w_0$, and $-w_0$ is the diagram automorphism. Then $C\Pi$ corresponds to spatial parity, and $\Pi$ to the field parity $P$ of @thm-krein-transfer composed with the diagram automorphism and spatial parity, both symmetries of the theory. In this sense @prp-krein-regularization is a lattice-exact, real-time counterpart of @thm-krein-transfer, and its Krein-unitarity is the structure that @prp-krein-unitarity assumes in the continuum.
+
+::: {#prp-krein-fundamental}
+## Exact Krein-unitarity of the fundamental-soliton S-matrix
+**[Theorem]** Let $q=e^{i\mu}$ with $0<\mu<\pi$, and let $\tilde R(x)=R(x)/(xq-x^{-1}q^{-1})$, with $R$ Jimbo's R-matrix as in @prp-krein-regularization. Let $S(\theta)=\Phi(\theta)\tilde R(x(\theta))$, where $x(\theta)>0$ and $x(-\theta)=1/x(\theta)$ for real $\theta$, and where the scalar factor is unitary, $\Phi(\theta)\Phi(-\theta)=1$, and real analytic, $\overline{\Phi(\theta)}=\Phi(-\bar\theta)$. This is the form of the $U_q(\widehat{sl}_n)$ S-matrix of the fundamental solitons of $a_{n-1}^{(1)}$ [@hollowood1993a] in the homogeneous gradation, with $x(\theta)=e^{c\theta}$ for a real constant $c>0$ fixed by the coupling; for $a_2^{(1)}$, $x^2=e^{3\lambda\theta}$ with $\lambda=4\pi/\beta^2-1$ in the conventions of [@tw1999, eq. 3.1], and the prefactors are phases [@tw1999, eq. 3.4]. Here $q$ is the S-matrix parameter of @sec-imaginary-coupling-vacua, not the lattice anisotropy of @prp-krein-regularization. For $N$ such solitons with real rapidities, let
+
+$$
+T_1=S_{1N}(\theta_1-\theta_N)\cdots S_{12}(\theta_1-\theta_2)
+$$
+
+be the Bethe–Yang transfer matrix of soliton 1 on $V^{\otimes N}$, $V=\mathbb C^n$, and let $\mathcal C=C^{\otimes N}$, with $C$ the colour reversal of @prp-krein-regularization. Then:
+
+1. $\tilde R(y)^\dagger=\tilde R(1/\bar y)$ for every complex $y$, and $(C\otimes C)\tilde R_{12}(C\otimes C)=\tilde R_{21}$.
+2. $T_1^\dagger=\mathcal C\,T_1^{-1}\,\mathcal C$. So $T_1$ is unitary for the Krein form $[\psi,\chi]=\langle\psi,\mathcal C\chi\rangle$, and its eigenvalues are pure phases or come in pairs $(s,1/\bar s)$.
+3. On every topological-charge sector whose states use at most two colours, $T_1$ is similar to a unitary matrix. Such sectors are $\Theta$-unbroken.
+
+:::
+
+In another gradation $\tilde R_{1j}$ becomes $\mathcal D\tilde R_{1j}\mathcal D^{-1}$, with $\mathcal D=\bigotimes_kD(x_k)$ diagonal, by weight conservation. So $T_1$ changes by a similarity, and its eigenvalues do not change.
+
+::: {.proof}
+1. The entrywise check of part 1 of @prp-krein-regularization holds for complex $y$: $R(y)^\dagger=-R(1/\bar y)$ and $\overline{yq-y^{-1}q^{-1}}=-(\bar y^{-1}q-\bar yq^{-1})$. The colour reversal identity is step 4 of that proof.
+2. For real $\theta$, $\lvert\Phi(\theta)\rvert^2=\Phi(\theta)\Phi(-\theta)=1$. With $x=x(\theta_1-\theta_j)>0$, part 1 and the unitarity relation $\tilde R_{1j}(x^{-1})=\tilde R_{j1}(x)^{-1}$ give $S_{1j}^\dagger=\Phi(\theta_1-\theta_j)^{-1}\tilde R_{j1}(x)^{-1}=\mathcal C\,S_{1j}^{-1}\,\mathcal C$. Taking the adjoint of the product reverses its order, so $T_1^\dagger=\mathcal C\,S_{12}^{-1}\cdots S_{1N}^{-1}\,\mathcal C=\mathcal C\,T_1^{-1}\,\mathcal C$. Eigenvalues pair as in @prp-krein-unitarity.
+3. $\tilde R$ conserves the colour content, and on states built from two colours $i<j$ it acts as the $U_q(\widehat{sl}_2)$ R-matrix. Conjugating by $\mathcal D=\bigotimes_kD(x_k)$, with $D(x)=\operatorname{diag}(x^{a_1},\dots,x^{a_n})$ and $a_j-a_i=1$, makes its restriction to these two colours symmetric under the swap. (No single gradation does this for all pairs when $n\ge3$, so the gauge depends on the sector.) Then $\tilde R_{12}(x)\tilde R_{12}(x^{-1})=1$, and part 1 makes it unitary. A product of unitaries is unitary.
+
+:::
+
+For these S-matrices, @prp-krein-fundamental proves the conclusion of @prp-krein-unitarity without assuming asymptotic completeness. The Krein form uses $\mathcal C$, which by the remark after @prp-krein-regularization corresponds to the field parity $P$ composed with the diagram automorphism.
+
+*Numerics.* Parts 1 and 2 hold to machine precision for $n=2,3$ with $N=3,4$ and for $n=4$ with $N=3$ (`code/krein_bethe.py`). Takács and Watts [-@tw1999, Section 3.1] found numerically that the three-soliton transfer matrices of $a_2^{(1)}$ do not in general have phase eigenvalues, although the fundamental soliton–soliton amplitude does. @prp-krein-fundamental explains the pairing and locates the breaking: it occurs only in sectors that use three or more colours. For $n=3$ and $N=3$, with random real rapidities, $\max\lvert\lvert s\rvert-1\rvert$ in the sector containing all three colours ranges from $0.08$ to $0.49$ over 13 values of $\mu$ in $[0.3,3]$, with 40 random sets of rapidities at each (`code/scan_n4.py`), so the breaking occurs at every coupling sampled. On three colours Jimbo's R-matrix for $U_q(\widehat{sl}_n)$ is that for $U_q(\widehat{sl}_3)$, so the same holds for every $n\ge3$.
+
+With more solitons, sectors with three or more colours can be unbroken [Numerical; $n=3$ with $N\le7$, $n=4$ with $N\le6$]. For $N=4$ the sectors with three colours are broken for $\mu<2\pi/3$ and unbroken for $2\pi/3<\mu<\pi$, that is for $\operatorname{Re}q<-\frac12$, while for $n=4$ the sector with four colours is broken at every $\mu$ sampled. Near $q=-1$ a simple rule decides. At $q=-1$, $\tilde R$ is $+1$ on equal colours and $-1$ on different ones, so $T_1$ is diagonal, with eigenvalue $(-1)^{N-m_c}$ on the states in which soliton 1 has a colour $c$ of multiplicity $m_c$. In every case computed, a sector is unbroken near $q=-1$ exactly when each of these two eigenspaces involves at most two colours, that is, when at most two colours have even multiplicity and at most two have odd multiplicity. Heuristically, to first order in $q+1$ the splitting inside an eigenspace only exchanges colours that belong to it, and with two of them part 3 suggests phase eigenvalues. For example, the multiplicities $(2,2,1)$, $(4,1,1)$ and $(2,2,1,1)$ are unbroken near $q=-1$, while $(3,1,1)$, $(2,2,2)$ and $(2,1,1,1)$ are broken at every $\mu$ sampled. The unbroken range starts at a $\mu$ that depends on the sector: between $2.0$ and $2.1$ for $(2,2,1)$, but between $2.45$ and $2.55$ for $(4,1,1)$. `code/scan_n4.py` checks the statements of this paragraph.
+
+The breaking is not an artefact of the gradation, which acts by similarity, nor of the exchange statistics: the $\mathbb Z_n$ symmetry allows only a uniform grading, which changes $T_1$ by a sign (@prp-exchange-twist). For $n=3$ and $N=3$ the sector containing all three colours has total charge zero, so it is present in every bosonic global form (@prp-bloch-sectors). Sectors with at most two colours have phase eigenvalues, as part 3 requires (`code/scan_n4.py`). It matches @prp-krein-regularization, where pairs off the unit circle occur only in sectors that contain all three colours. It also shows that no basis of one-soliton states makes the unrestricted $a_2^{(1)}$ fundamental-soliton S-matrix Hermitian analytic: Hermitian analyticity and braiding unitarity would make every $T_1$ unitary. RSOS restriction removes this breaking for $p'\equiv\pm1\pmod p$ (@prp-rsos-kinks).
+
+Soliton–antisoliton amplitudes are Krein-unitary with the same, untwisted colour reversal. In the principal gradation, with $\check R$ normalized to 1 on highest weights, $\check R_{ab}^\dagger(C\otimes C)\check R_{ab}=C\otimes C$ holds at real rapidity for all four pairs $a,b\in\{V,\bar V\}$, and the scalar factors are phases there (@prp-boundary-krein, part 1). The eigenvalue pairs off the unit circle that Takács and Watts found in that sector come from the indefiniteness of the Krein form, not from a twist of $\mathcal C$.
+
+**Hermitian analyticity.** Miramontes [-@miramontes1999] showed that braiding unitarity becomes QFT unitarity exactly when, in addition, the S-matrix is Hermitian analytic. He also showed that Hermitian analyticity is consistent with the bootstrap but depends on the basis of states. Together with the results above, this gives a ladder of conditions, from weakest to strongest:
+
+1. braiding unitarity, automatic for quantum-group S-matrices [@delius1995];
+2. Krein-unitarity (@prp-krein-unitarity), which allows eigenvalue pairs $(s,1/\bar s)$;
+3. unimodular eigenvalues of every multi-particle transfer matrix, which is what a real finite-volume spectrum requires (to leading order in $e^{-mL}$) [@tw1999];
+4. Hermitian analyticity in some basis of states, which together with 1 is QFT unitarity [@miramontes1999].
+
+**Unbroken and broken sectors.** We call a sector **$\Theta$-unbroken** when condition 3 holds in it, and **$\Theta$-broken** otherwise.
+
+- In a $\Theta$-broken sector there are eigenvalues with $\lvert s\rvert\ne1$, occurring in pairs $(s,1/\bar s)$. Eigenvalues do not depend on the basis, so condition 4 fails in every basis. Non-unitarity there appears as complex-conjugate pairs of finite-volume levels, as in non-unitary perturbed minimal models.
+- In a $\Theta$-unbroken sector, condition 4 may or may not hold. Takács and Watts stress that the required change of basis must act on one-particle states only, and that this can fail even when every two-particle S-matrix has phase eigenvalues. Even when condition 4 does hold, the positive inner product need not be one under which the local fields are Hermitian (@sec-unitarity).
+
+This reclassifies H9. QFT unitarity is not a property of the unrestricted theories and cannot be imposed. Krein-unitarity is the property that does hold. @sec-sector-status classifies the sectors in which more can be recovered, and @sec-unitarity lists what cannot be recovered anywhere.
+
+@fig-krein-pairing illustrates both cases. On the left, the transfer matrix of three fundamental solitons of $a_2^{(1)}$ has phase eigenvalues in a sector with two colours and eigenvalue pairs $(s,1/\bar s)$ off the unit circle in the sector with all three. On the right is the $\Theta$-broken region of two $a_2^{(2)}$ kinks from the table of @sec-sector-status.
+
+![Left: eigenvalues of the Bethe–Yang transfer matrix $T_1$ of three fundamental solitons of $a_2^{(1)}$ at $q=e^{i}$ with fixed real rapidities. Blue: sector with two colours, all on the unit circle. Red: sector with three colours, in pairs $(s,1/\bar s)$ joined by dashed lines. Right: the $\Theta$-broken region of two $a_2^{(2)}$ kinks in the sector $Q=0$, in the plane of $\psi$ and the Bloch angle $\alpha$.](figures/ch49_f34_krein_pairing.svg){#fig-krein-pairing fig-alt="Left: unit circle in the complex plane with blue points on the circle and red points in pairs on a common ray, one inside and one outside the circle. Right: two red diamond-shaped regions at psi between plus and minus one half pi and plus and minus pi, labelled broken, with unbroken in between."}
+
+## Sector-by-sector status {#sec-sector-status}
+
+| Sector | Status | Evidence |
+|---|---|---|
+| real coupling, all $\hat g$ | Hermitian and unitary | [Established] |
+| breather–breather, all $\hat g$ | $\Theta$-unbroken | the amplitudes are real-coupling S-matrices continued to $B<0$; their blocks are phases for real $\theta$ [Established] |
+| all sectors of $a_1^{(1)}$ (sine-Gordon) | unbroken; real finite-volume spectra | [@tw2002] |
+| $a_2^{(2)}$, $N$ fundamental kinks, Bloch angle $\alpha=0$ (bosonic exchange) | unbroken if and only if $\lvert\psi\rvert\le\pi/N$ or $\psi=\pi$, where $q^2=-e^{i\psi}$, $\psi=2\pi^2/3\xi\in(-\pi,\pi]$ in the conventions of [@tw1999]; above $\pi/N$ the breaking appears first in the sector $Q=0$, which every bosonic global form contains | [Numerical], $N\le5$; breaking for $\cos\psi<0$ proved at large $\theta$; corrects the two-kink statement of [@tw1999] |
+| $a_2^{(2)}$, $N$ fundamental kinks, graded exchange: $\alpha=0$ for odd $Q$, $\alpha=\pi$ for even $Q$ | unbroken if and only if $\lvert\psi\rvert\le2\pi/N$ for $N\le4$; for $N=5$ the onset is near $0.41\pi$ | [Numerical], $N\le4$ (at $N=4$ unbroken at $\lvert\psi\rvert=0.497\pi$, broken at $0.502\pi$); at $N=5$ unbroken up to $0.409\pi$ and broken from $0.412\pi$ in the samples (`code/sectors/bloch/t16_graded_onset.py`); the sectors $\alpha=\pi$ exist only in some global forms (@prp-bloch-sectors) |
+| $a_2^{(2)}$, two kinks, general $\alpha$ | $Q=0$ broken if and only if $\lvert\alpha\rvert<\max\big(0,\min(2\lvert\psi\rvert-\pi,\pi-\lvert\psi\rvert)\big)$; $Q\ne0$ unbroken for every $\alpha$ | [Numerical] |
+| $a_2^{(2)}$, soliton–excited soliton | broken; spectrum real only in the repulsive regime | [@tw1999]; the R-part is $\check R(-z)$ (@prp-scalar-breathers) |
+| $a_n^{(1)}$ ($n\ge1$), fundamental solitons, sectors using at most two colours | unbroken, at any number of particles | @prp-krein-fundamental, part 3 [Theorem] |
+| $a_n^{(1)}$ ($n\ge2$), three fundamental solitons, sectors using three colours | broken at every coupling sampled | [@tw1999] for $a_2^{(1)}$; @prp-krein-fundamental [Theorem for the Krein pairing; Numerical for the breaking] |
+| $a_n^{(1)}$ ($n=2,3$), $N\ge4$ fundamental solitons, sectors using three or more colours | depends on $q$ and on the colour multiplicities: for $N=4$ and three colours unbroken exactly when $\operatorname{Re}q<-\frac12$; near $q=-1$ unbroken exactly when at most two colours have even multiplicity and at most two odd | [Numerical], $N\le7$ for $n=2$, $N\le6$ for $n=3$ |
+| $a_2^{(1)}$, soliton–excited soliton | broken | [@tw1999]: the R-part is $R_{33}(-z)$ |
+| $a_n^{(1)}$ ($n\ge2$), $d_{2n+1}^{(1)}$, $e_6^{(1)}$: soliton–antisoliton and soliton–breather | broken for generic $\beta$; mirrored by complex classical time delays | [@tw1999] for $a_2^{(1)}$; [Conjecture] in general |
+| self-conjugate theories, soliton–breather | unbroken, with any number of breathers, whenever the breather amplitudes have the block form | @prp-scalar-breathers [Theorem, given the block form] |
+| self-conjugate theories, soliton–excited soliton | broken wherever an excited soliton at an odd tower level exists | @prp-scalar-breathers [Theorem for the R-part $\check R(-z)$; Numerical for its spectrum] |
+| $c_n^{(1)}$ ($n\le4$) and $a_{2n-1}^{(2)}$ ($n=3,4$), spinor solitons, $\alpha=0$ | broken at every coupling sampled, already at two solitons and in the sector $Q=0$, outside a window $\lvert\theta\rvert<\theta_c\approx0.003$–$0.22$; three solitons broken even inside it ($c_3^{(1)}$) | [Numerical]; the sector $Q=0$ checked for $n\le3$ |
+| $c_2^{(1)}$ and $c_3^{(1)}$ spinor solitons, two solitons, $Q=0$, general $\alpha$ | unbroken on a substantial part (19–89%) of the Bloch torus at every coupling sampled | [Numerical] |
+| $c_3^{(1)}$, all soliton–soliton pairs computed, $\alpha=0$ | broken | [Numerical] |
+| RSOS-restricted $a_2^{(1)}$ kinks, $p'\equiv\pm1\pmod p$ | unitary at every particle number | @prp-rsos-kinks [Theorem] |
+| RSOS-restricted $a_2^{(1)}$ kinks, $p'=p+2$ | unbroken, but no Hermitian-analytic basis | @prp-rsos-kinks [Theorem for the basis; Numerical, up to six kinks, for unbrokenness] |
+| RSOS-restricted $a_2^{(1)}$ kinks, other $p'$ with $p'-p\ge3$ | broken at two kinks, with exact Krein pairs | @prp-rsos-kinks [Numerical] |
+
+::: {#prp-scalar-breathers}
+## Scalar factors and breathers
+**[Theorem]**
+
+1. A scalar factor that is unitary, $F(\theta)F(-\theta)=1$, and real analytic, $\overline{F(\theta)}=F(-\bar\theta)$, has modulus 1 for real $\theta$. So does any product $\prod_kF(\theta+i\alpha_k)$ over a set of real shifts symmetric under $\alpha\to-\alpha$. So scalar factors, including those of fused amplitudes between solitons of equal mass, never cause $\Theta$-breaking. The eigenvalue moduli are those of the R-matrices at real $x$, and depend on the coupling only through $q$.
+2. In a self-conjugate theory, suppose every breather amplitude is $\pm\prod(y)$, with the blocks $(y)$ of @sec-real-coupling ($h$ replaced by the floating $H$) and real $y$. Then for real rapidities every Bethe–Yang transfer matrix of a state containing breathers is a phase times the transfer matrix of its solitons alone. So a sector is $\Theta$-unbroken if and only if its soliton content is, and every sector with at most one soliton is unbroken.
+3. Let $z$ be the homogeneous-gradation spectral parameter ($z=x^2$ for $U_q(\widehat{sl}_n)$), and let two equal-mass constituents fuse with $z_{1,2}=z\,e^{\pm i\pi t}$. An excited soliton at a tower pole $t=t_0-k$ carries the module $W((-1)^kz)$, so its R-matrix with the ground solitons is $\check R((-1)^kz)$ [@tw1999, eqs. 3.4, 5.12].
+
+:::
+
+::: {.proof}
+1. $\overline{F(\theta+i\alpha)}=F(-\theta+i\alpha)=1/F(\theta-i\alpha)$, and the shifts pair up.
+2. Breathers are quantum-group singlets, so every amplitude involving one is a scalar, and $(y)$ has modulus 1 for real $\theta$ and real $y$.
+3. The bound state lies in the image of $V(ze^{i\pi t})\otimes V(ze^{-i\pi t})$, so shifting $t$ by an integer $k$ multiplies both spectral parameters by $(-1)^k$.
+
+:::
+
+The hypothesis of part 2 fails for non-self-conjugate solitons. In $a_2^{(1)}$ the soliton–breather amplitude [@tw1999, eq. 3.7] is a ratio of factors $\sinh(\theta/2+i\pi x/12)$ that do not pair into blocks, and its modulus is below 1 for real $\theta$.
+
+Part 2 proves the soliton–breather row of the table for self-conjugate theories. With bosonic exchange of soliton labels, the Bloch sector $\alpha=0$ of @prp-bloch-sectors, $P\check R(-z)$ has eigenvalues off the unit circle for every R-matrix sampled (the $a_2^{(2)}$, $c_n^{(1)}$ spinor, $a_{2n-1}^{(2)}$ spinor and $c_3^{(1)}$ fused amplitudes) and every $q$ sampled, with deviations of at least $0.05$ (`code/sectors/a22three.py`, `code/sectors/spinor_scan.py`, `code/sectors/c3sectors.py`). For $a_2^{(2)}$ the breaking lies in the sector $Q=0$, which every bosonic global form contains, and it persists with graded exchange (`code/sectors/bloch/t12_excited_sectors.py`). So soliton–excited-soliton sectors at odd tower levels are broken wherever they exist. For $a_2^{(2)}$ this is the Takács–Watts result, with threshold $\xi=2\pi/3$.
+
+*Fundamental kinks of $a_2^{(2)}$.* Write the Takács–Watts parameter as $q^2=-e^{i\psi}$, with $\psi=2\pi^2/3\xi$ reduced to $(-\pi,\pi]$. Their eigenvalue equation for the two-kink amplitude [@tw1999, eq. 5.5] has roots off the unit circle whenever $\cos\psi<0$. For example, at $\xi=0.9\pi$ and $\theta=0.55$, with $x=e^{2\pi\theta/\xi}$, two roots have moduli $2.118$ and $0.472=1/2.118$. So their statement that these eigenvalues are phases for $x>0$ holds only for $\cos\psi\ge0$. At large $x$ two roots approach $q^4=e^{2i\psi}$ as $\lambda=q^4(1+\delta)$, with $\delta^2=-16\sin^2\psi\cos\psi/x+o(1/x)$, which proves the breaking for $\cos\psi<0$ [Theorem]. `code/sectors/a22_kink_cubic.py` checks the example, the asymptotics, and on a grid of $\psi$ that the roots leave the unit circle exactly when $\cos\psi<0$. Their Bethe ansatz [@tw1999, eq. 2.9] has only a scalar statistics phase, so their statement concerns bosonic exchange; their three-kink numerics are likewise not unimodular for $2\pi/3<\xi<4\pi/3$. With bosonic exchange, $N$ kinks are unbroken if and only if $\lvert\psi\rvert\le\pi/N$ or $\psi=\pi$ [Numerical, $N\le5$] (`code/sectors/a22three.py` for $N\le3$, `code/sectors/a22N.py` for $N=3,4,5$). At $\psi=\pi$, that is $\xi=2\pi/3$, $q^2=1$ and the kink amplitude is diagonal (`code/sectors/bloch/t11_psi_pi.py`).
+
+*Spinor solitons.* For the spinor solitons of $c_n^{(1)}$ ($n\le4$) and $a_{2n-1}^{(2)}$ ($n=3,4$), the two-soliton amplitude has a pair $(s,1/\bar s)$ off the unit circle at every coupling sampled [Numerical] (`code/sectors/spinor_scan.py`). The pair lies in the sector $Q=0$, and for $n=3$ also in $Q=\pm e_i$ [Numerical, $n\le3$] (`code/sectors/bloch/t5_spin_graded_twist.py`). Phases survive only for $\lvert\theta\rvert<\theta_c$. For $c_2^{(1)}$, $c_3^{(1)}$ and $a_5^{(2)}$ at three couplings each, $\theta_c$ lies between $0.003$ and $0.22$, depending on the algebra and the coupling (`code/sectors/window.py`). For $c_3^{(1)}$, three solitons are broken even inside this window (`code/sectors/spin3q.py`), and every soliton–soliton amplitude computed ($S_{33},S_{31},S_{11},S_{32},S_{12}$) is broken (`code/sectors/c3sectors.py`). At large $\theta$ the deviation decays like $x^{-1/h^\vee}$, with $h^\vee=n+1$ for $c_n^{(1)}$ and $2n$ for $a_{2n-1}^{(2)}$ [Numerical] (for $n=2,3$; `code/sectors/spin_asym.py`). Such an $h^\vee$-fold Puiseux cycle cannot stay on the unit circle once $h^\vee\ge3$: the real parts of $c\,e^{2\pi ik/h^\vee}$ sum to zero and cannot all vanish, so some are positive.
+
+*Exchange statistics and Bloch sectors.* These statements use the ordinary flip of soliton labels in the Bethe–Yang equations. A $\mathbb Z_2$ grading of the flip changes eigenvalue moduli; a change of gradation does not. The grading is not an independent choice.
+
+::: {#prp-exchange-twist}
+## Graded exchange is a twist
+**[Theorem]** Let $g$ be a $\mathbb Z_2$ grading of the soliton multiplet $V$, let $R(x)$ on $V\otimes V$ preserve the total grading, and let $T_1$ and $T_1^{\rm gr}$ be the Bethe–Yang transfer matrices of soliton 1 built with the ordinary flip $P$ and with the graded flip $(-1)^{g\otimes g}P$. Then
+
+$$
+T_1^{\rm gr}=(-1)^{g_1(G-1)}\,T_1 ,
+$$
+
+where $g_1$ is the grading of soliton 1 and $G$ the total grading, both read on the outgoing labels. If $(-1)^{g(\mu)}=c\,e^{i\pi\gamma\cdot\mu}$ for the weights $\mu$ of $V$, with $c$ a constant phase, then in a sector of total grading $G$ the graded equations are the ordinary ones with the twist $e^{i\alpha\cdot\mu_1}$, $\alpha=\pi[G-1]\gamma$, times the phase $c^{[G-1]}$, where $[G-1]\in\{0,1\}$ is $G-1$ modulo 2. The phase is common to the sector. It does not change eigenvalue moduli, but it shifts the momentum quantization.
+
+:::
+
+::: {.proof}
+The graded amplitude is $R^{\rm gr}_{12}=(-1)^{g\otimes g}R_{12}$. In $T_1^{\rm gr}=R^{\rm gr}_{1N}\cdots R^{\rm gr}_{12}$, write $g_1^{(1)}$ for the initial grading of soliton 1, $g_1^{(j)}$ for its grading after the collision with soliton $j$, $g_j$ and $g'_j$ for the initial and final grading of soliton $j$, and $s_j=g'_2+\dots+g'_j$, with $s_1=0$. When $R^{\rm gr}_{1j}$ acts, the factors $2,\dots,j-1$ already carry their final labels. Embedding $R^{\rm gr}_{12}$ in the factors $(1,j)$ by graded swaps past them gives
+
+$$
+R^{\rm gr}_{1j}=(-1)^{g_1^{(j)}g'_j+(g_j+g'_j)s_{j-1}}\,R_{1j} .
+$$
+
+Because $R$ preserves the total grading, $g_j+g'_j\equiv g_1^{(j-1)}+g_1^{(j)}$, so modulo 2 the exponent is $g_1^{(j)}s_j-g_1^{(j-1)}s_{j-1}$. The exponents telescope to $g_1^{(N)}s_N$, and $s_N\equiv G-g_1^{(N)}$ with $(g_1^{(N)})^2=g_1^{(N)}$. For the second statement, $(-1)^{g_1[G-1]}=\big(c\,e^{i\pi\gamma\cdot\mu_1}\big)^{[G-1]}$.
+
+:::
+
+The relation is familiar from sine-Gordon theory and the massive Thirring model, which share the S-matrix but differ on a circle by the boundary condition in the sectors of odd topological charge [@klassen1993; @feverati1998]. On the lattice, Fermi operators can be introduced into any solution of the Yang–Baxter equation [@gohmann1998]. We have not found the $N$-soliton identity stated in this form.
+
+::: {#prp-bloch-sectors}
+## Bloch sectors
+**[Proposition, sketch]** On a circle, the shifts $U_\lambda:\vec\phi\mapsto\vec\phi+\frac{2\pi}\beta\vec\lambda$, $\vec\lambda\in\Lambda_W^\vee$, commute with the Hamiltonian and the momentum, and $\Theta$ maps each joint eigenspace of the $U_\lambda$ to itself. In the sector where $U_\lambda=e^{-i\alpha\cdot\lambda}$, with one-soliton states chosen covariant under the $U_\lambda$, the Bethe–Yang equations are
+
+$$
+e^{ip_jL}\,e^{i\alpha\cdot\mu_j}\,T_j=1
+$$
+
+up to a phase common to all states. Here $\mu_j$ is the topological charge of soliton $j$, and $T_j$ is built with the ordinary flip. Which $\alpha$ occur depends on the global form of the theory. If $\vec\phi$ is identified modulo $\frac{2\pi}\beta k\Lambda_W^\vee$, the total charge $Q$ lies in $k\Lambda_W^\vee$ and $\alpha$ runs over the characters trivial on $k\Lambda_W^\vee$; for $k=1$ only $\alpha=0$ occurs. If $\vec\phi$ is not identified, every $\alpha$ occurs, and with periodic $\vec\phi$ only $Q=0$; the boundary conditions $\vec\phi(L)=\vec\phi(0)+\frac{2\pi}\beta\vec\lambda$ give $Q=\vec\lambda$, again with every $\alpha$.
+
+:::
+
+::: {.proof}
+## Sketch
+Label multi-soliton states by their sequence of vacua. The amplitudes commute with the $U_\lambda$, so they depend only on the charges. Carrying soliton $j$ once around the circle shifts every vacuum label by $\mu_j$, which acts as $U_{\mu_j}$ and gives the factor $e^{i\alpha\cdot\mu_j}$. The operator $\Theta=PK$ is antilinear and satisfies $\Theta U_\lambda\Theta^{-1}=U_\lambda^{-1}$, so it preserves $\alpha$. It reverses the topological charge, so it pairs the sector $(Q,\alpha)$ with $(-Q,\alpha)$. For sine-Gordon the statement is [Established] [@bajnok2000]. In the $k$-folded model the sectors are $\vartheta=2\pi n/k$, the topological charge lies in $k\mathbb Z$, and $\vartheta$ is the twist of the non-linear integral equation and of the Bethe–Yang equations; TCSA confirms this.
+
+:::
+
+The twists of @prp-exchange-twist and @prp-bloch-sectors are the simplest defect operators: an invertible line with transmission factor $e^{i\alpha\cdot\mu}$, wound around the circle (@prp-twist-defect). The line makes one point precise. The twist acts on soliton $j$ when it crosses a fixed point of the circle, the same seam for every $j$. Applied instead at the end of each cyclic product $T_j$ separately, it gives matrices with the same spectra that do not commute.
+
+So the S-matrix does not select the statistics. Its value at $\theta=0$ does not select them either: the R-matrices of this section satisfy $\check R(1)=\mathbb 1$, so $S(0)=\Phi(0)\,\mathcal P$ for whichever flip $\mathcal P$ defines the particle-labelled form. Bosonic exchange is the sector $\alpha=0$. Graded exchange of the charged $a_2^{(2)}$ kinks, with $\gamma=1$ and $c=1$, is $\alpha=\pi$ for even $Q$ and $\alpha=0$ for odd $Q$. This is a Ramond-type choice: with Neveu–Schwarz-type conditions a further sign $(-1)^{g_1}$ restores $\alpha=0$ for even $Q$. For the spinor solitons, with $g$ the parity of the number of minus signs in the weight, $\gamma=(1,\dots,1)$ and $c=e^{-i\pi n/2}$.
+
+The sector $Q=0$, $\alpha=0$ exists in every bosonic global form, that is, for every identification of $\vec\phi$. A fermionic form with Ramond conditions, if one exists, replaces it by $Q=0$, $\alpha=\pi$; there the two-kink sector $Q=0$ of $a_2^{(2)}$ is unbroken at every coupling. In every case computed, the breaking at $\alpha=0$ appears in the sector $Q=0$, though not only there: for $N\le5$ kinks of $a_2^{(2)}$ just above $\lvert\psi\rvert=\pi/N$, for the $a_2^{(2)}$ soliton–excited-soliton amplitude, and for two spinor solitons. This does not depend on the quantum-group conventions. A change of coproduct by a bicharacter $F$ conjugates $\check R$ by $F$; its symmetric part acts on $T_1$ by a similarity, and its antisymmetric part shifts $\alpha$ by an amount linear in $Q$, which vanishes for $Q=0$. Hence the bosonic statements of this section hold in every bosonic global form, and self-conjugacy does not protect multi-soliton sectors. Changing the sign of $q$ (@sec-crossing-sign) is a convention change of a related type. It conjugates $\check R$ by $\Pi\otimes1$ rather than by a bicharacter, and for $N$ spinor solitons it maps $(Q,\alpha)$ to $(Q,\alpha+\pi N\gamma)$, up to a phase per sector (see below). Since $\pi N\equiv2\pi Q_1$ modulo $2\pi$, the shift is again linear in $Q$ and vanishes for $Q=0$. The graded statements for $a_2^{(2)}$ use the sectors $\alpha=\pi$ with even $Q$. These exist only if $\vec\phi$ is identified modulo $\frac{2\pi}\beta k\Lambda_W^\vee$ with $k$ even, or not identified at all.
+
+At other Bloch angles the picture is richer [Numerical]. For two $a_2^{(2)}$ kinks the sectors $Q=\pm1,\pm2$ are unbroken for every $\alpha$ (`code/sectors/bloch/t13_Qpm1_all_alpha.py`, `code/sectors/bloch/t2_twist_scan.py`), and $Q=0$ is broken if and only if
+
+$$
+\lvert\alpha\rvert<\max\big(0,\min(2\lvert\psi\rvert-\pi,\ \pi-\lvert\psi\rvert)\big).
+$$
+
+The script `code/sectors/bloch/t3_threshold_N2.py` locates the critical $\lvert\alpha\rvert$ by bisection and finds this formula. For $\lvert\psi\rvert\ge2\pi/3$ the boundary $\lvert\alpha\rvert=\lvert\arg q^2\rvert$ coincides with the twist $q^{\pm2m}$ that implements the quantum trace of the $U_q(a_1)$ subalgebra of the $(1,2)$ restriction. For $N=3,4$ broken islands appear at intermediate $\alpha$; for example, three kinks with $Q=1$ are broken at $\alpha=\pi/2$ for $\lvert\psi\rvert\approx0.51\pi$ but not at $\alpha=0$ (`code/sectors/bloch/t4_twist_N.py`). For the $c_2^{(1)}$ and $c_3^{(1)}$ spinors, the two-soliton sector $Q=0$ is unbroken on a substantial part of the Bloch torus at every coupling sampled: on 54–89% of the grid points for $c_2^{(1)}$ and on 19–51% for $c_3^{(1)}$, at four couplings each (`code/sectors/bloch/t6_spin_torus.py`). The spinor charges generate $\mathbb Z^n+\mathbb Z(\frac12,\dots,\frac12)$, so the torus of $\alpha$ is twice $[0,2\pi)^n$; a shift of $\alpha$ by $2\pi e_i$ only reverses the sign of the twist, so $[0,2\pi)^n$ decides the breaking. None of the 512 $\mathbb Z_2$ bicharacter twists of the $c_3^{(1)}$ two-soliton amplitude makes every sector unbroken (`code/sectors/twist.py`). Those twists apply one sign matrix to every sector, while a Bloch twist depends on $Q$.
+
+*The sign of $q$.* With $q$ the physical value (-@eq-q-physical), the computations of this section were first done at $-q$ (@sec-crossing-sign) and then repeated at $q$. Every statement above holds at both signs [Numerical]. For the spinor solitons the change is exact: $\check R(x;-q)=(\Pi\otimes1)\check R(x;q)(\Pi\otimes1)$ with $\Pi=(-1)^g$, and pairing consecutive collisions gives $T_1(-q)=S\,(-1)^G\,\Pi_1^N\,T_1(q)\,S^{-1}$, where $S$ is the product of the parities of the even-numbered solitons [Numerical, to $10^{-13}$] (`code/sectors/bloch/t15_qsign_identity.py`, for $N\le4$, and $N\le3$ at rank 3). $S$ commutes with every $\Omega_\alpha$, and $\Pi_1=c\,e^{i\pi\gamma\cdot\mu_1}$, so $q\to-q$ maps the sector $(Q,\alpha)$ to $(Q,\alpha+\pi N\gamma)$ and multiplies its spectrum by $c_Q=(-1)^{nN}e^{i\pi\gamma\cdot Q}$ (`code/sectors/bloch/t14_qsign_twist.py`). For even $N$ the twist is trivial: eigenvalue moduli, windows and Bloch tori are unchanged, but in the sectors with $\gamma\cdot Q$ odd every eigenvalue changes sign. The $a_2^{(2)}$ kink spectra and the restricted spectra of @prp-rsos-kinks are the same at both signs (`code/sectors/qsign_checks.py`, `code/irf/qsign_compare.py`). Fused amplitudes, and spectra of an odd number of solitons, change at a given coupling and $\alpha$, though not whether the $c_3^{(1)}$ sectors above are broken. For three $c_2^{(1)}$ spinor solitons at $\alpha=0$, the sign decides whether the sector is broken: at $\omega=0.3$ they are unbroken at $q$ and broken at $-q$, and at $\omega=0.7$ the reverse (`code/sectors/spin3.py`).
+
+In every sector $(Q,\alpha)$ computed in `code/sectors/bloch/`, the eigenvalues satisfy $\{s\}=\{1/\bar s\}$ to $10^{-10}$ or better, as @prp-krein-unitarity requires. For the spinor amplitudes this follows from three identities, which hold to $10^{-13}$ (`code/sectors/bloch/t7_krein_ops.py`, `code/sectors/bloch/t8_transpose.py`): $R_{12}(x)^\dagger=R_{12}(1/x)$ for $x>0$, $\mathcal CR_{12}\mathcal C=R_{21}$ with $\mathcal C$ the charge reversal, and $R_{12}^{\mathsf T}=R_{21}$. The first two give $\overline{\sigma_Q(\Omega_\alpha T_1)}=1/\sigma_{-Q}(\Omega_{-\alpha}T_1)$, with $\Omega_\alpha=e^{i\alpha\cdot\mu_1}$. The third, with the Yang–Baxter equation, gives $\sigma_Q(\Omega_\alpha T_1)=\sigma_{-Q}(\Omega_{-\alpha}T_1)$. For $a_2^{(2)}$ the third identity fails in the gradation used, and no diagonal regauging restores it (`code/sectors/bloch/t9_ik_gauge.py`); the pairing within a sector is [Numerical]. The outputs at the physical $q$ are in the subdirectories `out/qsign/` of `code/sectors/` and `code/sectors/bloch/`. At $\omega=0.3$ and $0.7$, $q$ is a root of unity and the rank-3 spinor projectors are degenerate, so the scripts use $\omega=0.3013$ and $0.7013$ there.
+
+## Exercises {#sec-scattering-exercises}
+
+::: {#exr-krein-eigs}
+Let $S$ be a matrix with $PS^\dagger PS=1$ for a Hermitian involution $P$. Show that its eigenvalues are either phases or come in pairs $(s,1/\bar s)$.
+:::
+
+::: {#exr-bethe-complex}
+For a single particle on a circle with a transfer-matrix eigenvalue $\Lambda(\theta)$ in the Bethe–Yang equation $e^{imL\sinh\theta}\Lambda(\theta)=1$, show that $\lvert\Lambda\rvert\ne1$ on the real axis forces $\theta$ off the real axis, and that the energy $m\cosh\theta$ is then complex unless $\operatorname{Re}\theta=0$ or $\operatorname{Im}\theta\in\pi\mathbb Z$.
+:::
+
+## Notes and references {#sec-scattering-notes}
+
+That braiding unitarity, crossing and the bootstrap follow from the universal R-matrix is in Delius [-@delius1995], and the role of Hermitian analyticity in Miramontes [-@miramontes1999]. The complex finite-volume spectra and the $a_2^{(1)}$ and $a_2^{(2)}$ sector analysis go back to Takács and Watts [-@tw1999; -@tw2002]. Light-cone lattice regularizations are due to Destri and de Vega [@destri1987]. Krein-unitarity and the sector classification are new here.
