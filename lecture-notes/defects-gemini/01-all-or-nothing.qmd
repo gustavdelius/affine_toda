@@ -1,4 +1,4 @@
-# Lecture 1: The Puzzle of Integrable Impurities and the All-or-Nothing Theorem {#sec-lec1-all-or-nothing}
+# The Puzzle of Integrable Impurities and the All-or-Nothing Theorem {#sec-lec1-all-or-nothing}
 
 ::: {.callout-note appearance="simple" icon=false title="What You Will Learn and Calculate in This Lecture"}
 - **Conserved Charges Across an Impurity:** Why a boundary at $x=0$ can only preserve parity-even combinations $Q_s + Q_{-s}$, whereas a line defect at $x=0$ can preserve both chiralities $Q_{+s}$ and $Q_{-s}$ separately—and why conserving momentum forbids reflection.
@@ -10,11 +10,11 @@
 
 ---
 
-## 1.1 Setting the Stage: What Happens When an Integrable World Meets a Seam? {#sec-lec1-kinematics}
+## Setting the Stage: What Happens When an Integrable World Meets a Seam? {#sec-lec1-kinematics}
 
-In Parts I–VI of the book, we studied integrable quantum field theories on the infinite line $x \in (-\infty, \infty)$. The hallmark of these theories is an infinite tower of local conserved charges $Q_s$ of higher spin $s$, which forbid particle production and force every multi-particle collision to factorize into a sequence of two-body scatterings governed by the Yang–Baxter equation (@sec-factorization).
+In Parts I–VI of the book, we studied integrable quantum field theories on the infinite line $x \in (-\infty, \infty)$. The hallmark of these theories is an infinite tower of local conserved charges $Q_s$ of higher spin $s$, which forbid particle production and force every multi-particle collision to factorize into a sequence of two-body scatterings governed by the Yang–Baxter equation (see the book: [Higher conserved charges and factorization](book:sec-factorization)).
 
-In Part VII (@sec-boundary-scattering), we cut space in half and placed a wall at $x=0$. Now we want to do something less violent: we keep the entire line $x \in (-\infty, \infty)$, with a bulk field $\vec{\phi}(x,t)$ on the left half-line $x < 0$ and a bulk field $\vec{\psi}(x,t)$ on the right half-line $x > 0$, and we sew them together along a seam—a **line defect**—at $x=0$.
+In Part VII (see the book: [Integrable scattering with a boundary](book:sec-boundary-scattering)), we cut space in half and placed a wall at $x=0$. Now we want to do something less violent: we keep the entire line $x \in (-\infty, \infty)$, with a bulk field $\vec{\phi}(x,t)$ on the left half-line $x < 0$ and a bulk field $\vec{\psi}(x,t)$ on the right half-line $x > 0$, and we sew them together along a seam—a **line defect**—at $x=0$.
 
 At first sight, you might think a defect is just a milder version of a boundary: when a particle hits $x=0$, part of its wave is reflected with amplitude $R(\theta)$ and part is transmitted with amplitude $\mathbb{T}(\theta)$. In ordinary one-dimensional quantum mechanics with a potential barrier $V(x) = g\,\delta(x)$, that is indeed what happens.
 
@@ -22,7 +22,7 @@ In an interacting integrable quantum field theory, however, we are about to disc
 
 ### Blackboard Calculation 1: Flux Jumps and Surviving Charges {#sec-lec1-flux-jump}
 
-Recall from @sec-factorization that in the bulk of a $(1+1)$-dimensional integrable field theory, a conserved charge $Q_s$ of spin $s$ comes from a local continuity equation. In light-cone coordinates $x^\pm = t \pm x$, with derivatives $\partial_\pm = \partial_t \pm \partial_x$, a spin-$s$ conservation law takes the form
+Recall from the book's section [Higher conserved charges and factorization](book:sec-factorization) that in the bulk of a $(1+1)$-dimensional integrable field theory, a conserved charge $Q_s$ of spin $s$ comes from a local continuity equation. In light-cone coordinates $x^\pm = t \pm x$, with derivatives $\partial_\pm = \partial_t \pm \partial_x$, a spin-$s$ conservation law takes the form
 $$
 \partial_- T_{s+1} = \partial_+ \Theta_{s-1} \qquad (\text{for } Q_{+s}), \qquad
 \partial_+ T_{-s-1} = \partial_- \Theta_{-s+1} \qquad (\text{for } Q_{-s}).
@@ -62,14 +62,14 @@ Now compare a **boundary** with a **defect**:
    $$
    \tilde{Q}_s = Q_{+s} + Q_{-s} + \Sigma_s, \qquad \tilde{Q}_s|\theta\rangle = 2\chi_a^{(s)}\cosh(s\theta)|\theta\rangle,
    $$
-   can be conserved (@sec-half-line-kinematics). In particular, for $s=1$, energy $E = \frac{1}{2}(Q_{+1} + Q_{-1})$ is conserved, while momentum $P = \frac{1}{2}(Q_{+1} - Q_{-1})$ is broken.
+   can be conserved (see the book: [Kinematics on the half-line](book:sec-half-line-kinematics)). In particular, for $s=1$, energy $E = \frac{1}{2}(Q_{+1} + Q_{-1})$ is conserved, while momentum $P = \frac{1}{2}(Q_{+1} - Q_{-1})$ is broken.
 
 2. **At a defect ($x \in \mathbb{R}$):** A particle of rapidity $\theta$ arriving from $x<0$ does *not* have to bounce back into $x<0$; it can pass into $x>0$ keeping its rapidity $\theta$! Therefore, at a defect, the chiral charges $Q_{+s} + \Sigma_{+s}$ and $Q_{-s} + \Sigma_{-s}$ **can survive separately**.
 
-What happens when they do? Let us prove our first fundamental result (which expands @prp-defect-elastic of the book).
+What happens when they do? Let us prove our first fundamental result (which expands the book's [Elastic scattering off a defect](book:prp-defect-elastic)).
 
 ::: {#prp-lec1-elastic}
-## Kinematics of Elastic Defect Scattering and Absence of Reflection
+## Kinematics of Elastic Defect Scattering and Absence of Reflection {.unnumbered}
 **[Established]** Suppose that infinitely many odd-spin charges $Q_s + Q_{-s} + \Sigma_s$ survive the defect with non-zero one-particle eigenvalues $\chi_a^{(s)}$, and that the internal states $|\alpha\rangle$ of the defect have a discrete energy spectrum $\{e_\alpha\}$. Then:
 
 1. **Elasticity and Factorization:** Scattering off the defect is purely elastic—an $N$-particle in-state with rapidities $\{\theta_1, \dots, \theta_N\}$ goes into an $N$-particle out-state in which each particle is either reflected ($\theta_i \to -\theta_i$) or transmitted ($\theta_i \to +\theta_i$), changing its species label only within an equal-mass multiplet, and the $N$-particle amplitude factorizes into two-body bulk scatterings and single-particle defect reflections and transmissions [@delfino_mussardo_simonetti1994; @cafg2002].
@@ -81,7 +81,7 @@ For (1), when asymptotic wavepackets are far from $x=0$ (as $t \to \pm\infty$), 
 $$
 m_a\cosh\theta + e_\alpha = \sum_j m_{b_j}\cosh\theta'_j + e_\beta.
 $$
-As we vary $\theta$ continuously while $e_\beta - e_\alpha$ takes values in a discrete set, differentiation with respect to $\theta$ (and applying the higher-spin charges $\sum_j \chi_{b_j}^{(s)}\cosh(s\theta'_j) = \chi_a^{(s)}\cosh(s\theta)$ for infinitely many odd $s$, just as in @prp-boundary-elastic) forces a single outgoing particle of the same mass $m_b = m_a$ with $\cosh\theta' = \cosh\theta$, hence $\theta' = +\theta$ (transmission to $x>0$) or $\theta' = -\theta$ (reflection to $x<0$), and $e_\beta = e_\alpha$. Using localized wavepackets shifted by higher-spin charges $e^{i\epsilon_s (Q_s + Q_{-s} + \Sigma_s)}$ separates multi-particle collisions in spacetime and yields factorization.
+As we vary $\theta$ continuously while $e_\beta - e_\alpha$ takes values in a discrete set, differentiation with respect to $\theta$ (and applying the higher-spin charges $\sum_j \chi_{b_j}^{(s)}\cosh(s\theta'_j) = \chi_a^{(s)}\cosh(s\theta)$ for infinitely many odd $s$, just as in [the book's argument for a boundary](book:prp-boundary-elastic)) forces a single outgoing particle of the same mass $m_b = m_a$ with $\cosh\theta' = \cosh\theta$, hence $\theta' = +\theta$ (transmission to $x>0$) or $\theta' = -\theta$ (reflection to $x<0$), and $e_\beta = e_\alpha$. Using localized wavepackets shifted by higher-spin charges $e^{i\epsilon_s (Q_s + Q_{-s} + \Sigma_s)}$ separates multi-particle collisions in spacetime and yields factorization.
 
 For (2), suppose a particle of mass $m$ and rapidity $\theta > 0$ arriving from the left is reflected back to the left with rapidity $-\theta$, while the defect transitions from $|\alpha\rangle$ to $|\beta\rangle$. Conservation of energy $E = \frac{1}{2}(Q_{+1}+Q_{-1}+\Sigma_{+1}+\Sigma_{-1})$ and momentum $P = \frac{1}{2}(Q_{+1}-Q_{-1}+\Sigma_{+1}-\Sigma_{-1})$ requires
 $$
@@ -95,15 +95,15 @@ The right-hand side $2m\sinh\theta$ varies continuously with the incoming rapidi
 
 ---
 
-## 1.2 The Reflection–Transmission Algebra and the All-or-Nothing Theorem {#sec-lec1-rt-nogo}
+## The Reflection–Transmission Algebra and the All-or-Nothing Theorem {#sec-lec1-rt-nogo}
 
 What if we *do not* assume momentum conservation from the start? Suppose we only assume that the defect preserves the parity-even combinations $Q_s + Q_{-s} + \Sigma_s$ (just like a boundary does), so that single-particle reflection $R(\theta)$ and transmission $\mathbb{T}(\theta)$ are both kinematically allowed. Can a defect in an interacting integrable theory both reflect and transmit?
 
-To answer this, Delfino, Mussardo, and Simonetti [@delfino_mussardo_simonetti1994] introduced an algebraic language extending the Zamolodchikov–Faddeev (ZF) algebra of @sec-factorization. Let us set it up carefully.
+To answer this, Delfino, Mussardo, and Simonetti [@delfino_mussardo_simonetti1994] introduced an algebraic language extending the Zamolodchikov–Faddeev (ZF) algebra of the book's section [Higher conserved charges and factorization](book:sec-factorization). Let us set it up carefully.
 
 ### The Defect Zamolodchikov–Faddeev Algebra {#sec-lec1-zf-setup}
 
-Recall that in the bulk, asymptotic particles are created by operators $A_a(\theta)$ satisfying the bulk exchange relation (-@eq-zf-algebra):
+Recall that in the bulk, asymptotic particles are created by operators $A_a(\theta)$ satisfying the bulk exchange relation (see [the book](book:eq-zf-algebra)):
 $$
 A_a(\theta_1)\,A_b(\theta_2) = S_{ab}^{cd}(\theta_1 - \theta_2)\,A_d(\theta_2)\,A_c(\theta_1),
 $$ {#eq-lec1-bulk-zf}
@@ -116,7 +116,7 @@ Now insert a formal operator $D_\alpha$ at $x=0$ representing the defect in inte
 * **Incoming particle from the left ($x<0$):** A particle of rapidity $\theta > 0$ starts to the left of the defect, so the in-state is $A_a(\theta)\,D_\alpha$. After hitting the defect at $x=0$, it can either bounce back to $x<0$ with rapidity $-\theta < 0$ (now moving away from the defect on the left, so written $A_b(-\theta)\,D_\beta$) or pass through to $x>0$ with rapidity $+\theta > 0$ (now moving away from the defect on the right, so written $D_\beta\,A_b(\theta)$).
 * **Incoming particle from the right ($x>0$):** A particle moving towards $x=0$ from the right has negative rapidity $-\theta < 0$ (with $\theta > 0$), so the in-state is $D_\alpha\,A_a(-\theta)$. After hitting the defect, it either bounces back to $x>0$ with rapidity $+\theta > 0$ ($D_\beta\,A_b(\theta)$) or transmits to $x<0$ with rapidity $-\theta < 0$ ($A_b(-\theta)\,D_\beta$).
 
-Writing these two processes as algebraic exchange relations gives the **defect Zamolodchikov–Faddeev algebra** (-@eq-defect-zf) [@delfino_mussardo_simonetti1994; @cafg2002]:
+Writing these two processes as algebraic exchange relations gives the **defect Zamolodchikov–Faddeev algebra** (see [the book](book:eq-defect-zf)) [@delfino_mussardo_simonetti1994; @cafg2002]:
 $$
 \begin{aligned}
 A_a(\theta)\,D_\alpha &= R_{a\alpha}^{b\beta}(\theta)\,A_b(-\theta)\,D_\beta + \mathbb{T}_{a\alpha}^{\beta b}(\theta)\,D_\beta\,A_b(\theta),\\
@@ -300,15 +300,15 @@ Since meromorphic functions vanish on an open set only if one of the factors van
 * If $R_b \not\equiv 0$ and $\mathbb{T}_a \not\equiv 0$, then (-@eq-lec1-mixed-a) forces $S_{ab}(\theta_1 + \theta_2) = S_{ab}(\theta_1 - \theta_2)$ for all $\theta_1 > \theta_2 > 0$, which means **$S_{ab}(\theta)$ must be a constant independent of rapidity**!
 * If also $R_a \not\equiv 0$ and $\mathbb{T}_b \not\equiv 0$, then (-@eq-lec1-mixed-b) forces $S_{ab}(\theta_1-\theta_2)S_{ba}(\theta_1+\theta_2) = 1$. Setting $a=b$ gives $S_{aa}(\theta) = \text{const}$ and $S_{aa}^2 = 1$, hence **$S_{aa} = \pm 1$ (a free boson or free fermion)**!
 
-We have just proved @prp-rt-nogo in complete detail:
+We have just proved the book's [Pure reflection or pure transmission](book:prp-rt-nogo) in complete detail:
 
 > **The All-or-Nothing Principle:** In any interacting integrable theory with a rapidity-dependent diagonal bulk $S$-matrix, an integrable defect without internal states **cannot both reflect and transmit**. Either $\mathbb{T}_a(\theta) \equiv 0$ (a purely reflecting defect, which is just two decoupled half-line boundaries back-to-back) or $R_a(\theta) \equiv 0$ (a **purely transmitting defect**, which conserves asymptotic momentum).
 
-As explained in @sec-rt-algebra, Castro-Alvaredo, Fring, and Göhmann [@cafg2002] extended this no-go theorem to non-diagonal bulk $S$-matrices and defects with internal states whenever the reflection and transmission matrices commute in the defect space within a single communicating sector. Thus, in interacting integrable field theories—such as sine-Gordon, sinh-Gordon, and affine Toda theories—integrable line defects are **purely transmitting**.
+As explained in the book's section [Reflection, transmission and a no-go theorem](book:sec-rt-algebra), Castro-Alvaredo, Fring, and Göhmann [@cafg2002] extended this no-go theorem to non-diagonal bulk $S$-matrices and defects with internal states whenever the reflection and transmission matrices commute in the defect space within a single communicating sector. Thus, in interacting integrable field theories—such as sine-Gordon, sinh-Gordon, and affine Toda theories—integrable line defects are **purely transmitting**.
 
 ---
 
-## 1.3 The Free-Fermion Escape Hatch: The Ising Defect {#sec-lec1-ising}
+## The Free-Fermion Escape Hatch: The Ising Defect {#sec-lec1-ising}
 
 Before we leave reflection behind forever, let us verify that when $S = -1$ (the massive Majorana fermion of the off-critical Ising model), the no-go theorem's escape hatch opens wide!
 
@@ -323,7 +323,7 @@ together with the crossing relation between reflection and transmission [@delfin
 $$
 R(\theta) = \mathbb{T}\!\left(\frac{i\pi}{2} - \theta\right) \quad\Longleftrightarrow\quad \mathbb{T}(\theta) = \mathbb{T}(i\pi - \theta), \quad R(\theta) = -R(i\pi - \theta) \text{ (up to conventions)}.
 $$
-Specifically, for a line defect of strength $g$ in the free Majorana fermion action (a line of modified energy bonds in the lattice Ising model), solving the Dirac equation across $x=0$ gives (-@eq-defect-zf) with [@delfino_mussardo_simonetti1994, eq. (3.5)]:
+Specifically, for a line defect of strength $g$ in the free Majorana fermion action (a line of modified energy bonds in the lattice Ising model), solving the Dirac equation across $x=0$ gives (see [the book](book:eq-defect-zf)) with [@delfino_mussardo_simonetti1994, eq. (3.5)]:
 $$
 \mathbb{T}(\theta) = \frac{\cos\chi\,\sinh\theta}{\sinh\theta - i\sin\chi}, \qquad
 R(\theta) = \frac{i\sin\chi\,\cosh\theta}{\sinh\theta - i\sin\chi},
@@ -354,7 +354,7 @@ Look at the physical limits of (-@eq-lec1-ising-rt):
 
 ---
 
-## 1.4 Pure Transmission and the Three Faces of the Triangle Relation {#sec-lec1-triangle}
+## Pure Transmission and the Three Faces of the Triangle Relation {#sec-lec1-triangle}
 
 From now on, we set $R = \bar{R} = 0$ and study **purely transmitting defects** in interacting theories, where both bulk scattering $S_{ab}^{cd}$ and defect transmission $\mathbb{T}_{a\alpha}^{\beta b}$ can be non-diagonal matrices acting on the particle multiplet $V(\theta) = \mathrm{span}\{v_a\}$ and the defect space $\mathcal{W} = \mathrm{span}\{w_\alpha\}$:
 $$
@@ -371,7 +371,7 @@ $$
 \end{aligned}
 $$ {#eq-lec1-t-maps}
 
-In the literature on integrable defects, you will encounter the fundamental consistency equation for $\mathbb{T}(\theta)$—the **Triangle Relation** (or defect Yang–Baxter equation) [@konik_leclair1999; @bcz2005; @bajnok_george2006]—written in three seemingly different notations. Students often get tripped up translating between them. Let us derive all three side by side so that their equivalence is crystal clear (@prp-triangle-forms).
+In the literature on integrable defects, you will encounter the fundamental consistency equation for $\mathbb{T}(\theta)$—the **Triangle Relation** (or defect Yang–Baxter equation) [@konik_leclair1999; @bcz2005; @bajnok_george2006]—written in three seemingly different notations. Students often get tripped up translating between them. Let us derive all three side by side so that their equivalence is crystal clear (see the book: [Three forms of the triangle relation](book:prp-triangle-forms)).
 
 ### Blackboard Calculation 3: Deriving the Index, Braid, and RTT Forms {#sec-lec1-three-forms}
 
@@ -406,14 +406,14 @@ Start with the two-particle in-state $A_a(\theta_1)\,A_b(\theta_2)\,D_\alpha$ ($
      = \mathbb{T}_{b\alpha}^{\beta d}(\theta_2)\,\mathbb{T}_{a\beta}^{\gamma c}(\theta_1)\,S_{cd}^{fe}(\theta_1 - \theta_2)\,D_\gamma\,A_e(\theta_2)\,A_f(\theta_1).
      $$
 
-Equating the coefficients of $D_\gamma\,A_e(\theta_2)\,A_f(\theta_1)$ gives the **$S/\mathbb{T}$ index form of the Triangle Relation** (-@eq-triangle-st):
+Equating the coefficients of $D_\gamma\,A_e(\theta_2)\,A_f(\theta_1)$ gives the **$S/\mathbb{T}$ index form of the Triangle Relation** (see [the book](book:eq-triangle-st)):
 $$
 S_{ab}^{cd}(\theta_1 - \theta_2)\,\mathbb{T}_{c\alpha}^{\beta f}(\theta_1)\,\mathbb{T}_{d\beta}^{\gamma e}(\theta_2)
 = \mathbb{T}_{b\alpha}^{\beta d}(\theta_2)\,\mathbb{T}_{a\beta}^{\gamma c}(\theta_1)\,S_{cd}^{fe}(\theta_1 - \theta_2).
 $$ {#eq-lec1-triangle-st}
 
 #### Form 2: The Braid Form
-In Part VI (@eq-r-check), the bulk $S$-matrix is written as a braid operator $\check{S}(\theta_1-\theta_2) = \Phi_{\text{bulk}}(\theta_1-\theta_2)\,\check{R}(x_1/x_2): V(\theta_1)\otimes V(\theta_2) \to V(\theta_2)\otimes V(\theta_1)$ with matrix elements
+In Part VI of the book (with [the intertwiner $\check R$](book:eq-r-check)), the bulk $S$-matrix is written as a braid operator $\check{S}(\theta_1-\theta_2) = \Phi_{\text{bulk}}(\theta_1-\theta_2)\,\check{R}(x_1/x_2): V(\theta_1)\otimes V(\theta_2) \to V(\theta_2)\otimes V(\theta_1)$ with matrix elements
 $$
 \check{S}(v_a \otimes v_b) = \sum_{c,d} S_{ab}^{cd}\,v_d \otimes v_c,
 $$
@@ -430,14 +430,14 @@ Now look at the composite map from the initial space $V(\theta_1) \otimes V(\the
   2. Next, $\mathbb{T}_{23}(\theta_1)$ moves $V(\theta_1)$ across $\mathcal{W}$ in slots 2 and 3: $\mapsto S_{ab}^{cd}\,\mathbb{T}_{c\alpha}^{\beta f}\,v_d \otimes w_\beta \otimes v_f$.
   3. Finally, $\mathbb{T}_{12}(\theta_2)$ moves $V(\theta_2)$ across $\mathcal{W}$ in slots 1 and 2: $\mapsto S_{ab}^{cd}\,\mathbb{T}_{c\alpha}^{\beta f}\,\mathbb{T}_{d\beta}^{\gamma e}\,w_\gamma \otimes v_e \otimes v_f$—the left-hand side of (-@eq-lec1-triangle-st)!
 
-Since the bulk scalar factor $\Phi_{\text{bulk}}(\theta_1-\theta_2)$ appears once on each side, it cancels out, leaving the **braid form of the Triangle Relation** (-@eq-triangle-braid):
+Since the bulk scalar factor $\Phi_{\text{bulk}}(\theta_1-\theta_2)$ appears once on each side, it cancels out, leaving the **braid form of the Triangle Relation** (see [the book](book:eq-triangle-braid)):
 $$
 \check{R}_{23}\!\left(\frac{x_1}{x_2}\right)\,\mathbb{T}_{12}(\theta_1)\,\mathbb{T}_{23}(\theta_2)
 = \mathbb{T}_{12}(\theta_2)\,\mathbb{T}_{23}(\theta_1)\,\check{R}_{12}\!\left(\frac{x_1}{x_2}\right).
 $$ {#eq-lec1-triangle-braid}
 
 ::: {.callout-note appearance="simple" title="A Particle Is a Defect!"}
-Compare (-@eq-lec1-triangle-braid) with the braid Yang–Baxter equation (-@eq-ybe-braid):
+Compare (-@eq-lec1-triangle-braid) with the braid Yang–Baxter equation (see [the book](book:eq-ybe-braid)):
 $$
 \check{R}_{23}\!\left(\frac{x_1}{x_2}\right)\,\check{R}_{12}\!\left(\frac{x_1}{x_3}\right)\,\check{R}_{23}\!\left(\frac{x_2}{x_3}\right)
 = \check{R}_{12}\!\left(\frac{x_2}{x_3}\right)\,\check{R}_{23}\!\left(\frac{x_1}{x_3}\right)\,\check{R}_{12}\!\left(\frac{x_1}{x_2}\right).
@@ -476,7 +476,7 @@ Let us substitute $\check{R}_{ij} = P_{ij}R_{ij}$ and $\mathbb{T}_{ij} = P_{ij}\
   \end{aligned}
   $$
 
-Cancelling the overall permutation $P_{13}: V_1 \otimes V_2 \otimes \mathcal{W} \to \mathcal{W} \otimes V_2 \otimes V_1$ from both sides gives the **$RTT$ form of the Triangle Relation** (-@eq-triangle-rtt):
+Cancelling the overall permutation $P_{13}: V_1 \otimes V_2 \otimes \mathcal{W} \to \mathcal{W} \otimes V_2 \otimes V_1$ from both sides gives the **$RTT$ form of the Triangle Relation** (see [the book](book:eq-triangle-rtt)):
 $$
 R_{12}(\theta_1 - \theta_2)\,\mathbb{L}_{13}(\theta_1)\,\mathbb{L}_{23}(\theta_2)
 = \mathbb{L}_{23}(\theta_2)\,\mathbb{L}_{13}(\theta_1)\,R_{12}(\theta_1 - \theta_2)
@@ -491,13 +491,13 @@ then (-@eq-lec1-triangle-rtt) is **Faddeev's $RLL$ relation** defining the Yang�
 
 ---
 
-## 1.5 The Doubling Trick: A Defect Is a Boundary in Disguise {#sec-lec1-doubling}
+## The Doubling Trick: A Defect Is a Boundary in Disguise {#sec-lec1-doubling}
 
-How do we find the crossing symmetry and bootstrap equations for a transmitting defect? In their early papers, Delfino, Mussardo, and Simonetti [@delfino_mussardo_simonetti1994] and Konik and LeClair [@konik_leclair1999] simply postulated defect crossing by analogy with bulk crossing. In 2006, Bajnok and George [@bajnok_george2006] showed that you do not need to guess: **every defect theory on the full line can be folded into a boundary theory on the left half-line**, so that all defect axioms follow mathematically from the boundary axioms of Part VII (@sec-boundary-scattering)!
+How do we find the crossing symmetry and bootstrap equations for a transmitting defect? In their early papers, Delfino, Mussardo, and Simonetti [@delfino_mussardo_simonetti1994] and Konik and LeClair [@konik_leclair1999] simply postulated defect crossing by analogy with bulk crossing. In 2006, Bajnok and George [@bajnok_george2006] showed that you do not need to guess: **every defect theory on the full line can be folded into a boundary theory on the left half-line**, so that all defect axioms follow mathematically from the boundary axioms of Part VII (see the book: [Integrable scattering with a boundary](book:sec-boundary-scattering))!
 
 ### How the Folding Works {#sec-lec1-folding-map}
 
-Take our field $\vec{\phi}(x,t)$ on $x \le 0$ and our field $\vec{\psi}(x,t)$ on $x \ge 0$, and define a doubled field $\Phi(x,t)$ living solely on the left half-line $x \le 0$ (@sec-doubling-trick):
+Take our field $\vec{\phi}(x,t)$ on $x \le 0$ and our field $\vec{\psi}(x,t)$ on $x \ge 0$, and define a doubled field $\Phi(x,t)$ living solely on the left half-line $x \le 0$ (see the book: [The doubling trick](book:sec-doubling-trick)):
 $$
 \Phi(x,t) = \big(\vec{\phi}(x,t),\,\vec{\psi}(-x,t)\big), \qquad x \le 0.
 $$ {#eq-lec1-doubled-field}
@@ -518,7 +518,7 @@ Let us trace carefully what this mirror map $x \mapsto -x$ does to the particles
    - $V(\theta)\otimes\mathcal{W} \xrightarrow{\mathbb{T}(\theta)} \mathcal{W}\otimes V(\theta) \xrightarrow{P} V'(-\theta)\otimes\mathcal{W}$,
    - $V'(\theta)\otimes\mathcal{W} \xrightarrow{P} \mathcal{W}\otimes V(-\theta) \xrightarrow{\bar{\mathbb{T}}(\theta)} V(-\theta)\otimes\mathcal{W}$.
 
-   Therefore, for a purely transmitting defect, the boundary reflection matrix of the doubled theory is purely block off-diagonal (-@eq-doubled-k) [@bajnok_george2006, eq. (10)]:
+   Therefore, for a purely transmitting defect, the boundary reflection matrix of the doubled theory is purely block off-diagonal (see [the book](book:eq-doubled-k)) [@bajnok_george2006, eq. (10)]:
    $$
    K(\theta) = \begin{pmatrix} 0 & \bar{\mathbb{T}}(\theta)\,P \\[3pt] P\,\mathbb{T}(\theta) & 0 \end{pmatrix}
    \qquad \text{acting on } \big(V(\theta) \oplus V'(\theta)\big) \otimes \mathcal{W}.
@@ -526,24 +526,24 @@ Let us trace carefully what this mirror map $x \mapsto -x$ does to the particles
 
 ### Blackboard Calculation 4: Reading Defect Unitarity and Crossing off the Doubled Boundary {#sec-lec1-doubling-calc}
 
-Let us now plug the block matrix (-@eq-lec1-doubled-k) into the standard boundary axioms of @sec-boundary-scattering and watch the defect axioms fall into our lap (@prp-doubling)!
+Let us now plug the block matrix (-@eq-lec1-doubled-k) into the standard boundary axioms of the book's chapter [Integrable scattering with a boundary](book:sec-boundary-scattering) and watch the defect axioms fall into our lap (see the book: [The doubling trick](book:prp-doubling))!
 
 #### 1. Defect Unitarity from Boundary Unitarity
-Boundary unitarity (-@eq-boundary-unitarity) states that $K(-\theta)\,K(\theta) = 1_{(V\oplus V')\otimes\mathcal{W}}$. Multiplying the $2\times 2$ block matrices gives
+Boundary unitarity (see [the book](book:eq-boundary-unitarity)) states that $K(-\theta)\,K(\theta) = 1_{(V\oplus V')\otimes\mathcal{W}}$. Multiplying the $2\times 2$ block matrices gives
 $$
 K(-\theta)\,K(\theta)
 = \begin{pmatrix} 0 & \bar{\mathbb{T}}(-\theta)\,P \\[3pt] P\,\mathbb{T}(-\theta) & 0 \end{pmatrix}
 \begin{pmatrix} 0 & \bar{\mathbb{T}}(\theta)\,P \\[3pt] P\,\mathbb{T}(\theta) & 0 \end{pmatrix}
 = \begin{pmatrix} \bar{\mathbb{T}}(-\theta)\,P^2\,\mathbb{T}(\theta) & 0 \\[3pt] 0 & P\,\mathbb{T}(-\theta)\,\bar{\mathbb{T}}(\theta)\,P \end{pmatrix}.
 $$
-Since $P^2 = 1$, setting this equal to $\begin{pmatrix} 1_{V\otimes\mathcal{W}} & 0 \\ 0 & 1_{V'\otimes\mathcal{W}} \end{pmatrix}$ immediately yields **defect unitarity** (-@eq-defect-unitarity):
+Since $P^2 = 1$, setting this equal to $\begin{pmatrix} 1_{V\otimes\mathcal{W}} & 0 \\ 0 & 1_{V'\otimes\mathcal{W}} \end{pmatrix}$ immediately yields **defect unitarity** (see [the book](book:eq-defect-unitarity)):
 $$
 \bar{\mathbb{T}}(-\theta)\,\mathbb{T}(\theta) = 1_{V\otimes\mathcal{W}}, \qquad
 \mathbb{T}(-\theta)\,\bar{\mathbb{T}}(\theta) = 1_{\mathcal{W}\otimes V}.
 $$ {#eq-lec1-defect-unitarity}
 
 #### 2. Defect Crossing from Boundary Crossing-Unitarity
-Recall from @sec-boundary-unitarity-crossing that Ghoshal–Zamolodchikov boundary crossing-unitarity (-@eq-boundary-crossing-unitarity) is the statement that a boundary can emit a virtual particle–antiparticle pair at rapidities $\frac{i\pi}{2} - \theta$ and $\frac{i\pi}{2} + \theta$, and that this pair amplitude is invariant under bulk scattering $\check{S}(2\theta)$ of the two emitted particles:
+Recall from the book's section [Boundary unitarity and crossing-unitarity](book:sec-boundary-unitarity-crossing) that Ghoshal–Zamolodchikov boundary crossing-unitarity ([the book's equation](book:eq-boundary-crossing-unitarity)) is the statement that a boundary can emit a virtual particle–antiparticle pair at rapidities $\frac{i\pi}{2} - \theta$ and $\frac{i\pi}{2} + \theta$, and that this pair amplitude is invariant under bulk scattering $\check{S}(2\theta)$ of the two emitted particles:
 $$
 K_{B\bar{A}}\!\left(\frac{i\pi}{2} - \theta\right) = \sum_{C,D} \check{S}_{CD}^{AB}(2\theta)\,K_{D\bar{C}}\!\left(\frac{i\pi}{2} + \theta\right),
 $$
@@ -559,7 +559,7 @@ Now let us restore the defect labels $\alpha, \beta$ and read off the matrix ele
 - The lower-left block $K_{b'\bar{a}}$ maps $\bar{a} \in V$ and incoming defect state $\alpha$ to $b' \in V'$ and outgoing defect state $\beta$, which is $\mathbb{T}_{\bar{a}\alpha}^{\beta b}$.
 - The upper-right block $K_{a\bar{b}'}$ maps $\bar{b}' \in V'$ and incoming defect state $\alpha$ to $a \in V$ and outgoing defect state $\beta$, which is $\bar{\mathbb{T}}_{\alpha\bar{b}}^{a\beta}$.
 
-Replacing $\frac{i\pi}{2} - \theta$ by $\theta$ (so $\frac{i\pi}{2} + \theta$ becomes $i\pi - \theta$) and relabelling $\bar{a} \to a$ gives the **defect crossing relation** (-@eq-defect-crossing) [@bajnok_george2006, eq. (15)]:
+Replacing $\frac{i\pi}{2} - \theta$ by $\theta$ (so $\frac{i\pi}{2} + \theta$ becomes $i\pi - \theta$) and relabelling $\bar{a} \to a$ gives the **defect crossing relation** (see [the book](book:eq-defect-crossing)) [@bajnok_george2006, eq. (15)]:
 $$
 \mathbb{T}_{a\alpha}^{\beta b}(\theta) = \bar{\mathbb{T}}_{\alpha\bar{b}}^{\,\bar{a}\beta}(i\pi - \theta).
 $$ {#eq-lec1-defect-crossing}
@@ -579,9 +579,9 @@ Notice how much simpler (-@eq-lec1-scalar-unitarity-crossing) is than boundary c
 
 ---
 
-## 1.6 Defect Bound States, the Bootstrap, and Defects on a Circle {#sec-lec1-bootstrap-circle}
+## Defect Bound States, the Bootstrap, and Defects on a Circle {#sec-lec1-bootstrap-circle}
 
-Let us complete our toolkit of general defect axioms with two essential physical constructions (@sec-defect-bound-states, @sec-defect-circle).
+Let us complete our toolkit of general defect axioms with two essential physical constructions (see the book: [Defect bound states and the bootstrap](book:sec-defect-bound-states), [Defects on the circle](book:sec-defect-circle)).
 
 ### 1. The Defect Bootstrap vs. The Boundary Bootstrap {#sec-lec1-bootstrap}
 
@@ -591,7 +591,7 @@ e_\beta = e_\alpha + m_a\cos u.
 $$
 How does a second particle $b(\theta)$ transmit across this excited defect $|\beta\rangle$?
 
-Think of $|\beta\rangle$ as the original defect $|\alpha\rangle$ with particle $a(iu)$ sitting just to its right (the side to which $a$ was transmitted). When particle $b(\theta)$ crosses from left to right, it first crosses the bare defect $|\alpha\rangle$ and then scatters **once** past the bound particle $a(iu)$! In a diagonal theory, this gives the **defect bound-state bootstrap** (-@eq-defect-bootstrap) [@bajnok_simon2008]:
+Think of $|\beta\rangle$ as the original defect $|\alpha\rangle$ with particle $a(iu)$ sitting just to its right (the side to which $a$ was transmitted). When particle $b(\theta)$ crosses from left to right, it first crosses the bare defect $|\alpha\rangle$ and then scatters **once** past the bound particle $a(iu)$! In a diagonal theory, this gives the **defect bound-state bootstrap** (see [the book](book:eq-defect-bootstrap)) [@bajnok_simon2008]:
 $$
 \mathbb{T}_b^\beta(\theta) = S_{ba}(\theta - iu)\,\mathbb{T}_b^\alpha(\theta), \qquad
 \bar{\mathbb{T}}_b^\beta(\theta) = S_{ab}(\theta + iu)\,\bar{\mathbb{T}}_b^\alpha(\theta).
@@ -602,7 +602,7 @@ $$
 $$ {#eq-lec1-bulk-bootstrap}
 
 ::: {.callout-tip appearance="simple" title="Why the Defect Bootstrap Has Half as Many Factors as the Boundary Bootstrap"}
-Compare (-@eq-lec1-defect-bootstrap) and (-@eq-lec1-bulk-bootstrap) with the boundary bootstrap equations (-@eq-boundary-bootstrap) and (-@eq-boundary-bootstrap-bulk) of Part VII:
+Compare (-@eq-lec1-defect-bootstrap) and (-@eq-lec1-bulk-bootstrap) with the boundary bootstrap equations of Part VII of the book ([first](book:eq-boundary-bootstrap) and [second](book:eq-boundary-bootstrap-bulk)):
 - At a **boundary**, a reflected particle $b$ passes the bound particle $a(iu)$ *twice*—once on the way in ($\theta - iu$) and once on the way out ($\theta + iu$), giving $K_b^\beta(\theta) = S_{ba}(\theta-iu)S_{ab}(\theta+iu)K_b^\alpha(\theta)$. At a **defect**, the transmitted particle keeps moving right and never comes back, so it meets $a(iu)$ **only once**!
 - Likewise, when a composite particle $c = (ab)$ reflects off a boundary, its two constituents $a$ and $b$ cross *each other* once as their order reverses upon reflection, producing an extra bulk factor $S_{ab}(\theta + i\bar{u}_{ac}^b - (-\theta + i\bar{u}_{bc}^a))$. When $c = (ab)$ transmits through a defect, both constituents keep moving in the same direction at the same velocity and **never cross each other**, so (-@eq-lec1-bulk-bootstrap) is a pure product of two transmission factors!
 :::
@@ -621,13 +621,13 @@ The simplest transmitting defect of all has no rapidity dependence whatsoever: i
 $$
 \mathbb{T}_a(\theta) = e^{i\alpha\cdot\mu_a}, \qquad \bar{\mathbb{T}}_a(\theta) = e^{-i\alpha\cdot\mu_a}
 $$ {#eq-lec1-twist-defect}
-trivially satisfies the Triangle Relation (since the bulk $S$-matrix conserves $\mu_a + \mu_b$), defect unitarity ($e^{i\alpha\cdot\mu_a}e^{-i\alpha\cdot\mu_a} = 1$), and defect crossing (since the antiparticle has $\mu_{\bar{a}} = -\mu_a$, so $\bar{\mathbb{T}}_{\bar{a}}(i\pi-\theta) = e^{-i\alpha\cdot(-\mu_a)} = e^{i\alpha\cdot\mu_a} = \mathbb{T}_a(\theta)$). Plugging (-@eq-lec1-twist-defect) into (-@eq-lec1-bethe-yang) simply multiplies the periodicity condition by the Bloch phase $e^{i\alpha\cdot\mu_j}$ (@prp-twist-defect): **a Bloch twist on a circle is nothing other than the invertible topological symmetry line of the topological charge!**
+trivially satisfies the Triangle Relation (since the bulk $S$-matrix conserves $\mu_a + \mu_b$), defect unitarity ($e^{i\alpha\cdot\mu_a}e^{-i\alpha\cdot\mu_a} = 1$), and defect crossing (since the antiparticle has $\mu_{\bar{a}} = -\mu_a$, so $\bar{\mathbb{T}}_{\bar{a}}(i\pi-\theta) = e^{-i\alpha\cdot(-\mu_a)} = e^{i\alpha\cdot\mu_a} = \mathbb{T}_a(\theta)$). Plugging (-@eq-lec1-twist-defect) into (-@eq-lec1-bethe-yang) simply multiplies the periodicity condition by the Bloch phase $e^{i\alpha\cdot\mu_j}$ (see the book: [Twist defects](book:prp-twist-defect)): **a Bloch twist on a circle is nothing other than the invertible topological symmetry line of the topological charge!**
 
 In the next lecture, we will leave abstract scattering axioms behind and ask: *how can a local classical field theory possibly create a defect that conserves momentum and transmits waves and solitons with zero reflection?*
 
 ---
 
-## 1.7 Guided Rediscovery Exercises {#sec-lec1-exercises}
+## Guided Rediscovery Exercises {#sec-lec1-exercises}
 
 To cement the skills of this lecture, work through the following three problems by hand.
 
@@ -661,7 +661,7 @@ $$
 
 ::: {#exr-lec1-doubled-re}
 ### Problem 1.3: The Doubled Reflection Equation Block by Block
-Write out the braid Reflection Equation (-@eq-reflection-braid) for the doubled theory on $M(\theta_1) \otimes M(\theta_2) \otimes \mathcal{W}$,
+Write out the braid Reflection Equation (see [the book](book:eq-reflection-braid)) for the doubled theory on $M(\theta_1) \otimes M(\theta_2) \otimes \mathcal{W}$,
 $$
 K_{23}(\theta_2)\,\check{S}_{12}(\theta_1 + \theta_2)\,K_{23}(\theta_1)\,\check{S}_{12}(\theta_1 - \theta_2)
 = \check{S}_{12}(\theta_1 - \theta_2)\,K_{23}(\theta_1)\,\check{S}_{12}(\theta_1 + \theta_2)\,K_{23}(\theta_2),

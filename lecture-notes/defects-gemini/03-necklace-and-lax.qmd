@@ -1,6 +1,6 @@
-# Lecture 3: The Necklace Selection Rule, the Defect Lax Matrix, and Chiral Solitons {#sec-lec3-necklace-lax}
+# The Necklace Selection Rule, the Defect Lax Matrix, and Chiral Solitons {#sec-lec3-necklace-lax}
 
-> **Companion reading in Part VIII:** Chapters 38–39 (@sec-defect-conditions, @sec-defect-solitons).
+> **Companion reading in the book:** the chapters [Classically integrable defects](book:sec-defect-conditions) and [Solitons and particles through a defect](book:sec-defect-solitons).
 
 In Lecture 2 (@sec-lec2-momentum-backlund), we discovered a remarkable phenomenon for a single scalar field: requiring **spin-1 momentum conservation alone** across a defect forces the defect sewing conditions to become a Bäcklund transformation and restricts the bulk potential to the integrable sine-Gordon/sinh-Gordon, Liouville, or free-field families.
 
@@ -24,7 +24,7 @@ In this lecture, we will do three crucial calculations on the blackboard:
 
 ---
 
-## 3.1 Multi-Component Momentum Conservation and Why Only $a_r^{(1)}$ Works {#sec-lec3-momentum-necklace}
+## Multi-Component Momentum Conservation and Why Only $a_r^{(1)}$ Works {#sec-lec3-momentum-necklace}
 
 Let us set up the multi-component laboratory. On the left half-line $x < 0$ lives an $r$-component field $\vec{\phi}(x,t) \in \mathbb{R}^r$, and on the right half-line $x > 0$ lives $\vec{\psi}(x,t) \in \mathbb{R}^r$, both governed by the same bulk ATFT potential
 $$
@@ -40,13 +40,13 @@ $$
 $$
 so $\frac{1}{2}\vec{\phi}\cdot E\dot{\vec{\phi}}$ is *not* a total time derivative when $E^{\mathsf{T}} = -E$: its Euler–Lagrange variation gives $E\dot{\vec{\phi}}$.
 
-Thus, the general type-I defect action is (@eq-defect-action in Chapter 37):
+Thus, the general type-I defect action is (see [the book](book:eq-defect-action)):
 $$
 S[\vec{\phi},\vec{\psi}] = \int_{-\infty}^0 dx \int dt\, \mathcal{L}_{\text{bulk}}(\vec{\phi}) + \int_0^\infty dx \int dt\, \mathcal{L}_{\text{bulk}}(\vec{\psi}) + \int dt \left[\frac{1}{2}\vec{\phi}\cdot E\dot{\vec{\phi}} + \vec{\phi}\cdot \mathsf{D}\dot{\vec{\psi}} + \frac{1}{2}\vec{\psi}\cdot F\dot{\vec{\psi}} - \mathcal{B}_d(\vec{\phi},\vec{\psi})\right]_{x=0},
 $$ {#eq-lec3-action}
 where $E$ and $F$ are real antisymmetric $r\times r$ matrices ($E^{\mathsf{T}} = -E$, $F^{\mathsf{T}} = -F$) and $\mathsf{D}$ is a real invertible $r\times r$ coupling matrix.
 
-Varying $S[\vec{\phi},\vec{\psi}]$ with respect to $\delta\vec{\phi}(0,t)$ and $\delta\vec{\psi}(0,t)$ (remembering to integrate $\vec{\phi}\cdot \mathsf{D}\delta\dot{\vec{\psi}}$ by parts in time, which flips its sign!) yields the multi-component defect sewing conditions at $x=0$ (@eq-defect-conditions):
+Varying $S[\vec{\phi},\vec{\psi}]$ with respect to $\delta\vec{\phi}(0,t)$ and $\delta\vec{\psi}(0,t)$ (remembering to integrate $\vec{\phi}\cdot \mathsf{D}\delta\dot{\vec{\psi}}$ by parts in time, which flips its sign!) yields the multi-component defect sewing conditions at $x=0$ (see [the book](book:eq-defect-conditions)):
 $$
 \begin{aligned}
 \partial_x \vec{\phi} &= E\,\partial_t\vec{\phi} + \mathsf{D}\,\partial_t\vec{\psi} - \nabla_{\vec{\phi}}\mathcal{B}_d(\vec{\phi},\vec{\psi}), \\
@@ -227,7 +227,7 @@ For the $\vec{\phi}$ coefficient to vanish, we need $\mathsf{D}^{\mathsf{T}}\vec
 $$
 (2\,1_r - \mathsf{D})\vec{\alpha}_i = -\mathsf{D}\vec{\alpha}_{p(i)} \implies \mathsf{D}(\vec{\alpha}_i - \vec{\alpha}_{p(i)}) = 2\vec{\alpha}_i.
 $$
-Let $P$ be the linear operator that permutes the extended simple roots according to $P\vec{\alpha}_i = \vec{\alpha}_{p(i)}$. Then $\mathsf{D}(1_r - P)\vec{\alpha}_i = 2\vec{\alpha}_i$, or (@eq-d-matrix):
+Let $P$ be the linear operator that permutes the extended simple roots according to $P\vec{\alpha}_i = \vec{\alpha}_{p(i)}$. Then $\mathsf{D}(1_r - P)\vec{\alpha}_i = 2\vec{\alpha}_i$, or (see [the book](book:eq-d-matrix)):
 $$
 \mathsf{D} = 2(1_r - P)^{-1}!
 $$ {#eq-lec3-d-formula}
@@ -247,7 +247,7 @@ Now impose the requirement that $\vec{\alpha}_i \cdot \mathsf{D}\vec{\alpha}_j =
 Look at (-@eq-lec3-necklace-cartan): a connected graph of $r+1$ vertices in which every vertex has degree 2 (for $r \ge 2$, or double bond for $r=1$) is a **closed necklace**—the extended Dynkin diagram of $a_r^{(1)}$!
 
 ::: {#thm-lec3-necklace}
-**[Established]** **The Necklace Selection Rule (@prp-ar-only; Bowcock–Corrigan–Zambon [@bcz2004]).** A bulk affine Toda field theory admits a momentum-conserving type-I defect of the form (-@eq-lec3-action) with invertible coupling matrix $\mathsf{D}$ if and only if its extended Dynkin diagram is a single cycle—that is, $\hat{\mathfrak{g}} = a_r^{(1)}$ with Coxeter number $h = r + 1$. Up to cyclic relabelling of the roots, the defect coupling matrix is
+**[Established]** **The Necklace Selection Rule (see the book: [Only $a_r^{(1)}$ has type-I defects](book:prp-ar-only); Bowcock–Corrigan–Zambon [@bcz2004]).** A bulk affine Toda field theory admits a momentum-conserving type-I defect of the form (-@eq-lec3-action) with invertible coupling matrix $\mathsf{D}$ if and only if its extended Dynkin diagram is a single cycle—that is, $\hat{\mathfrak{g}} = a_r^{(1)}$ with Coxeter number $h = r + 1$. Up to cyclic relabelling of the roots, the defect coupling matrix is
 $$
 \mathsf{D} = 2(1 - \pi^{-1})^{-1}, \qquad \vec{\alpha}_i \cdot \mathsf{D}\vec{\alpha}_j = 2\delta_{ij} - 2\delta_{i+1,j},
 $$ {#eq-lec3-necklace-d}
@@ -258,7 +258,7 @@ What about other affine Toda theories like $d_4^{(1)}$ or $c_2^{(1)}$? Because t
 
 ---
 
-## 3.2 Overlapping Lax Pairs, the Defect Monodromy Matrix $L_d(\lambda)$, and Higher Spins {#sec-lec3-lax-and-spins}
+## Overlapping Lax Pairs, the Defect Monodromy Matrix $L_d(\lambda)$, and Higher Spins {#sec-lec3-lax-and-spins}
 
 In Lecture 2, we saw that for $a_1^{(1)}$, spin-1 momentum conservation made the defect equations identical to a Bäcklund transformation. Now let us show that for the entire $a_r^{(1)}$ necklace, the momentum-conserving defect conditions (-@eq-lec3-defect-conditions) arise as the compatibility condition of an **overlapping Lax pair** across $x=0$, and that this immediately implies the conservation of all higher-spin charges!
 
@@ -273,7 +273,7 @@ a_x(\vec{\phi};\lambda) &= -\frac{b}{2}\,\vec{H}\cdot\partial_t\vec{\phi} - \fra
 $$ {#eq-lec3-bulk-lax}
 where $E_{\vec{\alpha}_j} = e_{j,j+1}$ ($j=0,\dots,r$ with indices mod $h=r+1$), $E_{-\vec{\alpha}_j} = E_{\vec{\alpha}_j}^{\mathsf{T}} = e_{j+1,j}$, and $[\vec{H}, E_{\pm\vec{\alpha}_j}] = \pm\vec{\alpha}_j E_{\pm\vec{\alpha}_j}$.
 
-Imagine widening the point $x=0$ into a tiny overlapping strip where both $\vec{\phi}$ and $\vec{\psi}$ are defined, and suppose their auxiliary wavefunctions $\Psi_\phi(0,t;\lambda)$ and $\Psi_\psi(0,t;\lambda)$ are connected across the defect by a gauge transformation matrix $L_d(\vec{\phi}(0,t),\vec{\psi}(0,t);\lambda)$ (@eq-defect-lax-matrix):
+Imagine widening the point $x=0$ into a tiny overlapping strip where both $\vec{\phi}$ and $\vec{\psi}$ are defined, and suppose their auxiliary wavefunctions $\Psi_\phi(0,t;\lambda)$ and $\Psi_\psi(0,t;\lambda)$ are connected across the defect by a gauge transformation matrix $L_d(\vec{\phi}(0,t),\vec{\psi}(0,t);\lambda)$ (see [the book](book:eq-defect-lax-matrix)):
 $$
 \Psi_\phi(0,t;\lambda) = L_d(\lambda)\,\Psi_\psi(0,t;\lambda).
 $$ {#eq-lec3-psi-jump}
@@ -286,7 +286,7 @@ Notice why $a_t$ appears here rather than $a_x$: the defect sits at fixed $x=0$ 
 Let us solve (-@eq-lec3-zero-curvature) on the blackboard! First, look at the $\lambda^0$ terms when we substitute $\partial_x\vec{\phi} = E\dot{\vec{\phi}} + \mathsf{D}\dot{\vec{\psi}} - \nabla_{\vec{\phi}}\mathcal{B}_d$ and $\partial_x\vec{\psi} = \mathsf{D}^{\mathsf{T}}\dot{\vec{\phi}} - E\dot{\vec{\psi}} + \nabla_{\vec{\psi}}\mathcal{B}_d$ into $a_t(\vec{\phi})$ and $a_t(\vec{\psi})$:
 - In $a_t(\vec{\phi})$, the time-derivative part is $-\frac{b}{2}\vec{H}\cdot(E\dot{\vec{\phi}} + \mathsf{D}\dot{\vec{\psi}})$.
 - In $-a_t(\vec{\psi})$, the time-derivative part is $+\frac{b}{2}\vec{H}\cdot(\mathsf{D}^{\mathsf{T}}\dot{\vec{\phi}} - E\dot{\vec{\psi}})$.
-To match $\partial_t L_d(\lambda)$ on the left-hand side, $L_d(\lambda)$ must factorize into a left Cartan exponential, a constant spectral matrix $\tilde{L}(\lambda)$, and a right Cartan exponential (@prp-defect-lax):
+To match $\partial_t L_d(\lambda)$ on the left-hand side, $L_d(\lambda)$ must factorize into a left Cartan exponential, a constant spectral matrix $\tilde{L}(\lambda)$, and a right Cartan exponential (see the book: [The defect Lax matrix](book:prp-defect-lax)):
 $$
 L_d(\lambda) = \exp\!\left(-\frac{b}{2}\vec{H}\cdot(E\vec{\phi} + \mathsf{D}\vec{\psi})\right) \tilde{L}(\lambda) \exp\!\left(\frac{b}{2}\vec{H}\cdot(\mathsf{D}^{\mathsf{T}}\vec{\phi} - E\vec{\psi})\right),
 $$ {#eq-lec3-ld-ansatz}
@@ -309,7 +309,7 @@ Let us check what (-@eq-lec3-zero-curvature) reduces to when we plug in (-@eq-le
    which matches the $f_j$ part of $\frac{b}{2}\vec{H}\cdot(\nabla_{\vec{\phi}}\mathcal{B}_d - \nabla_{\vec{\psi}}\mathcal{B}_d) = \frac{m\sigma}{2}\sum_j f_j \vec{H}\cdot(\mathsf{D} - \mathsf{D}^{\mathsf{T}})\vec{\alpha}_j$!
 2. **At order $\lambda^{-1}$:** Conjugating $e^{-\frac{b}{2}\vec{\alpha}_j\cdot\vec{\phi}}E_{-\vec{\alpha}_j}$ on the left and $e^{-\frac{b}{2}\vec{\alpha}_j\cdot\vec{\psi}}E_{-\vec{\alpha}_j}$ on the right through the Cartan exponentials gives $g_j^{-1}$ and reproduces the $\sigma^{-1}g_j$ terms in $\mathcal{B}_d$, while at $O(\lambda^{-2})$ the terms $\sum_{j,k} g_j^{-1} E_{-\vec{\alpha}_j} E_{-\vec{\alpha}_k}$ cancel between left and right!
 
-Thus we have derived the exact defect Lax matrix for the type-I$_-$ defect (@prp-defect-lax):
+Thus we have derived the exact defect Lax matrix for the type-I$_-$ defect (see the book: [The defect Lax matrix](book:prp-defect-lax)):
 $$
 \tilde{L}_{\text{I}_-}(\lambda) = 1 + \frac{\sigma}{\lambda}\sum_{j=0}^r E_{-\vec{\alpha}_j} = 1 + \frac{\sigma}{\lambda}S^{\mathsf{T}},
 $$ {#eq-lec3-l-tilde}
@@ -321,7 +321,7 @@ Because of (-@eq-lec3-l-tilde-factored), $L_d(\lambda)$ has a regular power seri
 
 ### Poisson Commutativity and the Classical $r$-Matrix
 
-Why does the existence of $L_d(\lambda)$ guarantee an infinite hierarchy of conserved charges in involution? On a circle of circumference $L$ with a defect at $x=0$, a solution $\Psi(x,t;\lambda)$ transported around the circle picks up the left bulk monodromy $T_-(\lambda)$ on $(-L/2, 0)$, jumps across the defect by $L_d(\lambda)^{-1}$ (since $\Psi_\psi(0) = L_d(\lambda)^{-1}\Psi_\phi(0)$), and picks up the right bulk monodromy $T_+(\lambda)$ on $(0, L/2)$. Thus the full defect transfer matrix is (@eq-defect-monodromy):
+Why does the existence of $L_d(\lambda)$ guarantee an infinite hierarchy of conserved charges in involution? On a circle of circumference $L$ with a defect at $x=0$, a solution $\Psi(x,t;\lambda)$ transported around the circle picks up the left bulk monodromy $T_-(\lambda)$ on $(-L/2, 0)$, jumps across the defect by $L_d(\lambda)^{-1}$ (since $\Psi_\psi(0) = L_d(\lambda)^{-1}\Psi_\phi(0)$), and picks up the right bulk monodromy $T_+(\lambda)$ on $(0, L/2)$. Thus the full defect transfer matrix is (see [the book](book:eq-defect-monodromy)):
 $$
 \tau_d(\lambda) = \operatorname{tr}\!\big(T_+(\lambda)\,L_d(\lambda)^{-1}\,T_-(\lambda)\big), \qquad \frac{d}{dt}\tau_d(\lambda) = 0.
 $$ {#eq-lec3-tau-d}
@@ -331,7 +331,7 @@ What about their Poisson brackets? Notice that $L_d(\lambda)$ in (-@eq-lec3-ld-a
 $$
 K = \begin{pmatrix} E & \mathsf{D} \\ -\mathsf{D}^{\mathsf{T}} & E \end{pmatrix}, \qquad K^{\mathsf{T}} = -K.
 $$ {#eq-lec3-k-symplectic}
-Inverting $K$ defines the fundamental defect Poisson bracket (@eq-dc-defect-bracket):
+Inverting $K$ defines the fundamental defect Poisson bracket (see [the book](book:eq-dc-defect-bracket)):
 $$
 \{z_I, z_J\} = (K^{-1})_{IJ}.
 $$ {#eq-lec3-z-bracket}
@@ -339,7 +339,7 @@ For example, in sine-Gordon/sinh-Gordon ($r=1$, where $E=0$ and $\mathsf{D}=1$),
 $$
 \{\phi(0), \psi(0)\} = -1!
 $$ {#eq-lec3-sg-bracket}
-For general $a_r^{(1)}$, a direct calculation using (-@eq-lec3-z-bracket) shows (@prp-defect-involution; see `textbook_code/defect_lax_rmatrix.py`) that $L_d(\lambda)$ satisfies the exact same classical Sklyanin relation as the bulk monodromies $T_\pm(\lambda)$:
+For general $a_r^{(1)}$, a direct calculation using (-@eq-lec3-z-bracket) shows (see the book: [Poisson algebra of the defect matrix](book:prp-defect-involution); see `code/defect_lax_rmatrix.py`) that $L_d(\lambda)$ satisfies the exact same classical Sklyanin relation as the bulk monodromies $T_\pm(\lambda)$:
 $$
 \big\{L_d(\lambda_1) \overset{\otimes}{,} L_d(\lambda_2)\big\} = \big[r(\lambda_1/\lambda_2),\, L_d(\lambda_1) \otimes L_d(\lambda_2)\big],
 $$ {#eq-lec3-sklyanin}
@@ -377,11 +377,11 @@ Now use $k_1 + k_2 + k_3 \equiv 0 \pmod h$: the three angles $a = \frac{\pi k_1}
 $$
 \cot(a + b) = -\cot c \implies \frac{\cot a \cot b - 1}{\cot a + \cot b} = -\cot c \implies \cot a \cot b + \cot b \cot c + \cot c \cot a = 1!
 $$ {#eq-lec3-cotangent-id}
-Therefore $\mathcal{O}_{k_1 k_2 k_3} = 0$ identically (@prp-spin-two)! Every student who computes (-@eq-lec3-cotangent-id) by hand feels the magic of integrable field theory: the necklace geometry of $a_r^{(1)}$ tunes the eigenvalues $d_k = 1 + i\cot\frac{\pi k}{h}$ so that the cubic spin-2 anomaly cancels mode by mode.
+Therefore $\mathcal{O}_{k_1 k_2 k_3} = 0$ identically (see the book: [Both spin-two charges survive](book:prp-spin-two))! Every student who computes (-@eq-lec3-cotangent-id) by hand feels the magic of integrable field theory: the necklace geometry of $a_r^{(1)}$ tunes the eigenvalues $d_k = 1 + i\cot\frac{\pi k}{h}$ so that the cubic spin-2 anomaly cancels mode by mode.
 
 ---
 
-## 3.3 Solitons in $a_r^{(1)}$ and the Chiral Topological Selection Rule {#sec-lec3-solitons}
+## Solitons in $a_r^{(1)}$ and the Chiral Topological Selection Rule {#sec-lec3-solitons}
 
 Now let us send a soliton of the imaginary-coupling $a_r^{(1)}$ theory ($b = i\beta$) through our necklace defect! To make every step concrete, let us work with general $a_r^{(1)}$ ($h = r+1$) and illustrate all formulas in our favourite multi-component laboratory, **$a_2^{(1)}$ ($h = 3$)**.
 
@@ -417,7 +417,7 @@ $$
 \tilde{\tau}_j(x,t) = 1 + \omega^{aj}\,z_a(\theta)\,E_a(x,t).
 $$ {#eq-lec3-one-soliton-right}
 
-Let us substitute (-@eq-lec3-one-soliton-left)–(-@eq-lec3-one-soliton-right) into the defect conditions at $x=0$. In terms of $\tau_j$ and $\tilde{\tau}_j$, the Bäcklund/defect equations reduce to a bilinear Hirota relation at $x=0$, which at order $E_a^1$ gives a single linear equation for $z_a(\theta)$ (@prp-an-defect-delay, @eq-dc-ar-delay, @eq-an-defect-delay; see `textbook_code/defect_solitons_an.py`):
+Let us substitute (-@eq-lec3-one-soliton-left)–(-@eq-lec3-one-soliton-right) into the defect conditions at $x=0$. In terms of $\tau_j$ and $\tilde{\tau}_j$, the Bäcklund/defect equations reduce to a bilinear Hirota relation at $x=0$, which at order $E_a^1$ gives a single linear equation for $z_a(\theta)$ (see the book: [The $a_r$ soliton delay](book:prp-an-defect-delay), [equation](book:eq-dc-ar-delay), [equation](book:eq-an-defect-delay); see `code/defect_solitons_an.py`):
 $$
 z_a(\theta) = \frac{e^{-(\theta - \theta_d)} - i e^{i\gamma_a}}{e^{-(\theta - \theta_d)} - i e^{-i\gamma_a}} = \frac{\cosh(\theta - \theta_d - i\tilde{\gamma}_a)}{\cosh(\theta - \theta_d + i\tilde{\gamma}_a)}, \qquad \tilde{\gamma}_a = \frac{\pi}{2} - \gamma_a = \frac{\pi(h - 2a)}{2h}.
 $$ {#eq-lec3-za-formula}
@@ -437,7 +437,7 @@ Wait: look closely at (-@eq-lec3-za-formula) for $r \ge 2$ (say $a_2^{(1)}$, whe
   $$
   |z_a(\theta)|^2 = \frac{e^{-2(\theta-\theta_d)} - 2e^{-(\theta-\theta_d)}\sin\gamma_a + 1}{e^{-2(\theta-\theta_d)} + 2e^{-(\theta-\theta_d)}\sin\gamma_a + 1} < 1,
   $$ {#eq-lec3-za-modulus}
-  and the phase $\arg z_a(\theta)$ varies smoothly with $\theta$ (@eq-ds-delay-phase):
+  and the phase $\arg z_a(\theta)$ varies smoothly with $\theta$ (see [the book](book:eq-ds-delay-phase)):
   $$
   \arg z_a(\theta) \in (0, 2\gamma_a) = \left(0, \frac{2\pi a}{h}\right)!
   $$ {#eq-lec3-za-phase}
@@ -445,17 +445,17 @@ Wait: look closely at (-@eq-lec3-za-formula) for $r \ge 2$ (say $a_2^{(1)}$, whe
 Let us pause! Both (-@eq-lec3-za-modulus) and (-@eq-lec3-za-phase) contain profound physics:
 
 1. **Always Delayed ($\ln|z_a(\theta)| < 0$):** Because $\sin\gamma_a > 0$ for all $a \in \{1,\dots,r\}$, we have $|z_a(\theta)| < 1$ for every real rapidity $\theta$. Since $E_a \propto e^{+2m\sin\gamma_a(x\cosh\theta - t\sinh\theta)}$, multiplying $E_a$ by $|z_a(\theta)| < 1$ shifts the outgoing soliton profile to the left ($\Delta x_a > 0$ in the conventions of Chapter 38), meaning the soliton is delayed as it traverses the defect.
-2. **The Chiral Selection Rule on Topological Charge (@prp-stored-charge):**
+2. **The Chiral Selection Rule on Topological Charge (see the book: [Topological charge and the selection rule](book:prp-stored-charge)):**
    In $a_r^{(1)}$, the vacua sit on the weight lattice, and a species-$a$ soliton carries a topological charge $\vec{q}$ in the $a$-th fundamental representation $\Lambda_a$ of $\mathfrak{sl}_{r+1}$. In the Hirota ansatz (-@eq-lec3-one-soliton-left), the different solitons within the multiplet $\Lambda_a$ correspond to discrete phases of $E_a$ separated by multiples of $\frac{2\pi}{h}$ (specifically, multiplying $E_a$ by $\omega^{ap} = e^{\frac{2\pi i a p}{h}}$ shifts $\tau_j \mapsto \tau_{j+p}$).
    Now look at (-@eq-lec3-za-phase): when a soliton crosses the defect, its Hirota parameter $E_a$ picks up the phase $\arg z_a(\theta)$, which lies strictly inside the open interval $(0, \frac{2\pi a}{h})$!
-   - If the incoming and outgoing solitons are both pure single solitons (without breather radiation), or if the defect itself jumps from vacuum class $0$ to vacuum class $p \in \{0,1,\dots,r\}$ (which shifts $\theta_d \mapsto \theta_d + \frac{2\pi i p}{h}$, @eq-ds-class-shift), the only allowed topological charge transitions are those whose phase shift lies in $(0, \frac{2\pi a}{h})$!
+   - If the incoming and outgoing solitons are both pure single solitons (without breather radiation), or if the defect itself jumps from vacuum class $0$ to vacuum class $p \in \{0,1,\dots,r\}$ (which shifts $\theta_d \mapsto \theta_d + \frac{2\pi i p}{h}$, see [the book](book:eq-ds-class-shift)), the only allowed topological charge transitions are those whose phase shift lies in $(0, \frac{2\pi a}{h})$!
    - In particular, for the fundamental vector soliton $a = 1$ of $a_2^{(1)}$ ($h=3$), the open interval $(0, \frac{2\pi}{3})$ contains **only two** allowed outgoing states out of the $h=3$ states in the triplet $V = \mathbf{3}$: the soliton can either **keep its topological charge** ($p=0$) or **shift by one step along the necklace clock** ($p=1$), while shifting against the clock ($p=2$) is **classically forbidden**!
    - By contrast, for the conjugate antifundamental soliton $a = 2$ ($\bar{V} = \bar{\mathbf{3}}$ in $a_2^{(1)}$), the phase interval is $(0, \frac{4\pi}{3})$, which spans an extra step around the clock!
    Keep this chiral asymmetry between $a=1$ ($V$) and $a=2$ ($\bar{V}$) in $a_2^{(1)}$ firmly in mind: in Lecture 5 (@sec-lec5-crossing-resonances), when we compute the exact quantum transmission matrices $M_V(\theta)$ and $M_{\bar{V}}(\theta)$, we will see that $M_V(\theta)$ has only 2 non-zero entries per state, whereas $M_{\bar{V}}(\theta)$ has all 3 entries non-zero—with the third entry representing **quantum tunnelling** into the classically forbidden charge sector!
 
 ### Complex Absorption Rapidities and Frozen Solitons Between Two Defects
 
-Where are the poles and zeros of $z_a(\theta)$ in (-@eq-lec3-za-formula)? For a defect jumping by class $p$ ($\theta_d \mapsto \theta_d + \frac{2\pi i p}{h}$), the numerator and denominator of $z_a(\theta)$ vanish at (@eq-ds-absorption, @prp-ds-absorption):
+Where are the poles and zeros of $z_a(\theta)$ in (-@eq-lec3-za-formula)? For a defect jumping by class $p$ ($\theta_d \mapsto \theta_d + \frac{2\pi i p}{h}$), the numerator and denominator of $z_a(\theta)$ vanish at (see the book: [Absorption and emission](book:prp-ds-absorption), [equation](book:eq-ds-absorption)):
 $$
 \theta_{\text{abs}} = \theta_d \mp i\left(\frac{\pi}{2} - \frac{\pi(a + 2p)}{h}\right).
 $$ {#eq-lec3-absorption-rapidity}
@@ -468,7 +468,7 @@ Finally, what happens if we place a static soliton ($\theta = 0$) in the bulk an
   $$
   z_a^{\text{I}_-}(0)\,z_a^{\text{I}_+}(0) = \frac{\sigma_- - i e^{i\gamma_a}}{\sigma_- - i e^{-i\gamma_a}} \cdot \frac{\sigma_+ - i e^{-i\gamma_a}}{\sigma_+ - i e^{i\gamma_a}}.
   $$
-  Even better, as shown in @prp-defect-frozen-soliton, if you place a **pair** of defects—one of type I$_-$ and one of type I$_+$—their combined transmission factor can vanish or diverge for real defect parameters, freezing a static soliton between them!
+  Even better, as shown in the book's [A pair of defects as a frozen soliton](book:prp-defect-frozen-soliton), if you place a **pair** of defects—one of type I$_-$ and one of type I$_+$—their combined transmission factor can vanish or diverge for real defect parameters, freezing a static soliton between them!
 
 ---
 

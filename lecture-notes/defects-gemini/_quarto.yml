@@ -1,0 +1,58 @@
+project:
+  type: book
+  output-dir: _site
+
+book:
+  title: "Lectures on integrable defects in affine Toda field theory"
+  subtitle: "From frozen Bäcklund transformations to quantum groups, Q-operators and the breather miracle"
+  editor: Gustav Delius
+  description: >-
+    Six lectures on integrable defects in two-dimensional field theory, a
+    companion to Part VIII of the book "Affine Toda field theory". They are
+    organized around six big ideas and work the decisive calculations on the
+    blackboard, from the all-or-nothing theorem to the quantum transmission
+    matrices and the breather cancellation.
+  site-url: https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/
+  repo-url: https://github.com/gustavdelius/affine_toda
+  reader-mode: true
+  navbar:
+    background: primary
+    right:
+      - icon: house
+        text: "Affine Toda field theory"
+        href: https://gustavdelius.github.io/affine_toda/
+  search:
+    location: navbar
+    type: textbox
+  sidebar:
+    style: docked
+  chapters:
+    - index.qmd
+    - 01-all-or-nothing.qmd
+    - 02-momentum-and-backlund.qmd
+    - 03-necklace-and-lax.qmd
+    - 04-quantum-groups-and-q-operators.qmd
+    - 05-crossing-resonances-and-tunnelling.qmd
+    - 06-boundaries-and-breathers.qmd
+
+bibliography: ../../references.bib
+csl: ../../aps.csl
+lang: en-GB
+
+language:
+  crossref-ch-prefix: Lecture
+
+format:
+  html:
+    theme:
+      light: [cosmo, ../../theme.scss]
+      dark: [darkly, ../../theme.scss, ../../theme-dark.scss]
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    html-math-method: mathjax
+    filters:
+      - path: ../../status-tags.lua
+        at: pre-ast
+      - path: ../book-links.lua
+      - path: ../../script-links.lua

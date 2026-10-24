@@ -1,4 +1,4 @@
-# Lecture 2: How Momentum Conservation Forces Integrability, Frozen Bäcklund Transformations, and the "Half-Soliton" {#sec-lec2-momentum-backlund}
+# How Momentum Conservation Forces Integrability, Frozen Bäcklund Transformations, and the "Half-Soliton" {#sec-lec2-momentum-backlund}
 
 ::: {.callout-note appearance="simple" icon=false title="What You Will Learn and Calculate in This Lecture"}
 - **Why Momentum Conservation Implies Integrability:** How demanding that a single spin-$1$ charge—modified momentum $P + P_d$—be conserved across a defect at $x=0$ forces the defect potential $\mathcal{B}_d(\phi,\psi)$ to obey a functional factorization identity that *simultaneously* selects the bulk theory (sine-Gordon, sinh-Gordon, Liouville, or free fields) and turns the defect conditions into a **Bäcklund transformation**.
@@ -9,13 +9,13 @@
 
 ---
 
-## 2.1 The Central Mystery: Energy vs. Momentum at a Defect {#sec-lec2-energy-vs-momentum}
+## The Central Mystery: Energy vs. Momentum at a Defect {#sec-lec2-energy-vs-momentum}
 
 In Lecture 1 (@sec-lec1-all-or-nothing), we proved from abstract $S$-matrix axioms that in any interacting integrable field theory, a defect must be purely transmitting ($R = 0$) and must conserve both energy and momentum.
 
 Now let us put on our classical field theorist's hat and ask: **how do you actually build a local Lagrangian with a discontinuity at $x=0$ that conserves momentum?**
 
-To appreciate how remarkable the answer is, recall what happened when we studied **boundaries** at $x=0$ in Part VII (@sec-boundary-sine-gordon, @sec-boundary-conditions). For a field $\phi(x,t)$ on the left half-line $x \le 0$ with action
+To appreciate how remarkable the answer is, recall what happened when we studied **boundaries** at $x=0$ in Part VII (see the book: [Boundary sine-Gordon and sinh-Gordon](book:sec-boundary-sine-gordon), [Classically integrable boundary conditions](book:sec-boundary-conditions)). For a field $\phi(x,t)$ on the left half-line $x \le 0$ with action
 $$
 S_{\text{boundary}} = \int dt \left\{ \int_{-\infty}^0 \left[\frac{1}{2}(\partial_t\phi)^2 - \frac{1}{2}(\partial_x\phi)^2 - V(\phi)\right] dx - \mathcal{B}\big(\phi(0,t)\big) \right\},
 $$
@@ -33,7 +33,7 @@ What happens if we demand that a modified momentum $P + P_d$ be conserved across
 
 ---
 
-## 2.2 Blackboard Calculation 1: How Momentum Conservation Forces Integrability {#sec-lec2-momentum-miracle}
+## Blackboard Calculation 1: How Momentum Conservation Forces Integrability {#sec-lec2-momentum-miracle}
 
 ### Step 1: Why the Defect Action Needs a First-Order Time Derivative {#sec-lec2-why-kinetic}
 
@@ -60,7 +60,7 @@ How can we cancel $\frac{1}{2}\psi_t^2 - \frac{1}{2}\phi_t^2$ inside (-@eq-lec2-
 
 And how do we get $\phi_x = \mathsf{D}\psi_t - \dots$ and $\psi_x = \mathsf{D}\phi_t + \dots$ from a variational principle $\delta S = 0$? By adding a **symplectic velocity coupling** $\mathsf{D}\,\phi\,\partial_t\psi$ (or equivalently $\frac{\mathsf{D}}{2}(\phi\partial_t\psi - \psi\partial_t\phi)$, which differs by the total time derivative $\frac{\mathsf{D}}{2}\frac{d}{dt}(\phi\psi)$) to the defect action at $x=0$ [@bcz2004]!
 
-Let us write down the Bowcock–Corrigan–Zambon defect action (-@eq-sg-defect-lagrangian):
+Let us write down the Bowcock–Corrigan–Zambon defect action (see [the book](book:eq-sg-defect-lagrangian)):
 $$
 S = \int dt \left\{ \int_{-\infty}^0 \mathcal{L}_1(\phi)\,dx + \int_0^\infty \mathcal{L}_2(\psi)\,dx + \Big[\mathsf{D}\,\phi\,\partial_t\psi - \mathcal{B}_d(\phi,\psi)\Big]_{x=0} \right\}, \qquad \mathsf{D} = \pm 1.
 $$ {#eq-lec2-action}
@@ -68,7 +68,7 @@ Varying $\phi$ and $\psi$ (and integrating $\phi\,\partial_t\delta\psi = \partia
 $$
 \delta S\big|_{x=0} = \int dt \Big[ \big(-\partial_x\phi + \mathsf{D}\,\partial_t\psi - \partial_\phi\mathcal{B}_d\big)\,\delta\phi + \big(\partial_x\psi - \mathsf{D}\,\partial_t\phi - \partial_\psi\mathcal{B}_d\big)\,\delta\psi \Big]_{x=0}.
 $$
-Setting the coefficients of $\delta\phi(0,t)$ and $\delta\psi(0,t)$ to zero gives the **defect conditions** (-@eq-sg-defect-conditions):
+Setting the coefficients of $\delta\phi(0,t)$ and $\delta\psi(0,t)$ to zero gives the **defect conditions** (see [the book](book:eq-sg-defect-conditions)):
 $$
 \partial_x\phi = \mathsf{D}\,\partial_t\psi - \frac{\partial\mathcal{B}_d}{\partial\phi}, \qquad
 \partial_x\psi = \mathsf{D}\,\partial_t\phi + \frac{\partial\mathcal{B}_d}{\partial\psi}
@@ -168,7 +168,7 @@ Which bulk potentials $V_1(\phi), V_2(\psi)$ *do* satisfy (-@eq-lec2-master-func
    where the separation constant $4\lambda_0^2$ must be independent of both $p$ and $q$.
 3. Solving the elementary ODEs $f'''(p) = 4\lambda_0^2 f'(p)$ and $g'''(q) = 4\lambda_0^2 g'(q)$ gives only two families:
    - **If $\lambda_0 = 0$:** $f'(p)$ and $g'(q)$ are linear functions, so $f(p)$ and $g(q)$ are quadratic, and $V_1(\phi) = V_2(\phi) = \frac{1}{2}m_0^2\phi^2$ (free massive fields of equal mass).
-   - **If $\lambda_0 \neq 0$:** $f(p) = a_1 e^{2\lambda_0 p} + a_2 e^{-2\lambda_0 p}$ and $g(q) = b_1 e^{2\lambda_0 q} + b_2 e^{-2\lambda_0 q}$, which upon substitution into (-@eq-lec2-master-functional) forces $V_1(\phi)$ and $V_2(\psi)$ to be combinations of $e^{2\lambda_0\phi}$ and $e^{-2\lambda_0\phi}$—namely **sinh-Gordon, sine-Gordon, or Liouville theory** (@prp-sg-defect-classification)!
+   - **If $\lambda_0 \neq 0$:** $f(p) = a_1 e^{2\lambda_0 p} + a_2 e^{-2\lambda_0 p}$ and $g(q) = b_1 e^{2\lambda_0 q} + b_2 e^{-2\lambda_0 q}$, which upon substitution into (-@eq-lec2-master-functional) forces $V_1(\phi)$ and $V_2(\psi)$ to be combinations of $e^{2\lambda_0\phi}$ and $e^{-2\lambda_0\phi}$—namely **sinh-Gordon, sine-Gordon, or Liouville theory** (see the book: [Defects that keep a spin-3 charge](book:prp-sg-defect-classification))!
 
 Specifically, for sine-Gordon theory on both sides, where the bulk Lagrangian is
 $$
@@ -180,7 +180,7 @@ $$
 V(\phi) - V(\psi) = \frac{m_0^2}{\beta_{\rm SG}^2}\big(\cos\beta_{\rm SG}\psi - \cos\beta_{\rm SG}\phi\big)
 = \frac{2m_0^2}{\beta_{\rm SG}^2}\,\sin\frac{\beta_{\rm SG}(\phi+\psi)}{2}\,\sin\frac{\beta_{\rm SG}(\phi-\psi)}{2}
 $$
-is **already in factorized form**! Comparing this with $\frac{1}{2}f'\!\big(\frac{\phi+\psi}{2}\big)g'\!\big(\frac{\phi-\psi}{2}\big)$ fixes $f$ and $g$ up to a single free constant $\sigma = e^{-\theta_d}$ (since multiplying $f$ by $\sigma$ and $g$ by $\sigma^{-1}$ leaves the product $f'\,g'$ invariant!), giving the **Bowcock–Corrigan–Zambon defect potential** (-@eq-sg-defect-potential) and defect momentum (@prp-sg-defect-momentum):
+is **already in factorized form**! Comparing this with $\frac{1}{2}f'\!\big(\frac{\phi+\psi}{2}\big)g'\!\big(\frac{\phi-\psi}{2}\big)$ fixes $f$ and $g$ up to a single free constant $\sigma = e^{-\theta_d}$ (since multiplying $f$ by $\sigma$ and $g$ by $\sigma^{-1}$ leaves the product $f'\,g'$ invariant!), giving the **Bowcock–Corrigan–Zambon defect potential** (see [the book](book:eq-sg-defect-potential)) and defect momentum (see the book: [Energy and momentum with a defect](book:prp-sg-defect-momentum)):
 $$
 \begin{aligned}
 \mathcal{B}_d(\phi,\psi) &= -\frac{2m_0}{\beta_{\rm SG}^2}\left[\sigma\left(\cos\frac{\beta_{\rm SG}(\phi+\psi)}{2} - 1\right) + \sigma^{-1}\left(\cos\frac{\beta_{\rm SG}(\phi-\psi)}{2} - 1\right)\right], \\
@@ -223,16 +223,16 @@ Because a Bäcklund transformation is a local gauge transformation between the L
 
 ---
 
-## 2.3 Bäcklund Transformations and Bianchi Permutability in Sine-Gordon {#sec-lec2-backlund-bianchi}
+## Bäcklund Transformations and Bianchi Permutability in Sine-Gordon {#sec-lec2-backlund-bianchi}
 
 Substituting our sine-Gordon defect potential (-@eq-lec2-sg-bp) into (-@eq-lec2-lc-conditions) gives the sine-Gordon defect conditions at $x=0$ in light-cone form:
 $$
 \partial_+(\phi - \psi) = -\frac{2\sigma m_0}{\beta_{\rm SG}}\,\sin\frac{\beta_{\rm SG}(\phi+\psi)}{2}, \qquad
 \partial_-(\phi + \psi) = \frac{2m_0}{\sigma\beta_{\rm SG}}\,\sin\frac{\beta_{\rm SG}(\phi-\psi)}{2}.
 $$ {#eq-lec2-sg-lc}
-When imposed for all $(x,t)$ with $a = -\sigma = -e^{-\theta_d}$, this is the classic **sine-Gordon Bäcklund transformation** $\psi = \mathfrak{B}_a\phi$ (-@eq-sg-backlund) [@bcz2004].
+When imposed for all $(x,t)$ with $a = -\sigma = -e^{-\theta_d}$, this is the classic **sine-Gordon Bäcklund transformation** $\psi = \mathfrak{B}_a\phi$ (see [the book](book:eq-sg-backlund)) [@bcz2004].
 
-To understand how our defect interacts with solitons, let us first see how the Bäcklund transformation $\mathfrak{B}_a$ generates solitons in the bulk (@prp-sg-backlund, @prp-bianchi).
+To understand how our defect interacts with solitons, let us first see how the Bäcklund transformation $\mathfrak{B}_a$ generates solitons in the bulk (see the book: [The Bäcklund transformation](book:prp-sg-backlund), [Bianchi permutability](book:prp-bianchi)).
 
 ### Blackboard Calculation 2: Generating One- and Two-Soliton Solutions {#sec-lec2-soliton-gen}
 
@@ -261,7 +261,7 @@ Note that in our light-cone convention $\partial_\pm = \partial_t \pm \partial_x
 $$
 \ln Y = m_0(x\cosh\theta - t\sinh\theta) + c.
 $$
-Writing $E = iY = \exp\big(m_0(x\cosh\theta - t\sinh\theta) + \xi\big)$ and using $\arctan Y = \frac{1}{2i}\ln\frac{1+iY}{1-iY} = \frac{i}{2}\ln\frac{1-E}{1+E}$ gives the standard **Hirota one-soliton solution** (@prp-sg-backlund):
+Writing $E = iY = \exp\big(m_0(x\cosh\theta - t\sinh\theta) + \xi\big)$ and using $\arctan Y = \frac{1}{2i}\ln\frac{1+iY}{1-iY} = \frac{i}{2}\ln\frac{1-E}{1+E}$ gives the standard **Hirota one-soliton solution** (see the book: [The Bäcklund transformation](book:prp-sg-backlund)):
 $$
 \psi(x,t) = \frac{2i}{\beta_{\rm SG}}\ln\frac{1 - E}{1 + E}, \qquad
 E = \exp\big(m_0(x\cosh\theta - t\sinh\theta) + \xi\big),
@@ -287,7 +287,7 @@ Now use the sum-to-product identity $\sin\alpha - \sin\beta = 2\sin\frac{\alpha-
 $$
 a_1\sin(Y - X) = a_2\sin(-Y - X) = -a_2\sin(Y + X).
 $$
-Expanding $\sin(Y \mp X) = \sin Y\cos X \mp \cos Y\sin X$ gives $(a_1 + a_2)\sin Y\cos X = (a_1 - a_2)\cos Y\sin X$, which is **Bianchi's permutability formula** (-@eq-sgd-bianchi):
+Expanding $\sin(Y \mp X) = \sin Y\cos X \mp \cos Y\sin X$ gives $(a_1 + a_2)\sin Y\cos X = (a_1 - a_2)\cos Y\sin X$, which is **Bianchi's permutability formula** (see [the book](book:eq-sgd-bianchi)):
 $$
 \tan\frac{\beta_{\rm SG}(\phi_{12} - \phi_0)}{4} = \frac{a_1 + a_2}{a_1 - a_2}\,\tan\frac{\beta_{\rm SG}(\phi_1 - \phi_2)}{4}!
 $$ {#eq-lec2-bianchi}
@@ -299,9 +299,9 @@ whose inverse square is the two-soliton interaction coefficient $A_{11}(\theta_1
 
 ---
 
-## 2.4 Blackboard Calculation 3: Linear Waves Cross with Zero Reflection {#sec-lec2-linear-waves}
+## Blackboard Calculation 3: Linear Waves Cross with Zero Reflection {#sec-lec2-linear-waves}
 
-Before sending a full nonlinear soliton at our defect, let us check what happens when a small-amplitude linear plane wave hits the defect at $x=0$ (@sec-sg-defect-linear).
+Before sending a full nonlinear soliton at our defect, let us check what happens when a small-amplitude linear plane wave hits the defect at $x=0$ (see the book: [Linear waves: pure transmission](book:sec-sg-defect-linear)).
 
 Expand the type-I$_-$ defect conditions (-@eq-lec2-defect-conditions) around the vacuum $\phi = \psi = 0$ to first order in the fields. Since $\partial_\phi\mathcal{B}_d = \frac{m_0}{\beta_{\rm SG}}\big[\sigma\sin\frac{\beta_{\rm SG}(\phi+\psi)}{2} + \sigma^{-1}\sin\frac{\beta_{\rm SG}(\phi-\psi)}{2}\big]$, linearizing $\sin x \approx x$ gives the coupling-independent linear defect conditions:
 $$
@@ -342,7 +342,7 @@ $$
 = \big(\sigma - ie^{\theta} + ie^{-\theta} - \sigma e^{-2\theta}\big)\,R
 = (1 - e^{-2\theta})\big(\sigma - ie^{\theta}\big)\,R = 0!
 $$
-Since $\theta > 0$ and $\sigma = e^{-\theta_d} > 0$, the prefactor is non-zero, so **the reflection amplitude vanishes identically ($R = 0$)**, and solving the remaining equation for $\mathbb{T}^{\rm cl}$ gives (-@eq-shg-linear-transmission):
+Since $\theta > 0$ and $\sigma = e^{-\theta_d} > 0$, the prefactor is non-zero, so **the reflection amplitude vanishes identically ($R = 0$)**, and solving the remaining equation for $\mathbb{T}^{\rm cl}$ gives (see [the book](book:eq-shg-linear-transmission)):
 $$
 R(\theta) = 0, \qquad
 \mathbb{T}^{\rm cl}(\theta) = -\frac{\sigma - ie^{-\theta}}{\sigma + ie^{-\theta}}
@@ -354,9 +354,9 @@ As you checked in @exr-lec1-cdd, $\mathbb{T}^{\rm cl}(\theta)$ is a pure phase f
 
 ---
 
-## 2.5 Blackboard Calculation 4: Sending a Soliton Through the Defect {#sec-lec2-soliton-defect}
+## Blackboard Calculation 4: Sending a Soliton Through the Defect {#sec-lec2-soliton-defect}
 
-Now for the main event of classical sine-Gordon defect theory (@sec-sg-defect-solitons): what happens when we send a full nonlinear soliton of rapidity $\theta$ from $x<0$ into the type-I$_-$ defect at $x=0$?
+Now for the main event of classical sine-Gordon defect theory (see the book: [Solitons meeting a defect](book:sec-sg-defect-solitons)): what happens when we send a full nonlinear soliton of rapidity $\theta$ from $x<0$ into the type-I$_-$ defect at $x=0$?
 
 Take $\phi(x,t)$ on $x<0$ to be the one-soliton solution (-@eq-lec2-one-soliton), and make the ansatz that on $x>0$, $\psi(x,t)$ is a one-soliton solution of the same rapidity $\theta$ whose exponential $E$ is multiplied by a constant delay factor $z$:
 $$
@@ -414,7 +414,7 @@ is **literally the Bianchi permutability coefficient (-@eq-lec2-bianchi-coeff)**
 
 ### The Four Physical Wonders of the Soliton Delay {#sec-lec2-four-wonders}
 
-Let us unpack what (-@eq-lec2-z-delay) tells us about a soliton of rapidity $\theta > 0$ hitting a type-I$_-$ defect at $x=0$ (@prp-sg-delay, @prp-half-soliton):
+Let us unpack what (-@eq-lec2-z-delay) tells us about a soliton of rapidity $\theta > 0$ hitting a type-I$_-$ defect at $x=0$ (see the book: [The soliton delay](book:prp-sg-delay), [A defect as half a soliton](book:prp-half-soliton)):
 
 1. **Spatial Delay ($\theta < \theta_d$):**
    When the soliton is slower than the defect rapidity ($\theta < \theta_d$, so $e^{-\theta} > \sigma$), $z_{\rm I_-}(\theta) = \coth\frac{\theta_d - \theta}{2} > 1$ is positive and greater than $1$. Writing $z E = \exp\big(m_0(x\cosh\theta - t\sinh\theta) + \ln z + \xi\big)$, we see that the emerging soliton on $x>0$ has its centre shifted backwards in space (and delayed in time) by
@@ -437,7 +437,7 @@ Let us unpack what (-@eq-lec2-z-delay) tells us about a soliton of rapidity $\th
    $$ {#eq-lec2-odd-jump-ep}
    where $M = \frac{8m_0}{\beta_{\rm SG}^2}$ is the classical sine-Gordon soliton mass! The odd jump stores **the exact energy and momentum of the absorbed soliton**! Conversely, a defect carrying an odd jump of $\frac{2\pi}{\beta_{\rm SG}}$ is an unstable classical state: it can spontaneously emit a soliton of rapidity $\theta_d$ into $x>0$ at any time (since the position constant $\xi$ of the emitted soliton is a free integration constant!). In Lecture 5 (@sec-lec5-crossing-resonances), we will see that quantum mechanics resolves this indeterminate emission time by turning the odd defect into a **decaying quantum resonance**.
 
-4. **Why a Defect Is Literally "Half a Soliton" (@prp-half-soliton):**
+4. **Why a Defect Is Literally "Half a Soliton" (see the book: [A defect as half a soliton](book:prp-half-soliton)):**
    Suppose the defect already carries an odd jump $\frac{2\pi}{\beta_{\rm SG}}$ (the **odd sector**). Shifting $\psi \to \psi + \frac{2\pi}{\beta_{\rm SG}}$ shifts $\frac{\beta_{\rm SG}(\phi\pm\psi)}{2}$ by $\pm\pi$, which flips the sign of both cosines in $\mathcal{B}_d(\phi,\psi)$ (-@eq-lec2-sg-bp). Flipping the sign of $\mathcal{B}_d$ is identical to sending $\sigma \to -\sigma$ (i.e., $\theta_d \to \theta_d + i\pi$). Therefore, in the odd sector, a passing soliton is delayed by
    $$
    z_{\rm odd}(\theta) = \frac{e^{-\theta} - \sigma}{e^{-\theta} + \sigma} = -\tanh\frac{\theta - \theta_d}{2} = \frac{1}{z_{\rm I_-}(\theta)}.
@@ -450,7 +450,7 @@ Let us unpack what (-@eq-lec2-z-delay) tells us about a soliton of rapidity $\th
 
 ---
 
-## 2.6 Guided Rediscovery Exercises {#sec-lec2-exercises}
+## Guided Rediscovery Exercises {#sec-lec2-exercises}
 
 ::: {#exr-lec2-type-plus}
 ### Problem 2.1: Type-I$_+$ Defects and Time Reversal
@@ -462,7 +462,7 @@ A **type-I$_+$ defect** has $\mathsf{D} = -1$ in (-@eq-lec2-action) and $\sigma 
 
 ::: {#exr-lec2-two-soliton-defect}
 ### Problem 2.2: Two Solitons Crossing a Defect Independently
-In the Hirota form (-@eq-n-soliton), the sine-Gordon two-soliton solution on $x<0$ is $\phi = \frac{2i}{\beta_{\rm SG}}\ln\frac{\tau_-}{\tau_+}$ with
+In the Hirota form (see [the book](book:eq-n-soliton)), the sine-Gordon two-soliton solution on $x<0$ is $\phi = \frac{2i}{\beta_{\rm SG}}\ln\frac{\tau_-}{\tau_+}$ with
 $$
 \tau_\pm = 1 \pm E_1 \pm E_2 + A_{11}(\theta_1 - \theta_2)\,E_1 E_2, \qquad
 A_{11}(\theta_1 - \theta_2) = \tanh^2\frac{\theta_1 - \theta_2}{2}.
