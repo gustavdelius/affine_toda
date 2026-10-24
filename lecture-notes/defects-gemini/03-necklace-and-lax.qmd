@@ -341,7 +341,7 @@ For example, in sine-Gordon/sinh-Gordon ($r=1$, where $E=0$ and $\mathsf{D}=1$),
 $$
 \{\phi(0), \psi(0)\} = -1!
 $$ {#eq-lec3-sg-bracket}
-For general $a_r^{(1)}$, a direct calculation using (-@eq-lec3-z-bracket) shows (see the book: [Poisson algebra of the defect matrix](book:prp-defect-involution); see `code/defect_lax_rmatrix.py`) that $L_d(\lambda)$ satisfies the exact same classical Sklyanin relation as the bulk monodromies $T_\pm(\lambda)$:
+For general $a_r^{(1)}$, a direct calculation using (-@eq-lec3-z-bracket) shows (see the book: [Poisson algebra of the defect matrix](book:prp-defect-involution); see `code/defect_lax_rmatrix.py`) that $L_d(\lambda)$ satisfies the exact same classical Sklyanin relation [@sklyanin1988; @faddeev_takhtajan1987] as the bulk monodromies $T_\pm(\lambda)$:
 $$
 \big\{L_d(\lambda_1) \overset{\otimes}{,} L_d(\lambda_2)\big\} = \big[r(\lambda_1/\lambda_2),\, L_d(\lambda_1) \otimes L_d(\lambda_2)\big],
 $$ {#eq-lec3-sklyanin}
