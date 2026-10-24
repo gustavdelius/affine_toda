@@ -6,7 +6,7 @@ Every closed form in Part VI was identified numerically and then confirmed exact
 
 **R-matrices.** For dimension up to 256 we solve the linear intertwining equations directly. For $\mathbf{26}\otimes\mathbf{26}$ we use highest-weight vectors of $U_q(f_4)$ and the $e_0$ relation, five unknowns per spectral parameter. For $\mathbf{27}\otimes\mathbf{27}$ we use aligned multiplicity copies and the $e_0$ and $f_0$ relations, sixteen unknowns. For the small $(g_2,d_4^{(3)})$ cases we fix a basis of the span of $\check R(x)$ first. Eigenvalues are fitted as rational functions of $x$, and their zeros and poles are identified as $\pm q^l$, $\pm i q^l$, or cube-root phases times $q^l$.
 
-**Scalar factor.** The infinite product $f$ is evaluated as a sum of differences of log-Gamma functions at nearby arguments, which keeps it stable for large truncation $J$. It is normalised by unitarity at a regular point. The truncation error scales exactly as $1/J$: quadrupling $J$ from 4000 to 16000 reduces it by a factor of 3.99–4.00 (`code/rmatrix/smatrix/jscale.py`).
+**Scalar factor.** The infinite product $f$ is evaluated as a sum of differences of log-Gamma functions at nearby arguments, which keeps it stable for large truncation $J$. It is normalised by unitarity at a regular point, with the sign $F(0)=-1$ of @sec-scalar-factor. The truncation error scales exactly as $1/J$: quadrupling $J$ from 4000 to 16000 reduces it by a factor of 3.99–4.00 (`code/rmatrix/smatrix/jscale.py`).
 
 **Poles.** Every pole of a fused amplitude is a shifted Gamma-function pole of one factor, so the candidate list is complete. At each candidate we read the pole order from the norm ratio at two distances, and the residue rank from the singular values of the leading coefficient.
 

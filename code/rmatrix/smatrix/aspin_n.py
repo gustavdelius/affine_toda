@@ -36,7 +36,7 @@ def logf_rel(t):
     d = lambda z, z0: lf1(z) - lf1(z0); r = 0.371
     return np.sum(d(t + Aj, Aj + r) - d(t + Aj + T, Aj + T + r) + d(-t + Aj + T, Aj + T + r) - d(-t + Aj + 2*T, Aj + 2*T + r))
 _K = c_of(0.123)*c_of(-0.123)*np.exp(logf_rel(0.123) + logf_rel(-0.123)); _norm = np.sqrt(_K + 0j)
-_F = lambda t: c_of(t)*np.exp(logf_rel(t))/_norm; _sg = np.sign(_F(1e-6).real)
+_F = lambda t: c_of(t)*np.exp(logf_rel(t))/_norm; _sg = -np.sign(_F(1e-6).real)  # F(0) = -1, the sign of Zamolodchikov and Hollowood (sec-scalar-factor)
 def S(theta): return _sg*_F(mu*theta/(2j*np.pi))*Rmat(np.exp(mu*theta))
 th = 0.31+0.17j; print(f"T = {T:.3f}; unitarity {np.abs(S(th) @ S(-th) - np.eye(D*D)).max():.0e}")
 rng = np.random.default_rng(0); X = rng.normal(size=(D*D, 60)) + 1j*rng.normal(size=(D*D, 60))

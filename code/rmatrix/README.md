@@ -36,6 +36,10 @@ The scripts use q = e^{-i pi omega} by default. This is minus the physical value
 - Outputs at the default q of the $g_2^{(1)}$, $d_4^{(3)}$, $e_6^{(2)}$ and $f_4^{(1)}$ scripts, whose results depend on q^2 only, are in `smatrix/out/` (2026-10-15). `f4breather_*.txt` and `f4lift3_*.txt` are named by `AOFF`.
 - Known quirk: `oneloop_ratio.py` also prints a line for a_5^(2), with delta H / B_tree = 0.693 where it expects 1/2. The book does not use that line; the one-loop masses of a_{2n-1}^(2) are checked independently in `../../vernier/oneloop_particles.py`, which agrees with the S-matrix.
 
+## Sign of the scalar factor
+
+The scalar factors are normalised to F(0) = -1, the sign of Zamolodchikov's S_0 and of Hollowood's a_n^(1) amplitudes (book: `sec-scalar-factor`); `../sectors/c3fuse.py` does the same. Before 2026-10-24 they used F(0) = +1, and the stored outputs date from then. A constant sign cancels in unitarity, in the crossing test, in pole positions and residue ranks, and in every breather or fused amplitude, which contains the factor an even number of times. Of the stored outputs only the ratio in `out/vec_calib.txt` depended on it; it was rerun and is now +1. Reruns of `crossing.py`, `s33.py`, `nocdd.py`, `spinorn.py` (`NSPIN=1,2`), `breather_n.py`, `bspin_struct.py`, `aspin_S.py`, `g2alg.py`, `g2br2.py` and `../sectors/c3test.py` gave identical output with either sign.
+
 ## smatrix/ (scalar factors)
 - `common.py`   : spinor representation at complex q, closed-form R_33 with projectors
 - `crossing.py` : charge conjugation, crossing point and crossing factor c(x) at unimodular q

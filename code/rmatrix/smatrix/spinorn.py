@@ -46,7 +46,7 @@ _t1 = 0.123
 _K = c_of(_t1)*c_of(-_t1)*np.exp(logf_rel(_t1) + logf_rel(-_t1))
 _norm = np.sqrt(_K + 0j)
 def _Fraw(t): return c_of(t)*np.exp(logf_rel(t))/_norm
-_sgn = np.sign(_Fraw(1e-6).real)
+_sgn = -np.sign(_Fraw(1e-6).real)  # F(0) = -1, the sign of Zamolodchikov and Hollowood (sec-scalar-factor)
 def F(theta):
     t = mu*theta/(2j*np.pi); return _sgn*_Fraw(t)
 def S(theta): return F(theta)*Rmat(np.exp(mu*theta))

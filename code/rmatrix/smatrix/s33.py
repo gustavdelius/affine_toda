@@ -14,7 +14,7 @@ def logf_rel(t):
     d = lambda z, z0: lf1(z) - lf1(z0)
     g = (d(t + Aj, Aj) - d(t + Aj + T, Aj + T) + d(-t + Aj + T, Aj + T) - d(-t + Aj + 2*T, Aj + 2*T))
     return np.sum(g)
-def F(theta, sign=1):
+def F(theta, sign=-1):  # F(0) = -1, the sign of Zamolodchikov and Hollowood (sec-scalar-factor)
     t = mu*theta/(2j*np.pi)
     lf = logf_rel(t) - np.log(c_of(0.0) + 0j)
     return sign*c_of(t)*np.exp(lf)
