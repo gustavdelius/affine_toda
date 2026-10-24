@@ -254,7 +254,9 @@ $$ {#eq-lec3-necklace-d}
 where $\pi\vec{\alpha}_j = \vec{\alpha}_{j-1 \bmod h}$ is the cyclic clock shift of the $a_r^{(1)}$ necklace.
 :::
 
-What about other affine Toda theories like $d_4^{(1)}$ or $c_2^{(1)}$? Because their extended Dynkin diagrams have branch points or multiple bond lengths, they cannot satisfy (-@eq-lec3-necklace-cartan) with a first-order type-I defect; as Corrigan and Zambon later showed [@cz2007; @cz2009a], to build an integrable defect for $d_r^{(1)}$ one must introduce extra auxiliary defect degrees of freedom living at $x=0$ ("type-II defects").
+What about other affine Toda theories like $d_4^{(1)}$ or $c_2^{(1)}$? Because their extended Dynkin diagrams have branch points or multiple bond lengths, they cannot satisfy (-@eq-lec3-necklace-cartan) with a first-order type-I defect (@fig-lec3-necklace; checked in `code/lectures/gemini_l3_f1_necklace.py`); as Corrigan and Zambon later showed [@cz2007; @cz2009a], to build an integrable defect for $d_r^{(1)}$ one must introduce extra auxiliary defect degrees of freedom living at $x=0$ ("type-II defects").
+
+![Why only $a_r^{(1)}$ admits momentum-conserving type-I defects: (a) the $a_r^{(1)}$ cyclic necklace ($r=3$) with clock shift $\pi\vec{\alpha}_j = \vec{\alpha}_{j-1}$ and chiral inner-product matrix $\vec{\alpha}_i\cdot\mathsf{D}\vec{\alpha}_j = 2\delta_{ij} - 2\delta_{i+1,j}$; (b) the three obstructions on other affine Dynkin diagrams—a fixed central node ($d_4^{(1)}$), non-invertible $1 - P$ ($\pi^2$ on $a_3^{(1)}$), and non-adjacent cross-terms ($\pi^2$ on $a_4^{(1)}$).](figures/l3_necklace.svg){#fig-lec3-necklace width=92% fig-alt="Two-panel diagram comparing the cyclic necklace Dynkin diagram of a_3^(1) and its 4x4 chiral matrix alpha_i . D alpha_j in panel (a) with the three failure modes (fixed node in d_4^(1), singular 1-P in a_3^(1), and non-adjacent cross terms in a_4^(1)) in panel (b)."}
 
 ---
 
@@ -365,13 +367,13 @@ Look at how every relation we proved earlier becomes transparent in this eigenba
   $$
   k_1 + k_2 + k_3 \equiv 0 \pmod h.
   $$
-- When we compute the spin-2 flux jump across $x=0$ using the defect conditions (-@eq-lec3-defect-conditions), the obstruction to writing the velocity-cubic terms as a total time derivative is proportional to [@bcz2004b, eq. (5.11)]:
+- When we compute the spin-2 flux jump across $x=0$ using the defect conditions (-@eq-lec3-defect-conditions), the obstruction to writing the velocity-cubic terms as a total time derivative is proportional to (see [the book](book:prp-spin-two); [@bcz2004b, eq. (5.11)]):
   $$
-  \mathcal{O}_{k_1 k_2 k_3} = d_{k_1} d_{k_2} d_{k_3} + \bar{d}_{k_1} \bar{d}_{k_2} \bar{d}_{k_3} - 2 = 2\,\operatorname{Re}(d_{k_1} d_{k_2} d_{k_3}) - 2.
+  \mathcal{O}_{k_1 k_2 k_3} = d_{k_1} d_{k_2} d_{k_3} + \bar{d}_{k_1} \bar{d}_{k_2} \bar{d}_{k_3} = 2\,\operatorname{Re}(d_{k_1} d_{k_2} d_{k_3}).
   $$ {#eq-lec3-cubic-obstruction}
 Let $c_m = \cot\frac{\pi k_m}{h}$ for $m = 1, 2, 3$. Expanding $(1 + ic_1)(1 + ic_2)(1 + ic_3)$, its real part is $1 - (c_1 c_2 + c_2 c_3 + c_3 c_1)$, so
 $$
-\mathcal{O}_{k_1 k_2 k_3} = -2\big(c_1 c_2 + c_2 c_3 + c_3 c_1 - 1\big).
+\mathcal{O}_{k_1 k_2 k_3} = 2\big(1 - (c_1 c_2 + c_2 c_3 + c_3 c_1)\big).
 $$
 Now use $k_1 + k_2 + k_3 \equiv 0 \pmod h$: the three angles $a = \frac{\pi k_1}{h}$, $b = \frac{\pi k_2}{h}$, $c = \frac{\pi k_3}{h}$ satisfy $a + b + c = \pi$ (or $2\pi$). And for any three angles with $a + b + c \equiv 0 \pmod \pi$, elementary trigonometry gives
 $$
@@ -389,13 +391,13 @@ Now let us send a soliton of the imaginary-coupling $a_r^{(1)}$ theory ($b = i\b
 
 In the imaginary-coupling theory $b = i\beta$, the bulk field is written in terms of $r+1$ Hirota $\tau$-functions $\tau_0, \tau_1, \dots, \tau_r$ (with indices mod $h = r+1$):
 $$
-\vec{\phi} = -\frac{i}{\beta}\sum_{j=0}^r \vec{\alpha}_j \ln\tau_j, \qquad e^{i\beta\vec{\alpha}_j\cdot\vec{\phi}} = \frac{\tau_{j-1}\tau_{j+1}}{\tau_j^2} \quad\text{(Wait: } \vec{\alpha}_j\cdot\vec{\alpha}_k = 2\delta_{jk} - \delta_{j,k+1} - \delta_{j,k-1} \implies e^{i\beta\vec{\alpha}_j\cdot\vec{\phi}} = \frac{\tau_j^2}{\tau_{j-1}\tau_{j+1}}\text{)}.
+\vec{\phi} = -\frac{i}{\beta}\sum_{j=0}^r \vec{\alpha}_j \ln\tau_j, \qquad e^{i\beta\vec{\alpha}_j\cdot\vec{\phi}} = \frac{\tau_j^2}{\tau_{j-1}\tau_{j+1}}.
 $$ {#eq-lec3-hirota-ansatz}
-Wait: let us check the sign in (-@eq-lec3-hirota-ansatz) carefully! With $\vec{\phi} = -\frac{i}{\beta}\sum_{k=0}^r \vec{\alpha}_k \ln\tau_k$, we have
+Indeed, using $\vec{\alpha}_j\cdot\vec{\alpha}_k = 2\delta_{jk} - \delta_{j,k+1} - \delta_{j,k-1}$, we have
 $$
-i\beta\vec{\alpha}_j\cdot\vec{\phi} = \sum_{k=0}^r (\vec{\alpha}_j\cdot\vec{\alpha}_k)\ln\tau_k = 2\ln\tau_j - \ln\tau_{j-1} - \ln\tau_{j+1} = \ln\!\left(\frac{\tau_j^2}{\tau_{j-1}\tau_{j+1}}\right),
+i\beta\vec{\alpha}_j\cdot\vec{\phi} = \sum_{k=0}^r (\vec{\alpha}_j\cdot\vec{\alpha}_k)\ln\tau_k = 2\ln\tau_j - \ln\tau_{j-1} - \ln\tau_{j+1} = \ln\!\left(\frac{\tau_j^2}{\tau_{j-1}\tau_{j+1}}\right).
 $$
-so indeed $e^{i\beta\vec{\alpha}_j\cdot\vec{\phi}} = \frac{\tau_j^2}{\tau_{j-1}\tau_{j+1}}$! And what about the combinations $\frac{1}{2}(\mathsf{D}^{\mathsf{T}}\vec{\phi} + \mathsf{D}\vec{\psi})$ and $\frac{1}{2}\mathsf{D}(\vec{\phi} - \vec{\psi})$ in the defect potential (-@eq-lec3-fj-gj)? Using $\vec{\alpha}_j \cdot \mathsf{D}\vec{\alpha}_k = 2\delta_{jk} - 2\delta_{j+1,k}$ and $\vec{\alpha}_j \cdot \mathsf{D}^{\mathsf{T}}\vec{\alpha}_k = 2\delta_{jk} - 2\delta_{j-1,k}$, we find:
+And what about the combinations $\frac{1}{2}(\mathsf{D}^{\mathsf{T}}\vec{\phi} + \mathsf{D}\vec{\psi})$ and $\frac{1}{2}\mathsf{D}(\vec{\phi} - \vec{\psi})$ in the defect potential (-@eq-lec3-fj-gj)? Using $\vec{\alpha}_j \cdot \mathsf{D}\vec{\alpha}_k = 2\delta_{jk} - 2\delta_{j+1,k}$ and $\vec{\alpha}_j \cdot \mathsf{D}^{\mathsf{T}}\vec{\alpha}_k = 2\delta_{jk} - 2\delta_{j-1,k}$, we find:
 $$
 \begin{aligned}
 \frac{i\beta}{2}\vec{\alpha}_j\cdot\mathsf{D}\vec{\phi} &= \ln\!\left(\frac{\tau_j}{\tau_{j+1}}\right), \qquad \frac{i\beta}{2}\vec{\alpha}_j\cdot\mathsf{D}^{\mathsf{T}}\vec{\phi} = \ln\!\left(\frac{\tau_j}{\tau_{j-1}}\right), \\
@@ -428,30 +430,31 @@ z_1(\theta) = \frac{e^{-(\theta - \theta_d)} + 1}{e^{-(\theta - \theta_d)} - 1} 
 $$
 recovering (@eq-lec2-z-delay) on the nose!
 
-### Why $z_a(\theta)$ Has Unit Modulus for $a_r^{(1)}$ ($r \ge 2$)—and the Chiral Selection Rule!
+### Modulus and Phase of $z_a(\theta)$ for $a_r^{(1)}$ ($r \ge 2$)—and the Chiral Selection Rule!
 
-Wait: look closely at (-@eq-lec3-za-formula) for $r \ge 2$ (say $a_2^{(1)}$, where $h=3$ and $\gamma_1 = \frac{\pi}{3}, \gamma_2 = \frac{2\pi}{3}$), and compare it with $a_1^{(1)}$ ($\gamma_1 = \frac{\pi}{2}$):
-- In $a_1^{(1)}$ ($\gamma_1 = \frac{\pi}{2}$), $z_1(\theta) = -\coth\frac{\theta - \theta_d}{2}$ is **real**, with $|z_1(\theta)| > 1$ and a real pole/zero at $\theta = \theta_d$.Wait: why did $|z_1(\theta)| \neq 1$ in $a_1^{(1)}$? Because in $a_1^{(1)}$, shifting $\operatorname{Re}\ln z_1$ shifts the soliton's center of mass, while $\arg z_1 \in \{0, \pi\}$ flips the soliton into an antisoliton!
-- What about $a_r^{(1)}$ for $r \ge 2$? Look at (-@eq-lec3-one-soliton-right): for a single soliton of species $a$ to have **real energy and real field profile** $\vec{\phi} \in \mathbb{R}^r$, the modulus $|E_a(x,t)|$ determines the soliton's position, while the phase $\arg E_a(x,t)$ must take one of the $h$ discrete values that select which vacuum the soliton interpolates between!
-- Wait: in (-@eq-lec3-za-formula), for real rapidity $\theta \in \mathbb{R}$ and $0 < \gamma_a < \pi$ with $\gamma_a \neq \frac{\pi}{2}$, the numerator $e^{-(\theta-\theta_d)} - \sin\gamma_a - i\cos\gamma_a$ and denominator $e^{-(\theta-\theta_d)} - \sin\gamma_a + i\cos\gamma_a$ are **not** complex conjugates of each other! Rather:
+Look closely at (-@eq-lec3-za-formula) for $r \ge 2$ (say $a_2^{(1)}$, where $h=3$ and $\gamma_1 = \frac{\pi}{3}, \gamma_2 = \frac{2\pi}{3}$), and compare it with $a_1^{(1)}$ ($\gamma_1 = \frac{\pi}{2}$):
+- In $a_1^{(1)}$ ($\gamma_1 = \frac{\pi}{2}$), $z_1(\theta) = -\coth\frac{\theta - \theta_d}{2}$ is **real**, with $|z_1(\theta)| > 1$ and a real pole at $\theta = \theta_d$. Shifting $\ln|z_1|$ shifts the soliton's centre of mass backwards in space, while $\arg z_1 \in \{0, \pi\}$ flips the soliton into an antisoliton!
+- What about $a_r^{(1)}$ for $r \ge 2$? Look at (-@eq-lec3-one-soliton-right): for a single soliton of species $a$ to have **real energy and real topological charge** $\vec{q}$, the modulus $|z_a(\theta)E_a(x,t)|$ determines the soliton's position, while the phase $\arg(z_a(\theta)E_a(x,t))$ selects which discrete topological charge state within the multiplet emerges!
+- In (-@eq-lec3-za-formula), since $-i e^{\pm i\gamma_a} = \pm\sin\gamma_a - i\cos\gamma_a$, the numerator $e^{-(\theta-\theta_d)} + \sin\gamma_a - i\cos\gamma_a$ and denominator $e^{-(\theta-\theta_d)} - \sin\gamma_a - i\cos\gamma_a$ have squared modulus ratio (see [the book](book:prp-an-defect-delay)):
   $$
-  |z_a(\theta)|^2 = \frac{e^{-2(\theta-\theta_d)} - 2e^{-(\theta-\theta_d)}\sin\gamma_a + 1}{e^{-2(\theta-\theta_d)} + 2e^{-(\theta-\theta_d)}\sin\gamma_a + 1} < 1,
+  |z_a(\theta)|^2 = \frac{e^{-2(\theta-\theta_d)} + 2e^{-(\theta-\theta_d)}\sin\gamma_a + 1}{e^{-2(\theta-\theta_d)} - 2e^{-(\theta-\theta_d)}\sin\gamma_a + 1} > 1,
   $$ {#eq-lec3-za-modulus}
-  and the phase $\arg z_a(\theta)$ varies smoothly with $\theta$ (see [the book](book:eq-ds-delay-phase)):
+  and the phase $\arg z_a(\theta) = \arg\!\big(e^{-2(\theta-\theta_d)} + e^{2i\gamma_a}\big)$ varies smoothly with $\theta$ (see [the book](book:eq-ds-delay-phase)):
   $$
-  \arg z_a(\theta) \in (0, 2\gamma_a) = \left(0, \frac{2\pi a}{h}\right)!
+  \arg z_a(\theta) = \arg\!\big(e^{-2(\theta-\theta_d)} + e^{2i\gamma_a}\big) \in \begin{cases} (0, 2\gamma_a) & \text{if } 0 < \gamma_a < \frac{\pi}{2}, \\[2pt] (2\gamma_a - 2\pi, 0) & \text{if } \frac{\pi}{2} < \gamma_a < \pi! \end{cases}
   $$ {#eq-lec3-za-phase}
 
-Let us pause! Both (-@eq-lec3-za-modulus) and (-@eq-lec3-za-phase) contain profound physics:
+Let us pause! Both (-@eq-lec3-za-modulus) and (-@eq-lec3-za-phase) contain profound physics, plotted in @fig-lec3-a2-chiral (`code/lectures/gemini_l3_f2_a2_chiral.py`):
 
-1. **Always Delayed ($\ln|z_a(\theta)| < 0$):** Because $\sin\gamma_a > 0$ for all $a \in \{1,\dots,r\}$, we have $|z_a(\theta)| < 1$ for every real rapidity $\theta$. Since $E_a \propto e^{+2m\sin\gamma_a(x\cosh\theta - t\sinh\theta)}$, multiplying $E_a$ by $|z_a(\theta)| < 1$ shifts the outgoing soliton profile to the left ($\Delta x_a > 0$ in the conventions of Chapter 38), meaning the soliton is delayed as it traverses the defect.
+1. **Always Delayed ($\ln|z_a(\theta)| > 0$):** Because $\sin\gamma_a > 0$ for all $a \in \{1,\dots,r\}$, we have $|z_a(\theta)| > 1$ for every real rapidity $\theta$. Since $E_a = \exp(2m\sin\gamma_a(x\cosh\theta - t\sinh\theta) + x_0)$, multiplying $E_a$ by $|z_a(\theta)| > 1$ shifts the outgoing soliton profile backwards in space by $\Delta x_a = -\frac{\ln|z_a(\theta)|}{2m\sin\gamma_a\cosh\theta} < 0$ (and delays it in time by $\Delta t_a > 0$). Notice also that $|z_{h-a}(\theta)| = |z_a(\theta)|$ (since $\sin(\pi - \gamma_a) = \sin\gamma_a$), whereas $\arg z_{h-a}(\theta) = -\arg z_a(\theta)$!
 2. **The Chiral Selection Rule on Topological Charge (see the book: [Topological charge and the selection rule](book:prp-stored-charge)):**
    In $a_r^{(1)}$, the vacua sit on the weight lattice, and a species-$a$ soliton carries a topological charge $\vec{q}$ in the $a$-th fundamental representation $\Lambda_a$ of $\mathfrak{sl}_{r+1}$. In the Hirota ansatz (-@eq-lec3-one-soliton-left), the different solitons within the multiplet $\Lambda_a$ correspond to discrete phases of $E_a$ separated by multiples of $\frac{2\pi}{h}$ (specifically, multiplying $E_a$ by $\omega^{ap} = e^{\frac{2\pi i a p}{h}}$ shifts $\tau_j \mapsto \tau_{j+p}$).
-   Now look at (-@eq-lec3-za-phase): when a soliton crosses the defect, its Hirota parameter $E_a$ picks up the phase $\arg z_a(\theta)$, which lies strictly inside the open interval $(0, \frac{2\pi a}{h})$!
-   - If the incoming and outgoing solitons are both pure single solitons (without breather radiation), or if the defect itself jumps from vacuum class $0$ to vacuum class $p \in \{0,1,\dots,r\}$ (which shifts $\theta_d \mapsto \theta_d + \frac{2\pi i p}{h}$, see [the book](book:eq-ds-class-shift)), the only allowed topological charge transitions are those whose phase shift lies in $(0, \frac{2\pi a}{h})$!
-   - In particular, for the fundamental vector soliton $a = 1$ of $a_2^{(1)}$ ($h=3$), the open interval $(0, \frac{2\pi}{3})$ contains **only two** allowed outgoing states out of the $h=3$ states in the triplet $V = \mathbf{3}$: the soliton can either **keep its topological charge** ($p=0$) or **shift by one step along the necklace clock** ($p=1$), while shifting against the clock ($p=2$) is **classically forbidden**!
-   - By contrast, for the conjugate antifundamental soliton $a = 2$ ($\bar{V} = \bar{\mathbf{3}}$ in $a_2^{(1)}$), the phase interval is $(0, \frac{4\pi}{3})$, which spans an extra step around the clock!
+   Now look at (-@eq-lec3-za-phase): when a soliton crosses the defect, its Hirota parameter $E_a$ picks up the phase $\arg z_a(\theta)$!
+   - For the fundamental vector soliton $a = 1$ ($V = \mathbf{3}$) of $a_2^{(1)}$ ($h=3$, $\gamma_1 = \frac{\pi}{3}$), as $\theta - \theta_d$ sweeps from $-\infty$ to $+\infty$, $\arg z_1(\theta)$ increases monotonically across the open interval $(0, \frac{2\pi}{3})$, while for the conjugate antifundamental soliton $a = 2$ ($\bar{V} = \bar{\mathbf{3}}$, $\gamma_2 = \frac{2\pi}{3}$), $\arg z_2(\theta) = -\arg z_1(\theta)$ decreases across $(0, -\frac{2\pi}{3}) \equiv (0, \frac{4\pi}{3}) \pmod{2\pi}$.
+   - Therefore, out of the $h=3$ topological charge states in $V = \mathbf{3}$, the classical boundary values at $\theta \to \pm\infty$ reach **only two** states: the soliton can either **keep its topological charge** ($0$) or **shift by one step along the necklace clock** ($+\frac{2\pi}{3}$ for $V$, $-\frac{2\pi}{3} \equiv +\frac{4\pi}{3}$ for $\bar{V}$), while the third state is **classically forbidden**!
    Keep this chiral asymmetry between $a=1$ ($V$) and $a=2$ ($\bar{V}$) in $a_2^{(1)}$ firmly in mind: in Lecture 5 (@sec-lec5-crossing-resonances), when we compute the exact quantum transmission matrices $M_V(\theta)$ and $M_{\bar{V}}(\theta)$, we will see that $M_V(\theta)$ has only 2 non-zero entries per state, whereas $M_{\bar{V}}(\theta)$ has all 3 entries non-zero—with the third entry representing **quantum tunnelling** into the classically forbidden charge sector!
+
+![The $a_2^{(1)}$ ($h=3$) soliton delay and chiral topological selection rule: (a) delay modulus $|z_1(\theta)| = |z_2(\theta)| > 1$ and opposite phase shifts $\arg z_1(\theta) \in (0, 2\pi/3)$ (for $V$) and $\arg z_2(\theta) \in (-2\pi/3, 0)$ (for $\bar{V}$); (b) the $\mathfrak{sl}_3$ weight triangles of $V = \mathbf{3}$ and $\bar{V} = \bar{\mathbf{3}}$, contrasting the two classically allowed transitions with the quantum tunnelling transition $j=1$ in $\bar{V}$.](figures/l3_a2_chiral.svg){#fig-lec3-a2-chiral width=92% fig-alt="Two-panel figure showing the modulus and opposite phase sweeps of z_1(theta) and z_2(theta) in a_2^(1) in panel (a), and the sl_3 weight triangles of V and Vbar with allowed clockwise transitions and the quantum tunnelling transition in panel (b)."}
 
 ### Complex Absorption Rapidities and Frozen Solitons Between Two Defects
 

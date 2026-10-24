@@ -350,7 +350,7 @@ R(\theta) = 0, \qquad
 = -i\,\frac{\sinh\!\big(\frac{\theta-\theta_d}{2} - \frac{i\pi}{4}\big)}{\sinh\!\big(\frac{\theta-\theta_d}{2} + \frac{i\pi}{4}\big)}.
 $$ {#eq-lec2-tcl}
 
-As you checked in @exr-lec1-cdd, $\mathbb{T}^{\rm cl}(\theta)$ is a pure phase for real $\theta$, satisfies defect unitarity and crossing $\mathbb{T}^{\rm cl}(\theta)\mathbb{T}^{\rm cl}(\theta+i\pi) = 1$, and its square is the bulk CDD factor $f_{1/2}(\theta-\theta_d)$. In Lecture 6 (@sec-lec6-boundaries-breathers), we will discover to our amazement that this simple linear-wave factor (-@eq-lec2-tcl) is **exact to all orders in the quantum coupling** for the lightest sine-Gordon breather!
+As you checked in @exr-lec1-cdd, $\mathbb{T}^{\rm cl}(\theta)$ is a pure phase for real $\theta$, satisfies defect unitarity and crossing $\mathbb{T}^{\rm cl}(\theta)\mathbb{T}^{\rm cl}(\theta+i\pi) = 1$, and its inverse square is the bulk CDD factor $\big[\mathbb{T}^{\rm cl}_{\rm odd}(\theta)\big]^2 = f_{1/2}(\theta-\theta_d)$. In Lecture 6 (@sec-lec6-boundaries-breathers), we will discover to our amazement that this simple linear-wave factor (-@eq-lec2-tcl) is **exact to all orders in the quantum coupling** for the lightest sine-Gordon breather!
 
 ---
 
@@ -446,7 +446,9 @@ Let us unpack what (-@eq-lec2-z-delay) tells us about a soliton of rapidity $\th
    $$
    \big[z_{\rm odd}(\theta)\big]^2 = \tanh^2\frac{\theta - \theta_d}{2} = A_{11}(\theta - \theta_d)!
    $$ {#eq-lec2-half-soliton}
-   Two odd defects placed side by side multiply $E$ by $z_{\rm odd}(\theta)^2 = A_{11}(\theta - \theta_d)$—the **exact displacement experienced by a soliton when it crosses a bulk soliton of rapidity $\theta_d$**! And as you showed in @exr-lec1-cdd, two defects also transmit linear waves with the phase shift $\big[\mathbb{T}^{\rm cl}_{\rm odd}(\theta)\big]^2 = \frac{\sinh(\theta-\theta_d)+i}{\sinh(\theta-\theta_d)-i}$, which is the classical limit of the bulk soliton–breather $S$-matrix $S_{s B_1}(\theta - \theta_d)$!
+   Two odd defects placed side by side multiply $E$ by $z_{\rm odd}(\theta)^2 = A_{11}(\theta - \theta_d)$—the **exact displacement experienced by a soliton when it crosses a bulk soliton of rapidity $\theta_d$**! And as you showed in @exr-lec1-cdd, two defects also transmit linear waves with the phase shift $\big[\mathbb{T}^{\rm cl}_{\rm odd}(\theta)\big]^2 = \frac{\sinh(\theta-\theta_d)+i}{\sinh(\theta-\theta_d)-i}$, which is the classical limit of the bulk soliton–breather $S$-matrix $S_{s B_1}(\theta - \theta_d)$! All four regimes of (-@eq-lec2-z-delay) and (-@eq-lec2-half-soliton) are plotted in @fig-lec2-soliton-defect (`code/lectures/gemini_l2_f1_soliton_defect.py`).
+
+![The four physical regimes of a classical sine-Gordon soliton meeting a type-I$_-$ defect at $x=0$: (a) the Bäcklund delay factor $z_{\rm I_-}(\theta) = -\coth\frac{\theta-\theta_d}{2}$, the spatial displacement $\ln|z_{\rm I_-}|$, and the squared odd-sector delay $z_{\rm odd}^2 = A_{11}(\theta-\theta_d)$; (b) spatial profiles across $x=0$ for delayed transmission ($\theta < \theta_d$), absorption ($\theta = \theta_d$), and soliton-to-antisoliton conversion ($\theta > \theta_d$).](figures/l2_soliton_defect.svg){#fig-lec2-soliton-defect width=92% fig-alt="Two-panel plot showing the Bäcklund soliton delay factor z(theta) = -coth((theta-theta_d)/2) and half-soliton identity z_odd^2 = A_11 in panel (a), and spatial kink profiles across the defect x=0 for the three regimes theta < theta_d, theta = theta_d, and theta > theta_d in panel (b)."}
 
 ---
 

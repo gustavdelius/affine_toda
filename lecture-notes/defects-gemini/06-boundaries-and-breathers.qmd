@@ -120,23 +120,19 @@ $$ {#eq-lec6-quantum-fusion-def}
 Wait: $\mathbb{T}(\theta)$ and $\bar{\mathbb{T}}(\theta)$ act on the infinite-dimensional space $V(\theta) \otimes \mathcal{W}$ and shift the defect charge $|n\rangle \mapsto |n \pm 1\rangle$! How can $K_{\text{fused}}(\theta)$ possibly reduce to a $2\times 2$ boundary reflection matrix $K_{\text{GZ}}(\theta)$ that does not depend on $n$?
 
 Let us multiply the three matrices in (-@eq-lec6-quantum-fusion-def) right on the blackboard on our 2-dimensional charge-conserving subspace $\mathcal{H}_n = \operatorname{span}\{v_+ \otimes |n\rangle,\, v_- \otimes |n+1\rangle\}$!
-Because $\mathbb{T}(\theta)$, $K_D(\theta) \otimes 1_{\mathcal{W}}$, and $\bar{\mathbb{T}}(\theta)$ each preserve total topological charge, **all three operators preserve the 2-dimensional subspace $\mathcal{H}_n$**! On $\mathcal{H}_n$ (for $s=0$), using (-@eq-lec5-tn-2x2) and (-@eq-lec5-tbar-from-unitarity), we have:
+Because $\mathbb{T}(\theta)$, $1_{\mathcal{W}} \otimes K_D(\theta)$, and $\bar{\mathbb{T}}(\theta)$ each preserve total topological charge, **all three operators preserve the 2-dimensional subspace $\mathcal{H}_n$**! On $\mathcal{H}_n$ (for $s=0$, in the book's Weyl-module basis of [the sine-Gordon transmission matrix](book:eq-sg-transmission-matrix) where $A_n = q^{-n}, D_n = q^n, C_n = -iY q^{-n}, B_n = -iY q^n$), we have:
 $$
 \begin{aligned}
-\mathbb{T}_n(\theta) &= \Phi(\theta)\begin{pmatrix} q^n & -i e^{\lambda(\theta - \theta_d)} \\ -i e^{\lambda(\theta - \theta_d)} & q^{-n} \end{pmatrix}, \\
-\big(K_D(\theta) \otimes 1_{\mathcal{W}}\big)\big|_{\mathcal{H}_n} &= \begin{pmatrix} k_+(\theta) & 0 \\ 0 & k_-(\theta) \end{pmatrix}, \\
-\bar{\mathbb{T}}_n(\theta) &= \bar{\Phi}(\theta)\begin{pmatrix} q^{-n} & +i e^{\lambda(-\theta - \theta_d)} \\ +i e^{\lambda(-\theta - \theta_d)} & q^n \end{pmatrix}.
+\mathbb{T}_n(\theta) &= \Phi(\theta)\begin{pmatrix} q^{-n} & -i e^{\lambda(\theta - \theta_d)} q^{n+1} \\ -i e^{\lambda(\theta - \theta_d)} q^{-n} & q^{n+1} \end{pmatrix}, \\
+\big(1_{\mathcal{W}} \otimes K_D(\theta)\big)\big|_{\mathcal{H}_n} &= \begin{pmatrix} k_+(\theta) & 0 \\ 0 & k_-(\theta) \end{pmatrix}, \\
+\bar{\mathbb{T}}_n(\theta) = \mathbb{T}_n(-\theta)^{-1} &= \bar{\Phi}(\theta)\begin{pmatrix} q^n & +i e^{\lambda(-\theta - \theta_d)} q^n \\ +i e^{\lambda(-\theta - \theta_d)} q^{-n-1} & q^{-n-1} \end{pmatrix}.
 \end{aligned}
 $$ {#eq-lec6-three-matrices-hn}
-Now look at the $q^{\pm n}$ dependence of $\mathbb{T}_n(\theta)$ and $\bar{\mathbb{T}}_n(\theta)$ in (-@eq-lec6-three-matrices-hn)! Let $G_n = \begin{pmatrix} q^{n/2} & 0 \\ 0 & q^{-n/2} \end{pmatrix}$ be a diagonal gauge matrix on $\mathcal{H}_n$. Then:
+Now look at the $q^{\pm n}$ dependence of $\mathbb{T}_n(\theta)$ and $\bar{\mathbb{T}}_n(\theta)$ in (-@eq-lec6-three-matrices-hn)! Let $G_n = \begin{pmatrix} q^{-n} & 0 \\ 0 & q^{n+1} \end{pmatrix}$ be a diagonal gauge matrix on $\mathcal{H}_n$. Then $G_n$ factors cleanly out to the right of $\mathbb{T}_n(\theta)$ and $G_n^{-1}$ factors cleanly out to the left of $\bar{\mathbb{T}}_n(\theta)$:
 $$
-\mathbb{T}_n(\theta) = G_n \left[\Phi(\theta)\begin{pmatrix} 1 & -i e^{\lambda(\theta - \theta_d)} \\ -i e^{\lambda(\theta - \theta_d)} & 1 \end{pmatrix}\right] G_n, \qquad \bar{\mathbb{T}}_n(\theta) = G_n^{-1} \left[\bar{\Phi}(\theta)\begin{pmatrix} 1 & +i e^{\lambda(-\theta - \theta_d)} \\ +i e^{\lambda(-\theta - \theta_d)} & 1 \end{pmatrix}\right] G_n^{-1}!
+\mathbb{T}_n(\theta) = \left[\Phi(\theta)\begin{pmatrix} 1 & -i e^{\lambda(\theta - \theta_d)} \\ -i e^{\lambda(\theta - \theta_d)} & 1 \end{pmatrix}\right] G_n, \qquad \bar{\mathbb{T}}_n(\theta) = G_n^{-1} \left[\bar{\Phi}(\theta)\begin{pmatrix} 1 & +i e^{\lambda(-\theta - \theta_d)} \\ +i e^{\lambda(-\theta - \theta_d)} & 1 \end{pmatrix}\right]!
 $$ {#eq-lec6-gn-factorization}
-And because $K_D(\theta)$ is **diagonal**, it **commutes** with the diagonal matrix $G_n$:
-$$
-G_n^{-1}\,K_D(\theta)\,G_n = K_D(\theta)!
-$$ {#eq-lec6-kd-commutes-gn}
-Substitute (-@eq-lec6-gn-factorization) and (-@eq-lec6-kd-commutes-gn) into $K_{\text{fused}}(\theta)\big|_{\mathcal{H}_n} = \bar{\mathbb{T}}_n(\theta)\,K_D(\theta)\,\mathbb{T}_n(\theta)$: the inner $G_n^{-1} K_D(\theta) G_n = K_D(\theta)$ absorbs the middle $G_n$'s, leaving
+Substitute (-@eq-lec6-gn-factorization) directly into $K_{\text{fused}}(\theta)\big|_{\mathcal{H}_n} = \bar{\mathbb{T}}_n(\theta)\,K_D(\theta)\,\mathbb{T}_n(\theta)$: the inner matrices have no $n$-dependence at all, leaving
 $$
 K_{\text{fused}}(\theta)\big|_{\mathcal{H}_n} = G_n^{-1}\,K_{\text{GZ}}(\theta)\,G_n,
 $$ {#eq-lec6-gauge-decoupling}
@@ -157,7 +153,9 @@ Even better: because the UV–IR parameter map between the classical boundary La
 $$
 \theta_d = \left(1 - \frac{B}{2}\right)\theta_d^{\text{cl}} = \frac{\lambda}{\lambda + 1}\,\theta_d^{\text{cl}}, \qquad \sigma_{\text{quantum}} = e^{-\theta_d} = \big(\sigma_{\text{cl}}\big)^{1 - \frac{B}{2}}!
 $$ {#eq-lec6-uv-ir-map}
-Isn't that a triumph of physical reasoning? By crashing the defect into a simple Dirichlet wall, we simultaneously generated the full 2-parameter boundary theory, watched the infinite-dimensional Weyl module $\mathcal{W}$ gauge-decouple into identical 2-dimensional blocks $\mathcal{H}_n$, and extracted the non-perturbative UV–IR renormalization of the defect coupling!
+Isn't that a triumph of physical reasoning? By crashing the defect into a simple Dirichlet wall, we simultaneously generated the full 2-parameter boundary theory, watched the infinite-dimensional Weyl module $\mathcal{W}$ gauge-decouple into identical 2-dimensional blocks $\mathcal{H}_n$, and extracted the non-perturbative UV–IR renormalization of the defect coupling (@fig-lec6-boundary-fusion; checked in `code/lectures/gemini_l6_f1_boundary_fusion.py`)!
+
+![Defect–boundary fusion and doubled Borel coideal symmetries: (a) schematic of $K_{\rm fused}(\theta) = \bar{\mathbb{T}}(\theta)(1_{\mathcal{W}}\otimes K_D(\theta))\mathbb{T}(\theta)$ showing the gauge factorization $K_{\rm fused}|_{\mathcal{H}_n} = G_n^{-1} K_{\rm GZ}(\eta_D, \lambda\theta_d) G_n$ and the two twisted-diagonal Borel coideals $B_- = \Delta(U_q(\mathfrak{b}^-))$ and $B_+ = (1\otimes\pi)\Delta(U_q(\mathfrak{b}^+))$ in $U \otimes U^{\rm cop}$; (b) soliton-to-antisoliton reflection fraction $|K_{\rm GZ}^{+-}|^2/(|K_{\rm GZ}^{++}|^2 + |K_{\rm GZ}^{+-}|^2)$ generated from a diagonal Dirichlet wall ($\eta_D = 0.45$) as $\theta_d$ varies.](figures/l6_boundary_fusion.svg){#fig-lec6-boundary-fusion width=92% fig-alt="Two-panel diagram showing the defect-boundary fusion schematic and the two Borel coideal subalgebras of U tensor U^cop in panel (a), and the soliton-to-antisoliton boundary reflection probability generated from a diagonal Dirichlet wall for several defect rapidities theta_d in panel (b)."}
 
 ---
 
@@ -239,7 +237,9 @@ Let us check the three fundamental properties of (-@eq-lec6-ar-particle-t) on th
    $$
    = \frac{e^{-(\theta-\theta_d)} + e^{i(\gamma_a + \gamma_b)}}{\cancel{e^{-(\theta-\theta_d)} + e^{-i(\gamma_a - \gamma_b)}}} \cdot \frac{\cancel{e^{-(\theta-\theta_d)} + e^{-i(\gamma_a - \gamma_b)}}}{e^{-(\theta-\theta_d)} + e^{-i(\gamma_a + \gamma_b)}} = \frac{e^{-(\theta-\theta_d)} + e^{i\gamma_{a+b}}}{e^{-(\theta-\theta_d)} + e^{-i\gamma_{a+b}}} = \mathbb{T}_{a+b}(\theta)!
    $$ {#eq-lec6-fusing-check}
-   Look at how the middle factor $e^{-(\theta-\theta_d)} + e^{-i(\gamma_a - \gamma_b)}$ cancelled in one line! Every bulk fusing rule of $a_r^{(1)}$ affine Toda field theory is satisfied automatically by the classical linear-wave transmission factors (-@eq-lec6-ar-particle-t)! (And notice the sign stability condition of the book's [The vacuum of the real-coupling defect](book:prp-dpt-vacuum): for the vacuum $\vec{\phi} = \vec{\psi} = \vec{0}$ to be a minimum of the real-coupling defect potential $\mathcal{B}_d$ and for (-@eq-lec6-ar-particle-t) to be free of physical-strip bound-state poles $\operatorname{Im}\theta \in (0, \pi)$, the defect parameter $\sigma = e^{-\theta_d}$ must be strictly positive, $\sigma > 0$.)
+   Look at how the middle factor $e^{-(\theta-\theta_d)} + e^{-i(\gamma_a - \gamma_b)}$ cancelled in one line! Every bulk fusing rule of $a_r^{(1)}$ affine Toda field theory is satisfied automatically by the classical linear-wave transmission factors (-@eq-lec6-ar-particle-t)! (And notice the sign stability condition of the book's [The vacuum of the real-coupling defect](book:prp-dpt-vacuum): for the vacuum $\vec{\phi} = \vec{\psi} = \vec{0}$ to be a minimum of the real-coupling defect potential $\mathcal{B}_d$ and for (-@eq-lec6-ar-particle-t) to be free of physical-strip bound-state poles $\operatorname{Im}\theta \in (0, \pi)$, the defect parameter $\sigma = e^{-\theta_d}$ must be strictly positive, $\sigma > 0$.) Both the singlet cancellation across couplings onto (-@eq-lec6-b1-transmission) and the universal $a_3^{(1)}$ ($h=4$) Toda particle and higher breather phases are plotted in @fig-lec6-breathers (`code/lectures/gemini_l6_f2_breathers.py`).
+
+![The breather cancellation and universal Toda particle transmission phases: (a) constituent soliton scalar-factor phases $\arg[\Phi(\theta_1)\Phi(\theta_2)]$ at $\lambda = \sqrt{2}, 2\sqrt{2}, 4\sqrt{2}$ (dashed) collapsing upon singlet fusion onto the single coupling-independent curve $\arg\mathbb{T}_{B_1}(\theta) = \arg\mathbb{T}^{\rm cl}(\theta-\theta_d)$ (bold red); (b) universal $a_3^{(1)}$ ($h=4$) particle transmission phases $\arg\mathbb{T}_a(\theta)/\pi$ ($a=1,2,3$) alongside the rescaled higher breather phases $\frac{1}{m}\arg\mathbb{T}_{B_m}(\theta)/\pi$ ($m=2,3$, $\lambda=3.5$).](figures/l6_breathers.svg){#fig-lec6-breathers width=92% fig-alt="Two-panel plot showing how the coupling-dependent constituent soliton scalar factors collapse onto the coupling-independent breather transmission phase arg T_{B_1}(theta) in panel (a), and the universal a_3^(1) particle transmission phases alongside higher sine-Gordon breather phases in panel (b)."}
 
 ### An Open Frontier for Your Own Research: The Penati–Polvara Puzzle
 
