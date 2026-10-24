@@ -1,0 +1,354 @@
+# Coideal Subalgebras and Boundary Sine–Gordon {#sec-lec4-coideals}
+
+*Companion to [Chapter 30](book:sec-boundary-sine-gordon) and [Chapter 33](book:sec-boundary-qg) of the main text.*
+
+::: {.callout-note appearance="simple" icon=false title="What You Will Learn in This Lecture"}
+- How **boundary conformal perturbation theory** and **Neumann parity images** reveal which non-local quantum charges survive on the half-line.
+- Why the surviving charges $b_j = e_j + q_j^{-1}f_j k_j + \hat\epsilon_j k_j$ generate a **left coideal subalgebra** $B_{\hat\epsilon} \subset U_q(\hat g)$ rather than a Hopf subalgebra—and why placing the wall on the right of $V_1 \otimes \dots \otimes V_N$ demands a left coideal.
+- How the **linear intertwining equation** $K(y)\pi_y(b_j) = \pi_{1/y}(b_j)K(y)$ turns the quadratic reflection equation into an elementary linear system, and yields the complete **Ghoshal–Zamolodchikov reflection matrix** for boundary sine-Gordon in eight lines of blackboard algebra.
+- Why the reflection equation is blind to the **sign of $q$**, whereas **boundary crossing-unitarity** uniquely selects the physical value $q = -e^{-i\pi\lambda}$.
+- How **one-dimensional $B_{\hat\epsilon}$-submodules** inside $V(y) \otimes \mathbb{C}_{\hat\epsilon}$ generate the entire **tower of sine-Gordon boundary bound states** with shifted parameter $\bar\eta = \pi(\lambda+1) - \eta$.
+:::
+
+## The Mystery of the Surviving Non-Local Charges
+
+In Part VI of the book ([Chapter 21](book:sec-qg-symmetry)), we saw one of the miracles of two-dimensional quantum field theory: Bernard and LeClair discovered that bulk imaginary-coupling affine Toda field theory possesses conserved **non-local charges** $Q_j$ and $\bar Q_j$ ($j = 0, \dots, r$), built as spatial integrals of chiral and antichiral vertex operators, which together with the topological charges $T_j$ generate the quantum affine algebra $U_q(\hat g^\vee)$. Because the bulk S-matrix commutes with the coproduct of these charges, finding $S(\theta)$ reduced from solving the cubic Yang–Baxter equation to solving Jimbo's **linear** intertwining equations!
+
+When we place a wall at $x = 0$, what happens to $U_q(\hat g^\vee)$?
+
+1. **Topological charge is broken.** Unless the field $\vec\phi(0,t)$ is frozen by a strict Dirichlet condition, solitons can bounce off the wall and return as antisolitons (or as different species). Thus $T_j$ is **not** conserved!
+2. **Left- and right-moving charges are mixed.** Parity $P : x \mapsto -x$ exchanges left-movers $\vec\varphi(x^+)$ with right-movers $\bar{\vec\varphi}(x^-)$, and reverses the spatial integral:
+   $$
+   P : \quad Q_j \longleftrightarrow \bar Q_j, \qquad T_j \longmapsto -T_j.
+   $$
+   Neither $Q_j$ nor $\bar Q_j$ can be conserved on its own on $x \le 0$: a left-moving current hitting $x = 0$ bounces back as a right-moving current.
+
+If you were trained purely in Hopf algebras, you might despair: if $T_j$ is lost, you don't even have the Cartan subalgebra $k_j = q^{T_j}$ inside your symmetry algebra, so the surviving conserved charges **cannot form a Hopf subalgebra** of $U_q(\hat g^\vee)$! How can a subalgebra that isn't a Hopf subalgebra possibly act on multi-soliton states?
+
+The resolution, discovered by Mezincescu and Nepomechie [@mezincescu_nepomechie1998] for sine-Gordon at the free-fermion point and developed into a general theory by Delius and MacKay [@delius_mackay2003], is our **Fourth Big Idea**: a boundary does not need a Hopf subalgebra. It needs a **coideal subalgebra**.
+
+---
+
+## Boundary Conformal Perturbation Theory and the Contact Term
+
+Let us watch how the conserved charges emerge directly from the half-line field theory ([Section 33.1](book:sec-boundary-cpt) and [Section 33.2](book:sec-boundary-charges)).
+
+Treat the imaginary-coupling theory on $x \le 0$ as a massless free boson perturbed by the bulk Toda potential and by a boundary vertex-operator potential at $x = 0$. For the free boson with **Neumann** boundary conditions $\partial_x\vec\phi|_{x=0} = 0$, the half-line field $\tilde\phi(x,t)$ on $x \le 0$ is obtained from the whole-line free field $\phi(x,t)$ by the **parity-image construction** ([eq. 33.1](book:eq-parity-image)):
+$$
+\tilde\Phi(x,t) = \Phi(x,t) + \bar\Phi(-x,t), \qquad x \le 0.
+$$
+Because $\tilde\phi(x,t) = \phi(x,t) + \phi(-x,t)$ contains its own mirror image at $-x \ge 0$, the holomorphic half $\tilde\varphi(x,t) = \varphi(x,t) + \bar\varphi(-x,t)$ and the antiholomorphic half $\tilde{\bar\varphi}(x,t) = \bar\varphi(x,t) + \varphi(-x,t)$ now have a **non-vanishing two-point function** with each other!
+
+In the free Neumann theory, the parity-even combination
+$$
+\tilde Q_j = Q_j + \bar Q_j
+$$
+is conserved because the holomorphic current $J_j(x,t)$ and its antiholomorphic image $\bar J_j(x,t)$ agree at $x = 0$, so the boundary flux $\partial_t(Q_j + \bar Q_j) = J_j(0,t) - \bar J_j(0,t)$ vanishes.
+
+Now switch on the integrable boundary perturbation $\lambda_b \sum_j \epsilon_j\, e^{i\beta\vec\alpha_j\cdot\tilde\phi(0,t)/2}$ at $x = 0$. To first order in $\lambda_b$, how does $\tilde Q_j$ fail to be conserved? We must take the operator product expansion (OPE) of the image currents in $\tilde Q_j$ with the boundary vertex operator at $(0, t')$. Because the two image pieces sit at $+ix$ and $-ix$ in Euclidean light-cone coordinates, their OPE with the boundary operator at $t'$ produces poles of the form $(t - t' + ix)^{-n} - (t - t' - ix)^{-n}$. As we approach the wall ($x \to 0^-$), the Sokhotski–Plemelj identity gives the fundamental **boundary contact identity** ([eq. 33.2](book:eq-image-delta)):
+$$
+\lim_{x\to 0^-}\left[\frac{1}{(t - t' + ix)^n} - \frac{1}{(t - t' - ix)^n}\right] = \frac{2\pi i}{(n-1)!}\,\partial_{t'}^{\,n-1}\delta(t - t').
+$$
+
+Look closely at what this identity does for $n=1$ and $n=2$:
+
+- **For $n = 1$ (simple pole):** Taking the OPE of $\partial_x\tilde\phi(x,t)$ with the boundary vertex operator gives a simple pole $n=1$, producing $\delta(t - t')$ without derivatives. Integrating over $t'$ reproduces the classical boundary condition $\partial_x\vec\phi|_{x=0} = -\nabla_{\vec\phi}\mathcal{B}$!
+- **For $n = 2$ (double pole):** Taking the OPE of the spin-$1$ non-local currents $J_j, \bar J_j$ with the boundary vertex operator gives a **double pole** $n=2$, producing $\partial_{t'}\delta(t - t')$! When we integrate over $t'$, an integration by parts turns $\partial_{t'}\delta(t-t')$ into a **total time derivative** $\partial_t(\cdots)$ of a boundary vertex operator at $x = 0$!
+
+What is that boundary vertex operator? On the half-line $x \le 0$ with $\vec\phi(-\infty, t) = \vec 0$, the topological charge is
+$$
+T_j = \frac{\beta}{2\pi}\vec\alpha_j \cdot \big(\vec\phi(0,t) - \vec\phi(-\infty,t)\big) = \frac{\beta}{2\pi}\vec\alpha_j\cdot\vec\phi(0,t).
+$$
+So the group-like Cartan operator $q^{T_j}$—which in the bulk was a global topological factor—is on the half-line a **local boundary vertex operator** at $x = 0$! And its exponent matches the residue of the $n=2$ double pole ([Section 33.2](book:sec-boundary-charges)):
+$$
+\partial_t\big(Q_j + \bar Q_j\big) = -\hat\epsilon_j\,\partial_t\big(q^{T_j}\big).
+$$
+Moving the total time derivative to the left-hand side, we obtain the conserved half-line charge ([eq. 33.3](book:eq-boundary-charges)):
+$$
+\hat Q_j = Q_j + \bar Q_j + \hat\epsilon_j\,q^{T_j}, \qquad j = 0, \dots, r.
+$$
+
+Translating into the standard $U_q(\hat g)$ generators of Part VI via the dictionary $Q_j \mapsto e_j$, $q^{T_j} \mapsto k_j$, and $\bar Q_j \mapsto q_j^{-1} f_j k_j$ ([eq. 33.4](book:eq-coideal-generators)), we arrive at the **coideal generators**:
+$$
+\boxed{b_j = e_j + q_j^{-1}f_j k_j + \hat\epsilon_j k_j, \qquad j = 0, \dots, r.}
+$$
+
+---
+
+## Blackboard Calculation 1: The Left Coideal Coproduct and Why It Intertwines Reflections
+
+Let $B_{\hat\epsilon} \subset U_q(\hat g)$ be the subalgebra generated by $b_0, \dots, b_r$. Let us compute the coproduct $\Delta(b_j)$ on the blackboard using Part VI's coproduct conventions ([Section 21.2](book:sec-qg-coproduct)):
+$$
+\Delta(e_j) = e_j \otimes 1 + k_j \otimes e_j, \qquad
+\Delta(f_j) = f_j \otimes k_j^{-1} + 1 \otimes f_j, \qquad
+\Delta(k_j) = k_j \otimes k_j.
+$$
+
+### Step 1: Compute $\Delta(f_j k_j)$ and $\Delta(b_j)$
+
+Since $\Delta : U_q(\hat g) \to U_q(\hat g) \otimes U_q(\hat g)$ is an algebra homomorphism,
+$$
+\begin{aligned}
+\Delta(f_j k_j) &= \Delta(f_j)\,\Delta(k_j) \\
+&= \big(f_j \otimes k_j^{-1} + 1 \otimes f_j\big)\big(k_j \otimes k_j\big) \\
+&= f_j k_j \otimes 1 + k_j \otimes f_j k_j.
+\end{aligned}
+$$
+Now combine all three pieces of $b_j = e_j + q_j^{-1} f_j k_j + \hat\epsilon_j k_j$:
+$$
+\begin{aligned}
+\Delta(b_j) &= \Delta(e_j) + q_j^{-1}\Delta(f_j k_j) + \hat\epsilon_j\Delta(k_j) \\
+&= \big(e_j \otimes 1 + k_j \otimes e_j\big) + q_j^{-1}\big(f_j k_j \otimes 1 + k_j \otimes f_j k_j\big) + \hat\epsilon_j\big(k_j \otimes k_j\big) \\
+&= \big(e_j + q_j^{-1}f_j k_j\big) \otimes 1 + k_j \otimes \big(e_j + q_j^{-1}f_j k_j + \hat\epsilon_j k_j\big).
+\end{aligned}
+$$
+Recognize $b_j = e_j + q_j^{-1}f_j k_j + \hat\epsilon_j k_j$ in the second tensor factor, and $e_j + q_j^{-1}f_j k_j = b_j - \hat\epsilon_j k_j$ in the first tensor factor! We have proved [Proposition 33.1](book:prp-coideal-left) ([eq. 33.5](book:eq-coideal-coproduct)):
+$$
+\boxed{\Delta(b_j) = \big(e_j + q_j^{-1}f_j k_j\big) \otimes 1 + k_j \otimes b_j = (b_j - \hat\epsilon_j k_j)\otimes 1 + k_j \otimes b_j \;\in\; U_q(\hat g) \otimes B_{\hat\epsilon}.}
+$$
+
+::: {.callout-important appearance="simple" title="Why a Left Coideal is Physically Mandatory"}
+Look at where $\Delta(b_j)$ lands:
+$$
+\Delta(B_{\hat\epsilon}) \subset U_q(\hat g) \otimes B_{\hat\epsilon}.
+$$
+In algebra, a subalgebra $B \subset A$ of a Hopf algebra $A$ satisfying $\Delta(B) \subset A \otimes B$ is called a **left coideal subalgebra**. Why does nature choose a left coideal instead of a Hopf subalgebra ($\Delta(B) \subset B \otimes B$)?
+
+Imagine $N$ solitons on the half-line $x \le 0$, ordered from left to right in the tensor product
+$$
+V_1(\theta_1) \otimes V_2(\theta_2) \otimes \cdots \otimes V_N(\theta_N) \;\Big|\text{Wall at } x = 0.
+$$
+By iterating $\Delta(B_{\hat\epsilon}) \subset U_q(\hat g) \otimes B_{\hat\epsilon}$, the $(N-1)$-fold coproduct lands in
+$$
+\Delta^{(N-1)}(B_{\hat\epsilon}) \subset \underbrace{U_q(\hat g) \otimes \cdots \otimes U_q(\hat g)}_{\text{far from the wall}} \otimes \underbrace{B_{\hat\epsilon}}_{\text{touching the wall}}.
+$$
+Solitons $1, \dots, N-1$ are far out in the bulk ($x \ll 0$): they experience the full bulk quantum group $U_q(\hat g)$, so bulk two-body collisions between adjacent factors are intertwined by $\check R$ as usual! Only the rightmost factor $V_N(\theta_N)$ is adjacent to the wall at $x = 0$, and **only that rightmost factor** reflects via $1 \otimes \cdots \otimes 1 \otimes K(\theta_N)$. Because the rightmost tensor slot of $\Delta^{(N-1)}(b_j)$ contains **only elements of $B_{\hat\epsilon}$** (never bare $k_j$, $e_j$, or $f_j$), a reflection matrix $K$ that intertwines $B_{\hat\epsilon}$ on a single particle automatically commutes with $\Delta^{(N-1)}(b_j)$ on the $N$-particle state!
+:::
+
+### Step 2: Why $B_{\hat\epsilon}$-Intertwiners Automatically Solve the Reflection Equation
+
+Let us turn that physical picture into the 4-line proof of [Theorem 33.1](book:thm-k-reflection). Suppose $K_\mu(\theta) : V_\mu(\theta) \to V_{\bar\mu}(-\theta)$ satisfies the **linear intertwining equation** ([eq. 33.6](book:eq-k-intertwiner)):
+$$
+K_\mu(\theta)\,\pi_{\mu,\theta}(b_j) = \pi_{\bar\mu,-\theta}(b_j)\,K_\mu(\theta) \qquad \forall\, j = 0, \dots, r.
+$$
+Then on a two-soliton state $V_\mu(\theta_1) \otimes V_\nu(\theta_2)$, how does $K^\nu_2(\theta_2) = 1 \otimes K_\nu(\theta_2)$ interact with $\Delta(b_j)$? Using $\Delta(b_j) = (b_j - \hat\epsilon_j k_j)\otimes 1 + k_j \otimes b_j$:
+
+1. The first term $(b_j - \hat\epsilon_j k_j) \otimes 1$ acts as the identity on the second slot, so it trivially commutes with $1 \otimes K_\nu(\theta_2)$.
+2. The second term $k_j \otimes b_j$ satisfies
+   $$
+   (1 \otimes K_\nu(\theta_2))\,(\pi_{\mu,\theta_1}(k_j) \otimes \pi_{\nu,\theta_2}(b_j))
+   = \pi_{\mu,\theta_1}(k_j) \otimes K_\nu(\theta_2)\pi_{\nu,\theta_2}(b_j)
+   = (\pi_{\mu,\theta_1}(k_j) \otimes \pi_{\bar\nu,-\theta_2}(b_j))\,(1 \otimes K_\nu(\theta_2)).
+   $$
+
+Thus $1 \otimes K_\nu(\theta_2)$ is a $B_{\hat\epsilon}$-intertwiner! Since every bulk scattering matrix $\check R$ intertwines $\Delta(a)$ for all $a \in U_q(\hat g)$ (and therefore for all $b_j \in B_{\hat\epsilon} \subset U_q(\hat g)$), both sides of the reflection equation
+$$
+\check R_{\bar\nu\bar\mu}\!\left(\frac{x_1}{x_2}\right) K^\mu_2(x_1)\,\check R_{\mu\bar\nu}(x_1 x_2)\,K^\nu_2(x_2)
+\quad\text{and}\quad
+K^\nu_2(x_2)\,\check R_{\nu\bar\mu}(x_1 x_2)\,K^\mu_2(x_1)\,\check R_{\mu\nu}\!\left(\frac{x_1}{x_2}\right)
+$$
+are $B_{\hat\epsilon}$-intertwiners from $V_\mu(\theta_1) \otimes V_\nu(\theta_2)$ to $V_{\bar\mu}(-\theta_1) \otimes V_{\bar\nu}(-\theta_2)$. Provided $V_\mu(\theta_1) \otimes V_\nu(\theta_2)$ is generically irreducible under $B_{\hat\epsilon}$ (Schur's lemma, Hypothesis (ii) of [Theorem 33.1](book:thm-k-reflection)), the two sides must be proportional, and matching highest weights fixes the constant to $1$!
+
+---
+
+## Blackboard Calculation 2: The Ghoshal–Zamolodchikov Matrix from Eight Linear Equations
+
+Let us put this theorem to work on our rank-1 laboratory: **boundary sine-Gordon** ($a_1^{(1)}$, [Section 30.3](book:sec-bsg-k-matrix) and [Section 33.5](book:sec-sg-k-from-symmetry)).
+
+Historically, Ghoshal and Zamolodchikov [@gz1994] and de Vega and González-Ruiz [@devega1994] found the $2\times 2$ sine-Gordon reflection matrix by plugging an ansatz into the quadratic reflection equation and solving a system of coupled functional equations. Using the coideal $B_{\hat\epsilon}$, we will derive it from **eight elementary linear equations** in five minutes!
+
+### Step 1: Write $\pi_y(b_1)$ and $\pi_y(b_0)$ on the Soliton Doublet
+
+Let $V(y)$ be the two-dimensional soliton doublet with basis $(|s\rangle, |\bar s\rangle)$, spectral parameter $y = e^{\lambda\theta}$ (where $\lambda = \frac{8\pi}{\beta_{\rm SG}^2} - 1$), and physical deformation parameter $q = -e^{-i\pi\lambda}$. In the principal gradation ([Section 33.5](book:sec-sg-k-from-symmetry)):
+$$
+\begin{aligned}
+e_1 &= y E = \begin{pmatrix} 0 & y \\ 0 & 0 \end{pmatrix}, &\quad
+f_1 &= y^{-1} F = \begin{pmatrix} 0 & 0 \\ y^{-1} & 0 \end{pmatrix}, &\quad
+k_1 &= q^H = \begin{pmatrix} q & 0 \\ 0 & q^{-1} \end{pmatrix}, \\
+e_0 &= y F = \begin{pmatrix} 0 & 0 \\ y & 0 \end{pmatrix}, &\quad
+f_0 &= y^{-1} E = \begin{pmatrix} 0 & y^{-1} \\ 0 & 0 \end{pmatrix}, &\quad
+k_0 &= q^{-H} = \begin{pmatrix} q^{-1} & 0 \\ 0 & q \end{pmatrix}.
+\end{aligned}
+$$
+Notice how cleanly $q^{-1} f_j k_j$ simplifies:
+
+- For $j=1$: $F k_1 = \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} \begin{pmatrix} q & 0 \\ 0 & q^{-1} \end{pmatrix} = \begin{pmatrix} 0 & 0 \\ q & 0 \end{pmatrix} = q F$, so $q^{-1} f_1 k_1 = y^{-1} F$.
+- For $j=0$: $E k_0 = \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \begin{pmatrix} q^{-1} & 0 \\ 0 & q \end{pmatrix} = \begin{pmatrix} 0 & q \\ 0 & 0 \end{pmatrix} = q E$, so $q^{-1} f_0 k_0 = y^{-1} E$.
+
+Adding $e_j + q^{-1}f_j k_j + \hat\epsilon_j k_j$, we get the two $2\times 2$ coideal matrices ([eq. 33.7](book:eq-sg-coideal-rep)):
+$$
+\pi_y(b_1) = \begin{pmatrix} \hat\epsilon_1 q & y \\ y^{-1} & \hat\epsilon_1 q^{-1} \end{pmatrix}, \qquad
+\pi_y(b_0) = \begin{pmatrix} \hat\epsilon_0 q^{-1} & y^{-1} \\ y & \hat\epsilon_0 q \end{pmatrix}.
+$$
+At the reflected rapidity $-\theta$, we simply replace $y \mapsto y^{-1}$:
+$$
+\pi_{1/y}(b_1) = \begin{pmatrix} \hat\epsilon_1 q & y^{-1} \\ y & \hat\epsilon_1 q^{-1} \end{pmatrix}, \qquad
+\pi_{1/y}(b_0) = \begin{pmatrix} \hat\epsilon_0 q^{-1} & y \\ y^{-1} & \hat\epsilon_0 q \end{pmatrix}.
+$$
+
+### Step 2: Solve $K\pi_y(b_j) = \pi_{1/y}(b_j)K$
+
+Write $K(y) = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$. First impose $K\pi_y(b_1) = \pi_{1/y}(b_1)K$:
+$$
+\begin{pmatrix} a & b \\ c & d \end{pmatrix}
+\begin{pmatrix} \hat\epsilon_1 q & y \\ y^{-1} & \hat\epsilon_1 q^{-1} \end{pmatrix}
+=
+\begin{pmatrix} \hat\epsilon_1 q & y^{-1} \\ y & \hat\epsilon_1 q^{-1} \end{pmatrix}
+\begin{pmatrix} a & b \\ c & d \end{pmatrix}.
+$$
+Write out the four matrix entries:
+
+- **$(1,1)$ entry:** $a\hat\epsilon_1 q + b y^{-1} = \hat\epsilon_1 q a + y^{-1} c \implies b = c$.
+- **$(2,2)$ entry:** $c y + d\hat\epsilon_1 q^{-1} = y b + \hat\epsilon_1 q^{-1} d \implies c = b$.
+- **$(1,2)$ entry:** $a y + b\hat\epsilon_1 q^{-1} = \hat\epsilon_1 q b + y^{-1} d \implies a y - d y^{-1} = \hat\epsilon_1(q - q^{-1}) b$.
+- **$(2,1)$ entry:** $c\hat\epsilon_1 q + d y^{-1} = y a + \hat\epsilon_1 q^{-1} c \implies a y - d y^{-1} = \hat\epsilon_1(q - q^{-1}) c$, which is identical since $b=c$.
+
+Now do the exact same thing for $j=0$, which simply swaps $y \leftrightarrow y^{-1}$, $q \leftrightarrow q^{-1}$, and $\hat\epsilon_1 \mapsto \hat\epsilon_0$ in the $(1,2)$ equation:
+$$
+a y^{-1} - d y = \hat\epsilon_0(q^{-1} - q) b = -\hat\epsilon_0(q - q^{-1}) b.
+$$
+
+Look at the $2\times 2$ linear system for $(a, d)$ in terms of $b$:
+$$
+\begin{aligned}
+a y - d y^{-1} &= \hat\epsilon_1(q - q^{-1}) b, \\
+a y^{-1} - d y &= -\hat\epsilon_0(q - q^{-1}) b.
+\end{aligned}
+$$
+To eliminate $d$, multiply the first equation by $y$ and the second by $-y^{-1}$ and add:
+$$
+a(y^2 - y^{-2}) = (q - q^{-1})\big(\hat\epsilon_1 y + \hat\epsilon_0 y^{-1}\big) b.
+$$
+To eliminate $a$, multiply the first equation by $y^{-1}$ and the second by $-y$ and add:
+$$
+d(y^2 - y^{-2}) = (q - q^{-1})\big(\hat\epsilon_0 y + \hat\epsilon_1 y^{-1}\big) b.
+$$
+Setting $b = c = y^2 - y^{-2}$, we obtain [Proposition 33.3](book:prp-sg-k-unique) ([eq. 30.3](book:eq-bsg-k-matrix), [eq. 33.8](book:eq-sg-k-coideal)):
+$$
+\boxed{K(\theta) \propto \begin{pmatrix} (q - q^{-1})\big(\hat\epsilon_1 y + \hat\epsilon_0 y^{-1}\big) & y^2 - y^{-2} \\ y^2 - y^{-2} & (q - q^{-1})\big(\hat\epsilon_0 y + \hat\epsilon_1 y^{-1}\big) \end{pmatrix}, \qquad y = e^{\lambda\theta}.}
+$$
+Every pair $(\hat\epsilon_0, \hat\epsilon_1) \in \mathbb{C}^2$ gives a unique solution up to an overall scalar factor!
+
+---
+
+## Parametrizations, the Sign of $q$, and the UV–IR Relation
+
+### Translating to $(\eta, \vartheta)$ and $(\xi_B, k)$
+
+At the physical value $q = -e^{-i\pi\lambda}$, we have $q - q^{-1} = 2i\sin\pi\lambda$. Following Bajnok, Palla, Takács, and Tóth [@bptt2002], we parametrize $\hat\epsilon_1, \hat\epsilon_0$ by $(\eta, \vartheta)$ ([eq. 30.4](book:eq-bsg-eta-theta)):
+$$
+\hat\epsilon_1 = -\frac{\cos(\eta - i\vartheta)}{\sin\pi\lambda}, \qquad
+\hat\epsilon_0 = -\frac{\cos(\eta + i\vartheta)}{\sin\pi\lambda}.
+$$
+Substituting $y = e^{\lambda\theta} = e^{i\lambda u}$ (with $u = -i\theta$) into our matrix above and dividing by $-4i\cos\eta\cosh\vartheta$ brings $K(\theta)$ into the standard trigonometric form ([eq. 30.5](book:eq-bsg-k-full)):
+$$
+K(\theta) = \frac{R_0(u)\,\sigma(\eta,u)\,\sigma(i\vartheta,u)}{\cos\eta\cosh\vartheta}
+\begin{pmatrix} P_0^+(u) & Q_0(u) \\ Q_0(u) & P_0^-(u) \end{pmatrix}, \qquad u = -i\theta,
+$$
+where
+$$
+P_0^\pm(u) = \cos\lambda u\cos\eta\cosh\vartheta \mp \sin\lambda u\sin\eta\sinh\vartheta, \qquad
+Q_0(u) = -\sin\lambda u\cos\lambda u,
+$$
+and $R_0(u)\,\sigma(\eta,u)\,\sigma(i\vartheta,u)$ is the overall scalar factor fixed by boundary unitarity and boundary crossing-unitarity ([Section 30.3](book:sec-bsg-k-matrix)).
+
+### Why Boundary Crossing-Unitarity Fixes the Sign of $q$
+
+Here is a subtle trap that has caught many authors ([Section 30.3](book:sec-bsg-k-matrix), [Section 33.5](book:sec-sg-k-from-symmetry)). Under $q \mapsto -q$, the six-vertex bulk $\check R$-matrix is conjugated by $\Pi \otimes 1$ where $\Pi = \operatorname{diag}(1, -1)$ reverses the relative sign of bulk transmission $S_T$ and reflection $S_R$. In the reflection equation, $\Pi$ can be absorbed into $K$ via $K(\hat\epsilon; -q) = K(-\hat\epsilon; q)$. **Therefore, the reflection equation is completely blind to the sign of $q$!**
+
+What sees the sign of $q$? **Boundary crossing-unitarity** ([eq. 29.9](book:eq-boundary-crossing-unitarity)), which we derived in Lecture 1 from the $90^\circ$ Euclidean rotation:
+$$
+K_{ab}(\theta) = \sum_{c,d} S_{cd}^{ba}(2\theta)\,K_{\bar d\bar c}(i\pi - \theta).
+$$
+With the plain physical charge conjugation $s \leftrightarrow \bar s$ ($C = \left(\begin{smallmatrix} 0 & 1 \\ 1 & 0 \end{smallmatrix}\right)$), boundary crossing-unitarity holds **if and only if** $q = -e^{-i\pi\lambda}$! At the wrong sign $q = +e^{-i\pi\lambda}$, the matrix part of boundary crossing-unitarity fails with an $O(1)$ error unless you twist charge conjugation by a Klein factor $C = \left(\begin{smallmatrix} 0 & 1 \\ -1 & 0 \end{smallmatrix}\right)$ (verified in `code/lectures/halfline_l4_f1_coideal_sg.py` and shown in @fig-lec4-coideal).
+
+### The UV–IR Dictionary and the Node-Label Crossing
+
+How do the quantum reflection parameters $(\eta, \vartheta)$ (or $\hat\epsilon_1, \hat\epsilon_0$) relate to the Lagrangian boundary couplings $(M_0, \phi_0)$ (or $C_0, C_1$)? The **UV–IR relation** ([Conjecture 30.1](book:cnj-bsg-uv-ir)) states that with $\mu_\pm = (\tilde\mu/\tilde\mu_{\rm crit})e^{\pm i\beta_{\rm SG}\phi_0/2} \propto C_{0,1}$,
+$$
+\cos\frac{\eta \mp i\vartheta}{\lambda + 1} = \mu_\pm.
+$$
+Look at what this implies for three landmark boundary conditions ([Section 30.4](book:sec-bsg-parameters), [Section 33.5](book:sec-sg-k-from-symmetry)):
+
+1. **The Neumann boundary ($\tilde\mu = 0$, $C_0 = C_1 = 0$):** Here $\mu_\pm = 0$, so $(\eta, \vartheta) = \big(\frac{\pi}{2}(\lambda+1), 0\big)$. Plugging this into $\hat\epsilon_{1,0} = -\cos(\eta \mp i\vartheta)/\sin\pi\lambda$ gives ([eq. 33.9](book:eq-sg-neumann-eps)):
+   $$
+   \hat\epsilon_0 = \hat\epsilon_1 = -\frac{\cos\big(\frac{\pi}{2}(\lambda+1)\big)}{\sin\pi\lambda}
+   = \frac{\sin(\pi\lambda/2)}{2\sin(\pi\lambda/2)\cos(\pi\lambda/2)}
+   = \frac{1}{2\cos(\pi\lambda/2)} = \frac{1}{\sqrt{(1-q)(1-q^{-1})}} \equiv \epsilon_*.
+   $$
+   **Hold on!** At the Neumann point $C_0 = C_1 = 0$, the quantum coideal parameter $\hat\epsilon_j$ is **not zero**—it equals the non-trivial special value $\epsilon_* = \big[(1-q)(1-q^{-1})\big]^{-1/2}$!
+2. **The point $\hat\epsilon_0 = \hat\epsilon_1 = 0$:** Here $(\eta, \vartheta) = (\frac{\pi}{2}, 0)$, so $K(\theta)$ is purely off-diagonal (every soliton reflects into an antisoliton). By the UV–IR relation, this sits at $\tilde\mu/\tilde\mu_{\rm crit} = \cos\frac{\pi}{2(\lambda+1)}$, which in the classical limit $\lambda \to \infty$ ($\beta_{\rm SG} \to 0$) tends to the **uniform boundary** $C_0 = C_1 = 1$, **not** Neumann! We will see in Lecture 5 why this shift by $\epsilon_*$ is one of the deepest themes of Part VII.
+3. **Node-label crossing ($\hat\epsilon_1 \leftrightarrow C_0$, $\hat\epsilon_0 \leftrightarrow C_1$):** Notice that $\hat\epsilon_1$ is a function of $\mu_+ \propto C_0$ alone, while $\hat\epsilon_0$ is a function of $\mu_- \propto C_1$ alone ([Section 30.4](book:sec-bsg-parameters)). Why do the node labels $0$ and $1$ cross in sine-Gordon? Because in Part VI's bulk conventions ([Section 21.2](book:sec-qg-coproduct)), $e_1 = Q_+$ is built from the current $J_+$ whose double pole is with $e^{-i\beta_{\rm SG}\phi}$, which is the vertex operator of the affine root $\alpha_0 = -\sqrt{2}$!
+
+---
+
+## One-Dimensional Boundary Modules and the Bound-State Tower
+
+Suppose a soliton of rapidity $\theta = i\nu_n$ binds to the wall to form an excited boundary state $|n\rangle$. How does a subsequent soliton $V_\mu(\theta)$ scatter off the excited boundary $|n\rangle$?
+
+Because $|n\rangle$ sits at the rightmost end of the tensor product, it carries a representation $V_{[\lambda]}$ of the **coideal $B_{\hat\epsilon}$** (not of $U_q(\hat g)$!). What if $V_{[\lambda]} = \mathbb{C}_\beta$ is a **one-dimensional $B_{\hat\epsilon}$-module** on which $b_j \mapsto \beta_j$? By [Proposition 33.2](book:prp-boundary-module), applying the coproduct $\Delta(b_j) = (b_j - \hat\epsilon_j k_j)\otimes 1 + k_j \otimes b_j$ to $V_\mu(\theta) \otimes \mathbb{C}_\beta$ gives
+$$
+(\pi_\mu \otimes \pi_\beta)\Delta(b_j) = \pi_\mu(b_j - \hat\epsilon_j k_j) + \beta_j\pi_\mu(k_j) = \pi_\mu\big(e_j + q_j^{-1}f_j k_j + \beta_j k_j\big).
+$$
+Look at the right-hand side: **it is the exact same operator as on the ground state, with $\hat\epsilon_j$ replaced by $\beta_j$!**
+
+In boundary sine-Gordon ([Section 30.6](book:sec-bsg-spectrum) and [Section 33.4](book:sec-k-intertwiner)), the scalar factor $\sigma(\eta, u)$ has simple poles in the physical strip $0 < u < \pi/2$ at
+$$
+\nu_n = \frac{\eta}{\lambda} - \frac{(2n+1)\pi}{2\lambda}, \qquad n = 0, 1, 2, \dots
+$$
+At the reflected rapidity $y = e^{-i\lambda\nu_n}$, the tensor product $V(y) \otimes \mathbb{C}_{\hat\epsilon}$ acquires a **one-dimensional $B_{\hat\epsilon}$-submodule** $\mathbb{C}_\beta \subset V(y) \otimes \mathbb{C}_{\hat\epsilon}$! Let us check its eigenvalue $\beta_j$: on $V(y)$, $\pi_y(b_1)$ has determinant
+$$
+\det\pi_y(b_1) = \hat\epsilon_1^2 - 1 \quad\text{wait:}\quad \det\big(\pi_y(b_1) - \beta_1 k_1\big) = 0
+\iff (\hat\epsilon_1 - \beta_1)^2 - 1 = 0 \text{ at } y^2 = -e^{-2i\eta}.
+$$
+More precisely, on $V(y) \otimes \mathbb{C}_{\hat\epsilon}$, $\Delta(b_j)$ acts as $\pi_y(b_j)$. An eigenvector $v \in V(y)$ satisfying $\pi_y(b_j) v = \beta_j v$ for both $j = 1, 0$ exists precisely when $y = e^{-i\lambda\nu_n} = i (-1)^n e^{-i\eta}$, with eigenvalues ([Section 33.4](book:sec-k-intertwiner)):
+$$
+\beta_1 = -\frac{\cos(\bar\eta + i\vartheta)}{\sin\pi\lambda}, \qquad
+\beta_0 = -\frac{\cos(\bar\eta - i\vartheta)}{\sin\pi\lambda}, \qquad
+\bar\eta = \pi(\lambda + 1) - \eta.
+$$
+Comparing with [eq. 30.4](book:eq-bsg-eta-theta), replacing $\hat\epsilon_{1,0} \mapsto \beta_{1,0}$ simply replaces $\eta \mapsto \bar\eta = \pi(\lambda+1) - \eta$ and $\vartheta \mapsto -\vartheta$ (which swaps $P^+ \leftrightarrow P^-$)! This explains algebraically why every excited boundary state $|n\rangle$ in Bajnok, Palla, Takács, and Tóth's spectrum ([eq. 30.7](book:eq-bsg-excited-k), [Proposition 30.3](book:prp-bsg-excited)) has the exact same matrix structure with $\eta \mapsto \bar\eta$ and $P^+ \leftrightarrow P^-$, differing only by scalar CDD factors $a_n(\eta, u)$.
+
+![Left: the tensor-product geometry of a left coideal subalgebra $\Delta(B_{\hat\epsilon}) \subset U_q(\hat g) \otimes B_{\hat\epsilon}$, showing why bulk solitons carry $U_q(\hat g)$ while the rightmost slot at the wall carries $B_{\hat\epsilon}$, together with the residual norm of boundary crossing-unitarity at $q = \mp e^{-i\pi\lambda}$. Right: the boundary bound-state pole positions $\nu_n(\eta)$ in the physical strip $0 < u < \pi/2$ and their excitation energies $E_n - E_0 = M\cos\nu_n$, generated by `code/lectures/halfline_l4_f1_coideal_sg.py`.](figures/l4_f1_coideal_sg.svg){#fig-lec4-coideal width=100%}
+
+---
+
+## Guided Rediscovery Exercises
+
+::: {#exr-lec4-general-cj}
+### Why the Coefficient $q_j^{-1}$ in $b_j$ Is Forced by Existence of $K$
+Suppose we tried to define the sine-Gordon coideal generators with arbitrary coefficients $c_1, c_0 \in \mathbb{C}^\times$ in front of $f_j k_j$:
+$$
+b_j^{(c)} = e_j + c_j f_j k_j + \hat\epsilon_j k_j, \qquad j = 0, 1.
+$$
+1. Repeat Step 1 of Blackboard Calculation 1 to show that $\Delta(b_j^{(c)}) = (e_j + c_j f_j k_j) \otimes 1 + k_j \otimes b_j^{(c)}$ is still a left coideal for **any** $c_j$.
+2. Now set $\hat\epsilon_0 = \hat\epsilon_1 = 0$ and write out the $2\times 2$ matrices $\pi_y(b_1^{(c)})$ and $\pi_y(b_0^{(c)})$ on the sine-Gordon soliton doublet $V(y)$.
+3. Impose the linear intertwining equations $K\pi_y(b_j^{(c)}) = \pi_{1/y}(b_j^{(c)})K$ for $j = 0, 1$, and prove [Proposition 33.3(i)](book:prp-sg-k-unique): a non-zero solution $K(y) \ne 0$ exists **if and only if** $c_0 c_1 = q^{-2}$! Since parity symmetry exchanges nodes $0 \leftrightarrow 1$, the symmetric choice is $c_0 = c_1 = q^{-1}$.
+:::
+
+::: {#exr-lec4-neumann-eps}
+### Computing the Neumann Coideal Value $\epsilon_*$ and Its Bound-State Poles
+At the sine-Gordon Neumann boundary ($M_0 = 0$, $\partial_x\phi|_{x=0} = 0$), the UV–IR relation gives $(\eta, \vartheta) = \big(\frac{\pi}{2}(\lambda+1), 0\big)$.
+
+1. Substitute $(\eta, \vartheta) = \big(\frac{\pi}{2}(\lambda+1), 0\big)$ into $\hat\epsilon_{1,0} = -\cos(\eta \mp i\vartheta)/\sin\pi\lambda$ and prove that
+   $$
+   \hat\epsilon_0 = \hat\epsilon_1 = \frac{1}{2\cos(\pi\lambda/2)} = \frac{1}{\sqrt{(1-q)(1-q^{-1})}} \equiv \epsilon_*, \qquad q = -e^{-i\pi\lambda}.
+   $$
+2. Substitute $\eta = \frac{\pi}{2}(\lambda+1)$ into the bound-state pole formula $\nu_n = \frac{\eta}{\lambda} - \frac{(2n+1)\pi}{2\lambda}$, and show that the poles lie at $\theta = i\big(\frac{\pi}{2} - \frac{n\pi}{\lambda}\big)$ with excitation energies
+   $$
+   E_n - E_0 = M\sin\frac{n\pi}{\lambda} = m_n\cos\frac{n\pi}{2\lambda} = \frac{1}{2}\,m_{2n},
+   $$
+   where $m_k = 2M\sin\frac{k\pi}{2\lambda}$ is the mass of the $k$-th bulk breather $B_k$! Why does the $n$-th boundary bound state at the Neumann wall have exactly half the energy of the bulk breather $B_{2n}$ at rest? (*Hint:* Think of Lecture 3's method of mirror images!)
+:::
+
+::: {#exr-lec4-1d-submodule}
+### Finding the 1D $B_{\hat\epsilon}$-Submodule at the Bound-State Pole
+Let $y_n = e^{-i\lambda\nu_n} = (-1)^n i\,e^{-i\eta}$, where $\nu_n = \frac{\eta}{\lambda} - \frac{(2n+1)\pi}{2\lambda}$.
+
+1. Write out the $2\times 2$ matrices $\pi_{y_n}(b_1)$ and $\pi_{y_n}(b_0)$ from [eq. 33.7](book:eq-sg-coideal-rep) with $\hat\epsilon_{1,0} = -\cos(\eta \mp i\vartheta)/\sin\pi\lambda$ and $q = -e^{-i\pi\lambda}$.
+2. Find a non-zero column vector $v_n = \begin{pmatrix} 1 \\ \alpha_n \end{pmatrix} \in V(y_n)$ that is a **simultaneous eigenvector** of both $\pi_{y_n}(b_1)$ and $\pi_{y_n}(b_0)$:
+   $$
+   \pi_{y_n}(b_1)\,v_n = \beta_1\,v_n, \qquad \pi_{y_n}(b_0)\,v_n = \beta_0\,v_n.
+   $$
+3. Compute the eigenvalues $\beta_1, \beta_0$ explicitly and verify that $\beta_{1,0} = -\cos(\bar\eta \pm i\vartheta)/\sin\pi\lambda$ with $\bar\eta = \pi(\lambda+1) - \eta$, confirming `code/lectures/halfline_l4_f1_coideal_sg.py`!
+:::

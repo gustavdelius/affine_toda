@@ -1,0 +1,69 @@
+# Preface and Big-Picture Roadmap {.unnumbered}
+
+Welcome to this six-lecture companion course to [Part VII: Affine Toda theory on the half-line](book:sec-boundary-scattering) of the reference monograph [Affine Toda field theory](https://gustavdelius.github.io/affine_toda/).
+
+If you open the reference chapters of Part VII cold, it is easy to feel as though you have walked into a vast cathedral of identities after the scaffolding has been taken down. You meet the boundary Yang–Baxter equation, Sklyanin's double-row monodromy matrix, the discrete sign table $(C_0,\dots,C_n)\in\{\pm 1\}^{n+1}$ of Corrigan, Dorey, Rietdijk, and Sasaki and Bowcock, Corrigan, Dorey, and Rietdijk [@cdrs1994; @bcdr1995], the mirror-image Hirota $\tau$-functions, the Delius–MacKay coideal subalgebras $B_{\hat\epsilon}\subset U_q(\hat{\mathfrak g})$ [@delius_mackay2003], the generalized $q$-Onsager algebras [@baseilhac_koizumi2005; @baseilhac_belliard2010], and pages of fused blocks of trigonometric $\sin$-factors and Barnes double gamma functions. Every theorem is precise, every convention is nailed down, and every check script passes—yet a student learning the subject for the first time inevitably asks:
+
+*Where did these structures actually come from? Why does a boundary break the bulk symmetry in this exact way, and how could I possibly have discovered these calculations with my own chalk and blackboard?*
+
+The purpose of these lectures is to put the scaffolding back up. Rather than surveying every affine Dynkin diagram in encyclopedic breadth, we will go after **depth of understanding and calculational craft**. Throughout all six lectures we will work inside two concrete laboratories where we can carry out every matrix multiplication, contour shift, and linear system by hand without hiding a single step:
+
+1. **The rank-1 laboratory $a_1^{(1)}$** (sine-Gordon and sinh-Gordon), where solitons are their own antiparticles ($V\simeq\bar V$), $2\times 2$ matrices let us see every pole and residue with the naked eye, and a two-parameter continuous family of integrable boundaries exists [@gz1994].
+2. **The rank-2 laboratory $a_2^{(1)}$** ($3\times 3$ matrices, where the fundamental representation is complex, $V\not\simeq\bar V$), which is the first place where non-commuting adjacent simple roots collide at the wall and trigger the dramatic rigidity phenomenon that governs all higher-rank affine Toda theories [@cdrs1994; @bcdr1995; @delius_mackay2003].
+
+::: {.content-visible when-format="html"}
+These lectures are also available as a [PDF](half-line.pdf).
+:::
+
+---
+
+## The Five Overarching Big Ideas
+
+Everything in Part VII revolves around five deep conceptual surprises. Keep your eye on these five threads as you work through the lectures:
+
+### 1. The $90^\circ$ Euclidean Trick: The Wall is an Initial State {.unnumbered}
+
+On the full line $x\in\mathbb R$, spatial translations conservation of momentum $P$, and crossing symmetry comes from rotating a four-point scattering diagram by $90^\circ$ in Euclidean spacetime. Put a wall at $x=0$ and restrict the world to the left half-line $x\le 0$: spatial translation invariance is gone! Yet in Lecture 1 we will follow Ghoshal and Zamolodchikov [@gz1994] and perform that same $90^\circ$ Euclidean rotation $(x,t_E)\mapsto(-t_E,x)$ on the half-plane. What was a spatial boundary at $x=0$ existing for all time suddenly becomes an **initial state** $|B\rangle$ created at $t_E=0$ across all of space! Because bulk integrability forbids particle production, $|B\rangle$ can only emit pairs of particles with opposite momenta $(-\theta,+\theta)$, weighed by the reflection matrix itself. A single consistency check on this pair-creation state hands us **boundary crossing-unitarity**—a functional equation that mixes the reflection matrix $K(\theta)$ with the *bulk* $S$-matrix $S(2\theta)$ at double the rapidity, because the particle has to cross its own outgoing shadow.
+
+### 2. The Higher-Rank Rigidity Miracle: Why Continuous Boundaries Freeze {.unnumbered}
+
+In sine-Gordon ($a_1^{(1)}$), you can dial two continuous boundary parameters at $x=0$ without losing integrability [@gz1994]. You might naturally expect $a_n^{(1)}$ ($n\ge 2$) to admit $n+1$ continuous boundary couplings $C_j$. When Corrigan, Dorey, Rietdijk, and Sasaki and Bowcock, Corrigan, Dorey, and Rietdijk [@cdrs1994; @bcdr1995] tested this in 1994–1995, they discovered a shock: for $n\ge 2$, the boundary couplings cannot be tuned continuously at all! Every $C_j$ is frozen to the discrete choices $C_j=\pm 1$ (or $C_j=0$ all at once, the Neumann wall), and the purely Dirichlet boundary condition ($\phi(0,t)=0$) is *never* integrable for $n\ge 2$. We will see this rigidity emerge twice—first classically in Lecture 2 from Sklyanin's double-row Lax pair [@sklyanin1988], where adjacent simple roots fail to commute, and then quantum-mechanically in Lecture 5 from the deformed quantum Serre relations of generalized $q$-Onsager algebras [@delius_mackay2003; @baseilhac_belliard2010].
+
+### 3. Virtual Mirror Solitons and Non-Constant Vacuum Backgrounds {.unnumbered}
+
+How does a nonlinear soliton bounce off a wall at $x=0$? In Lecture 3 we will see that the half-line Hirota equations are solved by placing a **virtual mirror soliton** in the unphysical region $x>0$ [@ssw1995; @delius_gandenberger1999]. Because parity $x\to -x$ flips the sign of the topological charge integral $\int_{-\infty}^0 \partial_x\phi\,dx$, a standard $a_n^{(1)}$ boundary reflects a soliton of species $a$ into its **antisoliton** $\bar a = n+1-a$, and the phase shift of its virtual collision with its mirror image in $x>0$ becomes the physical reflection time delay $\Delta t(\theta)$. Even more remarkably, when we analytically continue from imaginary coupling to real-coupling affine Toda particle theory ($\beta\to -i\beta$), this same mirror-image machinery does not disappear: a *stationary* soliton–antisoliton mirror pair frozen at zero rapidity becomes the exact, non-constant classical background configuration $\vec\phi_{\rm vac}(x)$ needed because $\vec\phi=0$ is no longer a solution of the boundary condition!
+
+### 4. Why Coideal Subalgebras Replace Hopf Subalgebras {.unnumbered}
+
+In the bulk, nonlocal conserved charges generate the quantum affine algebra $U_q(\hat{\mathfrak g})$ [@bernard1991], whose coproduct $\Delta(Q) = Q\otimes 1 + \Theta(Q)\otimes Q$ has a built-in left–right asymmetry because the topological tail sits exclusively to the left of the charge density. On the half-line $x\le 0$, charges leak into the wall at $x=0$. In Lecture 4 we will run boundary conformal perturbation theory [@gz1994; @delius_mackay2003] and watch the two anomalous boundary surface terms cancel against a topological tail term, leaving a linear combination
+$$
+b_j = e_j + q_j^{-1} f_j k_j + \hat\epsilon_j k_j
+$$
+that is conserved. When we take the coproduct of $b_j$, it does *not* land in $B_{\hat\epsilon}\otimes B_{\hat\epsilon}$—so $B_{\hat\epsilon}$ is not a Hopf subalgebra! Instead, because the boundary sits at the rightmost end of the spatial ordering $x_1 < x_2 < \dots < x_N < 0$, the coproduct lands in $U_q(\hat{\mathfrak g})\otimes B_{\hat\epsilon}$. That asymmetric algebraic structure is a **left coideal subalgebra** [@letzter1999; @kolb2014], and it turns the quadratic boundary Yang–Baxter equation into a purely *linear* intertwining equation $K(\theta)\pi_\theta(b_j) = \bar\pi_{-\theta}(b_j)K(\theta)$.
+
+### 5. The Classical–Quantum Reconciliation and Weak–Strong Boundary Duality {.unnumbered}
+
+When we put the classical story (Lectures 2–3) next to the quantum coideal story (Lectures 4–5), a puzzle jumps out: why does first-order boundary conformal perturbation theory around the Neumann wall ($C_j=0$) predict $\hat\epsilon_j=0$, whereas the exact $a_n^{(1)}$ coideal intertwiner requires either $\hat\epsilon_j=0$ (diagonal $K$) or the non-zero value $\hat\epsilon_j^2 = \epsilon_*^2 = \frac{1}{4\cos^2(\pi\omega/2)}$ (non-diagonal $K$)? And why does real-coupling affine Toda theory have $2^{n+1}$ sign choices $C_j=\pm 1$ classically, when only half of them ($\prod_j C_j = +1$) admit real non-singular mirror-soliton vacua? In Lectures 5 and 6 we will resolve both puzzles by computing the breather reflection factors via boundary fusion, continuing them to real coupling ($\omega\to -2/B$), checking their semiclassical WKB phases against the classical mirror-image time delays, and uncovering a breathtaking **weak–strong boundary duality** [@corrigan1998; @delius_gandenberger1999]: under $B\leftrightarrow 2-B$, the uniform boundary ($C_j\equiv +1$, governed by $\hat\epsilon_j=0$) and the Neumann boundary ($C_j\equiv 0$, governed by $\hat\epsilon_j = +\epsilon_*$) literally exchange places!
+
+---
+
+## Syllabus of the Six Lectures
+
+| Lecture | Title & Core Theme | Reference Chapters |
+| :--- | :--- | :--- |
+| **Lecture 1** | **The Wall at $x=0$ and the $90^\circ$ Euclidean Trick.** Half-line conservation laws, the three reflection equations (S/K, braid, and soliton-conjugating), the boundary state $|B\rangle$, boundary crossing-unitarity, boundary bound states, and the complete solution of boundary scaling Lee–Yang. | [Ch. 29](book:sec-boundary-scattering) |
+| **Lecture 2** | **Sklyanin's Double Row and the Rigidity of Higher-Rank Boundaries.** The affine Toda boundary action, Sklyanin's double-row monodromy matrix $\mathcal T(\lambda)$, the classical reflection equation, why $a_1^{(1)}$ is continuous while $a_2^{(1)}$ freezes to $C_j\in\{0,\pm 1\}$, and why changing $\sigma=T$ to $\sigma=\dagger$ unlocks Delius's soliton-preserving wall. | [Ch. 31](book:sec-boundary-conditions) |
+| **Lecture 3** | **Mirror Solitons, Time Delays, and Non-Constant Vacua.** Parity conjugation of Hirota $\tau$-functions, virtual collisions in $x>0$, exact classical time delays $\Delta t(\theta)$, continuation to real coupling, stationary-soliton vacuum backgrounds, the missing-vacuum puzzle, and linearized wave reflection. | [Ch. 32](book:sec-half-line-solitons) |
+| **Lecture 4** | **Boundary Nonlocal Charges, Left Coideals, and Sine-Gordon.** Boundary OPEs and the double-pole contact identity, why the boundary at the right of $x_1<\dots<x_N<0$ forces a left coideal $\Delta(B)\subset U_q(\hat{\mathfrak g})\otimes B$, solving the linear intertwining equation for Ghoshal–Zamolodchikov's $K(\theta)$, fixing the physical sign of $q$, and boundary bound states from 1D $B$-modules. | [Ch. 30](book:sec-boundary-sine-gordon), [Ch. 33](book:sec-boundary-qg) |
+| **Lecture 5** | **The $a_2^{(1)}$ Intertwiner Puzzle and Generalized $q$-Onsager Algebras.** Solving the $3\times 3$ soliton-conjugating intertwiner for $a_2^{(1)}$, the $2\times 2$ determinant that forces $\hat\epsilon_j\in\{0,\pm\epsilon_*\}$, proving the deformed quantum Serre relation and its Cartan obstruction, Letzter–Kolb quantum symmetric pairs vs. $q$-Onsager algebras, and why first-order perturbation theory missed $\epsilon_*$. | [Ch. 33](book:sec-boundary-qg), [Ch. 34](book:sec-soliton-reflection), [Ch. 35](book:sec-qsp) |
+| **Lecture 6** | **From Solitons to Breathers, Real-Coupling Particles, and Duality.** Determining the soliton scalar factors, WKB semiclassical checks against Lecture 3's mirror time delays, boundary fusion onto the singlet breather $B_1$, continuation $\omega\to -2/B$, the uniform–Neumann weak–strong duality $B\leftrightarrow 2-B$, solitonic boundaries, the $a_2^{(1)}$ boundary bound-state tower $b_{n,m}$ and its quantized rotor $b_{n,-n}$, and boundary Coleman–Thun pole cancellation. | [Ch. 30](book:sec-boundary-sine-gordon), [Ch. 34](book:sec-soliton-reflection), [Ch. 36](book:sec-particle-reflection) |
+
+---
+
+## How to Study with These Notes
+
+Every lecture is built around two pedagogical devices:
+
+- **Blackboard Calculations (`### Blackboard Calculation ...`):** Whenever a decisive result arrives, we stop speaking in generalities and work out the calculation on the blackboard in our $a_1^{(1)}$ or $a_2^{(1)}$ laboratory with zero skipped algebra. Read these with pen and paper in hand!
+- **Guided Rediscovery Exercises (`## Guided Rediscovery Exercises`):** At the end of each lecture you will find three multi-part, scaffolded exercises that guide you step-by-step to rediscover key identities, special limits, or higher-rank generalizations for yourself, with intermediate checkpoints so you never get lost in a sign or prefactor.
+- **Verification and Figure Scripts:** Every non-trivial calculation and figure in these notes is backed by a self-contained Python script in `code/lectures/` that verifies the algebra symbolically or numerically from first principles. Click any inline script path to inspect or run the code yourself.

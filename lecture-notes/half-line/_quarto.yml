@@ -1,0 +1,75 @@
+project:
+  type: book
+  output-dir: _site
+
+book:
+  title: "Lectures on affine Toda field theory on the half-line"
+  subtitle: "From the 90-degree Euclidean trick and Sklyanin's double row to coideal subalgebras, q-Onsager rigidity, and weak–strong boundary duality"
+  editor: Gustav Delius
+  description: >-
+    Six lectures on integrable boundary conditions in two-dimensional affine
+    Toda field theory, a companion to Part VII of the book "Affine Toda field
+    theory". Organized around five overarching conceptual surprises, they work
+    out the decisive classical, algebraic, and bootstrap calculations on the
+    blackboard in the a_1^(1) and a_2^(1) laboratories.
+  site-url: https://gustavdelius.github.io/affine_toda/lectures/half-line/
+  repo-url: https://github.com/gustavdelius/affine_toda
+  output-file: half-line
+  downloads: [pdf]
+  reader-mode: true
+  navbar:
+    background: primary
+    right:
+      - icon: house
+        text: "Affine Toda field theory"
+        href: https://gustavdelius.github.io/affine_toda/
+  search:
+    location: navbar
+    type: textbox
+  sidebar:
+    style: docked
+  chapters:
+    - index.qmd
+    - 01-wall-and-euclidean-trick.qmd
+    - 02-sklyanin-and-rigidity.qmd
+    - 03-mirror-images-and-vacua.qmd
+    - 04-coideals-and-sine-gordon.qmd
+    - 05-a2-intertwiners-and-q-onsager.qmd
+    - 06-breathers-particles-and-duality.qmd
+    - references.qmd
+
+bibliography:
+  - ../../references.bib
+  - references-notes.bib
+csl: ../../aps.csl
+lang: en-GB
+
+language:
+  crossref-ch-prefix: Lecture
+
+format:
+  html:
+    theme:
+      light: [cosmo, ../../theme.scss]
+      dark: [darkly, ../../theme.scss, ../../theme-dark.scss]
+    toc: true
+    toc-depth: 3
+    number-sections: true
+    html-math-method: mathjax
+    filters:
+      - path: ../../status-tags.lua
+        at: pre-ast
+      - path: ../book-links.lua
+      - path: ../../script-links.lua
+  pdf:
+    documentclass: scrreprt
+    classoption: [enabledeprecatedfontcommands]  # math uses \rm, \bf
+    toc: true
+    toc-depth: 2
+    number-sections: true
+    filters:
+      - path: ../book-links.lua
+      - path: ../../script-links.lua
+    include-in-header:
+      text: |
+        \usepackage{cancel}
