@@ -220,7 +220,7 @@ Wait: in the standard symmetric gauge where $f_0$ and $f_1$ carry balanced power
 $$
 \mathbb{T}(\theta) = \Phi(\theta)\begin{pmatrix} q^{\frac{s}{2}} U^{-1} & -i Y\,1_{\mathcal{W}} \\ -i Y\,1_{\mathcal{W}} & q^{\frac{s}{2}} U \end{pmatrix} \qquad \text{(in the charge-conserving basis $\{v_+\otimes|n\rangle, v_-\otimes|n+1\rangle\}$)}!
 $$ {#eq-lec4-sg-t-solved}
-Equivalently, acting on $v_\pm \otimes |n\rangle$ directly (see [the book](book:eq-sg-transmission-matrix)):
+Equivalently, acting on $v_\pm \otimes |n\rangle$ directly in the symmetric gauge $|n\rangle \mapsto q^{n(n-1)/2 + ns/2}|n\rangle$ of Bowcock–Corrigan–Zambon [@bcz2005, eq. (3.51)] (or in the book's Weyl-module basis of [the sine-Gordon transmission matrix](book:eq-sg-transmission-matrix), where $A_n = q^{-n}, D_n = q^{n+s}, C_n = -iY q^{-n}, B_n = -iY q^{n+s}$ so that $\mathbb{T}_n(\theta) = \Phi(\theta)\begin{pmatrix} 1 & -iY \\ -iY & 1 \end{pmatrix}\operatorname{diag}(q^{-n}, q^{n+1+s})$ on $\mathcal{H}_n = \{v_+\otimes|n\rangle, v_-\otimes|n+1\rangle\}$):
 $$
 \begin{aligned}
 \mathbb{T}(\theta)\big(v_+ \otimes |n\rangle\big) &= \Phi(\theta)\left(q^{n + \frac{s}{2}}\,v_+ \otimes |n\rangle - i e^{\lambda(\theta - \theta_d)}\,v_- \otimes |n+1\rangle\right), \\
@@ -243,7 +243,9 @@ $$
 $$ {#eq-lec4-blz-l}
 Look closely at the top-left entry of (-@eq-lec4-blz-l):
 - On the **Fock module** $\mathcal{F}$ ($\kappa^2 = 1$), the quadratic $y^2$ term coming from the imaginary root factor $\mathcal{R}_0$ (which is proportional to the $q$-oscillator Casimir $Z \propto \kappa^2$) is **present**, giving the famous Bazhanov–Lukyanov–Zamolodchikov $L$-operator [@blz1997; @blz1999]!
-- On the **bilateral Weyl module** $\mathcal{W}$ ($\kappa^2 = 0$, $Z = 0$), the Casimir $Z$ vanishes identically, so the entire infinite product $\mathcal{R}_0$ over imaginary roots collapses to $1$, and (-@eq-lec4-blz-l) **linearizes in $y$** to become our sine-Gordon defect transmission matrix (-@eq-lec4-sg-t-explicit)!
+- On the **bilateral Weyl module** $\mathcal{W}$ ($\kappa^2 = 0$, $Z = 0$), the Casimir $Z$ vanishes identically, so the entire infinite product $\mathcal{R}_0$ over imaginary roots collapses to $1$, and (-@eq-lec4-blz-l) **linearizes in $y$** to become our sine-Gordon defect transmission matrix (-@eq-lec4-sg-t-explicit)! Both the bilateral ladder structure of $\mathcal{W}$ versus $\mathcal{F}$ and the resulting soliton conversion probability are shown in @fig-lec4-borel-weyl (`code/lectures/gemini_l4_f1_borel_weyl.py`).
+
+![The bilateral Weyl module $\mathcal{W}$ versus the Fock module $\mathcal{F}$ and the sine-Gordon transmission matrix: (a) charge-conserving $2\times 2$ blocks $\mathcal{H}_n = \operatorname{span}\{v_+\otimes|n\rangle, v_-\otimes|n+1\rangle\}$ on the bilateral Weyl ladder $n \in \mathbb{Z}$ ($Z=0$, used for topological defects) contrasted with the bounded-below Fock floor $n \ge 0$ ($Z \neq 0$, used for BLZ $Q$-operators); (b) quantum soliton-to-antisoliton conversion probability $P_{+\to -}(\theta) = Y^2/(1+Y^2)$ approaching the classical step function $\Theta(\theta - \theta_d)$ as $\lambda \to \infty$.](figures/l4_borel_weyl.svg){#fig-lec4-borel-weyl width=92% fig-alt="Two-panel diagram showing the bilateral Weyl module ladder W versus the Fock floor F and its 2x2 charge-conserving blocks H_n in panel (a), and the quantum soliton conversion probability Y^2/(1+Y^2) approaching the classical step function as lambda grows in panel (b)."}
 
 ---
 

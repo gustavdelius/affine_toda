@@ -174,20 +174,9 @@ $$
 A_a(\theta)\,D = R_a(\theta)\,A_a(-\theta)\,D + \mathbb{T}_a(\theta)\,D\,A_a(\theta).
 $$
 
-Because the ZF algebra is associative (which physically encodes **factorization**: shifting the relative positions of wavepackets changes the chronological order of two-body collisions without changing the final out-state), we can reduce $A_a(\theta_1)\,A_b(\theta_2)\,D$ to out-states in **two different ways**:
+Because the ZF algebra is associative (which physically encodes **factorization**: shifting the relative positions of wavepackets changes the chronological order of two-body collisions without changing the final out-state), we can reduce $A_a(\theta_1)\,A_b(\theta_2)\,D$ to out-states in **two different ways** (@fig-lec1-histories; checked in `code/lectures/gemini_l1_f1_histories.py`):
 
-```
-       Order I (b hits D first)                 Order II (a and b scatter first)
-
-        a(\theta_1)  b(\theta_2)  D              a(\theta_1)  b(\theta_2)   D
-             \          \        |                    \          /          |
-              \          \       |                     \        /           |
-               \          *------|                      \      /            |
-                \        / \     |                       *----*             |
-                 \      /   \    |                      /      \            |
-                  *----*     \   |                     /        *-----------|
-                 /      \     \  |                    /        / \          |
-```
+![The two spacetime reduction orders for the two-particle in-state $A_a(\theta_1)A_b(\theta_2)D$ ($\theta_1 > \theta_2 > 0$) in the Delfino–Mussardo–Simonetti no-go theorem, showing how Mixed Channel A ($A_b(-\theta_2)DA_a(\theta_1)$) forces a head-on collision at relative rapidity $\theta_1 + \theta_2$ in Order I versus an overtaking collision at $\theta_1 - \theta_2$ in Order II.](figures/l1_histories.svg){#fig-lec1-histories width=92% fig-alt="Two-panel worldline diagram comparing Order I (particle b hits the defect D first) and Order II (particles a and b scatter in the bulk first) for the mixed reflection-transmission channel, illustrating why S(theta_1 + theta_2) = S(theta_1 - theta_2) is forced."}
 
 Let us compute **every single step** of both reductions on the blackboard.
 
@@ -348,9 +337,11 @@ $$
 R(\theta)\mathbb{T}(-\theta) + \mathbb{T}(\theta)R(-\theta)
 = \frac{(i\sin\chi\,\cosh\theta)(-\cos\chi\,\sinh\theta) + (\cos\chi\,\sinh\theta)(i\sin\chi\,\cosh\theta)}{-\sinh^2\theta - \sin^2\chi} = 0.
 $$
-Look at the physical limits of (-@eq-lec1-ising-rt):
+Look at the physical limits of (-@eq-lec1-ising-rt), plotted in @fig-lec1-ising (`code/lectures/gemini_l1_f2_ising.py`):
 - At $g = 0$ ($\chi = 0$): $\mathbb{T}(\theta) = 1$ and $R(\theta) = 0$ (no defect).
 - At $g = \pm 2$ ($\cos\chi = 0$, $\sin\chi = \mp 1$): **transmission vanishes identically** ($\mathbb{T}(\theta) = 0$), and $R(\theta) = \mp\frac{i\cosh\theta}{\sinh\theta \pm i}$, which are the exact reflection amplitudes of the free and fixed boundary conditions of the half-line Ising model!
+
+![The free-fermion Ising defect ($S = -1$): (a) transmission probability $|\mathbb{T}(\theta)|^2$ and reflection probability $|R(\theta)|^2 = 1 - |\mathbb{T}(\theta)|^2$ across couplings from $g=0$ (transparent) to $g=\pm 2$ (decoupled boundaries); (b) trajectory of the pole $\theta_p = i\chi(g)$ in the imaginary rapidity plane as $g$ varies.](figures/l1_ising.svg){#fig-lec1-ising width=92% fig-alt="Two-panel plot of the Ising free-fermion defect showing partial transmission and reflection probabilities in panel (a) and the bound-state/virtual-state pole trajectory theta_p = i*chi(g) in panel (b)."}
 
 ---
 
@@ -518,11 +509,13 @@ Let us trace carefully what this mirror map $x \mapsto -x$ does to the particles
    - $V(\theta)\otimes\mathcal{W} \xrightarrow{\mathbb{T}(\theta)} \mathcal{W}\otimes V(\theta) \xrightarrow{P} V'(-\theta)\otimes\mathcal{W}$,
    - $V'(\theta)\otimes\mathcal{W} \xrightarrow{P} \mathcal{W}\otimes V(-\theta) \xrightarrow{\bar{\mathbb{T}}(\theta)} V(-\theta)\otimes\mathcal{W}$.
 
-   Therefore, for a purely transmitting defect, the boundary reflection matrix of the doubled theory is purely block off-diagonal (see [the book](book:eq-doubled-k)) [@bajnok_george2006, eq. (10)]:
+   Therefore, for a purely transmitting defect, the boundary reflection matrix of the doubled theory is purely block off-diagonal (see [the book](book:eq-doubled-k); illustrated in @fig-lec1-doubling and checked in `code/lectures/gemini_l1_f3_doubling.py`) [@bajnok_george2006, eq. (10)]:
    $$
    K(\theta) = \begin{pmatrix} 0 & \bar{\mathbb{T}}(\theta)\,P \\[3pt] P\,\mathbb{T}(\theta) & 0 \end{pmatrix}
    \qquad \text{acting on } \big(V(\theta) \oplus V'(\theta)\big) \otimes \mathcal{W}.
    $$ {#eq-lec1-doubled-k}
+
+![The doubling (folding) trick: (a) transmission through a defect at $x=0$ on the full line $x \in \mathbb{R}$; (b) folding the right half-line $x > 0$ onto $x < 0$ via $\tilde{\psi}(x,t) = \psi(-x,t)$ turns left-to-right and right-to-left transmissions into species-converting reflections $V \leftrightarrow V'$ off the doubled boundary $K(\theta)$.](figures/l1_doubling.svg){#fig-lec1-doubling width=92% fig-alt="Two-panel schematic comparing unfolded transmission through a defect at x=0 with the folded half-line boundary theory on x<=0 where the reflection matrix K(theta) is block off-diagonal between V and V'."}
 
 ### Blackboard Calculation 4: Reading Defect Unitarity and Crossing off the Doubled Boundary {#sec-lec1-doubling-calc}
 
@@ -649,14 +642,15 @@ $$
 1. Verify that the function
    $$
    \mathbb{T}^{\rm cl}(\theta) = -i\,\frac{\sinh\!\big(\frac{\theta - \theta_d}{2} - \frac{i\pi}{4}\big)}{\sinh\!\big(\frac{\theta - \theta_d}{2} + \frac{i\pi}{4}\big)}
-   = \frac{\sinh\theta_d + i\cosh\theta}{\cosh\theta_d - i\sinh\theta}
+   = \frac{e^{-(\theta - \theta_d)} + i}{e^{-(\theta - \theta_d)} - i}
    $$
    satisfies $\mathbb{T}^{\rm cl}(\theta)\,\mathbb{T}^{\rm cl}(\theta + i\pi) = 1$ and $|\mathbb{T}^{\rm cl}(\theta)| = 1$ for real $\theta$ and $\theta_d$, but is *not* parity invariant: $\mathbb{T}^{\rm cl}(\theta)\,\mathbb{T}^{\rm cl}(-\theta) \neq 1$.
-2. Compute its square $\big[\mathbb{T}^{\rm cl}(\theta)\big]^2$ and show that it equals the standard bulk CDD block
+2. Compute its square $\big[\mathbb{T}^{\rm cl}(\theta)\big]^2$ and the square of its inverse $\mathbb{T}^{\rm cl}_{\rm odd}(\theta) = \mathbb{T}^{\rm cl}(\theta)^{-1}$, and show that they equal the standard bulk CDD blocks
    $$
-   f_{1/2}(\theta - \theta_d) = \frac{\sinh(\theta - \theta_d) + i}{\sinh(\theta - \theta_d) - i},
+   \big[\mathbb{T}^{\rm cl}(\theta)\big]^2 = f_{-1/2}(\theta - \theta_d) = \frac{\sinh(\theta - \theta_d) - i}{\sinh(\theta - \theta_d) + i}, \qquad
+   \big[\mathbb{T}^{\rm cl}_{\rm odd}(\theta)\big]^2 = f_{1/2}(\theta - \theta_d) = \frac{\sinh(\theta - \theta_d) + i}{\sinh(\theta - \theta_d) - i},
    $$
-   which satisfies the bulk unitarity and crossing equations $f(\theta)f(-\theta) = 1$ and $f(\theta) = f(i\pi - \theta)$! Why can a single bulk particle never have $\mathbb{T}^{\rm cl}(\theta)$ as its bulk $S$-matrix, whereas a defect can?
+   which satisfy the bulk unitarity and crossing equations $f(\theta)f(-\theta) = 1$ and $f(\theta) = f(i\pi - \theta)$! Why can a single bulk particle never have $\mathbb{T}^{\rm cl}(\theta)$ as its bulk $S$-matrix, whereas a defect can?
 :::
 
 ::: {#exr-lec1-doubled-re}
