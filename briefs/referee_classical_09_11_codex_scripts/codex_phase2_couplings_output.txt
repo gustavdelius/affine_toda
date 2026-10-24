@@ -1,0 +1,5 @@
+PASS A4: 4 nonzero triples; selection mismatches=[]; max area error=1.78e-15
+PASS A4 real-basis nonzero-coupling counterexamples: [(0, 0, 3, 0.707106781186547), (0, 1, 2, 0.7071067811865471), (0, 2, 3, 0.7071067811865472), (1, 1, 3, 0.7071067811865469)]
+PASS E6 all 56 cubic triples: nonzero=18, orbit mismatches=[], max area error=6.11e-15
+E6 node masses: [1.1260325  1.59245043 2.17532775 3.076378   2.17532775 1.1260325 ]
+PASS E6 real-basis nonzero-coupling counterexamples: [(0, 0, 0, 0.4809652855442468), (0, 0, 1, 0.5183361786537213), (0, 0, 3, 0.10975473076439989), (0, 0, 4, 0.6985369704424013)]

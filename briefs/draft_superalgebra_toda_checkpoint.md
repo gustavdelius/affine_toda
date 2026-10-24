@@ -12,3 +12,4 @@ Worktree `.claude/worktrees/superalgebra-toda`, branch `claude/superalgebra-toda
 - Conventions document, drafting report and referee brief written. Remaining: scratch render result and final script log into the report.
 - Renders done: HTML (612 s) and PDF (796 s, 669 pages), no unresolved references. Two wide displays split after the PDF check; D(2,1;alpha) mass sentence made precise. Nothing committed; the index holds the pure-rename commit.
 - 2026-10-23: on the editor's decision, the two-sentence ch. 9 edit was applied in its own commit while Part III is still frozen; the report says the Part III integration must merge it.
+- 2026-10-24: merged origin/main (PRs #44 and #45) into the branch; five conflicts resolved, gap map regenerated, H6 alt text and an_soliton_scalar.py docstring fixed; check-refs, the six super_toda scripts and the scripts touched by the merge pass.

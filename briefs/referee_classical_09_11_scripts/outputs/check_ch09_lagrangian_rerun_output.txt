@@ -1,0 +1,59 @@
+========================================================================
+CHECK 1 (Rank 8): Spin-3 current of sinh-Gordon and sine-Gordon, and kink evaluation
+========================================================================
+1. Sinh-Gordon conservation residual d_- T_4 + d_+ X_2 = 0
+2. Sine-Gordon with ONLY beta^2 -> -beta^2 (keeping cosh): d_- T_4 + d_+ X_2 = m**2*p_p*(beta*p_p**2*sin(beta*phi) + beta*p_p**2*sinh(beta*phi) - 2*p_pp*cos(beta*phi) + 2*p_pp*cosh(beta*phi))
+3. Sine-Gordon with beta -> i*beta (beta^2 -> -beta^2 AND cosh -> cos): d_- T_4 + d_+ X_2 = 0
+   On SG kink: dphi/du = 2/(beta*cosh(u)) , d^2phi/du^2 = -2*sinh(u)/(beta*cosh(u)**2) , cos(beta*phi) = cos(4*atan(exp(u)))
+   On SG kink: T_4 = 4*m**4*(cosh(u)**2 - 2)*exp(-4*theta)/(beta**2*cosh(u)**4)
+   On SG kink: X_2 = 4*m**4*(exp(4*u) - 6*exp(2*u) + 1)*exp(-2*theta)/(beta**2*(exp(2*u) + 1)**2*cosh(u)**2)
+   int T_4 dx = -8*m**3*exp(-4*theta)/(3*beta**2*cosh(theta))
+   int X_2 dx = 4*m**3*exp(-2*theta)*Integral((exp(2*u) - 2*exp(u) - 1)*(exp(2*u) + 2*exp(u) - 1)/((exp(2*u) + 1)**2*cosh(u)**2), (u, -oo, oo))/(beta**2*cosh(theta))
+   Q_3 = int (T_4 + X_2) dx = m**3*(4*exp(2*theta)*Integral((exp(2*u) - 2*exp(u) - 1)*(exp(2*u) + 2*exp(u) - 1)/((exp(2*u) + 1)**2*cosh(u)**2), (u, -oo, oo)) - 8/3)*exp(-4*theta)/(beta**2*cosh(theta))
+
+========================================================================
+CHECK 2 (Rank 16): Lax pair zero-curvature, boost law, and Exercise 9.1
+========================================================================
+Zero-curvature matrix [d_+ + A_+, d_- + A_-] for a_1^(1):
+  (0,0) entry = -sqrt(2)*beta*phi_pm/2 - m**2*exp(sqrt(2)*beta*phi) + m**2*exp(-sqrt(2)*beta*phi)
+  (0,1) entry = 0
+  (1,0) entry = 0
+  (1,1) entry = sqrt(2)*beta*phi_pm/2 + m**2*exp(sqrt(2)*beta*phi) - m**2*exp(-sqrt(2)*beta*phi)
+  Vanishes iff phi_pm = -2*sqrt(2)*m**2*sinh(sqrt(2)*beta*phi)/beta = -(m^2/beta) sqrt(2) sinh(sqrt(2) beta phi) (matches eq-toda-eom!).
+
+========================================================================
+CHECK 3 (Rank 14): Particle masses for a_n^(1), d_n^(1), e_8^(1) and sum rule
+========================================================================
+d_4^(1) (h=6): masses and sum rule 2h=12 match to 4.44e-16
+d_5^(1) (h=8): masses and sum rule 2h=16 match to 2.22e-16
+d_6^(1) (h=10): masses and sum rule 2h=20 match to 4.44e-16
+e_8^(1) (h=30): max diff between eigenvalues and table formulas = 8.88e-16, sum m_a^2 = 60.000000 (2h = 60)
+
+========================================================================
+CHECK 4 (Rank 11 & Rank 12): Couplings C_{abc}, Area Rule, and Dorey's Rule
+========================================================================
+a_2^(1) cubic couplings in Z_3 charge basis (m=1, beta=1):
+  |C_{111}| = 3.000000  (4/sqrt(3) * Delta = 3.000000)
+  |C_{112}| = 0.000000  (4/sqrt(3) * Delta = 3.000000)
+  |C_{122}| = 0.000000  (4/sqrt(3) * Delta = 3.000000)
+  |C_{222}| = 3.000000  (4/sqrt(3) * Delta = 3.000000)
+a_2^(1) cubic couplings in REAL orthonormal basis (m=1, beta=1):
+  |C^real_{111}| = 2.121320
+  |C^real_{112}| = 0.000000
+  |C^real_{122}| = 2.121320
+  |C^real_{222}| = 0.000000
+
+d_4^(1) (h=6) in the REAL orthonormal Z_2 x Z_2 character eigenbasis:
+  |C_{1,1,s'}| = 1.414214,  (4/sqrt(6))*Delta = 1.414214,  diff = 8.88e-16
+  |C_{1,1,2(central)}| = 1.414214,  (4/sqrt(6))*Delta = 1.414214,  diff = 2.00e-15
+  |C_{s,s,s'}| = 1.414214,  (4/sqrt(6))*Delta = 1.414214,  diff = 8.88e-16
+  |C_{s,s,2(central)}| = 1.414214,  (4/sqrt(6))*Delta = 1.414214,  diff = 2.00e-15
+  |C_{s',s',2(central)}| = 1.414214,  (4/sqrt(6))*Delta = 1.414214,  diff = 2.22e-15
+  |C_{2(central),2(central),2(central)}| = 4.242641,  (4/sqrt(6))*Delta = 4.242641,  diff = 8.88e-16
+
+D_4 Coxeter orbits (h=6): checking which triples (a, b, c) have alpha + beta + gamma = 0:
+  Dorey fusing allowed for (1, 1, 2(c))
+  Dorey fusing allowed for (1, 3(s), 4(s'))
+  Dorey fusing allowed for (2(c), 2(c), 2(c))
+  Dorey fusing allowed for (2(c), 3(s), 3(s))
+  Dorey fusing allowed for (2(c), 4(s'), 4(s'))

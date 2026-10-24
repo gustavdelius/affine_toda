@@ -18,7 +18,7 @@ def logf_rel(t):
     d = lambda z, z0: lf1(z) - lf1(z0); r = 0.371
     return np.sum(d(t + Aj, Aj + r) - d(t + Aj + T, Aj + T + r) + d(-t + Aj + T, Aj + T + r) - d(-t + Aj + 2*T, Aj + 2*T + r))
 _K = c_of(0.123)*c_of(-0.123)*np.exp(logf_rel(0.123) + logf_rel(-0.123)); _norm = np.sqrt(_K + 0j)
-_F = lambda t: c_of(t)*np.exp(logf_rel(t))/_norm; _sg = np.sign(_F(1e-6).real)
+_F = lambda t: c_of(t)*np.exp(logf_rel(t))/_norm; _sg = -np.sign(_F(1e-6).real)  # F(0) = -1, the sign of Zamolodchikov and Hollowood (sec-scalar-factor)
 def F(theta): return _sg*_F(mu*theta/(2j*np.pi))
 def S(theta): return F(theta)*Rmat(np.exp(mu*theta))
 # crossing-sign test (same convention as for c_n)

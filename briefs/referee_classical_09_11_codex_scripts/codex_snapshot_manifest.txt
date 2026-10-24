@@ -1,0 +1,5 @@
+6d138bcf8b08b3bbe25657210a48ecb5d42251ea39068cc99a87ced62a1a1c04  part3-classical/part.qmd
+bcbc287a4e8239d856230f58908dcdde4af3a2244528cbf870250f2bcfe91fd6  part3-classical/09-lagrangian.qmd
+df6fad295899fe9fbda250ef0e9d06da3f7449c38e8199011c4008ab33c4ce87  part3-classical/10-solitons.qmd
+84854ec770966184a5b37d2b34b45cdb7f03b77f3a115dd18d6d8a9805afbeb5  part3-classical/11-reality.qmd
+092691131a9147fdebdbc645e4f0c852878e1cd12df74fae7beed8e8813491d5  appendices/E-original-results.qmd

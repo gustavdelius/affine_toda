@@ -1,0 +1,8 @@
+PASS A2 untwisted: degrees 0..2 multiplicities=[0, 1, 1]; residual=1.1e-16; min nonzero singular value=1
+PASS A3 untwisted: degrees 0..3 multiplicities=[0, 1, 1, 1]; residual=3.3e-16; min nonzero singular value=1
+PASS A4 untwisted: degrees 0..4 multiplicities=[0, 1, 1, 1, 1]; residual=3.7e-15; min nonzero singular value=0.77
+PASS A4^(2): degrees 0..9 multiplicities=[0, 1, 0, 1, 0, 0, 0, 1, 0, 1]; residual=3.9e-16; min nonzero singular value=0.77
+PASS C2^(1): degrees 0..3 multiplicities=[0, 1, 0, 1]; residual=3.3e-16; min nonzero singular value=1
+PASS D3^(2) = A3^(2): degrees 0..5 multiplicities=[0, 1, 0, 1, 0, 1]; residual=4.4e-16; min nonzero singular value=1
+PASS G2^(1) as triality fixed D4: degrees 0..5 multiplicities=[0, 1, 0, 0, 0, 1]; residual=4.1e-16; min nonzero singular value=1
+PASS D4^(3): degrees 0..11 multiplicities=[0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1]; residual=6.1e-16; min nonzero singular value=1

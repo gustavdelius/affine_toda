@@ -42,6 +42,8 @@ Chapter 9 is frozen (`briefs/README.md`, "Part III: two-phase referee pass": fil
 
 **The Part III integration must merge this commit.** Its branch `part3-referee-integration` was cut before it. Neither sentence changes a claim under review. In the four Part III reports, the only replacement text for these two sections is Codex's for the sentences that specify the generators (`09-lagrangian.qmd:57` at 2d36c9c, phase 1, item 5), a different paragraph. Gemini's phase 2 verifies the paragraph that ends at the second insertion (09:59–73) as correct, and no report targets the paragraph that ends at the first (09:28). Whichever of the two branches reaches main second must keep both sentences when it resolves any conflict in these two paragraphs.
 
+**Resolved 2026-10-24.** The integration was merged into main as PR #44 (with PR #45), and main was then merged into this branch. The `sec-lax-pair` paragraph conflicted, because #44 extended the same sentence ("… and, with $3\times3$ matrices, for $a_2^{(2)}$."); the resolution keeps #44's text and appends the superalgebra sentence. The `sec-lagrangians` sentence merged without conflict. The other conflicts (`index.qmd`, `references.bib`, `briefs/README.md`, the gap-map SVG) were resolved by keeping both sides; the gap map was regenerated. Two stale details from main were corrected in the merge: the gap-map alt text now lists H6 among the orange rows (#44 made H6 partly open), and the docstring of `code/an_soliton_scalar.py` (#45) says chapter 22 for `sec-scalar-factor`.
+
 Chapters 10 and 11 needed no edit; chapter 16 cross-references `sec-classical-solitons`, `eq-soliton-mass` and `sec-theta-classical` without changing them.
 
 ## Sources and locators

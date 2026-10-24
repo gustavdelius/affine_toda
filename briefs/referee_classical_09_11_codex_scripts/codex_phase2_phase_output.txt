@@ -1,0 +1,6 @@
+PASS h=3 a,b=(1, 1): source coefficient=(0.821164893701769 + 0.0j), book logA=-0.821164893701769, residual=0.0
+PASS h=3 a,b=(1, 2): source coefficient=(0.638597832801906 + 0.0j), book logA=-0.638597832801906, residual=0.0
+PASS h=3 a,b=(2, 2): source coefficient=(0.821164893701769 + 0.0j), book logA=-0.821164893701769, residual=1.15e-41
+PASS h=4 a,b=(1, 1): source coefficient=(0.614517404916466 + 0.0j), book logA=-0.614517404916466, residual=0.0
+PASS h=4 a,b=(1, 2): source coefficient=(0.673630898983532 + 0.0j), book logA=-0.673630898983532, residual=2.3e-41
+PASS h=4 a,b=(2, 2): source coefficient=(0.992335931335434 + 0.0j), book logA=-0.992335931335434, residual=1.15e-41
