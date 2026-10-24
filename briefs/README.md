@@ -105,23 +105,6 @@ Part II (`part2-algebra/`, chapters 5–8) had one referee pass, on 2026-10-10, 
 | `referee_algebra_07_08.md` | Referee brief for chapters 7–8: twisted normalizations, the central element and the $S^2$ shift (with $a_{2n}^{(2)}$), the sign of $q$ and the Part VI dictionary, the twisted tensor-product graph for the $U_q(d_{n+1}^{(2)})$ spinor, where the graph fails, the history of the R-matrices (DGZ, GMW), roots of unity, fusion and IRF, citations, exercises. Report: `referee_algebra_07_08_report.md` |
 
 **Files under review: do not edit until the reports are in.** `part2-algebra/05-root-systems.qmd`, `06-affine-algebras.qmd`, `07-quantum-groups.qmd`, `08-r-matrices.qmd`, and the captions of the figures in `part2-algebra/figures/`.
-
-## Part III: two-phase referee pass (from 2026-10-15)
-
-An experiment in briefing. A brief that lists what to check carries the drafting model's view of where the risks are, so a referee from another model tends to find the errors Claude would have found anyway. This pass therefore has two phases. In phase 1 the referee gets only context (rules, conventions, history, sources, standard of evidence), writes its own ranked list of risky claims, and checks it. In phase 2 it gets the coordinator's items, checks what its own list missed, and compares the two lists. The chapters are reviewed as on main at 2d36c9c.
-
-| File | What it is |
-|---|---|
-| `referee_classical_09_11.md` | Phase-1 brief for chapters 9–11. Phase-1 report: `referee_classical_09_11_phase1_report.md` |
-| `referee_classical_09_11_items.md` | Phase-2 items, written before phase 1 and held outside the repository until phase 1 is complete. SHA-256 `7e46e33bf78567a291bb5350625a8a67b9139c75665e02d0a9de3252de1f41b6`. Report: `referee_classical_09_11_report.md`, with the overlap table |
-
-Protocol for the editor:
-1. Start the referee in this worktree with the phase-1 brief.
-2. When it reports "Phase 1 complete", commit the phase-1 report as it stands. Then copy the held items file into `briefs/`, check its SHA-256 against the value above, and commit it.
-3. Send the referee, in the same session, "Phase 2: follow `briefs/referee_classical_09_11_items.md`."
-4. When the report is in, integrate it with the `integrate-referee-report` skill, and record here which errors each phase found.
-
-**Files under review: do not edit until the reports are in.** `part3-classical/09-lagrangian.qmd`, `10-solitons.qmd`, `11-reality.qmd`, `part.qmd`, and the captions of the figures in `part3-classical/figures/`.
 Both reports arrived on 2026-10-15: chapters 5–6 by GPT-Astra (high), chapters 7–8 by Gemini 3.8 Flash (high). They were integrated the same day on branch `part2-referee-integration`. Each report's `## Integration` section gives the verdict per item, and its scripts are in `briefs/<report>_scripts/`. The new check script is `code/lie_algebra_checks.py`. No labels changed, and the files are no longer frozen. Main corrections:
 - The $S^2$ shift for $a_{2n}^{(2)}$ is $q^{h^\vee}$ in Kac's labelling (ch. 7), with a matching exception in ch. 20.
 - MacKay–Watts use non-minimal twisted labels.
@@ -134,3 +117,31 @@ Both reports arrived on 2026-10-15: chapters 5–6 by GPT-Astra (high), chapters
 - The vertex–IRF relation is stated precisely.
 
 Added afterwards, at the editor's request: the duality sentence for the self-dual $a_{2n}^{(2)}$ in ch. 6 ($\beta^\vee=8\pi/\beta$, $B=\frac{\beta^2/4\pi}{1+\beta^2/8\pi}\to2-B$). Sources: Dorey's lectures (`dorey1998`, §self-dual theories) and, for $a_2^{(2)}$, the Bullough–Dodd action and S-matrix of Alekseev, arXiv:1106.4758, eqs. (3.1) and (3.5). The book states no $a_{2n}^{(2)}$ particle S-matrix elsewhere, so ch. 13 and 14 needed no change.
+
+## Part III: two-phase referee pass (from 2026-10-15)
+
+An experiment in briefing. A brief that lists what to check carries the drafting model's view of where the risks are, so a referee from another model tends to find the errors Claude would have found anyway. This pass therefore has two phases. In phase 1 the referee gets only context (rules, conventions, history, sources, standard of evidence), writes its own ranked list of risky claims, and checks it. In phase 2 it gets the coordinator's items, checks what its own list missed, and compares the two lists. The chapters are reviewed as on main at 2d36c9c.
+
+| File | What it is |
+|---|---|
+| `referee_classical_09_11.md` | Phase-1 brief for chapters 9–11. Phase-1 report: `referee_classical_09_11_phase1_report.md` |
+| `referee_classical_09_11_items.md` | Phase-2 items, written before phase 1 and held outside the repository until phase 1 is complete. SHA-256 `7e46e33bf78567a291bb5350625a8a67b9139c75665e02d0a9de3252de1f41b6`. Report: `referee_classical_09_11_report.md`, with the overlap table |
+| `referee_classical_09_11_phase1_report.md`, `referee_classical_09_11_report.md` | Gemini 4 Argon (high), phase 1 and phase 2 |
+| `referee_classical_09_11_codex_phase1_report.md`, `referee_classical_09_11_codex_report.md` | Codex GPT-6 Astra (high), phase 1 and phase 2, with checkpoints and `referee_classical_09_11_codex_scripts/` |
+| `referee_classical_09_11_phase1_combined.md` | The coordinator's merge of the two phase-1 reports (M1–M11), and at its end the `## Integration` section: verdict per item, the coordinator's checks, decisions for the editor, and the overlap table of the experiment |
+| `part3_integration_coordinator.md` | Coordinator's state, restart procedure and decisions for the integration; the agents' prompts are `part3_integration_A_prompt.md` (ch. 9–10) and `part3_integration_B_prompt.md` (ch. 11), their checkpoints `part3_integration_A_checkpoint.md` and `part3_integration_B_checkpoint.md`, their scripts `referee_classical_09_11_integration_scripts/` |
+
+Protocol for the editor:
+1. Start the referee in this worktree with the phase-1 brief.
+2. When it reports "Phase 1 complete", commit the phase-1 report as it stands. Then copy the held items file into `briefs/`, check its SHA-256 against the value above, and commit it.
+3. Send the referee, in the same session, "Phase 2: follow `briefs/referee_classical_09_11_items.md`."
+4. When the report is in, integrate it with the `integrate-referee-report` skill, and record here which errors each phase found.
+
+Both referees, Gemini 4 Argon (high) and Codex GPT-6 Astra (high), reported both phases on 2026-10-15. The reports were integrated on 2026-10-24 on branch `part3-referee-integration`. The verdicts are in the `## Integration` section of `referee_classical_09_11_phase1_combined.md`, and each report ends with a pointer there. The new check script is `code/classical_reality.py`; `code/toda_classical.py` was extended. **The Part III files are no longer frozen.** Main changes:
+- The Θ selection rule is now `prp-theta-reality`, **[Established; reformulated]**, with explicit hypotheses and the Fring-group prior art. The Appendix E item [Theorem, …] is replaced by a [Numerical] item for `prp-breather-charges`.
+- `prp-hirota-energy` needs $\operatorname{Re}\cosh\theta_i>0$, a finite nonzero leading coefficient and no zero of $\tau_j$.
+- Regular neutral breathers have masses in $(0,2M_a\sin\frac{\pi a}h)$ (ch. 10, 11 and the figure).
+- Θ gives reality, not positivity; singular integrals diverge; H6 is only partly addressed.
+- Chapter 9: spin $-3$ (already on main), the area rule for nonzero couplings, twisted Lax generators, citation scopes. Chapter 10: $W_k(x,t)$ in the vertex formula, the $a_{2n}^{(2)}$ degrees, the frame of the time advance, the fusion range.
+
+**Outcome of the experiment.** Of 29 corrected errors, 28 were found by a referee, 23 of them already in the blind phase 1, including every major one. Codex found the prior art in phase 1 without being pointed to it. Phase 2 added five minor errors, all of scope or attribution, and settled the open questions with evidence (breather charges of spin 4, Freeman's parity, the Hollowood sign). Codex made no false claim that the integration found; Gemini made about a dozen. Recommendation: keep the blind phase first, and aim the directed phase at prior art, citation scope and interpretive sentences.

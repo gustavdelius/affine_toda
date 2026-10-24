@@ -1,0 +1,90 @@
+========================================================================
+CHECK 1 (Rank 9): Topological charges of a_n^(1) single solitons
+========================================================================
+a_2^(1) (h = 3):
+  species a=1: 3 weights (expected h/gcd(a,h) = 3)
+    Dynkin labels = (-0.0, -1.0),  e-basis = (-0.333333, -0.333333, 0.666667) (in Lambda^1 C^3)
+    Dynkin labels = (-1.0, 1.0),  e-basis = (-0.333333, 0.666667, -0.333333) (in Lambda^1 C^3)
+    Dynkin labels = (1.0, -0.0),  e-basis = (0.666667, -0.333333, -0.333333) (in Lambda^1 C^3)
+  species a=2: 3 weights (expected h/gcd(a,h) = 3)
+    Dynkin labels = (-1.0, 0.0),  e-basis = (-0.666667, 0.333333, 0.333333) (in Lambda^2 C^3)
+    Dynkin labels = (1.0, -1.0),  e-basis = (0.333333, -0.666667, 0.333333) (in Lambda^2 C^3)
+    Dynkin labels = (-0.0, 1.0),  e-basis = (0.333333, 0.333333, -0.666667) (in Lambda^2 C^3)
+a_3^(1) (h = 4):
+  species a=1: 4 weights (expected h/gcd(a,h) = 4)
+    Dynkin labels = (0.0, 0.0, -1.0),  e-basis = (-0.25, -0.25, -0.25, 0.75) (in Lambda^1 C^4)
+    Dynkin labels = (0.0, -1.0, 1.0),  e-basis = (-0.25, -0.25, 0.75, -0.25) (in Lambda^1 C^4)
+    Dynkin labels = (-1.0, 1.0, 0.0),  e-basis = (-0.25, 0.75, -0.25, -0.25) (in Lambda^1 C^4)
+    Dynkin labels = (1.0, 0.0, -0.0),  e-basis = (0.75, -0.25, -0.25, -0.25) (in Lambda^1 C^4)
+  species a=2: 2 weights (expected h/gcd(a,h) = 2)
+    Dynkin labels = (-1.0, 1.0, -1.0),  e-basis = (-0.5, 0.5, -0.5, 0.5) (in Lambda^2 C^4)
+    Dynkin labels = (1.0, -1.0, 1.0),  e-basis = (0.5, -0.5, 0.5, -0.5) (in Lambda^2 C^4)
+  species a=3: 4 weights (expected h/gcd(a,h) = 4)
+    Dynkin labels = (-1.0, 0.0, 0.0),  e-basis = (-0.75, 0.25, 0.25, 0.25) (in Lambda^3 C^4)
+    Dynkin labels = (1.0, -1.0, 0.0),  e-basis = (0.25, -0.75, 0.25, 0.25) (in Lambda^3 C^4)
+    Dynkin labels = (0.0, 1.0, -1.0),  e-basis = (0.25, 0.25, -0.75, 0.25) (in Lambda^3 C^4)
+    Dynkin labels = (-0.0, 0.0, 1.0),  e-basis = (0.25, 0.25, 0.25, -0.75) (in Lambda^3 C^4)
+a_4^(1) (h = 5):
+  species a=1: 5 weights (expected h/gcd(a,h) = 5)
+    Dynkin labels = (0.0, -0.0, 0.0, -1.0),  e-basis = (-0.2, -0.2, -0.2, -0.2, 0.8) (in Lambda^1 C^5)
+    Dynkin labels = (0.0, 0.0, -1.0, 1.0),  e-basis = (-0.2, -0.2, -0.2, 0.8, -0.2) (in Lambda^1 C^5)
+    Dynkin labels = (-0.0, -1.0, 1.0, 0.0),  e-basis = (-0.2, -0.2, 0.8, -0.2, -0.2) (in Lambda^1 C^5)
+    Dynkin labels = (-1.0, 1.0, 0.0, 0.0),  e-basis = (-0.2, 0.8, -0.2, -0.2, -0.2) (in Lambda^1 C^5)
+    Dynkin labels = (1.0, 0.0, -0.0, -0.0),  e-basis = (0.8, -0.2, -0.2, -0.2, -0.2) (in Lambda^1 C^5)
+  species a=2: 5 weights (expected h/gcd(a,h) = 5)
+    Dynkin labels = (0.0, -1.0, 1.0, -1.0),  e-basis = (-0.4, -0.4, 0.6, -0.4, 0.6) (in Lambda^2 C^5)
+    Dynkin labels = (-1.0, 1.0, 0.0, -1.0),  e-basis = (-0.4, 0.6, -0.4, -0.4, 0.6) (in Lambda^2 C^5)
+    Dynkin labels = (-1.0, 1.0, -1.0, 1.0),  e-basis = (-0.4, 0.6, -0.4, 0.6, -0.4) (in Lambda^2 C^5)
+    Dynkin labels = (1.0, 0.0, -1.0, 1.0),  e-basis = (0.6, -0.4, -0.4, 0.6, -0.4) (in Lambda^2 C^5)
+    Dynkin labels = (1.0, -1.0, 1.0, -0.0),  e-basis = (0.6, -0.4, 0.6, -0.4, -0.4) (in Lambda^2 C^5)
+  species a=3: 5 weights (expected h/gcd(a,h) = 5)
+    Dynkin labels = (-1.0, 1.0, -1.0, 0.0),  e-basis = (-0.6, 0.4, -0.6, 0.4, 0.4) (in Lambda^3 C^5)
+    Dynkin labels = (-1.0, 0.0, 1.0, -1.0),  e-basis = (-0.6, 0.4, 0.4, -0.6, 0.4) (in Lambda^3 C^5)
+    Dynkin labels = (1.0, -1.0, 1.0, -1.0),  e-basis = (0.4, -0.6, 0.4, -0.6, 0.4) (in Lambda^3 C^5)
+    Dynkin labels = (1.0, -1.0, 0.0, 1.0),  e-basis = (0.4, -0.6, 0.4, 0.4, -0.6) (in Lambda^3 C^5)
+    Dynkin labels = (-0.0, 1.0, -1.0, 1.0),  e-basis = (0.4, 0.4, -0.6, 0.4, -0.6) (in Lambda^3 C^5)
+  species a=4: 5 weights (expected h/gcd(a,h) = 5)
+    Dynkin labels = (-1.0, 0.0, -0.0, 0.0),  e-basis = (-0.8, 0.2, 0.2, 0.2, 0.2) (in Lambda^4 C^5)
+    Dynkin labels = (1.0, -1.0, -0.0, -0.0),  e-basis = (0.2, -0.8, 0.2, 0.2, 0.2) (in Lambda^4 C^5)
+    Dynkin labels = (0.0, 1.0, -1.0, -0.0),  e-basis = (0.2, 0.2, -0.8, 0.2, 0.2) (in Lambda^4 C^5)
+    Dynkin labels = (0.0, 0.0, 1.0, -1.0),  e-basis = (0.2, 0.2, 0.2, -0.8, 0.2) (in Lambda^4 C^5)
+    Dynkin labels = (-0.0, 0.0, 0.0, 1.0),  e-basis = (0.2, 0.2, 0.2, 0.2, -0.8) (in Lambda^4 C^5)
+
+========================================================================
+CHECK 2 (Rank 6): c_2^(1) folded soliton tau-functions & degree formula
+========================================================================
+c_2^(1) static soliton Hirota residuals: j=0 -> 0, j=1 -> 0, j=2 -> 0
+
+Checking parent Kac labels vs folded n_j and n_j^vee across all foldings:
+  WAIT: For untwisted non-simply-laced g^(1), n_j^vee (the Kac labels of (g^(1))^vee) equals n_{tilde_j}^{parent}.
+  What about for twisted algebras X_N^(k)? Let's check 06-affine-algebras.qmd!
+
+========================================================================
+CHECK 3 (Rank 13): Classical time delay and sine-Gordon S_0(theta) asymptotics
+========================================================================
+Trajectory and Wigner time-delay derivation: VERIFIED (all signs and factors of 2 match).
+
+========================================================================
+CHECK 4 (Rank 15): Embedded sine-Gordon kink in a_{2n-1}^(1) at species n, Im(xi) = pi/2
+========================================================================
+a_3^(1) species 2 at Im(xi)=pi/2: tau_{2k+1} = bar(tau_{2k}) holds for all k=0..1.
+a_5^(1) species 3 at Im(xi)=pi/2: tau_{2k+1} = bar(tau_{2k}) holds for all k=0..2.
+a_7^(1) species 4 at Im(xi)=pi/2: tau_{2k+1} = bar(tau_{2k}) holds for all k=0..3.
+
+========================================================================
+CHECK 5 (Rank 19): Classical soliton fusion in a_n^(1)
+========================================================================
+Trigonometric fusion identity m_a e^{i*pi*b/h} + m_b e^{-i*pi*a/h} = m_{a+b}: VERIFIED for all a+b < h.
+For a+b > h (e.g. a=b=2 in a_2^(1)): naive formula gives m_{a+b} < 0; positive mass m_{a+b-h} > 0 uses theta_1 = theta - i*pi*(h-b)/h, theta_2 = theta + i*pi*(h-a)/h.
+
+========================================================================
+CHECK 6 (Rank 5 & Rank 6): Particle masses, soliton masses, and Lie duality
+========================================================================
+b_3^(1) particle masses: [1.414214 1.414214 2.44949 ]
+c_3^(1) soliton mass ratios (scaled by sqrt(2)): [1.414214 1.414214 2.44949 ]
+c_3^(1) particle masses: [1.       1.732051 2.      ]
+b_3^(1) soliton mass ratios (scaled by 1/sqrt(2)): [1.       1.732051 2.      ]
+g_2^(1) particle masses: [1.414214 2.44949 ] ratio m_2/m_1 = 1.7320508075688772
+g_2^(1) soliton mass ratio M_2/M_1 = 1.7320508075688776 (matches sqrt(3)!)
+f_4^(1) particle masses: [1.126033 1.59245  2.175328 3.076378]
+f_4^(1) soliton mass ratios: [1.59245  2.252065 3.076378 4.350655]

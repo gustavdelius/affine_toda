@@ -1,0 +1,7 @@
+PASS twisted A2 Lax curvature True
+G2 triple orbit F,G,H= E**3/27 + E**2 + 3*E + 1 E**3/27 - E**2/3 - E + 1 E**6/729 + E**4/3 - 16*E**3/27 + 3*E**2 + 1
+PASS G2 triple orbit residuals [0, 0, 0] degrees [3, 3, 6]
+PASS G2 invariant residuals [0, 0] degrees [1, 1, 2]
+PASS embedded SG n= 2 v squared= 4 root dots= [2, -2, 2, -2] E= 16
+PASS embedded SG n= 3 v squared= 6 root dots= [2, -2, 2, -2, 2, -2] E= 24
+PASS complex soliton first positive zero t,x,j,ell= 4.3963606744302846 1.2807153133477245 2 0 tau residual= 1.2246467991473532e-16

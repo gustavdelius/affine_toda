@@ -316,7 +316,7 @@ The soliton-preserving condition fits the same pattern with parity included. Equ
 - $\sigma$ = transposition with real $C_j$: the boundary is $\Theta$-invariant, and images are parity images, which conjugate the species (@sec-images-neumann).
 - $\sigma$ = Hermitian conjugation: the boundary condition itself is $\Theta P$-invariance, and images are $\Theta P$ images, which preserve the species (@sec-images-preserving).
 
-As on the whole line (@prp-hirota-energy), solutions whose asymptotic data are mapped to themselves by the relevant antilinear map have real conserved charges. This is how the classical energy of a complex reflected soliton comes out real, and it is why the missing-charge problem of @sec-missing-charges reappears on the half-line in a new guise (@sec-boundary-missing-charges).
+As on the whole line (@prp-theta-reality), regular solutions whose asymptotic data are mapped to themselves by the relevant antilinear map have real energy, and higher charges that are real or imaginary according to their parity. This is how the classical energy of a complex reflected soliton comes out real, and it is why the missing-charge problem of @sec-missing-charges reappears on the half-line in a new guise (@sec-boundary-missing-charges).
 
 ## Exercises {#sec-boundary-conditions-exercises}
 

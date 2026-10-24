@@ -1,0 +1,34 @@
+========================================================================
+CHECK 4 (Rank 2): Exact spin-2 conserved current and charge in a_2^(1)
+========================================================================
+Flux coefficients: {a1: 3*sqrt(3)/2, a2: -3*sqrt(3)/2, b1: -3/2, b2: -3/2}
+Conservation residual d_- J3 + d_+ J_{-1} = 0
+J_{+3} = p2_p*(-3*p1_p**2 + p2_p**2) - 3*sqrt(2)*I*(p1_p*p2_pp - p1_pp*p2_p)/(2*beta)
+J_{-1} = 3*m**2*(2*e0*p2_p + e1*(sqrt(3)*p1_p - p2_p) - e2*(sqrt(3)*p1_p + p2_p))/(2*beta**2)
+
+Theta transformation of J_{+3} and J_{-1} (with real normalization displayed above):
+  Under Theta (phi -> -bar(phi)):
+  - cubic term in J_{+3}: real coeff * (d_+ phi)^3 -> - bar(cubic term)
+  - derivative term in J_{+3}: (-3i/(sqrt(2) beta)) * (d_+ phi_1 d_+^2 phi_2 - d_+ phi_2 d_+^2 phi_1) -> - bar(derivative term)
+  - flux term J_{-1}: real coeff * E_j * d_+ phi -> - bar(J_{-1})
+  => J_{Q_2}(-bar(phi)) = - bar(J_{Q_2}(phi)), i.e. epsilon_{Q_2} = -1!
+th=0.0 [d_- (scales as e^{+2 th})]: Q(a=1) = 38.183766-0.000000j, Q(a=2) = -38.183766+0.000000j, Q(a=1)/e^{+-2th} = 38.183766-0.000000j
+th=0.0 [d_+ (scales as e^{-2 th})]: Q(a=1) = -38.183766+0.000000j, Q(a=2) = 38.183766-0.000000j, Q(a=1)/e^{+-2th} = -38.183766+0.000000j
+th=0.4 [d_- (scales as e^{+2 th})]: Q(a=1) = 84.979534-0.000000j, Q(a=2) = -84.979534+0.000000j, Q(a=1)/e^{+-2th} = 38.183766-0.000000j
+th=0.4 [d_+ (scales as e^{-2 th})]: Q(a=1) = -17.157072+0.000000j, Q(a=2) = 17.157072+0.000000j, Q(a=1)/e^{+-2th} = -38.183766+0.000000j
+Breather (th0=0.3, u=1.0, t=0.0): Q_2(num) = 0.000000+126.529388j, 2i q_1 e^{2 th0} sin(2u) = 0.000000+126.529388j, diff = 5.00e-14
+Breather (th0=0.3, u=1.0, t=0.7): Q_2(num) = 0.000000+126.529388j, 2i q_1 e^{2 th0} sin(2u) = 0.000000+126.529388j, diff = 6.81e-14
+
+========================================================================
+CHECK 5 (Rank 7): Laurent expansion near zero of tau_j & topological charge jump
+========================================================================
+1. Energy density T_00 = (2/beta^2) sum_j (2/alpha_j^2) d_x^2 ln tau_j near a zero x_0 of tau_j of multiplicity m_0:
+   ln tau_j = m_0 ln(x - x_0) + reg  =>  d_x ln tau_j = m_0/(x - x_0) + reg
+   =>  d_x^2 ln tau_j = -m_0/(x - x_0)^2 + reg (double pole with ZERO residue for any multiplicity m_0!).
+   Wait: on the real axis, int_{-eps}^{+eps} (-m_0/x^2) dx = -infty (not Lebesgue or Cauchy-PV integrable!),
+   so 'integrated charges are unaffected' holds ONLY if the integration contour is deformed into C around x_0
+   (or regularized by Hadamard finite part / analytic continuation from complex x_0).
+2. Topological charge Q_top = (beta/(2*pi)) (phi(+infty) - phi(-infty)):
+   Q_top = -(1/(2*pi)) sum_j alpha_j^vee [Im ln tau_j]_{-infty}^{+infty}.
+   When a zero of tau_j crosses the real x-axis, [Im ln tau_j]_{-infty}^{+infty} jumps by +-2*pi,
+   so Q_top JUMPS by -+ alpha_j^vee (a coroot)! It is NOT unaffected by the singularity!

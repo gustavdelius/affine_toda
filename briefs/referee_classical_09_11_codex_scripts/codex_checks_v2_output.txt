@@ -1,0 +1,27 @@
+PASS 01 Laurent series: -2/x**2 + 8/3 - 32*x**2/15 + O(x**4)
+PASS 01 cutoff energy: -392.053331911165289
+PASS 01 cutoff energy: -3992.00533333191111
+PASS 02 reversed spatial orientation: integral=8.0; printed formula=-8.0
+PASS 03 topological counterexample: Q=1.0; Theta parity=-1
+PASS 04 forbidden low-frequency parameter: A=0.2191814811280546, r=2.135984374348023, tau=(-1.5046e-36 - 1.1761e-36j)
+PASS 04 regular type B construction: u=pi/3 A=-2.0; Re(tau)=1+abs(A)*r^2>0
+PASS 05 A1 curvature: Matrix([[0, 0], [0, 0]])
+PASS 06 fusion sum: h=3, a=1, b=1, mass expression=(1.7320508 + 0.0j)
+PASS 06 fusion sum: h=3, a=1, b=2, mass expression=(-4.5138983e-36 + 0.0j)
+PASS 06 fusion sum: h=3, a=2, b=2, mass expression=(-1.7320508 + 0.0j)
+PASS 07 A2 cubic: (1, 1, 1): |C|=3, area RHS=3
+PASS 07 A2 cubic: (1, 1, 2): |C|=6.10622663544e-16, area RHS=3
+PASS 08 negative-velocity time delay: dx=1.17861800503; dt=3.10204296397
+PASS 09 current divergence: 0
+PASS 09 kink spin: theta=0.0; Q=-5.3333333333333333; Q/Q0=1.0
+PASS 09 kink spin: theta=0.6; Q=-0.8815940705151282; Q/Q0=0.16529888822158654
+PASS 10 charge chambers: 91 (h,a) pairs h=2..14; max weight residual=4.11e-15
+PASS 11 folded mass spectra: n=2; max B,C errors=0,2.2e-16
+PASS 11 folded mass spectra: n=3; max B,C errors=4.4e-16,0
+PASS 11 folded mass spectra: n=4; max B,C errors=2.2e-16,2.2e-16
+PASS 11 folded mass spectra: n=7; max B,C errors=4.4e-16,7.2e-16
+PASS 12 bilinear and 13 stress: h=3, max residual=3.865e-35, stress error=1.464e-34
+PASS 12 bilinear and 13 stress: h=4, max residual=2.145e-35, stress error=9.967e-35
+PASS 12 bilinear and 13 stress: h=3, max residual=6.182e-36, stress error=3.231e-35
+PASS 13 canonical one-soliton energy: h=3,a=1, E=(10.3923048454132638 - 2.30303402611783686e-42j), expected=10.3923048454132638
+PASS 13 canonical one-soliton energy: h=4,a=2, E=(16.0 - 3.87879414925109365e-42j), expected=16.0

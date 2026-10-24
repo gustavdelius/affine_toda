@@ -1,0 +1,9 @@
+PASS ch. 21 c f at h = 2 equals S0 of eq-sg-s0 (phase derivative, lam = sqrt3, e)  [diff 8.47e-22]
+PASS Hollowood (4.5) at n = 2 equals the book S_T (phase derivative, lam = sqrt3, e)  [diff 8.73e-22]
+   h=2 theta=0.7: beta^2/(2h) * phase derivative = -2.1003016, -2.1503871 (lam = 28.3, 56.6); ln A_11 = -2.1790541
+   h=2 theta=1.414: beta^2/(2h) * phase derivative = -0.95729376, -0.98371778 (lam = 28.3, 56.6); ln A_11 = -0.99233593
+   h=3 theta=0.7: beta^2/(2h) * phase derivative = -1.8782231, -1.9098467 (lam = 28.3, 56.6); ln A_11 = -1.9283943
+   h=3 theta=1.414: beta^2/(2h) * phase derivative = -0.80418386, -0.81756912 (lam = 28.3, 56.6); ln A_11 = -0.82116489
+   h=4 theta=0.7: beta^2/(2h) * phase derivative = -1.5589346, -1.5805454 (lam = 28.3, 56.6); ln A_11 = -1.5930994
+   h=4 theta=1.414: beta^2/(2h) * phase derivative = -0.6055827, -0.61306446 (lam = 28.3, 56.6); ln A_11 = -0.6145174
+PASS Hollowood (4.5): -i dlnS/dtheta -> +(2h/beta^2) ln A_11 < 0 for h = 2, 3, 4 (the sign of ch. 10)

@@ -1,0 +1,2 @@
+PASS 19 exact three-species static Hirota residual: [0, 0, 0, 0]
+PASS 19 unstable-manifold tangent rank: 3
