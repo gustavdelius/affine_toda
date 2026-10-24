@@ -80,6 +80,10 @@ Differences of convention are not listed; the dictionaries between conventions a
 - **(6.26).** The second line of $K^{(2)}_2$ lacks a fourth block, $\times(\frac52-\frac B2)(\frac52+\frac B2)(-\frac12-\frac B2)(-\frac92+\frac B2)$. As printed, with three blocks, the amplitude violates crossing-unitarity; with the fourth block it is (-@eq-solitonic-factor) for $a=b=2$. The left-hand side should read $K^{(2)}_2=K^{(2)}_3$, not $K^{(1)}_3$. *Misprint* (@prp-solitonic-amplitude; `code/particle_reflection.py`).
 - **Section 6.2, the boundary spectrum of $a_2^{(1)}$.** On $b_{-n,n}$ the pole $p=\frac12+(2n-1)\frac B2$ is attributed to the creation of $b_{-n+1,n}$. The pole is in the physical strip for $B<\frac2{2n-1}$, but $b_{-n+1,n}$ lies in their range only for $B<\frac1{2n-1}$. In the window between, the pole is a boundary Coleman–Thun pole reflecting at a zero, not a bound state; their spectrum stands. *Incomplete* (@sec-boundary-spectrum-a2; `code/particle_reflection.py`).
 
+**Faddeev 2000** [@faddeev2000], the modular double of a quantum group.
+
+- **(18), the condition for commuting Weyl pairs.** With his normalization (14), $[Q,P]=2\pi i\hbar I$, the pairs (15) and (17) commute when $\hbar\alpha\tilde\beta$ and $\hbar\tilde\alpha\beta$ are integers, not when $\alpha\tilde\beta=\tilde\alpha\beta=\hbar$; the printed condition leaves the phase $e^{-2\pi i\hbar^2}$. With $\hbar\alpha\tilde\beta=-\hbar\tilde\alpha\beta=1$, $q=e^{i\pi\tau}$ gives $\tilde q=e^{-i\pi/\tau}$, as in his introduction and his (22). *Misprint* (@prp-dq-two-weyl-pairs; `code/defect_sg_scalar_poles.py`).
+
 **Mattsson and Dorey 2000** [@mattsson_dorey2000], the boundary bound states of Dirichlet sine-Gordon theory.
 
 - **Tables 6 and 7, pole orders.** On a charge-1 state with labels $n_1,\dots,n_{2k-1}$, the reflection factors have a pole of order $2k-\delta_{n_1,0}$ at $\nu_0$, not $k$, and of order $1+\sum_{i\ \rm even}c_j(n_i)$ at $\nu_{-j}$, with $c_j(n)=2,1,0$ for $j<n$, $j=n$, $j>n$, not 1. Their own §5.3 has the double pole at $\nu_0$ on $|1;1\rangle$. Table 6 omits the poles at $\nu_0$ and $\nu_{-j}$. *Error*; the orders were measured from their Gamma-product formulas at two parameter points and 13 states (@sec-bsg-spectrum).
@@ -130,6 +134,7 @@ Differences of convention are not listed; the dictionaries between conventions a
 - **(2.2), the defect Lagrangian.** The defect term must enter with $+\delta(x)$ to give their defect conditions (2.4). *Misprint* (@sec-sg-defect-lagrangian).
 - **Section 2, the two-defect remark.** It compares temporal delays. A soliton overtaken by a faster soliton of rapidity $\eta$ acquires the before-to-after factor $1/A_{11}=\coth^2\frac{\theta-\eta}2$, which agrees with two identical defects without jumps; a soliton that overtakes acquires $A_{11}$ instead. A spatial passage from left to right across a soliton has the factor $A_{11}=\tanh^2\frac{\theta-\eta}2$, so the spatial factors of a soliton and of the pair are inverse. The remark stands for the overtaken soliton. *Clarification* (@prp-half-soliton).
 - **(3.42)–(3.47), the scalar factor.** The compact Gamma products (3.42) and (3.47) do not converge without an endpoint normalization: truncated after $K$ factors their phase drifts like $-\frac{\gamma\tilde\theta}\pi\ln K$. The paired product $r(x)$ of (3.44) does not converge on its own either; it diverges like $K^{(\gamma+1)/4}$. What converges is the ratio $r/\bar r$ of (3.43) with both products cut off at the same $K$, which is how (-@eq-sgd-scalar) defines it. *Error* (@sec-sg-transmission-matrix; `code/defect_sg_transmission.py`).
+- **Section 4, after (4.1), the classical limit of the width.** They state that the imaginary part of $\Delta E$ vanishes as $\beta\to0$, so that classically only absorption remains. This holds in units of the soliton mass. In absolute units the width $2m_s\sinh\eta\,\sin\frac\pi{2\gamma}$ tends to $m_0\sinh\eta$, the growth rate of the unstable mode of the odd defect, which is also why the classical time of emission is undetermined. *Clarification* (@prp-sgd-odd-jump; `code/defect_sg_scalar_poles.py`).
 - **(3.57)–(3.59), the two labels $(a,b)$.** They are what relates the two defect types: $\psi\to-\psi$ exchanges the jump $b-a$ with $a+b$ up to sign, so $\mathbb T_{{\rm I}_+}$ is not $(1\otimes C)\mathbb T_{{\rm I}_-}$ in the original labels. Their remark that the dependence on $\nu$ can be removed in the two-label basis is the statement that the offset $s_+=-1-s$ of the image can be changed by the residual gauge freedom. *Clarification* (@prp-two-borels; `code/defect_universal_r.py`).
 
 **Corrigan and Zambon 2007** [@cz2007], purely transmitting defects in affine Toda theory.
@@ -154,6 +159,10 @@ Differences of convention are not listed; the dictionaries between conventions a
 **Corrigan and Zambon 2010** [@cz2010], a fused pair of defects in sine-Gordon theory.
 
 - **(3.17), the type-II resonance poles.** They lie at $\theta=\eta_p-i\pi/2\gamma$, not $\eta_p+i\pi/2\gamma$: the pole of $\Gamma(1/2-z_p)$ with $z_p=i\gamma(\theta-\eta_p)/\pi$ (their (3.16)) is at $z_p=1/2$. This agrees with [@bcz2005, eq. (4.1)]. *Misprint* (@sec-type-two).
+
+**Nemes 2010** [@nemes2010], semiclassical analysis of the sine-Gordon defect.
+
+- **(67) of the arXiv version, the number of resonance poles.** It counts about $\gamma/4$ poles with $-\frac\pi2<\operatorname{Im}(\theta-\eta)<0$ at large $\gamma$, from the poles of the Gamma functions alone. The prefactor $1/(1+ip_x)$ of (34) contributes as many again, so there are about $\gamma/2$, one for each $n\ge0$ with $2n+1<\gamma$. *Incomplete* (@prp-sgd-pole-ladder; `code/defect_sg_scalar_poles.py`).
 
 **Weston 2010** [@weston2010], defects in the XXZ and sine-Gordon models.
 
