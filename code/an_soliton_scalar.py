@@ -21,6 +21,9 @@ unitarity there is a scalar condition, S_T(T - t) S_T(T + t) = 1. The c f form s
 f(T - t) = f(t) instead, and then S_T(T-t)S_T(T+t) = (sin^2 pi T - sin^2 pi t)/(sin^2 pi omega
 - sin^2 pi t), which is 1 only for T = +-omega mod 1, i.e. for h = 2 at generic omega.
 Semiclassically, ch. 10 (sec-multi-solitons) gives -i dln S/dtheta -> (2h/beta^2) ln A_11.
+
+Overall sign (sec-scalar-factor, sec-crossing-sign): the text fixes F(0) = 1, so at h = 2 c f is
+-S_0 of eq-sg-s0, whose S_0(0) = -1; Hollowood's Phi_11(0) is -1 as well.
 """
 import numpy as np
 import mpmath as mp
@@ -175,6 +178,13 @@ d1 = np.abs(dln_F(TS, 2, OM) - dS0).max()
 d2 = np.abs(np.exp(ln_ST_holl(TS, 2, OM)) / STz - 1).max()
 report(f'h = 2: c f has the log-derivative of S_0 [{d1:.1e}], and Hollowood (4.5) equals S_T = '
        f'S_0 sinh(lambda theta)/sinh(lambda(i pi - theta)) [{d2:.1e}]', d1 < 1e-6 and d2 < 1e-6)
+# the overall sign: sec-scalar-factor fixes F(0) = 1, while S_0(0) = -1 in eq-sg-s0
+F0 = np.exp(ln_F(np.array([1e-9j]), 2, OM))[0]
+Fb = np.exp(ln_F(TS, 2, OM)) / np.sign(F0.real)
+S00 = np.exp(lnS0(0j))
+d3 = np.abs(Fb / S0 + 1).max()
+report(f'h = 2: with the sign F(0) = 1 of sec-scalar-factor, c f = -S_0 [{d3:.1e}]; S_0(0) = {S00.real:+.0f}',
+       d3 < 1e-6 and abs(abs(F0) - 1) < 1e-6 and abs(S00 + 1) < 1e-12)
 
 for h in (2, 3, 4):
     T = h * OM / 2
@@ -188,6 +198,10 @@ for h in (2, 3, 4):
     cu = np.exp(ln_ST_holl(T - TS, h, OM) + ln_ST_holl(T + TS, h, OM))
     e3 = max(np.abs(phi - 1).max(), np.abs(cu - 1).max())
     report(f'h = {h}: Hollowood (4.5): Phi_11(t)Phi_11(-t) = 1 and S_T(T - t)S_T(T + t) = 1 [{e3:.1e}]', e3 < 1e-6)
+    t0 = np.array([1e-5j])
+    phi0 = (np.exp(ln_ST_holl(t0, h, OM)) / tau(t0, OM))[0]
+    report(f'h = {h}: Hollowood Phi_11(0) = -1 [{abs(phi0 + 1):.1e} at t = 1e-5 i], the opposite of F(0) = 1',
+           abs(phi0 + 1) < 1e-3)
     # 4. the book's c f in the soliton-antisoliton channel
     cf = np.exp(ln_F(T - TS, h, OM) + ln_F(T + TS, h, OM)) * tau(T - TS, OM) * tau(T + TS, OM)
     pred = (np.sin(np.pi * T) ** 2 - np.sin(np.pi * TS) ** 2) / (np.sin(np.pi * OM) ** 2 - np.sin(np.pi * TS) ** 2)
