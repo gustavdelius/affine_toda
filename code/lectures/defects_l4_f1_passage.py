@@ -1,4 +1,4 @@
-"""Lecture notes on defects, Lecture 4, figure 1 (fig-l4-passage): three things a window does to a soliton.
+"""Lecture notes on defects, Lecture 4, figure 1 (fig-l4-passage): three things a defect does to a soliton.
 
 The exact solutions Phi = 4 arctan Y on x < 0, Psi = 4 arctan(z Y) on x > 0, Y = exp(m0 (x cosh theta - t sinh theta)),
 z = -coth((theta - theta_d)/2), of the type-I_- defect with theta_d = 0.8 (m0 = 1), for

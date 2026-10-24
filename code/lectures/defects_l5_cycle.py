@@ -40,14 +40,14 @@ One PASS or FAIL line per check; exit status 1 on any FAIL. Units m = 1 in the n
       the cross-term condition holds exactly when every neighbour of i is p(i) or p^{-1}(i), exactly when the
       diagram is a cycle and p a rotation by one step; condition 3 for the potential built from the partners
       holds exactly in the passing cases; automorphisms preserve the Kac labels.
-  (j) The a_r window (h = 2..5): D alpha_j = -2 mu_{j+1}, D^T alpha_j = 2 mu_j, alpha_i . D alpha_j =
+  (j) The a_r defect (h = 2..5): D alpha_j = -2 mu_{j+1}, D^T alpha_j = 2 mu_j, alpha_i . D alpha_j =
       2 delta_ij - 2 delta_{i,j+1}, D = 1 + i cot(pi k/h) on the eigenvectors of pi, D = the book's
       2 sum (lambda_i - lambda_{i+1}) lambda_i^T; f_j g_j = e^{alpha_j . phi}, f_j g_{j+1} = e^{alpha_j . psi};
       conditions 1-3 with P_d = m sum [sigma^{-1}(g_j - 1) - sigma (f_j - 1)], and condition 3 fails for a wrong
       coefficient; the matrix conditions are equivalent to the component light-cone equations; the light-cone
       split B +- P_d.
-  (k) a_1^(1): the window is Lecture 3's sinh-Gordon window with Phi = 2 phi_1, m0 = 2 m, B_L3 = 2 B, and its
-      continuation is the sine-Gordon window.
+  (k) a_1^(1): the defect is Lecture 3's sinh-Gordon defect with Phi = 2 phi_1, m0 = 2 m, B_L3 = 2 B, and its
+      continuation is the sine-Gordon defect.
   (l) Unfreezing: the light-cone system with any f, g obeying the functional equation gives box phi =
       -grad V(phi), box psi = -grad V(psi); for a_r these are the periodic two-dimensional Toda lattice; an a_2
       soliton pair solves the light-cone system at several x (a Baecklund pair).
@@ -433,7 +433,7 @@ report(f"(i) scan of 23 affine diagrams, {total} automorphisms: {counts}; for fi
 
 
 # ---------------------------------------------------------------------------------------------------------
-# (j) the a_r window
+# (j) the a_r defect
 def comps(S, v):
     """Components of v (orthonormal hyperplane coordinates) in R^h."""
     return S['U'] @ v
@@ -504,12 +504,12 @@ for h in (2, 3, 4, 5):
         ok_j &= all(np.isclose(a_p[k], -m * sig * (f[k] - f[(k - 1) % h])) for k in range(h))
         lc = comps(S, pt - px), comps(S, qt - qx)          # d_- phi, d_- psi in components
         ok_j &= all(np.isclose(lc[1][k] - lc[0][(k + 1) % h], m / sig * (g[k] - g[(k + 1) % h])) for k in range(h))
-report("(j) a_r window, h = 2..5: D alpha_j = -2 mu_{j+1}, D^T alpha_j = 2 mu_j, alpha_i.D alpha_j = 2 delta_ij - "
+report("(j) a_r defect, h = 2..5: D alpha_j = -2 mu_{j+1}, D^T alpha_j = 2 mu_j, alpha_i.D alpha_j = 2 delta_ij - "
        "2 delta_{i,j+1}, eigenvalues 1 + i cot(pi k/h), the book's D; f_j = e^{psi_j - phi_{j+1}}, g_j = e^{phi_j - "
        "psi_j}, f_j g_j and f_j g_{j+1}; conditions 2 and 3 (and a wrong coefficient fails); the component form", ok_j)
 
 # ---------------------------------------------------------------------------------------------------------
-# (k) a_1^(1): Lecture 3's sinh-Gordon window
+# (k) a_1^(1): Lecture 3's sinh-Gordon defect
 S = ar_setup(2)
 ok_k = abs(abs(S['U'][0, 0]) - 1 / math.sqrt(2)) < 1e-12
 sig = 0.8
@@ -536,8 +536,8 @@ ok_k &= math.isclose(-2 * S['U'][0, 0] * dV, -m0**2 * math.sinh(Phi), rel_tol=1e
 Pr, Qr = 0.9, -0.4
 ok_k &= cmath.isclose(-(2 * m0 * (sig * (cmath.cosh(1j * (Pr + Qr) / 2) - 1) + (cmath.cosh(1j * (Pr - Qr) / 2) - 1) / sig)),
                       -2 * m0 * (sig * (math.cos((Pr + Qr) / 2) - 1) + (math.cos((Pr - Qr) / 2) - 1) / sig))
-report("(k) for a_1^(1) the window is Lecture 3's sinh-Gordon window with Phi = 2 phi_1, m0 = 2m, B_L3 = 2B, D = 1, "
-       "E = 0, and its continuation is the sine-Gordon window", ok_k)
+report("(k) for a_1^(1) the defect is Lecture 3's sinh-Gordon defect with Phi = 2 phi_1, m0 = 2m, B_L3 = 2B, D = 1, "
+       "E = 0, and its continuation is the sine-Gordon defect", ok_k)
 
 # ---------------------------------------------------------------------------------------------------------
 # (l) unfreezing: second derivatives from the light-cone system
@@ -621,7 +621,7 @@ for h in (2, 3, 4, 5):
     ok_m &= all(np.allclose(rho @ al[j], al[(-j) % h]) for j in range(h))
     A1, B1 = rho, rho @ np.linalg.inv(pi)
     ok_m &= np.allclose(A1.T @ E @ A1, -E) and np.allclose(A1.T @ D @ B1, -D) and np.allclose(B1.T @ E @ B1, -E)
-    # the mirror image: D' = 2 (1 - pi^{-1})^{-1} = D^T, E' = 1 - D' = -E; L_d(rho phi, rho psi) is the window built
+    # the mirror image: D' = 2 (1 - pi^{-1})^{-1} = D^T, E' = 1 - D' = -E; L_d(rho phi, rho psi) is the defect built
     # from D' by the general recipe, and D' passes the cross-term condition for p(j) = j + 1
     Dm = 2 * np.linalg.inv(np.eye(rr) - np.linalg.inv(pi))
     ok_m &= np.allclose(Dm, D.T) and np.allclose(rho @ D @ rho, Dm) and np.allclose(rho @ E @ rho, np.eye(rr) - Dm)
@@ -776,7 +776,7 @@ report("(n) linear waves: R_k = 0 and T_k = (e^{-theta} + sigma e^{i gamma_k})/(
        "e^{i gamma_k}, limits 1 and omega^k; h = 2 gives Lecture 4's T; large sigma gives psi = pi phi", ok_n)
 
 # ---------------------------------------------------------------------------------------------------------
-# (o) solitons through the a_r window
+# (o) solitons through the a_r defect
 ok_o = True
 res, res_bad = 0.0, 1.0
 for h in (2, 3, 4, 5):

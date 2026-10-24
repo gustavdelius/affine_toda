@@ -2,7 +2,7 @@
 
 These lectures are a companion to the [part on integrable defects](book:sec-defect-scattering) of the book *Affine Toda field theory*. The book states the results, with their proofs, their checks and their place in the literature. The lectures tell the story behind them. They ask where each idea comes from and why it had to come out the way it did. They work through the decisive calculations line by line, so that you can do them yourself.
 
-The story starts from a simple question. A boundary of an integrable field theory is a mirror: particles bounce off it, and the book's part on the half-line is about what they do there. What else can a line in spacetime be? The answer turns out to be very restrictive, and very rich. In an interacting integrable theory a line can be a mirror or a window, but not both at once. The windows are not guessed. They are a construction from 19th-century surface geometry, Bäcklund's transformation, frozen at a single point. A window behaves like a particle that has a rapidity but no mass shell, and a particle is itself a window. Asking that momentum be conserved at the window singles out one family of affine Toda theories, the cyclic Dynkin diagrams $a_r^{(1)}$. In the quantum theory a window keeps only half of the quantum group, and that half has representations that the whole cannot have. Wrapped around a cylinder, a window becomes Baxter's Q-operator.
+The story starts from a simple question. A boundary of an integrable field theory is a mirror: particles bounce off it, and the book's part on the half-line is about what they do there. What else can a line in spacetime be? The answer turns out to be very restrictive, and very rich. In an interacting integrable theory a line can be a mirror or a window, but not both at once. These lectures are about the windows, which after Lecture 1 we simply call defects. These defects are not guessed. They are a construction from 19th-century surface geometry, Bäcklund's transformation, frozen at a single point. A defect behaves like a particle that has a rapidity but no mass shell, and a particle is itself a defect. Asking that momentum be conserved at the defect singles out one family of affine Toda theories, the cyclic Dynkin diagrams $a_r^{(1)}$. In the quantum theory a defect keeps only half of the quantum group, and that half has representations that the whole cannot have. Wrapped around a cylinder, a defect becomes Baxter's Q-operator.
 
 ## The lectures {#sec-lectures-plan}
 
@@ -11,12 +11,12 @@ The story starts from a simple question. A boundary of an integrable field theor
 | 1 | Mirrors and windows | What can a line in an integrable theory do to the particles that meet it? |
 | 2 | Bäcklund's machine | How do you add a soliton to a solution by solving first-order equations? |
 | 3 | Freezing it at a point | Which local terms at a point keep a field theory integrable? |
-| 4 | What gets through | What happens to a soliton or a wave that meets the window? |
-| 5 | Why the cycle? | Which affine Toda theories have such windows, and why only those? |
-| 6 | The classical algebra of a window | Why are the windows integrable, in the language of Lax pairs and r-matrices? |
-| 7 | Quantizing the window | Which symmetry survives in the quantum theory, and what does it fix? |
-| 8 | Windows, L-operators and Q-operators | What is a window wrapped around a cylinder? |
-| 9 | Folding, fusing and the classical breather | How are windows and mirrors related, and what is left of $\hbar$? |
+| 4 | What gets through | What happens to a soliton or a wave that meets the defect? |
+| 5 | Why the cycle? | Which affine Toda theories have such defects, and why only those? |
+| 6 | The classical algebra of a defect | Why are these defects integrable, in the language of Lax pairs and r-matrices? |
+| 7 | Quantizing the defect | Which symmetry survives in the quantum theory, and what does it fix? |
+| 8 | Defects, L-operators and Q-operators | What is a defect wrapped around a cylinder? |
+| 9 | Folding, fusing and the classical breather | How are defects and boundaries related, and what is left of $\hbar$? |
 
 Lectures 1 to 6 are written; the others are in preparation.
 

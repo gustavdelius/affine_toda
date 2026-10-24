@@ -89,7 +89,7 @@ The book cites only the scripts in `code/` (`defect_*.py`, listed in `code/READM
 
 ## Lecture notes on defects (from 2026-10-15)
 
-The lecture notes "Windows in spacetime" (`lecture-notes/defects/`, a separate Quarto book) tell the story of Part VIII in 9 lectures. Lectures 1–5 were merged with PR #30, and the book improvements found while writing Lecture 5 with PR #33.
+The lecture notes "Integrable defects, from Bäcklund to Baxter" (`lecture-notes/defects/`, a separate Quarto book) tell the story of Part VIII in 9 lectures. Lectures 1–5 were merged with PR #30, and the book improvements found while writing Lecture 5 with PR #33.
 
 | File | What it is |
 |---|---|

@@ -15,9 +15,9 @@ One PASS or FAIL line per check; exit status 1 on any FAIL.
       and the both-reflected ones differ by a multiple of S_ab - S_ba.
   (d) The triangle relation: index form and braid form agree for random T; T = Rcheck(theta-theta_d)
       solves it (a particle is a defect); a perturbation does not.
-  (e) Windows: T(theta) T(theta + i pi) = 1 from unitarity and crossing; a bulk amplitude at a
-      shifted rapidity, S(theta - theta_0), is a window (unitarity, crossing, bootstrap).
-  (f) The Lee-Yang window T_b = f_{2/3}(theta - theta_b), theta_b = i pi (3-b)/6: axioms, the
+  (e) Defects: T(theta) T(theta + i pi) = 1 from unitarity and crossing; a bulk amplitude at a
+      shifted rapidity, S(theta - theta_0), is a defect (unitarity, crossing, bootstrap).
+  (f) The Lee-Yang defect T_b = f_{2/3}(theta - theta_b), theta_b = i pi (3-b)/6: axioms, the
       bound-state pole of Tbar_b, the bootstrap T_b(theta) S(theta+iu) = T_{b+2}(theta), the energies
       m sin(b pi/6) = m cosh theta_b, Hermitian analyticity exactly for Re b = 3 mod 6.
   (g) The Verlinde lines of the Lee-Yang model M(2,5): eigenvalues (1 -+ sqrt 5)/2, fusion Phi x Phi = 1 + Phi.
@@ -292,7 +292,7 @@ r2, _ = triangle_braid(lambda u: Rcheck(u - thd) + pert, u1, u2)
 report("(d) control: a perturbed T violates it", r2 > 1e-3)
 
 # ---------------------------------------------------------------------------------------------
-# (e) windows: T(theta)T(theta+i pi) = 1; shifted bulk amplitudes are windows
+# (e) defects: T(theta)T(theta+i pi) = 1; shifted bulk amplitudes are defects
 # ---------------------------------------------------------------------------------------------
 z = sp.symbols('z')
 def f_sym(x, w):
@@ -313,7 +313,7 @@ report("(e) bootstrap T(theta + i pi/3) T(theta - i pi/3) = T(theta) for S = f_{
        zero(Tw.subs(z, z + sp.I * sp.pi / 3) * Tw.subs(z, z - sp.I * sp.pi / 3) - Tw))
 
 # ---------------------------------------------------------------------------------------------
-# (f) the Lee-Yang window
+# (f) the Lee-Yang defect
 # ---------------------------------------------------------------------------------------------
 def f23(w):
     return fx(2 / 3, w)
@@ -330,7 +330,7 @@ for _ in range(5):
     ok &= abs(Tb(b, w) * Tbb(b, -w) - 1) < 1e-12
     ok &= abs(Tb(b, w) - Tbb(b, 1j * math.pi - w)) < 1e-12
     ok &= abs(Tb(b, w + 1j * math.pi / 3) * Tb(b, w - 1j * math.pi / 3) - Tb(b, w)) < 1e-12
-report("(f) Lee-Yang window: unitarity, crossing, bootstrap for complex b", ok)
+report("(f) Lee-Yang defect: unitarity, crossing, bootstrap for complex b", ok)
 # bound-state pole of Tbar_b at theta = i pi (b+1)/6
 ok = True
 for b in (-0.5, 0.3, 1.4):

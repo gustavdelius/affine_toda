@@ -12,7 +12,7 @@
 
 ## Superposition without linearity {#sec-l2-question}
 
-In Lecture 1 we learned what a window must do. We did not find one in an interacting theory. The window we are going to find is built from a machine that 19th-century geometers invented for a different purpose, and this lecture takes the machine apart.
+In Lecture 1 we learned what a purely transmitting defect must do. We did not find one in an interacting theory. The defect we are going to find is built from a machine that 19th-century geometers invented for a different purpose, and this lecture takes the machine apart.
 
 The problem it solves is this. For a linear equation the sum of two solutions is a solution, so a few simple solutions generate all the others. The sine-Gordon equation is nonlinear, and the sum of two kinks is not a solution. Yet its solutions behave as if they were superpositions: two solitons pass through each other and emerge unchanged, apart from a shift. Is there a nonlinear way of adding solutions? Bäcklund's transformation is one. It takes a solution and returns another one with one more soliton, and Bianchi showed how to combine such steps by pure algebra.
 
@@ -307,7 +307,7 @@ Now consider a mixture. Let the field be $\Phi$ for $x<0$ and $\Psi$ for $x>0$, 
 3. Which special value of $\theta$ might be dangerous?
 :::
 
-Lecture 3 answers the first question: the frozen Bäcklund transformation is the integrable defect of Bowcock, Corrigan and Zambon, and it is a window. Lecture 4 answers the other two.
+Lecture 3 answers the first question: the frozen Bäcklund transformation is the integrable defect of Bowcock, Corrigan and Zambon, and it is purely transmitting. Lecture 4 answers the other two.
 
 ## What we have learned {#sec-l2-summary}
 
@@ -336,7 +336,7 @@ For $E=G=1$, $F=\cos\omega$: $\Gamma^1_{11}=\omega_u\cot\omega$, $\Gamma^2_{11}=
 :::
 
 ::: {#exr-l2-push}
-*(Rediscover.)* In the two-soliton solution (-@eq-l2-two-soliton), push soliton 2 to $x=+\infty$ by letting $c_2\to-\infty$ at fixed $c_1$. Show that $\Phi_{12}$ tends to a single soliton, $\tan\frac{\Phi_{12}}4=\frac{a_1+a_2}{a_1-a_2}Y_1$: soliton 1, with $Y_1$ multiplied by the Bianchi coefficient. By how much is it displaced? What do you get if instead you push soliton 2 to $x=-\infty$? You have just found the delay of a soliton at the window of Lecture 4, before meeting the window.
+*(Rediscover.)* In the two-soliton solution (-@eq-l2-two-soliton), push soliton 2 to $x=+\infty$ by letting $c_2\to-\infty$ at fixed $c_1$. Show that $\Phi_{12}$ tends to a single soliton, $\tan\frac{\Phi_{12}}4=\frac{a_1+a_2}{a_1-a_2}Y_1$: soliton 1, with $Y_1$ multiplied by the Bianchi coefficient. By how much is it displaced? What do you get if instead you push soliton 2 to $x=-\infty$? You have just found the delay of a soliton at the defect of Lecture 4, before we have built the defect.
 :::
 
 ::: {#exr-l2-moving-breather}

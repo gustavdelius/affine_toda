@@ -2,7 +2,7 @@
 
 A unified review of affine Toda field theories, with new results: two-dimensional quantum field theories with one theory for each affine Kac–Moody algebra. They are integrable, so many quantities can be computed exactly, and they display particles and bound states, solitons and breathers, strong–weak duality, quantum-group symmetry, integrable boundaries and, at imaginary coupling, non-unitarity.
 
-The book collects results scattered over five decades of papers and presents them in a logical order, in one notation and with one set of conventions. It is a reference, not a course; companion lecture notes teach parts of the subject step by step. Two courses accompany Part VIII on integrable defects: *Windows in spacetime* (`lecture-notes/defects/`, drafted by Claude) and *Lectures on integrable defects in affine Toda field theory* (`lecture-notes/defects-gemini/`, drafted by Gemini). The home page of the site says what the site holds and compares the two courses.
+The book collects results scattered over five decades of papers and presents them in a logical order, in one notation and with one set of conventions. It is a reference, not a course; companion lecture notes teach parts of the subject step by step. Two courses accompany Part VIII on integrable defects: *Integrable defects, from Bäcklund to Baxter* (`lecture-notes/defects/`, drafted by Claude) and *Lectures on integrable defects in affine Toda field theory* (`lecture-notes/defects-gemini/`, drafted by Gemini). The home page of the site says what the site holds and compares the two courses.
 
 **Read the book and the lecture notes:** [gustavdelius.github.io/affine_toda](https://gustavdelius.github.io/affine_toda/) · [PDF of the book](https://gustavdelius.github.io/affine_toda/affine-toda.pdf)
 

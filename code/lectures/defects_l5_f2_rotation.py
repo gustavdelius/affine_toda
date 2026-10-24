@@ -1,6 +1,6 @@
 """Lecture notes on defects, Lecture 5, figure 2 (fig-l5-rotation): from the identity to the rotation.
 
-For a_3^(1) (h = 4), the phases that the type-I_- window gives to what crosses it, against theta - theta_d:
+For a_3^(1) (h = 4), the phases that the type-I_- defect gives to what crosses it, against theta - theta_d:
 (a) linear waves of particle k = 1, 2, 3, T_k = (e^{-(theta - theta_d)} + e^{i gamma_k})/(e^{-(theta - theta_d)} +
     e^{-i gamma_k}), gamma_k = pi k/h, whose phase rises continuously from 0 to 2 gamma_k, passing gamma_k at
     theta = theta_d;
@@ -8,7 +8,7 @@ For a_3^(1) (h = 4), the phases that the type-I_- window gives to what crosses i
     u = theta - theta_d, whose phase arg(e^{-2u} + e^{2 i gamma_a}) goes from 0 to 2 gamma_a (a < h/2), jumps by pi
     (a = h/2, the sine-Gordon conversion), or goes to 2 gamma_a - 2 pi (a > h/2).
 In both panels the end values are the eigenvalues omega^k = e^{2 pi i k/h} of the rotation pi: fast particles and
-fast solitons see the window as the symmetry line psi = pi phi.
+fast solitons see the defect as the symmetry line psi = pi phi.
 
 Checks: |T_k| = 1 on the plotted range; the end values are omega^k; arg T_k(theta_d) = gamma_k;
 z_a(u) = T_a(u + theta_d - i pi/2); the jump of arg z_2 by pi at u = 0.

@@ -1,9 +1,9 @@
-"""Checks for Lecture 6 of the defect lecture notes, "The classical algebra of a window"
+"""Checks for Lecture 6 of the defect lecture notes, "The classical algebra of a defect"
 (lecture-notes/defects/06-classical-algebra.qmd).
 
 Conventions of the lectures: the dimensionless sine-Gordon field Phi on x < 0 and Psi on x > 0, the action
 (1/beta^2) int {int (1/2 Phi_t^2 - 1/2 Phi_x^2 - V(Phi)) dx + (same for Psi) + L_d} dt with V = m0^2 (1 - cos Phi),
-d_pm = d_t pm d_x, field equation d_+ d_- Phi = -m0^2 sin Phi. The type-I_- window has L_d = Phi Psi_t - B,
+d_pm = d_t pm d_x, field equation d_+ d_- Phi = -m0^2 sin Phi. The type-I_- defect has L_d = Phi Psi_t - B,
 B = -2 m0 [sigma (cos(Sigma/2) - 1) + sigma^{-1} (cos(Delta/2) - 1)], Sigma = Phi + Psi, Delta = Phi - Psi,
 sigma = e^{-theta_d}, P_d = 2 m0 [sigma (cos(Sigma/2) - 1) - sigma^{-1} (cos(Delta/2) - 1)], and the defect conditions
     d_+ Delta = -2 sigma m0 sin(Sigma/2),     d_- Sigma = (2 m0/sigma) sin(Delta/2)      at x = 0.
@@ -44,13 +44,13 @@ any FAIL. Units m0 = beta = 1 in the numerics.
       m0/4 - (1/4m0)(1/2 (d_+Phi)^2 + V), a total derivative at order 1/lambda^2, and at order 1/lambda^3 the density
       (1/8m0^3)[(d_+^2 Phi)^2 - (d_+Phi)^4/4 + m0^2 cos Phi (d_+Phi)^2] - d_x(d_+Phi d_+^2 Phi)/(4m0^3) (Euler operator);
       the defect factor gives sigma cos(Sigma/2) at order 1/lambda, so the conserved coefficient is
-      sigma - (1/4m0)[beta^2 (E - P) + B - P_d]; at order 1/lambda^3 the window term, with the boundary terms of the
+      sigma - (1/4m0)[beta^2 (E - P) + B - P_d]; at order 1/lambda^3 the defect contribution, with the boundary terms of the
       total derivative, reduces by the first defect condition to
       D_{-3} = (sigma/2m0^2) cos(Sigma/2) d_+Phi d_+Psi + sigma^3 (cos(Sigma/2) - (2/3) cos^3(Sigma/2)).
       Numerically along the passage the spin -1 and spin -3 totals are constant to 1e-10 and fail with L_d -> 1.
-  (h) Charges at lambda -> 0: in the gauge e^{-i Phi h/4}, L_d becomes e^{i Delta h/2} + (sigma/lambda) s; the window
+  (h) Charges at lambda -> 0: in the gauge e^{-i Phi h/4}, L_d becomes e^{i Delta h/2} + (sigma/lambda) s; the defect
       term at order lambda is cos(Delta/2)/sigma and the bulk density m0/4 - (1/4m0)(1/2 (d_-Phi)^2 + V), so
-      E + P + (B + P_d)/beta^2 is conserved; the spin +3 window term is
+      E + P + (B + P_d)/beta^2 is conserved; the spin +3 defect contribution is
       D_{+3} = -(1/(2 m0^2 sigma)) cos(Delta/2) d_-Phi d_-Psi + sigma^-3 (cos(Delta/2) - (2/3) cos^3(Delta/2)),
       after the boundary terms of the total derivative d_x(d_-Phi d_-^2 Phi)/(4 m0^3) and the second defect condition;
       numerically both totals are constant along the passage.
@@ -59,15 +59,15 @@ any FAIL. Units m0 = beta = 1 in the numerics.
       among a h(x)h + c (e(x)f + f(x)e); it is the book's r-matrix for h = 2 with beta^2 -> b^2 = -beta^2/2; it solves
       the classical Yang-Baxter equation; r^{t1 t2}(z) = -r(1/z); a lattice transport exp(-Delta a_x) with
       {Phi_n, p_n} = beta^2/Delta satisfies {T (x) T} = c [r, T (x) T] with c -> -1 as Delta -> 0.
-  (j) The window's bracket: L_d = (Phi Psi_t - B)/beta^2 gives {Phi, Psi} = -beta^2; with D = e^{i Delta h/4},
+  (j) The defect's bracket: L_d = (Phi Psi_t - B)/beta^2 gives {Phi, Psi} = -beta^2; with D = e^{i Delta h/4},
       O = e^{-i Sigma h/4} s: {D_1, O_2} = kappa h(x)h D_1 O_2, {O_1, D_2} = -kappa h(x)h O_1 D_2, kappa = {Phi, Psi}/8,
       [h(x)h, X] = 2 h(x)h X for X = D_1 O_2, O_1 D_2, [Pi, D_1 O_2] = -h(x)h O_1 D_2, [Pi, O_1 D_2] = -h(x)h D_1 O_2
       (Pi = e(x)f + f(x)e); {L_1, L_2} = [r, L_1 L_2] holds exactly for kappa = -beta^2/8, i.e. {Phi, Psi} = -beta^2;
-      the r-matrix determined by the window alone is the bulk one; type I_+ needs {Phi, Psi} = +beta^2, which its
+      the r-matrix determined by the defect alone is the bulk one; type I_+ needs {Phi, Psi} = +beta^2, which its
       kinetic term -Phi Psi_t gives; a wrong sign fails.
-  (k) Involution: {L^-1 (x) L^-1} = -[r, L^-1 (x) L^-1]; for a chain of three windows with independent canonical pairs,
+  (k) Involution: {L^-1 (x) L^-1} = -[r, L^-1 (x) L^-1]; for a chain of three defects with independent canonical pairs,
       {tr M(lambda_1), tr M(lambda_2)} = 0 for M = L^-1 L^-1 L^-1 (and for L L L), and fails for L^-1 L L^-1.
-  (l) Two windows: L(sigma_1; Phi_0, Phi_1) L(sigma_2; Phi_1, Phi_12) = L(sigma_2; Phi_0, Phi_2) L(sigma_1; Phi_2, Phi_12)
+  (l) Two defects: L(sigma_1; Phi_0, Phi_1) L(sigma_2; Phi_1, Phi_12) = L(sigma_2; Phi_0, Phi_2) L(sigma_1; Phi_2, Phi_12)
       when Phi_12 is given by Bianchi's formula with a_k = -sigma_k, for all lambda; a perturbed Phi_12 fails.
   (m) Space as time: for G = int (Phi Psi_t - B) dt, delta G/delta Phi = Phi_x and -delta G/delta Psi = Psi_x are
       the defect conditions; -G generates the canonical map (Phi, -Phi_x) -> (Psi, -Psi_x).
@@ -75,7 +75,7 @@ any FAIL. Units m0 = beta = 1 in the numerics.
       time equation on the type-I_+ conditions; L_d depends on lambda and sigma only through sigma/lambda, which is
       -e^{theta - theta_d} at lambda = -e^{-theta}; L_d(sigma)(Phi, Psi) L_d(-sigma)(Psi, Phi) = det L_d (the inverse
       transformation); the even vacua (0, 0) and (2 pi, 2 pi) give L_d = 1 +- (sigma/lambda) s.
-  (o) The a_r^(1) window in the components of Lecture 5 (real coupling, phi, psi in the hyperplane sum = 0 of R^h,
+  (o) The a_r^(1) defect in the components of Lecture 5 (real coupling, phi, psi in the hyperplane sum = 0 of R^h,
       f_j = e^{psi_j - phi_{j+1}}, g_j = e^{phi_j - psi_j}): with the Lax pair A_+ = (1/2) d_+phi . H + m lambda
       sum_j e^{alpha_j . phi/2} E_{alpha_j}, A_- = -(1/2) d_-phi . H - (m/lambda) sum_j e^{alpha_j . phi/2} E_{-alpha_j}
       in the defining representation (H . v = diag(v_k), E_{alpha_j} = e_{j,j+1}, E_{-alpha_j} = e_{j+1,j}), zero
@@ -560,7 +560,7 @@ D3claim = sp.expand((sig / (2 * m0**2) * sp.cos(Sgs / 2) * uL * (uL + 2 * sig * 
                      + sig**3 * (sp.cos(Sgs / 2) - sp.Rational(2, 3) * sp.cos(Sgs / 2)**3)))
 ok_g5 = sp.simplify(D3 - D3claim) == 0
 report("(g) symbolic expansion at lambda -> oo: W_1, the E - P density, a total derivative, the spin -3 density "
-       "(Euler operator), the window terms sigma cos(Sigma/2) and D_-3", ok_g1 and ok_g2 and ok_g3 and ok_g4 and ok_g5)
+       "(Euler operator), the defect contributions sigma cos(Sigma/2) and D_-3", ok_g1 and ok_g2 and ok_g3 and ok_g4 and ok_g5)
 
 
 # numerics of the charges along the passage
@@ -596,7 +596,7 @@ umL = lam_fun(uminus, 0)
 umR = lam_fun(uminus, 1)
 
 
-def window_terms(tv, mode="L"):
+def defect_contributions(tv, mode="L"):
     F0 = fields(tv, 0.0)
     Sg, Dg = F0[0][0] + F0[1][0], F0[0][0] - F0[1][0]
     sg = sigv if mode == "L" else 0.0
@@ -618,8 +618,8 @@ tot = {k: [] for k in ("m1", "p1", "m3", "p3")}
 tot1 = {k: [] for k in ("m1", "p1", "m3", "p3")}
 for tv in (-6.0, -2.0, -0.5, 0.0, 0.7, 2.0, 6.0):
     l, r = bulk_int(dens_m1, tv)
-    w = window_terms(tv)
-    w1 = window_terms(tv, "none")
+    w = defect_contributions(tv)
+    w1 = defect_contributions(tv, "none")
     tot["m1"].append(l + r + w[0])
     tot1["m1"].append(l + r + w1[0])
     l, r = bulk_int(dens_p1, tv)
@@ -660,7 +660,7 @@ D3pclaim = sp.expand(-1 / (2 * m0**2 * sig) * sp.cos(Dls / 2) * wL * (-wL + 2 * 
                      + sig**-3 * (sp.cos(Dls / 2) - sp.Rational(2, 3) * sp.cos(Dls / 2)**3))
 ok_h1 = ok_h1 and sp.simplify(sp.expand_trig(D3p - D3pclaim)) == 0
 report("(g) numerics: the spin -1 and spin -3 totals are constant along the passage (1e-8), equal to 8 e^-theta "
-       "for spin -1, and fail without the window terms", ok_num)
+       "for spin -1, and fail without the defect contributions", ok_num)
 report("(h) lambda -> 0: L_d -> e^{i Delta h/2} + (sigma/lambda) s, the E + P density and the spin +3 density; "
        "E + P + (B + P_d) and the spin +3 total with D_+3 constant along the passage",
        ok_h1 and spreads["p1"] < 1e-8 and spreads["p3"] < 1e-8)
@@ -762,7 +762,7 @@ report("(i) bulk r-matrix from the canonical brackets; the book's r for h = 2; r
        "lattice transport bracket -> -[r, T(x)T]", ok_i1 and ok_i2 and ok_i3 and ok_i4 and ok_i5)
 
 # ---------------------------------------------------------------------------------------------------------
-# (j) the window's bracket
+# (j) the defect's bracket
 # symplectic form of (1/beta^2)(Phi Psi_t - B): Theta = (1/beta^2) Phi dPsi, omega = (1/beta^2) dPhi ^ dPsi,
 # {z_I, z_J} = (Omega^{-1})_{IJ} with Omega_{IJ} = omega(d_I, d_J) in the convention {q, p} = 1 for p dq
 qv, pvv = sp.symbols('q p_')
@@ -792,7 +792,7 @@ rz = rmat(l1 / l2)
 RHS = rz * TP(L1, L2) - TP(L1, L2) * rz
 solk = sp.solve([q for q in (LHS - RHS).applyfunc(lambda z: sp.simplify(z.rewrite(sp.exp))) if q != 0], kap, dict=True)
 ok_j4 = len(solk) == 1 and sp.simplify(solk[0][kap] + beta**2 / 8) == 0
-# the r-matrix determined by the window alone: alpha h(x)h + gamma Pi with 2 alpha - gamma/z = kappa, 2 alpha - gamma z = -kappa
+# the r-matrix determined by the defect alone: alpha h(x)h + gamma Pi with 2 alpha - gamma/z = kappa, 2 alpha - gamma z = -kappa
 z_ = sp.Symbol('z')
 sw = sp.solve([2 * alr - gar / z_ - kap, 2 * alr - gar * z_ + kap], [alr, gar], dict=True)[0]
 ok_j5 = (sp.simplify(sw[alr].subs(kap, -beta**2 / 8) + beta**2 * (z_**2 + 1) / (16 * (z_**2 - 1))) == 0
@@ -806,11 +806,11 @@ ok_j6 = len(solkp) == 1 and sp.simplify(solkp[0][kap] - beta**2 / 8) == 0
 # the wrong sign fails
 ok_j7 = not zero_mat(brPQ(L1, L2, beta**2) - RHS)
 report("(j) {Phi, Psi} = -beta^2 from the kinetic term; brackets of D, O; the four commutator identities; "
-       "{L_1, L_2} = [r, L_1 L_2] iff {Phi, Psi} = -beta^2; the window fixes r; type I_+ needs +beta^2",
+       "{L_1, L_2} = [r, L_1 L_2] iff {Phi, Psi} = -beta^2; the defect fixes r; type I_+ needs +beta^2",
        ok_j1 and ok_j2 and ok_j3 and ok_j4 and ok_j5 and ok_j6 and ok_j7)
 
 # ---------------------------------------------------------------------------------------------------------
-# (k) involution for a chain of windows
+# (k) involution for a chain of defects
 rngk = np.random.default_rng(7)
 vals3 = rngk.uniform(-2, 2, (3, 2))
 sigs3 = [0.7, 1.3, 0.45]
@@ -860,11 +860,11 @@ brI = -1.0 * (np.kron(dPa, dQb) - np.kron(dQa, dPb))
 TTi = np.kron(Linv(la_, Pn, Qn), Linv(lb_, Pn, Qn))
 rr_ = r_num(la_ / lb_)
 ok_k2 = np.max(np.abs(brI + (rr_ @ TTi - TTi @ rr_))) < 1e-8
-report("(k) {L^-1, L^-1} = -[r, L^-1 L^-1]; traces of chains of three windows Poisson-commute; mixing L and "
+report("(k) {L^-1, L^-1} = -[r, L^-1 L^-1]; traces of chains of three defects Poisson-commute; mixing L and "
        "L^-1 fails", ok_k1 and ok_k2)
 
 # ---------------------------------------------------------------------------------------------------------
-# (l) two windows: Bianchi as a refactorization
+# (l) two defects: Bianchi as a refactorization
 rngl = np.random.default_rng(3)
 ok_l = True
 for trial in range(4):
@@ -879,7 +879,7 @@ for trial in range(4):
     A_ = Ld_np(0.7, s1, P0, P1) @ Ld_np(0.7, s2, P1, P12 + 0.01)
     B_ = Ld_np(0.7, s2, P0, P2) @ Ld_np(0.7, s1, P2, P12 + 0.01)
     ok_l = ok_l and np.max(np.abs(A_ - B_)) > 1e-4
-report("(l) two windows exchange: L(s1; Phi0, Phi1) L(s2; Phi1, Phi12) = L(s2; Phi0, Phi2) L(s1; Phi2, Phi12) "
+report("(l) two defects exchange: L(s1; Phi0, Phi1) L(s2; Phi1, Phi12) = L(s2; Phi0, Phi2) L(s1; Phi2, Phi12) "
        "for Bianchi's Phi12; a perturbed Phi12 fails", ok_l)
 
 # ---------------------------------------------------------------------------------------------------------
@@ -913,7 +913,7 @@ report("(n) type-I_+ matrix on its conditions; L_d depends on sigma/lambda only;
        "L_d(sigma)(Phi, Psi) L_d(-sigma)(Psi, Phi) = det; the even vacua", ok_n1 and ok_n2 and ok_n3 and ok_n4)
 
 # ---------------------------------------------------------------------------------------------------------
-# (o) the a_r^(1) window in components
+# (o) the a_r^(1) defect in components
 def ar_lax_symbolic(hh):
     tt_, xx_ = sp.symbols('t x')
     ph = [sp.Function(f'ph{k}')(tt_, xx_) for k in range(hh)]

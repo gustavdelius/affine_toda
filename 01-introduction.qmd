@@ -10,7 +10,7 @@ Affine Toda field theories are a family of two-dimensional quantum field theorie
 
 **Background assumed.** Quantum field theory at the level of a first graduate course (path integrals, perturbation theory, renormalization, the S-matrix), finite-dimensional Lie algebras at the level of $su(n)$, and complex analysis. Parts I and II collect the remaining background in the book's notation.
 
-**Lecture notes.** The book is a reference, not a course: it states results with their proofs, checks and sources, but does not teach them step by step. Companion lecture notes do that for individual parts. Two courses accompany Part VIII on integrable defects, [*Windows in spacetime*](https://gustavdelius.github.io/affine_toda/lectures/defects/) and [*Lectures on integrable defects in affine Toda field theory*](https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/). The [home page of the site](https://gustavdelius.github.io/affine_toda/) compares them.
+**Lecture notes.** The book is a reference, not a course: it states results with their proofs, checks and sources, but does not teach them step by step. Companion lecture notes do that for individual parts. Two courses accompany Part VIII on integrable defects, [*Integrable defects, from Bäcklund to Baxter*](https://gustavdelius.github.io/affine_toda/lectures/defects/) and [*Lectures on integrable defects in affine Toda field theory*](https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/). The [home page of the site](https://gustavdelius.github.io/affine_toda/) compares them.
 
 ::: {.content-visible when-format="html"}
 The whole book is also available as a [PDF](affine-toda.pdf).

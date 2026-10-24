@@ -25,7 +25,7 @@ book:
     left:
       - text: "Lecture notes"
         menu:
-          - text: "Windows in spacetime"
+          - text: "Integrable defects, from Bäcklund to Baxter"
             href: https://gustavdelius.github.io/affine_toda/lectures/defects/
           - text: "Lectures on integrable defects in affine Toda field theory"
             href: https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/

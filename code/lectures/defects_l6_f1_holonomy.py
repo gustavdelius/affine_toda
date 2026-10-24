@@ -1,17 +1,17 @@
-"""Lecture notes on defects, Lecture 6, figure 1 (fig-l6-holonomy): parallel transport around a window.
+"""Lecture notes on defects, Lecture 6, figure 1 (fig-l6-holonomy): parallel transport around a defect.
 
 The exact passage Phi = 4 arctan Y on x < 0, Psi = 4 arctan(z Y) on x > 0, Y = exp(m0 (x cosh theta - t sinh theta)),
 z = -coth((theta - theta_d)/2), for theta = 0.6, theta_d = 1 (m0 = 1): the soliton passes, delayed.
 The Lax pair of the lectures, A_+ = (i/4) d_+Phi h + (m0 lambda/2)(e^{i Phi/2} e + e^{-i Phi/2} f),
 A_- = -(i/4) d_-Phi h - (m0/2 lambda)(e^{i Phi/2} f + e^{-i Phi/2} e), a_t = (A_+ + A_-)/2, a_x = (A_+ - A_-)/2,
 with the defect matrix L_d = e^{i Delta h/4} + (sigma/lambda) e^{-i Sigma h/4} s at x = 0, lambda = 0.8 + 0.5 i.
-(a) The charge density d_x Phi, the window, the undelayed world line (dotted), and a rectangle from t_1 to t_2
+(a) The charge density d_x Phi, the defect, the undelayed world line (dotted), and a rectangle from t_1 to t_2
 between x = -6 and x = 6.
-(b) The deviation from 1 of the holonomy H around the rectangle, crossing the window with L_d^{-1} at t_1 and L_d at
+(b) The deviation from 1 of the holonomy H around the rectangle, crossing the defect with L_d^{-1} at t_1 and L_d at
 t_2, as a function of t_2: with L_d, with L_d replaced by 1, and with sigma replaced by 1.3 sigma.
 
 Checks: the plotted pair satisfies the defect conditions at x = 0; with L_d the holonomy is 1 to 1e-9 for every
-t_2; without L_d, or with the wrong sigma, it deviates by more than 0.1 once the soliton has reached the window.
+t_2; without L_d, or with the wrong sigma, it deviates by more than 0.1 once the soliton has reached the defect.
 Writes lecture-notes/defects/figures/l6_holonomy.svg.
 """
 import math
@@ -119,7 +119,7 @@ dev = {k: np.array(v) for k, v in dev.items()}
 t_arrive = -math.log(1.0) / (m0 * sh)       # the soliton's centre (|Y| = 1) reaches x = 0 at t = 0
 report(f"with L_d the holonomy is 1 for every t_2 (max deviation {dev['L'].max():.0e})", dev["L"].max() < 1e-9)
 after = t2s > t_arrive
-report("without L_d, or with 1.3 sigma, the holonomy deviates by more than 0.1 after the soliton reaches the window",
+report("without L_d, or with 1.3 sigma, the holonomy deviates by more than 0.1 after the soliton reaches the defect",
        dev["one"][after].min() > 0.1 and dev["wrong"][after].min() > 0.1)
 fig, (ax, ax2) = plt.subplots(1, 2, figsize=(7.0, 3.0), gridspec_kw=dict(width_ratios=[1.0, 1.2]))
 xs = np.linspace(-8, 8, 481)
@@ -152,13 +152,13 @@ ax.set_xlim(xs[0], xs[-1])
 ax.set_ylim(ts[0], ts[-1])
 ax.set_xlabel(r"$m_0x$")
 ax.set_ylabel(r"$m_0t$")
-ax.set_title("(a) a loop that crosses the window", fontsize=8.5, color=style.GREY)
+ax.set_title("(a) a loop that crosses the defect", fontsize=8.5, color=style.GREY)
 
 ax2.semilogy(t2s, np.maximum(dev["L"], 1e-16), color=style.PURPLE, label=r"with $L_d$")
 ax2.semilogy(t2s, dev["one"], color=style.ORANGE, label=r"$L_d\to1$")
 ax2.semilogy(t2s, dev["wrong"], color=style.TEAL, ls="--", label=r"$\sigma\to1.3\,\sigma$")
 ax2.axvline(t_arrive, color=style.GREY, lw=0.8, ls=":")
-ax2.text(t_arrive + 0.2, 3e-15, "soliton reaches\nthe window", color=style.GREY, fontsize=7)
+ax2.text(t_arrive + 0.2, 3e-15, "soliton reaches\nthe defect", color=style.GREY, fontsize=7)
 ax2.set_xlim(t2s[0], t2s[-1])
 ax2.set_ylim(1e-16, 300)
 ax2.set_xlabel(r"$m_0t_2$")
