@@ -1,0 +1,274 @@
+# Defect–Boundary Fusion, Doubled Symmetries, and the Miraculous Breather Cancellation {#sec-lec6-boundaries-breathers}
+
+> **Companion reading in the book:** the chapters [Defects meet boundaries](book:sec-defect-boundary) and [Breather and particle transmission amplitudes](book:sec-particle-transmission).
+
+Welcome to the final lecture of our series! We have saved two of the most surprising and illuminating phenomena in the theory of integrable defects for our grand finale:
+
+1. **How a 1-Parameter Defect plus a 1-Parameter Boundary Generates the Full 2-Parameter Boundary Theory (and Pins Down the Quantum UV–IR Parameter Map):**
+   In Part V of the book, you learned that the most general integrable boundary condition for the sine-Gordon model—the famous **Ghoshal–Zamolodchikov boundary** [@gz1994]—has a 2-parameter boundary potential $\mathcal{B}_{\text{GZ}}(\phi) = -M_0 \cos\frac{\beta(\phi - \phi_0)}{2}$ and a 2-parameter reflection matrix $K_{\text{GZ}}(\theta;\eta,\vartheta)$.By contrast, a pure Dirichlet boundary $\psi(0,t) = \phi_D$ has only **one** parameter $\phi_D$ and a diagonal reflection matrix $K_D(\theta;\phi_D)$.
+   What happens if we place our 1-parameter integrable defect (with parameter $\theta_d$) just to the left of a 1-parameter Dirichlet boundary $\psi = \phi_D$, and **fuse them together**?
+   - Classically, simply evaluating the defect potential $\mathcal{B}_d(\phi, \psi)$ at $\psi = \phi_D$ produces the *entire* 2-parameter Ghoshal–Zamolodchikov boundary potential!
+   - Quantum mechanically, sandwiching the diagonal Dirichlet reflection matrix $K_D(\theta)$ between our defect transmission matrices,
+     $$
+     K_{\text{fused}}(\theta) = \bar{\mathbb{T}}(\theta)\,\big(1_{\mathcal{W}} \otimes K_D(\theta)\big)\,\mathbb{T}(\theta),
+     $$
+     causes the infinite-dimensional defect operators $U^{\pm 1}$ on $\mathcal{W}$ to **decouple into a pure gauge transformation**, leaving on each charge sector the exact $2\times 2$ Ghoshal–Zamolodchikov reflection matrix $K_{\text{GZ}}(\theta;\eta,\vartheta)$—and comparing the classical and quantum fused boundaries gives us the exact non-perturbative Bajnok–Simon relation $\theta_d = \left(1 - \frac{B}{2}\right)\theta_d^{\text{cl}}$!
+   - Even deeper: when we fold a defect into a boundary in the doubled theory on $x < 0$ (our Doubling Trick from Lecture 1!), what is the quantum group symmetry of the doubled boundary? We will prove why spatial reflection $x \mapsto -x$ turns the bulk algebra into $U \otimes U^{\text{cop}}$, why transparent/twist defects are Bao–Wang diagonal quantum symmetric pairs, and why the jump defect preserves **two separate twisted-diagonal Borel subalgebras**!
+
+2. **The Miraculous Breather Cancellation and Real-Coupling Toda Particles:**
+   In Lectures 4 and 5, our soliton transmission matrices $\mathbb{T}(\theta)$ and $M_V(\theta), M_{\bar{V}}(\theta)$ were infinite-dimensional matrices of $q$-oscillator shift operators multiplied by complicated infinite products of Gamma functions.
+   What happens when we fuse a soliton $s$ and an antisoliton $\bar{s}$ (or $V$ and $\bar{V}$ in $a_r^{(1)}$) at the pole corresponding to the **lightest neutral breather** $B_1$ (the fundamental scalar particle of the real-coupling affine Toda theory)?
+   We will do this fusion calculation right on the blackboard and watch a miracle unfold: on the 1-dimensional singlet state $|B_1\rangle$, **all the infinite-dimensional defect shift operators $U^{\pm 1}$ cancel, all the quantum tunnelling terms cancel, and all the infinite products of Gamma functions telescope and cancel**, leaving behind the simple, coupling-independent **classical rational transmission factor**
+   $$
+   \mathbb{T}_a(\theta) = \frac{e^{-(\theta - \theta_d)} + e^{\frac{i\pi a}{h}}}{e^{-(\theta - \theta_d)} + e^{-\frac{i\pi a}{h}}}!
+   $$
+
+---
+
+## Symmetries of the Doubled Boundary: Why Folding Gives $U \otimes U^{\text{cop}}$ and Two Borel Subalgebras {#sec-lec6-doubled-symmetry}
+
+Let us return to the **Doubling (Folding) Trick** that we introduced in Lecture 1 (@sec-lec1-doubling): folding the right half-line $x > 0$ onto the left half-line $x < 0$ via $\tilde{\psi}(x,t) = \psi(-x,t)$ turns a purely transmitting defect at $x=0$ into a purely off-diagonal reflection matrix
+$$
+K^{\text{doubled}}(\theta) = \begin{pmatrix} 0 & \bar{\mathbb{T}}(\theta) \\ \mathbb{T}(\theta) & 0 \end{pmatrix}
+$$ {#eq-lec6-doubled-k}
+for the doubled theory $\text{ATFT}_L \otimes \text{ATFT}_R$ on the left half-line $x < 0$.
+
+Now let us ask a foundational algebraic question (answered in the book: [The reflected copy](book:prp-reflected-copy), [Transparent defects and invertible lines are diagonal-type pairs](book:prp-diagonal-coideal), [The two Borel symmetries of a jump defect](book:prp-diagonal-borel), [Two Borel symmetries of the $a_r$ jump defect](book:prp-dpt-doubled)): **if the left copy $\text{ATFT}_L$ carries the bulk quantum group $U = U_q(\hat{\mathfrak{g}})$ with coproduct $\Delta$, what quantum group does the folded right copy $\text{ATFT}_R$ carry, and what coideal subalgebra of the doubled bulk algebra does the folded defect preserve?**
+
+### Step 1: Why Spatial Reflection $x \mapsto -x$ Reverses the Coproduct ($\Delta \mapsto \Delta^{\text{op}}$)
+
+Remember where the coproduct $\Delta$ of the nonlocal quantum group charges in 1+1 dimensions comes from (Part II of the book): a nonlocal charge $Q = \int_{-\infty}^\infty dx\,J_0(x)$ acting on a two-particle state where particle 1 is to the left of particle 2 ($x_1 < x_2$) splits into $\Delta(Q) = Q \otimes 1 + \Theta \otimes Q$ because the topological tail of the current at $x_2$ sweeps across $x_1 < x_2$.
+
+When we reflect the right half-line $x > 0$ onto $x < 0$ via $x \mapsto -x$, **the spatial ordering of particles in the second copy is reversed** ($x_1 < x_2 \iff -x_1 > -x_2$)! Reversing spatial ordering reverses the tensor factors in the coproduct, replacing $(U, \Delta)$ on the folded copy by the **co-opposite Hopf algebra** $(U^{\text{cop}}, \Delta^{\text{op}})$ (see the book: [The reflected copy](book:prp-reflected-copy), [equation](book:eq-dbd-coproduct); see `code/defect_doubling.py`)! Therefore, the doubled bulk quantum group on the half-line $x < 0$ is
+$$
+A = U \otimes U^{\text{cop}}, \qquad \Delta_A(a \otimes b) = (\text{id} \otimes \sigma_{23} \otimes \text{id})\big(\Delta(a) \otimes \Delta^{\text{op}}(b)\big).
+$$ {#eq-lec6-doubled-algebra}
+
+### Step 2: Transparent and Twist Defects as Diagonal Quantum Symmetric Pairs
+
+Now test what subalgebra of $A = U \otimes U^{\text{cop}}$ is preserved when the defect is the **trivial transparent defect** ($\mathbb{T}(\theta) = \mathbf{1}$) or a **topological twist defect** ($\mathbb{T}(\theta) = \psi$, where $\psi \in \operatorname{Aut}(U)$ is a Hopf algebra automorphism)!
+Look at a twisted diagonal element
+$$
+x_{\psi}(u) = (1 \otimes \psi)\Delta(u) = \sum u_{(1)} \otimes \psi(u_{(2)}) \in U \otimes U^{\text{cop}} \qquad (u \in U).
+$$ {#eq-lec6-diagonal-element}
+Let us apply the doubled coproduct $\Delta_A$ from (-@eq-lec6-doubled-algebra) to $x_\psi(u)$ on the blackboard:
+$$
+\Delta_A\big(x_\psi(u)\big) = \sum \big(u_{(1)(1)} \otimes \psi(u_{(2)(2)})\big) \otimes \big(u_{(1)(2)} \otimes \psi(u_{(2)(1)})\big).
+$$
+Look at the four Sweedler indices $(1)(1), (1)(2), (2)(1), (2)(2)$: by coassociativity of $\Delta$, they are simply $(1), (2), (3), (4)$, so
+$$
+\Delta_A\big(x_\psi(u)\big) = \sum \big(u_{(1)} \otimes \psi(u_{(4)})\big) \otimes \underbrace{\big(u_{(2)} \otimes \psi(u_{(3)})\big)}_{x_\psi(u_{(2)}) \in B_\psi} \in \big(U \otimes U^{\text{cop}}\big) \otimes B_\psi!
+$$ {#eq-lec6-coideal-proof}
+Look at the right leg of (-@eq-lec6-coideal-proof): because the second factor of $A = U \otimes U^{\text{cop}}$ used $\Delta^{\text{op}}$, the inner Sweedler indices $u_{(2)}$ and $\psi(u_{(3)})$ paired up into $x_\psi(u_{(2)}) \in B_\psi = (1 \otimes \psi)\Delta(U)$! Thus $B_\psi = (1 \otimes \psi)\Delta(U)$ is a **left coideal subalgebra** of $U \otimes U^{\text{cop}}$ (see the book: [Transparent defects and invertible lines are diagonal-type pairs](book:prp-diagonal-coideal), [equation](book:eq-dbd-diagonal))—in fact, it is the canonical **diagonal quantum symmetric pair** of Bao and Wang!
+
+### Step 3: Why the Jump Defect Splits into Two Twisted-Diagonal Borel Subalgebras
+
+What about our full momentum-conserving **Bäcklund jump defect** $\mathbb{T}(\theta)$ with its infinite-dimensional Weyl module $\mathcal{W}$? Could it preserve $(1 \otimes \psi)\Delta(U)$ for some Hopf automorphism $\psi$ of the *entire* quantum group $U = U_q(\hat{\mathfrak{g}})$?
+**No!** That naive guess (see the book: [Twisted diagonal symmetry of a jump defect](book:cnj-twisted-diagonal)) is **refuted** (see the book: [The two Borel symmetries of a jump defect](book:prp-diagonal-borel)): any Hopf automorphism of all of $U_q(\hat{\mathfrak{g}})$ must leave $\mathbb{T}(\theta)$ acting trivially on $\mathcal{W}$ or as a scalar twist, whereas our jump defect exchanges bulk and defect charges via the $q$-oscillator shift operators!
+
+Instead, what *does* the folded jump defect preserve inside $A = U \otimes U^{\text{cop}}$? It preserves **two separate twisted-diagonal Borel left coideal subalgebras** (see the book: [The two Borel symmetries of a jump defect](book:prp-diagonal-borel), [Two Borel symmetries of the $a_r$ jump defect](book:prp-dpt-doubled), [equation](book:eq-dbd-second-module), [equation](book:eq-dpt-second-module); see `code/defect_doubling.py` and `code/defect_particle_transmission.py`):
+1. The untwisted diagonal **lower Borel subalgebra**
+   $$
+   B_- = \Delta\big(U_q(\mathfrak{b}^-)\big) \subset U \otimes U^{\text{cop}},
+   $$
+   which acts on the boundary/defect space $\mathcal{W}$ via our standard Weyl representation $\rho : U_q(\mathfrak{b}^-) \to \operatorname{End}(\mathcal{W})$ from Lectures 4 and 5!
+2. A **second, twisted diagonal upper Borel subalgebra**
+   $$
+   B_+ = (1 \otimes \pi)\Delta\big(U_q(\mathfrak{b}^+)\big) \subset U \otimes U^{\text{cop}} \qquad (\text{where } \pi = \tau \text{ for } a_1^{(1)}),
+   $$
+   where $\pi$ is the **necklace clock shift** of Lecture 3! And how does $U_q(\mathfrak{b}^+)$ act on $\mathcal{W}$ to intertwine both $\mathbb{T}(\theta)$ and $\bar{\mathbb{T}}(\theta)$ simultaneously? It acts via a **second Borel module structure** $\tilde{\rho} : U_q(\mathfrak{b}^+) \to \operatorname{End}(\mathcal{W})$ whose raising operators $e_j$ shift the lattice in the *same* direction $\vec{N} \mapsto \vec{N} + \vec{\alpha}_j$ as $\rho(f_j)$!
+
+Look at how everything in Lectures 1, 3, 4, and 6 locks together: the necklace clock shift $\pi$ that emerged from classical momentum conservation in Lecture 3 reappears in the folded quantum theory as the exact twist between the left and right upper Borel subalgebras!
+
+---
+
+## Fusing a Defect onto a Boundary {#sec-lec6-boundary-fusion}
+
+Now let us perform the physical fusion of our type-I defect at $x = 0$ with a Dirichlet boundary at $x = x_0 \to 0^+$, first classically and then quantum mechanically!
+
+### Classical Fusion: Generating the 2-Parameter Ghoshal–Zamolodchikov Boundary
+
+Suppose the field $\psi(x,t)$ on the right of the defect is pinned at $x = 0^+$ to a constant Dirichlet value $\psi(0,t) = \phi_D$, so $\dot{\psi}(0,t) = 0$. What happens to our classical sine-Gordon defect action (@eq-lec2-action) at $x=0$ when we set $\psi(0,t) = \phi_D$ and $\dot{\psi}(0,t) = 0$?
+1. The symplectic kinetic term $\phi\dot{\psi}$ **vanishes identically** because $\dot{\psi} = 0$!
+2. The defect potential $\mathcal{B}_d(\phi, \psi) = -\frac{2m}{\beta^2}\left(\sigma\cos\frac{\beta(\phi+\psi)}{2} + \sigma^{-1}\cos\frac{\beta(\phi-\psi)}{2}\right)$ becomes a pure **boundary potential** $\mathcal{B}_{\text{fused}}(\phi)$ for the remaining half-line field $\phi(x,t)$ ($x < 0$):
+   $$
+   \mathcal{B}_{\text{fused}}(\phi) = \mathcal{B}_d(\phi, \phi_D) = -\frac{2m}{\beta^2}\left(\sigma\cos\frac{\beta(\phi + \phi_D)}{2} + \sigma^{-1}\cos\frac{\beta(\phi - \phi_D)}{2}\right).
+   $$ {#eq-lec6-fused-potential}
+Let us expand $\cos\frac{\beta(\phi \pm \phi_D)}{2} = \cos\frac{\beta\phi}{2}\cos\frac{\beta\phi_D}{2} \mp \sin\frac{\beta\phi}{2}\sin\frac{\beta\phi_D}{2}$ in (-@eq-lec6-fused-potential) with $\sigma = e^{-\theta_d}$:
+$$
+\mathcal{B}_{\text{fused}}(\phi) = -\frac{4m}{\beta^2}\left[\cosh\theta_d\cos\left(\frac{\beta\phi_D}{2}\right)\cos\left(\frac{\beta\phi}{2}\right) + \sinh\theta_d\sin\left(\frac{\beta\phi_D}{2}\right)\sin\left(\frac{\beta\phi}{2}\right)\right]!
+$$ {#eq-lec6-gz-potential}
+**Look at (-@eq-lec6-gz-potential):** that is the **most general 2-parameter Ghoshal–Zamolodchikov integrable boundary potential** [@gz1994] for the sine-Gordon model on the half-line, with the two independent boundary parameters $(\theta_d, \phi_D)$ combining into the complex cosines $C_{0,1} = \cosh\!\left(\theta_d \pm \frac{i\beta\phi_D}{2}\right)$!
+And in the Lax formalism (see the book: [Fused boundaries and the oscillator boundary](book:prp-fused-bdg), [equation](book:eq-dbd-dressed-k)), dressing the classical boundary $K$-matrix $K_\psi(\lambda)$ by the defect Lax matrix $L_d(\lambda)$ via
+$$
+K_\phi(\lambda) = \sigma\!\big(L_d(1/\lambda)^{-1}\big)\,K_\psi(\lambda)\,L_d(\lambda)^{-1}
+$$ {#eq-lec6-classical-dressed-k}
+automatically satisfies the classical boundary zero-curvature equation on the left half-line!
+
+### Quantum Fusion on the Blackboard: How the Defect Space $\mathcal{W}$ Decouples!
+
+Now let us do the quantum version of this fusion on the blackboard (see the book: [Defect–boundary fusion](book:prp-defect-fusion-k), [equation](book:eq-dbd-fused-k); see `code/defect_doubling.py`)! Suppose a bulk soliton $V(\theta)$ approaches from $x < 0$, crosses our defect $\mathcal{W}$ from left to right via $\mathbb{T}(\theta)$, reflects off a **diagonal** 1-parameter Dirichlet boundary $K_D(\theta)$ at $x = 0^+$,
+$$
+K_D(\theta) = \begin{pmatrix} k_+(\theta) & 0 \\ 0 & k_-(\theta) \end{pmatrix}, \qquad \frac{k_+(\theta)}{k_-(\theta)} = \frac{\cosh\big(\lambda\theta + i\eta\big)}{\cosh\big(\lambda\theta - i\eta\big)},
+$$ {#eq-lec6-dirichlet-k}
+and then crosses the defect $\mathcal{W}$ back from right to left via $\bar{\mathbb{T}}(\theta)$!
+
+The total fused reflection operator acting on $V(\theta) \otimes \mathcal{W}$ is
+$$
+K_{\text{fused}}(\theta) = \bar{\mathbb{T}}(\theta)\,\big(K_D(\theta) \otimes 1_{\mathcal{W}}\big)\,\mathbb{T}(\theta).
+$$ {#eq-lec6-quantum-fusion-def}
+Wait: $\mathbb{T}(\theta)$ and $\bar{\mathbb{T}}(\theta)$ act on the infinite-dimensional space $V(\theta) \otimes \mathcal{W}$ and shift the defect charge $|n\rangle \mapsto |n \pm 1\rangle$! How can $K_{\text{fused}}(\theta)$ possibly reduce to a $2\times 2$ boundary reflection matrix $K_{\text{GZ}}(\theta)$ that does not depend on $n$?
+
+Let us multiply the three matrices in (-@eq-lec6-quantum-fusion-def) right on the blackboard on our 2-dimensional charge-conserving subspace $\mathcal{H}_n = \operatorname{span}\{v_+ \otimes |n\rangle,\, v_- \otimes |n+1\rangle\}$!
+Because $\mathbb{T}(\theta)$, $K_D(\theta) \otimes 1_{\mathcal{W}}$, and $\bar{\mathbb{T}}(\theta)$ each preserve total topological charge, **all three operators preserve the 2-dimensional subspace $\mathcal{H}_n$**! On $\mathcal{H}_n$ (for $s=0$), using (-@eq-lec5-tn-2x2) and (-@eq-lec5-tbar-from-unitarity), we have:
+$$
+\begin{aligned}
+\mathbb{T}_n(\theta) &= \Phi(\theta)\begin{pmatrix} q^n & -i e^{\lambda(\theta - \theta_d)} \\ -i e^{\lambda(\theta - \theta_d)} & q^{-n} \end{pmatrix}, \\
+\big(K_D(\theta) \otimes 1_{\mathcal{W}}\big)\big|_{\mathcal{H}_n} &= \begin{pmatrix} k_+(\theta) & 0 \\ 0 & k_-(\theta) \end{pmatrix}, \\
+\bar{\mathbb{T}}_n(\theta) &= \bar{\Phi}(\theta)\begin{pmatrix} q^{-n} & +i e^{\lambda(-\theta - \theta_d)} \\ +i e^{\lambda(-\theta - \theta_d)} & q^n \end{pmatrix}.
+\end{aligned}
+$$ {#eq-lec6-three-matrices-hn}
+Now look at the $q^{\pm n}$ dependence of $\mathbb{T}_n(\theta)$ and $\bar{\mathbb{T}}_n(\theta)$ in (-@eq-lec6-three-matrices-hn)! Let $G_n = \begin{pmatrix} q^{n/2} & 0 \\ 0 & q^{-n/2} \end{pmatrix}$ be a diagonal gauge matrix on $\mathcal{H}_n$. Then:
+$$
+\mathbb{T}_n(\theta) = G_n \left[\Phi(\theta)\begin{pmatrix} 1 & -i e^{\lambda(\theta - \theta_d)} \\ -i e^{\lambda(\theta - \theta_d)} & 1 \end{pmatrix}\right] G_n, \qquad \bar{\mathbb{T}}_n(\theta) = G_n^{-1} \left[\bar{\Phi}(\theta)\begin{pmatrix} 1 & +i e^{\lambda(-\theta - \theta_d)} \\ +i e^{\lambda(-\theta - \theta_d)} & 1 \end{pmatrix}\right] G_n^{-1}!
+$$ {#eq-lec6-gn-factorization}
+And because $K_D(\theta)$ is **diagonal**, it **commutes** with the diagonal matrix $G_n$:
+$$
+G_n^{-1}\,K_D(\theta)\,G_n = K_D(\theta)!
+$$ {#eq-lec6-kd-commutes-gn}
+Substitute (-@eq-lec6-gn-factorization) and (-@eq-lec6-kd-commutes-gn) into $K_{\text{fused}}(\theta)\big|_{\mathcal{H}_n} = \bar{\mathbb{T}}_n(\theta)\,K_D(\theta)\,\mathbb{T}_n(\theta)$: the inner $G_n^{-1} K_D(\theta) G_n = K_D(\theta)$ absorbs the middle $G_n$'s, leaving
+$$
+K_{\text{fused}}(\theta)\big|_{\mathcal{H}_n} = G_n^{-1}\,K_{\text{GZ}}(\theta)\,G_n,
+$$ {#eq-lec6-gauge-decoupling}
+where $K_{\text{GZ}}(\theta)$ is **completely independent of $n$**:
+$$
+\begin{aligned}
+K_{\text{GZ}}(\theta) &= \Phi(\theta)\bar{\Phi}(\theta) \begin{pmatrix} 1 & i e^{-\lambda(\theta + \theta_d)} \\ i e^{-\lambda(\theta + \theta_d)} & 1 \end{pmatrix} \begin{pmatrix} k_+(\theta) & 0 \\ 0 & k_-(\theta) \end{pmatrix} \begin{pmatrix} 1 & -i e^{\lambda(\theta - \theta_d)} \\ -i e^{\lambda(\theta - \theta_d)} & 1 \end{pmatrix} \\
+&= \Phi(\theta)\bar{\Phi}(\theta) \begin{pmatrix} k_+(\theta) + e^{-2\lambda\theta_d} k_-(\theta) & -i e^{-\lambda\theta_d}\big(e^{\lambda\theta} k_+(\theta) - e^{-\lambda\theta} k_-(\theta)\big) \\ -i e^{-\lambda\theta_d}\big(e^{\lambda\theta} k_+(\theta) - e^{-\lambda\theta} k_-(\theta)\big) & k_-(\theta) + e^{-2\lambda\theta_d} k_+(\theta) \end{pmatrix}!
+\end{aligned}
+$$ {#eq-lec6-kgz-explicit}
+Look at the off-diagonal entries of (-@eq-lec6-kgz-explicit): when we substitute $k_\pm(\theta) = \cosh(\lambda\theta \pm i\eta)$, we get
+$$
+e^{\lambda\theta}\cosh(\lambda\theta + i\eta) - e^{-\lambda\theta}\cosh(\lambda\theta - i\eta) = \sinh(2\lambda\theta + i\eta) \text{ or } \sinh(2\lambda\theta)\cos\eta + i\cosh(2\lambda\theta)\sin\eta,
+$$
+and the matrix (-@eq-lec6-kgz-explicit) reproduces the **exact 2-parameter Ghoshal–Zamolodchikov reflection matrix** [@gz1994] with second boundary parameter $\vartheta = \lambda\theta_d$ (see the book: [Defect–boundary fusion](book:prp-defect-fusion-k))!
+
+Even better: because the UV–IR parameter map between the classical boundary Lagrangian (-@eq-lec6-gz-potential) and the quantum Ghoshal–Zamolodchikov parameters $(\eta, \vartheta)$ is known from Al. Zamolodchikov's boundary TBA/bootstrap analysis, comparing our classical fusion (-@eq-lec6-gz-potential) with our quantum fusion (-@eq-lec6-kgz-explicit) immediately determines the exact quantum renormalization of the defect parameter (see the book: [The defect UV–IR relation](book:cnj-defect-parameter); Bajnok–Simon [@bajnok_simon2008]):
+$$
+\theta_d = \left(1 - \frac{B}{2}\right)\theta_d^{\text{cl}} = \frac{\lambda}{\lambda + 1}\,\theta_d^{\text{cl}}, \qquad \sigma_{\text{quantum}} = e^{-\theta_d} = \big(\sigma_{\text{cl}}\big)^{1 - \frac{B}{2}}!
+$$ {#eq-lec6-uv-ir-map}
+Isn't that a triumph of physical reasoning? By crashing the defect into a simple Dirichlet wall, we simultaneously generated the full 2-parameter boundary theory, watched the infinite-dimensional Weyl module $\mathcal{W}$ gauge-decouple into identical 2-dimensional blocks $\mathcal{H}_n$, and extracted the non-perturbative UV–IR renormalization of the defect coupling!
+
+---
+
+## The Miraculous Breather Cancellation and Real-Coupling Toda Particles {#sec-lec6-breathers}
+
+Let us conclude our lectures with the calculation that connects the imaginary-coupling soliton world back to the real-coupling affine Toda particles of Parts I–IV of the book (see the book's section [Breather and particle transmission amplitudes](book:sec-particle-transmission)).
+
+In sine-Gordon ($a_1^{(1)}$), when the coupling lies in the attractive regime $\lambda > 1$, a soliton $s$ ($v_+$) and an antisoliton $\bar{s}$ ($v_-$) bind at the imaginary relative rapidity
+$$
+\theta_{s\bar{s}} = i u_1 = i\pi\left(1 - \frac{1}{\lambda}\right) \iff \theta_1 = \theta + \frac{i\pi}{2}\left(1 - \frac{1}{\lambda}\right), \quad \theta_2 = \theta - \frac{i\pi}{2}\left(1 - \frac{1}{\lambda}\right)
+$$ {#eq-lec6-b1-fusion-angles}
+to form the **lightest neutral breather** $B_1$ of mass $m_{B_1} = 2M\sin\frac{\pi}{2\lambda}$. More generally, in $a_r^{(1)}$ ($h = r+1$), a soliton of species $a$ and an antisoliton of species $\bar{a} = h - a$ bind to form the lightest neutral breather $B_1^{(a)}$, which is the direct analytic continuation ($b = i\beta \leftrightarrow b \in \mathbb{R}$) of the **species-$a$ elementary scalar particle** of real-coupling $a_r^{(1)}$ affine Toda field theory!
+
+### Blackboard Calculation: Fusing $s$ and $\bar{s}$ into the Singlet $|B_1\rangle$
+
+Let us apply the **defect bootstrap** (@eq-lec1-defect-bootstrap from Lecture 1) to fuse a soliton at $\theta_1 = \theta + i\frac{\pi}{2}(1 - \frac{1}{\lambda})$ and an antisoliton at $\theta_2 = \theta - i\frac{\pi}{2}(1 - \frac{1}{\lambda})$ across our sine-Gordon defect $\mathbb{T}(\theta)$!
+
+First, what is the $U_q(\widehat{\mathfrak{sl}}_2)$-singlet wavefunction $|B_1\rangle \in V(\theta_1) \otimes V(\theta_2)$ at the fusing pole $\theta_1 - \theta_2 = i\pi(1 - \frac{1}{\lambda})$?
+At $\theta_1 - \theta_2 = i\pi - \frac{i\pi}{\lambda}$, the relative spectral parameter is
+$$
+\frac{y(\theta_1)}{y(\theta_2)} = e^{\lambda(\theta_1 - \theta_2)} = e^{i\pi\lambda - i\pi} = -e^{i\pi\lambda} = q^{-1} \qquad \big(\text{using } q = -e^{-i\pi\lambda}!\big).
+$$ {#eq-lec6-y-ratio-b1}
+Let us check what vector in $V(\theta_1) \otimes V(\theta_2)$ is annihilated by $\Delta(f_1) = f_1 \otimes 1 + k_1 \otimes f_1$ and $\Delta(f_0) = f_0 \otimes 1 + k_0 \otimes f_0$ when $y_1/y_2 = q^{-1}$ (so $y_1 = q^{-1/2}y$ and $y_2 = q^{+1/2}y$):
+- Acting with $\Delta(f_1)$ on $|B_1\rangle = v_+ \otimes v_- - \alpha\,v_- \otimes v_+$:
+  $$
+  \Delta(f_1)\big(v_+ \otimes v_- - \alpha\,v_- \otimes v_+\big) = \big(y_1 - \alpha\,q\,y_2\big)\,v_- \otimes v_- = 0 \iff \alpha = \frac{y_1}{q y_2} = q^{-2}\text{ (or } 1 \text{ in the symmetric principal gradation)}.
+  $$
+In the book's conventions ([its sine-Gordon transmission matrix](book:eq-sg-transmission-matrix) and [Breathers through the defect](book:prp-sg-breather-transmission)), let us apply the product of two defect transmission matrices $\mathbb{T}_1(\theta_1)\,\mathbb{T}_2(\theta_2)$ to $|B_1\rangle \otimes |n\rangle$!
+
+Look at what $\mathbb{T}_1(\theta_1)\,\mathbb{T}_2(\theta_2)$ can do to a neutral state in $(V_1 \otimes V_2) \otimes |n\rangle$:
+1. **Can it shift $|n\rangle \mapsto |n \pm 2\rangle$?**
+   To reach $|n + 2\rangle$, *both* particles would have to flip $v_+ \to v_-$, which is only possible if the incoming state is $v_+ \otimes v_+$. Since $|B_1\rangle \in \operatorname{span}\{v_+ \otimes v_-,\, v_- \otimes v_+\}$ has zero total topological charge, it has no $v_+ \otimes v_+$ or $v_- \otimes v_-$ component! Instead, the $v_+ \otimes v_+$ outcome from $v_+ \otimes v_-$ ($B_n^{(2)}$ on slot 2) and from $v_- \otimes v_+$ ($B_n^{(1)}$ on slot 1) **cancel each other identically on the singlet** $|B_1\rangle$ because $\mathbb{T}_1(\theta_1)\mathbb{T}_2(\theta_2)$ intertwines $\Delta(f_i)$, and a $U_q(\mathfrak{b}^-)$-intertwiner must map a $U_q(\widehat{\mathfrak{sl}}_2)$-singlet $1 \otimes \mathcal{W}$ into $1 \otimes \mathcal{W}$!
+2. **What about the defect operator $U^{\pm 1}$ on $|B_1\rangle \otimes |n\rangle$?**
+   Let us compute the action of the matrix part of $\mathbb{T}_1(\theta_1)\,\mathbb{T}_2(\theta_2)$ on the singlet!
+   - When the first particle stays $v_+$ (picking up $q^{n + s/2}$) and the second stays $v_-$ (picking up $q^{-n - s/2}$), the product of their diagonal defect operators is
+     $$
+     q^{n + \frac{s}{2}} \cdot q^{-n - \frac{s}{2}} = 1!
+     $$
+   - When both particles flip ($v_+ \otimes v_- \to v_- \otimes v_+$), the first shift $|n\rangle \mapsto |n-1\rangle$ and the second shift $|n-1\rangle \mapsto |n\rangle$ return the defect to the **exact same state $|n\rangle$** with coefficient $(-iY_1)(-iY_2) = -Y_1 Y_2$!
+
+Let us add the non-flipping and double-flipping amplitudes on $|B_1\rangle \otimes |n\rangle$! Using $Y(\theta_1) = e^{\lambda(\theta - \theta_d) + \frac{i\pi}{2}(\lambda - 1)} = -i q^{-1/2} Y$ and $Y(\theta_2) = e^{\lambda(\theta - \theta_d) - \frac{i\pi}{2}(\lambda - 1)} = +i q^{+1/2} Y$:
+- **Every single power of $q^n$ cancels!** The breather transmission matrix is $1_{\mathcal{W}}$ times a pure scalar function $\mathbb{T}_{B_1}(\theta)$: **a neutral breather never excites or shifts the internal state $|n\rangle$ of the defect!**
+- What about the product of the two Gamma-function scalar factors $\Phi(\theta_1)\,\Phi(\theta_2)$?
+  Look at the difference between the two rapidities $\theta_1$ and $\theta_2$ in (-@eq-lec6-b1-fusion-angles):
+  $$
+  \theta_1 - \theta_2 = i\pi - \frac{i\pi}{\lambda} \implies \lambda\theta_1 - \lambda\theta_2 = i\pi\lambda - i\pi!
+  $$
+  Remember from @sec-lec5-gamma-and-resonance that the infinite Gamma product $r(\theta)/\bar{r}(\theta)$ in $\Phi(\theta)$ was constructed specifically to satisfy the crossing/shift relation under $\theta \mapsto \theta + i\pi$, while the individual Gamma arguments depend on $\frac{i\lambda\theta}{\pi}$, which under $\theta_1 \mapsto \theta_2$ shifts by $\frac{i\lambda}{\pi}(i\pi - \frac{i\pi}{\lambda}) = 1 - \lambda$!
+  Because of this exact shift, **every single Gamma function in the infinite product $\Phi(\theta_1)\,\Phi(\theta_2)$ telescopes and cancels against the polynomial matrix factors** (see the book: [Breathers through the defect](book:prp-sg-breather-transmission), [The lightest breathers see the classical defect](book:prp-lightest-breather-universal); see `code/defect_particle_transmission.py`), leaving behind:
+  $$
+  \mathbb{T}_{B_1}(\theta) = \frac{\sinh(\theta - \theta_d) - i}{\sinh(\theta - \theta_d) + i} = -\coth\!\left(\frac{\theta - \theta_d}{2} - \frac{i\pi}{4}\right) = \frac{e^{-(\theta - \theta_d)} + i}{e^{-(\theta - \theta_d)} - i}!
+  $$ {#eq-lec6-b1-transmission}
+
+**Pause and stare at (-@eq-lec6-b1-transmission)!**
+- Look at what disappeared: the quantum group deformation parameter $q = -e^{-i\pi\lambda}$ **disappeared completely**! The coupling constant $\beta$ (or $\lambda$) **disappeared completely**! The defect state label $n \in \mathbb{Z}$ **disappeared completely**!
+- And look at what remained: $\frac{e^{-(\theta - \theta_d)} + i}{e^{-(\theta - \theta_d)} - i}$ is **literally the classical linearized wave transmission factor** $\mathbb{T}^{\text{cl}}(\theta)$ that we derived in 4 lines of classical calculus in Lecture 2 (@eq-lec2-tcl)!
+
+### General $a_r^{(1)}$ Toda Particles and the Fusing Bootstrap
+
+The exact same cancellation occurs across the entire $a_r^{(1)}$ necklace ($h = r+1$)! When we fuse a vector soliton $V$ and an antivector soliton $\bar{V}$ at the pole for the lightest neutral breather $B_1^{(a)}$ (even in $a_2^{(1)}$, where $M_{\bar{V}}(\theta)$ had quantum tunnelling terms!), the quantum tunnelling terms and the Gamma products cancel completely on the singlet $|B_1^{(a)}\rangle$ (see the book: [The lightest breathers see the classical defect](book:prp-lightest-breather-universal), [Particle transmission factors of $a_r^{(1)}$](book:prp-an-particle-transmission), [equation](book:eq-dpt-particle); see `code/defect_particle_transmission.py`), giving the universal real-coupling $a_r^{(1)}$ particle transmission factor:
+$$
+\mathbb{T}_a(\theta) = \frac{e^{-(\theta - \theta_d)} + e^{i\gamma_a}}{e^{-(\theta - \theta_d)} + e^{-i\gamma_a}}, \qquad \gamma_a = \frac{\pi a}{h} \qquad (a = 1, \dots, r)!
+$$ {#eq-lec6-ar-particle-t}
+Let us check the three fundamental properties of (-@eq-lec6-ar-particle-t) on the blackboard right now:
+
+1. **Unitarity ($\mathbb{T}_a(\theta)\,\bar{\mathbb{T}}_a(-\theta) = 1$ and $|\mathbb{T}_a(\theta)| = 1$):**
+   For real $\theta, \theta_d \in \mathbb{R}$, the numerator $e^{-(\theta-\theta_d)} + e^{i\gamma_a}$ and denominator $e^{-(\theta-\theta_d)} + e^{-i\gamma_a}$ are complex conjugates of each other, so $|\mathbb{T}_a(\theta)| = 1$—pure phase transmission with zero reflection!
+2. **Crossing Symmetry ($\bar{\mathbb{T}}_a(\theta) = \mathbb{T}_{\bar{a}}(i\pi - \theta)$):**
+   In $a_r^{(1)}$, the antiparticle of species $a$ is $\bar{a} = h - a$, which has $\gamma_{\bar{a}} = \pi - \gamma_a$, so $e^{\pm i\gamma_{\bar{a}}} = -e^{\mp i\gamma_a}$. Under $\theta \mapsto i\pi - \theta$, $e^{-\theta} \mapsto -e^{+\theta}$, so
+   $$
+   \mathbb{T}_{\bar{a}}(i\pi - \theta) = \frac{-e^{\theta + \theta_d} - e^{-i\gamma_a}}{-e^{\theta + \theta_d} - e^{i\gamma_a}} = \frac{e^{\theta + \theta_d} + e^{-i\gamma_a}}{e^{\theta + \theta_d} + e^{i\gamma_a}} = \mathbb{T}_a(-\theta)^{-1} = \bar{\mathbb{T}}_a(\theta)!
+   $$ {#eq-lec6-crossing-check}
+3. **The Bulk Fusing Bootstrap ($\mathbb{T}_a(\theta + i\gamma_b)\,\mathbb{T}_b(\theta - i\gamma_a) = \mathbb{T}_{a+b}(\theta)$):**
+   In bulk $a_r^{(1)}$ Toda theory, particle $a$ at $\theta + i\gamma_b$ and particle $b$ at $\theta - i\gamma_a$ fuse into particle $c = a + b$ at rapidity $\theta$. Let us multiply $\mathbb{T}_a(\theta + i\gamma_b)$ and $\mathbb{T}_b(\theta - i\gamma_a)$ on the blackboard:
+   $$
+   \mathbb{T}_a(\theta + i\gamma_b)\,\mathbb{T}_b(\theta - i\gamma_a) = \frac{e^{-(\theta-\theta_d)}e^{-i\gamma_b} + e^{i\gamma_a}}{e^{-(\theta-\theta_d)}e^{-i\gamma_b} + e^{-i\gamma_a}} \cdot \frac{e^{-(\theta-\theta_d)}e^{i\gamma_a} + e^{i\gamma_b}}{e^{-(\theta-\theta_d)}e^{i\gamma_a} + e^{-i\gamma_b}}.
+   $$
+   Factor $e^{-i\gamma_b}$ out of the first fraction and $e^{i\gamma_a}$ out of the second fraction:
+   $$
+   = \frac{e^{-(\theta-\theta_d)} + e^{i(\gamma_a + \gamma_b)}}{\cancel{e^{-(\theta-\theta_d)} + e^{-i(\gamma_a - \gamma_b)}}} \cdot \frac{\cancel{e^{-(\theta-\theta_d)} + e^{-i(\gamma_a - \gamma_b)}}}{e^{-(\theta-\theta_d)} + e^{-i(\gamma_a + \gamma_b)}} = \frac{e^{-(\theta-\theta_d)} + e^{i\gamma_{a+b}}}{e^{-(\theta-\theta_d)} + e^{-i\gamma_{a+b}}} = \mathbb{T}_{a+b}(\theta)!
+   $$ {#eq-lec6-fusing-check}
+   Look at how the middle factor $e^{-(\theta-\theta_d)} + e^{-i(\gamma_a - \gamma_b)}$ cancelled in one line! Every bulk fusing rule of $a_r^{(1)}$ affine Toda field theory is satisfied automatically by the classical linear-wave transmission factors (-@eq-lec6-ar-particle-t)! (And notice the sign stability condition of the book's [The vacuum of the real-coupling defect](book:prp-dpt-vacuum): for the vacuum $\vec{\phi} = \vec{\psi} = \vec{0}$ to be a minimum of the real-coupling defect potential $\mathcal{B}_d$ and for (-@eq-lec6-ar-particle-t) to be free of physical-strip bound-state poles $\operatorname{Im}\theta \in (0, \pi)$, the defect parameter $\sigma = e^{-\theta_d}$ must be strictly positive, $\sigma > 0$.)
+
+### An Open Frontier for Your Own Research: The Penati–Polvara Puzzle
+
+We end our lectures where every great graduate course should end: at an **open research problem**!
+
+Look at what we just proved: by analytically continuing the exact quantum breather transmission factor from imaginary coupling ($b = i\beta$) to real coupling ($b \in \mathbb{R}$), we obtained the coupling-independent transmission factor (-@eq-lec6-ar-particle-t), which satisfies unitarity, crossing, the Triangle Relation (trivially, since scalar $S$-matrices and scalar $\mathbb{T}$-factors commute!), and all bulk fusing bootstrap equations.
+
+So you would naturally expect that in real-coupling $a_r^{(1)}$ affine Toda field theory ($r \ge 2$), the classical defect action (@eq-lec3-action) needs no quantum corrections beyond routine normal-ordering counterterms, and (-@eq-lec6-ar-particle-t) is the exact perturbative quantum transmission amplitude to all loops.
+
+In 2019, Penati and Polvara [@penati_polvara2019] tested this expectation in perturbation theory for $a_r^{(1)}$ ($r \ge 2$) by computing the **one-loop quantum correction to the spin-3 conserved charge** across the defect—and found a **non-vanishing one-loop anomaly** that cannot be removed by local counterterms in the type-I defect potential (see the book: [Continuation of transmission amplitudes](book:cnj-transmission-continuation))!
+
+Why does the bootstrap/quantum-group analytic continuation from imaginary coupling give a spotless, exact transmission factor (-@eq-lec6-ar-particle-t) while direct real-coupling perturbation theory hits a one-loop spin-3 anomaly? Does the real-coupling quantum defect require hidden nonlocal or auxiliary degrees of freedom at $x=0$ that decouple on the breather singlet in the imaginary-coupling theory, or a modified quantization of the defect symplectic form $K$?
+
+That puzzle is still open today—and with the tools you have mastered in these six lectures, from the Delfino–Mussardo–Simonetti ZF reduction and the Bowcock–Corrigan–Zambon momentum classification to the $q$-oscillator Weyl modules and defect bootstrap, you are ready to tackle it yourself!
+
+---
+
+## Exercises for Lecture 6
+
+::: {#exr-lec6-higher-breathers}
+**Higher Breather Transmission Factors $\mathbb{T}_{B_m}(\theta)$ in Sine-Gordon.**
+The $m$-th sine-Gordon breather $B_m$ ($1 \le m < \lambda$) is formed by fusing $B_1$ and $B_{m-1}$ at relative rapidity $\frac{i\pi}{\lambda}$, so its constituents sit at $\theta_k = \theta + \frac{i\pi}{\lambda}\left(\frac{m+1}{2} - k\right)$ for $k = 1, \dots, m$. Using the fundamental breather transmission factor $\mathbb{T}_{B_1}(\theta) = -\coth\left(\frac{\theta - \theta_d}{2} - \frac{i\pi}{4}\right)$ from (-@eq-lec6-b1-transmission), compute
+$$
+\mathbb{T}_{B_m}(\theta) = \prod_{k=1}^m \mathbb{T}_{B_1}\!\left(\theta + \frac{i\pi}{\lambda}\Big(\frac{m+1}{2} - k\Big)\right),
+$$
+and explain why $\mathbb{T}_{B_m}(\theta)$ for $m \ge 2$ *does* depend on the quantum coupling $\lambda$, whereas $\mathbb{T}_{B_1}(\theta)$ ($m = 1$) does not!
+:::
+
+::: {#exr-lec6-second-borel-check}
+**Checking the Twisted-Diagonal Upper Borel Symmetry on $\mathcal{W}$.**
+For $a_1^{(1)}$, let $\tilde{\rho} : U_q(\mathfrak{b}^+) \to \operatorname{End}(\mathcal{W})$ be the second Borel module structure (see [the book](book:eq-dbd-second-module)) where $e_1$ shifts $|n\rangle \mapsto |n+1\rangle$ and $e_0$ shifts $|n\rangle \mapsto |n-1\rangle$ (just like $f_1$ and $f_0$ in $\rho$). Verify explicitly on the basis vectors $v_\pm \otimes |n\rangle$ that the doubled reflection matrix $K^{\text{doubled}}(\theta)$ in (-@eq-lec6-doubled-k) intertwines the twisted diagonal upper Borel elements $(1 \otimes \tau)\Delta(e_i) \in U \otimes U^{\text{cop}}$!
+:::

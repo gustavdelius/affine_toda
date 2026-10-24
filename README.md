@@ -2,9 +2,9 @@
 
 A unified review of affine Toda field theories, with new results: two-dimensional quantum field theories with one theory for each affine Kac–Moody algebra. They are integrable, so many quantities can be computed exactly, and they display particles and bound states, solitons and breathers, strong–weak duality, quantum-group symmetry, integrable boundaries and, at imaginary coupling, non-unitarity.
 
-The book collects results scattered over five decades of papers and presents them in a logical order, in one notation and with one set of conventions. It is a reference, not a course; companion lecture notes, such as *Windows in spacetime* on integrable defects (`lecture-notes/defects/`), teach parts of the subject step by step.
+The book collects results scattered over five decades of papers and presents them in a logical order, in one notation and with one set of conventions. It is a reference, not a course; companion lecture notes teach parts of the subject step by step. Two courses accompany Part VIII on integrable defects: *Windows in spacetime* (`lecture-notes/defects/`, drafted by Claude) and *Lectures on integrable defects in affine Toda field theory* (`lecture-notes/defects-gemini/`, drafted by Gemini). The home page of the site says what the site holds and compares the two courses.
 
-**Read the book:** [gustavdelius.github.io/affine_toda](https://gustavdelius.github.io/affine_toda/) · [PDF](https://gustavdelius.github.io/affine_toda/affine-toda.pdf)
+**Read the book and the lecture notes:** [gustavdelius.github.io/affine_toda](https://gustavdelius.github.io/affine_toda/) · [PDF of the book](https://gustavdelius.github.io/affine_toda/affine-toda.pdf)
 
 **Coordinating editor:** Gustav Delius
 
@@ -48,9 +48,9 @@ The book's own list of its original results is [Appendix E](appendices/E-origina
 
 | Path | What it contains |
 |---|---|
-| `index.qmd`, `01-introduction.qmd`, `part*/`, `outlook/`, `appendices/` | The book, as Quarto source (`.qmd`) with bibliography `references.bib`; `index.qmd` is the preface and the home page |
+| `index.qmd`, `preface.qmd`, `01-introduction.qmd`, `part*/`, `outlook/`, `appendices/` | The book, as Quarto source (`.qmd`) with bibliography `references.bib`. `index.qmd` is the home page of the site, in HTML only: it says what the site holds and compares the lecture courses. `preface.qmd` is the preface |
 | `figures/`, `part*/figures/` | The committed SVG figures |
-| `lecture-notes/` | Lecture notes that accompany the book, each a Quarto book of its own: `lecture-notes/defects/` (on Part VIII), with `lecture-notes/book-links.lua`, which turns `[text](book:<id>)` into links to the published book |
+| `lecture-notes/` | Lecture notes that accompany the book, each a Quarto book of its own: `lecture-notes/defects/` and `lecture-notes/defects-gemini/` (both on Part VIII; the second was drafted by Gemini), with `lecture-notes/book-links.lua`, which turns `[text](book:<id>)` into links to the published book |
 | `code/` | All the book's check scripts. Flat scripts check Parts I–IV, VII and VIII, appendix A and parts of Part IX; subdirectories hold the larger computations |
 | `code/figures/` | Scripts that draw the figures and check the formulas they plot |
 | `code/lectures/` | Check and figure scripts of the lecture notes; see its `README.md` |
@@ -58,7 +58,7 @@ The book's own list of its original results is [Appendix E](appendices/E-origina
 | `code/rmatrix/` | Construction of quantum-affine representations and R-matrices, soliton S-matrices and one-loop tests (Part VI, appendix B) |
 | `code/sectors/`, `irf/`, `vernier/`, `review614/` | Soliton sectors and Krein unitarity, RSOS kinks, the Vernier–Jacobsen–Saleur lattice model and the continuum-limit lemmas (Parts VI and IX) |
 | `briefs/` | Referee reports, reading-fix briefs and open research tasks |
-| `add-backlinks.py`, `add-discovery-metadata.py`, `part-preamble.lua`, `status-tags.lua`, `theme*.scss` | Quarto build helpers, discovery metadata and styling |
+| `add-backlinks.py`, `add-discovery-metadata.py`, `home-page.lua`, `part-preamble.lua`, `status-tags.lua`, `theme*.scss` | Quarto build helpers, discovery metadata and styling |
 | `publish-pdf.sh` | Builds the PDF locally and attaches it to the `pdf-latest` release |
 | `check-refs.py`, `render-scratch.sh` | Checks cross-references and citations without rendering; renders the book in a scratch copy and reports unresolved references |
 | `AGENTS.md`, `CLAUDE.md`, `.claude/skills/` | Working rules for the AI agents that draft and referee the book, and the Claude Code skills for referee briefs and their integration |
@@ -99,7 +99,9 @@ python3 check-refs.py lecture-notes/defects
 ./render-scratch.sh --project lecture-notes/defects
 ```
 
-The GitHub Actions workflow (`.github/workflows/publish.yml`) renders the HTML on each push to `main` and deploys it to GitHub Pages, with the lecture notes of `lecture-notes/defects/` under `lectures/defects/`. It does not render the PDF, because Quarto hangs on the Mermaid figure in chapter 1 on the runner. The PDF is built locally with `./publish-pdf.sh`, which uploads it to the `pdf-latest` release and redeploys the site. That script needs `gh` logged in to GitHub.
+and likewise for `lecture-notes/defects-gemini`.
+
+The GitHub Actions workflow (`.github/workflows/publish.yml`) renders the HTML on each push to `main` and deploys it to GitHub Pages, with the lecture notes of each `lecture-notes/<name>/` under `lectures/<name>/`. It does not render the PDF, because Quarto hangs on the Mermaid figure in chapter 1 on the runner. The PDF is built locally with `./publish-pdf.sh`, which uploads it to the `pdf-latest` release and redeploys the site. That script needs `gh` logged in to GitHub.
 
 ## Running the supporting code
 
