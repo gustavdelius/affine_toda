@@ -21,7 +21,7 @@ $$
 $$ {#eq-lec2-bc-general}
 Notice that for *any* function $\mathcal B(\vec\phi)$ whatsoever, the total half-line energy (`eq-boundary-energy` in [Section 31.1](book:sec-boundary-potential)),
 $$
-E = \int_{-\infty}^0 \left(\frac{1}{2}\dot{\vec\phi}^2 + \frac{1}{2}{\vec\phi'}^2 + V(\vec\phi)\right)dx + \mathcal B\bigl(\vec\phi(0,t)\bigr),
+E = \int_{-\infty}^0 \left(\frac{1}{2}(\partial_t\vec\phi)^2 + \frac{1}{2}(\partial_x\vec\phi)^2 + V(\vec\phi)\right)dx + \mathcal B\bigl(\vec\phi(0,t)\bigr),
 $$ {#eq-lec2-energy}
 is automatically conserved: differentiating $E$ with respect to $t$, using $\ddot{\vec\phi} - \vec\phi'' + \nabla V = 0$ in $x<0$, and integrating $\dot{\vec\phi}\cdot\vec\phi''$ by parts gives
 $$
@@ -38,7 +38,7 @@ V_{\rm imag}(\vec\phi) = -\frac{m^2}{\beta^2}\sum_{j=0}^r n_j\bigl(e^{i\beta\vec
 $$
 where $\vec\alpha_0, \dots, \vec\alpha_r$ are the affine simple roots and $n_j$ are the Kac labels ($\sum_{j=0}^r n_j\vec\alpha_j = 0$, $n_0=1$).
 
-What form must $\mathcal B(\vec\phi)$ take to have any hope of being integrable? Look at the scale of the terms in the energy density: $\frac{1}{2}{\vec\phi'}^2$ has the same engineering dimension as $V(\vec\phi) \sim m^2 e^{\beta\vec\alpha_j\cdot\vec\phi}$. At the wall $x=0$, the boundary condition (-@eq-lec2-bc-general) equates the *first* derivative $\partial_x\vec\phi$ (which is like a square root of ${\vec\phi'}^2$) to $-\nabla\mathcal B$. Even better, as we are about to see in Sklyanin's Lax pair, the Lax connection $a_t(\lambda)$ already carries the **half-exponent** $e^{\beta\vec\alpha_j\cdot\vec\phi/2}$!
+What form must $\mathcal B(\vec\phi)$ take to have any hope of being integrable? Look at the scale of the terms in the energy density: $\frac{1}{2}(\partial_x\vec\phi)^2$ has the same engineering dimension as $V(\vec\phi) \sim m^2 e^{\beta\vec\alpha_j\cdot\vec\phi}$. At the wall $x=0$, the boundary condition (-@eq-lec2-bc-general) equates the *first* derivative $\partial_x\vec\phi$ (which is like a square root of $(\partial_x\vec\phi)^2$) to $-\nabla\mathcal B$. Even better, as we are about to see in Sklyanin's Lax pair, the Lax connection $a_t(\lambda)$ already carries the **half-exponent** $e^{\beta\vec\alpha_j\cdot\vec\phi/2}$!
 
 To match the exponentials in $a_t(\lambda)$, the boundary potential must be a sum over the affine simple roots with half the bulk exponent (`eq-boundary-potential` in [Section 31.1](book:sec-boundary-potential)) [@cdrs1994; @bcdr1995]:
 $$

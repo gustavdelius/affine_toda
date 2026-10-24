@@ -26,7 +26,7 @@ To find the exact quantum reflection amplitudes of real-coupling affine Toda par
 $$
 \begin{array}{ccc}
 \text{Imaginary-coupling solitons } K_\mu(\theta) & \xrightarrow{\text{Boundary fusion}} & \text{Lowest breather } K_{B_1}(\mu) \\[6pt]
-\Big\uparrow\vcenter{\rlap{\scriptstyle\text{Coideal } B_{\hat\epsilon}}} & & \Big\downarrow\vcenter{\rlap{\scriptstyle\text{Continue } \omega \,\to\, -2/B}} \\[6pt]
+\Big\uparrow\;{\scriptstyle\text{Coideal } B_{\hat\epsilon}} & & \Big\downarrow\;{\scriptstyle\text{Continue } \omega \,\to\, -2/B} \\[6pt]
 \text{Half-line non-local charges } b_j & & \text{Real-coupling particles } K_a(\theta)
 \end{array}
 $$
