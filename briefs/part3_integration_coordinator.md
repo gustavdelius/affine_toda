@@ -62,3 +62,24 @@ The prompt as launched is reproduced in `part3_integration_B_prompt.md` next to 
 7. **Check and commit.** Run the chapter scripts (all PASS), `python3 check-refs.py` and `./render-scratch.sh`. Commit by named files. Do not push or open a PR until the editor asks. The PR description must list every label change made without a second referee pass.
 8. **Memory.** Update `two-phase-referee-experiment.md` with the outcome. If the experiment worked, consider updating the `write-referee-brief` skill (blind phase first, then the coordinator's items).
 9. **Clean up.** The main checkout holds untracked copies of Gemini's reports and the items file in `briefs/`. Delete them after the integration merges into main; they would block a pull.
+
+## Done, 2026-10-24
+
+- Agent A committed 81a93cd (and 0a5b6ef), agent B 89a2cf8. Both were merged into this branch without conflict (e7e8d9c, 06b609d).
+- Coordinator steps 1–7 are done: Rule 1 on both agents (including an independent recomputation of `prp-breather-charges`, `briefs/referee_classical_09_11_integration_scripts/integration_coord_breather_charges.py`), the `code/README.md` rows, the merged `## Integration` section at the end of `briefs/referee_classical_09_11_phase1_combined.md` (with the overlap table; the separate records `part3_integration_A.md` and `part3_integration_B.md` were folded into it and removed), pointer sections in the four reports, `briefs/README.md` (rows, outcome, the Part III files no longer frozen), all check scripts PASS, `check-refs.py` and `./render-scratch.sh` clean.
+- Not pushed; no PR. Step 8 (memory) done by the coordinator session. Step 9 (cleanup of the untracked copies in the main checkout) waits until this branch is merged into main.
+- Decisions for the editor are listed in the `## Integration` section, under "Decisions for the editor".
+
+### Draft PR description
+
+> **Part III: integrate the two-phase referee reports (chapters 9–11)**
+>
+> Integrates the Gemini and Codex reports of both phases on chapters 9–11, after independent checks (Rule 1). Record: the `## Integration` section of `briefs/referee_classical_09_11_phase1_combined.md`, including the overlap table of the two-phase experiment. New check script `code/classical_reality.py`; `code/toda_classical.py` extended; figure `fig-breather-theta` redrawn; gap map regenerated (H6 partly open).
+>
+> **Label changes made without a second referee pass** (none is an upgrade):
+> - `prp-theta-reality` (ch. 11): new, **[Established; reformulated]**. Replaces the unlabelled "selection rule" bullet.
+> - `prp-breather-charges` (ch. 11): new, **[Numerical]**.
+> - `prp-hirota-energy` (ch. 11): label kept, **[Established; reformulated]**; statement narrowed to hypotheses (i)–(iii).
+> - Appendix E: the item **[Theorem, given additivity of the higher charges]** is removed and replaced by a **[Numerical]** item citing `prp-breather-charges`.
+>
+> Main corrections: the Θ rule's hypotheses and prior art (Cen–Fring, Cen–Correa–Fring, Fring–Taira, Correa–Fring–Taira); the domain of `prp-hirota-energy`; the neutral-breather band $(0,2M_a\sin\frac{\pi a}h)$; Θ gives reality, not positivity; divergence at τ zeros; H6 partly addressed; ch. 9 area rule, twisted Lax generators, citation scopes, sine-Gordon dictionary; ch. 10 $W_k(x,t)$, $a_{2n}^{(2)}$ degrees, soliton position, frame of the time advance, fusion range. Chapter 11 is retitled "The classical theory: reality from Θ".

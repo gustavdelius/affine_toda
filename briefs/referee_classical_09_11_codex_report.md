@@ -531,3 +531,11 @@ The blind list was better at domain and degenerate-limit failures of compact for
 **Evidence retained:** final new scripts are `codex_phase2_currents_v3.py` (with JSON), `codex_phase2_integrals_v2.py`, `codex_phase2_centralizers.py`, `codex_phase2_couplings.py`, `codex_phase2_extra.py`, and `codex_phase2_phase.py`, each with its output. The first integration and output are retained to document the resolved tail-cutoff FAILs. The old slow current solver was stopped after the exact v3 calculation had completed; it is not evidence for a verdict. Failed preliminary versions are retained only in scratch. Final evidence is archived under `briefs/referee_classical_09_11_codex_scripts/`; source PDFs and their text extracts remain in the Codex scratch directory.
 
 All nine coordinator items have been addressed, every frozen risk-list entry is mapped, and all 17 exercises have outlines. Unresolved claims are explicitly marked above. Phase 1 remains frozen. Phase 2 complete as a referee report; no integration into the book has been attempted.
+
+## Integration
+
+Integrated on 2026-10-24 on branch `part3-referee-integration`, together with the other three Part III reports, after independent checks (AGENTS.md, Rule 1). The verdict on each finding, the coordinator's checks, the decisions left to the editor and the overlap table of the two-phase experiment are in the `## Integration` section of `briefs/referee_classical_09_11_phase1_combined.md`.
+
+- **Verified and integrated:** §1 (hypotheses, parity normalization, prior art, H6, learning goals), §2 (the normalized τ gauge), §3 (the breather charges, now `prp-breather-charges`), §4 (frame dependence of the advance), §5 (conservation-law sign, already fixed on main; twisted generators; citation scopes), §6–§8, and the exercise outlines of §9.
+- **Resolved:** the higher-rank sign of §4, which this report correctly left "unclear". Hollowood's eq. (4.5) equals the book's $S_T$ at $n=2$ and gives the book's sign for $h=2,3,4$; his §5 disagrees with his own (4.5).
+- **Rejected:** none. No false claim was found in this report.

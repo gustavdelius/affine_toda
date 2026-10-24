@@ -464,3 +464,11 @@ The final scripts and outputs are also copied to `briefs/referee_classical_09_11
 The most consequential corrections are the treatment of singular integrals, the domain of the energy proposition, the scope of the Theta selection rule, and the allowed breather band. Other concrete corrections concern twisted Lax-generator wording, fusion ranges, the nonzero-coupling condition in the area rule, the frame restriction for time advances, the spin sign of the displayed current, and the missing spacetime factor in the vertex formula.
 
 Phase 1 complete. This report is frozen on completion; phase 2 requires the editor's separate list.
+
+## Integration
+
+Integrated on 2026-10-24 on branch `part3-referee-integration`, together with the other three Part III reports, after independent checks (AGENTS.md, Rule 1). The verdict on each finding, the coordinator's checks, the decisions left to the editor and the overlap table of the two-phase experiment are in the `## Integration` section of `briefs/referee_classical_09_11_phase1_combined.md`.
+
+- **Verified and integrated:** C1–C9, C13 (scope of "the energies are real"), C16–C19, and the remark on the soliton position. C15 (twisted spins, "unclear") was spot-checked for $a_4^{(2)}$: correct, no edit.
+- **Confirmed correct:** C10–C12, C14, C20.
+- **Rejected:** none. No false claim was found in this report.
