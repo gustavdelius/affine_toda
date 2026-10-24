@@ -13,3 +13,4 @@ One line per completed item: item, verdict, files changed, anything half-done, n
 - Integration record briefs/part3_integration_A.md written (2026-10-24). toda_classical.py second run (with ch. 10 checks) in background PID 544890, output scratch toda_run2.txt. Next: wait, then rerun smatrix_simply_laced.py and algebra_data.py, check-refs, figure-script check, commit.
 - Final runs (2026-10-24): toda_classical.py 24 PASS 0 FAIL (folded-degree threshold fixed: A_{2,3}(0)=0.0955); algebra_data.py 6 PASS; smatrix_simply_laced.py running (PID 545689). check-refs.py PASS (pre-existing WARN citation.qmd). Ch. 9 a2 wording and ch. 10 Reality wording polished. Next: smatrix result, then commit.
 - Final: smatrix_simply_laced.py 11 PASS 0 FAIL; record's final-checks section written. Next: check-refs, commit.
+- Committed 81a93cd (2026-10-24). Task complete; checkpoint line added after the commit, so this line is uncommitted.
