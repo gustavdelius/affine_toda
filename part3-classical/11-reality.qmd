@@ -1,13 +1,13 @@
-# The classical theory: a selection rule from $\Theta$ {#sec-classical}
+# The classical theory: reality from $\Theta$ {#sec-classical}
 
 ::: {.callout-note appearance="simple" icon=false title="Learning goals"}
 - See how the antilinear symmetry $\Theta$ acts on solutions and on Hirota data.
-- Prove that $\Theta$-invariant solutions have real energy, momentum and higher charges.
-- Recognise the solutions excluded by this rule: complex-energy and singular solutions.
+- Derive a sufficient condition for the conserved charges of regular solutions to be real, or imaginary, according to their parity under $\Theta$.
+- Distinguish reality of the charges from regularity, from positivity of the energy and from the choice of physical solutions.
 - Understand the missing-charge problem.
 :::
 
-The solitons of @sec-classical-solitons are complex fields, yet their energies are real. The literature established this case by case, and also found complex solutions with complex or negative energies. This chapter shows that a single symmetry decides which solutions have real conserved charges. It is the classical counterpart of the Krein-space structure of the quantum theory (Part IX).
+The solitons of @sec-classical-solitons are complex fields, yet their energies are real. The literature established this case by case, and also found complex solutions with complex or negative energies. This chapter organizes these results around one symmetry. On regular solutions whose asymptotic data are invariant under $\Theta$, the energy and momentum are real, and each higher charge that depends only on these data is real or imaginary according to its parity under $\Theta$. The condition is sufficient, not necessary, and it does not decide which solutions are physical. It is the classical counterpart of the Krein-space structure of the quantum theory (Part IX).
 
 ## $\Theta$ on solutions {#sec-theta-classical}
 
@@ -23,43 +23,81 @@ $$
 \Theta:(a,\theta,\xi)\mapsto(\bar a,\bar\theta,\bar\xi),\qquad\bar a=h-a .
 $$ {#eq-theta-data}
 
-A $\Theta$-invariant field satisfies $\vec\phi=-\bar{\vec\phi}$ (up to a vacuum shift), i.e. it is purely imaginary, and $i\vec\phi$ solves the real-coupling equation; it carries no topological charge. So no soliton is $\Theta$-invariant as a field, and for solitons $\Theta$-invariance is a property of the asymptotic data. The sine-Gordon kink, for which $\bar a=a$, is mapped to a solution with the opposite topological charge and conjugate $\xi$. A breather is the simplest $\Theta$-invariant solution (@fig-breather-theta).
+A field fixed by $\Theta$ satisfies $\vec\phi=-\bar{\vec\phi}$. It is purely imaginary, and $\vec\chi=i\vec\phi$ is a real solution of the real-coupling equation. Its energy is negative. Indeed, with $\vec\phi=-i\vec\chi$ the kinetic term changes sign, $\tfrac12(\vec\phi_t^2+\vec\phi_x^2)=-\tfrac12(\vec\chi_t^2+\vec\chi_x^2)$, and by (-@eq-imaginary-potential) $V_{\rm imag}(-i\vec\chi)=-V_{\rm real}(\vec\chi)$. Since $e^y-1\ge y$ and $\sum_jn_j\vec\alpha_j=0$, $V_{\rm real}\ge0$. So the energy of $\vec\phi$ is minus the real-coupling energy of $\vec\chi$, and it is negative unless $\vec\phi=0$ (`code/classical_reality.py` checks the identity). Such a field also carries no topological charge. So no soliton or breather is fixed by $\Theta$ as a field, and for them $\Theta$-invariance is a property of the asymptotic data. The sine-Gordon kink at real rapidity, for which $\bar a=a$, has $\Theta$-invariant data $(a,\theta)$, yet $\Theta$ maps it to the antikink, with the opposite topological charge and conjugate $\xi$. A neutral breather is the simplest solution whose data are $\Theta$-invariant (@fig-breather-theta).
 
-![Left: $\Theta$ reflects the rapidity in the real axis and exchanges $a$ and $\bar a$, so the constituents $(a,\theta_0+iu)$ and $(\bar a,\theta_0-iu)$ of a breather are exchanged. Right: the classical breather mass $2M_a\cos u$, for $u\in(0,\pi/2)$, fills a continuous band. `code/figures/ch11_f16_breather_theta.py` checks that the breather energy and momentum are real, that $E^2-P^2=(2M_a\cos u)^2$ and that $\Theta$ maps the pair to itself.](figures/ch11_f16_breather_theta.svg){#fig-breather-theta fig-alt="Left: two points in the complex rapidity plane at the same real part and opposite imaginary parts, joined by a double arrow. Right: a cosine curve falling from 2 to 0."}
+![Left: $\Theta$ reflects the rapidity in the real axis and exchanges $a$ and $\bar a$, so the constituents $(a,\theta_0+iu)$ and $(\bar a,\theta_0-iu)$ of a neutral breather are exchanged. Right: the regular neutral breathers of $a_5^{(1)}$. The breather of species $a$ has mass $2M_a\cos u$. It is regular only where $A_{a\bar a}(2iu)<0$, that is $\lvert\frac\pi2-\frac{\pi a}h\rvert<u<\frac\pi2$, so its mass lies in $(0,2M_a\sin\frac{\pi a}h)$ (@sec-breathers). Only $a=h/2=3$ fills $(0,2M_a)$. In the hatched part some $\tau_j$ vanishes, whatever the phases. `code/figures/ch11_f16_breather_theta.py` checks that the breather energy and momentum are real, that $E^2-P^2=(2M_a\cos u)^2$, that $\Theta$ maps the pair to itself, the formula for $A_{a\bar a}(2iu)$ and its sign, the regular family and a zero of $\tau_0$ below the band.](figures/ch11_f16_breather_theta.svg){#fig-breather-theta fig-alt="Left: two points in the complex rapidity plane at the same real part and opposite imaginary parts, joined by a double arrow. Right: three horizontal bars for the species pairs of a_5^(1); each is solid from 0 up to its maximal regular breather mass and hatched from there to twice the soliton mass, except the self-conjugate species, whose bar is solid throughout."}
 
 ## Reality of energy and momentum {#sec-reality-energy-momentum}
 
 ::: {#prp-hirota-energy}
-**[Established; reformulated]** For a Hirota solution, the energy and momentum densities are total derivatives [@olive1993a; @olive1993b]. They integrate to
+**[Established; reformulated]** Take the $N$-soliton solution (-@eq-n-soliton) of $a_n^{(1)}$ with species $a_i$, complex rapidities $\theta_i$ and constants $\xi_i$, and a time slice. Suppose that
+
+(i) $\operatorname{Re}\cosh\theta_i>0$ for every $i$, that is $\lvert\operatorname{Im}\theta_i\rvert<\frac\pi2$ modulo $2\pi$;
+
+(ii) the leading coefficient $\prod_{k<l}A_{a_ka_l}(\theta_k-\theta_l)$ is finite and nonzero;
+
+(iii) no $\tau_j$ vanishes on the slice.
+
+Then the energy and momentum densities are total derivatives [@olive1993a; @olive1993b], and the integrals are
 
 $$
-E=\sum_iM_{a_i}\cosh\theta_i,\qquad P=\sum_iM_{a_i}\sinh\theta_i,
+E=\sum_iM_{a_i}\cosh\theta_i,\qquad P=\sum_iM_{a_i}\sinh\theta_i .
 $$
 
-where $(a_i,\theta_i)$ are the species and (possibly complex) rapidities of the constituent solitons [@tw1999, eq. 4.6]. The masses $M_a$ are real and positive. For the higher conserved charges of a single soliton the same holds [@freeman1995]; for multi-soliton solutions it is assumed here, on the basis of additivity (see the remark below).
+The masses $M_a$ of (-@eq-soliton-mass) are real and positive.
 
 :::
 
-On Hirota data, $\Theta$ acts as $\tau_j\mapsto\bar\tau_j$. That is, $(a,\theta,\xi)\mapsto(\bar a,\bar\theta,\bar\xi)$, where $\bar a$ is the conjugate species ($\omega^{ja}\mapsto\omega^{-ja}$). Consequently:
+On the normalized $\tau_j$ the energy density is $\frac2{\beta^2}\sum_j\frac2{\vec\alpha_j^2}\partial_x^2\ln\tau_j$ (@sec-classical-literature). By (iii) its integral is the difference of the boundary values of $\frac2{\beta^2}\sum_j\frac2{\vec\alpha_j^2}\partial_x\ln\tau_j$. By (i) every exponential factor $E_k$ of (-@eq-n-soliton) tends to 0 as $x\to-\infty$, so $\tau_j\to1$. As $x\to+\infty$ the term with all $N$ factors has the exponent of largest real part, and by (ii) its coefficient is nonzero, so $\partial_x\ln\tau_j\to\sum_im_{a_i}\cosh\theta_i$. With $\sum_j2/\vec\alpha_j^2=h$ this gives $E$, and $P$ follows in the same way. Olive, Turok and Underwood state the condition for their vertex-operator solutions: the boundary evaluation "holds good even if $e^{\eta_i}$ is complex, providing that its real part is positive", where $\eta_i$ is their rapidity, and the result does not depend on the constants that correspond to the $\xi_i$ [@olive1993b, Sec. 8.3]. Takács and Watts give the formula for $a_2^{(1)}$ [@tw1999, eq. 4.6].
 
-- **Selection rule.** If the asymptotic data are $\Theta$-invariant, i.e. the multiset $\{(a_i,\theta_i)\}$ is mapped to itself by $(a,\theta)\mapsto(\bar a,\bar\theta)$, then every conserved charge satisfies $Q=\epsilon_Q\bar Q$, where $J_Q(-\bar{\vec\phi})=\epsilon_Q\overline{J_Q(\vec\phi)}$ defines $\epsilon_Q=\pm1$; in particular $E$ and $P$ are real. Breathers are of this kind.
-- **A weaker condition for $E$ and $P$.** By @prp-hirota-energy, $E$ and $P$ depend on the data only through the multiset $\{(M_{a_i},\theta_i)\}$. Since $M_{\bar a}=M_a$, they are real whenever this multiset is mapped to itself by $\theta\mapsto\bar\theta$, whether or not the species are conjugated as well. This covers every solution with real rapidities, for instance a single soliton with $\bar a\ne a$, which is not $\Theta$-invariant. Charges that are odd under charge conjugation $a\leftrightarrow\bar a$ need full $\Theta$-invariance. In $a_2^{(1)}$ the spin-2 charge of a single soliton is $q_ae^{2\theta}$, where by Freeman's computation [@freeman1995] the $q_a$ form the eigenvector of the $A_2$ Cartan matrix with eigenvalue $3$, so $q_2=-q_1$, and they can be normalized to be real. If the charge is additive over the constituents, as $E$ and $P$ are, a breather $\{(1,\theta_0+iu),(2,\theta_0-iu)\}$ has spin-2 charge $q_1\big(e^{2(\theta_0+iu)}-e^{2(\theta_0-iu)}\big)=2iq_1e^{2\theta_0}\sin2u$, which is imaginary. This agrees with the selection rule with $\epsilon_Q=-1$. Freeman treats single solitons only, so additivity at complex rapidities is assumed here.
-- **Complex energies.** The complex-energy solutions of Khastgir and Sasaki have asymptotic data that are not $\Theta$-invariant. They are not in the physical sector, for the same reason that complex eigenvalues of a $\Theta$-symmetric operator are not $\Theta$-invariant states (@sec-antilinear).
+The conditions are needed. At $\theta=i\pi$ and $\xi=i\pi/2$ the sine-Gordon $\tau$-functions are $\tau_{0,1}=1\pm ie^{-2mx}$. This is a regular real static antikink of energy $+M$, while $M\cosh i\pi=-M$. In general, for a single soliton, $\tau_j(a,\theta+i\pi,\xi)=\omega^{ja}e^{-X}\,\tau_j(\bar a,\theta,-\xi)$ with $X=m_a(x\cosh\theta-t\sinh\theta)-\xi$. The factor $e^{-X}$ is common to all $j$ and drops out of (-@eq-hirota-ansatz), so the soliton $(a,\theta+i\pi,\xi)$ is the soliton $(\bar a,\theta,-\xi)$ up to a constant shift of $\vec\phi$. In a multi-soliton solution the same relabelling holds, with the constants $\xi$ of the other constituents shifted, because $A_{ab}(\theta+i\pi)A_{\bar ab}(\theta)=1$. A constituent with $\operatorname{Re}\cosh\theta_i<0$ therefore contributes $-M_{a_i}\cosh\theta_i$. On a slice through a zero of some $\tau_j$ the integral diverges (@sec-singular-solutions). `code/classical_reality.py` integrates the canonical energy and momentum densities numerically in all these cases. Freeman obtains the higher conserved charges of a single soliton from boundary terms in the same way [@freeman1995].
 
-This closes gap H6 of @sec-critique, apart from the question of singularities. The restriction to "good" solutions, previously ad hoc, is the classical shadow of @thm-krein-transfer, which is proved in Part IX for the lattice transfer matrix; Part III uses it only as motivation.
+On Hirota data, $\Theta$ acts by (-@eq-theta-data). Write $D=\{(a_i,\theta_i)\}$ for the multiset of species and rapidities of a solution, its *reduced data*; it omits the $\xi_i$. $D$ is $\Theta$-invariant if $(a,\theta)\mapsto(\bar a,\bar\theta)$ maps it to itself.
 
+::: {#prp-theta-reality}
+**[Established; reformulated]** Let $Q=\int J_Q\,dx$ be a local conserved charge with definite parity under $\Theta$: $Q[\Theta\vec\phi]=\epsilon_Q\overline{Q[\vec\phi]}$ with $\epsilon_Q=\pm1$. Consider a class of regular Hirota solutions, closed under $\Theta$, on which $Q$ converges and its value depends only on the reduced data $D$. If $D$ is $\Theta$-invariant, then $Q=\epsilon_Q\bar Q$: $Q$ is real if $\epsilon_Q=1$ and imaginary if $\epsilon_Q=-1$. In particular, under the conditions of @prp-hirota-energy, $E$ and $P$ are real.
+:::
+
+::: {.proof}
+Write $Q[\vec\phi]=F_Q(D)$. By (-@eq-theta-data), $\Theta\vec\phi$ has reduced data $\Theta D=D$. Hence $Q[\vec\phi]=F_Q(D)=F_Q(\Theta D)=Q[\Theta\vec\phi]=\epsilon_Q\overline{Q[\vec\phi]}$. For $E$ and $P$, the conditions of @prp-hirota-energy are preserved by $\Theta$, @prp-hirota-energy gives the value as a function of $D$, and $\epsilon=1$: since $\overline{V_{\rm imag}(\vec\phi)}=V_{\rm imag}(-\bar{\vec\phi})$, the densities $\frac12(\vec\phi_t^2+\vec\phi_x^2)+V_{\rm imag}$ and $-\vec\phi_t\cdot\vec\phi_x$ at $-\bar{\vec\phi}$ are the conjugates of those at $\vec\phi$.
+:::
+
+The proof is a single line. The content is in the hypotheses.
+
+- **Definite parity.** Not every conserved charge has one. If $Q$ has parity $\epsilon_Q$, then $(1+i)Q$ is conserved and has neither. Since $\Theta$ is an antilinear involution, the local charges have a basis of definite parity, and the statement applies to its elements.
+- **Dependence on $D$ alone.** This excludes the topological charge, which depends on the $\xi_i$. The sine-Gordon kink has $\Theta$-invariant data and topological charge 1, but $\Theta$ maps it to the antikink, so its parity is $-1$, and the conclusion would make the charge imaginary (`code/classical_reality.py`). For a local charge on a single soliton, a change of $\xi$ is a complex translation, so the value does not depend on $\xi$ as long as no zero of a $\tau_j$ crosses the line of integration. For solitons with distinct real rapidities, which separate at large $\lvert t\rvert$, the charge is the sum of single-soliton values. For complex rapidities, as in breathers, this is not proved here; @prp-breather-charges checks it in an example.
+- **A weaker condition for $E$ and $P$.** By @prp-hirota-energy, $E$ and $P$ depend on the data only through the multiset $\{(M_{a_i},\theta_i)\}$. Since $M_{\bar a}=M_a$, they are real whenever this multiset is mapped to itself by $\theta\mapsto\bar\theta$, whether or not the species are conjugated as well. This covers every solution with real rapidities, for instance a single soliton with $\bar a\ne a$, whose data are not $\Theta$-invariant. Charges with $\epsilon_Q=-1$ need full $\Theta$-invariance.
+- **The parity of the higher charges.** Freeman computes the charges $Q_s$ of spin $s$ of single solitons [@freeman1995]. Their values $q_a$ form the left eigenvector of the Cartan matrix of $g$ with eigenvalue $2(1-\cos\frac{s\pi}h)$, they can be chosen real, and those of the antisolitons are $(-1)^{s-1}$ times those of the solitons [@freeman1995, eq. 3.49]. For $a_n^{(1)}$ the eigenvector is $q_a\propto\sin\frac{s\pi a}h$, and indeed $\sin\frac{s\pi(h-a)}h=(-1)^{s-1}\sin\frac{s\pi a}h$. A soliton of species $a$ with real rapidity $\theta$ has $Q_s=q_ae^{s\theta}$, and $\Theta$ maps it to a soliton of species $\bar a$ with the same rapidity. With real $q_a$, $Q_s[\Theta\vec\phi]=\epsilon\,\overline{Q_s[\vec\phi]}$ then reads $q_{\bar a}=\epsilon q_a$. So $\epsilon_{Q_s}=(-1)^{s-1}$: the charges of even spin, which exist for $h\ge3$, are odd under $\Theta$.
+
+::: {#prp-breather-charges}
+**[Numerical]** In $a_2^{(1)}$, let $Q_2$ and $Q_4$ be the local conserved charges of spin 2 and 4, normalized so that a soliton of species 1 at rest has $Q_s=1$. On a regular neutral breather with data $\{(1,\theta_0+iu),(2,\theta_0-iu)\}$,
+
+$$
+Q_s=e^{s(\theta_0+iu)}-e^{s(\theta_0-iu)}=2i\,e^{s\theta_0}\sin su ,\qquad s=2,4 .
+$$
+
+This is imaginary, as @prp-theta-reality requires with $\epsilon=-1$. It is the sum of the single-soliton values $q_ae^{s\theta}$, with $q_1=1$ and $q_2=-1$, at the complex rapidities of the constituents.
+:::
+
+`code/classical_reality.py` constructs the currents from the field equation alone. In $\vec\psi=i\beta\vec\phi$ it solves $\partial_+T=\partial_-\mathcal X$ for $T$ polynomial in the $\partial_-$-derivatives of $\vec\psi$ and $\mathcal X$ linear in the $e^{\vec\alpha_j\cdot\vec\psi}$, and finds one current, up to total derivatives, at spin 2 and at spin 4, and none at spin 3. It then integrates $\int(T-\mathcal X)\,dx$ on Hirota solutions. A soliton of species 1 at complex rapidity gives $q_1e^{s\theta}$. Breathers at $\theta_0=0.23$, $u=\frac\pi3$, with three choices of the $\xi_i$, each at a different time, give the displayed value to $10^{-13}$.
+
+**Complex and negative energies.** Khastgir and Sasaki showed that single solitons of complex rapidity become singular in finite time [@khastgir1996]. By @prp-hirota-energy their energy and momentum are not both real, and their data are not $\Theta$-invariant. This is consistent with @prp-theta-reality, which is only a sufficient condition. They also gave initial data of finite negative energy, $\vec\phi=0$ and $\partial_t\vec\phi=i\vec f(x)$ with $\vec f$ real [@khastgir1996, eq. 5.13]. These data are fixed by $\Theta$, so the solution is a field fixed by $\Theta$, and its energy is negative, as shown in @sec-theta-classical; whether it stays regular is not known. So $\Theta$-invariance makes the charges real, not the energy positive. On the solutions of @prp-hirota-energy the energy is positive when it is real, but this comes from condition (i), which gives $\operatorname{Re}E=\sum_iM_{a_i}\operatorname{Re}\cosh\theta_i>0$, not from $\Theta$. The parallel with the complex eigenvalues of a $\Theta$-symmetric operator, which belong to pairs of eigenvectors exchanged by $\Theta$ (@sec-antilinear), is a heuristic, not a classical theorem.
+
+@prp-theta-reality is a sufficient reality condition for the charges of regular solutions, and it partly addresses gap H6 of @sec-critique. It accounts for the reality results of the literature and for the complex energies of Khastgir and Sasaki. It does not show that the condition is necessary, it does not treat singular solutions, and it does not select the physical solutions. The quantum counterpart is @thm-krein-transfer, proved in Part IX for the lattice transfer matrix; Part III uses it only as motivation.
 
 **Examples.**
 
-- A single soliton with real rapidity $\theta$ has $E=M_a\cosh\theta$ real. It is $\Theta$-invariant only if $\bar a=a$; otherwise $\Theta$ maps it to a soliton of the conjugate species, which has the same mass.
-- A breather (@sec-breathers) has asymptotic data $\{(a,\theta_0+iu),(\bar a,\theta_0-iu)\}$, which $\Theta$ maps to itself. Its energy $2M_a\cosh\theta_0\cos u$ is real, although each constituent has complex rapidity.
-- A single soliton with complex rapidity $\theta_0+iu$ alone has $E=M_a(\cosh\theta_0\cos u+i\sinh\theta_0\sin u)$, complex for $\theta_0u\neq0$. Its data are not $\Theta$-invariant, and it is excluded.
+- A single soliton with real rapidity $\theta$ has $E=M_a\cosh\theta$ real. Its data are $\Theta$-invariant only if $\bar a=a$; otherwise $\Theta$ maps it to a soliton of the conjugate species, which has the same mass.
+- A regular neutral breather (@sec-breathers) has data $\{(a,\theta_0+iu),(\bar a,\theta_0-iu)\}$ with $\lvert\frac\pi2-\frac{\pi a}h\rvert<u<\frac\pi2$, which $\Theta$ maps to itself. Its energy $2M_a\cosh\theta_0\cos u$ is real, although each constituent has complex rapidity.
+- A single soliton with complex rapidity $\theta_0+iu$, $0<\lvert u\rvert<\frac\pi2$, has $E=M_a\cosh(\theta_0+iu)$ and $P=M_a\sinh(\theta_0+iu)$, which are not both real. Its data are not $\Theta$-invariant, so @prp-theta-reality does not apply.
 
 ## Singular solutions {#sec-singular-solutions}
 
-Zeros of $\tau_j$ in the real $(x,t)$ plane are generically isolated points: one complex condition, two real conditions. Non-generic data, such as a single soliton with tuned $\operatorname{Im}\xi$ or a breather with $\xi_2=\bar\xi_1$, give curves of zeros. There the energy density has double poles with zero residue, so integrated charges are unaffected, and the Hirota data continue analytically through the singularity.
+A zero of $\tau_j$ in the real $(x,t)$ plane is two real conditions, $\operatorname{Re}\tau_j=\operatorname{Im}\tau_j=0$. Where the gradients of $\operatorname{Re}\tau_j$ and $\operatorname{Im}\tau_j$ are independent, the zero is an isolated point. This fails for a single soliton of real rapidity, whose $\tau_j$ depends on $x$ and $t$ only through $x\cosh\theta-t\sinh\theta$; it has zeros only for tuned $\operatorname{Im}\xi$, and then along lines. Real $\tau_j$, such as those of a breather with $\xi_2=\bar\xi_1$ (@exr-breather-real), also vanish along curves.
 
-The genuinely problematic phenomenon is different. In theories with non-self-conjugate species, soliton–breather scattering produces complex time delays and can carry regular data into singular regions [@tw1999]. This is the classical image of a quantum sector in which $\Theta$ is broken (@sec-sector-status). It is not a failure of the formalism.
+Near a simple zero $x_*$ of $\tau_j$ on a time slice, $\partial_x^2\ln\tau_j=-(x-x_*)^{-2}+O(1)$. So the energy density has a double pole with zero residue. The real-line integral nevertheless diverges. For the static sine-Gordon solution $\tau_{0,1}=1\pm e^{2mx}$ the energy density is $-\frac{8m^2}{\beta^2}\operatorname{csch}^22mx$, and with the interval $(-\varepsilon,\varepsilon)$ removed the energy is $\frac{8m}{\beta^2}(1-\coth2m\varepsilon)\approx-\frac4{\beta^2\varepsilon}$. A finite value needs an extra prescription, such as a contour in the complex $x$-plane that avoids the zero (the zero residue makes its value independent of the side) or a finite part. On a slice that avoids the zeros the integrals converge, and the boundary evaluation of @prp-hirota-energy still applies. When a zero of $\tau_j$ crosses the real line, $\operatorname{Im}\ln\tau_j$ jumps by $\pm2\pi$, and the topological charge $\frac\beta{2\pi}\big[\vec\phi\big]_{-\infty}^{\infty}$ jumps by $\mp\frac{2\vec\alpha_j}{\vec\alpha_j^2}$. The $\tau$-functions, which are finite sums of exponentials, continue analytically through such a crossing. The field and the real-line integrals do not. `code/classical_reality.py` checks the divergence, the value on slices that avoid the zeros of a singular $a_2^{(1)}$ breather, and the jump of the winding of $\tau_j$.
+
+In theories with non-self-conjugate species, soliton–breather scattering produces complex time delays and can carry regular data into singular regions [@tw1999]. This book reads it as the classical image of a quantum sector in which $\Theta$ is broken (@sec-sector-status). That reading is an interpretation, not a result of the classical calculation.
 
 ## The missing-charge problem {#sec-missing-charges}
 
@@ -69,7 +107,7 @@ There are three possible responses.
 
 - **The classical theory is incomplete.** Other classical solutions, not single Hirota solitons, carry the missing charges. Multi-soliton bound states at complex rapidities are candidates.
 - **Semiclassics is incomplete.** The missing states appear only quantum mechanically, through saddles of the path integral that are not real-time solutions.
-- **Both.** Static complex saddles are not enough. @sec-which-saddles-contribute shows that for $a_3^{(1)}$ no static saddle of the right energy carries the missing weights, and conjectures (@cnj-missing-charge) that complexified two-soliton bound states at the fusing angle carry them.
+- **Both.** Static complex saddles are not enough. @sec-which-saddles-contribute shows that for $a_3^{(1)}$ no regular static solution of the right energy that approaches vacua at both ends carries the missing weights, and conjectures (@cnj-missing-charge) that complexified two-soliton bound states at the fusing angle carry them.
 
 The book adopts the third response as a working hypothesis. @sec-which-saddles-contribute makes the choice, and @cnj-missing-charge states it. The problem is gap H11 of @sec-critique, and it is open.
 
@@ -84,13 +122,20 @@ Show that $\overline{A_{ab}(\theta)}=A_{h-a,h-b}(\bar\theta)$ for (-@eq-interact
 :::
 
 ::: {#exr-breather-real}
-Show that the asymptotic data of a breather are $\Theta$-invariant. If moreover $\xi_2=\bar\xi_1$, show that $\bar\tau_j=\tau_j$, so that the field is purely imaginary where all $\tau_j>0$, and that the $\tau_j$ change sign, so this solution is singular along curves in the $(x,t)$ plane. For sine-Gordon, show that the real breather (-@eq-sg-breather) instead has $\xi_2=\bar\xi_1+i\pi$. (A numerical check is in `code/toda_classical.py`.)
+Show that the data $\{(a,\theta_0+iu),(\bar a,\theta_0-iu)\}$ of a neutral breather are $\Theta$-invariant. Work in the rest frame, $\theta_0=0$, and write $A=A_{a\bar a}(2iu)$.
+
+1. If $\xi_2=\bar\xi_1$, show that $\bar\tau_j=\tau_j$, so that the field is fixed by $\Theta$ where all $\tau_j>0$. Show that at suitable times $\tau_j=1-2r+Ar^2$, where $r=\lvert E_1\rvert$ and $E_1$ is the exponential factor of the first constituent, and deduce from $A<1$ that the $\tau_j$ change sign, so that this solution is singular along curves in the $(x,t)$ plane.
+2. If $\xi_2=\bar\xi_1+i\pi$ and $A<0$, show that $\operatorname{Re}\tau_j=1+\lvert A\rvert\lvert E_1\rvert^2>0$, so that the breather is regular. For sine-Gordon, check that this is the real breather (-@eq-sg-breather).
+
+(Numerical checks are in `code/toda_classical.py` for sine-Gordon and in `code/classical_reality.py` for $a_5^{(1)}$.)
 :::
 
 ::: {#exr-singular-points}
-Show that a zero of $\tau_j$ in the real $(x,t)$ plane is generically an isolated point, and that near it the energy density has a double pole with zero residue, so that integrated charges are unaffected.
+Show that a zero of $\tau_j$ at which $\operatorname{Re}\tau_j$ and $\operatorname{Im}\tau_j$ have independent gradients is an isolated point of the real $(x,t)$ plane, and that this condition fails for a single soliton of real rapidity. For the static sine-Gordon solution $\tau_{0,1}=1\pm e^{2mx}$, show that the energy density is $-\frac{8m^2}{\beta^2}\operatorname{csch}^22mx$, with a double pole and zero residue at $x=0$, and that the energy with $(-\varepsilon,\varepsilon)$ removed is $\frac{8m}{\beta^2}(1-\coth2m\varepsilon)$. Explain why a zero residue does not make the energy finite.
 :::
 
 ## Notes and references {#sec-classical-notes}
 
-Reality of soliton energies was shown by Olive, Turok and Underwood [-@olive1993a; -@olive1993b] and Zhu and Caldi [@zhu1995], and of the higher conserved charges of single solitons by Freeman [-@freeman1995]. Complex-energy and negative-energy solutions are in Khastgir and Sasaki [-@khastgir1996], and the complex time delays and singular final states of $a_2^{(1)}$ in Takács and Watts [-@tw1999]. The missing charges were found by McGhee [-@mcghee1994]. The formulation as a selection rule from $\Theta$ is new here.
+Reality of soliton energies was shown by Olive, Turok and Underwood [-@olive1993a; -@olive1993b] and Zhu and Caldi [@zhu1995], and of the higher conserved charges of single solitons by Freeman [-@freeman1995]. Olive, Turok and Underwood also observed that a pair of solitons of equal mass with complex-conjugate rapidities has real energy and momentum, which gives the breathers [-@olive1993b, Sec. 8.3]. Takács and Watts state the condition for the two-soliton solutions of $a_2^{(1)}$: the rapidities must be real or a complex-conjugate pair [-@tw1999, Sec. 4.2]. Zhu and Caldi select solitons by the reality of the energy density, which requires a pairing of the $\tau$-functions; this is stronger than the reality of the integrated charges used here. Complex-energy and negative-energy solutions are in Khastgir and Sasaki [-@khastgir1996], and the complex time delays and singular final states of $a_2^{(1)}$ in Takács and Watts [-@tw1999]. The missing charges were found by McGhee [-@mcghee1994].
+
+Antilinear symmetries have explained the real energies of other complex solitons. Cen and Fring did this for complex KdV, mKdV and sine-Gordon solitons with real dispersion parameters, restoring the symmetry by shifts in space and time [@cen_fring2016]. Cen, Correa and Fring extended it to all the conserved charges of complex KdV multi-solitons, using their separation into single solitons [@cen_correa_fring2017]. Fring and Taira, and Correa, Fring and Taira, used symmetries that map a solution to itself or to a second solution of the same energy [@fring_taira2020; @correa_fring_taira2022]; the latter treat complex solitons of the Bullough–Dodd model and show that solutions with real energies can be linearly unstable. Cen and Fring also used antilinear symmetries to make the conserved quantities of multicomplex KdV systems real [@cen_fring2020]. Their symmetries include a reflection of space and time, while $\Theta$ acts on the field alone. This chapter states the argument for affine Toda Hirota solutions in terms of the reduced data (@prp-theta-reality). The higher charges of $a_2^{(1)}$ breathers (@prp-breather-charges) and the negative energy of fields fixed by $\Theta$ are checked here.
