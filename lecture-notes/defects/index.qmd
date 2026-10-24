@@ -18,7 +18,7 @@ The story starts from a simple question. A boundary of an integrable field theor
 | 8 | Defects, L-operators and Q-operators | What is a defect wrapped around a cylinder? |
 | 9 | Folding, fusing and the classical breather | How are defects and boundaries related, and what is left of $\hbar$? |
 
-Lectures 1 to 7 are written; the others are in preparation.
+Lectures 1 to 8 are written; the last is in preparation.
 
 ::: {.content-visible when-format="html"}
 These lectures are also available as a [PDF](defects.pdf).
