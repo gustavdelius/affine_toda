@@ -10,7 +10,7 @@ Checks:
     gives (3.16); unitarity (eq-boundary-unitarity); crossing-unitarity in the book form
     eq-boundary-crossing-diagonal and in DG's form (3.17); K_a = K_{h-a}; the bulk boundary bootstrap
     eq-boundary-bootstrap-bulk at every fusing a+b -> c of a_n (both a+b < h and a+b > h); B -> 0 limit
-    -1/((a)(h-a)) = eq-linear-reflection at C = +1 (and its closed form); equality with the conjecture of
+    -1/((a)(h-a)) = eq-linear-reflection at C = +1 (and its closed form [-(a)(h-a)]^(-C), C = 1, 0, -1); equality with the conjecture of
     Corrigan-Dorey-Rietdijk-Sasaki hep-th/9404108 (5.16) with <x> replaced by <x~>; n = 1..7.
  3. Breather amplitude at imaginary coupling, DG (3.11): the closed form, continued by omega -> -2/B
     (the bulk continuation beta^2 -> -beta^2), is DG (3.12).  (That the singlet projection of the soliton K gives
@@ -222,10 +222,10 @@ for n in range(1, 8):
             Kcl = -1/(blk(a, th, h)*blk(h - a, th, h))
             ok_cl &= abs(K_uniform(a, n)(th, 0) - Kcl) < TOL
             s = mp.sin(PI*a/h)
-            for C in (1, -1):
-                ok_lin &= abs((mp.sinh(th) - I*C*s)/(mp.sinh(th) + I*C*s) + (blk(a, th, h)*blk(h - a, th, h))**(-C)) < TOL
+            for C in (1, 0, -1):
+                ok_lin &= abs((mp.sinh(th) - I*C*s)/(mp.sinh(th) + I*C*s) - (-blk(a, th, h)*blk(h - a, th, h))**(-C)) < TOL
 report('DG (3.19): B -> 0 limit of (3.16) is -1/((a)(h-a)) = eq-linear-reflection at C = +1, n = 1..7', ok_cl)
-report('eq-linear-reflection: (sinh th - iC sin(pi a/h))/(sinh th + iC sin(pi a/h)) = -[(a)(h-a)]^(-C), C = +-1',
+report('eq-linear-reflection: (sinh th - iC sin(pi a/h))/(sinh th + iC sin(pi a/h)) = [-(a)(h-a)]^(-C), C = 1, 0, -1',
        ok_lin)
 
 

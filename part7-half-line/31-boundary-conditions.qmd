@@ -142,7 +142,7 @@ $$ {#eq-boundary-k-equation}
 
 Two features make this equation useful.
 
-- **It is node-local.** The Lax coefficients $c_j$ have cancelled. With any other normalization of $\mathcal B$, such as dropping $n_j$, the factors $c_j$ survive and couple the nodes; for $d_4^{(1)}$ (where $n_2=2$) one then finds no invertible $K$ for any choice of signs (checked in `code/boundary_classical.py`).
+- **It is node-local, and its parameters are the $C_j$ themselves.** The Lax coefficients $c_j$ have cancelled. Node-locality does not depend on the normalization of $\mathcal B$, since each node keeps its own exponential. The parameters do. If $\mathcal B$ is normalized by $\sqrt{2/\vec\alpha_j^2}$, dropping $n_j$, then $C_j$ is replaced by $C_j/\sqrt{n_j}$ in (-@eq-boundary-k-equation). For $d_4^{(1)}$ (where $n_2=2$) there is then no invertible $K$ with all $|C_j|=1$, for any choice of signs, and the central node needs $C_2^2=2$ (checked in `code/boundary_classical.py`).
 - **It does not see the root normalization.** The equation involves only the coroots $h_j$ and the Chevalley generators $E_{\pm\vec\alpha_j}$, with $[E_{\vec\alpha_j},E_{-\vec\alpha_j}]=h_j$ (@sec-lax-pair), and these do not change when all roots are rescaled. So the allowed $C_j$ are the same in every normalization of the roots, including the different normalizations of twisted roots in the literature, provided $\mathcal B$ carries the factors $\sqrt{2n_j/\vec\alpha_j^2}$.
 
 Equation (-@eq-boundary-k-equation) is the condition (4.10) of Bowcock, Corrigan, Dorey and Rietdijk [@bcdr1995] with $B_i=2C_i$ and their $K$ equal to our $K^{-1}$. Its solutions were found in [@cdrs1994; @bcdr1995] by expanding $K(\lambda)$ in $\lambda$. The lowest orders give necessary conditions. We have solved (-@eq-boundary-k-equation) in full, in a faithful representation, for every algebra marked "checked" in @tbl-durham. Two symmetries reduce the work. If $K$ solves (-@eq-boundary-k-equation) for the $C_j$, then $K^{-1}$ solves it for the $-C_j$, and $DKD^{-1}$ with $D=e^{i\pi\vec\mu\cdot\vec H}$, $\vec\mu$ a coweight, solves it for the $(-1)^{\vec\alpha_j\cdot\vec\mu}C_j$. For a simply-laced algebra the coweight flips connect all sign patterns with the same value of $\prod_jC_j^{n_j}$, so only one pattern from each of the two classes $\prod_jC_j^{n_j}=\pm1$ needs checking (both reductions checked for $e_6^{(1)}$ in `code/boundary_classical.py`).
@@ -325,7 +325,7 @@ Show that the energy (-@eq-boundary-energy) is conserved for any boundary potent
 :::
 
 ::: {#exr-node-local}
-Derive (-@eq-boundary-k-equation) from (-@eq-boundary-compatibility) and (-@eq-boundary-lax-at). Then repeat the calculation with $\mathcal B$ normalized by $\sqrt{2/\vec\alpha_j^2}$ instead of $\sqrt{2n_j/\vec\alpha_j^2}$, and show that the conditions no longer decouple node by node when some $n_j\ne1$.
+Derive (-@eq-boundary-k-equation) from (-@eq-boundary-compatibility) and (-@eq-boundary-lax-at). Then repeat the calculation with $\mathcal B$ normalized by $\sqrt{2/\vec\alpha_j^2}$ instead of $\sqrt{2n_j/\vec\alpha_j^2}$, and show that the conditions still decouple node by node, with $C_j$ replaced by $C_j/\sqrt{n_j}$. What does this mean for the central node of $d_4^{(1)}$?
 :::
 
 ::: {#exr-sg-k-classical}

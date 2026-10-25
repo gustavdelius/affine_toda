@@ -279,7 +279,7 @@ for n in (2, 3, 4, 5):
     h = n + 1; al = book_roots(n)
     M2 = m**2 * sum(np.outer(a_, a_) for a_ in al)
     w, V = np.linalg.eigh(M2)
-    for C in (1, -1):
+    for C in (1, 0, -1):
         # linearized BC: eps' = -(m/2) C sum alpha alpha^T eps = -(C/2m) M2 eps
         for th in (0.37, 1.3, 0.2 + 0.4j):
             for k in range(1, h):                                  # eigenvalue m_a^2 with a determined from w
@@ -289,7 +289,7 @@ for n in (2, 3, 4, 5):
                 K = (1j * p + C * ma2 / (2 * m)) / (1j * p - C * ma2 / (2 * m))
                 s_a = np.sin(np.pi * a / h)
                 Kf = (np.sinh(th) - 1j * C * s_a) / (np.sinh(th) + 1j * C * s_a)
-                Kb = -(block(a, th, h) * block(h - a, th, h)) ** (-C)
+                Kb = (-block(a, th, h) * block(h - a, th, h)) ** (-C)       # eq-linear-reflection, [-(a)(h-a)]^-C
                 ok_K &= abs(K - Kf) < 1e-10 and abs(K - Kb) < 1e-10
         # bound states for C = -1: pole at th = i pi a/h (a < h/2), omega = m_a cos(pi a/h)
     for a in range(1, h):
@@ -313,7 +313,7 @@ for n in (2, 3, 4, 5):
             Kdg = np.prod([block(c - 1, th, h) * block(c - n - 1, th, h) * block(-c + Bsm / 2, th, h) * block(-c - n - Bsm / 2, th, h)
                            for c in range(1, a + 1)])
             ok_dg &= abs(Kdg - (-1 / (block(a, th, h) * block(h - a, th, h)))) < 1e-5
-report('linearized reflection about phi = 0: K_a = (sinh th - i C s_a)/(sinh th + i C s_a) = -((a)(h-a))^{-C} (CDR (4.7); a_2..a_5)', ok_K)
+report('linearized reflection about phi = 0: K_a = (sinh th - i C s_a)/(sinh th + i C s_a) = [-(a)(h-a)]^{-C}, C = 1, 0, -1 (CDR (4.7); a_2..a_5)', ok_K)
 report('C = -1: one pole in the physical strip at th = i pi min(a, h-a)/h for every a != h/2, omega_a = m_a |cos(pi a/h)| = m |sin(2 pi a/h)| (CDR (4.9)); '
        'a = h/2: th = i pi/2, omega = 0; C = +1: no poles (a_2..a_5)', ok_bs)
 th = 0.77

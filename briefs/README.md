@@ -190,3 +190,12 @@ PR #60 collected referee reports on Part VIII and on the Claude defect course. C
 | `pr60_verification_checkpoint.md` | The verifiers' checkpoint |
 
 **Integrated (2026-10-25).** Labels changed: `prp-dc-gauge` to [Theorem]; `prp-defect-transfer` (2) and `prp-defect-tq` (formerly `cnj-defect-tq`) to [Theorem] for the finite chain, with D–D commutation [Numerical]; `prp-sg-breather-transmission` and `prp-dq-two-weyl-pairs` to [Established; reformulated…]; in the lectures `thm-l7-breather`, `thm-l9-crossing` and `thm-l9-fusion` to [Established; reformulated…]. New or extended checks: `code/defect_ar_gauge.py`, `code/defect_transfer.py`, `code/defect_sg_scalar_poles.py`, `code/defect_fused_boundary.py`, `code/algebra_data.py`, `code/qsp_checks.py`, `code/rmatrix/smatrix/oneloop_ratio.py`.
+
+## Half-line lecture referee pass: book findings B1–B12 (2026-10-25)
+
+The two-phase referee pass on `lecture-notes/half-line/` (branch `claude/referee-halfline-lectures`) recorded twelve findings in the book, B1–B12, for a separate book change. All twelve were verified independently and integrated in chapters 21, 23, 29–36 and Appendix D; no status label changed.
+
+| File | What it is |
+|---|---|
+| `halfline_book_findings_integration.md` | Verdict, evidence and change for each finding (Rule 1 record) |
+| `halfline_book_findings_scripts/` | The integrator's own checks (`verify_findings.py`) and its log |

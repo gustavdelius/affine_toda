@@ -9,6 +9,7 @@ Lax pair eq-lax-pair, a_t = (A_+ + A_-)/2, a_x = (A_+ - A_-)/2.
    An invertible K exists exactly for the classified C (tbl-durham), for a_1^(1), a_2^(1), a_3^(1),
    d_4^(1), c_2^(1) (= b_2^(1)), c_3^(1), b_3^(1), g_2^(1), a_2^(2), a_4^(2), a_6^(2), d_3^(2) (folded reps);
    none exists for the normalization without n_j or with an overall factor 1/sqrt2 (normalization controls).
+   Without n_j the equations stay node-local with C_j/sqrt(n_j): for d_4^(1) K exists with C_2 = +-sqrt2.
    Delius 98a (1.5) (C_j ~ sqrt(n_j alpha_j^2/2)) is integrable for a_n, c_n, a_2n^(2), d_n+1^(2), not for b_3, d_4, g_2.
    Corrections to BCDR App. D: c_2^(1) = b_2^(1) also allows (C_0, C_2 = +-1, C_1 free); d_3^(2) = a_3^(2) obeys
    the union of the d_n^(2) and a_{2n-1}^(2) rules; g_2^(1) does NOT allow C_2 (short) free -- only C = 0 or all +-1.
@@ -262,6 +263,12 @@ half = lambda n, a: np.sqrt(2 * n / (a @ a)) / np.sqrt(2)   # overall factor 1/s
 ok = all(K_nullity('d4(1)', C, norm=no_n) == 0 for C in signs(5)[:8])
 ok &= K_nullity('d4(1)', np.ones(5), norm=half) == 0 and K_nullity('a2(1)', np.ones(3), norm=half) == 0
 report('normalization controls: without the factor sqrt(n_j), or with an overall factor 1/sqrt2, no K exists for |C_j| = 1 (d4, a2)', ok)
+# without sqrt(n_j) the equations stay node-local with C_j -> C_j/sqrt(n_j): the central node of d4 needs C_2^2 = 2
+sq2 = np.array([1, 1, np.sqrt(2), 1, 1])
+nl = [K_nullity('d4(1)', C * sq2, norm=no_n) for C in signs(5)]
+report(f'normalization control: without sqrt(n_j), d4 has an invertible K for C = (+-1, +-1, +-sqrt2, +-1, +-1) '
+       f'(all 32 sign patterns), i.e. the equations stay node-local with C_j/sqrt(n_j) [nullities {sorted(set(nl))}]',
+       all(x > 0 for x in nl))
 
 # Delius 98a (1.5): C_j proportional to sqrt(n_j alpha_j^2/2) (single eps, largest |C_j| = 1)
 d15 = {}
