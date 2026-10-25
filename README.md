@@ -58,7 +58,7 @@ The book's own list of its original results is [Appendix E](appendices/E-origina
 | `code/rmatrix/` | Construction of quantum-affine representations and R-matrices, soliton S-matrices and one-loop tests (Part VI, appendix B) |
 | `code/sectors/`, `irf/`, `vernier/`, `review614/` | Soliton sectors and Krein unitarity, RSOS kinks, the Vernier–Jacobsen–Saleur lattice model and the continuum-limit lemmas (Parts VI and IX) |
 | `briefs/` | Referee reports, reading-fix briefs and open research tasks |
-| `add-backlinks.py`, `add-discovery-metadata.py`, `home-page.lua`, `part-preamble.lua`, `status-tags.lua`, `theme*.scss` | Quarto build helpers, discovery metadata and styling |
+| `add-backlinks.py`, `add-discovery-metadata.py`, `clean-search-index.py`, `home-page.lua`, `part-preamble.lua`, `status-tags.lua`, `theme*.scss` | Quarto build helpers, discovery metadata and styling |
 | `publish-pdf.sh` | Builds the PDF locally and attaches it to the `pdf-latest` release |
 | `check-refs.py`, `render-scratch.sh` | Checks cross-references and citations without rendering; renders the book in a scratch copy and reports unresolved references |
 | `AGENTS.md`, `CLAUDE.md`, `.claude/skills/` | Working rules for the AI agents that draft and referee the book, and the Claude Code skills for referee briefs and their integration |

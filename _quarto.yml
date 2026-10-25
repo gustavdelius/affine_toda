@@ -3,6 +3,7 @@ project:
   post-render:
     - add-backlinks.py
     - add-discovery-metadata.py
+    - clean-search-index.py
   output-dir: _site
 
 book:
