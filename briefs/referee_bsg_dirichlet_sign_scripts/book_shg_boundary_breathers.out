@@ -1,0 +1,9 @@
+PASS CD (3.2) tau-functions: field equation [2e-30] and boundary condition with C_0 = C_1 = eps [8e-31] (book normalization)
+PASS regular on x <= 0 for -1 < eps < 0, cos rho < -eps (three points); singular for cos rho > -eps (two points)
+PASS energy by quadrature 2.8791363863 (conserved: spread 2e-15) = CD (3.7) (8/beta^2)(-cos rho - eps) = 2.8791363863
+PASS Bohr-Sommerfeld action int dt dx phi_t^2 = 11.0025919017 = CD (3.9) (8pi/beta^2)(rho - pi(1-a)) = 11.0025919017
+PASS bootstrap level spacings m cos(pi(nB - E + 1)/2) = WKB spacings (5.27) for n = 0..3, with E = 2a(1-B/2) + (1-2N_0)B/2 and m = (8/pi B) sin(pi B/4), for any N_0
+PASS Neumann limit a -> 1/2: E = 1 - B/2 (Ghoshal-Zamolodchikov, up to E -> -E) requires N_0 = 1/2
+PASS m(beta) continued to beta_SG^2 -> -beta_SG^2 equals m_1 = 2M sin(xi/2) with M = m_0/xi (DHN) [0e+00]
+PASS CD (4.4)-(4.6): K_{n+1}(theta) = K_n(theta) S(theta - i psi_n) S(theta + i psi_n), psi_n = pi(E - 1 - nB)/2 a pole of K_n, for n = 0, 1 [5e-21]
+PASS UV-IR relation (cnj-bsg-uv-ir) at lambda = -2/B, eta = pi E/B, vt = -i pi F/B gives exactly E = (a_0+a_1)(1-B/2), F = (a_0-a_1)(1-B/2) (Corrigan-Taormina (2.10), sign of F included) with C_(0,1) = (mu/mu_crit) e^(+-i beta phi_0/2) = cos(pi a_(0,1)) [1e-31]; F -> -F exchanges C_0, C_1 [0e+00]

@@ -1,0 +1,59 @@
+PASS Delta(b_j) = (b_j - eps_j k_j) (x) 1 + k_j (x) b_j  (left coideal)
+PASS parity-symmetric normalization: q^-1 f_j k_j = k_j^(1/2) f_j k_j^(1/2)
+PASS d_n^(1) vector representation (n=4,5) satisfies the q-Serre relations
+PASS a_n vector and conjugate vector, spin-j: Drinfeld-Jimbo relations
+PASS Vbar is the antisoliton: V(z)* = Vbar(-z/q) with C = 1 (principal gradation)
+PASS DM (4.26) on DM (4.13): fails as printed [1.11], holds with T_i -> T_i/2 [2e-16]
+PASS sine-Gordon, eps=0: a nonzero K exists iff c_0 c_1 = q^-2 (it is then purely off-diagonal)
+PASS sine-Gordon K(theta) = [[(q-q^-1)(e1 y+e0/y), y^2-y^-2],[y^2-y^-2, (q-q^-1)(e0 y+e1/y)]] (unique)
+PASS a_2: K: V(y)->Vbar(1/y) exists (uniquely) iff eps = 0 or all eps_j^2 = 1/((1-q)(1-q^-1)); not for |eps_j| = 1
+PASS a_2: eps = 0 gives K = 1 (not an arbitrary diagonal matrix)
+PASS a_2: closed form K(theta) (corrected DM (4.21)), s = +1 and -1
+PASS a_2: DM (4.21) = book K after basis reversal, q_DM -> -(-q)^(1/2), x_DM -> y, eps_i -> eps_i/eps_* (s=+1 equal, s=-1 up to a diagonal gauge)
+PASS a_2: sign patterns with equal product s = prod sign(eps_j) are gauge equivalent
+PASS a_3: K: V(y)->Vbar(1/y) exists (uniquely) iff eps = 0 or all eps_j^2 = 1/((1-q)(1-q^-1)); not for |eps_j| = 1
+PASS a_3: eps = 0 gives K = 1 (not an arbitrary diagonal matrix)
+PASS a_3: closed form K(theta) (corrected DM (4.21)), s = +1 and -1
+PASS a_3: DM (4.21) = book K after basis reversal, q_DM -> -(-q)^(1/2), x_DM -> y, eps_i -> eps_i/eps_* (s=+1 equal, s=-1 up to a diagonal gauge)
+PASS a_3: sign patterns with equal product s = prod sign(eps_j) are gauge equivalent
+PASS a_4: K: V(y)->Vbar(1/y) exists (uniquely) iff eps = 0 or all eps_j^2 = 1/((1-q)(1-q^-1)); not for |eps_j| = 1
+PASS a_4: eps = 0 gives K = 1 (not an arbitrary diagonal matrix)
+PASS a_4: closed form K(theta) (corrected DM (4.21)), s = +1 and -1
+PASS a_4: DM (4.21) = book K after basis reversal, q_DM -> -(-q)^(1/2), x_DM -> y, eps_i -> eps_i/eps_* (s=+1 equal, s=-1 up to a diagonal gauge)
+PASS a_4: sign patterns with equal product s = prod sign(eps_j) are gauge equivalent
+PASS a_5: K: V(y)->Vbar(1/y) exists (uniquely) iff eps = 0 or all eps_j^2 = 1/((1-q)(1-q^-1)); not for |eps_j| = 1
+PASS a_5: eps = 0 gives K = 1 (not an arbitrary diagonal matrix)
+PASS a_5: closed form K(theta) (corrected DM (4.21)), s = +1 and -1
+PASS a_5: DM (4.21) = book K after basis reversal, q_DM -> -(-q)^(1/2), x_DM -> y, eps_i -> eps_i/eps_* (s=+1 equal, s=-1 up to a diagonal gauge)
+PASS a_5: sign patterns with equal product s = prod sign(eps_j) are gauge equivalent
+PASS a_6: K: V(y)->Vbar(1/y) exists (uniquely) iff eps = 0 or all eps_j^2 = 1/((1-q)(1-q^-1)); not for |eps_j| = 1
+PASS a_6: eps = 0 gives K = 1 (not an arbitrary diagonal matrix)
+PASS a_6: closed form K(theta) (corrected DM (4.21)), s = +1 and -1
+PASS a_6: DM (4.21) = book K after basis reversal, q_DM -> -(-q)^(1/2), x_DM -> y, eps_i -> eps_i/eps_* (s=+1 equal, s=-1 up to a diagonal gauge)
+PASS a_6: sign patterns with equal product s = prod sign(eps_j) are gauge equivalent
+PASS a_7: K: V(y)->Vbar(1/y) exists (uniquely) iff eps = 0 or all eps_j^2 = 1/((1-q)(1-q^-1)); not for |eps_j| = 1
+PASS a_7: eps = 0 gives K = 1 (not an arbitrary diagonal matrix)
+PASS a_7: closed form K(theta) (corrected DM (4.21)), s = +1 and -1
+PASS a_7: DM (4.21) = book K after basis reversal, q_DM -> -(-q)^(1/2), x_DM -> y, eps_i -> eps_i/eps_* (s=+1 equal, s=-1 up to a diagonal gauge)
+PASS a_7: sign patterns with equal product s = prod sign(eps_j) are gauge equivalent
+PASS a_2: twisted reflection equation (all eps solutions, (mu,nu) in {V,Vbar}^2) [5.0e-15]
+PASS a_2: ... with R-checks normalized on highest weights the constant is 1 for mu = nu [1e-15]
+PASS a_2: printed K (s=+1) solves the twisted RE at q [2e-15] and fails at -q [0.94]
+PASS a_2: at -q (antisoliton Vbar(-y)) an eps=0 solution exists iff n is odd
+PASS a_3: twisted reflection equation (all eps solutions, (mu,nu) in {V,Vbar}^2) [8.1e-15]
+PASS a_3: ... with R-checks normalized on highest weights the constant is 1 for mu = nu [8e-16]
+PASS a_3: printed K (s=+1) solves the twisted RE at q [2e-15] and fails at -q [0.99]
+PASS a_3: at -q (antisoliton Vbar(-y)) an eps=0 solution exists iff n is odd
+PASS a_4: twisted reflection equation (all eps solutions, (mu,nu) in {V,Vbar}^2) [1.1e-14]
+PASS a_4: ... with R-checks normalized on highest weights the constant is 1 for mu = nu [3e-15]
+PASS a_4: printed K (s=+1) solves the twisted RE at q [6e-15] and fails at -q [0.98]
+PASS a_4: at -q (antisoliton Vbar(-y)) an eps=0 solution exists iff n is odd
+PASS a_2: s = +1 solution = Gandenberger's K^+ (his Neumann candidate), s = -1 = K^-, at the physical q
+PASS a_n (n=2,3): boundary crossing-unitarity k(theta) = f(theta) R_{Vbar Vbar}(2theta) k(-theta) holds for the matrix part of both non-diagonal K (eps = 0: trivially)
+PASS a_3: for each node j the off-block entries of rows/columns a_j, b_j obey 2x2 systems with determinant +-(eps_j^2 (1-q)(1-q^-1) - 1) (origin of eq-an-eps-condition)
+PASS DM (4.21) solves DM's corrected (4.15)-(4.16) at their q only after q_(4.21) -> -(-q)^(1/2), n = 2..7 [6e-16; with q_(4.21) = q: 0.83]
+PASS dim End_B(V_mu (x) V_nu) = 1: a_2, a_3 with (mu, nu) in {V, Vbar}^2 at eps = 0, s = +-1 and generic eps (where no K exists); a_1 spin 1/2 (x) 1/2 and 1/2 (x) 1 [36 cases]
+PASS sine-Gordon: at y = exp(-i lambda nu_n), n = 0, 1, 2, V(y) has a 1-dim B-submodule with beta_(1,0) = -cos(etabar +- i theta)/sin(pi lambda) (BPTT excited states), the same for all n; complementary values at exp(+i lambda nu_n); none at generic y
+PASS universal R for the Part VI coproduct = q^{G h(x)h}(1 + sum_j (q-q^-1) f_j (x) e_j + ...) at first order in y2/y1, against the exact R-check (a_1 spin 1/2 (x) 1, a_2 all {V,Vbar} pairs); sign and Cartan-placement variants fail
+PASS B = Lbar (K(x)1) L, a_n vector rep (n = 1..6), K = 1 and eq-an-k-matrix (s = +-1), physical and generic q: B/kappa = 1 + (q-q^-1) y^-1 sum_j pi_V(f_j)|_{y=1} (x) (e_j + q^-1 f_j k_j + eps_j k_j) + O(y^-2), eps = 0 resp. (s eps_*, eps_*, ..., eps_*)
+PASS sine-Gordon: eq-bsg-eta-theta + cnj-bsg-uv-ir give eps_(1,0) = -cos((lambda+1) arccos mu_-+)/sin(pi lambda), mu_- ~ C_1, mu_+ ~ C_0 (each node with its own parameter), = eps_* - (lambda+1)/(2 sin(pi lambda/2)) mu_-+ + O(mu^2) near Neumann; eps = 0 at mu_+- = cos(pi/(2(lambda+1)))

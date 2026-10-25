@@ -1,0 +1,5 @@
+PASS static Dirichlet states, 0 < u_0 < pi (u_0 = 0.9, 2.0): phi(-oo) = 0 and 2pi/beta, energy difference M cos(u_0/2), charges u_0/2pi and u_0/2pi - 1: the excited state is reached by absorbing an antisoliton
+PASS eq-bsg-k-full at vartheta -> oo, eta = 2.1 > 0, lambda = sqrt(11): at nu_0 P^+ has a simple pole [order 1.000], P^- none [0.000]; sigma(-x,u) = sigma(x,u) [8e-21], so P^+(-eta) = P^-(eta) [3e-21]
+PASS lambda -> oo at |eta| = (lambda+1) u_0/2: M cos nu_0 -> M cos(u_0/2), the excited static state of check 1, so the pole belongs to the antisoliton and eta = -(lambda+1) beta phi_0/2 for phi_0 > 0
+PASS semiclassical amplitude e^(+iS): d/d eta of arg sigma(eta, -i theta) at lambda = 400 equals -(I_s + I_sbar)/(8 pi) from the simulation [1.2e-03] (u_0, v) = (0.9, 0.5), (2.0, 0.8)
+PASS P^+/P^- -> e^(2 i eta) at lambda theta = 20 [0e+00]; classical reflection off phi(0) = phi_0: int dt [u_x^s(0,t) - u_x^sbar(0,t)] = 25.1306, 25.1309, 25.1347, 25.1350 = +8 pi (25.1327) for u_0 = 0.9, 2.0, v = 0.5, 0.8; so d(delta_s - delta_sbar)/d phi_0 = -8pi/beta and eta = -(lambda+1) beta phi_0/2 (GZ sign would need -8 pi)

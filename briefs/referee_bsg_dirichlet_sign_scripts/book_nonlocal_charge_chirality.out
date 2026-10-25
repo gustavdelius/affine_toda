@@ -1,0 +1,17 @@
+PASS a boost that raises rapidities multiplies E+P of a right-mover by e^vt and E-P of a left-mover by e^-vt; a right-mover has E = P, a left-mover E = -P
+PASS a density of weight h in x^- gives a charge of spin h-1, one in x^+ spin 1-h (h = 2, 3, 4, numerical boost)
+PASS d_x (phi -+ int^x pi)/2 = d_x phi_{R,L}; d_+ phi_R(x^-) = d_- phi_L(x^+) = 0
+PASS topological charge: e^{-i a phi_R} and e^{+i a phi_L} raise T by 2, e^{+i a phi_R} and e^{-i a phi_L} lower it
+PASS on a vacuum of label n the phase of J_+ = e^{-i a phi_R} is q^n, that of e^{+i a phi_L} is q^-n, q = e^{-i pi h_J}
+PASS braiding: J_+(x) = e^{-i a phi_R(x)} passes a soliton vertex operator of charge T at y < x with q^T; e^{+i a phi_L} with q^-T
+PASS self-braiding J_+(x) J_+(y) = q^2 J_+(y) J_+(x) for x > y (right-movers)
+PASS Q_+ = int e^{-i a phi_R}: Delta(Q_+) = Q_+ x 1 + q^T x Q_+ with q = e^{-i pi h_J} (eq-q-physical)
+PASS int e^{+i a phi_L} (same T) would give q^{-T} x Q: the old labels contradict eq-q-physical
+PASS f_1 = Qbar_- q^{-T}, Qbar_- = int e^{-i a phi_L}: Delta(f_1) = f_1 x k_1^-1 + 1 x f_1 with k_1 = q^T
+PASS a_n^(1), n = 1..4: e^{-i (4pi/beta) alpha_j^vee . phi_chi} has a double pole with node j and none with the others
+PASS a_n^(1), n = 2..4: the opposite sign has simple poles with the neighbouring nodes (not conserved)
+PASS the right-moving node-j current raises T by alpha_j^vee (e_j, spin +), the left-moving one lowers it (f_j, spin -)
+PASS d_t (A + B) + d_x (A - B) = d_+ A + d_- B, so d_+ J = d_- H conserves int (J - H) dx
+PASS b_1 is built from J_+ = e^{-i a phi_R} and Jbar_- = e^{-i a phi_L}: double poles with e^{i beta phi} and the boundary term e^{i beta phi/2} (coefficient C_1), so the charges pair node 1 with C_1
+PASS cnj-bsg-uv-ir with eq-bsg-eta-theta: eps-hat_1 depends on mu_- ~ C_1 alone, the pairing of the charges
+PASS charge conjugation s <-> sbar exchanges eps-hat_0 and eps-hat_1 in eq-bsg-k-matrix, and phi_0 -> -phi_0 exchanges C_0 and C_1 in eq-bsg-c-dictionary

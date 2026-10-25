@@ -1,0 +1,9 @@
+69 files, 1263 ids, 350 bibliography keys
+PASS  ids defined once
+PASS  cross-references resolve
+PASS  citation keys in references.bib
+WARN  cross-references on unnumbered pages print titles (1)
+      citation.qmd:11 @sec-about
+PASS  status labels not parsed as citations
+PASS  original results match their statements (42 items)
+PASS  script paths in code spans resolve
