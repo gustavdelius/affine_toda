@@ -19,7 +19,7 @@ keywords:
 
 # About this site {#sec-about-site .unnumbered}
 
-This site holds a book on affine Toda field theory and two courses of lecture notes that accompany it.
+This site holds a book on affine Toda field theory and three courses of lecture notes that accompany it.
 
 Affine Toda field theories are two-dimensional quantum field theories, one for each affine Kac–Moody algebra. They are integrable, so many of their properties can be computed exactly. They have particles and bound states, solitons and breathers, strong–weak duality and quantum-group symmetry. They admit integrable boundaries and defects, and at imaginary coupling they are non-unitary.
 
@@ -31,9 +31,15 @@ Affine Toda field theories are two-dimensional quantum field theories, one for e
 - Two appendices list the book's [original results](appendices/E-original-results.qmd) and its [corrections to published papers](appendices/D-corrections.qmd).
 - The whole book is also available as a [PDF](https://gustavdelius.github.io/affine_toda/affine-toda.pdf).
 
+## A course on the half-line {#sec-about-half-line .unnumbered}
+
+The book states results but does not teach them step by step. Lecture notes do that for single parts, and link into the book for its statements and proofs.
+
+- [*Lectures on affine Toda field theory on the half-line*](https://gustavdelius.github.io/affine_toda/lectures/half-line/) ([PDF](https://gustavdelius.github.io/affine_toda/lectures/half-line/half-line.pdf)), drafted by Gemini, accompanies Part VII, on integrable boundaries. It is organized around five big ideas and uses $a_1^{(1)}$ (sine-Gordon and sinh-Gordon) and $a_2^{(1)}$ as worked laboratories. Its six lectures cover both the classical and the quantum theory: the $90^\circ$ Euclidean rotation to a boundary state and boundary crossing-unitarity, Sklyanin's double-row monodromy matrix and why higher-rank boundary couplings freeze to $C_j\in\{0,\pm1\}$, mirror solitons and non-constant vacua, coideal subalgebras and the Ghoshal–Zamolodchikov reflection matrix, $a_2^{(1)}$ intertwiners and generalized $q$-Onsager algebras, and the route from solitons through breathers to real-coupling particle reflection amplitudes and weak–strong boundary duality. Each lecture has set-piece blackboard calculations, guided rediscovery exercises and a check script in `code/lectures/`.
+
 ## Two courses on integrable defects {#sec-about-lectures .unnumbered}
 
-The book states results but does not teach them step by step. Lecture notes do that for single parts. There are two courses so far, and both accompany Part VIII, on integrable defects. A defect is a line in spacetime that particles and solitons cross without being reflected. Both courses link into the book for its statements and proofs. They were drafted by different AI models, and they teach the subject in different ways.
+Two further courses accompany Part VIII, on integrable defects. A defect is a line in spacetime that particles and solitons cross without being reflected. They were drafted by different AI models, and they teach the subject in different ways.
 
 - [*Integrable defects, from Bäcklund to Baxter*](https://gustavdelius.github.io/affine_toda/lectures/defects/) ([PDF](https://gustavdelius.github.io/affine_toda/lectures/defects/defects.pdf)), drafted by Claude, tells the story of the ideas. Each lecture asks one question and answers it. Lectures 1–6, on the classical theory, are written. Lectures 7–9, on the quantum theory, are in preparation.
 - [*Lectures on integrable defects in affine Toda field theory*](https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/) ([PDF](https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/defects-gemini.pdf)), drafted by Gemini, is organized around six big ideas. Its six lectures are complete and cover both the classical and the quantum theory.
@@ -55,7 +61,7 @@ Read *Integrable defects, from Bäcklund to Baxter* if you want to see where eac
 
 ## How the site was made {#sec-about-made .unnumbered}
 
-The book and *Integrable defects, from Bäcklund to Baxter* were drafted by Claude, an AI model made by Anthropic, and the second course by Gemini, an AI model made by Google. They worked from outlines, source papers and briefs assembled by the editor, Gustav Delius. Further instances of Claude, Codex and Gemini have checked the book as referees. Validation is by AI agents only; human readers contribute by giving feedback. Main results carry a status label, such as **[Theorem]**, **[Established]**, **[Numerical]** or **[Conjecture]**, that says how they were established, and the [preface](preface.qmd) describes how the book was written. Where a result matters to you, check the proof, and run the scripts.
+The book and *Integrable defects, from Bäcklund to Baxter* were drafted by Claude, an AI model made by Anthropic, and *Lectures on affine Toda field theory on the half-line* and *Lectures on integrable defects in affine Toda field theory* by Gemini, an AI model made by Google. They worked from outlines, source papers and briefs assembled by the editor, Gustav Delius. Further instances of Claude, Codex and Gemini have checked the book as referees. Validation is by AI agents only; human readers contribute by giving feedback. Main results carry a status label, such as **[Theorem]**, **[Established]**, **[Numerical]** or **[Conjecture]**, that says how they were established, and the [preface](preface.qmd) describes how the book was written. Where a result matters to you, check the proof, and run the scripts.
 
 The Quarto sources, the check scripts and the record of the checks are on [GitHub](https://github.com/gustavdelius/affine_toda). If you find an error or something unclear, please [open an issue](https://github.com/gustavdelius/affine_toda/issues) there.
 

@@ -21,7 +21,7 @@ On 2026-10-15 the editor (Gustav Delius) asked for lecture notes on Part VIII of
 | 6 | The classical algebra of a defect | Why are these defects integrable, in the language of Lax pairs and r-matrices? | written 2026-10-23 on branch `claude/defects-lecture-6` (PR #34); §6 is now its record |
 | 7 | Quantizing the defect | Which symmetry survives in the quantum theory, and what does it fix? | written 2026-10-24 on branch `claude/defects-lecture-7`; §7.1 is its record |
 | 8 | Defects, L-operators and Q-operators | What is a defect wrapped around a cylinder? | written 2026-10-24 on branch `claude/defects-lecture-8`; §7.3 is its record |
-| 9 | Folding, fusing and the classical breather | How are defects and boundaries related, and what is left of $\hbar$? | not started (§7) |
+| 9 | Folding, fusing and the classical breather | How are defects and boundaries related, and what is left of $\hbar$? | written 2026-10-24 on branch `claude/defects-lecture-9`; §7.4 is its record |
 
 **Workflow, as the editor has used it.** The editor says "start Lecture N". Draft it, verify it, render it, and report. Commit or push only when asked. Each lecture went into a PR as one commit. The lecture notes PR #30 (Lectures 1–5) and the book PR #33 are both merged into `main`. The branch `claude/defects-lecture-6` holds the Lecture 6 scripts and this file.
 
@@ -491,6 +491,31 @@ Four new [Theorem]s, `turned`, `commute`, `tq` and `baxter`. List them in the PR
 
 - Fusing a defect onto a boundary: the defect operator against a boundary state.
 - The doubled theory. Its boundary state equals the defect operator [@bajnok_george2006].
+
+### 7.4 Lecture 9, "Folding, fusing and the classical breather": what was done (2026-10-24)
+
+File `lecture-notes/defects/09-folding-fusing.qmd`. Scripts in `code/lectures/`:
+
+- `defects_l9_fusion.py`: 10 checks, (a)–(j), about a minute. Mutation-tested: a wrong gauge sign fails (f), a wrong sign of $\mathcal D_{+3}$ fails (e), a shifted breather string fails (i), a wrong Borel constant fails (b), a wrong $\theta_b$ fails (d), a wrong inverse of $\mathbb T$ fails (c), a perturbed mirror factor fails (j).
+- `defects_l9_f1_fold_fuse.py` (`l9_fold_fuse.svg`), `defects_l9_f2_lee_yang.py` (`l9_lee_yang.svg`), `defects_l9_f3_breather.py` (`l9_breather.svg`).
+
+**Conventions.** Those of §7.1. $\theta_d^{\rm cl}=-\ln\sigma$ is the Lagrangian parameter and $\theta_d$ the quantum rapidity; the lecture keeps them apart. The book's GZ factor $\sigma(x,u)$ is written $\sigma_{\rm GZ}$. A boost rapidity is $\zeta$; $\vartheta$ is the GZ parameter.
+
+**Ids.** `thm-l9-crossing` (folding: doubled unitarity and crossing-unitarity iff defect unitarity and crossing), `thm-l9-fusion` (scalar fusion keeps unitarity and crossing-unitarity), `thm-l9-dirichlet` (the defect fused onto Dirichlet is GZ with $\vartheta=\lambda\theta_d$, scalar factor included, any offset), `cnj-l9-uvir` (the book's `cnj-defect-parameter`), `thm-l9-breather` (three semiclassical limits of the breather factors). Four new [Theorem]s, `crossing`, `fusion`, `dirichlet` and `breather`: list them in the PR description.
+
+**Findings, all checked.**
+
+1. *The scalar identity of the fused Dirichlet boundary is proved.* The book's `prp-defect-fusion-k` (3) states $\sigma(i\lambda\theta_d,-i\theta)=\frac{1+y_d^{-2}}{1+y^{-2}y_d^{-2}}\frac{\Phi(\theta-\theta_d)}{\Phi(-\theta-\theta_d)}$ as numerical. Malmstén's formula gives $\ln\sigma(x,u)=\ln\frac{\cos x}{\cos(x+\lambda u)}-\int_0^\infty\frac{\sinh(\lambda ut/\pi)\sinh(xt/\pi+\lambda t/2)}{\sinh(t/2)\cosh(\lambda t/2)}\frac{dt}t$; with $t=\pi k/\lambda$ and `eq-l7-Phi` the two sides differ by $\int(1-\cos)/(k\sinh)$ integrals that give $\ln\cosh$, and everything cancels. $\sigma(x,u)$ is even in $x$. A candidate improvement for the book (separate PR): upgrade (3) to [Theorem] after a referee pass.
+2. *Freezing is fusing, with the spin-3 charge.* A Dirichlet boundary has the flux $j_-+j_+=-8m_0^2\sin\psi_0\,\partial_t\Phi_x$, so the fused boundary conserves $\frac1{8m_0^3}\int(q_-+q_+)+\mathcal D_{-3}+\mathcal D_{+3}-\frac{\sin\psi_0}{m_0}\Psi_x$ with Lecture 6's $\mathcal D_{\mp3}$ (sympy, exact). This answers `exr-l3-boundary`.
+3. *Lee–Yang fusion.* Unitarity gives $\bar{\mathbb T}\mathbb T=\mathbb T(\theta)/\mathbb T(-\theta)$, so fusion fixes only the odd part of $\ln\mathbb T$; among frozen particles it gives $\theta_d=\pm\theta_b$ (orientation). Fusion maps the defect bootstrap onto the boundary bootstrap identically, which explains the $b\to b+2$ coincidence of Lecture 1.
+4. *What is left of $\hbar$.* Besides Bajnok–Simon's fusion argument: boost covariance plus the conformal weight $h=\hbar\beta^2/8\pi$ of the chiral defect field $e^{i\Sigma/2}$ (at $m_0=0$ the defect is the duality defect, $\Sigma=2\phi_L$) gives $\theta_d^{\rm cl}=(1-h)\theta_d$, i.e. $\lambda\theta_d=(\lambda+1)\theta_d^{\rm cl}$, up to an additive constant. It reproduces Bajnok–Simon's $(1-B/2)$ for sinh-Gordon and the $e^{\pm\frac65\theta_b}$ dependence of the Lee–Yang couplings of Bajnok–Holló–Watts (their (101)–(102)). Konik–LeClair have the dimension $1-h$ of the coupling but leave $\nu$ unknown. Presented as a heuristic. It places Lecture 7's "$-1$": $Y=e^{\lambda\theta}\sigma^{8\pi/\hbar\beta^2}$.
+5. *Breathers.* $\mathbb T_{B_n}$ is a string of $n$ classical factors at the midpoints of $[\alpha_n,\pi-\alpha_n]$; as $\lambda\to\infty$ at fixed $\alpha$ the Wigner delay tends to the classical breather delay $\ln|z(u+i\alpha)|/(m_0\cos\alpha\sinh\theta)$ and $\delta_{n+1}-\delta_n\to\arg z(u+i\alpha)$ (clock shift). Naive Bohr–Sommerfeld gives $\lambda'=8\pi/\hbar\beta^2$, the exact factor has $\lambda$.
+6. *Folding the diagram, linear sector.* $\mathbb T_k/\mathbb T_{h-k}$ depends on $\sigma^2$ only, so a defect and its mirror image fold exactly for $\sigma_2=\pm\sigma_1$ (Robertson's two cases); $-\sigma_1$ is transparent; $+\sigma_1$ gives $1/f_{k/h}(\theta-\theta_d)$ and folded solitons $\frac{\cosh u+\sin\gamma_k}{\cosh u-\sin\gamma_k}$, for $h=3$ exactly Corrigan–Zambon's Tzitzéica $z_1$ (their (4.9)–(4.10)); the parameter dictionaries were not compared.
+7. *Literature, checked against the papers.* Bajnok–George (hep-th/0404199): crossing (15), defect operator (16), dressing (19). Bajnok–Simon (0712.4292): classical fusion (4), (7), Lee–Yang Sec. 3.2, UV–IR (17), one loop (23). Konik–LeClair Sec. 5. BHW (1307.4536) (97)–(102). Robertson (1304.3129) Sec. 3. Corrigan–Zambon 2012 Sec. 2 (Habibullin). New key `habibullin1998` in `references-notes.bib` (Theor. Math. Phys. 114 (1998) 90, checked on Crossref; the paper itself was not read, and the lecture cites it "as Corrigan and Zambon report").
+
+**Left open, and deliberately not claimed.** The book reads the two Borel halves of `prp-diagonal-borel` as the quantum form of the massless defect that passes one chirality and charge-conjugates the other. At $m_0=0$ the left-movers pass ($e_j$ untwisted) and the right-movers flip ($f_j$ twisted), while the massive type-I$_-$ defect keeps $f_j$ untwisted and $e_j$ twisted. The assignment looks reversed, possibly because of the $q^T$ dressing of the $f_j$. The lecture does not claim the match; worth checking before the book repeats it.
+
+**Candidate improvements to the book, for a separate PR:** finding 1 (prove `prp-defect-fusion-k` (3)), finding 2 (a sentence in `sec-sg-breather-transmission` or ch. 30 on the spin-3 charge of the fused boundary), finding 4 (the boost argument next to `cnj-defect-parameter`), finding 6 (the folding condition from linear waves in `sec-defect-folding`), and the chirality remark above.
 
 ## 8. Follow-ups
 

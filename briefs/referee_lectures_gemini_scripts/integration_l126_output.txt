@@ -1,0 +1,27 @@
+PASS Ising two-channel unitarity
+PASS Ising same-channel crossing
+PASS Mixed R=T crossed-channel claim has explicit counterexample
+PASS Momentum functional equation and local primitive
+PASS Light-cone sum and difference from sewing
+PASS Sine-Gordon defect potential gradient normalization
+PASS Linear reflection and transmission derived from sewing
+PASS Classical amplitude square, inverse and crossing
+PASS Classical amplitude in sinh/cosh form
+PASS Report plane wave has the wrong massive dispersion sign
+PASS Report delay fraction is reciprocal of the actual delay
+PASS Soliton delay solves both nonlinear sewing equations
+PASS One-soliton light-cone conversion
+PASS Kink logarithm has positive Y derivative
+PASS Bianchi algebraic compatibility
+PASS Fused symplectic variation has unit coefficient
+PASS Four entries of fused boundary matrix
+PASS Fused charge-sector factorization
+PASS Reverse transmission scalar normalization
+PASS Off-diagonals require opposite constant eta phases
+PASS Constant diagonal gauge gives book GZ off-diagonals
+PASS Conditional UV-IR relation solves vartheta=lambda td=(lambda+1)tdcl
+PASS Ordered singlet fusion cancels all charge shifts
+PASS Toda particle crossing and bootstrap a+b<h
+PASS Toda particle bootstrap a+b>h
+PASS Scalar Fourier kernel loses all lambda dependence
+PASS Breather Fourier integral gives the classical amplitude

@@ -1,0 +1,7 @@
+# Gemini lectures 4–5 integration checkpoint
+
+2026-10-25: Read report and reviewed-commit text; identified misquotations of pi(k1), alleged Fock factor, alleged missing lambda, and alleged non-diagonal diagonal branch. No edits on those quoted grounds.
+2026-10-25: Verified Part VI Weyl/Fock representations and both generator intertwiners independently; corrected Lecture 4 coproduct, recurrences, oscillator element, closed L and universal-R assignment. New `code/lectures/gemini_l45_verified.py`; no pending algebra edits.
+2026-10-25: Independently verified all four crossing entries and higher-rank root-lattice intertwiners; corrected Lecture 5, exercises, mass normalization (classical verification by coordinator), and normalized-weight suppression. References pass. No labels upgraded.
+2026-10-25: Independent script passes all 13 checks; integration table and README rows in `referee_scratch/gemini_integration_l45/integration.md`. Running three existing L4/L5 figure scripts; figure captions and labels being reconciled with actual plots.
+2026-10-25: Corrected scalar Gamma-product phase/factors and pole cancellation from BCZ (3.43)–(3.44); own script now 16 PASS. All three figure scripts 4 PASS each. Updated L4 coproduct label/caption and L5 normalized weights/exponent; modified SVGs visually checked. Unchanged L5 resonance SVG restored after metadata/id-normalized equality check. References pass, no label changes. Completed; integration table and outputs ready for coordinator.

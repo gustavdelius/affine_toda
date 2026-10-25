@@ -27,6 +27,8 @@ book:
         href: preface.qmd
       - text: "Lecture notes"
         menu:
+          - text: "Lectures on affine Toda field theory on the half-line"
+            href: https://gustavdelius.github.io/affine_toda/lectures/half-line/
           - text: "Integrable defects, from Bäcklund to Baxter"
             href: https://gustavdelius.github.io/affine_toda/lectures/defects/
           - text: "Lectures on integrable defects in affine Toda field theory"

@@ -1,0 +1,345 @@
+# Mirror Solitons, Time Delays, and Non-Constant Vacua {#sec-lec3-mirror-images}
+
+> **Companion to [Chapter 32: Solitons, breathers and vacua on the half-line](book:sec-half-line-solitons).**
+> In Lecture 2 we proved that an $a_n^{(1)}$ affine Toda theory on the half-line $x\le 0$ is classically integrable when the boundary parameters are $C_j\equiv 0$ (Neumann) or $C_j = \pm 1$. Now we ask what the physical solutions actually look like! Following Delius [@delius1998a] and Bowcock [@bowcock1998], we will discover that a soliton bouncing off the wall at $x=0$ is secretly a **whole-line two-soliton solution** in which the incoming soliton collides with a virtual mirror image placed behind the wall in $x>0$. We will see why parity $x\to -x$ conjugates the Hirota species ($a \mapsto h-a$), compute the exact classical time delay $\Delta t(\theta)$ and virtual collision point $d(\theta)$ on the blackboard, and then analytically continue this mirror pair to real coupling ($\beta\to -i\beta$) to build the **non-constant stationary-soliton vacua** required when $\vec\phi=0$ is no longer a solution.
+
+---
+
+## Why Parity Turns a Soliton into an Antisoliton
+
+How do you solve a wave equation on the left half-line $x\le 0$ with a Neumann boundary condition $\partial_x\vec\phi\big|_{x=0} = 0$?
+
+In freshman electrodynamics or acoustics, you use the **method of images**: you extend space to the whole line $x\in(-\infty,\infty)$, place a mirror image of your incoming wave in the virtual region $x>0$ so that the total field is symmetric under parity $P: x\mapsto -x$,
+$$
+\vec\phi(-x,t) = \vec\phi(x,t) \qquad\text{(up to a bulk vacuum shift)},
+$$
+and then differentiate with respect to $x$ at $x=0$ to get $\partial_x\vec\phi(0,t) = 0$ for free!
+
+In a nonlinear integrable theory like $a_n^{(1)}$ affine Toda at imaginary coupling, you cannot just superpose two waves linearly—when the incoming soliton and its mirror image meet near $x=0$, they interact nonlinearly! Fortunately, Hirota's $N$-soliton formula already knows how to superpose solitons nonlinearly.
+
+Let us recall the Hirota ansatz for $a_n^{(1)}$ ($h = n+1$, with $\zeta = e^{2\pi i/h}$):
+$$
+\vec\phi(x,t) = \frac{i}{\beta}\sum_{j=0}^n \vec\alpha_j\,\ln\tau_j(x,t).
+$$ {#eq-lec3-hirota-ansatz}
+A single soliton of species $a\in\{1,\dots,n\}$, mass $m_a = 2m\sin(\frac{\pi a}{h})$, rapidity $\theta$, and complex position/phase parameter $\xi$ has $\tau$-functions ([Section 32.1](book:sec-images-neumann)):
+$$
+\tau_j(x,t) = 1 + \zeta^{ja} E(x,t), \qquad
+E(x,t) = \exp\bigl(m_a(x\cosh\theta - t\sinh\theta) + \xi\bigr).
+$$ {#eq-lec3-one-soliton}
+
+Now watch carefully what happens when we apply spatial parity $P: x\mapsto -x$ to (-@eq-lec3-one-soliton)!
+
+In the Hirota convention (-@eq-lec3-one-soliton), *every* soliton exponential $E$ carries $+m_a x\cosh\theta$ (which is positive as $x\to +\infty$ and vanishes as $x\to -\infty$, because $\cosh\theta$ is an even function of $\theta$). When we replace $x \to -x$ in $E(x,t)$, the sign of the $x$-term flips:
+$$
+E(-x,t) = \exp\bigl(-m_a x\cosh\theta - m_a t\sinh\theta + \xi\bigr)
+= \Bigl[\exp\bigl(m_a(x\cosh(-\theta) - t\sinh(-\theta)) - \xi\bigr)\Bigr]^{-1}
+\equiv \bigl(E'(x,t)\bigr)^{-1},
+$$
+where $E'(x,t)$ is the standard Hirota exponential of a soliton with **reversed rapidity $-\theta$ and negated parameter $-\xi$**!
+
+Substitute $E(-x,t) = (E'(x,t))^{-1}$ into $\tau_j(-x,t)$ and factor out $\zeta^{ja}(E')^{-1}$ to restore the leading "$1 + \dots$" Hirota form:
+$$
+\tau_j(-x,t) = 1 + \zeta^{ja}(E')^{-1}
+= \zeta^{ja}(E')^{-1}\Bigl(1 + \zeta^{-ja} E'(x,t)\Bigr).
+$$ {#eq-lec3-parity-factor}
+What does the factored prefractor $\zeta^{ja}(E')^{-1}$ do to the physical field $\vec\phi$ in (-@eq-lec3-hirota-ansatz)?
+
+- Since $\ln\bigl(\zeta^{ja}(E')^{-1}\bigr) = \ln(\zeta^{ja}) - \ln E'$, and the $j$-independent piece $-\ln E'$ multiplies $\sum_{j=0}^n \vec\alpha_j = 0$, the $-\ln E'$ term **drops out of $\vec\phi$ completely**!
+- The constant piece $\frac{i}{\beta}\sum_{j=0}^n \vec\alpha_j\ln(\zeta^{ja})$ is simply a constant coweight vacuum shift in $\frac{2\pi}{\beta}\Lambda_W^\vee$.
+- Look at what remains inside the parentheses of (-@eq-lec3-parity-factor):
+  $$
+  1 + \zeta^{-ja} E'(x,t) = 1 + \zeta^{j(h-a)} E'(x,t)!
+  $$
+  The root-of-unity phase $\zeta^{ja}$ has been conjugated to $\zeta^{-ja} = \zeta^{j\bar a}$, where $\bar a = h - a$ is the **antisoliton species**!
+
+ Let that sink in: because parity $x\mapsto -x$ exchanges the $x\to -\infty$ ($E\ll 1$) and $x\to +\infty$ ($E\gg 1$) asymptotics of the Hirota $\tau$-function, **the parity mirror image of a soliton $(a, +\theta, +\xi)$ is an antisoliton $(\bar a, -\theta, -\xi)$!** That is the concrete physical reason why every standard boundary condition in [Table 31.1](book:tbl-durham) reflects a soliton of species $a$ into its antisoliton $\bar a = h - a$ ([Proposition 32.2](book:prp-antisoliton-return)).
+
+---
+
+## Blackboard Calculation 1: The Mirror Shift, Time Delay, and Virtual Collision Point
+
+Let us now build a whole-line two-soliton solution out of an incoming soliton $1 = (a, +\theta, \xi_1)$ and its mirror antisoliton $2 = (\bar a, -\theta, \xi_2)$.
+
+First, what is the two-soliton interaction coefficient $A_{a\bar a}(\theta_1 - \theta_2) = A_{a\bar a}(2\theta)$ between a soliton of species $a$ and an antisoliton of species $\bar a = h-a$ at relative rapidity $2\theta$? Recall the bulk $a_n^{(1)}$ interaction formula (`eq-interaction-coefficient`):
+$$
+A_{ab}(\theta) = \frac{\cosh\theta - \cos\frac{\pi(a-b)}{h}}{\cosh\theta - \cos\frac{\pi(a+b)}{h}}.
+$$
+For $b = \bar a = h-a$, we have $\frac{\pi(a+\bar a)}{h} = \pi$ (so $\cos\pi = -1$) and $\frac{\pi(a-\bar a)}{h} = \frac{2\pi a}{h} - \pi$ (so $-\cos(\frac{2\pi a}{h}-\pi) = +\cos\frac{2\pi a}{h}$). Using the double-angle identities $\cosh(2\theta) + 1 = 2\cosh^2\theta$ and $\cosh(2\theta) + \cos\frac{2\pi a}{h} = 2\cosh^2\theta - 2\sin^2\frac{\pi a}{h}$, we obtain (`eq-mirror-pair` in [Section 32.1](book:sec-images-neumann)):
+$$
+A_{a\bar a}(2\theta)
+= \frac{\cosh(2\theta) + \cos\frac{2\pi a}{h}}{\cosh(2\theta) + 1}
+= 1 - \frac{\sin^2\frac{\pi a}{h}}{\cosh^2\theta}
+\equiv 1 - s^2,
+\qquad
+s \equiv \frac{\sin\frac{\pi a}{h}}{\cosh\theta} = \frac{m_a}{2m\cosh\theta}.
+$$ {#eq-lec3-mirror-A}
+Thus the mirror-pair Hirota $\tau$-functions are
+$$
+\tau_j(x,t) = 1 + \zeta^{ja} E_1 + \zeta^{-ja} E_2 + (1 - s^2)E_1 E_2,
+$$ {#eq-lec3-tau-pair}
+where both $E_1$ and $E_2$ carry $+m_a x\cosh\theta$:
+$$
+E_1(x,t) = \exp\bigl(m_a(x\cosh\theta - t\sinh\theta) + \xi_1\bigr), \qquad
+E_2(x,t) = \exp\bigl(m_a(x\cosh\theta + t\sinh\theta) + \xi_2\bigr).
+$$ {#eq-lec3-E1-E2}
+
+### Step 1: Fixing the Mirror Shift $\xi_1 + \xi_2$ at the Wall $x=0$
+
+Look at $E_1$ and $E_2$ in (-@eq-lec3-E1-E2) when we evaluate them at the wall $x=0$:
+
+- Their product at $x=0$ is **completely independent of time $t$**:
+  $$
+  E_1(0,t)\,E_2(0,t) = e^{\xi_1 + \xi_2}!
+  $$
+- Because $\partial_x E_1 = k E_1$ and $\partial_x E_2 = k E_2$ with $k = m_a\cosh\theta$, the spatial derivative of $\tau_j$ at $x=0$ is
+  $$
+  \partial_x\tau_j(0,t) = k\Bigl(\zeta^{ja} E_1(0,t) + \zeta^{-ja} E_2(0,t) + 2(1-s^2)e^{\xi_1+\xi_2}\Bigr).
+  $$ {#eq-lec3-dx-tau0}
+
+Let us test **Neumann ($C=0$)** first! Look at $\tau_j(0,t)$ and $\partial_x\tau_j(0,t)$:
+$$
+\tau_j(0,t) = \bigl[1 + (1-s^2)e^{\xi_1+\xi_2}\bigr] + \zeta^{ja} E_1(0,t) + \zeta^{-ja} E_2(0,t).
+$$
+If we choose $\xi_1 + \xi_2$ so that $(1-s^2)e^{\xi_1+\xi_2} = 1$, i.e.
+$$
+\xi_1 + \xi_2 = -\ln(1 - s^2) \qquad\text{(Neumann, }C=0\text{)},
+$$ {#eq-lec3-shift-neumann}
+then $1 + (1-s^2)e^{\xi_1+\xi_2} = 2 = 2(1-s^2)e^{\xi_1+\xi_2}$, so (-@eq-lec3-dx-tau0) becomes
+$$
+\partial_x\tau_j(0,t) = k\,\tau_j(0,t) \quad\Longrightarrow\quad
+\frac{\partial_x\tau_j(0,t)}{\tau_j(0,t)} = k \quad(\text{independent of }j)!
+$$
+Plugging $\partial_x\ln\tau_j(0,t) = k$ into (-@eq-lec3-hirota-ansatz) gives $\partial_x\vec\phi(0,t) = \frac{ik}{\beta}\sum_{j=0}^n \vec\alpha_j = 0$ at all times $t$!
+
+Now what about the **uniform boundaries $C_j \equiv C = \pm 1$**?
+
+Write $E_1(0,t) = e^{(\xi_1+\xi_2)/2} U(t)$ and $E_2(0,t) = e^{(\xi_1+\xi_2)/2} U(t)^{-1}$, where $U(t) = e^{-m_a t\sinh\theta + (\xi_1-\xi_2)/2}$ encodes the entire time dependence at the wall. Using $\vec\alpha_j\cdot(\vec\phi - \vec v_a) = \frac{i}{\beta}\ln\frac{\tau_j^2}{\tau_{j+1}\tau_{j-1}}$ (relative to the initial boundary vacuum $\vec v_a$), the boundary condition (-@eq-lec2-boundary-condition) at $x=0$ is satisfied if $\frac{1}{\tau_j}\bigl(\partial_x\tau_j - m C\sqrt{\tau_{j+1}\tau_{j-1}}\bigr)\big|_{x=0}$ is independent of $j$.
+
+Wait—how can $\sqrt{\tau_{j+1}(0,t)\,\tau_{j-1}(0,t)}$ be a rational function of $U(t)$ without any ugly square roots? Only if the quadratic polynomial in $U(t)$ formed by $\tau_{j+1}(0,t)\tau_{j-1}(0,t) - (\text{linear in }\tau_j)^2$ factors cleanly! Choosing ([Proposition 32.1](book:prp-images), `eq-mirror-shift` in [Section 32.2](book:sec-images-boundary)) [@delius1998a]
+$$
+\xi_1 + \xi_2 = -2\ln(1 + Cs), \qquad C = \pm 1,
+$$ {#eq-lec3-shift-C}
+puts $e^{(\xi_1+\xi_2)/2} = \frac{1}{1+Cs}$ and $(1-s^2)e^{\xi_1+\xi_2} = \frac{1-s^2}{(1+Cs)^2} = \frac{1-Cs}{1+Cs}$. Then at $x=0$,
+$$
+\tau_j(0,t) = \frac{2 + \zeta^{ja} U(t) + \zeta^{-ja} U(t)^{-1}}{1 + Cs}
+= \frac{\bigl(\zeta^{ja/2} U(t)^{1/2} + \zeta^{-ja/2} U(t)^{-1/2}\bigr)^2}{1 + Cs},
+$$ {#eq-lec3-tau0-square}
+which is an **exact perfect square** for every $j$ and every $t$! Taking its square root and using $k = m_a\cosh\theta = 2ms$ shows in three lines of elementary trigonometry (@exr-lec3-mirror-square) that (-@eq-lec3-shift-C) satisfies the $C=\pm 1$ boundary condition identically for all $t$ (verified to $10^{-14}$ in `code/lectures/halfline_l3_f1_mirror_images.py`).
+
+### Step 2: Computing the Time Delay $\Delta t$ and Virtual Collision Point $d$
+
+Let us read off the physical spacetime trajectory of the soliton and its reflected antisoliton from (-@eq-lec3-tau-pair) (Panel (a) of @fig-lec3-mirror-images and [Figure 32.1](book:fig-boundary-time-delay)):
+
+1. **Far in the past ($t\to -\infty$) on the physical half-line $x\le 0$:**
+   Since $\theta>0$ and $x\le 0$, $E_2 \propto e^{m_a(x\cosh\theta + t\sinh\theta)} \to 0$, so $\tau_j \approx 1 + \zeta^{ja} E_1$. The incoming soliton core sits where $|E_1| = 1$ (assuming real $\xi_1$ for simplicity):
+   $$
+   x_{\rm in}(t) = v\,t - \frac{\xi_1}{m_a\cosh\theta}, \qquad v = \tanh\theta.
+   $$
+   If this incoming trajectory continued unimpeded to the wall $x=0$, it would hit $x=0$ at the reference arrival time
+   $$
+   t_0 = \frac{\xi_1}{m_a\sinh\theta}.
+   $$
+2. **Far in the future ($t\to +\infty$) on the physical half-line $x\le 0$:**
+   Now $E_1 \propto e^{m_a(x\cosh\theta - t\sinh\theta)} \to 0$, so $\tau_j \approx 1 + \zeta^{-ja} E_2$. The outgoing reflected antisoliton sits where $|E_2| = 1$:
+   $$
+   x_{\rm out}(t) = -v\,t - \frac{\xi_2}{m_a\cosh\theta}
+   = -v\,\left(t - t_0 + \frac{\xi_1 + \xi_2}{m_a\sinh\theta}\right).
+   $$
+   Comparing this with a zero-delay bounce $x_{\rm ref}(t) = -v(t - t_0)$ immediately gives the **reflection time delay** (`eq-boundary-time-delay` in [Section 32.2](book:sec-images-boundary)):
+   $$
+   \Delta t = -\frac{\xi_1 + \xi_2}{m_a\sinh\theta}
+   = \begin{cases}
+   \dfrac{2}{m_a\sinh\theta}\ln(1 + Cs) & (C = \pm 1), \\[10pt]
+   \dfrac{1}{m_a\sinh\theta}\ln(1 - s^2) & (\text{Neumann, }C=0).
+   \end{cases}
+   $$ {#eq-lec3-time-delay}
+   Notice the beautiful relation $\Delta t_{\rm N} = \frac{1}{2}(\Delta t_{+1} + \Delta t_{-1})$, and notice the signs:
+   - For **$C = +1$** (soliton-attractive wall), $\ln(1+s) > 0$, so $\Delta t > 0$: the soliton is **delayed** (it lingers near the wall before coming back).
+   - For **Neumann ($C=0$)** and **$C = -1$** (soliton-repulsive wall), $\ln(1-s^2) < 0$ and $\ln(1-s) < 0$, so $\Delta t < 0$: the soliton bounces back **early** (time advance)!
+
+3. **Where do the incoming soliton and the virtual mirror antisoliton actually meet?**
+   Be careful! In the virtual region $x>0$ as $t\to -\infty$, we have $E_1 \gg 1$, so inside $\tau_j = 1 + \zeta^{ja} E_1 + \zeta^{-ja} E_2 + A E_1 E_2$ the dominant terms are $\zeta^{ja} E_1\bigl(1 + \zeta^{-2ja} A E_2\bigr)$! Therefore, before the collision, the virtual mirror antisoliton sits where $A E_2 = 1$ (not $E_2 = 1$):
+   $$
+   x_{\rm mirror}(t) = -v\,t - \frac{\xi_2 + \ln A}{m_a\cosh\theta}.
+   $$
+   Intersecting $x_{\rm in}(t)$ and $x_{\rm mirror}(t)$ gives the **virtual collision point** $x = d$ (`eq-virtual-collision` in [Section 32.2](book:sec-images-boundary)):
+   $$
+   d = -\frac{\xi_1 + \xi_2 + \ln(1-s^2)}{2m_a\cosh\theta}
+   = \begin{cases}
+   \dfrac{C}{2m_a\cosh\theta}\ln\dfrac{1+s}{1-s} & (C = \pm 1), \\[10pt]
+   0 & (\text{Neumann, }C=0).
+   \end{cases}
+   $$ {#eq-lec3-virtual-collision}
+   Look at Panel (a) of @fig-lec3-mirror-images: for $C=+1$, the virtual collision happens at $d > 0$ **behind the wall** in the unphysical region $x>0$; for $C=-1$, it happens at $d < 0$ **in front of the wall**!
+
+![**Left:** Spacetime trajectories of an $a_2^{(1)}$ soliton ($a=1, \theta=0.6$) reflecting into an antisoliton ($\bar a=2, -\theta$) off the $C=+1$ boundary at $x=0$. The incoming soliton (solid blue) meets its virtual mirror image (dashed grey) behind the wall at the virtual collision point $x=d>0$ (green dot), and the reflected antisoliton (solid red) emerges with a positive time delay $\Delta t>0$ relative to an unshifted bounce (dotted grey). **Right:** The real-coupling stationary-soliton vacuum factors $\tau_0(x), \tau_1(x), \tau_2(x)$ (-@eq-lec3-vacuum-pair) on $x\le 0$ for $a_2^{(1)}$ at modulus $\chi=0.25$, satisfying the solitonic sign pattern $(C_0,C_1,C_2)=(-1,+1,-1)$ with $\chi$-independent energy $E_{\rm vac}=\frac{2m}{\beta^2}(4-3\sqrt{3})$. Verified and plotted by `code/lectures/halfline_l3_f1_mirror_images.py`.](figures/l3_f1_mirror_images.svg){#fig-lec3-mirror-images width=100%}
+
+---
+
+## Continuation to Real Coupling: Stationary Mirror Pairs as Non-Constant Vacua
+
+Now let us cross the bridge from imaginary coupling (soliton theory) to **real coupling** (particle theory) by replacing $\beta \to -i\beta$.
+
+Under $\beta \to -i\beta$, the Hirota ansatz (-@eq-lec3-hirota-ansatz) becomes
+$$
+\vec\phi(x,t) = -\frac{1}{\beta}\sum_{j=0}^n \vec\alpha_j\,\ln\tau_j(x,t)
+$$ {#eq-lec3-real-hirota}
+with the **exact same Hirota $\tau$-functions $\tau_j$**!
+
+Wait: on the full line $x\in(-\infty,\infty)$, we threw away all non-trivial Hirota $\tau$-functions at real coupling because $\tau_j$ vanishes or becomes complex somewhere on $\mathbb R$, making $\ln\tau_j$ singular or complex.
+
+*But on the half-line $x\le 0$, we only care whether $\tau_j(x)$ is real and strictly positive on $x\le 0$!* Any zeros of $\tau_j(x)$ that sit in the virtual region $x>0$ behind the wall are completely harmless [@bowcock1998; @delius1998a]!
+
+Remember our puzzle from Lecture 2: for $a_n^{(1)}$ at real coupling, there are $2^{n+1}$ integrable sign patterns $(C_0, \dots, C_n)\in\{\pm 1\}^{n+1}$, yet the constant field $\vec\phi=0$ solves the boundary condition *only* for the two uniform patterns $C\equiv +1$ and $C\equiv -1$. What is the vacuum (ground state) of the other $2^{n+1}-2$ non-uniform boundary conditions?
+
+### Blackboard Calculation 2: Building the Real-Coupling Solitonic Vacua
+
+Take our $C=+1$ mirror pair (-@eq-lec3-tau-pair) and freeze both solitons at **zero rapidity** ($\theta = 0$), so they stand completely still!
+
+At $\theta = 0$, we have $\cosh\theta = 1$, $\sinh\theta = 0$, $s = \sin\frac{\pi a}{h} = \frac{m_a}{2m}$, and $A_{a\bar a}(0) = 1 - s^2$. From (-@eq-lec3-shift-C) with $C=+1$, the real part of the parameter $\xi = \operatorname{Re}\xi + i\chi$ of the stationary soliton $(a,0,\xi)$ and its mirror $(\bar a, 0, \bar\xi)$ is fixed to
+$$
+\operatorname{Re}\xi = \frac{1}{2}(\xi_1 + \xi_2) = -\ln(1 + s),
+$$
+while the imaginary part $\chi \equiv \operatorname{Im}\xi \in (-\pi, \pi)$ remains completely free!
+
+Substitute $E_1(x) = \frac{e^{i\chi}}{1+s}e^{m_a x}$ and $E_2(x) = \frac{e^{-i\chi}}{1+s}e^{m_a x}$ into (-@eq-lec3-tau-pair) (`eq-vacuum-pair` in [Section 32.6](book:sec-real-coupling-vacua)):
+$$
+\tau_j(x) = 1 + \frac{2\cos\!\left(\chi + \frac{2\pi ja}{h}\right)}{1 + s}\,e^{m_a x} + \frac{1 - s}{1 + s}\,e^{2m_a x}.
+$$ {#eq-lec3-vacuum-pair}
+Let us check the properties of this remarkable function $\tau_j(x)$ on the blackboard ([Proposition 32.4](book:prp-solitonic-vacua)):
+
+1. **It is real and strictly positive on $x < 0$ for every $\chi$:**
+   Treat $\tau_j(x)$ as a quadratic in $u = e^{m_a x} \in (0, 1]$. Its discriminant is
+   $$
+   \Delta_j = \frac{4}{(1+s)^2}\left[\cos^2\!\left(\chi + \frac{2\pi ja}{h}\right) - (1 - s^2)\right]
+   = \frac{4}{(1+s)^2}\left[s^2 - \sin^2\!\left(\chi + \frac{2\pi ja}{h}\right)\right].
+   $$
+   Even when $\Delta_j \ge 0$, the product of the two roots in $u = e^{m_a x}$ is $\frac{1+s}{1-s} > 1$! And at $x=0$ ($u=1$),
+   $$
+   \tau_j(0) = \frac{2 + 2\cos\!\left(\chi + \frac{2\pi ja}{h}\right)}{1 + s}
+   = \frac{4\cos^2\!\left(\frac{\chi}{2} + \frac{\pi ja}{h}\right)}{1 + s} \ge 0!
+   $$ {#eq-lec3-tau0-cos2}
+   Since the product of the two roots is $\frac{1+s}{1-s} > 1$ and $\tau_j(0) \ge 0$ while $\tau_j'(0)$ is positive whenever a root approaches $u=1$ from above, **both roots of $\tau_j(x)$ lie at $u \ge 1$, i.e. in the virtual region $x\ge 0$ behind the wall!** On the open physical half-line $x<0$, $\tau_j(x) > 0$ everywhere!
+
+2. **How the Modulus $\chi$ Selects the Sign Pattern $C_j = \pm 1$ at $x=0$:**
+   Look at $\tau_j(0)$ in (-@eq-lec3-tau0-cos2). In the real-coupling boundary condition (-@eq-lec2-boundary-condition) at $x=0$, we need the positive square root
+   $$
+   e^{\beta\vec\alpha_j\cdot\vec\phi(0)/2} = \frac{\sqrt{\tau_{j+1}(0)\,\tau_{j-1}(0)}}{\tau_j(0)}.
+   $$
+   When we take the positive square root of $\tau_k(0)$ in (-@eq-lec3-tau0-cos2), we get the *absolute value* $\bigl|\cos(\frac{\chi}{2} + \frac{\pi ka}{h})\bigr| = \epsilon_k\cos(\frac{\chi}{2} + \frac{\pi ka}{h})$, where $\epsilon_k = \operatorname{sgn}\cos(\frac{\chi}{2} + \frac{\pi ka}{h}) \in \{\pm 1\}$!
+   In our imaginary-coupling derivation (-@eq-lec3-tau0-square) with $C\equiv +1$, the algebraic identity held without absolute values. Therefore, the real-coupling field $\vec\phi(x)$ satisfies the boundary condition (-@eq-lec2-boundary-condition) with sign pattern
+   $$
+   C_j = \epsilon_{j+1}\,\epsilon_{j-1} = \operatorname{sgn}\!\left[\cos\!\left(\frac{\chi}{2} + \frac{\pi(j+1)a}{h}\right)\cos\!\left(\frac{\chi}{2} + \frac{\pi(j-1)a}{h}\right)\right]!
+   $$ {#eq-lec3-cj-from-chi}
+   Look at the product of all $h$ signs $C_j$ in (-@eq-lec3-cj-from-chi):
+   $$
+   \prod_{j=0}^{h-1} C_j = \prod_{j=0}^{h-1} \epsilon_{j+1}\epsilon_{j-1} = \prod_{k=0}^{h-1} \epsilon_k^2 = +1!
+   $$
+   Every sign pattern reached by a stationary mirror pair has $\prod_{j=0}^n C_j = +1$ (the **solitonic** sign patterns of Delius and Gandenberger [@delius_gandenberger1999], [Proposition 32.5](book:prp-dg-weights))!
+
+   For $a_2^{(1)}$ ($h=3, a=1$), the zeros of $\cos(\frac{\chi}{2} + \frac{\pi j}{3})$ divide $\chi\in(-\pi,\pi)$ into **three open intervals** (Panel (b) of @fig-lec3-mirror-images):
+   - $\chi \in (-\frac{\pi}{3}, \frac{\pi}{3}) \implies (\epsilon_0,\epsilon_1,\epsilon_2) = (+,+,-) \implies (C_0,C_1,C_2) = (-1,+1,-1)$,
+   - $\chi \in (\frac{\pi}{3}, \pi) \implies (\epsilon_0,\epsilon_1,\epsilon_2) = (+,-,-) \implies (C_0,C_1,C_2) = (-1,-1,+1)$,
+   - $\chi \in (-\pi, -\frac{\pi}{3}) \implies (\epsilon_0,\epsilon_1,\epsilon_2) = (+,-,+) \implies (C_0,C_1,C_2) = (+1,-1,-1)$.
+
+3. **Why is the Vacuum Energy $E_{\rm vac}$ Independent of the Modulus $\chi$?**
+   Within each open interval of $\chi$, we have a continuous one-parameter family of static solutions $\vec\phi(x;\chi)$ satisfying the *exact same* boundary condition $\partial_x\vec\phi(0;\chi) + \nabla\mathcal B(\vec\phi(0;\chi)) = 0$. Differentiate the total half-line energy $E(\chi)$ in (-@eq-lec2-energy) with respect to $\chi$ and integrate by parts:
+   $$
+   \frac{dE}{d\chi} = \int_{-\infty}^0 \partial_\chi\vec\phi\cdot\bigl(-\partial_x^2\vec\phi + \nabla V(\vec\phi)\bigr)dx
+   + \partial_\chi\vec\phi(0;\chi)\cdot\bigl(\partial_x\vec\phi(0;\chi) + \nabla\mathcal B(\vec\phi(0;\chi))\bigr)
+   = 0!
+   $$ {#eq-lec3-de-dchi}
+   That one-line variational argument proves that **$\chi$ is an exact classical flat direction (modulus)** with energy (`eq-vacuum-energy` in [Section 32.6](book:sec-real-coupling-vacua))
+   $$
+   E_{\rm vac} = \frac{2m}{\beta^2}\left(2k - h\frac{m_a}{m}\right), \qquad k = \#\{j : C_j = -1\}.
+   $$
+   In Lecture 6, we will see what happens to this classical flat direction $\chi$ in the quantum theory: quantum effects lift the continuous modulus into a discrete tower of **quantum rotor states** $b_{n,-n}$ localized at the wall!
+
+---
+
+## Linearized Classical Wave Reflection Around the Vacuum
+
+Once we have the classical vacuum $\vec\phi_{\rm vac}(x)$, small fluctuations $\vec\phi(x,t) = \vec\phi_{\rm vac}(x) + \vec\epsilon(x,t)$ are classical particle waves bouncing off the wall ([Section 32.8](book:sec-classical-reflection-factors)).
+
+Let us compute the classical reflection factor $K_a^{\rm cl}(\theta)$ around $\vec\phi_{\rm vac} = 0$ for the uniform boundaries $C_j \equiv C \in \{0, +1, -1\}$ of $a_n^{(1)}$ [@cdr1995]:
+
+1. In the bulk ($x<0$), expanding $V_{\rm real}(\vec\epsilon) = \frac{1}{2}\vec\epsilon\cdot M^2\vec\epsilon + \dots$ gives $n$ decoupled Klein–Gordon modes $\vec\epsilon(x,t) = \vec\rho_a\,e^{-i\Omega t}\bigl(e^{ipx} + K_a^{\rm cl}(\theta)\,e^{-ipx}\bigr)$ with $\Omega = m_a\cosh\theta$, $p = m_a\sinh\theta$, and mass eigenvalue $m_a^2 = 4m^2\sin^2\frac{\pi a}{h}$.
+2. At the wall $x=0$, expanding the boundary condition (-@eq-lec2-boundary-condition) to first order in $\vec\epsilon$ gives
+   $$
+   \partial_x\vec\epsilon\Big|_{x=0} = -\frac{m}{2}\sum_{j=0}^n C\,\vec\alpha_j(\vec\alpha_j\cdot\vec\epsilon)\Big|_{x=0} = -\frac{C}{2m}M^2\vec\epsilon\Big|_{x=0}.
+   $$
+3. Projecting onto the mass eigenmode $\vec\rho_a$ ($M^2\vec\rho_a = m_a^2\vec\rho_a$) yields
+   $$
+   ip\bigl(1 - K_a^{\rm cl}(\theta)\bigr) = -\frac{C m_a^2}{2m}\bigl(1 + K_a^{\rm cl}(\theta)\bigr).
+   $$
+4. Dividing by $m_a$ and using $p/m_a = \sinh\theta$ and $\frac{m_a}{2m} = \sin\frac{\pi a}{h}$ gives the exact **classical particle reflection factor** (`eq-linear-reflection` in [Section 32.8](book:sec-classical-reflection-factors)):
+   $$
+   K_a^{\rm cl}(\theta) = \frac{\sinh\theta - i C\sin\frac{\pi a}{h}}{\sinh\theta + i C\sin\frac{\pi a}{h}}
+   = -\bigl[(a)(h-a)\bigr]^{-C}.
+   $$ {#eq-lec3-linear-reflection}
+
+Keep (-@eq-lec3-linear-reflection) bookmarked: in Lecture 6, when we compute the exact **quantum** particle reflection amplitudes for $a_n^{(1)}$ at arbitrary coupling $B\in(0,2)$ and take their weak-coupling limit $B\to 0$, (-@eq-lec3-linear-reflection) will be our decisive benchmark!
+
+---
+
+## Guided Rediscovery Exercises
+
+::: {#exr-lec3-mirror-square}
+### Exercise 3.1: Proving the $C = \pm 1$ Mirror Shift from the Perfect-Square $\tau$-Function ([Exercise 32.2](book:exr-mirror-neumann))
+
+Let us complete the blackboard proof that the mirror shift $\xi_1 + \xi_2 = -2\ln(1+Cs)$ in (-@eq-lec3-shift-C) solves the $C_j \equiv C = \pm 1$ boundary condition at $x=0$ for all $t$.
+
+1. Starting from (-@eq-lec3-tau-pair) at $x=0$ with $E_1(0,t) = \frac{U(t)}{1+Cs}$, $E_2(0,t) = \frac{U(t)^{-1}}{1+Cs}$, and $A = 1 - s^2$, verify (-@eq-lec3-tau0-square):
+   $$
+   \tau_j(0,t) = \frac{2 + \zeta^{ja} U + \zeta^{-ja} U^{-1}}{1+Cs}.
+   $$
+2. Show from (-@eq-lec3-dx-tau0) that at $x=0$,
+   $$
+   \partial_x\tau_j(0,t) = \frac{k}{1+Cs}\left(\zeta^{ja} U + \zeta^{-ja} U^{-1} + 2\,\frac{1-Cs}{1+Cs}\right).
+   $$
+3. Using $\zeta^{ja/2} U^{1/2} + \zeta^{-ja/2} U^{-1/2} = 2\cos(\psi + \frac{\pi ja}{h})$ (where $U = e^{2i\psi}$) and the trigonometric identity
+   $$
+   \cos\left(\psi + \frac{\pi(j+1)a}{h}\right)\cos\left(\psi + \frac{\pi(j-1)a}{h}\right)
+   = \cos^2\left(\psi + \frac{\pi ja}{h}\right) - \sin^2\frac{\pi a}{h},
+   $$
+   together with $k = m_a\cosh\theta = 2m\frac{\sin(\pi a/h)}{s}$, show that
+   $$
+   \frac{\partial_x\tau_j(0,t) - m C\sqrt{\tau_{j+1}(0,t)\,\tau_{j-1}(0,t)}}{\tau_j(0,t)}
+   $$
+   is **independent of $j$**, and therefore $\sum_{j=0}^n \vec\alpha_j\bigl(\dots\bigr) = 0$ identically!
+:::
+
+::: {#exr-lec3-breathers}
+### Exercise 3.2: Classical Boundary Breathers—Why $C=+1$ Binds Solitons and $C=-1$ Repels Them ([Proposition 32.3](book:prp-boundary-breathers))
+
+A **boundary breather** is a soliton bound to its own mirror image at imaginary rapidity $\theta = i\eta$ ($0 < \eta < \frac{\pi}{2}$), oscillating periodically at the wall with period $T = \frac{2\pi}{m_a\sin\eta}$ ([Section 32.4](book:sec-boundary-breathers-classical)). Set $s = \frac{\sin(\pi a/h)}{\cos\eta}$, $y = m_a x\cos\eta \le 0$, and $\xi_{1,2} = \frac{1}{2}S \pm (\rho_- + i\zeta_-)$, where $S = \xi_1 + \xi_2$ is the mirror shift (-@eq-lec3-shift-neumann) or (-@eq-lec3-shift-C).
+
+1. Show that the mirror-pair $\tau$-function (-@eq-lec3-tau-pair) takes the form
+   $$
+   \tau_j(x,t) = 1 + 2 e^{y + S/2}\cosh(\rho_- + i\psi) + (1-s^2)e^S e^{2y},
+   \qquad \psi = \zeta_- - m_a t\sin\eta + \frac{2\pi ja}{h}.
+   $$
+2. For **$C = +1$** with $\rho_- = 0$, substitute $e^{S/2} = \frac{1}{1+s}$ and show that $\tau_j$ is real and satisfies
+   $$
+   \tau_j(x,t) \ge \frac{(1 - e^y)^2 + s(1 - e^{2y})}{1 + s} > 0 \qquad \forall\,y < 0,
+   $$
+   so the boundary breather is completely free of singularities on the open half-line $x < 0$!
+3. For **$C = -1$**, substitute $e^{S/2} = \frac{1}{1-s}$ and evaluate $\tau_j$ at $\psi = \pi$ (for $s<1$) or $\psi = 0$ (for $s>1$). Show that $\tau_j$ changes sign between $y\to -\infty$ and $y=0$, proving that the soliton-repulsive $C=-1$ boundary admits **no regular boundary breathers**.
+:::
+
+::: {#exr-lec3-self-conjugate}
+### Exercise 3.3: The Self-Conjugate Vacuum Family for Even $h$ and the Missing-Vacuum Puzzle ([Proposition 32.6](book:prp-self-conjugate-vacuum))
+
+When $h = n+1$ is **even** (such as $a_1^{(1)}$ sinh-Gordon with $h=2$, or $a_3^{(1)}$ with $h=4$), the middle species $a = h/2$ is self-conjugate ($\bar a = h - h/2 = h/2$), and at zero rapidity its two-soliton interaction coefficient $A_{aa}(0)$ vanishes, so a stationary soliton and its mirror merge into a **single** static soliton:
+$$
+\tau_j(x) = 1 + (-1)^j e^{2mx + \xi}, \qquad u_j(x) \equiv (-1)^j e^{2mx + \xi}.
+$$
+
+1. Compute $\partial_x\ln\tau_j = \frac{2m u_j}{1 + u_j}$ and $e^{\beta\vec\alpha_j\cdot\vec\phi/2} = \frac{\sqrt{\tau_{j+1}\tau_{j-1}}}{\tau_j} = \frac{1 - u_j}{1 + u_j}$ (for real $\xi < 0$ so $|u_j| < 1$ on $x\le 0$).
+2. Check that for the **$C_j \equiv -1$** boundary condition,
+   $$
+   \frac{1}{m}\partial_x\ln\tau_j + e^{\beta\vec\alpha_j\cdot\vec\phi/2} = \frac{2u_j}{1 + u_j} + \frac{1 - u_j}{1 + u_j} = 1 \qquad (\text{independent of }j\text{ and }x),
+   $$
+   and conclude that $\tau_j(x)$ solves the $C\equiv -1$ boundary condition for **every** $\xi < 0$ with exact energy $E = 0$ (matching the energy of $\vec\phi=0$ as $\xi\to -\infty$)!
+3. Look at our linearized reflection factor $K_{h/2}^{\rm cl}(\theta)$ in (-@eq-lec3-linear-reflection) for $C = -1$ and $a = h/2$ ($\sin\frac{\pi a}{h} = \sin\frac{\pi}{2} = 1$): where is its pole in the physical strip, what is the corresponding bound-state frequency $\Omega_{h/2} = m_{h/2}\cos v$, and how does this zero-frequency mode relate to the continuous position parameter $\xi$ of the static soliton above?
+:::

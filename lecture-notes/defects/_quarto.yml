@@ -36,6 +36,7 @@ book:
     - 06-classical-algebra.qmd
     - 07-quantizing.qmd
     - 08-q-operators.qmd
+    - 09-folding-fusing.qmd
 
 bibliography:
   - ../../references.bib

@@ -14,7 +14,7 @@ part of the pole rapidity theta_pole = i chi = -i arcsin(g/(1 + g^2/4)) as g var
 Checks:
   1. Single-particle unitarity R(theta) R(-theta) + T(theta) T(-theta) = 1 and R(theta) T(-theta) + T(theta) R(-theta) = 0
      (eq-lec1-ising-unitarity) and |R(theta)|^2 + |T(theta)|^2 = 1 for real theta.
-  2. Crossing symmetry R(theta) = T(i*pi/2 - theta) and T(i*pi - theta) = T(theta), R(i*pi - theta) = -R(theta).
+  2. Separate crossing symmetries T(i*pi - theta) = T(theta), R(i*pi - theta) = -R(theta).
   3. Special limits: g = 0 gives T = 1, R = 0; g = +-2 gives T = 0 and R = -+ i cosh(theta)/(sinh(theta) +- i).
   4. Mixed Channels A and B (eq-lec1-mixed-a, eq-lec1-mixed-b) vanish identically for S = -1 with R*T != 0.
 

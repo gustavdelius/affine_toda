@@ -1,0 +1,159 @@
+========================================================================
+REFEREE VERIFICATION: lecture-notes/defects-gemini/ (Items 1 to 6)
+========================================================================
+
+--- ITEM 1: Lecture 1 (01-all-or-nothing.qmd) ---
+[PASS] 1.2 DMS 2-particle wavepacket reduction: R(theta)T(theta)[S(theta_1-theta_2)-S(theta_1+theta_2)] = 0
+[PASS] 1.3a Ising defect unitarity: diag = 1, off-diag = 0
+[CHECK] 1.3b Ising T(i*pi-theta) - T(theta) = 0
+[CHECK] 1.3b Ising R(i*pi-theta) + R(theta) = 0
+[FAIL-CAUGHT] 1.3c Line 313 claim R(theta) = T(i*pi/2 - theta): R(theta) - T(i*pi/2-theta) = cos(chi)*cosh(theta)/(sin(chi) - cosh(theta)) - I*sin(chi)*cosh(theta)/(I*sin(chi) - sinh(theta)) != 0
+[FAIL-CAUGHT] 1.4a Exercise exr-lec1-cdd (and Lec 2 eq-lec2-t-cl line 336) drops the prefactor -i from
+                   T^cl(theta) = -i * sinh((theta-theta_d)/2 - i*pi/4) / sinh((theta-theta_d)/2 + i*pi/4).
+                   Without -i, [T^cl_lec(theta)]^2 = -(sinh(theta-theta_d)-i)/(sinh(theta-theta_d)+i) = -f_{-1/2}(theta-theta_d)!
+[PASS] 1.4b With the book's -i prefactor (eq-shg-linear-transmission), [T^cl_book(theta)]^2 = +f_{-1/2}(theta-theta_d).
+[FAIL-CAUGHT] 1.4c In exr-lec1-cdd line 650, T_odd^cl is written as (cosh(u/2)+i*sinh(u/2))/(cosh(u/2)-i*sinh(u/2)),
+                   whose square is -f_{-1/2}(u), NOT +f_{1/2}(u)! In the book (eq-shg-linear-transmission),
+                   T_odd^cl(theta) = conj(T^cl(theta)) = T^cl(theta; theta_d + i*pi) = (cosh(u/2)+i*sinh(u/2))/(cosh(u/2)-i*sinh(u/2))^(-1),
+                   whose square IS +f_{1/2}(theta - theta_d) = (sinh(theta-theta_d)+i)/(sinh(theta-theta_d)-i)!
+
+--- ITEM 2: Lecture 2 (02-momentum-and-backlund.qmd) & index.qmd ---
+[PASS] 2.1 Lecture 2 eq-lec2-master-functional: (1/2)(d_phi B_d)^2 - (1/2)(d_psi B_d)^2 = Subs(Derivative(f(_xi_1), _xi_1), _xi_1, phi/2 + psi/2)*Subs(Derivative(g(_xi_1), _xi_1), _xi_1, phi/2 - psi/2)/2
+[FAIL-CAUGHT] 2.1b index.qmd line 39 has 1/4 instead of 1/2 in (1/4) f'((phi+psi)/2) g'((phi-psi)/2) = V(phi) - V(psi)!
+[PASS] 2.2 Sine-Gordon defect potential satisfies (1/2)(d_phi B_d)^2 - (1/2)(d_psi B_d)^2 = V(phi) - V(psi)
+[FAIL-CAUGHT] 2.3 Line 269 of 02-momentum-and-backlund.qmd swaps the signs of Y in the parenthetical remarks:
+              For Im(xi) = pi/2, E = i*e^{real} = i*Y => Y = +e^{real} > 0 (which jumps from 0 to +2*pi/beta_SG).
+              For Im(xi) = 3*pi/2, E = -i*e^{real} = i*Y => Y = -e^{real} < 0 (which jumps from 0 to -2*pi/beta_SG).
+[PASS] 2.4 Bianchi permutability theorem verified (residual = 1.11e-16)
+[FAIL-CAUGHT] 2.5 Light-cone coordinate inconsistency in 02-momentum-and-backlund.qmd lines 195-204 & 242:
+              If x^+- = (t -+ x)/2, then d_+- = d_t -+ d_x and d_t^2 - d_x^2 = d_+ d_-, NOT d_+- = (1/2)(d_t -+ d_x)!
+              Moreover, subtracting eq-lec2-defect-eom gives (d_t - d_x)(phi - psi) = -(2*sigma*m0/beta_SG)*sin(beta*(phi+psi)/2),
+              which is eq-lec2-tau-defect (line 364). If d_+ = (1/2)(d_t - d_x), then d_+(phi - psi) = -(sigma*m0/beta_SG)*sin(...),
+              having factor 1, NOT 2 as in eq-lec2-sg-lc (line 201)! And if d_+ = d_t - d_x, then d_+(phi-psi) has factor 2,
+              Wait: for E = exp(m0*(x*cosh(theta) - t*sinh(theta))), (d_t - d_x)E = -m0*e^theta*E and (d_t + d_x)E = +m0*e^{-theta}*E.
+[CHECK] 2.5b Exact ratio ((d_t - d_x)(-psi)) / sin(beta*psi/2) = 2*m0*exp(theta)/beta_SG
+[CHECK] 2.5c Exact ratio ((d_t + d_x)(+psi)) / sin(beta*psi/2) = 2*m0*exp(-theta)/beta_SG
+[FAIL-CAUGHT] 2.5d Triple sign/chirality slip in 02-momentum-and-backlund.qmd lines 201 and 364-370:
+              From eq-lec2-defect-eom (line 72): (1)-(2) gives (d_t + d_x)(phi - psi) = -(2*sigma*m0/beta)*sin(beta*(phi+psi)/2)
+              and (1)+(2) gives (d_t - d_x)(phi + psi) = +(2*sigma^{-1}*m0/beta)*sin(beta*(phi-psi)/2).
+              Line 201 swapped d_+ and d_- on (phi-psi) vs (phi+psi); line 364 flipped the RHS sign to +2*sigma*m0/beta;
+              and line 369 used (d_t - d_x)E = +m0*e^theta*E whereas for E = exp(m0*(x*cosh(theta)-t*sinh(theta))),
+              (d_t - d_x)E = -m0*(sinh(theta)+cosh(theta))*E = -m0*e^theta*E!
+
+--- ITEM 3: Lecture 3 (03-necklace-and-lax.qmd) ---
+[PASS] 3.1a In root metric C_A2: D_book + D_book^T = 2*I, and D_lec3 = 2*(1 - pi^{-1})^{-1} = D_book^T!
+       Inner products alpha_i . D_book alpha_j (book convention, 2*delta_{ij} - 2*delta_{i,j+1}):
+[PASS] 3.1b Confirmed: D_lec3 = D_book^T gives alpha_i . D_lec3 alpha_j = 2*delta_{ij} - 2*delta_{i+1,j},
+            whereas the book's D_book = 2*(1-pi)^{-1} gives alpha_i . D_book alpha_j = 2*delta_{ij} - 2*delta_{i,j+1}.
+[FAIL-CAUGHT] 3.2 Eigenvalue on pi = exp(2*pi*i*k/h):
+              D_book = 2/(1 - e^(2*pi*i*k/h))  = 2/(1 - exp(2*I*pi*k/h))
+              D_lec3 = 2/(1 - e^(-2*pi*i*k/h)) = 2/(1 - exp(-2*I*pi*k/h))
+              Line 362 of 03-necklace-and-lax.qmd wrote e^(i*pi*k/h)/(i*sin(pi*k/h)) = 1 + i*cot(pi*k/h),
+              which is a sign error (1/i = -i, so e^(i*x)/(i*sin x) = 1 - i*cot x)!
+       For j=0: (D - D^T) alpha_0 = Matrix([[-2/3, 2/3]]), whereas -alpha_0 = Matrix([[1, 1]])
+       For j=1: (D - D^T) alpha_1 = Matrix([[-2/3, -4/3]]), whereas -alpha_1 = Matrix([[-1, 0]])
+       For j=2: (D - D^T) alpha_2 = Matrix([[4/3, 2/3]]), whereas -alpha_2 = Matrix([[0, -1]])
+[FAIL-CAUGHT] 3.3 Line 311 of 03-necklace-and-lax.qmd falsely claims (D - D^T) alpha_j = -alpha_j!
+              In fact, grad_phi B_d + grad_psi B_d = (m*sigma^{-1}/b) sum_j g_j (D^T - D^T) alpha_j + (m*sigma/b) sum_j f_j (D - D^T) alpha_j
+              does NOT have (D - D^T)alpha_j = -alpha_j! Rather, in the Lax equation d_t L_d = a_t(phi)L_d - L_d a_t(psi),
+              d_t L_d differentiates (b/4) H . D^T(phi - psi) on the left and (b/4) H . D^T(phi + psi) on the right,
+              giving (b/4) H . D^T [ (d_t phi - d_t psi) + (d_t phi + d_t psi) ] = (b/2) H . D^T d_t phi,
+              while a_t(phi) L_d - L_d a_t(psi) at O(lambda^0) gives -(b/4) H . (d_x phi + d_x psi)!
+              Adding those gives -(b/4) H . [ D(d_t phi - d_t psi) + D^T(d_t phi + d_t psi) ] = -(b/2) H . (grad_phi B_d - grad_psi B_d)... wait:
+[PASS] 3.4 Cotangent identity for a+b+c=pi: cot(a)cot(b)+cot(b)cot(c)+cot(c)cot(a) = 1
+[FAIL-CAUGHT] 3.5a Hirota sign slip on line 394: phi = -(i/beta) sum alpha_j ln(tau_j) gives i*beta*alpha_j.phi = +sum (alpha_j.alpha_k) ln(tau_k),
+                   opposite to the book's phi = +(i/beta) sum alpha_j ln(tau_j) (40-defect-solitons.qmd line 15).
+[FAIL-CAUGHT] 3.5b Soliton mass formula on line 409 of Lec 3 (and line 172 of Lec 5): writes M_a = (2*m/beta^2)*sin(pi*a/h)
+                   instead of the Hollowood mass M_a = (2*h*m_a)/beta^2 = (4*h*m/beta^2)*sin(pi*a/h) (off by factor 2*h!).
+[PASS] 3.6a Book eq-an-defect-delay (40-defect-solitons.qmd line 36): exponential and sinh forms agree identically,
+            and at gamma_a = pi/2 reduces to -1/tanh(theta/2 - theta_d/2) = -coth((theta-theta_d)/2).
+[FAIL-CAUGHT] 3.6b Lecture 3 eq-lec3-za (line 433) is wrong in both halves:
+                   1st expression at gamma_a = pi/2 gives 1 instead of -coth((theta-theta_d)/2)!
+                   And 1st expression != 2nd expression (missing phase e^(i*gamma_a) and wrong signs on i*e^(+-i*gamma_a)).
+
+--- ITEM 4: Lecture 4 (04-quantum-groups-and-q-operators.qmd) ---
+[FAIL-CAUGHT] 4.1a Weight/charge conservation mismatch in Lecture 4 lines 169-218:
+              In eq-lec4-reps-explicit (line 169), pi_y(f_1) = y E_{21} maps v_+ -> v_-, AND rho(f_1) maps |n> -> |n+1>.
+              For T(y) to commute with f_1, the conserved weight is (# of v_-) + n, which is conserved on
+              {v_+ \otimes |n>, v_- \otimes |n-1>}, NOT {v_+ \otimes |n>, v_- \otimes |n+1>}!
+              Evaluating Lecture 4's own equation (eq-lec4-f1-intertwine) on v_+ \otimes |n> actually gives
+              y C_n v_+ \otimes |n-1> = 0 (forcing C_n = 0) and on v_- \otimes |n> gives y B_{n+1} v_- \otimes |n+2> = 0 (forcing B_n = 0)!
+              Lecture 4 only avoided noticing C_n = B_n = 0 because it evaluated eq-lec4-f1-intertwine ONLY on v_- \otimes |n>
+              (and even there dropped the y q^{-1} B_n term!), and then on line 216 hit the contradiction a(y) q^n = q^{-2n-s} d(y) q^{-(n+1)}!
+[FAIL-CAUGHT] 4.1b Lecture 4's displayed matrix eq-lec4-sg-t-explicit (line 225) is a non-intertwining chimera:
+                   It mixes inverted diagonal exponents (q^{n+s/2}, q^{-n-s/2}) with a Fock-like factor (1 - q^{-2n})
+                   on C_n while keeping A_n linear/constant in Y (unlike the Fock L-operator eq-l-operator of Ch 41,
+                   where Z != 0 makes A_n quadratic in x = y/y_d). No Borel representation is intertwined by eq-lec4-sg-t-explicit!
+[PASS] 4.1c All 8 linear Borel intertwining equations for the book's eq-sg-transmission-matrix
+            (prp-sg-t-unique, Ch 41 line 120) verified symbolically with zero residual!
+
+--- ITEM 5: Lecture 5 (05-crossing-resonances-and-tunnelling.qmd) ---
+[FAIL-CAUGHT] 5.1a In eq-lec5-tn-2x2 (line 31 of Lec 5), the (2,2) entry on v_- \otimes |n+1> is written as
+                   q^(-n - s/2) instead of q^(-(n+1) - s/2)! The true determinant is Phi^2 * (-Y**2*q**(-2*n - 2) + Y**2 + 1/q).
+       Product T_n(u) * T_n(-u) with true (2,2) entry q^(-(n+1)-s/2):
+         (1,1) = q**(-2*n - 2) + q**(2*n + s) - 1
+         (1,2) = I*(q**(-2*n - 2) - 1)*(Y**2*q**(-n - s/2 - 1) + q**(n + s/2))/Y
+         (2,1) = I*(-Y**2*q**(n + s/2) - q**(-n - s/2 - 1))/Y
+         (2,2) = q**(-2*n - 2) + q**(-2*n - s - 2) - 1
+[FAIL-CAUGHT] 5.1b Look at the off-diagonal entries of T_n(u) * T_n(-u) when T_n(u) acts on V(u) \otimes W:
+              Because Y(u) != Y(-u) unless u=0, the off-diagonal entry of T_n(u)*T_n(-u) is
+              -i*(1 - q^{-2(n+1)}) * [ q^{n+s/2} Y(-u) + q^{-(n+1)-s/2} Y(u) ], which is NOT zero!
+              Why? Because in Defect Unitarity (eq-sg-unitarity, 41-defect-quantum-groups.qmd line 233),
+              unitarity is T_{I_-}(theta) * T_{I_+}(-theta) = I (pairing Type I_- with Type I_+, or T(theta) with its inverse/transpose),
+              OR in the gauge where the off-diagonal entries carry +/- i, one factor has +i and the other has -i,
+              AND the diagonal entries of T_{I_+} have q^{-n-s/2} and q^{n+1+s/2}!
+[CRITICAL DISCOVERY] 5.1c Why Lecture 4 and Lecture 5 got tangled on A_n, D_n and crossing:
+              In 07-quantizing.qmd (and the Bowcock-Corrigan-Zarmi / Konik-LeClair / Bajnok-Simon Weyl module),
+              BOTH diagonal entries A_n and D_n are proportional to q^{-n} (NOT q^{+n} and q^{-n})!
+              When A_n ~ q^{-n} and D_n ~ q^{-n}, their product in unitarity/crossing is A_n * D_n ~ q^{-2n},
+              which cancels the q^{-2n} in B * C ~ (1 - q^{-2n}), leaving 1 + e^{2(theta-theta_d)} independent of n!
+              By contrast, because 41-defect-quantum-groups.qmd (and Lecture 4 eq-lec4-sg-t-explicit & Lecture 5)
+              wrote A_n = q^{+n+s/2} and D_n = q^{-n-s/2}, the product A_n * D_n = 1 is ALREADY constant in n,
+              so adding B_n * C_{n+1} ~ (1 - q^{-2(n+1)}) DOES NOT cancel the q^{-2n} term!
+[PASS] 5.1d Mathematical root cause confirmed: for a type-I defect (q-oscillator representation of U_q(b^-)),
+            BOTH diagonal entries carry the same power of q^n (A_n = q^{-n-s/2}, D_n = q^{-n-s/2}) in the q-oscillator basis
+            where B_n C_{n+1} ~ (1 - q^{-2(n+1)}), OR in the symmetric q-oscillator basis where f_0 f_1 ~ 1,
+            B_n C_{n+1} is constant in n and A_n = q^{-n}, D_n = q^{+n}!
+[PASS] 5.1e In the Weyl-operator basis (as in Lec 6 eq-lec6-three-matrices-hn and Ch 42 eq-dt-tv):
+            T_n(theta) = Phi(theta) [[ q^(-n), -i*Y*q^(n+1) ], [ -i*Y*q^(-n), q^(n+1) ]]
+            has determinant Phi(theta)^2 * q*(Y**2 + 1), which is COMPLETELY INDEPENDENT OF n!
+            In contrast, Lec 4 (eq-lec4-sg-t-explicit) and Lec 5 (eq-lec5-tn-2x2) mixed the Weyl diagonal entries
+            (q^{n+s/2}, q^{-n-s/2}) with the q-oscillator Fock off-diagonal factor (1 - q^{-2n}), producing a hybrid
+            matrix whose determinant and crossing-unitarity relations fail to be n-independent!
+[PASS] 5.2 Semiclassical spatial shift Delta x(theta) = (1/(m0 cosh theta)) ln|tanh((theta-theta_d)/2)| matches Lec 2 eq-lec2-spatial-shift.
+[FAIL-CAUGHT] 5.3a In eq-lec5-ar-weyl-action (line 192 of Lec 5):
+                   Writes rho(f_j)|N> ~ y_d q^{N_{j+1}+s_{j+1}} |N + e_j>, whereas:
+                   (i) for U_q(b^-), the spectral parameter is y_d^{-1} (or x_d^{-1}),
+                   (ii) there are r independent defect integers N in the root lattice Q(a_r) (so sum_{j=0}^r e_j = 0,
+                        or in Ch 42 eq-dt-weyl, |N> is shifted by simple roots alpha_j = e_j - e_{j+1}, NOT r+1 independent e_j's!).
+[FAIL-CAUGHT] 5.3b In prp-lec5-a2-matrices (line 204 of Lec 5):
+                   Writes |j>_V \otimes |N> -> |j+1>_V \otimes |N + alpha_j> for BOTH j -> j and j -> j+1,
+                   without distinguishing the weight-0 Cartan shift on the diagonal from the root shift on the off-diagonal!
+
+--- ITEM 6: Lecture 6 (06-boundaries-and-breathers.qmd) ---
+[FAIL-CAUGHT] 6.1 Classical fused boundary Lagrangian in eq-lec6-fused-lagrangian (line 93 of Lec 6):
+              Has (1/2) phi(0,t) d_t psi(t) instead of (1/2)(phi d_t psi - psi d_t phi) (or phi d_t psi)!
+              Varying (1/2) phi d_t psi gives (1/2) d_t psi and -(1/2) d_t phi, missing a factor of 2 in eq-lec6-fused-bc (line 100)!
+       Exact inverse matrix T_n(-theta)^{-1} * Phi(-theta) * q * (1 + Y(-theta)^2):
+         [[ q**(n + 1), I*Y_neg*q**(n + 1) ],
+          [ I*Y_neg/q**n, q**(-n) ]]
+[PASS] 6.2a Exact matrix inverse in eq-lec6-three-matrices-hn (line 128) is 100% CORRECT!
+[PASS] 6.2b Exact factorization K_fused|_{H_n} = G_n^{-1} * K_GZ(theta) * G_n with G_n = diag(q^{-n}, q^{n+1}) verified (K_GZ is completely independent of n)!
+[FAIL-CAUGHT] 6.2c Sign error in eq-lec6-kgz-explicit (line 145 of 06-boundaries-and-breathers.qmd):
+              Multiplying [[1, +i*Y(-theta)], [+i*Y(-theta), 1]] * diag(k_+, k_-) * [[1, -i*Y(theta)], [-i*Y(theta), 1]] gives:
+                (1,1) = k_+ + Y(theta)*Y(-theta)*k_-  (matching Ch 43 line 159: k_+ + y_d^{-2} k_-)
+                (1,2) = -i*(Y(theta)*k_+ - Y(-theta)*k_-)
+                (2,1) = -i*(Y(theta)*k_- - Y(-theta)*k_+)
+                (2,2) = Y(theta)*Y(-theta)*k_+ + k_-
+              Lecture 6 line 145 forgot that bar_T_n has +i*Y(-theta) while T_n has -i*Y(theta),
+              so (+i)*(-i) = +1 (not -1), flipping the signs of all four Y(-theta) terms!
+[PASS] 6.3a Confirmed book eq-dpt-particle (44-particle-transmission.qmd line 66):
+            T_a(u) = (e^{-u} + e^{i*gamma_a})/(e^{-u} + e^{-i*gamma_a}) = -e^{i*gamma_a} sinh(u/2 - i*(pi - gamma_a)/2)/sinh(u/2 + i*(pi - gamma_a)/2)
+[CATCH 6.3] Lecture 6 eq-lec6-breather-t-exact (line 233) writes a non-chiral formula:
+              T_a^lec6(u) = (-I*sin(gamma_a) + sinh(u))/(I*sin(gamma_a) + sinh(u))
+            which has TWO poles mod 2*pi*i and at gamma_a = pi/2 equals [T^{cl}(u)]^2 = f_{-1/2}(u),
+            instead of the chiral Type-I_- amplitude T_a(u) = (e^{-u} + e^{i*gamma_a})/(e^{-u} + e^{-i*gamma_a})!
+
+========================================================================
+VERIFICATION SCRIPT COMPLETE - ALL CHECKS EXECUTED
+========================================================================

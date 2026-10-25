@@ -2,11 +2,11 @@
 Chiral Multi-Branch Quantum Tunnelling in a_2^(1) and Species-Dependent Resonance Windows
 (sec-lec5-a2-tunnelling, prp-lec5-a2-matrices, eq-lec5-vbar-from-fusion, exr-lec5-omega-trick).
 
-Panel (a): Normalized branch probabilities p_j(theta) = |X|^{2j} / (1 + |X|^2 + |X|^4) (j = 0, 1, 2)
+Panel (a): Normalized branch weights p_j(theta) = |X|^{2j} / (1 + |X|^2 + |X|^4) (j = 0, 1, 2)
            for anti-soliton Vbar transmission in a_2^(1) (h = 3), where |X| = exp(omega*(theta - theta_d)),
            at quantum coupling omega = 1.2 (solid) vs semiclassical omega = 4.5 (dashed).
            The j = 1 quantum tunnelling branch (absent classically) peaks at p_1(theta_d) = 1/3 and is
-           exponentially suppressed as exp(-omega |theta - theta_d|) away from theta_d as omega -> oo.
+           exponentially suppressed as exp(-2 omega |theta - theta_d|) away from theta_d as omega -> oo.
 Panel (b): Imaginary parts of the a_2^(1) defect resonance poles Im(theta_a - theta_d)/pi
            = 1/2 - ((3-a)/3 + 1/(3*omega)) as functions of 1/omega for species a = 1 (V) and a = 2 (Vbar),
            highlighting the lower half-plane decaying-resonance strip Im(theta_a - theta_d) in (-pi/2, 0)
@@ -22,7 +22,7 @@ Checks:
   3. Bootstrap fusion of M_V(theta - i*pi/3) and M_V(theta + i*pi/3) on the unique submodule
      Vbar(y) subset V(theta - i*pi/3) (x) V(theta + i*pi/3) reproduces the 3-branch matrix M_{Vbar}(theta)
      with ratio 1 on all deep lattice labels.
-  4. The j = 1 quantum tunnelling probability p_1(theta) = |X|^2 / (1 + |X|^2 + |X|^4) peaks at 1/3 at
+  4. The j = 1 quantum tunnelling weight p_1(theta) = |X|^2 / (1 + |X|^2 + |X|^4) peaks at 1/3 at
      theta = theta_d and decays exponentially (< 1e-4 at |theta - theta_d| = 1.5 for omega = 7);
      scalar factors g(D) and gbar(D) exhibit simple poles at D_a = i*pi/2 - i*pi*((3-a)/3 + 1/(3*omega)).
 
@@ -204,7 +204,7 @@ fig, (axa, axb) = plt.subplots(
     1, 2, figsize=(7.0, 2.95), gridspec_kw=dict(width_ratios=[1.12, 1.08], wspace=0.28)
 )
 
-# Panel (a): Relative branch probabilities p_0, p_1, p_2 of Vbar in a_2^(1)
+# Panel (a): Relative branch weights p_0, p_1, p_2 of Vbar in a_2^(1)
 u_vals = np.linspace(-2.2, 2.2, 300)
 p0_q, p1_q, p2_q = branch_probs(u_vals, 1.2)
 p0_sc, p1_sc, p2_sc = branch_probs(u_vals, 4.5)
@@ -227,7 +227,7 @@ axa.plot(u_vals, p1_sc, color=style.RED, lw=1.35, ls="--", label=r"$j=0,1,2$ at 
 
 axa.plot([0.0], [1.0 / 3.0], "o", color=style.RED, ms=4.8, zorder=6)
 axa.annotate(
-    r"quantum tunnelling" + "\n" + r"$p_1(0) = \frac{1}{3}$" + "\n" + r"($\propto e^{-\omega|\theta-\theta_d|}$)",
+    r"quantum tunnelling" + "\n" + r"$p_1(0) = \frac{1}{3}$" + "\n" + r"($\propto e^{-2\omega|\theta-\theta_d|}$)",
     xy=(0.0, 1.0 / 3.0),
     xytext=(-1.25, 0.44),
     fontsize=6.8,

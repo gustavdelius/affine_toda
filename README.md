@@ -2,7 +2,7 @@
 
 A unified review of affine Toda field theories, with new results: two-dimensional quantum field theories with one theory for each affine Kac–Moody algebra. They are integrable, so many quantities can be computed exactly, and they display particles and bound states, solitons and breathers, strong–weak duality, quantum-group symmetry, integrable boundaries and, at imaginary coupling, non-unitarity.
 
-The book collects results scattered over five decades of papers and presents them in a logical order, in one notation and with one set of conventions. It is a reference, not a course; companion lecture notes teach parts of the subject step by step. Two courses accompany Part VIII on integrable defects: *Integrable defects, from Bäcklund to Baxter* (`lecture-notes/defects/`, drafted by Claude) and *Lectures on integrable defects in affine Toda field theory* (`lecture-notes/defects-gemini/`, drafted by Gemini). The home page of the site says what the site holds and compares the two courses.
+The book collects results scattered over five decades of papers and presents them in a logical order, in one notation and with one set of conventions. It is a reference, not a course; companion lecture notes teach parts of the subject step by step. One course accompanies Part VII on integrable boundaries: *Lectures on affine Toda field theory on the half-line* (`lecture-notes/half-line/`, drafted by Gemini). Two courses accompany Part VIII on integrable defects: *Integrable defects, from Bäcklund to Baxter* (`lecture-notes/defects/`, drafted by Claude) and *Lectures on integrable defects in affine Toda field theory* (`lecture-notes/defects-gemini/`, drafted by Gemini). The home page of the site says what the site holds and compares the courses.
 
 **Read the book and the lecture notes:** [gustavdelius.github.io/affine_toda](https://gustavdelius.github.io/affine_toda/) · [PDF of the book](https://gustavdelius.github.io/affine_toda/affine-toda.pdf)
 
@@ -50,7 +50,7 @@ The book's own list of its original results is [Appendix E](appendices/E-origina
 |---|---|
 | `index.qmd`, `preface.qmd`, `01-introduction.qmd`, `part*/`, `outlook/`, `appendices/` | The book, as Quarto source (`.qmd`) with bibliography `references.bib`. `index.qmd` is the home page of the site, in HTML only: it says what the site holds and compares the lecture courses. `preface.qmd` is the preface |
 | `figures/`, `part*/figures/` | The committed SVG figures |
-| `lecture-notes/` | Lecture notes that accompany the book, each a Quarto book of its own: `lecture-notes/defects/` and `lecture-notes/defects-gemini/` (both on Part VIII; the second was drafted by Gemini), with `lecture-notes/book-links.lua`, which turns `[text](book:<id>)` into links to the published book |
+| `lecture-notes/` | Lecture notes that accompany the book, each a Quarto book of its own: `lecture-notes/half-line/` (on Part VII, drafted by Gemini), `lecture-notes/defects/` and `lecture-notes/defects-gemini/` (both on Part VIII; the second was drafted by Gemini), with `lecture-notes/book-links.lua`, which turns `[text](book:<id>)` into links to the published book |
 | `code/` | All the book's check scripts. Flat scripts check Parts I–IV, VII and VIII, appendix A and parts of Part IX; subdirectories hold the larger computations |
 | `code/figures/` | Scripts that draw the figures and check the formulas they plot |
 | `code/lectures/` | Check and figure scripts of the lecture notes; see its `README.md` |
@@ -99,7 +99,7 @@ python3 check-refs.py lecture-notes/defects
 ./render-scratch.sh --project lecture-notes/defects
 ```
 
-and likewise for `lecture-notes/defects-gemini`.
+and likewise for `lecture-notes/defects-gemini` and `lecture-notes/half-line`.
 
 The GitHub Actions workflow (`.github/workflows/publish.yml`) renders the HTML on each push to `main` and deploys it to GitHub Pages, with the lecture notes of each `lecture-notes/<name>/` under `lectures/<name>/`. It does not render the PDF, because Quarto hangs on the Mermaid figure in chapter 1 on the runner. The PDF is built locally with `./publish-pdf.sh`, which uploads it to the `pdf-latest` release and redeploys the site. That script needs `gh` logged in to GitHub.
 

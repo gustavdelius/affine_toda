@@ -4,7 +4,7 @@ Twisted-Diagonal Borel Coideals in U (x) U^cop (sec-lec6-doubled-symmetry, sec-l
 eq-lec6-doubled-algebra, eq-lec6-gauge-decoupling, eq-lec6-kgz-explicit, exr-lec6-second-borel-check).
 
 Panel (a): Schematic of defect-boundary fusion K_fused(theta) = Tbar(theta)(1_W (x) K_D(theta))T(theta)
-           showing the exact gauge factorization K_fused|_{H_n} = G_n^{-1} K_GZ(eta_D, lambda*theta_d) G_n
+           showing the exact gauge factorization K_fused|_{H_n} = Gtilde_n^{-1} K_GZ(eta_D, lambda*theta_d) Gtilde_n
            on each 2D charge sector H_n = span{v_+ (x) |n>, v_- (x) |n+1>}, together with the two
            twisted-diagonal Borel coideal subalgebras B_- = Delta(U_q(b^-)) and B_+ = (1 (x) pi)Delta(U_q(b^+))
            inside U (x) U^cop.
@@ -225,6 +225,7 @@ inv2 = lambda B: np.array([B[0, 0] / B[1, 1], (B[0, 1] * B[1, 0]) / (B[0, 0] * B
 dev_n_indep = 0.0
 dev_gz_match = 0.0
 dev_gauge_exact = 0.0
+dev_constant_gauge = 0.0
 
 for th_val in (0.38, -0.52, 0.81):
     Kf, W_f = K_fused_op(th_val, thd, eta_D, N_win)
@@ -238,6 +239,12 @@ for th_val in (0.38, -0.52, 0.81):
     _, B0 = [b for b in blks if b[0] == 0][0]
     G0 = np.diag([1.0, q])
     B_core = G0 @ B0 @ np.linalg.inv(G0)
+    H = np.diag([np.exp(0.5j * eta_D), -np.exp(-0.5j * eta_D)])
+    symmetric_core = np.linalg.inv(H) @ B_core @ H
+    # Check the full matrix up to its common scalar, not only gauge invariants.
+    target = K_gz_mat(y_val, eta_D, lam * thd)
+    scale = symmetric_core[0, 0] / target[0, 0]
+    dev_constant_gauge = max(dev_constant_gauge, np.max(np.abs(symmetric_core - scale * target)))
     for n_val, Bn in blks:
         Gn = np.diag([q ** (-n_val), q ** (n_val + 1)])
         dev_gauge_exact = max(
@@ -246,8 +253,8 @@ for th_val in (0.38, -0.52, 0.81):
 
 report(
     f"defect-boundary fusion K_f = Tbar (1 (x) K_D) T gauge-decouples W [err {dev_gauge_exact:.1e}], has n-independent "
-    f"invariants [{dev_n_indep:.1e}], and equals K_GZ(eta_D, lam*theta_d) [{dev_gz_match:.1e}]",
-    dev_gauge_exact < 1e-12 and dev_n_indep < 1e-12 and dev_gz_match < 1e-12,
+    f"invariants [{dev_n_indep:.1e}], and matches K_GZ invariants [{dev_gz_match:.1e}] and constant gauge [{dev_constant_gauge:.1e}]",
+    dev_gauge_exact < 1e-12 and dev_n_indep < 1e-12 and dev_gz_match < 1e-12 and dev_constant_gauge < 1e-12,
 )
 
 # ---- Check 4: Reflection Equation for K_fused on V (x) V (x) W ----
@@ -344,7 +351,7 @@ axa.text(
 axa.text(
     2.35,
     3.92,
-    r"$K_{\rm fused}|_{\mathcal{H}_n} = G_n^{-1} K_{\rm GZ}(\eta_D, \lambda\theta_d) G_n$",
+    r"$K_{\rm fused}|_{\mathcal{H}_n} = \widetilde G_n^{-1} K_{\rm GZ}(\eta_D, \lambda\theta_d) \widetilde G_n$",
     fontsize=6.5,
     fontweight="bold",
     color=style.RED,
@@ -392,7 +399,7 @@ axa.text(
     0.65,
     r"Do not combine into full QSP: $\rho(k_1)\tilde{\rho}(k_1) = q^4\tilde{\rho}(k_1)\rho(k_1)$"
     + "\n"
-    + r"UV–IR renormalization: $\theta_d = \frac{\lambda}{\lambda+1}\,\theta_d^{\rm cl} = (1 - \frac{B}{2})\theta_d^{\rm cl}$",
+    + r"Conditional UV–IR map: $\theta_d = \frac{\lambda+1}{\lambda}\,\theta_d^{\rm cl}$",
     ha="center",
     va="center",
     fontsize=6.5,
@@ -426,7 +433,7 @@ for thd_c, col_c, lw_c, ls_c, lab_c in [
 axb.set_xlim(0.0, 2.2)
 axb.set_ylim(-0.04, 1.05)
 axb.set_xlabel(r"incoming soliton rapidity $\theta$")
-axb.set_ylabel(r"conversion fraction $|K_{\rm GZ}^{+-}|^2 / (|K_{\rm GZ}^{++}|^2 + |K_{\rm GZ}^{+-}|^2)$")
+axb.set_ylabel(r"soliton conversion fraction")
 axb.set_title(r"(b) Soliton $\to$ antisoliton reflection ($\eta_D = 0.45$)", fontsize=8.3, color=style.GREY)
 axb.legend(loc="lower right", bbox_to_anchor=(1.0, 0.04), fontsize=6.1, handlelength=1.4, borderpad=0.18, labelspacing=0.18)
 
