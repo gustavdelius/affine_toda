@@ -34,6 +34,7 @@ Do not trust any finding in a brief, a referee report or a review, including fin
 The book's conventions are in `01-introduction.qmd`, section `sec-conventions`. Part-specific conventions and clash tables are in briefs such as `briefs/part8_defects_conventions.md`. Each of these traps has caused a wrong claim before:
 
 - **The sign of q.** The physical q is fixed in `eq-q-physical` (ch. 20): q = e^{−4π²i/β²} = −e^{−iπω}, with ω = 4π/β² − 1. Part VI's coproduct is opposite to chapter 7's, so R_VI(x;q) = R_7(x;1/q). The map q → −q is a Klein-factor twist, not a gauge. "Unchanged under q → −q" usually holds only for moduli or for even soliton number.
+- **Chirality and spin.** With x^± = t ± x and E+P of spin +1, left-movers are functions of x^+ and carry E−P, of spin −1. A conserved density of weight h in x^− gives a charge of spin h−1, one in x^+ spin 1−h. So the e_j (spin +) are built from φ_R(x^−) and the f_j from φ_L(x^+) (`sec-nonlocal-charges`). Bernard and LeClair call the x^+ field holomorphic and give its charges positive spin; do not copy their labels.
 - **Twisted algebras.** Some literature gives the longest root of X_n^(k) squared length 2k, so β²_lit = β²/k.
 - **The Bethe–Yang operator.** It is R in some sources and P·Ř in others; check which one a formula uses.
 - **Bibliography keys.** `dgz1992` is Delius–Grisaru–Zanon and `dgz1996` is Delius–Gould–Zhang. In prose, spell out the names.
