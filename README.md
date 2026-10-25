@@ -50,7 +50,7 @@ The book's own list of its original results is [Appendix E](appendices/E-origina
 |---|---|
 | `index.qmd`, `preface.qmd`, `01-introduction.qmd`, `part*/`, `outlook/`, `appendices/` | The book, as Quarto source (`.qmd`) with bibliography `references.bib`. `index.qmd` is the home page of the site, in HTML only: it says what the site holds and compares the lecture courses. `preface.qmd` is the preface |
 | `figures/`, `part*/figures/` | The committed SVG figures |
-| `lecture-notes/` | Lecture notes that accompany the book, each a Quarto book of its own: `lecture-notes/half-line/` (on Part VII, drafted by Gemini), `lecture-notes/defects/` and `lecture-notes/defects-gemini/` (both on Part VIII; the second was drafted by Gemini), with `lecture-notes/book-links.lua`, which turns `[text](book:<id>)` into links to the published book |
+| `lecture-notes/` | Lecture notes that accompany the book, each a Quarto book of its own: `lecture-notes/half-line/` (on Part VII, drafted by Gemini), `lecture-notes/defects/` and `lecture-notes/defects-gemini/` (both on Part VIII; the second was drafted by Gemini), with `lecture-notes/book-links.lua`, which turns `[text](book:<id>)` into links to the published book, and `lecture-notes/_navbar.yml`, the navbar the courses share |
 | `code/` | All the book's check scripts. Flat scripts check Parts I–IV, VII and VIII, appendix A and parts of Part IX; subdirectories hold the larger computations |
 | `code/figures/` | Scripts that draw the figures and check the formulas they plot |
 | `code/lectures/` | Check and figure scripts of the lecture notes; see its `README.md` |

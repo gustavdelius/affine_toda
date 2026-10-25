@@ -20,6 +20,7 @@ book:
   output-file: affine-toda
   downloads: [pdf]
   reader-mode: true
+  # Keep "Book" and "Lecture notes" in step with lecture-notes/_navbar.yml.
   navbar:
     background: primary
     left:

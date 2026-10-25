@@ -2,6 +2,9 @@ project:
   type: book
   output-dir: _site
 
+metadata-files:
+  - ../_navbar.yml  # the navbar shared by all the courses
+
 book:
   title: "Lectures on affine Toda field theory on the half-line"
   subtitle: "From the 90-degree Euclidean trick and Sklyanin's double row to coideal subalgebras, q-Onsager rigidity, and weak–strong boundary duality"
@@ -17,12 +20,6 @@ book:
   output-file: half-line
   downloads: [pdf]
   reader-mode: true
-  navbar:
-    background: primary
-    right:
-      - icon: house
-        text: "Affine Toda field theory"
-        href: https://gustavdelius.github.io/affine_toda/
   search:
     location: navbar
     type: textbox

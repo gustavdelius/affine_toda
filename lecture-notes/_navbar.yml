@@ -1,0 +1,22 @@
+# The navbar of every course in lecture-notes/, which each course's _quarto.yml
+# merges in through `metadata-files`. Keep "Book" and "Lecture notes" in step
+# with the navbar in the book's _quarto.yml. The links are absolute because each
+# course is a Quarto project of its own, published under lectures/<name>/.
+book:
+  navbar:
+    background: primary
+    left:
+      - text: "Book"
+        href: https://gustavdelius.github.io/affine_toda/preface.html
+      - text: "Lecture notes"
+        menu:
+          - text: "Lectures on affine Toda field theory on the half-line"
+            href: https://gustavdelius.github.io/affine_toda/lectures/half-line/
+          - text: "Integrable defects, from Bäcklund to Baxter"
+            href: https://gustavdelius.github.io/affine_toda/lectures/defects/
+          - text: "Lectures on integrable defects in affine Toda field theory"
+            href: https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/
+    right:
+      - icon: house
+        aria-label: "Home page of Affine Toda field theory"
+        href: https://gustavdelius.github.io/affine_toda/
