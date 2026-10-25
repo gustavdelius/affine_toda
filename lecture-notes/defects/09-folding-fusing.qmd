@@ -372,7 +372,7 @@ $$
 h=\frac{\hbar\beta^2}{8\pi}=\frac1{\lambda+1}.
 $$
 
-This normalization agrees with Lecture 7. Raised to the power $8\pi/\hbar\beta^2$, the field $e^{i\Sigma/2}$ becomes $e^{4\pi i\Sigma/\hbar\beta^2}$, of weight $(8\pi/\hbar\beta^2)^2h=\lambda+1$: the chiral vertex operator of Bernard and LeClair's currents, whose integrals are the non-local charges of spin $\lambda$ (see the book's [spin of the non-local charges](book:eq-nonlocal-spin)). A boost multiplies $\int dx^+\,\mathcal O(x^+)$, for a chiral field $\mathcal O$ of weight $h$, by $e^{(1-h)\zeta}$, so its coupling must be multiplied by $e^{-(1-h)\zeta}$. Classically $h=0$, and the couplings are $m_0\sigma^{\pm1}$. In the quantum theory the coupling of the $\sigma$-half is proportional to $e^{-(1-h)\theta_d}$, and setting it equal to $m_0e^{-\theta_d^{\rm cl}}$ gives
+This normalization agrees with Lecture 7. Raised to the power $8\pi/\hbar\beta^2$, the field $e^{i\Sigma/2}$ becomes $e^{4\pi i\Sigma/\hbar\beta^2}$, of weight $(8\pi/\hbar\beta^2)^2h=\lambda+1$: a left-moving vertex operator of Bernard and LeClair's currents, whose integrals are the non-local charges of spin $-\lambda$, the $f_j$ of Lecture 7 up to a power of $q^T$ (see the book's [spin of the non-local charges](book:eq-nonlocal-spin)). A boost multiplies $\int dx^+\,\mathcal O(x^+)$, for a chiral field $\mathcal O$ of weight $h$, by $e^{(1-h)\zeta}$, so its coupling must be multiplied by $e^{-(1-h)\zeta}$. Classically $h=0$, and the couplings are $m_0\sigma^{\pm1}$. In the quantum theory the coupling of the $\sigma$-half is proportional to $e^{-(1-h)\theta_d}$, and setting it equal to $m_0e^{-\theta_d^{\rm cl}}$ gives
 
 $$
 \theta_d^{\rm cl}=(1-h)\,\theta_d=\frac\lambda{\lambda+1}\,\theta_d ,
