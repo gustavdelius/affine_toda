@@ -1,0 +1,16 @@
+PASS Weyl L intertwines both Borel generators on unbounded labels
+PASS Fock L intertwines both Borel generators on unbounded labels
+PASS Weyl oscillator relation and normal element
+PASS Fock oscillator relation and normal element
+PASS Both cubic q-Serre identities on the Fock module
+PASS All four crossing entries reduce to Phi Phi_shift (1+Y^2)=q^-s
+PASS Hermitian unitarity for irrational physical coupling
+PASS Neutral fusion invariant ket at Y1/Y2=q
+PASS Neutral fusion quotient covector at Y1/Y2=q^-1
+PASS Vector a_r transmission intertwines for h=3,4,5
+PASS Antivector a_r transmission intertwines for h=3,4,5
+PASS Original bulk Cartan convention fails its declared f1 relation
+PASS Root-lattice clock relation for h=3,4,5
+PASS Explicit Gamma product phase gives scalar crossing and unitarity
+PASS Gamma-factor upper-pole cancellation and lower simple-pole scaling
+PASS Classical logarithmic-delay series

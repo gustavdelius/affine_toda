@@ -15,15 +15,16 @@ And in Lecture 3 (@sec-lec3-necklace-lax), we found the classical ancestor of $\
 Now three big questions demand our attention:
 
 1. **What is the quantum algebra living on the defect space $\mathcal{W}$, and why does it differ from a boundary?**
-   When you put a boundary at $x=0$, folding left-movers into right-movers breaks the bulk quantum group $U_q(\hat{\mathfrak{g}})$ down to a **left coideal subalgebra** $\mathcal{B} \subset U_q(\hat{\mathfrak{g}})$ ($\Delta(\mathcal{B}) \subset U_q(\hat{\mathfrak{g}}) \otimes \mathcal{B}$). Why doesn't a defect use a coideal subalgebra? Because a purely transmitting defect does *not* fold left-movers into right-movers! As we will see from the ultraviolet conformal limit, a type-I defect perturbs the two chiral halves separately, preserving a **Borel subalgebra** $U_q(\mathfrak{b}^\pm) \subset U_q(\hat{\mathfrak{g}})$—which is a **full Hopf subalgebra** ($\Delta(U_q(\mathfrak{b}^\pm)) \subset U_q(\mathfrak{b}^\pm) \otimes U_q(\mathfrak{b}^\pm)$)!
+   A left coideal acts naturally when the boundary is the last tensor factor. A transmitting defect moves through the tensor ordering, so a Hopf subalgebra provides a useful sufficient setting. The conformal limit motivates the Borel algebra; the exact intertwining calculation realizes it. We will keep these statements separate from an all-orders claim about the Lagrangian defect.
 2. **How do we quantize $L_d(\lambda)$ and solve for $\mathbb{T}(\theta)$?**
    When we promote the canonical conjugate defect fields $\{\phi(0),\psi(0)\} = -1$ inside $L_d(\lambda)$ to quantum operators, their exponentials become a **$q$-oscillator algebra** acting on an infinite-dimensional bilateral **Weyl module** $\mathcal{W} = \operatorname{span}\{|n\rangle : n \in \mathbb{Z}\}$. We will solve the Borel intertwining equations on the blackboard by hand and watch how they uniquely fix the operator structure of the sine-Gordon transmission matrix $\mathbb{T}(\theta)$.
 3. **Why are integrable defects Baxter's $Q$-operators in disguise?**
-   When we evaluate the Khoroshkin–Tolstoy universal $R$-matrix $\mathcal{R} \in U_q(\mathfrak{b}^+) \otimes U_q(\mathfrak{b}^-)$ with a soliton representation $V(\theta)$ in one slot and a $q$-oscillator representation ($\mathcal{W}$ or Fock space $\mathcal{F}$) in the other slot, we get the exact defect operator $\mathbb{L}^\pm(\theta)$—which is literally the building block of the **Bazhanov–Lukyanov–Zamolodchikov (BLZ) $Q$-operator** [@blz1997; @blz1999]! A topological defect wrapped around a spatial circle is Baxter's $Q$-operator, and the defect bootstrap is Baxter's $TQ$ relation!
+   In the Part VI convention, $\mathcal R\in U_q(\mathfrak b^-)\widehat\otimes U_q(\mathfrak b^+)$, and $\mathcal R_{21}^{-1}$ supplies the lower-Borel defect L-operator. Oscillator L-operators also build Baxter Q-operators [@blz1997; @blz1999]. The connection uses traces and fusion, with convergence and twist conditions that matter especially for the bilateral module.
+
 
 ---
 
-## Conformal Gluing and Why Defects Need a Borel Hopf Subalgebra {#sec-lec4-conformal-borel}
+## Conformal Gluing and the Borel Hopf Subalgebra {#sec-lec4-conformal-borel}
 
 Let us start in the ultraviolet ($m \to 0$) limit of our sine-Gordon defect from Lecture 2. Set $m = 0$ in the classical defect sewing conditions (@eq-lec2-defect-conditions):
 $$
@@ -39,7 +40,7 @@ $$
 \right\} \implies \psi_L'(t) = +\phi_L'(t), \qquad \psi_R'(t) = -\phi_R'(t)!
 $$ {#eq-lec4-chiral-gluing}
 
-Look at (-@eq-lec4-chiral-gluing): in the UV limit, our defect is a **topological conformal defect** ($T_{tx}(0,t) = 0$, see the book's section [Topological defects in conformal field theory](book:sec-cft-topological-defects)) that transmits left-movers unchanged ($\psi_L = \phi_L$) and flips the sign of right-movers ($\psi_R = -\phi_R$, a $\mathbb{Z}_2$ T-duality reflection on the right-moving sector!).
+Look at (-@eq-lec4-chiral-gluing): in the UV limit, our defect is a **topological conformal defect** (the two chiral stress tensors are separately continuous, see the book's section [Topological defects in conformal field theory](book:sec-cft-topological-defects)) that transmits left-movers unchanged ($\psi_L = \phi_L$) and flips the sign of right-movers ($\psi_R = -\phi_R$, a $\mathbb{Z}_2$ T-duality reflection on the right-moving sector!).
 
 Now look at what happens to the two combinations $\frac{\phi+\psi}{2}$ and $\frac{\phi-\psi}{2}$ inside the massive defect potential $\mathcal{B}_d(\phi,\psi) = -\frac{2m}{\beta^2}\left(\sigma\cos\frac{\beta(\phi+\psi)}{2} + \sigma^{-1}\cos\frac{\beta(\phi-\psi)}{2}\right)$ at $x=0$:
 $$
@@ -47,9 +48,11 @@ $$
 $$ {#eq-lec4-chiral-combinations}
 In the conformal perturbation picture (see the book: [Perturbed defects and their charges](book:sec-perturbed-defects)), the massive defect potential $\mathcal{B}_d$ is a **pair of purely chiral vertex perturbations** $e^{\pm i\beta\phi_L(t)}$ and $e^{\pm i\beta\phi_R(t)}$ integrated along the defect worldline!
 
-In the nonlocal quantum group realization of sine-Gordon (Part II of the book), the chiral vertex operators at $x=0$ generate the upper and lower **Borel subalgebras** $U_q(\mathfrak{b}^+)$ and $U_q(\mathfrak{b}^-)$ of the quantum affine algebra $U_q(\widehat{\mathfrak{sl}}_2)$. Specifically, a single type-I defect perturbation preserves one Borel subalgebra—say $U_q(\mathfrak{b}^-)$, generated by the lowering operators $f_0, f_1$ and Cartan generators $k_0^{\pm 1}, k_1^{\pm 1}$.
+The two terms have opposite chiralities. This is different from the single-chirality perturbation $g\int dt\,\Phi_L$ studied by Konik and LeClair [@konik_leclair1999, eqs. (2.7)–(2.10)]. In that model the opposite-chirality currents remain continuous at first order, while the perturbed currents acquire defect terms. This motivates a Borel symmetry. It does not prove all-orders conservation of those charges for the massive Lagrangian defect with both terms present.
 
-### Blackboard Proof: Why a Hopf Subalgebra Guarantees the Triangle Relation
+The exact type-I$_-$ transmission matrix realizes $U_q(\mathfrak b^-)$, generated by $f_0,f_1,k_0^{\pm1},k_1^{\pm1}$. We will verify that algebraic statement below. Its identification with the quantized Lagrangian defect is a separate dynamical claim.
+
+### Blackboard Proof: How Borel Intertwiners Give the Triangle Relation
 
 Why is it so important that $U_q(\mathfrak{b}^-)$ is a **Hopf subalgebra** of $U_q(\hat{\mathfrak{g}})$:
 $$
@@ -70,7 +73,7 @@ Now watch what happens on the three-fold tensor product $V_1(\theta_1) \otimes V
   $$
   (\Delta \otimes 1)\Delta(b) = (1 \otimes \Delta)\Delta(b) \in U_q(\mathfrak{b}^-) \otimes U_q(\mathfrak{b}^-) \otimes U_q(\mathfrak{b}^-)!
   $$
-  If our algebra were only a left coideal $\mathcal{B}$ ($\Delta(\mathcal{B}) \subset U_q(\hat{\mathfrak{g}}) \otimes \mathcal{B}$), then $(\Delta \otimes 1)\Delta(\mathcal{B}) \subset U_q(\hat{\mathfrak{g}}) \otimes U_q(\hat{\mathfrak{g}}) \otimes \mathcal{B}$ would put $U_q(\hat{\mathfrak{g}})$ in the middle slot, where $\mathcal{W}$ cannot act! Because $U_q(\mathfrak{b}^-)$ is a Hopf subalgebra, *all three slots* belong to $U_q(\mathfrak{b}^-)$, so both sides of the Triangle Relation intertwine $(\pi_{\theta_1} \otimes \pi_{\theta_2} \otimes \rho)\Delta^{(2)}(b)$ with $(\rho \otimes \pi_{\theta_2} \otimes \pi_{\theta_1})\Delta^{(2)}(b)$. When the tensor product representation is irreducible on each weight sector, Schur's lemma forces the two paths to be proportional, proving the Triangle Relation!
+  If our algebra were only a left coideal $\mathcal{B}$ ($\Delta(\mathcal{B}) \subset U_q(\hat{\mathfrak{g}}) \otimes \mathcal{B}$), then $(\Delta \otimes 1)\Delta(\mathcal{B}) \subset U_q(\hat{\mathfrak{g}}) \otimes U_q(\hat{\mathfrak{g}}) \otimes \mathcal{B}$ would put $U_q(\hat{\mathfrak{g}})$ in the middle slot, where $\mathcal{W}$ cannot act! Because $U_q(\mathfrak{b}^-)$ is a Hopf subalgebra, *all three slots* belong to $U_q(\mathfrak{b}^-)$, so both sides of the Triangle Relation intertwine $(\pi_{\theta_1} \otimes \pi_{\theta_2} \otimes \rho)\Delta^{(2)}(b)$ with $(\rho \otimes \pi_{\theta_2} \otimes \pi_{\theta_1})\Delta^{(2)}(b)$. If the space of such intertwiners is one-dimensional, the two paths are proportional. To obtain equality, one must also check that they agree on one nonzero matrix element. These are the two additional hypotheses in the book's theorem. Rescaling the local transmission matrices cannot fix the proportionality constant: it multiplies both paths by the same factor. Weight spaces need not themselves be submodules, so irreducibility of a weight space is not the required hypothesis.
 
 ---
 
@@ -86,7 +89,7 @@ k_i k_j = k_j k_i, \qquad k_i f_j k_i^{-1} = q^{-A_{ij}} f_j, \qquad A = \begin{
 $$ {#eq-lec4-borel-cartan}
 together with the cubic $q$-Serre relations between $f_0$ and $f_1$, and the coproduct
 $$
-\Delta(k_i) = k_i \otimes k_i, \qquad \Delta(f_i) = f_i \otimes 1 + k_i \otimes f_i.
+\Delta(k_i) = k_i \otimes k_i, \qquad \Delta(f_i) = f_i \otimes k_i^{-1} + 1 \otimes f_i.
 $$ {#eq-lec4-borel-coproduct}
 Notice from (-@eq-lec4-borel-cartan) that $k_0 k_1$ is central ($A_{0j} + A_{1j} = 0$). In any finite-dimensional evaluation representation (and in our defect representation at level zero), we set $k_0 k_1 = 1$, so $k_0 = k_1^{-1}$.
 
@@ -94,39 +97,46 @@ Now introduce the **$q$-oscillator algebra** $\mathcal{O}_q$, generated by creat
 $$
 q^{\mathsf{h}} \mathsf{a}_\pm q^{-\mathsf{h}} = q^{\pm 2} \mathsf{a}_\pm, \qquad q \mathsf{a}_+ \mathsf{a}_- - q^{-1} \mathsf{a}_- \mathsf{a}_+ = \frac{1}{q - q^{-1}}.
 $$ {#eq-lec4-q-osc}
-Let us check on the blackboard that $\mathcal{O}_q$ has a **quadratic Casimir element** $Z$ that commutes with $\mathsf{a}_\pm$ and $q^{\mathsf{h}}$! Since $\mathsf{a}_+ \mathsf{a}_-$ and $\mathsf{a}_- \mathsf{a}_+$ commute with $q^{\mathsf{h}}$, let us test when an element of the form $Z_n = \mathsf{a}_+ \mathsf{a}_- - c\,q^{-2\mathsf{h}}$ commutes with $\mathsf{a}_+$:
+Write $\kappa=q-q^{-1}$. The useful oscillator element is
 $$
-\mathsf{a}_+(\mathsf{a}_- \mathsf{a}_+) = \mathsf{a}_+\left(q^2 \mathsf{a}_+ \mathsf{a}_- - \frac{q}{q - q^{-1}}\right) \implies (\mathsf{a}_+ \mathsf{a}_-)\mathsf{a}_+ - \mathsf{a}_+(q^2 \mathsf{a}_+ \mathsf{a}_-) = -\frac{q}{q - q^{-1}}\mathsf{a}_+.
-$$
-Look at that: if we define
-$$
-\mathsf{a}_+ \mathsf{a}_- = \frac{1 - \kappa^2 q^{-2\mathsf{h}}}{(q - q^{-1})^2} = \frac{1}{(q - q^{-1})^2} + Z\,q^{-2\mathsf{h}}, \qquad \mathsf{a}_- \mathsf{a}_+ = \frac{1 - \kappa^2 q^{-2(\mathsf{h}+1)}}{(q - q^{-1})^2},
+Z=\mathsf a_+\mathsf a_--\kappa^{-2},\qquad
+\mathsf a_-\mathsf a_+=\kappa^{-2}+q^2Z,\qquad
+Z\mathsf a_\pm=q^{\pm2}\mathsf a_\pm Z.
 $$ {#eq-lec4-casimir}
-then multiplying the first by $q$ and the second by $q^{-1}$ and subtracting gives
-$$
-q\mathsf{a}_+\mathsf{a}_- - q^{-1}\mathsf{a}_-\mathsf{a}_+ = \frac{q - q^{-1} - \kappa^2(q - q)q^{-2\mathsf{h}}}{(q - q^{-1})^2} = \frac{1}{q - q^{-1}}
-$$
-for *any* value of the central parameter $Z = -\frac{\kappa^2}{(q-q^{-1})^2}$!
+The second identity follows by solving (-@eq-lec4-q-osc) for $\mathsf a_-\mathsf a_+$. Multiplying it by $\mathsf a_+$ or $\mathsf a_-$ gives the last identity. Thus $Z$ is not central. It is a normal element, and $Z=0$ defines a consistent quotient algebra. The combination $q^{-\mathsf h}Z$ is central.
 
-Because $k_1 f_1 k_1^{-1} = q^{-2}f_1$ and $k_1 f_0 k_1^{-1} = q^{+2}f_0$, we can map the Borel generators $(k_1, k_0, f_1, f_0)$ directly onto the $q$-oscillator generators by setting
+The lower Borel acts through
 $$
-\rho(k_1) = q^{-\mathsf{h}} = \rho(k_0)^{-1}, \qquad \rho(f_1) \propto \mathsf{a}_-, \qquad \rho(f_0) \propto \mathsf{a}_+!
+\rho(k_1)=q^{\mathsf h}=\rho(k_0)^{-1},\qquad
+\rho(f_1)=\frac{i}{y_d}\mathsf a_-,\qquad
+\rho(f_0)=\frac{i}{y_d}\mathsf a_+.
 $$ {#eq-lec4-borel-to-qosc}
-(One easily checks that the cubic $q$-Serre relations of $U_q(\mathfrak{b}^-)$ hold automatically in $\mathcal{O}_q$ because of (-@eq-lec4-q-osc)!)
+Indeed, conjugation by $k_1$ multiplies $f_1$ by $q^{-2}$ and $f_0$ by $q^2$. The oscillator relation also implies the cubic $q$-Serre identities; @exr-lec4-q-serre gives the calculation.
 
-Now, depending on how we choose the central Casimir $Z$ (or $\kappa^2$), we get two famous families of representations of $\mathcal{O}_q$:
+Here are two representations with $q^{\mathsf h}|n\rangle=q^{2n+s}|n\rangle$:
 
-1. **The Fock Module $\mathcal{F}$ ($\kappa^2 = 1$, i.e. $Z \neq 0$, see [the book](book:eq-fock-module)):**
-   If we choose $\kappa^2 = 1$, then $\mathsf{a}_+\mathsf{a}_- = \frac{1 - q^{-2\mathsf{h}}}{(q - q^{-1})^2}$ vanishes on the lowest-weight vacuum state $|0\rangle$ ($\mathsf{h}|0\rangle = 0$), so $\mathsf{a}_-|0\rangle = 0$ and the module is bounded below: $\mathcal{F} = \operatorname{span}\{|n\rangle : n \ge 0\}$. This is the representation used by Bazhanov, Lukyanov, and Zamolodchikov [@blz1997] to construct their $Q$-operators in CFT.
-2. **The Bilateral Weyl Module $\mathcal{W}$ ($\kappa^2 = 0$, i.e. $Z = 0$, see [the book](book:eq-weyl-module)):**
-   In sine-Gordon, a topological defect must be able to absorb or emit an *arbitrary integer number* $n \in \mathbb{Z}$ of solitons and antisolitons! Therefore, the defect Hilbert space cannot have a lowest-weight floor $|0\rangle$ annihilated by $\mathsf{a}_-$; it must be a **bilateral Weyl module** $\mathcal{W} = \operatorname{span}\{|n\rangle : n \in \mathbb{Z}\}$ on which both $\mathsf{a}_+$ and $\mathsf{a}_-$ are invertible shift operators ($Z = 0$):
+1. **The Fock module $\mathcal F$:**
    $$
-   W|n\rangle = q^n|n\rangle, \qquad U|n\rangle = |n+1\rangle, \qquad U^{-1}|n\rangle = |n-1\rangle, \qquad UW = q^{-1}WU.
+   \mathsf a_+|n\rangle=\kappa^{-1}|n+1\rangle,\qquad
+   \mathsf a_-|n\rangle=\kappa^{-1}(1-q^{2n})|n-1\rangle,\qquad n\ge0.
+   $$
+   The lowering operator annihilates $|0\rangle$, and $Z|n\rangle=-\kappa^{-2}q^{2n}|n\rangle$. Substitution gives
+   $q(1-q^{2n})-q^{-1}(1-q^{2n+2})=q-q^{-1}$, which checks the oscillator relation. This is the type of module used in the BLZ construction [@blz1997].
+2. **The bilateral Weyl module $\mathcal W$:**
+   $$
+   \mathsf a_\pm|n\rangle=\kappa^{-1}|n\pm1\rangle,\qquad n\in\mathbb Z.
+   $$
+   Both shifts are invertible and $Z=0$. This allows arbitrarily positive and negative stored defect charge. With
+   $$
+   W|n\rangle=q^n|n\rangle,\qquad U|n\rangle=|n+1\rangle,\qquad UW=q^{-1}WU,
    $$ {#eq-lec4-weyl-operators}
+   the oscillator operators are $\mathsf a_+=U/\kappa$, $\mathsf a_-=U^{-1}/\kappa$.
+
+The relations and both modules are checked directly on their integer labels in `code/lectures/gemini_l45_verified.py`.
 
 ### Quantizing the Classical Defect Lax Matrix $L_d(\lambda)$ Directly into $\mathcal{W}$!
 
-Wait: why did we have to set $Z = 0$ ($\kappa = 0$) for our classical sine-Gordon jump defect? Let us see how the Weyl module operators $U^{\pm 1}, W^{\pm 1}$ in (-@eq-lec4-weyl-operators) emerge *directly* from canonically quantizing the classical defect Lax matrix $L_d(\lambda)$ from Lecture 3 (@eq-lec3-ld-ansatz)!
+Why does the quotient $Z=0$ arise naturally for the classical sine-Gordon jump defect? Let us see how the Weyl module operators $U^{\pm 1}, W^{\pm 1}$ in (-@eq-lec4-weyl-operators) emerge *directly* from canonically quantizing the classical defect Lax matrix $L_d(\lambda)$ from Lecture 3 (@eq-lec3-ld-ansatz)!
 
 For $a_1^{(1)}$ ($E = 0, \mathsf{D} = 1, \vec{H} = \frac{1}{\sqrt{2}}\sigma_z, S^{\mathsf{T}} = \sigma_x$), let us write out the $2\times 2$ matrix $L_d(\lambda)$ from (-@eq-lec3-ld-ansatz) and (-@eq-lec3-l-tilde):
 $$
@@ -147,13 +157,13 @@ Now compute the classical Poisson bracket between $u$ and $w_\pm$ using our fund
 $$
 \{\phi - \psi, \phi + \psi\} = \{\phi,\psi\} - \{\psi,\phi\} = -2 \implies \{u, w_\pm\} = \pm\frac{b^2}{4}\,u\,w_\pm!
 $$ {#eq-lec4-classical-uw-bracket}
-When we quantize (-@eq-lec4-classical-uw-bracket) by replacing Poisson brackets with commutators ($UW_\pm = \hat{q}^{\pm 1}W_\pm U$), the classical variables $(u, u^{-1}, w_+, w_-)$ become the **Weyl algebra generators** $(U, U^{-1}, W_+, W_-)$ acting on $\mathcal{W} = \operatorname{span}\{|n\rangle : n \in \mathbb{Z}\}$, and the classical matrix (-@eq-lec4-ld-uw) becomes the quantum $L$-operator (see [the book](book:eq-dq-weyl-l)):
+When we quantize (-@eq-lec4-classical-uw-bracket) by replacing Poisson brackets with commutators ($\mathsf U\mathsf W_\pm = \hat{q}^{\pm 1}\mathsf W_\pm\mathsf U$), the classical variables $(u, u^{-1}, w_+, w_-)$ become the **Weyl algebra generators** $(\mathsf U, \mathsf U^{-1}, \mathsf W_+, \mathsf W_-)$ acting on $\mathcal{W} = \operatorname{span}\{|n\rangle : n \in \mathbb{Z}\}$, giving a matrix of Weyl operators of the same form (see [the book](book:eq-dq-weyl-l)):
 $$
-\mathbb{L}^-(\theta) \propto \begin{pmatrix} U^{-1} & \frac{\sigma}{y(\theta)}\,W_- \\ \frac{\sigma}{y(\theta)}\,W_+ & U \end{pmatrix}!
+\widehat L_d(\lambda) = \begin{pmatrix} \mathsf U^{-1} & \frac{\sigma}{\lambda}\,\mathsf W_- \\ \frac{\sigma}{\lambda}\,\mathsf W_+ & \mathsf U \end{pmatrix}!
 $$ {#eq-lec4-quantum-l-from-classical}
-Every student who sees (-@eq-lec4-ld-uw) turn into (-@eq-lec4-quantum-l-from-classical) experiences an "Aha!" moment:
-- The diagonal entries $U^{\mp 1} \sim e^{\pm\frac{b}{2\sqrt{2}}(\phi - \psi)}$ preserve the bulk soliton charge and shift the defect's internal label $n$ (or in the Fourier-dual basis, measure the relative phase jump $\phi - \psi$).
-- The off-diagonal entries $W_\mp \sim e^{\mp\frac{b}{2\sqrt{2}}(\phi + \psi)}$ flip a bulk soliton into an antisoliton ($v_+ \leftrightarrow v_-$) while shifting the defect's topological charge by $\pm 1$ so that total topological charge is conserved!
+This identifies the Weyl algebra of the defect values. Matching its deformation parameter and spectral variable to the physical scattering matrix requires a further quantum dictionary; it does not follow from replacing Poisson brackets alone. In a charge basis:
+- The diagonal entries $\mathsf U^{\mp 1} \sim e^{\pm\frac{b}{2\sqrt{2}}(\phi - \psi)}$ are diagonal in a basis that measures the relative field jump. The symbols $\mathsf U,\mathsf W_\pm$ here are distinct from the ladder operators $U,W$ in (-@eq-lec4-weyl-operators).
+- The off-diagonal entries $\mathsf W_\mp \sim e^{\mp\frac{b}{2\sqrt{2}}(\phi + \psi)}$ flip a bulk soliton into an antisoliton ($v_+ \leftrightarrow v_-$) while shifting the defect's topological charge by $\pm 1$ so that total topological charge is conserved!
 
 ---
 
@@ -163,89 +173,90 @@ Let us now do the central quantum calculation of this lecture on the blackboard:
 
 ### Blackboard Calculation: Solving for $\mathbb{T}(\theta)$ from $U_q(\mathfrak{b}^-)$ Symmetry
 
-Let $V(y)$ ($y = e^{\lambda\theta}$) be the two-dimensional bulk soliton representation of $U_q(\widehat{\mathfrak{sl}}_2)$ with basis $\{v_+, v_-\}$ (soliton $s$, antisoliton $\bar{s}$), and let $\mathcal{W}^-(y_d)$ ($y_d = e^{\lambda\theta_d}$) be the bilateral Weyl module with basis $\{|n\rangle : n \in \mathbb{Z}\}$ carrying the Borel representation $\rho_{y_d} : U_q(\mathfrak{b}^-) \to \operatorname{End}(\mathcal{W}^-)$:
+Set $\lambda=8\pi/\beta_{\rm SG}^2-1$, $y=e^{\lambda\theta}$, $y_d=e^{\lambda\theta_d}$ and $\mu=i/(q-q^{-1})$. Assume that $q$ is not a root of unity, and fix the meaning of $q^s$. In the basis $v_+,v_-$, use
 $$
 \begin{aligned}
-\pi_y(k_1) &= \begin{pmatrix} q^{-1} & 0 \\ 0 & q \end{pmatrix} = \pi_y(k_0)^{-1}, &\qquad \pi_y(f_1) &= y\begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix}, &\qquad \pi_y(f_0) &= y\begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}, \\
-\rho_{y_d}(k_1)|n\rangle &= q^{-2n - s}|n\rangle = \rho_{y_d}(k_0)^{-1}|n\rangle, &\qquad \rho_{y_d}(f_1)|n\rangle &= c_1 y_d |n+1\rangle, &\qquad \rho_{y_d}(f_0)|n\rangle &= c_0 y_d q^{-2n-s}|n-1\rangle,
+\pi_y(k_1)&=\operatorname{diag}(q,q^{-1})=\pi_y(k_0)^{-1},&
+\pi_y(f_1)&=y^{-1}E_{21},&\pi_y(f_0)&=y^{-1}E_{12},\\
+\rho(k_1)|n\rangle&=q^{2n+s}|n\rangle,&
+\rho(f_1)|n\rangle&=\mu y_d^{-1}|n-1\rangle,&
+\rho(f_0)|n\rangle&=\mu y_d^{-1}|n+1\rangle.
 \end{aligned}
 $$ {#eq-lec4-reps-explicit}
-where $s \in \mathbb{C}$ is a representation shift parameter (the even defect has $s=0$ and the odd defect has $s=1$), and $c_0 c_1 = -\frac{q}{(q - q^{-1})^2}$.
+Here $E_{ab}$ is the matrix unit. The stored charge is $2n+s$; the even and odd sectors have $s=0$ and $s=1$.
 
 #### Step 1: Charge Conservation ($k_1$ Intertwining)
 
-First, impose $\mathbb{T}(y)\,(\pi_y(k_1) \otimes \rho_{y_d}(k_1)) = (\rho_{y_d}(k_1) \otimes \pi_y(k_1))\,\mathbb{T}(y)$ (where for convenience we write states in both incoming and outgoing spaces in the order $v_\pm \otimes |n\rangle$). On a basis vector $v_\pm \otimes |n\rangle$, the total $k_1$-eigenvalue is $q^{\mp 1 - 2n - s} = q^{-(2n \pm 1) - s}$. Therefore, $\mathbb{T}(y)$ can only mix $v_+ \otimes |n\rangle$ with $v_- \otimes |n+1\rangle$! Its action must take the block-$2\times 2$ form:
+The total $k_1$ eigenvalues on $v_+\otimes|n\rangle$ and $v_-\otimes|n+1\rangle$ are both $q^{2n+s+1}$. Distinct total charges have distinct eigenvalues. Consequently,
 $$
 \begin{aligned}
-\mathbb{T}(y)\big(v_+ \otimes |n\rangle\big) &= A_n(y)\,v_+ \otimes |n\rangle + B_n(y)\,v_- \otimes |n+1\rangle, \\
-\mathbb{T}(y)\big(v_- \otimes |n\rangle\big) &= C_n(y)\,v_+ \otimes |n-1\rangle + D_n(y)\,v_- \otimes |n\rangle.
+\mathbb T(v_+\otimes|n\rangle)&=A_n|n\rangle\otimes v_++C_n|n+1\rangle\otimes v_-,\\
+\mathbb T(v_-\otimes|n\rangle)&=B_n|n-1\rangle\otimes v_++D_n|n\rangle\otimes v_-.
 \end{aligned}
 $$ {#eq-lec4-t-ansatz}
-Our goal is to find the four sequences of functions $A_n(y), B_n(y), C_n(y), D_n(y)$ for all $n \in \mathbb{Z}$!
+The tensor order on the right has been reversed. For a matrix acting on $V\otimes\mathcal W$ itself, write $\mathbb L=P\mathbb T$.
 
 #### Step 2: The $f_1$ and $f_0$ Difference Equations
 
-Next, impose intertwining for $\Delta(f_1) = f_1 \otimes 1 + k_1 \otimes f_1$ and $\Delta^{\text{op}}(f_1) = 1 \otimes f_1 + f_1 \otimes k_1$:
+The equation for $f_1$ reads
 $$
-\mathbb{T}(y)\,\big(\pi_y(f_1) \otimes 1 + \pi_y(k_1) \otimes \rho_{y_d}(f_1)\big) = \big(1 \otimes \rho_{y_d}(f_1) + \pi_y(f_1) \otimes \rho_{y_d}(k_1)\big)\,\mathbb{T}(y).
+\mathbb L\big(\pi(f_1)\otimes\rho(k_1^{-1})+1\otimes\rho(f_1)\big)
+=\big(\pi(k_1^{-1})\otimes\rho(f_1)+\pi(f_1)\otimes1\big)\mathbb L.
 $$ {#eq-lec4-f1-intertwine}
-Let us apply both sides of (-@eq-lec4-f1-intertwine) to the two basis vectors $v_+ \otimes |n\rangle$ and $v_- \otimes |n\rangle$!
-
-1. **Acting on $v_- \otimes |n\rangle$:** Since $\pi_y(f_1)v_- = 0$, the left-hand side has only the second term:
-   $$
-   \text{LHS} = \mathbb{T}(y)\big(q c_1 y_d\,v_- \otimes |n+1\rangle\big) = q c_1 y_d\big(C_{n+1}\,v_+ \otimes |n\rangle + D_{n+1}\,v_- \otimes |n+1\rangle\big).
-   $$
-   The right-hand side is $(1 \otimes \rho_{y_d}(f_1) + \pi_y(f_1) \otimes \rho_{y_d}(k_1))(C_n v_+ \otimes |n-1\rangle + D_n v_- \otimes |n\rangle)$:
-   $$
-   \text{RHS} = c_1 y_d C_n\,v_+ \otimes |n\rangle + \big(c_1 y_d D_n + y q^{-2n + 2 - s} C_n\big)\,v_- \otimes |n+1\rangle.
-   $$
-   Comparing coefficients of $v_+ \otimes |n\rangle$ and $v_- \otimes |n+1\rangle$ gives **two equations**:
-   $$
-   C_{n+1} = q^{-1} C_n \implies C_n = c(y)\,q^{-n}, \qquad c_1 y_d(q D_{n+1} - D_n) = y q^{-2n + 2 - s} C_n!
-   $$ {#eq-lec4-cn-dn-rel}
-2. **Acting on $v_+ \otimes |n\rangle$:** Comparing the $v_+ \otimes |n+1\rangle$ and $v_- \otimes |n+2\rangle$ components similarly gives:
-   $$
-   A_{n+1} = q A_n \implies A_n = a(y)\,q^n, \qquad y\big(A_n - q^{-2n-s} D_{n+1}\big) = c_1 y_d\big(B_{n+1} - q^{-1} B_n\big).
-   $$ {#eq-lec4-an-bn-rel}
-3. **Acting with $\Delta(f_0)$ on $v_+ \otimes |n\rangle$ and $v_- \otimes |n\rangle$:** Since $f_0$ flips $v_- \mapsto v_+$ and shifts $|n\rangle \mapsto |n-1\rangle$, the exact same calculation for $f_0$ gives:
-   $$
-   B_{n+1} = q^{-1} B_n \implies B_n = b(y)\,q^{-n}, \qquad D_{n+1} = q^{-1} D_n \implies D_n = d(y)\,q^{-n}!
-   $$ {#eq-lec4-bn-dn-scaling}
-
-**Look at what just happened!** Look at the second equation in (-@eq-lec4-an-bn-rel) once we substitute $B_{n+1} = q^{-1}B_n$ from (-@eq-lec4-bn-dn-scaling): the right-hand side $c_1 y_d(B_{n+1} - q^{-1}B_n)$ **vanishes identically**, forcing
+Apply it to $v_-\otimes|n\rangle$. The coefficient of $v_+\otimes|n-2\rangle$ is $\mu B_{n-1}/y_d$ on the left and $\mu q^{-1}B_n/y_d$ on the right. The corresponding extreme-shift coefficient of the $f_0$ equation gives the recurrence for $C_n$:
 $$
-A_n = q^{-2n-s} D_{n+1} \implies a(y)\,q^n = q^{-2n-s} d(y)\,q^{-(n+1)}!
-$$
-Wait: in the standard symmetric gauge where $f_0$ and $f_1$ carry balanced powers of $q^{\mathsf{h}/2}$ (see [the book](book:eq-sg-transmission-matrix)), $A_n = a(y)\,q^{+n}$ and $D_n = a(y)\,q^{-n}$, while $B_n$ and $C_n$ are **independent of $n$**! And substituting $D_{n+1} = q^{-1}D_n$ into (-@eq-lec4-cn-dn-rel) relates the off-diagonal amplitude $B_n, C_n$ to the diagonal amplitude $A_n, D_n$ by the exact ratio $Y = e^{\lambda(\theta - \theta_d)} = y/y_d$:
-$$
-\mathbb{T}(\theta) = \Phi(\theta)\begin{pmatrix} q^{\frac{s}{2}} U^{-1} & -i Y\,1_{\mathcal{W}} \\ -i Y\,1_{\mathcal{W}} & q^{\frac{s}{2}} U \end{pmatrix} \qquad \text{(in the charge-conserving basis $\{v_+\otimes|n\rangle, v_-\otimes|n+1\rangle\}$)}!
-$$ {#eq-lec4-sg-t-solved}
-Equivalently, acting on $v_\pm \otimes |n\rangle$ directly in the symmetric gauge $|n\rangle \mapsto q^{n(n-1)/2 + ns/2}|n\rangle$ of Bowcock–Corrigan–Zambon [@bcz2005, eq. (3.51)] (or in the book's Weyl-module basis of [the sine-Gordon transmission matrix](book:eq-sg-transmission-matrix), where $A_n = q^{-n}, D_n = q^{n+s}, C_n = -iY q^{-n}, B_n = -iY q^{n+s}$ so that $\mathbb{T}_n(\theta) = \Phi(\theta)\begin{pmatrix} 1 & -iY \\ -iY & 1 \end{pmatrix}\operatorname{diag}(q^{-n}, q^{n+1+s})$ on $\mathcal{H}_n = \{v_+\otimes|n\rangle, v_-\otimes|n+1\rangle\}$):
+B_n=qB_{n-1},\qquad C_{n+1}=q^{-1}C_n;\qquad
+B_n=bq^n,\quad C_n=cq^{-n}.
+$$ {#eq-lec4-cn-dn-rel}
+The other coefficients give
 $$
 \begin{aligned}
-\mathbb{T}(\theta)\big(v_+ \otimes |n\rangle\big) &= \Phi(\theta)\left(q^{n + \frac{s}{2}}\,v_+ \otimes |n\rangle - i e^{\lambda(\theta - \theta_d)}\,v_- \otimes |n+1\rangle\right), \\
-\mathbb{T}(\theta)\big(v_- \otimes |n\rangle\big) &= \Phi(\theta)\left(-i e^{\lambda(\theta - \theta_d)}\,v_+ \otimes |n-1\rangle + q^{-n - \frac{s}{2}}\,v_- \otimes |n\rangle\right).
+\mu y(A_{n+1}-qA_n)&=y_dC_n,\\
+\mu y(A_n-qA_{n-1})&=qy_dq^{-2n-s}B_n,\\
+D_n&=q^{2n+s}A_n,\\
+\mu y(D_{n-1}-qD_n)&=y_dB_n.
+\end{aligned}
+$$ {#eq-lec4-an-bn-rel}
+The first two equations imply $b=cq^s$ and
+$$
+A_n=\alpha q^n-\frac{y_dc}{\mu\kappa y}q^{-n}.
+$$ {#eq-lec4-bn-dn-scaling}
+Substituting this and $D_n=q^{2n+s}A_n$ into the last equation leaves $\alpha(q^{-3}-q)=0$. Since $q$ is not a root of unity, $\alpha=0$. Using $\mu\kappa=i$ and writing the remaining free scalar as $\Phi(\theta)$ gives
+$$
+A_n=\Phi q^{-n},\quad D_n=\Phi q^{n+s},\quad
+C_n=-i\Phi Yq^{-n},\quad B_n=-i\Phi Yq^{n+s},\qquad Y=y/y_d.
+$$ {#eq-lec4-sg-t-solved}
+Thus
+$$
+\begin{aligned}
+\mathbb T(\theta)(v_+\otimes|n\rangle)&=\Phi(\theta)q^{-n}\big(|n\rangle\otimes v_+-iY|n+1\rangle\otimes v_-\big),\\
+\mathbb T(\theta)(v_-\otimes|n\rangle)&=\Phi(\theta)q^{n+s}\big(-iY|n-1\rangle\otimes v_++|n\rangle\otimes v_-\big).
 \end{aligned}
 $$ {#eq-lec4-sg-t-explicit}
-Every single matrix entry of $\mathbb{T}(\theta)$, up to the overall scalar factor $\Phi(\theta)$, has been fixed uniquely by linear Borel symmetry! Notice also why level zero ($k_0 k_1 = 1$) was essential: if $k_0 k_1 = q^c$ with $c \neq 0$, the $n$-scalings of $A_n, D_n$ from $f_1$ and $f_0$ clash by $q^{cn}$ and admit only the zero solution $\mathbb{T} = 0$ (see the book: [The sine-Gordon transmission matrix from its symmetry](book:prp-sg-t-unique)).
+This is one consistent Weyl basis throughout. There is no Fock factor $1-q^{2n}$ in either converting entry. The sparse-action calculation in `code/lectures/gemini_l45_verified.py` verifies both generator equations without truncating the bilateral lattice.
 
 ### The Universal $R$-Matrix and Why $\mathbb{L}(\theta)$ Linearizes on Weyl Modules
 
-Where does (-@eq-lec4-sg-t-explicit) come from in the general theory of quantum groups? The universal $R$-matrix $\mathcal{R}$ of $U_q(\widehat{\mathfrak{sl}}_2)$ lives in the completed tensor product of the two opposite Borel subalgebras:
+In the Part VI coproduct convention, the universal R-matrix has the Borel assignment
 $$
-\mathcal{R} \in U_q(\mathfrak{b}^+) \,\widehat{\otimes}\, U_q(\mathfrak{b}^-).
+\mathcal R\in U_q(\mathfrak b^-)\,\widehat\otimes\,U_q(\mathfrak b^+),\qquad
+\mathbb T_{{\rm I}_-}\propto P(\pi_y\otimes\rho^-)(\mathcal R_{21}^{-1}).
 $$ {#eq-lec4-universal-r-borel}
-By the Khoroshkin–Tolstoy multiplicative formula [@khoroshkin_tolstoy1991; @tolstoy_khoroshkin1992] (see [the book](book:eq-dq-kt)), $\mathcal{R} = \mathcal{R}_+ \mathcal{R}_0 \mathcal{R}_- K$, where $\mathcal{R}_\pm$ are products of $q$-exponentials over the real root vectors and $\mathcal{R}_0$ is an exponential of a power series in the imaginary (Cartan-like) root vectors!
+Indeed, $\mathcal R_{21}^{-1}$ satisfies the same intertwining identity $\mathcal R_{21}^{-1}\Delta=\Delta^{\rm op}\mathcal R_{21}^{-1}$, and its second leg is in the lower Borel. This is the leg on which $\rho^-$ acts. The Khoroshkin–Tolstoy factorization expresses the universal matrix as ordered products of real-root factors, an imaginary-root factor and a Cartan factor [@khoroshkin_tolstoy1991; @tolstoy_khoroshkin1992].
 
-Because the right leg of $\mathcal{R}$ lies entirely inside $U_q(\mathfrak{b}^-)$, we do **not** need a representation of all of $U_q(\widehat{\mathfrak{sl}}_2)$ on the second factor to evaluate $\mathcal{R}$—a representation $\rho : U_q(\mathfrak{b}^-) \to \operatorname{End}(\mathcal{W})$ of the Borel subalgebra alone suffices! Applying $(\pi_y \otimes \rho)$ to $\mathcal{R}$ gives the quantum $L$-operator $\mathbb{L}^-(\theta) = (\pi_y \otimes \rho)(\mathcal{R})$ (see the book: [The two Borel subalgebras and the two defect types](book:prp-two-borels), [Transmission matrices and BLZ L-operators from the universal R-matrix](book:prp-l-operator), [equation](book:eq-l-operator); see `code/defect_universal_r.py`):
+On the oscillator module, a convenient closed L-operator is (see [the book](book:eq-l-operator))
 $$
-\mathbb{L}_{\mathcal{F}}(\theta) \propto \begin{pmatrix} q^{-\frac{\mathsf{h}}{2}}\big(1 - \kappa^2 y^2 q^{\mathsf{h}+1}\big) & (q - q^{-1})\,y\,\mathsf{a}_- \\ (q - q^{-1})\,y\,\mathsf{a}_+ & q^{\frac{\mathsf{h}}{2}} \end{pmatrix}.
+\mathbb L^-(\theta)\propto
+\begin{pmatrix}
+(1-\kappa^2Y^2q^2Z)q^{-\mathsf h/2}&-i\kappa Y\,\mathsf a_-q^{\mathsf h/2}\\
+-i\kappa Y\,\mathsf a_+q^{-\mathsf h/2}&q^{\mathsf h/2}
+\end{pmatrix},\qquad Y=y/y_d.
 $$ {#eq-lec4-blz-l}
-Look closely at the top-left entry of (-@eq-lec4-blz-l):
-- On the **Fock module** $\mathcal{F}$ ($\kappa^2 = 1$), the quadratic $y^2$ term coming from the imaginary root factor $\mathcal{R}_0$ (which is proportional to the $q$-oscillator Casimir $Z \propto \kappa^2$) is **present**, giving the famous Bazhanov–Lukyanov–Zamolodchikov $L$-operator [@blz1997; @blz1999]!
-- On the **bilateral Weyl module** $\mathcal{W}$ ($\kappa^2 = 0$, $Z = 0$), the Casimir $Z$ vanishes identically, so the entire infinite product $\mathcal{R}_0$ over imaginary roots collapses to $1$, and (-@eq-lec4-blz-l) **linearizes in $y$** to become our sine-Gordon defect transmission matrix (-@eq-lec4-sg-t-explicit)! Both the bilateral ladder structure of $\mathcal{W}$ versus $\mathcal{F}$ and the resulting soliton conversion probability are shown in @fig-lec4-borel-weyl (`code/lectures/gemini_l4_f1_borel_weyl.py`).
+On the Fock module, $Z|n\rangle=-\kappa^{-2}q^{2n}|n\rangle$, so the top-left entry contains $1+Y^2q^{2n+2}$. On the Weyl module, $Z=0$, and the displayed polynomial matrix is linear in $Y$. It is $q^{-s/2}$ times the matrix part of (-@eq-lec4-sg-t-explicit). Both assertions follow by applying the entries to $|n\rangle$; both intertwiners are checked in `code/lectures/gemini_l45_verified.py`.
 
-![The bilateral Weyl module $\mathcal{W}$ versus the Fock module $\mathcal{F}$ and the sine-Gordon transmission matrix: (a) charge-conserving $2\times 2$ blocks $\mathcal{H}_n = \operatorname{span}\{v_+\otimes|n\rangle, v_-\otimes|n+1\rangle\}$ on the bilateral Weyl ladder $n \in \mathbb{Z}$ ($Z=0$, used for topological defects) contrasted with the bounded-below Fock floor $n \ge 0$ ($Z \neq 0$, used for BLZ $Q$-operators); (b) quantum soliton-to-antisoliton conversion probability $P_{+\to -}(\theta) = Y^2/(1+Y^2)$ approaching the classical step function $\Theta(\theta - \theta_d)$ as $\lambda \to \infty$.](figures/l4_borel_weyl.svg){#fig-lec4-borel-weyl width=92% fig-alt="Two-panel diagram showing the bilateral Weyl module ladder W versus the Fock floor F and its 2x2 charge-conserving blocks H_n in panel (a), and the quantum soliton conversion probability Y^2/(1+Y^2) approaching the classical step function as lambda grows in panel (b)."}
+The linearity is a property of the combined universal-R evaluation after extracting a scalar. It does not say that its imaginary-root factor is the identity: already $f'_\delta=f_0f_1-q^{-2}f_1f_0=(1-q^{-2})f_0f_1$ is nonzero on the Weyl module. The same oscillator construction on the upper Borel gives the Fock L-operators used in the BLZ approach [@blz1997; @blz1999]. The coproduct architecture and the two ladders are shown in @fig-lec4-borel-weyl (`code/lectures/gemini_l4_f1_borel_weyl.py`).
+
+![The algebraic setting for a transmitting defect: (a) a boundary module stays in the rightmost tensor slot, while a defect occupies the middle slot during the triangle relation; Hopf closure supplies both coproduct legs. (b) The bilateral Weyl ladder and its charge blocks $\mathcal H_n$; the dotted floor marks the Fock truncation at $n=0$.](figures/l4_borel_weyl.svg){#fig-lec4-borel-weyl width=92% fig-alt="Coproduct diagrams for boundaries and defects, alongside a Weyl ladder with charge blocks and the Fock floor."}
 
 ---
 
@@ -255,23 +266,32 @@ Now let us close the circle between integrable defects and Baxter's method of co
 
 Consider an $N$-site quantum spin chain (or discretized sine-Gordon theory on a spatial circle of circumference $L$) with bulk transfer matrix
 $$
-\mathcal{T}(\theta) = \operatorname{Tr}_{V(\theta)}\!\big(\mathbb{M}_N(\theta)\cdots\mathbb{M}_1(\theta)\big),
+\mathcal{T}_\omega(\theta) = \operatorname{Tr}_{V(\theta)}\!\big(\omega^{h_V}\mathbb{M}_N(\theta)\cdots\mathbb{M}_1(\theta)\big),
 $$
-where the trace is taken over the 2-dimensional spin-$\frac{1}{2}$ auxiliary space $V(\theta)$. What happens if we trace instead over our infinite-dimensional $q$-oscillator defect space $\mathcal{W}$ (or $\mathcal{F}$), twisted by a Bloch chemical potential $\omega^{\mathsf{h}_{\mathcal{W}}}$ (see [the book](book:eq-dq-defect-operator))? We obtain the **defect operator** (or **Baxter $Q$-operator**):
+where $h_V=\operatorname{diag}(1,-1)$ and the trace is over the two-dimensional auxiliary space $V(\theta)$. The symbol $\omega$ denotes a trace twist here, not the coupling used in Lecture 5. What happens if we trace instead over our infinite-dimensional $q$-oscillator defect space $\mathcal{W}$ (or $\mathcal{F}$), twisted by a Bloch chemical potential $\omega^{\mathsf{h}_{\mathcal{W}}}$ (see [the book](book:eq-dq-defect-operator))? We obtain the **defect operator** (or **Baxter $Q$-operator**):
 $$
 \mathcal{D}_\omega(\theta_d) = \operatorname{Tr}_{\mathcal{W}}\!\left(\omega^{\mathsf{h}_{\mathcal{W}}}\,\mathbb{L}_N(\theta_d)^{-1}\cdots\mathbb{L}_1(\theta_d)^{-1}\right).
 $$ {#eq-lec4-defect-operator}
-By the standard $RTT$ train argument (see the book: [Defect operators commute](book:prp-defect-transfer)), since $\mathbb{L}(\theta_d)$ intertwines the bulk $R$-matrix and two $q$-oscillator $L$-operators intertwine via the infinite-dimensional $R_{\mathcal{W}\mathcal{W}'}$-matrix, we have
+The $RTT$ train argument moves an auxiliary intertwiner through this product. If the traces converge and the auxiliary intertwiner is defined, cyclicity gives
 $$
-\big[\mathcal{T}(\theta),\, \mathcal{D}_\omega(\theta_d)\big] = 0, \qquad \big[\mathcal{D}_\omega(\theta_1),\, \mathcal{D}_\omega(\theta_2)\big] = 0 \qquad \forall\, \theta, \theta_1, \theta_2, \theta_d!
+[\mathcal T_\omega(\theta),\mathcal D_\omega(\theta_d)]=0,
+\qquad [\mathcal D_\omega(\theta_1),\mathcal D_\omega(\theta_2)]=0.
 $$ {#eq-lec4-commutativity}
-(One subtlety worth noting for the bilateral Weyl module $\mathcal{W} = \operatorname{span}\{|n\rangle : n \in \mathbb{Z}\}$: because the diagonal powers $q^{\pm n}$ run over all $n \in \mathbb{Z}$, the unweighted trace over $\mathcal{W}$ in a sector of total spin $m$ is the formal geometric series $\sum_{n \in \mathbb{Z}} (\omega^2 q^m)^n$, which acts as a formal periodic delta function unless regulated or evaluated on the Fock module $\mathcal{F}$ where $n \ge 0$.)
+The matching twist and the convergence assumptions are essential; see [the book](book:prp-defect-transfer).
 
-Even better, what happens when we fuse the 2-dimensional bulk auxiliary space $V(\theta)$ with the $q$-oscillator space $\mathcal{F}(\theta_d)$ at the special rapidities $\theta_d = \theta \pm \frac{i\pi}{2\lambda}$ where the tensor product $V(\theta) \otimes \mathcal{F}(\theta \pm \frac{i\pi}{2\lambda})$ becomes reducible? Just as we saw in the defect bootstrap of Lecture 1 (@sec-lec1-bootstrap), the short exact sequence of $U_q(\mathfrak{b}^-)$-modules splits $\mathcal{T}(\theta)\,\mathcal{Q}_\pm(\theta)$ into the sum of two shifted $Q$-operators, giving **Baxter's $TQ$ relation** (see the book: [equation](book:eq-dq-tq-fock), [TQ relation for the Weyl defect operator](book:cnj-defect-tq)):
+For the bilateral Weyl module, the diagonal matrix elements in a bulk charge sector $m$ satisfy $\langle n|M|n\rangle=q^{mn}\langle0|M|0\rangle$, where $M$ is the product of inverse L-operators. To see the exponent, shift $n$ by one: each row of an inverse L-operator acquires $q$ for an outgoing soliton or $q^{-1}$ for an antisoliton. The product acquires $q^m$. Thus the formal trace factorizes as
 $$
-\mathcal{T}(\theta)\,\mathcal{Q}_\pm(\theta) = \mathcal{Q}_\pm\!\left(\theta + \frac{i\pi}{\lambda}\right) + \mathcal{Q}_\pm\!\left(\theta - \frac{i\pi}{\lambda}\right)!
+\mathcal D_\omega=\omega^s\sum_{n\in\mathbb Z}(\omega^2q^m)^n\,\langle0|M|0\rangle.
+$$
+No nonzero ordinary twist makes this bilateral geometric series converge. Its formal support is $\omega^2=q^{-m}$. The finite operator $\langle0|M|0\rangle$ is the sector version used in the book, with that twist; it is not an ordinary trace with arbitrary $\omega$. A Fock trace has only $n\ge0$ and can instead converge for $|q|=1$, $|\omega|<1$, away from spectral poles.
+
+The connection to Baxter's relation is representation-theoretic. A suitable tensor product of a finite-dimensional auxiliary module and an oscillator module has a submodule and quotient described by shifted oscillator modules. An additive trace then gives a relation of the schematic form
+$$
+\mathcal T(z)\mathcal Q(z)=a(z)\mathcal Q(qz)+d(z)\mathcal Q(q^{-1}z).
 $$ {#eq-lec4-baxter-tq}
-**Baxter's $TQ$ relation is literally the operator form of the defect bootstrap!** And in the ultra-relativistic limit $\theta - \theta_d \to -\infty$ ($Y = e^{\lambda(\theta-\theta_d)} \to 0$), the off-diagonal terms in (-@eq-lec4-sg-t-explicit) vanish and $\mathbb{T}(\theta)$ reduces to the diagonal Cartan twist $q^{\pm(n + s/2)}$ (see the book: [Defects far from the particles' rapidities](book:prp-defect-twist-limit)), recovering the topological Bloch twist defect of Lecture 1 (@sec-lec1-circle)!
+Here $z$ is a multiplicative spectral parameter. The coefficients $a,d$, the twist and any shift of the module offset depend on the normalization and the chain. They cannot be dropped for the inhomogeneous chain without a calculation. The [Fock relation in the book](book:eq-dq-tq-fock) supplies its coefficients; the corresponding [Weyl relation](book:cnj-defect-tq) is stated with its numerical status. This is the precise sense in which oscillator fusion connects the defect bootstrap with $TQ$ relations.
+
+Finally, as $\theta-\theta_d\to-\infty$, $Y\to0$ and the converting entries of (-@eq-lec4-sg-t-explicit) vanish. The remaining diagonal factors $q^{-n}$ and $q^{n+s}$ give the Cartan twist. This limit follows directly from the matrix entries and connects with the Bloch twist of Lecture 1 (@sec-lec1-circle).
 
 ---
 
@@ -279,7 +299,7 @@ $$ {#eq-lec4-baxter-tq}
 
 ::: {#exr-lec4-q-serre}
 **Checking the Cubic $q$-Serre Relations in the $q$-Oscillator Algebra.**
-Using the $q$-oscillator commutation relations (-@eq-lec4-q-osc), prove directly that $\rho(f_1) = c_1 \mathsf{a}_-$ and $\rho(f_0) = c_0 \mathsf{a}_+ q^{-\mathsf{h}}$ satisfy both cubic $q$-Serre relations of $U_q(\mathfrak{b}^-) \subset U_q(\widehat{\mathfrak{sl}}_2)$:
+Using the $q$-oscillator commutation relations (-@eq-lec4-q-osc), prove directly that $\rho(f_1) = c_1 \mathsf{a}_-$ and $\rho(f_0) = c_0 \mathsf{a}_+$ satisfy both cubic $q$-Serre relations of $U_q(\mathfrak{b}^-) \subset U_q(\widehat{\mathfrak{sl}}_2)$:
 $$
 f_1^3 f_0 - [3]_q f_1^2 f_0 f_1 + [3]_q f_1 f_0 f_1^2 - f_0 f_1^3 = 0, \qquad f_0^3 f_1 - [3]_q f_0^2 f_1 f_0 + [3]_q f_0 f_1 f_0^2 - f_1 f_0^3 = 0,
 $$
@@ -288,5 +308,5 @@ where $[3]_q = q^2 + 1 + q^{-2}$.
 
 ::: {#exr-lec4-short-exact}
 **Reducibility of $V(y) \otimes \mathcal{W}^-(y_d)$ and Baxter's $TQ$ Splitting.**
-Consider the action of $\Delta(f_1)$ and $\Delta(f_0)$ on the tensor product $V(y) \otimes \mathcal{W}^-(y_d)$ from (-@eq-lec4-reps-explicit). Show that at the pole/zero rapidity $y/y_d = \mp i q^{\pm s/2}$ where $\det\mathbb{T}(\theta) = 0$ on the charge block $\{v_+ \otimes |n\rangle, v_- \otimes |n+1\rangle\}$, the 1-dimensional kernel $\operatorname{span}\{w_n : n \in \mathbb{Z}\}$ forms a $U_q(\mathfrak{b}^-)$-submodule isomorphic to a shifted Weyl module $\mathcal{W}^-(y_d')$ with $s \mapsto s + 1$, and identify the quotient module!
+Use (-@eq-lec4-reps-explicit) to show that the matrix part has determinant $q^{1+s}(1+Y^2)$ on every charge block. At $Y=\pm i$ its kernel is one-dimensional on each block. Find a kernel vector and verify directly that the span of these vectors, for all $n\in\mathbb Z$, is stable under $\Delta(f_0)$ and $\Delta(f_1)$. Explain why a kernel of an intertwiner is a submodule, while its existence alone does not prove a Baxter relation for an infinite-dimensional trace.
 :::

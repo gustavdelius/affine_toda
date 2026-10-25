@@ -1,5 +1,5 @@
 """Lectures on integrable defects (defects-gemini), Lecture 4, figure 1 (fig-lec4-borel-weyl):
-Why Transmitting Defects Require a Borel Hopf Subalgebra and the Bilateral Weyl Module Ladder
+Why a Borel Hopf Subalgebra Supports Transmitting Defects and the Bilateral Weyl Module Ladder
 (sec-lec4-conformal-borel, sec-lec4-q-oscillator, sec-lec4-solving-intertwiner, thm-t-triangle, eq-weyl-module).
 
 Panel (a): Boundary vs. defect coproduct architecture on a three-fold tensor product:
@@ -220,7 +220,7 @@ axa.text(6.4, 2.25, r"$\otimes$", fontsize=9, color=style.GREY, ha="center", va=
 axa.annotate("", xy=(1.6, 1.52), xytext=(4.8, 1.52),
              arrowprops=dict(arrowstyle="<->", color=style.PURPLE, lw=1.3))
 axa.text(3.2, 1.15, r"$\mathbb{T}_1(\theta_1)$ intertwines $V_1\otimes\mathcal{W}$", fontsize=7.2, color=style.PURPLE, ha="center")
-axa.text(5.0, 0.35, r"Requires Hopf subalgebra $\Delta(U_q(\mathfrak{b}^-)) \subset U_q(\mathfrak{b}^-) \otimes U_q(\mathfrak{b}^-)$",
+axa.text(5.0, 0.35, r"Hopf closure suffices: $\Delta(U_q(\mathfrak{b}^-)) \subset U_q(\mathfrak{b}^-) \otimes U_q(\mathfrak{b}^-)$",
          fontsize=7.3, color=style.PURPLE, ha="center")
 
 axa.set_title(r"(a) Coideal vs. Borel Hopf subalgebra", fontsize=8.4, color=style.GREY)

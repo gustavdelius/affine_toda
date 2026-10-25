@@ -1,0 +1,7 @@
+# Gemini defects lectures integration checkpoint
+
+2026-10-25: User authorized verification and editing, overriding referee-only restriction. Worktree `.claude/worktrees/integrate-gemini-lectures`, base 031f162; no commits requested.
+2026-10-25: Received report and script copied unchanged; script exits 0, but some printed verdicts lack executable checks. `git diff 9b912ee HEAD -- lecture-notes/defects-gemini` is empty: many report quotations do not describe the stated revision.
+2026-10-25: Lectures 1, 2, 6 and index independently checked and corrected; script `code/lectures/gemini_l126_verified.py`. Corrected same-channel Ising crossing, light-cone inverse, kink signs/charge bookkeeping, boundary matrix lower off-diagonal and constant eta gauge, conditional UV–IR relation, ordered singlet and scalar cancellation, breather identities and current/charge spin. Independent agents own lecture3 and lectures4–5.
+2026-10-25: Lecture 3 and Lectures 4–5 integrations complete; all 54 independent and 39 supporting checks pass. Report records each accepted, modified and rejected item, source quotations and final validation. Both reference checks and scratch HTML render pass (existing bibliography math warning only); five updated figures visually checked. All changes uncommitted in isolated worktree.
+2026-10-25: Editor requested a PR; reference checks rerun successfully before committing. Branch base equals current origin/main.
