@@ -14,7 +14,7 @@ Scratch directory for your own check scripts: `<scratchpad>/<tag>/`. Before you 
 
 ## The task
 
-`<chapter file(s) and their section ids>` were refereed by `<Codex / Gemini / Claude>`. The report is `<briefs/…_report.md>`, committed unchanged in `<commit>`. The referee's scripts are in `<briefs/…_scripts/>`, with their outputs. Line numbers in the report refer to `<the reviewed commit or review copy>`. Match passages by content, because the live files may have moved on.
+`<chapter file(s) and their section ids>` were refereed by `<Codex / Gemini / Claude>`. The report(s) `<briefs/…_report.md (and briefs/…_phase1_report.md / briefs/…_phase1_combined.md for a two-phase pass)>` were committed unchanged in `<commit>`. The referee's scripts are in `<briefs/…_scripts/>`, with their outputs. Line numbers in the report refer to `<the reviewed commit or review copy>`. Match passages by content, because the live files may have moved on.
 
 ## Rule 1: verify before you edit
 
@@ -28,8 +28,8 @@ Mark each item verified, modified or rejected, with the reason.
 
 1. `<the part's conventions brief, e.g. briefs/part8_defects_conventions.md>`.
 2. `<the relevant section of the part's status record>`.
-3. The whole chapter and the report.
-4. As the model for procedure and record: commit df973fb (`git show df973fb`) and the `## Integration` section at the end of `briefs/referee_defects_41_report.md`.
+3. The whole chapter and the report(s).
+4. As the model for procedure and record: commit df973fb (`git show df973fb`), the `## Integration` section at the end of `briefs/referee_defects_41_report.md`, and (for a two-phase pass) `briefs/referee_classical_09_11_phase1_combined.md`.
 
 ## Checkpoint (mandatory)
 
@@ -48,11 +48,11 @@ Create `briefs/<tag>_checkpoint.md`. After every completed item, append one line
 - The chapter(s) above (the main target).
 - Minimal consistency edits in other chapters that repeat a corrected claim. Do not edit `<files currently under review by a referee>`; record the edits they need as pending in the status record instead.
 - `appendices/D-corrections.qmd`, and the script's row in its directory README.
-- `appendices/E-original-results.qmd`: this part's items in the list of original results, when a verdict changes what they say. Likewise, in `01-introduction.qmd`, section `sec-new-results` only, the paragraph on errors in published papers.
-- The chapter's check script, its figure scripts and their SVGs. Figure scripts write into the repository whatever `OUT_DIR` says, so run `git restore` on every other regenerated SVG whose diff is only ids and timestamps.
+- `appendices/E-original-results.qmd`: this part's items in the list of original results, when a verdict changes what they say.
+- The chapter's check script, its figure scripts and their SVGs. Figure scripts hard-code output paths under the repository root (ignoring any `OUT_DIR` environment variable), so run `git restore` on every regenerated SVG whose diff is only ids and timestamps.
 - The script directory's README.
 - `<the part's status record and conventions brief>`.
-- The report: append an `## Integration` section only.
+- The report (or combined report): append an `## Integration` section only.
 - Your checkpoint and your scripts.
 
 ## Final checks, then commit
