@@ -1,0 +1,15 @@
+PASS Bianchi full arbitrary-background edge (1, b)
+PASS Bianchi full arbitrary-background edge (1, a)
+PASS Bianchi full arbitrary-background edge (-1, b)
+PASS Bianchi full arbitrary-background edge (-1, a)
+PASS Pseudosphere metric ss
+PASS Pseudosphere metric st
+PASS Pseudosphere metric tt
+PASS Pseudosphere curvature away from rim
+PASS Pseudosphere rim singularity
+PASS Breather PDE
+PASS Lecture6 Lax lightcone 1
+PASS Lecture6 Lax lightcone -1
+PASS Lecture6 bulk r sign all16
+PASS Lecture6 determinant
+PASS Higher-rank Poisson bracket h2..5 both types/couplings max relative 8.031e-15

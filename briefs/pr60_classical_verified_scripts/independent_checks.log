@@ -1,0 +1,52 @@
+PASS A1 quadratic bracket, all 16 entries
+PASS A1 commutant dimension (2, 3) 1
+PASS A1 commutant dimension (2, 2) 2
+PASS Reject reported exceptional generator diag(0,1,1,0)
+PASS A1 commutant dimension (2, -2) 2
+PASS Reject reported exceptional generator diag(0,1,-1,0)
+PASS Spin -3 full defect jet identity
+PASS Spin -3 bulk continuity
+PASS Spin 3 full defect jet identity
+PASS Spin 3 bulk continuity
+PASS Soliton spin charge (-0.7, 1) -5.44411327505
+PASS Soliton spin charge (-0.7, -1) -0.0816376188353
+PASS Soliton spin charge (0.0, 1) -0.666666666667
+PASS Soliton spin charge (0.0, -1) -0.666666666667
+PASS Soliton spin charge (1.1, 1) -0.0245887782675
+PASS Soliton spin charge (1.1, -1) -18.0750926138
+PASS Cayley and reflection h=2
+PASS Action involution h=2 type=-1 b=0.87
+PASS Type I+ sparse inverse h=2 b=0.87
+PASS Action involution h=2 type=1 b=0.87
+PASS Action involution h=2 type=-1 b=0.87j
+PASS Type I+ sparse inverse h=2 b=0.87j
+PASS Action involution h=2 type=1 b=0.87j
+PASS Cayley and reflection h=3
+PASS Action involution h=3 type=-1 b=0.87
+PASS Type I+ sparse inverse h=3 b=0.87
+PASS Action involution h=3 type=1 b=0.87
+PASS Action involution h=3 type=-1 b=0.87j
+PASS Type I+ sparse inverse h=3 b=0.87j
+PASS Action involution h=3 type=1 b=0.87j
+PASS Cayley and reflection h=4
+PASS Action involution h=4 type=-1 b=0.87
+PASS Type I+ sparse inverse h=4 b=0.87
+PASS Action involution h=4 type=1 b=0.87
+PASS Action involution h=4 type=-1 b=0.87j
+PASS Type I+ sparse inverse h=4 b=0.87j
+PASS Action involution h=4 type=1 b=0.87j
+PASS Cayley and reflection h=5
+PASS Action involution h=5 type=-1 b=0.87
+PASS Type I+ sparse inverse h=5 b=0.87
+PASS Action involution h=5 type=1 b=0.87
+PASS Action involution h=5 type=-1 b=0.87j
+PASS Type I+ sparse inverse h=5 b=0.87j
+PASS Action involution h=5 type=1 b=0.87j
+PASS All-rank both-type both-coupling gauge checks max 6.553e-14
+PASS Affine diagram scan 23 diagrams; 78 symmetries; [64, 5, 2, 7]; failures=[('a41', (2, 3, 4, 0, 1), 10), ('a41', (3, 4, 0, 1, 2), 10)]
+PASS General polynomial scalar branch
+PASS Opposite-slope counterexample to old replacement
+PASS Nonzero constant product counterexample
+PASS Delay two equations
+PASS Wave unitarity and delay continuation
+PASS Reject reported z=+coth

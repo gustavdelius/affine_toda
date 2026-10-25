@@ -1,0 +1,33 @@
+PASS (a) delta defect: T = 2ip/(2ip-g), R = g/(2ip-g)
+PASS (a) unitarity relations R(t)R(-t)+T(t)T(-t)=1, R(t)T(-t)+T(t)R(-t)=0 (parity: Tbar=T, Rbar=R)
+PASS (a) crossing T(i pi - theta) = T(theta)
+PASS (a) |R|^2 + |T|^2 = 1 for real theta and g
+PASS (a) bound state for -2m<g<0 at theta = iu, sin u = -g/2m, energy m cos u = sqrt(m^2-g^2/4)
+PASS (a) pole regimes: virtual states for 0<g<2m, Im theta = -pi/2 for g>2m, Im theta = pi/2 (imaginary E) for g<-2m
+PASS (b) A(t)D re-expanded: coefficient of A(t)D is RR(-)+T Tb(-), of D A(-t) is R T(-)+T Rb(-)
+PASS (c) exactly four out-states
+PASS (c) b reflected, a transmitted: difference = R_b T_a [S_ab(t1+t2) - S_ab(t1-t2)]
+PASS (c) a reflected, b transmitted: difference = R_a T_b [1 - S_ab(t1-t2) S_ba(t1+t2)]
+PASS (c) both transmitted: the two orders agree identically
+PASS (c) both reflected: difference vanishes when S_ba = S_ab (parity)
+     b first : coefficient of A_b(-t2) D A_a(t1) = R_b(theta2)*S_ab(theta1 + theta2)*T_a(theta1)
+     S first : coefficient of A_b(-t2) D A_a(t1) = R_b(theta2)*S_ab(theta1 - theta2)*T_a(theta1)
+     b first : coefficient of A_a(-t1) D A_b(t2) = R_a(theta1)*T_b(theta2)
+     S first : coefficient of A_a(-t1) D A_b(t2) = R_a(theta1)*S_ab(theta1 - theta2)*S_ba(theta1 + theta2)*T_b(theta2)
+     b first : coefficient of A_a(-t1) A_b(-t2) D = R_a(theta1)*R_b(theta2)*S_ab(theta1 + theta2)*S_ba(theta1 - theta2)
+     S first : coefficient of A_a(-t1) A_b(-t2) D = R_a(theta1)*R_b(theta2)*S_ab(theta1 - theta2)*S_ba(theta1 + theta2)
+PASS (c) delta-defect amplitudes with S = f_{2/3}: the mixed coefficients disagree (|diff| > 0.1)
+PASS (d) index form and braid form have opposite residuals, entry by entry, for random T
+PASS (d) a particle is a defect: T = Rcheck(theta - theta_d) solves the triangle relation
+PASS (d) control: a perturbed T violates it
+PASS (e) standing particle S(theta-theta0): unitarity T(theta) Tbar(-theta) = 1
+PASS (e) crossing T(theta) = Tbar(i pi - theta)
+PASS (e) hence T(theta) T(theta + i pi) = 1
+PASS (e) bootstrap T(theta + i pi/3) T(theta - i pi/3) = T(theta) for S = f_{2/3}
+PASS (f) Lee-Yang defect: unitarity, crossing, bootstrap for complex b
+PASS (f) pole of Tbar_b at i pi(b+1)/6; excited defect = family at b+2; energies m sin(b pi/6) = m cosh theta_b
+PASS (f) Hermitian analyticity (and |T|=1 at real theta) exactly when Re b = 3 mod 6
+PASS (g) M(2,5): S^2 = 1, D_Phi = (1-sqrt5)/2 on h=0 and (1+sqrt5)/2 on h=-1/5, Phi x Phi = 1 + Phi
+PASS (h) Ising defect: unitarity, T(i pi - t) = T(t), R(i pi - t) = -R(t), g -> 4/g, T = 0 at g = +-2
+PASS (i) twist defect: Rcheck commutes with e^{i alpha mu} x e^{i alpha mu}
+PASS (j) delta defect on a circle: eigenvalues T+R, T-R=1; the even states (4 found) solve e^(ipL)(T+R)=1

@@ -1,0 +1,16 @@
+c_3^(1): classical mass ratios [1.     1.7321 2.    ]
+   one-loop delta H from each mass ratio: [0.079577 0.079577]
+   tree amplitude / g(theta) at theta = [0.4, 0.9, 1.5, 2.3]: [0.079577 0.079577 0.079577 0.079577]  (constant => same tree shape)
+   delta H / B_tree = 1.000000   (expected 1 (H = h + B))
+a_5^(2): classical mass ratios [1.     1.1756 1.9021]
+   one-loop delta H from each mass ratio: [0.039789 0.039789]
+   tree amplitude / g(theta) at theta = [0.4, 0.9, 1.5, 2.3]: [0.079577 0.079577 0.079577 0.079577]  (constant => same tree shape)
+   delta H / B_tree = 0.500000   (expected 1/2 (H = h + B/2))
+f_4^(1): classical mass ratios [1.     1.4142 1.9319 2.7321]
+   one-loop delta H from each mass ratio: [0.238732 0.238732 0.238732]
+   tree amplitude / g(theta) at theta = [0.4, 0.9, 1.5, 2.3]: [0.079577 0.079577 0.079577 0.079577]  (constant => same tree shape)
+   delta H / B_tree = 3.000000   (expected 3 if CDS (H = 12 + 3B), 9/2 if the soliton construction)
+PASS minimal candidate executes all three original examples
+BK finite-band snippet residual 7.875578258823194e-16
+BK finite-band snippet residual 1.5639286875741154e-15
+PASS numerical BK snippet at irrational physical parameter and generic complex q

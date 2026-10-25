@@ -1,0 +1,6 @@
+PASS fusion block e input 1 all residuals zero
+PASS fusion block e input -1 all residuals zero
+PASS fusion block f input 1 all residuals zero
+PASS fusion block f input -1 all residuals zero
+uniqueness homogeneous obstruction = c*hom*t*(q - 1)*(q + 1)*(q**2 + 1)/q**3
+PASS intertwiner homogeneous term excluded for q^4 != 1

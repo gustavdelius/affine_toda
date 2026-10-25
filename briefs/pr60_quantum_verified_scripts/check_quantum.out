@@ -1,0 +1,35 @@
+PASS BCH U,W residual = 0
+PASS BCH Us,X residual = 0
+PASS BCH U,X residual = 0
+PASS BCH Us,W residual = 0
+PASS BCH W,X residual = 0
+PASS BCH U,Us residual = 0
+PASS odd determinant residual = 0
+PASS even determinant residual = 0
+PASS zero-rapidity kernel residual = 0
+PASS scalar crossing 0.31 residual = (-5.67407592e-28 + 4.19188247e-37j)
+PASS B1 ratio 0.31 residual = (-3.76158192e-37 - 7.52316385e-37j)
+PASS scalar crossing (0.27 + 0.43j) residual = (-8.4005138e-28 - 1.91803083e-36j)
+PASS B1 ratio (0.27 + 0.43j) residual = (-2.38244329e-29 + 7.92396251e-29j)
+PASS scalar real unitarity residual = -5.67407592e-28
+PASS gamma cutoff errors 0.00045306436 0.000226533136 0.000113266687
+PASS pole 0 residue (-0.168851911 - 0.591145925j) errors 9.86732e-5 9.86769e-7
+PASS pole 1 residue (-0.875855715 + 0.250174966j) errors 0.000121481 1.21482e-6
+PASS pole 2 residue (0.100906603 + 0.353271257j) errors 7.65705e-5 7.65755e-7
+PASS GZ scalar identity residual = (1.75328045e-28 + 3.56079433e-28j)
+PASS Dirichlet matrix dressing residual = 0
+PASS counterexample to report scalar K claim: offdiagonal = -I*d*y*(y - 1)*(y + 1)/(d**2*y**2 + 1)
+PASS TQ, tD, shift N=2 residual = 4.965068306494546e-16
+PASS DD numerical only N=2 residual = 6.938893903907228e-18
+PASS TQ, tD, shift N=3 residual = 1.066334393690002e-15
+PASS DD numerical only N=3 residual = 2.7755575615628914e-17
+PASS TQ, tD, shift N=4 residual = 2.8951074449790722e-15
+PASS DD numerical only N=4 residual = 1.3877787807814457e-17
+PASS TQ, tD, shift N=5 residual = 2.987304636342383e-15
+PASS DD numerical only N=5 residual = 8.673617379884035e-18
+PASS Wigner asymptotic L= 80 difference= 0.00027269911
+PASS Wigner asymptotic L= 160 difference= 0.00013635277
+PASS Wigner asymptotic L= 320 difference= 6.817679e-5
+PASS classical breather n= 40 clock error= 0.0082004112
+PASS classical breather n= 80 clock error= 0.004101471
+PASS classical breather n= 160 clock error= 0.0020508938

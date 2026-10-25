@@ -1,0 +1,6 @@
+PASS exact triangle input 1 1
+PASS exact triangle input 1 -1
+PASS exact triangle input -1 1
+PASS exact triangle input -1 -1
+PASS all four crossing entries with Yprime=-qY
+PASS wrong crossing sign: Yprime=+qY keeps diagonal and negates both conversions
