@@ -252,12 +252,12 @@ $$
 \frac{\partial_+ Y}{Y} = -a m_0 = m_0 e^{-\theta}, \qquad
 \frac{\partial_- Y}{Y} = \frac{m_0}{a} = -m_0 e^\theta.
 $$
-Since $x = \frac{1}{2}(x^+ - x^-)$ and $t = \frac{1}{2}(x^+ + x^-)$, we have $\partial_x = \partial_+ - \partial_-$ and $\partial_t = \partial_+ + \partial_-$, so
+With $\partial_\pm=\partial_t\pm\partial_x$, the inverse relations are $\partial_x=(\partial_+-\partial_-)/2$ and $\partial_t=(\partial_++\partial_-)/2$. Therefore
 $$
-\partial_x \ln Y = m_0(e^{-\theta} + e^\theta) = 2m_0\cosh\theta, \qquad
-\partial_t \ln Y = m_0(e^{-\theta} - e^\theta) = -2m_0\sinh\theta!
+\partial_x\ln Y=m_0\cosh\theta,\qquad
+\partial_t\ln Y=-m_0\sinh\theta,
 $$
-Note that in our light-cone convention $\partial_\pm = \partial_t \pm \partial_x$, a function $f(x,t)$ satisfies $\partial_+ f = (\partial_t + \partial_x)f$ and $\partial_- f = (\partial_t - \partial_x)f$, so $\partial_x = \frac{1}{2}(\partial_+ - \partial_-)$ and $\partial_t = \frac{1}{2}(\partial_+ + \partial_-)$. Thus:
+and hence
 $$
 \ln Y = m_0(x\cosh\theta - t\sinh\theta) + c.
 $$
@@ -266,7 +266,7 @@ $$
 \psi(x,t) = \frac{2i}{\beta_{\rm SG}}\ln\frac{1 - E}{1 + E}, \qquad
 E = \exp\big(m_0(x\cosh\theta - t\sinh\theta) + \xi\big),
 $$ {#eq-lec2-one-soliton}
-which is a real **soliton (kink)** when $\operatorname{Im}\xi = \frac{\pi}{2}$ ($Y = -e^{\text{real}} < 0$, jumping by $+\frac{2\pi}{\beta_{\rm SG}}$ as $x$ goes from $-\infty$ to $+\infty$) and an **antisoliton (antikink)** when $\operatorname{Im}\xi = -\frac{\pi}{2}$ ($Y > 0$, jumping by $-\frac{2\pi}{\beta_{\rm SG}}$).
+which is a real **soliton (kink)** when $\operatorname{Im}\xi = \frac{\pi}{2}$ ($Y = +e^{\operatorname{Re}\xi+m_0(x\cosh\theta-t\sinh\theta)} > 0$, jumping by $+\frac{2\pi}{\beta_{\rm SG}}$ as $x$ goes from $-\infty$ to $+\infty$) and an **antisoliton (antikink)** when $\operatorname{Im}\xi = -\frac{\pi}{2}$ ($Y < 0$, jumping by $-\frac{2\pi}{\beta_{\rm SG}}$).
 
 #### 2. Bianchi Permutability: Two Solitons Without Integrating a Single Differential Equation!
 Now suppose we start from a seed solution $\phi_0$, apply $\mathfrak{B}_{a_1}$ to get $\phi_1 = \mathfrak{B}_{a_1}\phi_0$ and $\mathfrak{B}_{a_2}$ to get $\phi_2 = \mathfrak{B}_{a_2}\phi_0$, and then apply $\mathfrak{B}_{a_2}$ to $\phi_1$ and $\mathfrak{B}_{a_1}$ to $\phi_2$ to reach a common two-soliton solution $\phi_{12} = \mathfrak{B}_{a_2}\phi_1 = \mathfrak{B}_{a_1}\phi_2$:
@@ -316,15 +316,15 @@ $$
 \phi(x,t) = e^{-i\nu t}\big(e^{ikx} + R\,e^{-ikx}\big) \quad (x < 0), \qquad
 \psi(x,t) = \mathbb{T}^{\rm cl}\,e^{-i\nu t + ikx} \quad (x > 0).
 $$
-At $x = 0$, we have $\phi(0,t) = (1 + R)e^{-i\nu t}$, $\partial_x\phi(0,t) = ik(1 - R)e^{-i\nu t}$, $\psi(0,t) = \mathbb{T}^{\rm cl}e^{-i\nu t}$, and $\partial_x\psi(0,t) = ik\mathbb{T}^{\rm cl}e^{-i\nu t}$. Substitute these into the sum and difference of (-@eq-lec2-linear-cond) (or directly into the linearized light-cone form (-@eq-lec2-sg-lc), where $(\partial_t \pm \partial_x)e^{-i\nu t \pm ikx} = -im_0 e^{\mp\theta}e^{-i\nu t \pm ikx}$!):
+At $x = 0$, we have $\phi(0,t) = (1 + R)e^{-i\nu t}$, $\partial_x\phi(0,t) = ik(1 - R)e^{-i\nu t}$, $\psi(0,t) = \mathbb{T}^{\rm cl}e^{-i\nu t}$, and $\partial_x\psi(0,t) = ik\mathbb{T}^{\rm cl}e^{-i\nu t}$. Substitute these into the sum and difference of (-@eq-lec2-linear-cond) (or directly into the linearized light-cone form (-@eq-lec2-sg-lc), where $(\partial_t \pm \partial_x)e^{-i\nu t + ikx} = -im_0 e^{\mp\theta}e^{-i\nu t + ikx}$):
 
 * **First light-cone equation** $\partial_+(\phi - \psi) = -m_0\sigma(\phi + \psi)$ at $x=0$:
-  Using $(\partial_t + \partial_x)e^{-i\nu t + ikx} = i(k - \nu) = -im_0 e^{-\theta}$ and $(\partial_t + \partial_x)e^{-i\nu t - ikx} = -i(k + \nu) = -im_0 e^{+\theta}$, we get
+  The incident and reflected waves have derivative multipliers $i(k-\nu)=-im_0e^{-\theta}$ and $-i(k+\nu)=-im_0e^{\theta}$, giving
   $$
   -im_0 e^{-\theta} - im_0 e^{\theta}\,R + im_0 e^{-\theta}\,\mathbb{T}^{\rm cl} = -m_0\sigma\big(1 + R + \mathbb{T}^{\rm cl}\big).
   $$ {#eq-lec2-lin1}
 * **Second light-cone equation** $\partial_-(\phi + \psi) = m_0\sigma^{-1}(\phi - \psi)$ at $x=0$:
-  Using $(\partial_t - \partial_x)e^{-i\nu t + ikx} = -i(\nu + k) = -im_0 e^{\theta}$ and $(\partial_t - \partial_x)e^{-i\nu t - ikx} = i(k - \nu) = -im_0 e^{-\theta}$, we get
+  The incident and reflected waves have derivative multipliers $-i(\nu+k)=-im_0e^{\theta}$ and $i(k-\nu)=-im_0e^{-\theta}$, giving
   $$
   -im_0 e^{\theta} - im_0 e^{-\theta}\,R - im_0 e^{\theta}\,\mathbb{T}^{\rm cl} = m_0\sigma^{-1}\big(1 + R - \mathbb{T}^{\rm cl}\big).
   $$ {#eq-lec2-lin2}
@@ -350,7 +350,7 @@ R(\theta) = 0, \qquad
 = -i\,\frac{\sinh\!\big(\frac{\theta-\theta_d}{2} - \frac{i\pi}{4}\big)}{\sinh\!\big(\frac{\theta-\theta_d}{2} + \frac{i\pi}{4}\big)}.
 $$ {#eq-lec2-tcl}
 
-As you checked in @exr-lec1-cdd, $\mathbb{T}^{\rm cl}(\theta)$ is a pure phase for real $\theta$, satisfies defect unitarity and crossing $\mathbb{T}^{\rm cl}(\theta)\mathbb{T}^{\rm cl}(\theta+i\pi) = 1$, and its inverse square is the bulk CDD factor $\big[\mathbb{T}^{\rm cl}_{\rm odd}(\theta)\big]^2 = f_{1/2}(\theta-\theta_d)$. In Lecture 6 (@sec-lec6-boundaries-breathers), we will discover to our amazement that this simple linear-wave factor (-@eq-lec2-tcl) is **exact to all orders in the quantum coupling** for the lightest sine-Gordon breather!
+The sewing equations, light-cone conversion, kink sign and delay are checked independently in `code/lectures/gemini_l126_verified.py`. As you checked in @exr-lec1-cdd, $\mathbb{T}^{\rm cl}(\theta)$ is a pure phase for real $\theta$, satisfies defect unitarity and crossing $\mathbb{T}^{\rm cl}(\theta)\mathbb{T}^{\rm cl}(\theta+i\pi) = 1$, and its inverse square is the bulk CDD factor $\big[\mathbb{T}^{\rm cl}_{\rm odd}(\theta)\big]^2 = f_{1/2}(\theta-\theta_d)$. In Lecture 6 (@sec-lec6-boundaries-breathers), we will discover to our amazement that this simple linear-wave factor (-@eq-lec2-tcl) is **exact to all orders in the quantum coupling** for the lightest sine-Gordon breather!
 
 ---
 
@@ -424,10 +424,10 @@ Let us unpack what (-@eq-lec2-z-delay) tells us about a soliton of rapidity $\th
 
 2. **Soliton-to-Antisoliton Conversion—A Topological NOT Gate ($\theta > \theta_d$):**
    When the soliton is faster than the defect ($\theta > \theta_d$, so $e^{-\theta} < \sigma$), $z_{\rm I_-}(\theta) = -\coth\frac{\theta - \theta_d}{2} < -1$ is **negative**! Multiplying $E$ by a negative number shifts $\operatorname{Im}\xi \to \operatorname{Im}\xi \pm \pi$, which flips $\arctan Y \to -\arctan Y$: **the incoming soliton emerges on $x>0$ as an antisoliton!**
-   Where did the two units of topological charge go? Before the soliton arrived ($t \to -\infty$), $\phi(0,-\infty) = \psi(0,-\infty) = 0$. After the soliton passes ($t \to +\infty$), $\phi(0,+\infty) = -\frac{2\pi}{\beta_{\rm SG}}$ while $\psi(0,+\infty) = +\frac{2\pi}{\beta_{\rm SG}}$, so the defect is left with a static jump $\psi(0) - \phi(0) = \frac{4\pi}{\beta_{\rm SG}}$ (two units of topological charge). And what is the defect energy $\mathcal{B}_d$ and momentum $P_d$ of a $\frac{4\pi}{\beta_{\rm SG}}$ jump? Look at (-@eq-lec2-sg-bp): $\cos\frac{\beta_{\rm SG}(\pm 4\pi/\beta_{\rm SG})}{2} = \cos(\pm 2\pi) = 1$, so $\mathcal{B}_d = P_d = 0$! **An even jump stores zero energy and zero momentum!** If $\theta_d < 0$, *every* soliton arriving from the left ($\theta > 0 > \theta_d$) is flipped into an antisoliton—a classical soliton **NOT gate** [@cz2004]!
+   Choose the incoming kink with $\operatorname{Im}\xi=\pi/2$ and continue the fields continuously as $\phi=4\arctan Y/\beta_{\rm SG}$ and $\psi=4\arctan(zY)/\beta_{\rm SG}$. At $x=0$, $Y$ decreases from $+\infty$ to $0$ as $t$ increases. For $z<0$, the pair changes from $(2\pi/\beta_{\rm SG},-2\pi/\beta_{\rm SG})$ to $(0,0)$. The defect charge $(\psi-\phi)/(2\pi/\beta_{\rm SG})$ therefore increases by two, compensating the change from a kink to an antikink. Absolute vacuum labels can be shifted by periods; this charge change is independent of that choice. And what is the defect energy $\mathcal{B}_d$ and momentum $P_d$ of either of these even-vacuum pairs? Look at (-@eq-lec2-sg-bp): $\cos\frac{\beta_{\rm SG}(\pm 4\pi/\beta_{\rm SG})}{2} = \cos(\pm 2\pi) = 1$, so $\mathcal{B}_d = P_d = 0$! **An even jump stores zero energy and zero momentum!** If $\theta_d < 0$, *every* soliton arriving from the left ($\theta > 0 > \theta_d$) is flipped into an antisoliton—a classical soliton **NOT gate** [@cz2004]!
 
 3. **Swallowing a Soliton Whole ($\theta = \theta_d$):**
-   What happens if we tune the incoming soliton's rapidity to match the defect rapidity, $\theta \to \theta_d > 0$? Then $z_{\rm I_-}(\theta) \to \infty$, so $\Delta t \to +\infty$: **the soliton never comes out on the right!** Setting $\psi(x,t) = \frac{2\pi}{\beta_{\rm SG}}$ (the constant right-hand asymptote of the soliton) while $\phi(x,t)$ is the incoming soliton at $\theta = \theta_d$ solves the defect conditions (-@eq-lec2-sg-lc) *exactly* for all $t$, because $\frac{1-zE}{1+zE} \to -1 = e^{i\pi}$ as $z \to \infty$!
+   What happens if we tune the incoming soliton's rapidity to match the defect rapidity, $\theta \to \theta_d > 0$? Then $z_{\rm I_-}(\theta) \to \infty$, so $\Delta t \to +\infty$: **the soliton never comes out on the right!** Setting $\psi(x,t) = \frac{2\pi}{\beta_{\rm SG}}$ (the constant right-hand asymptote of the soliton) while $\phi(x,t)$ is the incoming soliton at $\theta = \theta_d$ solves the defect conditions (-@eq-lec2-sg-lc) *exactly* for all $t$, with the logarithm continued along the incoming kink branch, or directly by substituting this constant into both sewing equations.
    After the soliton is swallowed at $x=0$, both $\phi(x,+\infty)$ and $\psi(x,+\infty)$ are constant, with an **odd jump** $\psi(0) - \phi(0) = \frac{2\pi}{\beta_{\rm SG}}$. Let us plug $\phi = 0, \psi = \frac{2\pi}{\beta_{\rm SG}}$ into the defect energy and momentum (-@eq-lec2-sg-bp). Since $\cos\frac{\beta_{\rm SG}(2\pi/\beta_{\rm SG})}{2} = \cos\pi = -1$, we find
    $$
    \begin{aligned}

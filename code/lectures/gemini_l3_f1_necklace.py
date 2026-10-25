@@ -4,18 +4,18 @@ The Necklace Selection Rule (thm-lec3-necklace, eq-lec3-necklace-d) and the Vani
 
 Panel (a): Extended Dynkin diagram of d_4^(1): any diagram automorphism P fixes the central node alpha_2 (red), so
            1 - P is singular and D = 2(1 - P)^{-1} does not exist.
-Panel (b): Extended Dynkin diagram of a_4^(1) (h = 5): the two-step permutation pi^{-2} (orange dashed star) has
+Panel (b): Extended Dynkin diagram of a_4^(1) (h = 5): the two-step permutation pi^{2} (orange dashed star) has
            invertible 1 - P, but 10 forbidden non-neighbour inner products alpha_i . D alpha_j != 0 spoil momentum
-           conservation; only the single-step necklace cycle P = pi^{-1} (green solid cycle) gives
-           alpha_i . D alpha_j = 2 delta_{ij} - 2 delta_{i+1,j}.
-Panel (c): Eigenvalues d_k = 1 + i cot(pi*k/h) of D = 2(1 - pi^{-1})^{-1} in the complex plane for h = 3, 4, 5, 6:
+           conservation; only the single-step necklace cycle P = pi (green solid cycle) gives
+           alpha_i . D alpha_j = 2 delta_{ij} - 2 delta_{i,j+1}.
+Panel (c): Eigenvalues d_k = 1 + i cot(pi*k/h) of D = 2(1 - pi)^{-1} in the complex plane for h = 3, 4, 5, 6:
            all lie on the vertical line Re(d_k) = 1 (D + D^T = 2), and for every resonant mode triple
            k_1 + k_2 + k_3 = 0 (mod h), Re(d_{k_1} d_{k_2} d_{k_3}) = 0 so the cubic spin-2 obstruction vanishes.
 
 Checks:
   1. Every diagram automorphism of d_4^(1) fixes the central node alpha_2, making det(1 - P) = 0.
-  2. For a_4^(1), P = pi^{-2} produces 10 forbidden non-zero entries in alpha_i . D alpha_j, whereas P = pi^{-1}
-     produces the exact matrix alpha_i . D alpha_j = 2 delta_{ij} - 2 delta_{i+1,j}.
+  2. For a_4^(1), P = pi^{2} produces 10 forbidden non-zero entries in alpha_i . D alpha_j, whereas P = pi
+     produces the exact matrix alpha_i . D alpha_j = 2 delta_{ij} - 2 delta_{i,j+1}.
   3. Explicit matrices E and D for a_2^(1) (Problem 3.1) satisfy D + D^T = 2 I_2, D D^T = (4/3) I_2, and have
      eigenvalues 1 +- i/sqrt(3).
   4. For h = 3, 4, 5, 6, every triple (k_1, k_2, k_3) in {1,...,h-1}^3 with k_1 + k_2 + k_3 = 0 (mod h) satisfies
@@ -60,7 +60,7 @@ report(
 )
 
 
-# ---- Check 2: a_r^(1) inner product matrix for P = pi^{-1} vs P = pi^{-2} ----
+# ---- Check 2: a_r^(1) inner product matrix for P = pi vs P = pi^{2} ----
 def ar_roots(r):
     """Simple and lowest roots of a_r^(1) in R^r (h = r + 1)."""
     h = r + 1
@@ -74,7 +74,7 @@ def ar_roots(r):
 
 
 roots_a4 = ar_roots(4)  # shape (5, 4), simple roots are rows 0..3 (or 1..4)
-# Clock shift pi: alpha_j -> alpha_{j-1}, so P = pi^{-1}: alpha_j -> alpha_{j+1}
+# Clock shift pi: alpha_j -> alpha_{j-1}, so P = pi: alpha_j -> alpha_{j-1}
 # In basis of first 4 roots (rows 0, 1, 2, 3), let's find the 4x4 matrix of P_step(s): alpha_j -> alpha_{(j+s) mod 5}
 B_a4 = roots_a4[:4]  # 4x4 matrix whose rows are alpha_0, alpha_1, alpha_2, alpha_3
 
@@ -90,41 +90,41 @@ def d_matrix_a4(step):
     return D_mat, M
 
 
-D_step1, M_step1 = d_matrix_a4(1)
-D_step2, M_step2 = d_matrix_a4(2)
+D_step1, M_step1 = d_matrix_a4(-1)
+D_step2, M_step2 = d_matrix_a4(-2)
 
 expected_M1 = np.zeros((5, 5))
 for i in range(5):
     expected_M1[i, i] = 2.0
-    expected_M1[i, (i + 1) % 5] = -2.0
+    expected_M1[i, (i - 1) % 5] = -2.0
 
-# For step 2, allowed entries for partner p(i) = (i+2)%5 would only be (i,i)=2 and (i,(i+2)%5)=-2; count other non-zero entries
+# For step 2, allowed entries for partner p(i) = (i-2)%5 would only be (i,i)=2 and (i,(i-2)%5)=-2; count other non-zero entries
 forbidden_step2 = sum(
     abs(M_step2[i, j]) > 1e-8
     for i in range(5)
     for j in range(5)
-    if j != i and j != (i + 2) % 5
+    if j != i and j != (i - 2) % 5
 )
 
 report(
-    f"a_4^(1): single-step necklace cycle P=pi^(-1) gives alpha_i.D alpha_j = 2 delta_ij - 2 delta_{{i+1,j}}; "
-    f"two-step star P=pi^(-2) has {forbidden_step2} forbidden non-zero cross-terms",
+    f"a_4^(1): single-step necklace cycle P=pi gives alpha_i.D alpha_j = 2 delta_ij - 2 delta_{{i,j+1}}; "
+    f"two-step star P=pi^2 has {forbidden_step2} forbidden non-zero cross-terms",
     np.allclose(M_step1, expected_M1) and forbidden_step2 == 10,
 )
 
 # ---- Check 3: Problem 3.1 (Explicit E and D for a_2^(1)) ----
 roots_a2 = ar_roots(2)  # shape (3, 2)
 B_a2 = roots_a2[:2]
-target_a2 = np.array([roots_a2[1], roots_a2[2]])
+target_a2 = np.array([roots_a2[2], roots_a2[0]])
 P_a2 = target_a2.T @ np.linalg.inv(B_a2.T)
 D_a2 = 2.0 * np.linalg.inv(np.eye(2) - P_a2)
 E_a2 = np.eye(2) - D_a2
 M_a2 = roots_a2 @ D_a2 @ roots_a2.T
-exp_M_a2 = np.array([[2.0, -2.0, 0.0], [0.0, 2.0, -2.0], [-2.0, 0.0, 2.0]])
+exp_M_a2 = np.array([[2.0, 0.0, -2.0], [-2.0, 2.0, 0.0], [0.0, -2.0, 2.0]])
 eigs_a2 = np.linalg.eigvals(D_a2)
 
 report(
-    "Problem 3.1 (a_2^(1)): D + D^T = 2 I_2, D D^T = (4/3) I_2, E^T = -E, eig(D) = 1 +- i/sqrt(3), and alpha_i.D alpha_j = 2 delta_ij - 2 delta_{i+1,j}",
+    "Problem 3.1 (a_2^(1)): D + D^T = 2 I_2, D D^T = (4/3) I_2, E^T = -E, eig(D) = 1 +- i/sqrt(3), and alpha_i.D alpha_j = 2 delta_ij - 2 delta_{i,j+1}",
     np.allclose(D_a2 + D_a2.T, 2.0 * np.eye(2))
     and np.allclose(D_a2 @ D_a2.T, (4.0 / 3.0) * np.eye(2))
     and np.allclose(E_a2 + E_a2.T, 0.0)
@@ -206,7 +206,7 @@ pent_pts = [(0.92 * np.cos(a), 0.92 * np.sin(a)) for j, a in enumerate(pent_angl
 # Draw pentagon Dynkin bonds and green 1-step necklace arrows
 for j in range(5):
     x1, y1 = pent_pts[j]
-    x2, y2 = pent_pts[(j + 1) % 5]
+    x2, y2 = pent_pts[(j - 1) % 5]
     axb.annotate(
         "",
         xy=(x2, y2),
@@ -221,7 +221,7 @@ for j in range(5):
         ),
     )
     # Inner 2-step star (forbidden cross-terms)
-    x3, y3 = pent_pts[(j + 2) % 5]
+    x3, y3 = pent_pts[(j - 2) % 5]
     axb.annotate(
         "",
         xy=(x3, y3),
@@ -238,8 +238,8 @@ for j in range(5):
     axb.plot([x1], [y1], "o", ms=7.5, color=style.GREEN, zorder=5)
     axb.text(1.25 * x1, 1.25 * y1, rf"$\alpha_{j}$", fontsize=8, color=style.GREY, ha="center", va="center")
 
-axb.text(0.0, -1.24, r"green: $P=\pi^{-1}$ (necklace $\checkmark$)", fontsize=7.4, color=style.GREEN, ha="center")
-axb.text(0.0, -1.44, r"orange: $P=\pi^{-2}$ (cross-terms $\times$)", fontsize=7.4, color=style.ORANGE, ha="center")
+axb.text(0.0, -1.24, r"green: $P=\pi$ (necklace $\checkmark$)", fontsize=7.4, color=style.GREEN, ha="center")
+axb.text(0.0, -1.44, r"orange: $P=\pi^{2}$ (cross-terms $\times$)", fontsize=7.4, color=style.ORANGE, ha="center")
 axb.set_title(r"(b) Necklace $a_4^{(1)}$ ($h=5$)", fontsize=8.3, color=style.GREY)
 
 # Panel (c): Eigenvalues d_k = 1 + i cot(pi k / h) in the complex plane

@@ -1,0 +1,11 @@
+PASS necklace: max residual 6.66e-16
+PASS Fourier: max residual 5.8e-15
+PASS momentum: max residual 5.12e-15
+PASS Lax: max residual 3.43e-16
+PASS Hirota: max residual 1.15e-13
+PASS sewing: max residual 4.94e-14
+PASS delay forms: max residual 5.33e-15
+PASS mass: max residual 4.32e-13
+PASS poles: max residual 3.51e-16
+PASS cubic: max residual 1.55e-15
+PASS frozen pair: max residual 4.04e-16

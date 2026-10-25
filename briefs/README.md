@@ -157,3 +157,9 @@ Both referees, Gemini 4 Argon (high) and Codex GPT-6 Astra (high), reported both
 | `superalgebra_toda_renumber.py`, `superalgebra_toda_renames.tsv` | The pure-rename step of the renumbering and its mapping |
 | `referee_superalgebra_toda.md` | Referee brief for chapter 16 and its integration edits. Report: `referee_superalgebra_toda_report.md` |
 | `referee_superalgebra_toda_report.md` | Codex (GPT-6) report of 2026-10-23 on 9820f47, with its scripts in `referee_superalgebra_toda_scripts/`. Integrated 2026-10-24; the verdict per item is in its `## Integration` section. Main corrections: the heaviest $C^{(2)}(n+1)$ boson is not a fermion–fermion bound state; the sign of the $D(2,1;\alpha)$ Yukawa term; Gandenberger's sign is $(-1)^{ab}$ after fusion; the central-charge formula written without the singular $\sigma$; one-loop qualifiers; boundary scope; "affine" in the massiveness criterion. No label changed |
+
+## Gemini defect lectures: report integration (2026-10-25)
+
+`referee_lectures_gemini_report.md` preserves the received Gemini report and appends independent integration verdicts. Its reported commit `9b912ee` has the same lecture sources as integration base `031f162`; several quotations and proposed corrections are wrong. Valid findings and additional dependent errors were corrected in all six lectures and their roadmap. No status label was upgraded.
+
+The received script and archived independent checks/logs are in `referee_lectures_gemini_scripts/`. Maintained checks are `code/lectures/gemini_l126_verified.py`, `gemini_l3_verified.py` and `gemini_l45_verified.py`; the script index is `code/lectures/README.md`. Checkpoints are `gemini_lectures_integration_checkpoint.md`, `gemini_integration_l3_checkpoint.md` and `gemini_integration_l45_checkpoint.md`. Prepared in `.claude/worktrees/integrate-gemini-lectures`, branch `codex/integrate-gemini-lectures`.

@@ -53,7 +53,7 @@ $$
 \partial_x \vec{\psi} &= \mathsf{D}^{\mathsf{T}}\,\partial_t\vec{\phi} - F\,\partial_t\vec{\psi} + \nabla_{\vec{\psi}}\mathcal{B}_d(\vec{\phi},\vec{\psi}).
 \end{aligned}
 $$ {#eq-lec3-defect-conditions}
-Notice the minus sign in front of $F\partial_t\vec{\psi}$: it comes from the minus sign in the boundary integration-by-parts term $-\int dt\,\partial_x\vec{\psi}\cdot\delta\vec{\psi}|_{x=0^+}$.
+Notice the minus sign in front of $F\partial_t\vec{\psi}$: it comes from the right-hand bulk boundary term $+\int dt\,\partial_x\vec{\psi}\cdot\delta\vec{\psi}|_{x=0^+}$ and the variation of the defect kinetic term.
 
 Just as in Lecture 2, the total energy $E_{\text{tot}} = E_{\text{left}} + E_{\text{right}} + \mathcal{B}_d(\vec{\phi}(0,t),\vec{\psi}(0,t))$ is conserved *automatically* for any $E, F, \mathsf{D}, \mathcal{B}_d$ because the antisymmetry $E^{\mathsf{T}} = -E$ and $F^{\mathsf{T}} = -F$ makes $\dot{\vec{\phi}}\cdot E\dot{\vec{\phi}} = 0$ and $\dot{\vec{\psi}}\cdot F\dot{\vec{\psi}} = 0$, while the cross-terms $\dot{\vec{\phi}}\cdot\mathsf{D}\dot{\vec{\psi}}$ cancel between the two sides.
 
@@ -99,16 +99,16 @@ $$ {#eq-lec3-m-squared}
 Now compare (-@eq-lec3-m-squared) with the velocity-quadratic momentum condition (-@eq-lec3-quadratic-vanish). Expanding (-@eq-lec3-quadratic-vanish) using $E^{\mathsf{T}} = -E$ and $F^{\mathsf{T}} = -F$ gives:
 $$
 \begin{aligned}
-\text{coeff of }\dot{\vec{\phi}}\otimes\dot{\vec{\phi}}: &\quad 1_r + E^{\mathsf{T}}E - \mathsf{D}\mathsf{D}^{\mathsf{T}} = 0 \implies \mathsf{D}\mathsf{D}^{\mathsf{T}} = 1_r - E^{\mathsf{T}}E = 1_r + E^2, \\
-\text{coeff of }\dot{\vec{\psi}}\otimes\dot{\vec{\psi}}: &\quad -1_r + \mathsf{D}^{\mathsf{T}}\mathsf{D} - F^{\mathsf{T}}F = 0 \implies \mathsf{D}^{\mathsf{T}}\mathsf{D} = 1_r - F^{\mathsf{T}}F = 1_r + F^2, \\
+\text{coeff of }\dot{\vec{\phi}}\otimes\dot{\vec{\phi}}: &\quad 1_r + E^{\mathsf{T}}E - \mathsf{D}\mathsf{D}^{\mathsf{T}} = 0 \implies \mathsf{D}\mathsf{D}^{\mathsf{T}} = 1_r + E^{\mathsf{T}}E = 1_r - E^2, \\
+\text{coeff of }\dot{\vec{\psi}}\otimes\dot{\vec{\psi}}: &\quad -1_r + \mathsf{D}^{\mathsf{T}}\mathsf{D} - F^{\mathsf{T}}F = 0 \implies \mathsf{D}^{\mathsf{T}}\mathsf{D} = 1_r + F^{\mathsf{T}}F = 1_r - F^2, \\
 \text{coeff of }\dot{\vec{\phi}}\otimes\dot{\vec{\psi}}: &\quad E^{\mathsf{T}}\mathsf{D} + \mathsf{D}F = 0 \implies E\mathsf{D} = \mathsf{D}F.
 \end{aligned}
 $$ {#eq-lec3-d-e-f}
-Up to the sign convention $E^{\mathsf{T}} = -E$, the momentum-conservation conditions (-@eq-lec3-d-e-f) on $E, F, \mathsf{D}$ are **identical** to the Bäcklund involution condition!
+The momentum-conservation conditions (-@eq-lec3-d-e-f) on $E, F, \mathsf{D}$ are **identical** to the Bäcklund involution condition!
 
-Wait—let us simplify (-@eq-lec3-d-e-f). By the polar decomposition of the invertible matrix $\mathsf{D}$, its left and right positive-definite square roots $\sqrt{\mathsf{D}\mathsf{D}^{\mathsf{T}}} = \sqrt{1_r - E^2}$ and $\sqrt{\mathsf{D}^{\mathsf{T}}\mathsf{D}} = \sqrt{1_r - F^2}$ are related by an orthogonal rotation $O \in O(r)$ of the right-hand field $\vec{\psi} \mapsto O\vec{\psi}$. To leave the bulk potential $V(\vec{\psi})$ invariant, $O$ can be absorbed into the field definition (or chosen as the identity in the standard root basis), which sets $F = E$ and allows us to solve $\mathsf{D}\mathsf{D}^{\mathsf{T}} = \mathsf{D}^{\mathsf{T}}\mathsf{D} = 1_r - E^2$ linearly by setting
+Since $E$ is antisymmetric, $1_r-E$ is invertible. Define $O=(1_r-E)^{-1}\mathsf D$. The first equation in (-@eq-lec3-d-e-f) gives $OO^{\mathsf T}=1_r$, and $E\mathsf D=\mathsf DF$ then gives $F=O^{\mathsf T}EO$. Changing right-hand coordinates to $O\vec\psi$, and rotating the right-hand roots with them, puts the kinetic matrices in the form
 $$
-\mathsf{D} = 1_r - E, \qquad \mathsf{D}^{\mathsf{T}} = 1_r + E.
+\mathsf{D} = 1_r - E, \qquad \mathsf{D}^{\mathsf{T}} = 1_r + E,\qquad F=E.
 $$ {#eq-lec3-d-from-e}
 Look at how clean this is: the symmetric part of the coupling matrix $\mathsf{D}$ is always the identity matrix,
 $$
@@ -125,7 +125,7 @@ $$
 \nabla_{\vec{\psi}}P_d &= -\mathsf{D}^{\mathsf{T}}\,\nabla_{\vec{\phi}}\mathcal{B}_d - E\,\nabla_{\vec{\psi}}\mathcal{B}_d.
 \end{aligned}
 $$ {#eq-lec3-linear-terms}
-Let us make these two gradient equations transparent by taking their sum and difference! Using $E + \mathsf{D}^{\mathsf{T}} = 1_r$ and $\mathsf{D} - E = 1_r$? No, wait: from (-@eq-lec3-d-from-e), $E = \frac{1}{2}(\mathsf{D}^{\mathsf{T}} - \mathsf{D})$ and $1_r = \frac{1}{2}(\mathsf{D}^{\mathsf{T}} + \mathsf{D})$. Let us change variables from $(\vec{\phi},\vec{\psi})$ to the two linear combinations
+To solve these gradient equations, introduce
 $$
 \vec{u} = \frac{1}{2}\big(\mathsf{D}^{\mathsf{T}}\vec{\phi} + \mathsf{D}\vec{\psi}\big), \qquad \vec{v} = \frac{1}{2}\mathsf{D}(\vec{\phi} - \vec{\psi}).
 $$ {#eq-lec3-u-v-coords}
@@ -141,7 +141,7 @@ Notice that $\vec{u} + \vec{v} = \frac{1}{2}(\mathsf{D}^{\mathsf{T}} + \mathsf{D
   $$
   \begin{aligned}
   E\nabla_{\vec{\phi}}g - \mathsf{D}\nabla_{\vec{\psi}}g &= \frac{1}{2}(E + \mathsf{D})\mathsf{D}^{\mathsf{T}}\nabla_{\vec{v}}g = \frac{1}{2}\mathsf{D}^{\mathsf{T}}\nabla_{\vec{v}}g = +\nabla_{\vec{\phi}}g, \\
-  -\mathsf{D}^{\mathsf{T}}\nabla_{\vec{\phi}}g - E\nabla_{\vec{\psi}}g &= \frac{1}{2}(-\mathsf{D}^{\mathsf{T}} + E\mathsf{D}^{\mathsf{T}})\nabla_{\vec{v}}g = -\frac{1}{2}\mathsf{D}^{\mathsf{T}}\nabla_{\vec{v}}g = +\nabla_{\vec{\psi}}g!
+  -\mathsf{D}^{\mathsf{T}}\nabla_{\vec{\phi}}g - E\nabla_{\vec{\psi}}g &= \frac{1}{2}(-\mathsf{D}^{\mathsf{T}}\mathsf{D}^{\mathsf{T}} + E\mathsf{D}^{\mathsf{T}})\nabla_{\vec{v}}g = -\frac{1}{2}\mathsf{D}^{\mathsf{T}}\nabla_{\vec{v}}g = +\nabla_{\vec{\psi}}g!
   \end{aligned}
   $$
 
@@ -167,7 +167,7 @@ Let us expand the left-hand side for $\mathcal{B}_d = F(\vec{u}) + G(\vec{v})$. 
    \frac{1}{2}|\nabla_{\vec{\phi}}\mathcal{B}_d|^2 - \frac{1}{2}|\nabla_{\vec{\psi}}\mathcal{B}_d|^2 = \frac{1}{4}\big(\mathsf{D}\nabla_{\vec{u}}F\cdot \mathsf{D}^{\mathsf{T}}\nabla_{\vec{v}}G + \mathsf{D}^{\mathsf{T}}\nabla_{\vec{u}}F\cdot \mathsf{D}^{\mathsf{T}}\nabla_{\vec{v}}G\big) = \frac{1}{4}\nabla_{\vec{u}}F \cdot \big(\mathsf{D}^{\mathsf{T}}\mathsf{D}^{\mathsf{T}} + \mathsf{D}\mathsf{D}^{\mathsf{T}}\big)\nabla_{\vec{v}}G.
    $$
 
-To produce the exponentials $e^{b\vec{\alpha}_j\cdot\vec{\phi}}$ and $e^{b\vec{\alpha}_j\cdot\vec{\psi}}$ on the right-hand side $V(\vec{\phi}) - V(\vec{\psi})$, $F(\vec{u})$ and $G(\vec{v})$ must be sums of exponentials of the roots:
+For the standard root-exponential defect ansatz, we take $F$ and $G$ to be sums of exponentials. To produce the exponentials $e^{b\vec{\alpha}_j\cdot\vec{\phi}}$ and $e^{b\vec{\alpha}_j\cdot\vec{\psi}}$ on the right-hand side $V(\vec{\phi}) - V(\vec{\psi})$, $F(\vec{u})$ and $G(\vec{v})$ are chosen as follows:
 $$
 \mathcal{B}_d = \frac{m}{b^2}\sum_{j=0}^r \left[\sigma(f_j - 1) + \sigma^{-1}(g_j - 1)\right], \qquad P_d = -\frac{m}{b^2}\sum_{j=0}^r \left[\sigma(f_j - 1) - \sigma^{-1}(g_j - 1)\right],
 $$ {#eq-lec3-defect-potentials}
@@ -186,15 +186,15 @@ $$ {#eq-lec3-figj-exponent}
    $$
    The diagonal cross-terms $f_j g_j$ automatically generate the left-hand bulk potential $V(\vec{\phi})$!
 2. **When $i \neq j$ (generating $-V(\vec{\psi})$ and cancelling unwanted cross-terms):**
-   To generate the right-hand bulk potential $-V(\vec{\psi}) = -\frac{m^2}{b^2}\sum_{j=0}^r n_j (e^{b\vec{\alpha}_j\cdot\vec{\psi}} - 1)$, each $f_i$ must pair with some specific $g_{p(i)}$ (where $p$ is a permutation of $\{0,1,\dots,r\}$) such that the $\vec{\phi}$ dependence in (-@eq-lec3-figj-exponent) vanishes:
+   To generate the right-hand bulk potential $-V(\vec{\psi}) = -\frac{m^2}{b^2}\sum_{j=0}^r n_j (e^{b\vec{\alpha}_j\cdot\vec{\psi}} - 1)$, each $f_i$ must pair with some specific $g_{p^{-1}(i)}$ (where $p$ is a permutation of $\{0,1,\dots,r\}$) such that the $\vec{\phi}$ dependence in (-@eq-lec3-figj-exponent) vanishes:
    $$
-   \mathsf{D}\vec{\alpha}_i + \mathsf{D}^{\mathsf{T}}\vec{\alpha}_{p(i)} = \vec{0} \implies \mathsf{D}^{\mathsf{T}}\vec{\alpha}_{p(i)} = -\mathsf{D}\vec{\alpha}_i.
+   \mathsf{D}\vec{\alpha}_i + \mathsf{D}^{\mathsf{T}}\vec{\alpha}_{p^{-1}(i)} = \vec{0} \implies \mathsf{D}^{\mathsf{T}}\vec{\alpha}_{p^{-1}(i)} = -\mathsf{D}\vec{\alpha}_i.
    $$ {#eq-lec3-p-condition}
-   When (-@eq-lec3-p-condition) holds, what becomes of the $\vec{\psi}$ coefficient in $f_i g_{p(i)}$? Since $\mathsf{D} + \mathsf{D}^{\mathsf{T}} = 2\,1_r$, we have $\mathsf{D}^{\mathsf{T}}\vec{\alpha}_i = (2\,1_r - \mathsf{D})\vec{\alpha}_i = 2\vec{\alpha}_i + \mathsf{D}^{\mathsf{T}}\vec{\alpha}_{p(i)}$, wait—even simpler: using $\mathsf{D}\vec{\alpha}_i = -\mathsf{D}^{\mathsf{T}}\vec{\alpha}_{p(i)} = (\mathsf{D} - 2\,1_r)\vec{\alpha}_{p(i)}$, we get
+   With (-@eq-lec3-p-condition), the remaining coefficient is
    $$
-   \frac{1}{2}(\mathsf{D}^{\mathsf{T}}\vec{\alpha}_i - \mathsf{D}^{\mathsf{T}}\vec{\alpha}_{p(i)}) = \frac{1}{2}\big((2\,1_r - \mathsf{D})\vec{\alpha}_i + \mathsf{D}\vec{\alpha}_i\big) = \vec{\alpha}_i \quad\text{or equivalently } \vec{\alpha}_{p(i)}!
+   \frac12\mathsf D^{\mathsf T}(\vec\alpha_i-\vec\alpha_{p^{-1}(i)})=\frac12(\mathsf D^{\mathsf T}+\mathsf D)\vec\alpha_i=\vec\alpha_i.
    $$
-   Wait: let us check carefully! In $g_j = \exp(\frac{b}{2}\vec{\alpha}_j \cdot \mathsf{D}(\vec{\phi} - \vec{\psi}))$, if we define $g_j$ with $\mathsf{D}(\vec{\phi}-\vec{\psi})$, then $\nabla_{\vec{\phi}}g_j = \frac{b}{2}g_j \mathsf{D}^{\mathsf{T}}\vec{\alpha}_j$ and $\nabla_{\vec{\psi}}g_j = -\frac{b}{2}g_j \mathsf{D}^{\mathsf{T}}\vec{\alpha}_j$, whereas for $f_i = \exp(\frac{b}{2}\vec{\alpha}_i\cdot(\mathsf{D}^{\mathsf{T}}\vec{\phi} + \mathsf{D}\vec{\psi}))$, $\nabla_{\vec{\phi}}f_i = \frac{b}{2}f_i \mathsf{D}\vec{\alpha}_i$ and $\nabla_{\vec{\psi}}f_i = \frac{b}{2}f_i \mathsf{D}^{\mathsf{T}}\vec{\alpha}_i$.
+   Thus $f_i g_{p^{-1}(i)}=e^{b\vec\alpha_i\cdot\vec\psi}$. The gradients follow directly from the chain rule:
    Let us compute $\frac{1}{2}\nabla_{\vec{\phi}}\mathcal{B}_d \cdot \nabla_{\vec{\phi}}\mathcal{B}_d - \frac{1}{2}\nabla_{\vec{\psi}}\mathcal{B}_d \cdot \nabla_{\vec{\psi}}\mathcal{B}_d$ directly from these gradients! That avoids any coordinate-chain-rule confusion:
    $$
    \begin{aligned}
@@ -214,7 +214,7 @@ $$ {#eq-lec3-figj-exponent}
 $$
 \frac{1}{2}|\nabla_{\vec{\phi}}\mathcal{B}_d|^2 - \frac{1}{2}|\nabla_{\vec{\psi}}\mathcal{B}_d|^2 = \frac{m^2}{2b^2}\sum_{i,j=0}^r (\vec{\alpha}_i \cdot \mathsf{D}\vec{\alpha}_j)\, g_i f_j!
 $$ {#eq-lec3-master-identity}
-Wait: let us check the indices in (-@eq-lec3-master-identity). In (-@eq-lec3-cross-coeff), $f_i$ has $\mathsf{D}\vec{\alpha}_i + \mathsf{D}^{\mathsf{T}}\vec{\alpha}_i = 2\vec{\alpha}_i$ and $g_j$ has $\mathsf{D}^{\mathsf{T}}\vec{\alpha}_j$, so their inner product is $2\vec{\alpha}_i \cdot \mathsf{D}^{\mathsf{T}}\vec{\alpha}_j = 2(\mathsf{D}\vec{\alpha}_i)\cdot\vec{\alpha}_j = 2\vec{\alpha}_j \cdot \mathsf{D}\vec{\alpha}_i$.
+The order of the indices matters: $f_jg_i$ carries the coefficient $\vec\alpha_i\cdot\mathsf D\vec\alpha_j$.
 For the sum (-@eq-lec3-master-identity) to equal $V(\vec{\phi}) - V(\vec{\psi}) = \frac{m^2}{b^2}\sum_{i=0}^r n_i (e^{b\vec{\alpha}_i\cdot\vec{\phi}} - e^{b\vec{\alpha}_i\cdot\vec{\psi}})$, the inner product matrix $\vec{\alpha}_i \cdot \mathsf{D}\vec{\alpha}_j$ must have:
 1. Diagonal entries $\vec{\alpha}_i \cdot \mathsf{D}\vec{\alpha}_i = 2n_i$ (which gives $n_i f_i g_i = n_i e^{b\vec{\alpha}_i\cdot\vec{\phi}}$; since $\mathsf{D} + \mathsf{D}^{\mathsf{T}} = 2\,1_r$, we already know $\vec{\alpha}_i \cdot \mathsf{D}\vec{\alpha}_i = |\vec{\alpha}_i|^2$, so this immediately requires $|\vec{\alpha}_i|^2 = 2n_i$, and for simply-laced roots with $|\vec{\alpha}_i|^2 = 2$, every Coxeter label must be $n_i = 1$!).
 2. Exactly one non-zero off-diagonal entry per row and column, $\vec{\alpha}_i \cdot \mathsf{D}\vec{\alpha}_{p(i)} = -2n_i$, such that $f_{p(i)} g_i = e^{b\vec{\alpha}_{p(i)}\cdot\vec{\psi}}$, while all other entries $\vec{\alpha}_i \cdot \mathsf{D}\vec{\alpha}_j = 0$ for $j \neq i, p(i)$!
@@ -242,21 +242,21 @@ Now impose the requirement that $\vec{\alpha}_i \cdot \mathsf{D}\vec{\alpha}_j =
   $$
   \vec{\alpha}_i \cdot \vec{\alpha}_j = 2\delta_{ij} - \delta_{j,p(i)} - \delta_{i,p(j)}!
   $$ {#eq-lec3-necklace-cartan}
-- Every node $i \in \{0,1,\dots,r\}$ of the extended Dynkin diagram is connected exclusively to $p(i)$ and $p^{-1}(i)$, and since the Dynkin diagram is connected, $p$ must be a $(r+1)$-cycle, which we can label $p(i) \equiv i+1 \pmod{r+1}$ (so $P = \pi^{-1}$ where $\pi\vec{\alpha}_j = \vec{\alpha}_{j-1}$ is the clock shift)!
+- Every node $i \in \{0,1,\dots,r\}$ of the extended Dynkin diagram is connected exclusively to $p(i)$ and $p^{-1}(i)$, and since the Dynkin diagram is connected, $p$ must be a $(r+1)$-cycle, which we can label $p(i) \equiv i-1 \pmod{r+1}$ (so $P = \pi$ where $\pi\vec{\alpha}_j = \vec{\alpha}_{j-1}$ is the clock shift)!
 
 Look at (-@eq-lec3-necklace-cartan): a connected graph of $r+1$ vertices in which every vertex has degree 2 (for $r \ge 2$, or double bond for $r=1$) is a **closed necklace**—the extended Dynkin diagram of $a_r^{(1)}$!
 
 ::: {#thm-lec3-necklace}
-**[Established]** **The Necklace Selection Rule (see the book: [Only $a_r^{(1)}$ has type-I defects](book:prp-ar-only); Bowcock–Corrigan–Zambon [@bcz2004]).** A bulk affine Toda field theory admits a momentum-conserving type-I defect of the form (-@eq-lec3-action) with invertible coupling matrix $\mathsf{D}$ if and only if its extended Dynkin diagram is a single cycle—that is, $\hat{\mathfrak{g}} = a_r^{(1)}$ with Coxeter number $h = r + 1$. Up to cyclic relabelling of the roots, the defect coupling matrix is
+**[Established]** **The Necklace Selection Rule (see the book: [Only $a_r^{(1)}$ has type-I defects](book:prp-ar-only); Bowcock–Corrigan–Zambon [@bcz2004]).** Within the root-exponential ansatz above, a bulk affine Toda field theory admits a momentum-conserving type-I defect of the form (-@eq-lec3-action) with invertible coupling matrix $\mathsf{D}$ if and only if its extended Dynkin diagram is a single cycle—that is, $\hat{\mathfrak{g}} = a_r^{(1)}$ with Coxeter number $h = r + 1$. Choosing the orientation that agrees with the book, the defect coupling matrix is
 $$
-\mathsf{D} = 2(1 - \pi^{-1})^{-1}, \qquad \vec{\alpha}_i \cdot \mathsf{D}\vec{\alpha}_j = 2\delta_{ij} - 2\delta_{i+1,j},
+\mathsf{D} = 2(1 - \pi)^{-1}, \qquad \vec{\alpha}_i \cdot \mathsf{D}\vec{\alpha}_j = 2\delta_{ij} - 2\delta_{i,j+1},
 $$ {#eq-lec3-necklace-d}
-where $\pi\vec{\alpha}_j = \vec{\alpha}_{j-1 \bmod h}$ is the cyclic clock shift of the $a_r^{(1)}$ necklace.
+where $\pi\vec{\alpha}_j = \vec{\alpha}_{j-1 \bmod h}$ is the cyclic clock shift of the $a_r^{(1)}$ necklace. The transpose gives its mirror image. The matrix and momentum identities are checked in `code/lectures/gemini_l3_verified.py`.
 :::
 
 What about other affine Toda theories like $d_4^{(1)}$ or $c_2^{(1)}$? Because their extended Dynkin diagrams have branch points or multiple bond lengths, they cannot satisfy (-@eq-lec3-necklace-cartan) with a first-order type-I defect (@fig-lec3-necklace; checked in `code/lectures/gemini_l3_f1_necklace.py`); as Corrigan and Zambon later showed [@cz2007; @cz2009a], to build an integrable defect for $d_r^{(1)}$ one must introduce extra auxiliary defect degrees of freedom living at $x=0$ ("type-II defects").
 
-![Why only $a_r^{(1)}$ admits momentum-conserving type-I defects: (a) the $a_r^{(1)}$ cyclic necklace ($r=3$) with clock shift $\pi\vec{\alpha}_j = \vec{\alpha}_{j-1}$ and chiral inner-product matrix $\vec{\alpha}_i\cdot\mathsf{D}\vec{\alpha}_j = 2\delta_{ij} - 2\delta_{i+1,j}$; (b) the three obstructions on other affine Dynkin diagrams—a fixed central node ($d_4^{(1)}$), non-invertible $1 - P$ ($\pi^2$ on $a_3^{(1)}$), and non-adjacent cross-terms ($\pi^2$ on $a_4^{(1)}$).](figures/l3_necklace.svg){#fig-lec3-necklace width=92% fig-alt="Two-panel diagram comparing the cyclic necklace Dynkin diagram of a_3^(1) and its 4x4 chiral matrix alpha_i . D alpha_j in panel (a) with the three failure modes (fixed node in d_4^(1), singular 1-P in a_3^(1), and non-adjacent cross terms in a_4^(1)) in panel (b)."}
+![The necklace constraints: (a) the fixed central root of $d_4^{(1)}$ makes $1-P$ singular; (b) the one-step cycle of $a_4^{(1)}$ works, while a two-step cycle produces unwanted cross-terms; (c) the spectrum $d_k=1+i\cot(\pi k/h)$ and its cubic identity](figures/l3_necklace.svg){#fig-lec3-necklace width=92% fig-alt="Three panels show the fixed central root of d_4, one-step and two-step cycles of a_4, and the vertical line containing the eigenvalues of D."}
 
 ---
 
@@ -269,8 +269,8 @@ In Lecture 2, we saw that for $a_1^{(1)}$, spin-1 momentum conservation made the
 Recall that the bulk $a_r^{(1)}$ equation of motion $\partial_t^2\vec{\phi} - \partial_x^2\vec{\phi} = -\nabla_{\vec{\phi}}V(\vec{\phi})$ is the zero-curvature condition $[\partial_t - a_t(\vec{\phi};\lambda), \partial_x - a_x(\vec{\phi};\lambda)] = 0$ for the linear problem $\partial_\mu \Psi_\phi = a_\mu(\vec{\phi};\lambda)\Psi_\phi$, with Lax connection in the fundamental $(r+1)\times(r+1)$ representation:
 $$
 \begin{aligned}
-a_t(\vec{\phi};\lambda) &= -\frac{b}{2}\,\vec{H}\cdot\partial_x\vec{\phi} - \frac{m}{2}\sum_{j=0}^r \left(\lambda\,e^{\frac{b}{2}\vec{\alpha}_j\cdot\vec{\phi}} E_{\vec{\alpha}_j} - \lambda^{-1}e^{-\frac{b}{2}\vec{\alpha}_j\cdot\vec{\phi}} E_{-\vec{\alpha}_j}\right), \\
-a_x(\vec{\phi};\lambda) &= -\frac{b}{2}\,\vec{H}\cdot\partial_t\vec{\phi} - \frac{m}{2}\sum_{j=0}^r \left(\lambda\,e^{\frac{b}{2}\vec{\alpha}_j\cdot\vec{\phi}} E_{\vec{\alpha}_j} + \lambda^{-1}e^{-\frac{b}{2}\vec{\alpha}_j\cdot\vec{\phi}} E_{-\vec{\alpha}_j}\right),
+a_t(\vec{\phi};\lambda) &= -\frac{b}{2}\,\vec{H}\cdot\partial_x\vec{\phi} - \frac{m}{2}\sum_{j=0}^r \left(\lambda\,e^{\frac{b}{2}\vec{\alpha}_j\cdot\vec{\phi}} E_{\vec{\alpha}_j} - \lambda^{-1}e^{\frac{b}{2}\vec{\alpha}_j\cdot\vec{\phi}} E_{-\vec{\alpha}_j}\right), \\
+a_x(\vec{\phi};\lambda) &= -\frac{b}{2}\,\vec{H}\cdot\partial_t\vec{\phi} - \frac{m}{2}\sum_{j=0}^r \left(\lambda\,e^{\frac{b}{2}\vec{\alpha}_j\cdot\vec{\phi}} E_{\vec{\alpha}_j} + \lambda^{-1}e^{\frac{b}{2}\vec{\alpha}_j\cdot\vec{\phi}} E_{-\vec{\alpha}_j}\right),
 \end{aligned}
 $$ {#eq-lec3-bulk-lax}
 where $E_{\vec{\alpha}_j} = e_{j,j+1}$ ($j=0,\dots,r$ with indices mod $h=r+1$), $E_{-\vec{\alpha}_j} = E_{\vec{\alpha}_j}^{\mathsf{T}} = e_{j+1,j}$, and $[\vec{H}, E_{\pm\vec{\alpha}_j}] = \pm\vec{\alpha}_j E_{\pm\vec{\alpha}_j}$.
@@ -308,18 +308,27 @@ Let us check what (-@eq-lec3-zero-curvature) reduces to when we plug in (-@eq-le
    $$
    -\frac{m\sigma}{2}\sum_{j=0}^r f_j [E_{\vec{\alpha}_j}, E_{-\vec{\alpha}_j}] = -\frac{m\sigma}{2}\sum_{j=0}^r f_j\,\vec{\alpha}_j \cdot \vec{H},
    $$
-   which matches the $f_j$ part of $\frac{b}{2}\vec{H}\cdot(\nabla_{\vec{\phi}}\mathcal{B}_d - \nabla_{\vec{\psi}}\mathcal{B}_d) = \frac{m\sigma}{2}\sum_j f_j \vec{H}\cdot(\mathsf{D} - \mathsf{D}^{\mathsf{T}})\vec{\alpha}_j$!
-2. **At order $\lambda^{-1}$:** Conjugating $e^{-\frac{b}{2}\vec{\alpha}_j\cdot\vec{\phi}}E_{-\vec{\alpha}_j}$ on the left and $e^{-\frac{b}{2}\vec{\alpha}_j\cdot\vec{\psi}}E_{-\vec{\alpha}_j}$ on the right through the Cartan exponentials gives $g_j^{-1}$ and reproduces the $\sigma^{-1}g_j$ terms in $\mathcal{B}_d$, while at $O(\lambda^{-2})$ the terms $\sum_{j,k} g_j^{-1} E_{-\vec{\alpha}_j} E_{-\vec{\alpha}_k}$ cancel between left and right!
+   which cancels the diagonal contribution $\frac b2\vec H\cdot(\nabla_{\vec\phi}\mathcal B_d+\nabla_{\vec\psi}\mathcal B_d)=\frac{m\sigma}{2}\sum_j f_j\vec\alpha_j\cdot\vec H$. The gradient **sum**, not the difference, appears because the $\mathcal B_d$ term has opposite signs in the two sewing conditions.
+2. **At orders $\lambda^{-1}$ and $\lambda^{-2}$:** The negative-root exponentials become $g_j$ on the left of $\tilde L$ and $g_{j+1}$ on the right. To see the cancellation explicitly, realize $\vec\alpha_j=e_j-e_{j+1}$ and $\vec H\cdot\vec\phi=\operatorname{diag}(\phi_j)$ on the zero-sum hyperplane. Then
+   $$
+   f_j=e^{b(\psi_j-\phi_{j+1})},\qquad g_j=e^{b(\phi_j-\psi_j)}.
+   $$
+   The coefficient of $E_{-\vec\alpha_j}$ from the gradients at order $\lambda^{-1}$ is $\frac m{2\lambda}(g_{j+1}-g_j)$. It cancels the negative-root contribution $\frac m{2\lambda}(g_j-g_{j+1})$. At order $\lambda^{-2}$,
+   $$
+   \left(\sum_jg_j E_{-\vec\alpha_j}\right)S^{\mathsf T}
+   =S^{\mathsf T}\left(\sum_jg_{j+1}E_{-\vec\alpha_j}\right),
+   $$
+   since both sides have entry $g_{j+1}$ in position $(j+2,j)$, with cyclic indices. This completes the coefficient check. Direct substitution at both couplings and ranks one through five is checked in `code/lectures/gemini_l3_verified.py`.
 
 Thus we have derived the exact defect Lax matrix for the type-I$_-$ defect (see the book: [The defect Lax matrix](book:prp-defect-lax)):
 $$
 \tilde{L}_{\text{I}_-}(\lambda) = 1 + \frac{\sigma}{\lambda}\sum_{j=0}^r E_{-\vec{\alpha}_j} = 1 + \frac{\sigma}{\lambda}S^{\mathsf{T}},
 $$ {#eq-lec3-l-tilde}
-where $S = \sum_{j=0}^r E_{\vec{\alpha}_j}$ is the cyclic shift matrix ($S_{j,j+1} = 1$). Notice also its inverse Determinant and dual form: since $(S^{\mathsf{T}})^{-1} = S$, we can rewrite $\tilde{L}_{\text{I}_-}(\lambda)$ as
+where $S = \sum_{j=0}^r E_{\vec{\alpha}_j}$ is the cyclic shift matrix ($S_{j,j+1} = 1$). Its factorization at the other end of the spectral plane is equally useful: since $(S^{\mathsf{T}})^{-1} = S$, we can rewrite $\tilde{L}_{\text{I}_-}(\lambda)$ as
 $$
 \tilde{L}_{\text{I}_-}(\lambda) = \frac{\sigma}{\lambda}S^{\mathsf{T}}\left(1 + \frac{\lambda}{\sigma}S\right).
 $$ {#eq-lec3-l-tilde-factored}
-Because of (-@eq-lec3-l-tilde-factored), $L_d(\lambda)$ has a regular power series expansion around **both** $\lambda \to \infty$ (where $\tilde{L}_{\text{I}_-} = 1 + O(\lambda^{-1})$) and $\lambda \to 0$ (where $\lambda S\,\tilde{L}_{\text{I}_-} = \sigma(1 + O(\lambda))$)!
+Because of (-@eq-lec3-l-tilde-factored), $L_d(\lambda)$ has a Laurent expansion with an invertible leading coefficient at **both** $\lambda \to \infty$ (where $\tilde{L}_{\text{I}_-} = 1 + O(\lambda^{-1})$) and $\lambda \to 0$ (where $\lambda S\,\tilde{L}_{\text{I}_-} = \sigma(1 + O(\lambda))$)!
 
 ### Poisson Commutativity and the Classical $r$-Matrix
 
@@ -341,25 +350,25 @@ For example, in sine-Gordon/sinh-Gordon ($r=1$, where $E=0$ and $\mathsf{D}=1$),
 $$
 \{\phi(0), \psi(0)\} = -1!
 $$ {#eq-lec3-sg-bracket}
-For general $a_r^{(1)}$, a direct calculation using (-@eq-lec3-z-bracket) shows (see the book: [Poisson algebra of the defect matrix](book:prp-defect-involution); see `code/defect_lax_rmatrix.py`) that $L_d(\lambda)$ satisfies the exact same classical Sklyanin relation [@sklyanin1988; @faddeev_takhtajan1987] as the bulk monodromies $T_\pm(\lambda)$:
+For $a_1^{(1)}$, direct calculation proves the following bracket; the book also checks it numerically through $a_4^{(1)}$ (see [the book](book:prp-defect-involution) and `code/defect_lax_rmatrix.py`). With the bulk $r$-matrix [@sklyanin1988; @faddeev_takhtajan1987], the relation is:
 $$
 \big\{L_d(\lambda_1) \overset{\otimes}{,} L_d(\lambda_2)\big\} = \big[r(\lambda_1/\lambda_2),\, L_d(\lambda_1) \otimes L_d(\lambda_2)\big],
 $$ {#eq-lec3-sklyanin}
-where $r(\lambda_1/\lambda_2)$ is the standard trigonometric $a_r^{(1)}$ classical $r$-matrix! Because $T_+(\lambda)$, $L_d(\lambda)^{-1}$, and $T_-(\lambda)$ mutually commute and each satisfies the Sklyanin bracket with the same $r(\lambda_1/\lambda_2)$, their product inside the trace satisfies $\{\tau_d(\lambda_1), \tau_d(\lambda_2)\} = 0$. (In an alternative equal-$x$ Hamiltonian formulation due to Caudrelier [@caudrelier2015], where $x$ plays the role of time and $t$ plays the role of space, the defect conditions at $x=0$ act instead as a canonical transformation between the $t$-channel Lax connections for $x < 0$ and $x > 0$.)
+where $r(\lambda_1/\lambda_2)$ is the trigonometric $a_r^{(1)}$ classical $r$-matrix. In these conventions the bulk transport matrices satisfy the bracket with the **opposite sign**, $\{T_1,T_2\}=-[r,T_1T_2]$. Inversion changes the sign of a quadratic bracket, so $L_d^{-1}$ has the same bracket as $T_\pm$. If the defect values are treated as independent coordinates Poisson-commuting with the bulk variables, their product therefore has the same bracket, and taking both traces gives $\{\tau_d(\lambda_1),\tau_d(\lambda_2)\}=0$. This is the finite-dimensional defect algebra; identifying it with the constrained equal-time bracket of the full field theory requires additional care. The book discusses that distinction in [its Poisson-algebra section](book:sec-defect-r-matrix). An alternative equal-$x$ Hamiltonian formulation is due to Caudrelier [@caudrelier2015].
 
 ### Blackboard Gem: Why the Cubic Spin-2 Obstruction Vanishes
 
-In $a_1^{(1)}$ (sine-Gordon), all even-spin bulk densities are trivial because the potential $\cos(b\phi)$ is even under $\phi \mapsto -\phi$. In $a_r^{(1)}$ for $r \ge 2$, however, there is a non-trivial **spin-2 conserved charge** $Q_{\pm 2}$ whose density is *cubic* in the field derivatives!
+The local commuting hierarchy of $a_1^{(1)}$ (sine-Gordon) has odd-spin charges, so it has no spin-2 charge. In $a_r^{(1)}$ for $r \ge 2$, however, there is a non-trivial **spin-2 conserved charge** $Q_{\pm 2}$ whose density is *cubic* in the field derivatives!
 
-When Bowcock, Corrigan, and Zambon [@bcz2004b] checked directly whether $Q_{+2}$ is conserved across the defect before finding the Lax matrix, they encountered a cubic algebraic obstruction in the eigenvalues of $\mathsf{D}$—and watched it vanish by a miraculous trigonometric identity. Let us do that calculation right now on the blackboard, because it reveals the soul of the matrix $\mathsf{D} = 2(1 - \pi^{-1})^{-1}$!
+The spin-2 flux calculation contains a cubic expression in $\mathsf D$ and its transpose [@bcz2004b, eq. (5.11)]. Its cancellation is particularly transparent in Fourier modes. We will check this algebraic step; it is only one part of the conservation calculation described in [the book](book:prp-spin-two).
 
 Since $\pi\vec{\alpha}_j = \vec{\alpha}_{j-1}$ has order $h = r+1$ ($\pi^h = 1$) and $\sum_{j=0}^r \vec{\alpha}_j = \vec{0}$, the eigenvalues of $\pi$ on the $r$-dimensional root space $\mathbb{R}^r$ are the non-trivial $h$-th roots of unity:
 $$
 \omega_k = e^{\frac{2\pi i k}{h}}, \qquad k = 1, 2, \dots, r.
 $$
-What are the corresponding eigenvalues $d_k$ of $\mathsf{D} = 2(1 - \pi^{-1})^{-1}$? Let us compute:
+What are the corresponding eigenvalues $d_k$ of $\mathsf{D} = 2(1 - \pi)^{-1}$? Let us compute:
 $$
-d_k = \frac{2}{1 - e^{-\frac{2\pi i k}{h}}} = \frac{2}{e^{-\frac{\pi i k}{h}}\left(e^{\frac{\pi i k}{h}} - e^{-\frac{\pi i k}{h}}\right)} = \frac{e^{\frac{\pi i k}{h}}}{i\sin\frac{\pi k}{h}} = 1 + i\cot\frac{\pi k}{h}!
+d_k = \frac{2}{1 - e^{\frac{2\pi i k}{h}}} = \frac{i e^{-\frac{\pi i k}{h}}}{\sin\frac{\pi k}{h}} = 1 + i\cot\frac{\pi k}{h}.
 $$ {#eq-lec3-dk-eigenvalues}
 Look at how every relation we proved earlier becomes transparent in this eigenbasis:
 - Since $\bar{d}_k = 1 - i\cot\frac{\pi k}{h}$ is the eigenvalue of $\mathsf{D}^{\mathsf{T}}$, we see immediately that $d_k + \bar{d}_k = 2$ ($\mathsf{D} + \mathsf{D}^{\mathsf{T}} = 2\,1_r$) and $d_k - \bar{d}_k = 2i\cot\frac{\pi k}{h}$ (so $E$ has imaginary eigenvalues $\pm i\cot\frac{\pi k}{h}$).
@@ -379,7 +388,7 @@ Now use $k_1 + k_2 + k_3 \equiv 0 \pmod h$: the three angles $a = \frac{\pi k_1}
 $$
 \cot(a + b) = -\cot c \implies \frac{\cot a \cot b - 1}{\cot a + \cot b} = -\cot c \implies \cot a \cot b + \cot b \cot c + \cot c \cot a = 1!
 $$ {#eq-lec3-cotangent-id}
-Therefore $\mathcal{O}_{k_1 k_2 k_3} = 0$ identically (see the book: [Both spin-two charges survive](book:prp-spin-two))! Every student who computes (-@eq-lec3-cotangent-id) by hand feels the magic of integrable field theory: the necklace geometry of $a_r^{(1)}$ tunes the eigenvalues $d_k = 1 + i\cot\frac{\pi k}{h}$ so that the cubic spin-2 anomaly cancels mode by mode.
+Therefore $\mathcal{O}_{k_1 k_2 k_3}=0$ identically. This removes the cubic obstruction mode by mode. The lower-degree terms must still be organized into a total derivative to establish conservation; see [the book](book:prp-spin-two) for the scope of that result. The Fourier identity is checked in `code/lectures/gemini_l3_verified.py`.
 
 ---
 
@@ -391,22 +400,22 @@ Now let us send a soliton of the imaginary-coupling $a_r^{(1)}$ theory ($b = i\b
 
 In the imaginary-coupling theory $b = i\beta$, the bulk field is written in terms of $r+1$ Hirota $\tau$-functions $\tau_0, \tau_1, \dots, \tau_r$ (with indices mod $h = r+1$):
 $$
-\vec{\phi} = -\frac{i}{\beta}\sum_{j=0}^r \vec{\alpha}_j \ln\tau_j, \qquad e^{i\beta\vec{\alpha}_j\cdot\vec{\phi}} = \frac{\tau_j^2}{\tau_{j-1}\tau_{j+1}}.
+\vec{\phi} = \frac{i}{\beta}\sum_{j=0}^r \vec{\alpha}_j \ln\tau_j, \qquad e^{i\beta\vec{\alpha}_j\cdot\vec{\phi}} = \frac{\tau_{j-1}\tau_{j+1}}{\tau_j^2}.
 $$ {#eq-lec3-hirota-ansatz}
 Indeed, using $\vec{\alpha}_j\cdot\vec{\alpha}_k = 2\delta_{jk} - \delta_{j,k+1} - \delta_{j,k-1}$, we have
 $$
-i\beta\vec{\alpha}_j\cdot\vec{\phi} = \sum_{k=0}^r (\vec{\alpha}_j\cdot\vec{\alpha}_k)\ln\tau_k = 2\ln\tau_j - \ln\tau_{j-1} - \ln\tau_{j+1} = \ln\!\left(\frac{\tau_j^2}{\tau_{j-1}\tau_{j+1}}\right).
+i\beta\vec{\alpha}_j\cdot\vec{\phi} = -\sum_{k=0}^r (\vec{\alpha}_j\cdot\vec{\alpha}_k)\ln\tau_k = \ln\tau_{j-1}+\ln\tau_{j+1}-2\ln\tau_j.
 $$
-And what about the combinations $\frac{1}{2}(\mathsf{D}^{\mathsf{T}}\vec{\phi} + \mathsf{D}\vec{\psi})$ and $\frac{1}{2}\mathsf{D}(\vec{\phi} - \vec{\psi})$ in the defect potential (-@eq-lec3-fj-gj)? Using $\vec{\alpha}_j \cdot \mathsf{D}\vec{\alpha}_k = 2\delta_{jk} - 2\delta_{j+1,k}$ and $\vec{\alpha}_j \cdot \mathsf{D}^{\mathsf{T}}\vec{\alpha}_k = 2\delta_{jk} - 2\delta_{j-1,k}$, we find:
+And what about the combinations $\frac{1}{2}(\mathsf{D}^{\mathsf{T}}\vec{\phi} + \mathsf{D}\vec{\psi})$ and $\frac{1}{2}\mathsf{D}(\vec{\phi} - \vec{\psi})$ in the defect potential (-@eq-lec3-fj-gj)? Using $\vec{\alpha}_j \cdot \mathsf{D}\vec{\alpha}_k = 2\delta_{jk} - 2\delta_{j,k+1}$ and $\vec{\alpha}_j \cdot \mathsf{D}^{\mathsf{T}}\vec{\alpha}_k = 2\delta_{jk} - 2\delta_{j+1,k}$, we find:
 $$
 \begin{aligned}
-\frac{i\beta}{2}\vec{\alpha}_j\cdot\mathsf{D}\vec{\phi} &= \ln\!\left(\frac{\tau_j}{\tau_{j+1}}\right), \qquad \frac{i\beta}{2}\vec{\alpha}_j\cdot\mathsf{D}^{\mathsf{T}}\vec{\phi} = \ln\!\left(\frac{\tau_j}{\tau_{j-1}}\right), \\
-f_j &= \frac{\tau_j \tilde{\tau}_j}{\tau_{j-1}\tilde{\tau}_{j+1}}, \qquad g_j = \frac{\tau_j \tilde{\tau}_{j+1}}{\tau_{j+1}\tilde{\tau}_j},
+\frac{i\beta}{2}\vec{\alpha}_j\cdot\mathsf{D}\vec{\phi} &= \ln\!\left(\frac{\tau_{j-1}}{\tau_j}\right), \qquad \frac{i\beta}{2}\vec{\alpha}_j\cdot\mathsf{D}^{\mathsf{T}}\vec{\phi} = \ln\!\left(\frac{\tau_{j+1}}{\tau_j}\right), \\
+f_j &= \frac{\tau_{j+1}\tilde{\tau}_{j-1}}{\tau_j \tilde{\tau}_j}, \qquad g_j = \frac{\tau_{j-1}\tilde{\tau}_j}{\tau_j\tilde{\tau}_{j-1}},
 \end{aligned}
 $$ {#eq-lec3-fj-gj-tau}
-where $\tau_j$ are the left $\tau$-functions (for $\vec{\phi}$) and $\tilde{\tau}_j$ are the right $\tau$-functions (for $\vec{\psi}$)! Look how the ugly matrix $\mathsf{D} = 2(1 - \pi^{-1})^{-1}$ evaporates in Hirota variables: $\frac{i\beta}{2}\vec{\alpha}_j\cdot\mathsf{D}\vec{\phi}$ is simply $\ln(\tau_j/\tau_{j+1})$!
+where $\tau_j$ are the left $\tau$-functions (for $\vec{\phi}$) and $\tilde{\tau}_j$ are the right $\tau$-functions (for $\vec{\psi}$)! Look how the ugly matrix $\mathsf{D} = 2(1 - \pi)^{-1}$ evaporates in Hirota variables: $\frac{i\beta}{2}\vec{\alpha}_j\cdot\mathsf{D}\vec{\phi}$ is simply $\ln(\tau_{j-1}/\tau_j)$!
 
-Now consider a single bulk soliton of species $a \in \{1, \dots, r\}$ moving to the right with rapidity $\theta$. Its bulk mass is $M_a = \frac{2m}{\beta^2}\sin\gamma_a$, where
+Now consider a single bulk soliton of species $a \in \{1, \dots, r\}$ moving to the right with rapidity $\theta$. Its bulk mass is $M_a = \frac{4hm}{\beta^2}\sin\gamma_a$ (the particle mass is $m_a=2m\sin\gamma_a$), where
 $$
 \gamma_a = \frac{\pi a}{h} = \frac{\pi a}{r+1}.
 $$ {#eq-lec3-gamma-a}
@@ -421,8 +430,10 @@ $$ {#eq-lec3-one-soliton-right}
 
 Let us substitute (-@eq-lec3-one-soliton-left)–(-@eq-lec3-one-soliton-right) into the defect conditions at $x=0$. In terms of $\tau_j$ and $\tilde{\tau}_j$, the Bäcklund/defect equations reduce to a bilinear Hirota relation at $x=0$, which at order $E_a^1$ gives a single linear equation for $z_a(\theta)$ (see the book: [The $a_r$ soliton delay](book:prp-an-defect-delay), [equation](book:eq-dc-ar-delay), [equation](book:eq-an-defect-delay); see `code/defect_solitons_an.py`):
 $$
-z_a(\theta) = \frac{e^{-(\theta - \theta_d)} - i e^{i\gamma_a}}{e^{-(\theta - \theta_d)} - i e^{-i\gamma_a}} = \frac{\cosh(\theta - \theta_d - i\tilde{\gamma}_a)}{\cosh(\theta - \theta_d + i\tilde{\gamma}_a)}, \qquad \tilde{\gamma}_a = \frac{\pi}{2} - \gamma_a = \frac{\pi(h - 2a)}{2h}.
+z_a(\theta) = \frac{e^{-(\theta - \theta_d)} - i e^{i\gamma_a}}{e^{-(\theta - \theta_d)} - i e^{-i\gamma_a}} =e^{i\gamma_a}\frac{\sinh\!\left(\frac{\theta-\theta_d}{2}+\frac{i\pi}{4}+\frac{i\gamma_a}{2}\right)}{\sinh\!\left(\frac{\theta-\theta_d}{2}+\frac{i\pi}{4}-\frac{i\gamma_a}{2}\right)}.
 $$ {#eq-lec3-za-formula}
+
+The Hirota ratios, both sewing conditions and the static energy integral giving $M_a$ are independently checked in `code/lectures/gemini_l3_verified.py`.
 
 Let us immediately check (-@eq-lec3-za-formula) against our Lecture 2 sine-Gordon formula! For $a_1^{(1)}$, we have $r=1, h=2, a=1$, so $\gamma_1 = \frac{\pi}{2}$ and $i e^{\pm i\gamma_1} = \mp 1$. Substituting this into (-@eq-lec3-za-formula) gives
 $$
@@ -448,30 +459,35 @@ Let us pause! Both (-@eq-lec3-za-modulus) and (-@eq-lec3-za-phase) contain profo
 
 1. **Always Delayed ($\ln|z_a(\theta)| > 0$):** Because $\sin\gamma_a > 0$ for all $a \in \{1,\dots,r\}$, we have $|z_a(\theta)| > 1$ for every real rapidity $\theta$. Since $E_a = \exp(2m\sin\gamma_a(x\cosh\theta - t\sinh\theta) + x_0)$, multiplying $E_a$ by $|z_a(\theta)| > 1$ shifts the outgoing soliton profile backwards in space by $\Delta x_a = -\frac{\ln|z_a(\theta)|}{2m\sin\gamma_a\cosh\theta} < 0$ (and delays it in time by $\Delta t_a > 0$). Notice also that $|z_{h-a}(\theta)| = |z_a(\theta)|$ (since $\sin(\pi - \gamma_a) = \sin\gamma_a$), whereas $\arg z_{h-a}(\theta) = -\arg z_a(\theta)$!
 2. **The Chiral Selection Rule on Topological Charge (see the book: [Topological charge and the selection rule](book:prp-stored-charge)):**
-   In $a_r^{(1)}$, the vacua sit on the weight lattice, and a species-$a$ soliton carries a topological charge $\vec{q}$ in the $a$-th fundamental representation $\Lambda_a$ of $\mathfrak{sl}_{r+1}$. In the Hirota ansatz (-@eq-lec3-one-soliton-left), the different solitons within the multiplet $\Lambda_a$ correspond to discrete phases of $E_a$ separated by multiples of $\frac{2\pi}{h}$ (specifically, multiplying $E_a$ by $\omega^{ap} = e^{\frac{2\pi i a p}{h}}$ shifts $\tau_j \mapsto \tau_{j+p}$).
+   In $a_r^{(1)}$, the vacua sit on the weight lattice, and a species-$a$ soliton carries a topological charge $\vec{q}$ in the $a$-th fundamental representation $\Lambda_a$ of $\mathfrak{sl}_{r+1}$. In the Hirota ansatz (-@eq-lec3-one-soliton-left), the nonsingular phases of $E_a$ fall into $h/\gcd(a,h)$ charge sectors, which need not exhaust the weights of $\Lambda_a$ (specifically, multiplying $E_a$ by $\omega^{ap} = e^{\frac{2\pi i a p}{h}}$ shifts $\tau_j \mapsto \tau_{j+p}$).
    Now look at (-@eq-lec3-za-phase): when a soliton crosses the defect, its Hirota parameter $E_a$ picks up the phase $\arg z_a(\theta)$!
    - For the fundamental vector soliton $a = 1$ ($V = \mathbf{3}$) of $a_2^{(1)}$ ($h=3$, $\gamma_1 = \frac{\pi}{3}$), as $\theta - \theta_d$ sweeps from $-\infty$ to $+\infty$, $\arg z_1(\theta)$ increases monotonically across the open interval $(0, \frac{2\pi}{3})$, while for the conjugate antifundamental soliton $a = 2$ ($\bar{V} = \bar{\mathbf{3}}$, $\gamma_2 = \frac{2\pi}{3}$), $\arg z_2(\theta) = -\arg z_1(\theta)$ decreases across $(0, -\frac{2\pi}{3}) \equiv (0, \frac{4\pi}{3}) \pmod{2\pi}$.
-   - Therefore, out of the $h=3$ topological charge states in $V = \mathbf{3}$, the classical boundary values at $\theta \to \pm\infty$ reach **only two** states: the soliton can either **keep its topological charge** ($0$) or **shift by one step along the necklace clock** ($+\frac{2\pi}{3}$ for $V$, $-\frac{2\pi}{3} \equiv +\frac{4\pi}{3}$ for $\bar{V}$), while the third state is **classically forbidden**!
+   - Therefore, out of the $h=3$ topological charge states in $V = \mathbf{3}$, for a fixed nonsingular incoming phase, the phase sweep can cross at most one charge-sector boundary and reach **only two** states: the soliton can either **keep its topological charge** ($0$) or **shift by one step along the necklace clock** ($+\frac{2\pi}{3}$ for $V$, $-\frac{2\pi}{3} \equiv +\frac{4\pi}{3}$ for $\bar{V}$), while the third state is **classically forbidden**!
    Keep this chiral asymmetry between $a=1$ ($V$) and $a=2$ ($\bar{V}$) in $a_2^{(1)}$ firmly in mind: in Lecture 5 (@sec-lec5-crossing-resonances), when we compute the exact quantum transmission matrices $M_V(\theta)$ and $M_{\bar{V}}(\theta)$, we will see that $M_V(\theta)$ has only 2 non-zero entries per state, whereas $M_{\bar{V}}(\theta)$ has all 3 entries non-zero—with the third entry representing **quantum tunnelling** into the classically forbidden charge sector!
 
-![The $a_2^{(1)}$ ($h=3$) soliton delay and chiral topological selection rule: (a) delay modulus $|z_1(\theta)| = |z_2(\theta)| > 1$ and opposite phase shifts $\arg z_1(\theta) \in (0, 2\pi/3)$ (for $V$) and $\arg z_2(\theta) \in (-2\pi/3, 0)$ (for $\bar{V}$); (b) the $\mathfrak{sl}_3$ weight triangles of $V = \mathbf{3}$ and $\bar{V} = \bar{\mathbf{3}}$, contrasting the two classically allowed transitions with the quantum tunnelling transition $j=1$ in $\bar{V}$.](figures/l3_a2_chiral.svg){#fig-lec3-a2-chiral width=92% fig-alt="Two-panel figure showing the modulus and opposite phase sweeps of z_1(theta) and z_2(theta) in a_2^(1) in panel (a), and the sl_3 weight triangles of V and Vbar with allowed clockwise transitions and the quantum tunnelling transition in panel (b)."}
+![The $a_2^{(1)}$ soliton delay: (a) the common modulus $|z_1|=|z_2|>1$ and its logarithm; (b) the opposite phase sweeps of $V$ and $\bar V$; (c) the two classically allowed charge transitions for $V=\mathbf3$, with the third transition forbidden](figures/l3_a2_chiral.svg){#fig-lec3-a2-chiral width=92% fig-alt="Three panels show the common delay modulus, opposite phase sweeps, and the classically allowed transitions on the vector weight triangle."}
 
-### Complex Absorption Rapidities and Frozen Solitons Between Two Defects
+### Complex Absorption Rapidities and the Frozen-Soliton Factorization
 
-Where are the poles and zeros of $z_a(\theta)$ in (-@eq-lec3-za-formula)? For a defect jumping by class $p$ ($\theta_d \mapsto \theta_d + \frac{2\pi i p}{h}$), the numerator and denominator of $z_a(\theta)$ vanish at (see the book: [Absorption and emission](book:prp-ds-absorption), [equation](book:eq-ds-absorption)):
+For a type-I$_-$ defect of class $p$, replace $\theta_d$ by $\theta_d+2\pi ip/h$. The pole and zero of (-@eq-lec3-za-formula) are distinct:
 $$
-\theta_{\text{abs}} = \theta_d \mp i\left(\frac{\pi}{2} - \frac{\pi(a + 2p)}{h}\right).
+\theta_{\rm pole}=\theta_d+\frac{2\pi ip}{h}-i\left(\frac\pi2-\gamma_a\right),\qquad
+\theta_{\rm zero}=\theta_d+\frac{2\pi ip}{h}-i\left(\frac\pi2+\gamma_a\right)\pmod{2\pi i}.
 $$ {#eq-lec3-absorption-rapidity}
-Notice that for $a + 2p = h/2$ (which for real rapidity requires $h$ even and $a + 2p = h/2$, such as $a=1, p=0, h=2$ in sine-Gordon!), $\theta_{\text{abs}} = \theta_d$ is **real**, so a classical soliton with $\theta = \theta_d$ can be absorbed or emitted directly by the defect. For $a_2^{(1)}$ ($h=3$), $h$ is odd, so $\frac{\pi}{2} - \frac{\pi(a+2p)}{3}$ is never zero: the absorption rapidities (-@eq-lec3-absorption-rapidity) are always strictly complex! In Lecture 5, we will see that in the quantum theory these complex poles become **unstable defect–soliton resonance states** with a finite decay width.
+For real $\theta_d$, the pole is real when $a+2p\equiv h/2\pmod{2h}$, and the zero is real when $2p-a\equiv h/2\pmod{2h}$. Either condition requires even $h$. In particular, a class-zero sine-Gordon defect has a pole at $\theta=\theta_d$, whereas neither species of $a_2^{(1)}$ has a real absorption pole for any integer class. Zeros and poles describe different limiting configurations; the [book's absorption discussion](book:prp-ds-absorption) keeps track of the vacuum shift in each limit. The pole and zero equations are checked in `code/lectures/gemini_l3_verified.py`.
 
-Finally, what happens if we place a static soliton ($\theta = 0$) in the bulk and ask whether a single defect at $x=0$ can absorb it cleanly so that the right half-line $x > 0$ sits in the vacuum $\vec{\psi} = \vec{0}$?
-- For $a_1^{(1)}$ ($h=2, a=1$), $\theta_{\text{abs}} = \theta_d$ is real, so a single defect tuned to $\theta_d = 0$ ($\sigma = 1$) absorbs a static soliton at $x=0$.
-- For $a_r^{(1)}$ with $r \ge 2$ and $\gamma_a \neq \frac{\pi}{2}$, however, $z_a(0)$ in (-@eq-lec3-za-formula) never vanishes for any real $\theta_d \in \mathbb{R}$! A single real type-I$_-$ defect **cannot** terminate a static soliton with $a \neq h/2$.
-- How can we trap a static soliton on a half-line? Look at the numerator of $z_a(0)$ for a type-I$_-$ defect with parameter $\sigma_- = e^{-\theta_1}$ and a type-I$_+$ defect (defined with the transpose clock shift $\pi^{-1}$, so $\gamma_a \mapsto -\gamma_a$) with parameter $\sigma_+ = e^{-\theta_2}$:
-  $$
-  z_a^{\text{I}_-}(0)\,z_a^{\text{I}_+}(0) = \frac{\sigma_- - i e^{i\gamma_a}}{\sigma_- - i e^{-i\gamma_a}} \cdot \frac{\sigma_+ - i e^{-i\gamma_a}}{\sigma_+ - i e^{i\gamma_a}}.
-  $$
-  Even better, as shown in the book's [A pair of defects as a frozen soliton](book:prp-defect-frozen-soliton), if you place a **pair** of defects—one of type I$_-$ and one of type I$_+$—their combined transmission factor can vanish or diverge for real defect parameters, freezing a static soliton between them!
+The phrase *a pair of defects as a frozen soliton* needs a precise meaning. Two class-zero defects at real parameters do not acquire a zero by multiplication: each delay has modulus greater than one. Instead, one asks whether their product reproduces a soliton interaction coefficient for every incident species. A type-I$_+$ defect is the time reverse of type I$_-$, with delay $z_a(\theta_d-\theta)$; transposing $\mathsf D$ gives the spatial mirror, a different operation.
+
+For a soliton of species $c$ and rapidity $\theta_c$, choose the effective defect rapidities
+$$
+\vartheta=\theta_c+i\left(\frac\pi2+\gamma_c\right),\qquad \bar\vartheta=\theta_c-i\left(\frac\pi2+\gamma_c\right).
+$$
+Direct multiplication gives
+$$
+z_a(\theta-\vartheta)z_a(\bar\vartheta-\theta)
+=e^{2i\gamma_a}\frac{\cosh(\theta-\theta_c)-\cos(\gamma_c-\gamma_a)}{\cosh(\theta-\theta_c)-\cos(\gamma_c+\gamma_a)}.
+$$
+The fraction is the soliton interaction coefficient $A_{ca}$, and the prefactor is a diagram rotation. This identity is checked in `code/lectures/gemini_l3_verified.py`. The parameters are generally complex; particular charged sectors realize them using real bare parameters. See [the book's precise statement](book:prp-defect-frozen-soliton) for that restriction and the energy normalization. This factorization does not assert that an arbitrary pair of real defects terminates a static soliton.
 
 ---
 
@@ -481,8 +497,8 @@ Finally, what happens if we place a static soliton ($\theta = 0$) in the bulk an
 **Explicit Matrices $E$ and $\mathsf{D}$ for $a_2^{(1)}$.**
 For $a_2^{(1)}$ ($r=2, h=3$), the simple roots $\vec{\alpha}_1, \vec{\alpha}_2 \in \mathbb{R}^2$ have $\vec{\alpha}_1\cdot\vec{\alpha}_1 = \vec{\alpha}_2\cdot\vec{\alpha}_2 = 2$ and $\vec{\alpha}_1\cdot\vec{\alpha}_2 = -1$, and $\vec{\alpha}_0 = -(\vec{\alpha}_1 + \vec{\alpha}_2)$.
 1. Write the matrix of the clock shift $\pi$ ($\pi\vec{\alpha}_1 = \vec{\alpha}_0 = -\vec{\alpha}_1 - \vec{\alpha}_2$, $\pi\vec{\alpha}_2 = \vec{\alpha}_1$) in the basis $\{\vec{\alpha}_1, \vec{\alpha}_2\}$.
-2. Compute $\mathsf{D} = 2(1 - \pi^{-1})^{-1}$ and $E = 1 - \mathsf{D}$ explicitly as $2\times 2$ matrices, and verify that $\mathsf{D} + \mathsf{D}^{\mathsf{T}} = 2\,1_2$, $\mathsf{D}\mathsf{D}^{\mathsf{T}} = 1_2 - E^2 = \frac{4}{3}\,1_2$, and that the eigenvalues of $\mathsf{D}$ are $1 \pm \frac{i}{\sqrt{3}} = 1 \pm i\cot\frac{\pi}{3}$.
-3. Verify the matrix of inner products $\vec{\alpha}_i \cdot \mathsf{D}\vec{\alpha}_j = 2\delta_{ij} - 2\delta_{i+1,j}$ for all $i,j \in \{0,1,2\}$.
+2. In this non-orthonormal root basis, the Euclidean adjoint is $A^\dagger=G^{-1}A^{\mathsf T}G$, where $G=\begin{pmatrix}2&-1\\-1&2\end{pmatrix}$. Use this adjoint for the operators denoted by a transpose in the coordinate-free formulas below. Compute $\mathsf{D} = 2(1 - \pi)^{-1}$ and $E = 1 - \mathsf{D}$ explicitly as $2\times 2$ matrices, and verify that $\mathsf{D} + \mathsf{D}^{\mathsf{T}} = 2\,1_2$, $\mathsf{D}\mathsf{D}^{\mathsf{T}} = 1_2 - E^2 = \frac{4}{3}\,1_2$, and that the eigenvalues of $\mathsf{D}$ are $1 \pm \frac{i}{\sqrt{3}} = 1 \pm i\cot\frac{\pi}{3}$.
+3. Verify the matrix of inner products $\vec{\alpha}_i \cdot \mathsf{D}\vec{\alpha}_j = 2\delta_{ij} - 2\delta_{i,j+1}$ for all $i,j \in \{0,1,2\}$.
 :::
 
 ::: {#exr-lec3-poisson-ld}
