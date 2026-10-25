@@ -361,12 +361,12 @@ Drafted by Claude in commit 62d4bb6 (merged with main in ccb4c15). **Under refer
   - 𝒲 as a dynamical boundary module;
   - the third column of `tbl-boundary-defect-algebra`.
 - **Ch. 43 (open problems):**
-  - a proof of `cnj-defect-tq` for all N;
+  - ~~a proof of `cnj-defect-tq` for all N~~: done 2026-10-25, now `prp-defect-tq` [Theorem] on the finite chain (trace per state, kernel and quotient; `briefs/pr60_verified_integration_report.md`);
   - the meaning of ω = q^{−m/2};
   - KL's same-chirality terms beyond first order;
   - q̂ vs q;
   - convergence of Runkel's defect operators;
-  - a proof of `cnj-defect-tq` via Weston's exact sequence (Sec. 2.4.1) in book conventions, with the scalar factors, and the image/kernel identification of the bootstrap reading; a detailed comparison with Rossi–Weston's stripped Q-matrix and their q^n = 1 condition in charged sectors;
+  - the scalar factors and pole normalization needed to read `prp-defect-tq` (whose proof writes out Weston's kernel and quotient, scalar-free) as the physical defect bootstrap; a proof that two Weyl defect operators commute for all N; a detailed comparison with Rossi–Weston's stripped Q-matrix and their q^n = 1 condition in charged sectors;
   - analytic control of the Fock Q-operators at physical q (auxiliary–auxiliary intertwiners, mutual commutation) and a canonical regularization of the bilateral Weyl trace;
   - defects at roots of unity (q rational in λ): reducible Weyl modules and extra intertwiners;
   - the compact-boson realization of the massless defect gluing (T-duality interface vs a line of one theory);

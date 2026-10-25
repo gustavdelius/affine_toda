@@ -79,7 +79,7 @@ With multiplets and defect states the calculation is the same, component by comp
 
 ::: {#thm-l9-crossing}
 ## Crossing from folding
-**[Theorem]** The doubled boundary (-@eq-l9-doubled-K) satisfies boundary unitarity and crossing-unitarity (-@eq-l9-crossing-unitarity) if and only if the defect satisfies unitarity (-@eq-l1-window-unitarity) and crossing (-@eq-l1-window-crossing), with the defect labels unchanged.
+**[Established; reformulated]** The doubled boundary (-@eq-l9-doubled-K) satisfies boundary unitarity and crossing-unitarity (-@eq-l9-crossing-unitarity) if and only if the defect satisfies unitarity (-@eq-l1-window-unitarity) and crossing (-@eq-l1-window-crossing), with the defect labels unchanged.
 :::
 
 ::: {.proof}
@@ -153,7 +153,7 @@ Nothing depends on $a$, so we may let $a\to0$: a defect pressed against a bounda
 
 ::: {#thm-l9-fusion}
 ## Fusion keeps the boundary axioms
-**[Theorem]** Let the bulk scattering be diagonal, with a single self-conjugate species. If $K$ satisfies boundary unitarity and crossing-unitarity, $K(\frac{i\pi}2-\theta)=S(2\theta)K(\frac{i\pi}2+\theta)$, and $\mathbb T$, $\bar{\mathbb T}$ satisfy defect unitarity and crossing, then $K_{\rm f}=\bar{\mathbb T}K\mathbb T$ satisfies boundary unitarity and crossing-unitarity.
+**[Established; reformulated]** Let the bulk scattering be diagonal, with a single self-conjugate species. If $K$ satisfies boundary unitarity and crossing-unitarity, $K(\frac{i\pi}2-\theta)=S(2\theta)K(\frac{i\pi}2+\theta)$, and $\mathbb T$, $\bar{\mathbb T}$ satisfy defect unitarity and crossing, then $K_{\rm f}=\bar{\mathbb T}K\mathbb T$ satisfies boundary unitarity and crossing-unitarity.
 :::
 
 ::: {.proof}
@@ -414,7 +414,7 @@ and the phase of $Y_1$, the clock of its oscillation, is shifted by $\arg z(u+i\
 
 ::: {#thm-l9-breather}
 ## The quantum breathers become the classical breather
-**[Theorem]** Fix $\alpha\in(0,\frac\pi2)$ and real $u=\theta-\theta_d$, and let $\lambda\to\infty$ with $\frac{n\pi}{2\lambda}=\frac\pi2-\alpha$. Write $\mathbb T_{B_n}=e^{i\delta_n}$. Then
+**[Theorem]** Fix $\alpha\in(0,\frac\pi2)$ and real $u=\theta-\theta_d$, and let $\lambda\to\infty$ with $\frac{n\pi}{2\lambda}=\frac\pi2-\alpha$. Write $\mathbb T_{B_n}=e^{i\delta_n}$. Then, with a continuous branch of the logarithm along the string,
 
 $$
 \begin{aligned}
@@ -423,7 +423,7 @@ $$
 \end{aligned}
 $$
 
-Consequently the delay $\frac{d\delta_n}{dE}$ of Wigner's relation, with $E=m_n\cosh\theta$, tends to the delay $\Delta t$ of the classical breather, and $\delta_{n+1}-\delta_n$ tends to the shift of its clock.
+Consequently, for $\sinh\theta\ne0$, the delay $\frac{d\delta_n}{dE}$ of Wigner's relation, with $E=m_n\cosh\theta$, tends to the delay $\Delta t$ of the classical breather, and $\delta_{n+1}-\delta_n$ tends to the shift of its clock.
 :::
 
 ::: {.proof}

@@ -26,7 +26,8 @@ Checks:
  4. The matrix part (sympy, identically in y, y_d, e^{i eta}, q^n, q^s): on the sector {v+ |n>, v- |n+1>},
     T(-theta)^-1 K_D T(theta) = c (Lambda D_n)^-1 M_GZ (Lambda D_n), Lambda = diag(1, -e^{i eta}),
     D_n = diag(q^-n, q^{n+1+s}), at vartheta = lam theta_d; c = 1 is exactly the scalar identity of check 3.
-    Controls: vartheta = -lam theta_d and vartheta = theta_d fail.
+    Controls: vartheta = -lam theta_d and vartheta = theta_d fail.  K_f is not a scalar on W: its off-diagonal entries are
+    nonzero at a generic point, and for K = 1 the entry (1, 2) of A(Y')^-1 A(Y) is i(Y' - Y)/(1 + Y'^2).
  5. Spin-3 charges (sympy, exact): q_{-3}, q_{+3} are conserved with the currents j_{-3}, j_{+3} on shell; the defect
     flux equals -d/dt (D_{-3} + D_{+3}) on the type-I_- conditions (re-derives the conventions of prp-sg-spin-three);
     at a Dirichlet end the flux of q_{-3}+q_{+3} is -(beta/m0) sin(beta phi_D) d/dt psi_x.
@@ -214,9 +215,16 @@ def check_matrix_part():
     ok_main, ratio = res['lam theta_d']
     expected = PhiR * (1 + yd**-2) / ((1 + y**-2 * yd**-2) * Sig)
     ok_scalar = sp.simplify(ratio - expected) == 0
+    # K_f is a general GZ matrix in each sector, not a scalar on W: its off-diagonal entries are generically nonzero,
+    # already for K = 1, where the entry (1, 2) is i(Y' - Y)/(1 + Y'^2)
+    off1 = sp.simplify((A(Yp).inv() * A(Y))[0, 1] - sp.I * (Yp - Y) / (1 + Yp**2)) == 0
+    gen = {y: sp.Rational(13, 10), yd: sp.Rational(7, 10), E: sp.exp(sp.I * sp.Rational(2, 5)), Qn: sp.Rational(11, 10),
+           Qs: sp.Rational(9, 10), sp.Symbol('q'): sp.exp(sp.I * sp.sqrt(2)), PhiR: 1}
+    off_gen = min(abs(complex(Kf[0, 1].subs(gen))), abs(complex(Kf[1, 0].subs(gen))))
     report('matrix part: K_f = (Lambda D_n)^-1 GZ (Lambda D_n) at vartheta = lam theta_d, common factor 1 iff the '
-           'scalar identity; controls -lam theta_d, theta_d fail',
-           ok_main and ok_scalar and not res['-lam theta_d'][0] and not res['theta_d'][0])
+           'scalar identity; controls -lam theta_d, theta_d fail; K_f is not a scalar on W: off-diagonal entries '
+           f'{off_gen:.2f} at a generic point, i(Y\' - Y)/(1 + Y\'^2) for K = 1',
+           ok_main and ok_scalar and not res['-lam theta_d'][0] and not res['theta_d'][0] and off1 and off_gen > 1e-3)
 
 
 # ---------------------------------------------------------------- 5, 6. spin-3 charges

@@ -13,7 +13,7 @@
 
 ## The question {#sec-l5-question}
 
-Lecture 3 asked which theories of a single scalar field have a momentum-conserving defect, and the answer was sharp. The difference of the bulk potentials must factorize in the light-cone coordinates of field space, and only exponential potentials pass the test (@prp-l3-which). The affine Toda theories are the natural candidates beyond sine-Gordon theory. Their potentials are sums of exponentials of $r$ fields, one exponential for each node of an affine Dynkin diagram, and sine-Gordon theory is the case of two nodes. Every one of them has integrable boundaries (see the book's [table of integrable boundary conditions](book:tbl-durham)). So it is natural to guess that every one of them also has such defects. The guess is wrong, and this lecture asks why:
+Lecture 3 asked which theories of a single scalar field have a momentum-conserving defect, and the answer was sharp. The difference of the bulk potentials must factorize in the light-cone coordinates of field space, and the non-linear interacting cases have exponential potentials (@prp-l3-which). The affine Toda theories are the natural candidates beyond sine-Gordon theory. Their potentials are sums of exponentials of $r$ fields, one exponential for each node of an affine Dynkin diagram, and sine-Gordon theory is the case of two nodes. Every one of them has integrable boundaries (see the book's [table of integrable boundary conditions](book:tbl-durham)). So it is natural to guess that every one of them also has such defects. The guess is wrong, and this lecture asks why:
 
 > Which affine Toda theories have such defects, and why only those?
 
@@ -152,7 +152,7 @@ $$
 \partial_+\big(\vec\phi-\vec\psi\big)=-2\nabla f(\vec\xi),\qquad\partial_-\big(\mathsf D^{\mathsf T}\vec\phi+\mathsf D\vec\psi\big)=2\nabla g(\vec\eta)\qquad\text{at }x=0 .
 $$ {#eq-l5-lightcone}
 
-For sine-Gordon theory these are (-@eq-l4-conditions). One light-cone derivative of the jump is set by the half $f$, and the other light-cone derivative of $\vec\xi$ by the half $g$.
+They are the book's [light-cone defect conditions](book:eq-dc-lightcone), obtained from its [two halves](book:eq-dc-halves), and for sine-Gordon theory they are (-@eq-l4-conditions). One light-cone derivative of the jump is set by the half $f$, and the other light-cone derivative of $\vec\xi$ by the half $g$.
 
 ## The functional equation {#sec-l5-functional}
 
@@ -308,7 +308,7 @@ $$
 \end{aligned}
 $$ {#eq-l5-ar-lightcone}
 
-For $h=2$ these are the sinh-Gordon form of (-@eq-l4-conditions), with $\Phi=\phi_0-\phi_1$, $\Psi=\psi_0-\psi_1$ and $m_0=2m$ (@exr-l5-a2).
+The exponentials are the book's [component defect factors](book:eq-dc-components). For $h=2$ the conditions are the sinh-Gordon form of (-@eq-l4-conditions), with $\Phi=\phi_0-\phi_1$, $\Psi=\psi_0-\psi_1$ and $m_0=2m$ (@exr-l5-a2).
 
 **Unfrozen, it is a Bäcklund transformation.** Impose (-@eq-l5-lightcone) at every $x$. Apply $\partial_-$ to the first equation and $\partial_+$ to the second, and use each equation in the other:
 
@@ -338,7 +338,7 @@ $$
 L_d^{\rm I_+}(\vec\phi,\vec\psi;\sigma)=L_d^{\rm I_-}\big(\rho\vec\phi,\rho\pi^{-1}\vec\psi;\sigma\big).
 $$ {#eq-l5-types}
 
-The kinetic terms agree because $\rho\mathsf E\rho=-\mathsf E$ and $\rho\mathsf D\rho\pi^{-1}=\mathsf D^{\mathsf T}\pi^{-1}=-\mathsf D$, where the last step is (-@eq-l5-partner) in the form $\mathsf D^{\mathsf T}=-\mathsf D\pi$. The potentials agree because the map exchanges the two kinds of exponential, $f_j\to g_{-j}$ and $g_j\to f_{-j}$, and $\sigma$ with $\sigma^{-1}$ with them. **A type-I$_+$ defect is a type-I$_-$ defect seen through one reflection of the diagram on the left and another, $\rho\pi^{-1}$, on the right.** For sine-Gordon theory $\rho=1$ and $\pi^{-1}=-1$, which is the map $\Psi\to-\Psi$. The book relates the two types by time reversal instead (see its [defect Lagrangian](book:sec-defect-lagrangian)); both relations hold (@exr-l5-types).
+The kinetic terms agree because $\rho\mathsf E\rho=-\mathsf E$ and $\rho\mathsf D\rho\pi^{-1}=\mathsf D^{\mathsf T}\pi^{-1}=-\mathsf D$, where the last step is (-@eq-l5-partner) in the form $\mathsf D^{\mathsf T}=-\mathsf D\pi$. The potentials agree because the map exchanges the two kinds of exponential, $f_j\to g_{-j}$ and $g_j\to f_{-j}$, and $\sigma$ with $\sigma^{-1}$ with them. **A type-I$_+$ defect is a type-I$_-$ defect seen through one reflection of the diagram on the left and another, $\rho\pi^{-1}$, on the right.** For sine-Gordon theory $\rho=1$ and $\pi^{-1}=-1$, which is the map $\Psi\to-\Psi$. The book gives the same [relation between type I$_+$ and type I$_-$](book:prp-dc-types), together with the time-reversal relation; both hold (@exr-l5-types).
 
 ::: {.callout-note collapse="true" title="Check it yourself"}
 Item (m) of `code/lectures/defects_l5_cycle.py` checks (-@eq-l5-types) for $h=2,\dots,5$, kinetic terms and potentials. It maps type-I$_-$ soliton solutions by $(\rho,\pi\rho)$ and checks that the images satisfy the type-I$_+$ conditions but not the type-I$_-$ ones.

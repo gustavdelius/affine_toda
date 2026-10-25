@@ -289,7 +289,7 @@ The connection to Baxter's relation is representation-theoretic. A suitable tens
 $$
 \mathcal T(z)\mathcal Q(z)=a(z)\mathcal Q(qz)+d(z)\mathcal Q(q^{-1}z).
 $$ {#eq-lec4-baxter-tq}
-Here $z$ is a multiplicative spectral parameter. The coefficients $a,d$, the twist and any shift of the module offset depend on the normalization and the chain. They cannot be dropped for the inhomogeneous chain without a calculation. The [Fock relation in the book](book:eq-dq-tq-fock) supplies its coefficients; the corresponding [Weyl relation](book:cnj-defect-tq) is stated with its numerical status. This is the precise sense in which oscillator fusion connects the defect bootstrap with $TQ$ relations.
+Here $z$ is a multiplicative spectral parameter. The coefficients $a,d$, the twist and any shift of the module offset depend on the normalization and the chain. They cannot be dropped for the inhomogeneous chain without a calculation. The [Fock relation in the book](book:eq-dq-tq-fock) supplies its coefficients; the corresponding [Weyl relation](book:prp-defect-tq) is proved there for the finite chain. This is the precise sense in which oscillator fusion connects the defect bootstrap with $TQ$ relations.
 
 Finally, as $\theta-\theta_d\to-\infty$, $Y\to0$ and the converting entries of (-@eq-lec4-sg-t-explicit) vanish. The remaining diagonal factors $q^{-n}$ and $q^{n+s}$ give the Cartan twist. This limit follows directly from the matrix entries and connects with the Bloch twist of Lecture 1 (@sec-lec1-circle).
 

@@ -20,6 +20,14 @@ Checks (book ids they support):
     imposed at a point and arbitrary phi, psi, phi_t, psi_t there, d_x L_d = L_d a_x(psi) - a_x(phi) L_d and
     d_t L_d = L_d a_t(psi) - a_t(phi) L_d (chain rule, relative residual < 1e-12).  Controls: sigma -> 1.2 sigma in L_d, and
     E -> 0.6 E in the conditions, fail.
+ 4. Type I_+ (sympy): with x = lambda/sigma and c = 1 - x^h, M = c L_d^{-1} has the diagonal entries exp(b(phi_k - psi_k)/2), the
+    entries -x exp(b(psi_j - phi_{j+1})/2) at (j, j+1) and no others, and det L_d = c^(h-1) (numerical, h = 2, ..., 5).  The
+    equation d_+- M = M A_+-(phi) - A_+-(psi) M, equivalent to eq-dc-gauge away from the zeros of c, vanishes at orders lambda^2,
+    lambda^0 (d_+) and lambda, lambda^-1 (d_-) identically; its order lambda (d_+) is -(b/sigma) exp(b(psi_j - phi_{j+1})/2) times
+    [d_+(psi_j - phi_{j+1}) + (m sigma/b)(g_j - g_{j+1})] at (j, j+1), and its order lambda^0 (d_-) is b exp(b(phi_k - psi_k)/2) times
+    [d_-(phi_k - psi_k) - (m/(b sigma))(f_k - f_{k-1})] on the diagonal (h = 2, 3, 4 with free field components, the case h = 2
+    being the wrap-around).  The four local exponential identities behind these orders are checked with six free symbols
+    phi_j, phi_{j+1}, phi_{j+2}, psi_j, psi_{j+1}, psi_{j+2}, which proves them for every h.
 Runtime: about 10 seconds.
 """
 import numpy as np
@@ -242,3 +250,80 @@ for h in [2, 3, 4, 5]:
                 ctrl3 &= gauge_resid(h, typ, b_, Escale=0.6) > 1e-3
 report('3. d_x L_d = L_d a_x(psi) - a_x(phi) L_d and d_t L_d = L_d a_t(psi) - a_t(phi) L_d on the defect conditions, '
        'h = 2..5, both types, both couplings (controls: 1.2 sigma in L_d and 0.6 E in the conditions fail)', ok3 and ctrl3)
+
+
+# ---------------- 4. type I_+: the scaled inverse M = c(lambda) L_d^{-1}, order by order (sympy)
+x_ = lam/sig
+ok4 = True
+for h in [2, 3, 4, 5]:
+    d = setup(h)
+    for _ in range(3):
+        lv, sv, bv = rng.normal() + 1j*rng.normal(), 0.6 + 0.3j, 0.9
+        ph, ps = hyper(h), hyper(h)
+        Lv = Ld(d, ph, ps, lv, bv, sv, '+')
+        cv = 1 - (lv/sv)**h
+        Mv = np.zeros((h, h), complex)
+        for k in range(h):
+            Mv[k, k] = np.exp(bv*(ph[k] - ps[k])/2)
+            Mv[k, (k + 1) % h] += -(lv/sv)*np.exp(bv*(ps[k] - ph[(k + 1) % h])/2)
+        ok4 &= np.linalg.norm(cv*np.linalg.inv(Lv) - Mv) < 1e-10*np.linalg.norm(Mv)
+        ok4 &= abs(np.linalg.det(Lv) - cv**(h - 1)) < 1e-10*abs(cv)**(h - 1)
+for h in [2, 3, 4]:
+    # free components: the identities are identities between exponentials and need no hyperplane constraint
+    phi, psi = sp.Matrix(sp.symbols('phi0:%d' % h)), sp.Matrix(sp.symbols('psi0:%d' % h))
+    dpp, dps = sp.Matrix(sp.symbols('dpphi0:%d' % h)), sp.Matrix(sp.symbols('dppsi0:%d' % h))
+    dmp, dms = sp.Matrix(sp.symbols('dmphi0:%d' % h)), sp.Matrix(sp.symbols('dmpsi0:%d' % h))
+    G = [sp.exp(b*(phi[k] - psi[k])/2) for k in range(h)]                 # g_k^{1/2}
+    F = [sp.exp(b*(psi[j] - phi[(j + 1) % h])/2) for j in range(h)]       # f_j^{1/2}
+    M = sp.zeros(h, h)
+    for k in range(h):
+        M[k, k] += G[k]
+        M[k, (k + 1) % h] += -x_*F[k]
+
+    def dM(dph, dps_):
+        out = sp.zeros(h, h)
+        for k in range(h):
+            out[k, k] += b/2*(dph[k] - dps_[k])*G[k]
+            out[k, (k + 1) % h] += -x_*b/2*(dps_[k] - dph[(k + 1) % h])*F[k]
+        return out
+
+    def A(f, df, sign):
+        out = sp.zeros(h, h)
+        for k in range(h):
+            out[k, k] += sign*b/2*df[k]
+        for j in range(h):
+            jp = (j + 1) % h
+            ex = sp.exp(b*(f[j] - f[jp])/2)
+            if sign > 0:
+                out[j, jp] += m*lam*ex
+            else:
+                out[jp, j] += -m/lam*ex
+        return out
+
+    def order(Mx, n):
+        return Mx.applyfunc(lambda e: sp.Poly(sp.expand(e*lam**3), lam).coeff_monomial(lam**(n + 3)))
+
+    zero = lambda Mx: all(sp.simplify(sp.powsimp(e)) == 0 for e in Mx)
+    Rp = sp.expand(dM(dpp, dps) - M*A(phi, dpp, 1) + A(psi, dps, 1)*M)
+    Rm = sp.expand(dM(dmp, dms) - M*A(phi, dmp, -1) + A(psi, dms, -1)*M)
+    fj = [sp.exp(b*(psi[j] - phi[(j + 1) % h])) for j in range(h)]
+    gj = [sp.exp(b*(phi[j] - psi[j])) for j in range(h)]
+    pred_p, pred_m = sp.zeros(h, h), sp.zeros(h, h)
+    for j in range(h):
+        jp = (j + 1) % h
+        pred_p[j, jp] += -(b/sig)*F[j]*((dps[j] - dpp[jp]) + m*sig/b*(gj[j] - gj[jp]))
+        pred_m[j, j] += b*G[j]*((dmp[j] - dms[j]) - m/(b*sig)*(fj[j] - fj[(j - 1) % h]))
+    ok4 &= zero(order(Rp, 2)) and zero(order(Rp, 0)) and zero(order(Rp, 1) - pred_p)
+    ok4 &= zero(order(Rm, 1)) and zero(order(Rm, -1)) and zero(order(Rm, 0) - pred_m)
+# the local identities behind the orders lambda^2, lambda (d_+) and lambda^-1, lambda^0 (d_-), with six free symbols
+p0, p1, p2, s0, s1, s2 = sp.symbols('p0 p1 p2 s0 s1 s2')
+ex = lambda u: sp.exp(b*u/2)
+loc = [ex(s0 - p1)*ex(p1 - p2) - ex(s0 - s1)*ex(s1 - p2),
+       ex(p1 - s1)*ex(p0 - p1) - ex(s0 - s1)*ex(p0 - s0),
+       ex(p0 - s0)*ex(p0 - p1) - ex(s0 - s1)*ex(p1 - s1) - ex(s0 - p1)*(ex(2*(p0 - s0)) - ex(2*(p1 - s1))),
+       ex(s1 - p2)*ex(p1 - p2) - ex(s0 - s1)*ex(s0 - p1) - ex(p1 - s1)*(ex(2*(s1 - p2)) - ex(2*(s0 - p1)))]
+ok4 &= all(sp.simplify(sp.powsimp(e)) == 0 for e in loc)
+report('4. type I_+: c(lambda) L_d^{-1} = M with diagonal exp(b(phi_k - psi_k)/2) and entries -(lambda/sigma) '
+       'exp(b(psi_j - phi_{j+1})/2) at (j, j+1), det L_d = c^(h-1) (h = 2..5); the d_+ equation for M is '
+       'd_+(psi_j - phi_{j+1}) = -(m sigma/b)(g_j - g_{j+1}) and the d_- equation is d_-(phi_k - psi_k) = (m/(b sigma))(f_k - f_{k-1}), '
+       'all other orders vanishing (sympy, h = 2, 3, 4, and the local identities with six free symbols)', ok4)

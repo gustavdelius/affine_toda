@@ -115,7 +115,7 @@ which equals $2hm^2$ for simply-laced $\hat g$. For simply-laced $\hat g$ the ma
 | $d_n^{(1)}$ | $m_a=2\sqrt2\,m\sin\frac{\pi a}h$, $a=1,\dots,n-2$; $m_s=m_{s'}=\sqrt2\,m$, $h=2n-2$ |
 | $e_8^{(1)}$ | $m_1$, $m_2=2m_1\cos\frac\pi5$, $m_3=2m_1\cos\frac\pi{30}$, $m_4=2m_2\cos\frac{7\pi}{30}$, $m_5=2m_2\cos\frac{2\pi}{15}$, $m_6=2m_2\cos\frac\pi{30}$, $m_7=4m_2\cos\frac\pi5\cos\frac{7\pi}{30}$, $m_8=4m_2\cos\frac\pi5\cos\frac{2\pi}{15}$ |
 
-`code/toda_classical.py` checks the Perron–Frobenius property and the sum rule for $a_2$, $a_5$, $d_4$, $d_6$, $e_6$, $e_7$ and $e_8$. `code/algebra_data.py` checks the $a_n$ and $d_n$ rows of the table for $n\le8$ and the folded masses below.
+`code/toda_classical.py` checks the Perron–Frobenius property and the sum rule for $a_2$, $a_5$, $d_4$, $d_6$, $e_6$, $e_7$ and $e_8$. `code/algebra_data.py` checks all three rows of the table ($a_n$ and $d_n$ for $n\le8$, and $e_8$) and the folded masses below.
 
 The degeneracies $m_a=m_{h-a}$ of $a_n^{(1)}$ reflect the $\mathbb Z_h$ symmetry of the affine diagram: particle $h-a$ is the antiparticle of $a$. For non-simply-laced $\hat g$ the masses are obtained by folding (@sec-affine-folding), as the subset of masses of the parent theory whose eigenvectors are invariant under the folding symmetry (@exr-fold-mass). For example $c_n^{(1)}$, folded from $a_{2n-1}^{(1)}$, has $m_a=2m\sin\frac{\pi a}{2n}$, $a=1,\dots,n$.
 

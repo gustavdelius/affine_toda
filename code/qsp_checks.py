@@ -435,3 +435,27 @@ for N in (3, 4):
 report('det of eq-an-k-matrix = const X^(-N^2/2) (X^N - s(-q)^N)(X^N - s)^(N-1), X = (-q)^(1/2) y (N = 3, 4; sympy)',
        ok)
 
+
+# Baseilhac-Koizumi (19) and q-Dolan-Grady on a Heisenberg module.
+worst_bk = 0.0
+N_bk = 15
+keep_bk = slice(4, N_bk - 4)
+U_bk = np.diag(np.ones(N_bk - 1, complex), k=-1)
+ks_bk = np.arange(N_bk) - N_bk // 2
+for q_bk in (-np.exp(-1j*np.pi*np.sqrt(2)), QG):
+    V_bk = np.diag(q_bk**(-2.0*ks_bk))
+    Vi_bk = np.diag(q_bk**(2.0*ks_bk))
+    c_bk, a_bk, b_bk = 0.9-0.3j, 1.3-0.4j, 0.8+0.7j
+    f_bk = 1j*c_bk/(q_bk-1/q_bk)
+    Ep_bk = f_bk*(a_bk*U_bk + U_bk.T/a_bk)
+    Em_bk = f_bk*(b_bk*V_bk + Vi_bk/b_bk)
+    rho_bk = c_bk**2*(q_bk+1/q_bk)**2
+    pairs_bk = [
+        (Ep_bk@Em_bk@Em_bk@Ep_bk-Em_bk@Ep_bk@Ep_bk@Em_bk,
+         rho_bk*(Ep_bk@Ep_bk-Em_bk@Em_bk)),
+        (serre(Ep_bk, Em_bk, -2, q_bk), rho_bk*(Ep_bk@Em_bk-Em_bk@Ep_bk)),
+        (serre(Em_bk, Ep_bk, -2, q_bk), rho_bk*(Em_bk@Ep_bk-Ep_bk@Em_bk))]
+    for lhs_bk, rhs_bk in pairs_bk:
+        worst_bk = max(worst_bk, rel(lhs_bk[:, keep_bk], rhs_bk[:, keep_bk]))
+report(f'BK Heisenberg realization: (19) and q-Dolan-Grady [{worst_bk:.1e}]',
+       worst_bk < 1e-12)

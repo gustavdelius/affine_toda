@@ -176,3 +176,17 @@ Ghoshal and Zamolodchikov's Dirichlet relation ξ = 4πφ_0/β (their (5.27)) ha
 | [referee_bsg_dirichlet_sign_scripts/](referee_bsg_dirichlet_sign_scripts/README.md) | Independent computations and outputs, original book-script comparison logs, and source archive checksums. `integration/` holds the integrator's own Rule-1 checks. |
 
 **Report integrated (2026-10-25).** No label upgraded. Files covered: `part7-half-line/30-boundary-sine-gordon.qmd` (`sec-bsg-parameters`, `prp-bsg-spectrum`, `sec-shg-boundary-breathers`, the chapter notes), `part7-half-line/33-boundary-quantum-groups.qmd` (`sec-boundary-charges`, `prp-dm-first-order`), the new items in `appendices/D-corrections.qmd`, and `code/bsg_dirichlet_sign.py`.
+
+## PR #60 reports: independent verification and integration (2026-10-25)
+
+PR #60 collected referee reports on Part VIII and on the Claude defect course. Codex (GPT-6) verified every claim in them independently and wrote three new reports. Each report gives a verdict per item, its evidence, and exact dispositions. The editor authorized integrating the certified dispositions without re-deriving them. Claude integrated them on branch `claude/pr60-verified-integration`; the record is the `## Claude integration` section of the handoff.
+
+| File | What it is |
+|---|---|
+| [pr60_verified_integration_report.md](pr60_verified_integration_report.md) | Handoff: scope, the editor's exception to Rule 1, the integration order, and the `## Claude integration` record (what was implemented, deviations, label changes) |
+| [pr60_classical_verified_report.md](pr60_classical_verified_report.md) | Ch. 39 and Lectures 1–6: type-I$_+$ gauge proof (packet A), no-go completion, the Delfino–Mussardo–Simonetti normalization, link and wording fixes. Scripts in `pr60_classical_verified_scripts/` |
+| [pr60_quantum_verified_report.md](pr60_quantum_verified_report.md) | Ch. 38, 41, 43 and Lectures 7–9: breather and Weyl-pair labels, the odd-jump zero-rapidity case, the finite-chain t–D and TQ theorems, Appendix E bullets. Scripts in `pr60_quantum_verified_scripts/` |
+| [pr60_open_verified_report.md](pr60_open_verified_report.md) | Open items O1–O8 and the exercise census: the $a_5^{(2)}$ one-loop index, stale IRF flags, E8 and Baseilhac–Koizumi checks, 84 exercises. Scripts in `pr60_open_verified_scripts/` |
+| `pr60_verification_checkpoint.md` | The verifiers' checkpoint |
+
+**Integrated (2026-10-25).** Labels changed: `prp-dc-gauge` to [Theorem]; `prp-defect-transfer` (2) and `prp-defect-tq` (formerly `cnj-defect-tq`) to [Theorem] for the finite chain, with D–D commutation [Numerical]; `prp-sg-breather-transmission` and `prp-dq-two-weyl-pairs` to [Established; reformulated…]; in the lectures `thm-l7-breather`, `thm-l9-crossing` and `thm-l9-fusion` to [Established; reformulated…]. New or extended checks: `code/defect_ar_gauge.py`, `code/defect_transfer.py`, `code/defect_sg_scalar_poles.py`, `code/defect_fused_boundary.py`, `code/algebra_data.py`, `code/qsp_checks.py`, `code/rmatrix/smatrix/oneloop_ratio.py`.

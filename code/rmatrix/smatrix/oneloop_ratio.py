@@ -22,7 +22,7 @@ def tree_over_4m2sinh(m2, C3, C4, a, th):
 def blk(x, H, th): return np.sinh(th/2 + 1j*np.pi*x/(2*H))/np.sinh(th/2 - 1j*np.pi*x/(2*H))
 def brace(x, B, H, th, nu=0.0):
     return blk(x - nu*B - 1, H, th)*blk(x + nu*B + 1, H, th)/(blk(x + nu*B + B - 1, H, th)*blk(x - nu*B - B + 1, H, th))
-def analyse(name, roots, kac, h, S11, ratio_formula, expected):
+def analyse(name, roots, kac, h, S11, ratio_formula, expected, p1=0):
     m2, C3, C4 = toda_data(roots, kac)
     dm2 = one_loop_dm2(m2, C3)
     # floating Coxeter shift from each mass ratio (relative to the lightest particle 0)
@@ -34,12 +34,15 @@ def analyse(name, roots, kac, h, S11, ratio_formula, expected):
     # tree strength: log S_11 ~ B g(theta) ; compare with i M/(4 m^2 sinh)
     eps = 1e-7; ths = [0.4, 0.9, 1.5, 2.3]
     g = [np.log(S11(h, eps, th)).imag/eps for th in ths]
-    tr = [tree_over_4m2sinh(m2, C3, C4, 0, th) for th in ths]
+    tr = [tree_over_4m2sinh(m2, C3, C4, p1, th) for th in ths]
     kap = np.array(tr)/np.array(g)
     print(f"{name}: classical mass ratios {np.round(np.sqrt(m2/m2[0]), 4)}")
     print(f"   one-loop delta H from each mass ratio: {np.round(dH, 6)}")
     print(f"   tree amplitude / g(theta) at theta = {ths}: {np.round(kap, 6)}  (constant => same tree shape)")
     print(f"   delta H / B_tree = {np.mean(dH)/np.mean(kap):.6f}   (expected {expected})")
+    target = {"c_3^(1)": 1.0, "a_5^(2)": 0.5, "f_4^(1)": 3.0, "e_6^(2)": -3.0}[name]      # e_6^(2): oneloop_e6.py
+    ok = np.ptp(dH) < 1e-6 and np.ptp(kap) < 1e-6 and abs(np.mean(dH)/np.mean(kap) - target) < 1e-4
+    print(f"{'PASS' if ok else 'FAIL'} {name}: floating-Coxeter shift and tree shape")
 # c_3^(1): long roots length^2 2
 s2 = 1/np.sqrt(2); e = np.eye(3)
 c3 = [s2*(e[0]-e[1]), s2*(e[1]-e[2]), s2*2*e[2], -s2*2*e[0]]
@@ -49,7 +52,7 @@ analyse("c_3^(1)", c3, [2, 2, 1, 1], 6, lambda h, B, th: dgz11(h + B, B, th), la
 a5 = [s2*(e[0]-e[1]), s2*(e[1]-e[2]), s2*2*e[2], -s2*(e[0]+e[1])]
 def a5ratio(a, H):            # particles 1,2 float as 2 sin(a pi/H), particle 3 fixed (m_n^2 = 2 relative units) -> use the lightest as reference
     ms = [2*np.sin(np.pi/H), 2*np.sin(2*np.pi/H), 1.0]; ms = sorted(ms); return ms[a]**2/ms[0]**2
-analyse("a_5^(2)", a5, [1, 2, 1, 1], 5, lambda h, B, th: dgz11(h + B/2, B, th), a5ratio, "1/2 (H = h + B/2)")
+analyse("a_5^(2)", a5, [1, 2, 1, 1], 5, lambda h, B, th: dgz11(h + B/2, B, th), a5ratio, "1/2 (H = h + B/2)", p1=1)
 # f_4^(1): Bourbaki roots, long length^2 2
 E4 = np.eye(4)
 f4 = [E4[1]-E4[2], E4[2]-E4[3], E4[3], 0.5*(E4[0]-E4[1]-E4[2]-E4[3]), -(E4[0]+E4[1])]

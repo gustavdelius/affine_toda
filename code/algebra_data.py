@@ -50,6 +50,13 @@ report('d_n (4<=n<=8): m_a = 2 sqrt2 m sin(pi a/h), a<=n-2, two spinors sqrt2 m'
 for n in (6, 7, 8):
     h, nj, ms = masses('e', n)
     print(f'   e_{n}: h={h}, labels sum={nj.sum()}, masses/m = {np.round(ms, 6)}')
+_, _, ms_e8 = masses('e', 8)
+c5, c30, c7, c2 = (np.cos(np.pi/5), np.cos(np.pi/30),
+                   np.cos(7*np.pi/30), np.cos(2*np.pi/15))
+r_e8 = np.array([1, 2*c5, 2*c30, 4*c5*c7, 4*c5*c2,
+                 4*c5*c30, 8*c5*c5*c7, 8*c5*c5*c2])
+report('e_8: closed-form mass ratios of sec-masses-couplings',
+       np.allclose(ms_e8/ms_e8[0], r_e8, rtol=1e-11, atol=1e-12))
 
 # untwisted non-simply-laced by folding
 ok = True

@@ -34,7 +34,7 @@ The scripts use q = e^{-i pi omega} by default. This is minus the physical value
 - `spinorn.py` caches its projectors per omega and sign of q.
 - Outputs at the physical q are in `smatrix/qsign_out/`.
 - Outputs at the default q of the $g_2^{(1)}$, $d_4^{(3)}$, $e_6^{(2)}$ and $f_4^{(1)}$ scripts, whose results depend on q^2 only, are in `smatrix/out/` (2026-10-15). `f4breather_*.txt` and `f4lift3_*.txt` are named by `AOFF`.
-- Known quirk: `oneloop_ratio.py` also prints a line for a_5^(2), with delta H / B_tree = 0.693 where it expects 1/2. The book does not use that line; the one-loop masses of a_{2n-1}^(2) are checked independently in `../../vernier/oneloop_particles.py`, which agrees with the S-matrix.
+- `oneloop_ratio.py` uses mass-eigenvalue index 1 for particle 1 of $a_5^{(2)}$, because particle 3 is lighter. It gives $\delta H/B_{\rm tree}=1/2$, with a rapidity-independent tree normalization. The one-loop masses are also checked in `../../vernier/oneloop_particles.py`.
 
 ## Sign of the scalar factor
 
@@ -68,7 +68,7 @@ The scalar factors are normalised to F(0) = -1, the sign of Zamolodchikov's S_0 
 - `d42vec.py`, `vec_calib.py` : the c_3 soliton-1 multiplet (U_q(d_4^(2)) 8 = 7+1); minimal construction reproduces the fused S_11
 - `f4rescan.py`, `f4boot.py` : complete pole scan of the 27 R-matrix; self-fusion bootstrap of the f_4^(1) amplitude
 - `f4particle2.py`, `f4order.py`, `f4cdd.py` : particle-bootstrap closure, tree-level comparison with CDS, CDD search
-- `oneloop_ratio.py`, `oneloop_e6.py` : one-loop dH/B_tree from the Toda Lagrangian (c_3: 1, f_4: 3, e_6^(2): -3)
+- `oneloop_ratio.py`, `oneloop_e6.py` : one-loop dH/B_tree from the Toda Lagrangian (c_3: 1, a_5^(2): 1/2, f_4: 3, e_6^(2): -3)
 - `f4cdd_lin.py` : exact linear-lattice search for a CDD factor on the f_4^(1) 27 amplitude (none exists; residual ~ 1/window)
 - `direct_lagrangian.py`, `direct_e6.py` : CDS-free comparison of the breather amplitudes with the Toda Lagrangian (tree shape, coupling map, one-loop masses): c_3 and e_6^(2) agree exactly, f_4^(1) off by 3/2
 - `f4cand.py` : one-loop selection of lifts: candidates T = 6w+9/2 and T = 6w-3/2 give exact one-loop masses under the gradation map; tree strength structural (1/w = beta^2/8pi)
