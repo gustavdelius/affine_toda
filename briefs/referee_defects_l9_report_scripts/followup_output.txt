@@ -1,0 +1,18 @@
+PASS fused spin3, symbolic beta,m,sigma,phi_D: 0
+PASS omitting Dirichlet term has predicted nonzero residual: 0
+omitted-term residual = beta/m sin(beta phi_D) [a + (m/2)(sigma c_plus-c_minus/sigma) v]
+PASS Dirichlet endpoint current: 0
+PASS four Gamma exponentials: 0
+PASS sector matrix and conjugation: 0
+PASS folding ratio: 0
+PASS opposite parameters transparent: 0
+PASS equal parameters block: 0
+PASS continued folded soliton delay: 0
+PASS Lee-Yang exponent: 0
+PASS boost continuation: 0
+PASS all four sector matrix entries separately: Matrix([[0, 0], [0, 0]])
+PASS boundary primitive kinetic coefficient: 0
+PASS boundary primitive potential derivative: 0
+PASS mirror D eigenvalue: 0
+PASS Tzitzeica z1 matches folded delay: 0
+PASS chirality: for phi=L(t+x)+R(t-x), E+P=2 integral R_prime^2; E-P=2 integral L_prime^2

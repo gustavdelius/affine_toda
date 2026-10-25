@@ -9,8 +9,8 @@ Panel (b): Phase shift arg z_a(theta) against theta - theta_d for the vector sol
            (0, 2*pi/3)) and the antivector soliton Vbar (a = 2, red, sweeping across (-2*pi/3, 0), or (4*pi/3, 2*pi) mod 2*pi).
 Panel (c): The sl_3 weight triangle of the fundamental soliton V = {|1>_V, |2>_V, |3>_V}: because arg z_1(theta) lies
            strictly inside (0, 2*pi/3), an incoming soliton |j>_V can keep its charge (k = 0, blue) or step once
-           clockwise along the necklace (k = 1, |j>_V -> |j+1>_V, green), whereas stepping counter-clockwise
-           (k = 2, |j>_V -> |j-1>_V, red dashed crossed arrow) is classically forbidden.
+           backward along the necklace (k = 1, |j>_V -> |j-1>_V, green), whereas stepping forward
+           (k = 2, |j>_V -> |j+1>_V, red dashed crossed arrow) is classically forbidden.
 
 Checks:
   1. Hirota 1-soliton tau-functions tau_j = 1 + omega^{aj} E_a and tildetau_j = 1 + omega^{aj} z_a(theta) E_a satisfy
@@ -260,10 +260,10 @@ for j, ((x1, y1), lab) in enumerate(zip(tri_pts, tri_labs)):
     axc.plot([x1], [y1], "o", ms=8.0, color=style.BLUE, zorder=5)
     axc.text(1.28 * x1, 1.28 * y1 + (0.06 if j == 0 else -0.06), lab, fontsize=8.2, color=style.BLUE, ha="center", va="center")
 
-# Allowed clockwise transitions p = 1 (green solid)
+# Allowed root-label lowering transitions p = 1 (green solid)
 for j in range(3):
     x1, y1 = tri_pts[j]
-    x2, y2 = tri_pts[(j + 1) % 3]
+    x2, y2 = tri_pts[(j - 1) % 3]
     axc.annotate(
         "",
         xy=(x2, y2),
@@ -278,9 +278,9 @@ for j in range(3):
         ),
     )
 
-# Forbidden counter-clockwise transition from |1>_V to |3>_V (p = 2, red dashed with X)
+# Forbidden counter-clockwise transition from |1>_V to |2>_V (p = 2, red dashed with X)
 x1, y1 = tri_pts[0]
-x3, y3 = tri_pts[2]
+x3, y3 = tri_pts[1]
 axc.annotate(
     "",
     xy=(x3, y3),
@@ -292,16 +292,16 @@ axc.annotate(
         ls="--",
         shrinkA=9,
         shrinkB=9,
-        connectionstyle="arc3,rad=0.35",
+        connectionstyle="arc3,rad=-0.35",
     ),
 )
 # Put a red X on the forbidden arc
-xm_forb, ym_forb = -0.68, 0.35
+xm_forb, ym_forb = 0.68, 0.35
 axc.plot([xm_forb], [ym_forb], "x", ms=7.0, mew=1.8, color=style.RED, zorder=6)
 
 axc.text(0.0, -0.08, r"$p=0,1$" + "\n" + r"allowed", fontsize=7.5, color=style.GREEN, ha="center", va="center")
-axc.text(0.0, -1.25, r"green: clockwise ($p=1,\ \checkmark$)", fontsize=7.3, color=style.GREEN, ha="center")
-axc.text(0.0, -1.44, r"red: anti-clock ($p=2,\ \times$)", fontsize=7.3, color=style.RED, ha="center")
+axc.text(0.0, -1.25, r"green: $j\to j-1$ ($p=1$)", fontsize=7.3, color=style.GREEN, ha="center")
+axc.text(0.0, -1.44, r"red: $j\to j+1$ ($p=2$)", fontsize=7.3, color=style.RED, ha="center")
 axc.set_title(r"(c) Chiral rule on $V=\mathbf{3}$", fontsize=8.3, color=style.GREY)
 
 fig.subplots_adjust(left=0.07, right=0.98, bottom=0.17, top=0.88, wspace=0.34)
