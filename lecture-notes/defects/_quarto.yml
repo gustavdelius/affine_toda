@@ -2,6 +2,9 @@ project:
   type: book
   output-dir: _site
 
+metadata-files:
+  - ../_navbar.yml  # the navbar shared by all the courses
+
 book:
   title: "Integrable defects, from Bäcklund to Baxter"
   subtitle: "Lecture notes"
@@ -15,12 +18,6 @@ book:
   output-file: defects
   downloads: [pdf]
   reader-mode: true
-  navbar:
-    background: primary
-    right:
-      - icon: house
-        text: "Affine Toda field theory"
-        href: https://gustavdelius.github.io/affine_toda/
   search:
     location: navbar
     type: textbox
