@@ -19,7 +19,7 @@ $$
 S_{ab}(\theta)=\Phi_{ab}(\theta)\,\check R_{ab}\big(x(\theta)\big),\qquad x(\theta)=e^{2T\theta}.
 $$
 
-Here $\check R_{ab}$ maps $V_a(x)\otimes V_b(1)$ to $V_b(1)\otimes V_a(x)$ and is normalised so that its eigenvalue on the highest-weight channel, the component of $V_a\otimes V_b$ with the highest highest weight, is 1. This normalization fixes the split of $S$ into $\Phi_{ab}$ and $\check R_{ab}$: any function of $\theta$ common to all channels is in $\Phi_{ab}$. Gandenberger, MacKay and Watts [@gmw1996] fix the gradation from the Lorentz spins of the non-local charges:
+Here $\check R_{ab}$ maps $V_a(x)\otimes V_b(1)$ to $V_b(1)\otimes V_a(x)$ and is normalised so that its eigenvalue on the highest-weight channel, the component of $V_a\otimes V_b$ with the highest highest weight, is 1. This normalization fixes the split of $S$ into $\Phi_{ab}$ and $\check R_{ab}$: any function of $\theta$ common to all channels is in $\Phi_{ab}$. Gandenberger, MacKay and Watts [-@gmw1996] fix the gradation from the Lorentz spins of the non-local charges:
 
 $$
 2T=\frac{4\pi h}{\beta^2}-h^\vee .
@@ -69,7 +69,7 @@ $$
 (y)=\frac{\sinh\!\left(\frac{\theta}{2}+\frac{i\pi y}{2T}\right)}{\sinh\!\left(\frac{\theta}{2}-\frac{i\pi y}{2T}\right)},\qquad (y)(-y)=1,\quad (y+2T)=(y),\quad (T)=-1 .
 $$
 
-We compare these products, in exact arithmetic in $\omega$, with the Delius–Grisaru–Zanon (DGZ) [@dgz1992] and Corrigan–Dorey–Sasaki (CDS) [@corrigan1993] particle S-matrices. A DGZ/CDS block $(x)_H$ corresponds to our block $(y)$ with $y/T=x/H$.
+We compare these products, in exact arithmetic in $\omega$, with the particle S-matrices of Delius, Grisaru and Zanon [-@dgz1992] and of Corrigan, Dorey and Sasaki [-@corrigan1993] (DGZ and CDS). A DGZ/CDS block $(x)_H$ corresponds to our block $(y)$ with $y/T=x/H$.
 
 ## The crossing sign {#sec-crossing-sign}
 
@@ -103,13 +103,13 @@ $$
 M_a=M_1\frac{\sin(\pi a/h)}{\sin(\pi/h)} ,
 $$
 
-the classical ratio, now exact. No integer lift is needed: Hollowood's amplitude has its tower of bound-state poles at $t=\omega-p$, $p=0,1,2,\dots$ [@hollowood1993b, eq. (4.7)], so the tower starts at $t=\omega$ itself. This is special to the self-dual, simply-laced case. In Chapters [-@sec-sm-cn]–[-@sec-sm-f4] the lifts are what decides the masses.
+the classical ratio, now exact. No integer lift is needed: Hollowood's [-@hollowood1993b, eq. (4.7)] amplitude has its tower of bound-state poles at $t=\omega-p$, $p=0,1,2,\dots$, so the tower starts at $t=\omega$ itself. This is special to the self-dual, simply-laced case. In Chapters [-@sec-sm-cn]–[-@sec-sm-f4] the lifts are what decides the masses.
 
 **Crossing.** The dual of $V_1$ is $V_n$, the antisoliton. Crossing therefore relates $S_{11}$ to $S_{1n}$, and the crossing point $x(i\pi)=e^{2\pi iT}=e^{i\pi h\omega}=(-1)^hq^{-h}$ is a power of $q$ up to the sign $(-1)^h$, which @sec-qg-crossing leaves open. The scalar factor is fixed by unitarity, crossing and minimality as an infinite product of Gamma functions, given explicitly by Hollowood [-@hollowood1993b].
 
-This scalar factor is not of the form $c\,f$ of @sec-scalar-factor. Let $S_T$ be the amplitude in which two species-1 solitons of different weights keep their weights. Its ratio to the amplitude for equal weights is $\tau(t)=-\sin\pi t/\sin\pi(t-\omega)$, read off from $\check R_{11}$, so $S_T=\Phi_{11}\tau$. Crossing one of the two solitons turns $S_T$ into the amplitude of an antisoliton and a soliton of different weights. Its charge sector is one-dimensional, so unitarity requires $S_T(T-t)\,S_T(T+t)=1$. With $\Phi_{11}=c\,f$ and $a_1=\omega$, the product is instead $(\sin^2\pi T-\sin^2\pi t)/(\sin^2\pi\omega-\sin^2\pi t)$. This equals 1 for $h=2$, but not for $h\ge3$ at generic coupling. Hollowood's $S_T$ [@hollowood1993b, eq. (4.5)] satisfies the condition for $h=2,3,4$, and its leading semiclassical phase reproduces the time delay of @sec-multi-solitons. For $h=3$ and $h=4$ the $c\,f$ amplitude does neither [Numerical] (`code/an_soliton_scalar.py`).
+This scalar factor is not of the form $c\,f$ of @sec-scalar-factor. Let $S_T$ be the amplitude in which two species-1 solitons of different weights keep their weights. Its ratio to the amplitude for equal weights is $\tau(t)=-\sin\pi t/\sin\pi(t-\omega)$, read off from $\check R_{11}$, so $S_T=\Phi_{11}\tau$. Crossing one of the two solitons turns $S_T$ into the amplitude of an antisoliton and a soliton of different weights. Its charge sector is one-dimensional, so unitarity requires $S_T(T-t)\,S_T(T+t)=1$. With $\Phi_{11}=c\,f$ and $a_1=\omega$, the product is instead $(\sin^2\pi T-\sin^2\pi t)/(\sin^2\pi\omega-\sin^2\pi t)$. This equals 1 for $h=2$, but not for $h\ge3$ at generic coupling. Hollowood's [-@hollowood1993b, eq. (4.5)] $S_T$ satisfies the condition for $h=2,3,4$, and its leading semiclassical phase reproduces the time delay of @sec-multi-solitons. For $h=3$ and $h=4$ the $c\,f$ amplitude does neither [Numerical] (`code/an_soliton_scalar.py`).
 
-**Breathers.** In the soliton–antisoliton channel $V_a\otimes V_{\bar a}$ the singlet carries towers of breather poles. Gandenberger [@gandenberger1995] showed for $a_2^{(1)}$ that the lowest breathers $\mathcal B_1,\bar{\mathcal B}_1$ scatter as the two particles of $a_2^{(1)}$, with the S-matrix (-@eq-an-smatrix) continued to imaginary coupling; Smirnov [@smirnov1991] had found the analogous identification for $a_2^{(2)}$.
+**Breathers.** In the soliton–antisoliton channel $V_a\otimes V_{\bar a}$ the singlet carries towers of breather poles. Gandenberger [-@gandenberger1995] showed for $a_2^{(1)}$ that the lowest breathers $\mathcal B_1,\bar{\mathcal B}_1$ scatter as the two particles of $a_2^{(1)}$, with the S-matrix (-@eq-an-smatrix) continued to imaginary coupling; Smirnov [-@smirnov1991] had found the analogous identification for $a_2^{(2)}$.
 
 **Check: $n=1$.** For sine-Gordon $V_1\otimes V_1$ is spin $\frac12\otimes\frac12$, $T=\lambda$, and the antisymmetric pole at $t=\omega$ corresponds to $\theta=i\pi$, the edge of the physical strip: two solitons do not bind, as they should not. The breather towers of the scalar factor lie at $t=T-k$, $k=1,2,\dots$, which are the poles $\theta=i(\pi-k\xi)$ of the Zamolodchikov S-matrix (@sec-qg-gradation).
 
@@ -133,4 +133,4 @@ Show that a DGZ/CDS block $(x)_H$ equals the block $(y)$ of @sec-breather-test w
 
 ## Notes and references {#sec-sm-construction-notes}
 
-The general structure $S=\Phi\check R$ goes back to Zamolodchikov and Zamolodchikov's sine-Gordon S-matrix [@zz1979], was developed for affine Toda solitons by Hollowood [@hollowood1993b], and was put on a Hopf-algebraic footing by Delius [-@delius1995]. The form of the scalar factor as $c\,f$ with Gamma functions is that of Gandenberger, MacKay and Watts [@gmw1996]. The use of the soliton masses to fix the integer lifts, and the breather test against the DGZ and CDS amplitudes in exact arithmetic, are new here.
+The general structure $S=\Phi\check R$ goes back to Zamolodchikov and Zamolodchikov's [-@zz1979] sine-Gordon S-matrix, was developed for affine Toda solitons by Hollowood [-@hollowood1993b], and was put on a Hopf-algebraic footing by Delius [-@delius1995]. The form of the scalar factor as $c\,f$ with Gamma functions is that of Gandenberger, MacKay and Watts [-@gmw1996]. The use of the soliton masses to fix the integer lifts, and the breather test against the DGZ and CDS amplitudes in exact arithmetic, are new here.

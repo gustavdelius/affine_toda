@@ -23,7 +23,7 @@ $$
 \check R_{nn}(x)=\sum_{k=0}^{n}\Big[\prod_{j=1}^{k}\langle 2j\rangle_{(-1)^{j+1}}\Big]P_{\Lambda^{n-k}} .
 $$
 
-This is the R-matrix derived for all $n$ by Delius, Gould and Zhang with the twisted tensor-product graph [@dgz1996, eqs. (4.30)–(4.31) at $a=1$, with their $q$ equal to our $q^{-2}$]; we re-derived it from direct solutions of the intertwining equations for $n=2,3,4$, to $3\times10^{-13}$ (`code/rmatrix/spinform.py` for $n=2,3$; `code/rmatrix/smatrix/sign_n4.py` for $n=4$). The crossing point is $x_c=(-1)^{n+1}q^{-2n}$.
+This is the R-matrix derived for all $n$ by Delius, Gould and Zhang [-@dgz1996, eqs. (4.30)–(4.31) at $a=1$, with their $q$ equal to our $q^{-2}$] with the twisted tensor-product graph; we re-derived it from direct solutions of the intertwining equations for $n=2,3,4$, to $3\times10^{-13}$ (`code/rmatrix/spinform.py` for $n=2,3$; `code/rmatrix/smatrix/sign_n4.py` for $n=4$). The crossing point is $x_c=(-1)^{n+1}q^{-2n}$.
 
 ## Parameters and the scalar factor {#sec-cn-parameters}
 
@@ -45,7 +45,7 @@ $$
 \frac{M_a}{M_n}=2\sin\frac{a\pi}{H},\qquad H=\frac{2T}{\omega+\frac12}=2n+B,\qquad B=-\frac{1}{\omega+\frac12}=-\frac{2\beta^2}{8\pi-\beta^2},\qquad a=1,\dots,n-1 .
 $$
 
-This is the classical $c_n^{(1)}$ soliton spectrum with $h$ replaced by $H$. For $n=3$ it reproduces the Delius–Grisaru one-loop corrections [@delius_grisaru1995], since $H=6-\beta^2/4\pi+O(\beta^4)$, in agreement with the one-loop soliton masses of @sec-one-loop-masses-folded. This confirms their value in the dispute with [@mackay_watts1995].
+This is the classical $c_n^{(1)}$ soliton spectrum with $h$ replaced by $H$. For $n=3$ it reproduces the Delius–Grisaru one-loop corrections [@delius_grisaru1995], since $H=6-\beta^2/4\pi+O(\beta^4)$, in agreement with the one-loop soliton masses of @sec-one-loop-masses-folded. This confirms their value in the dispute with @mackay_watts1995.
 
 @fig-cn-ladders shows both ladders of poles and the resulting mass ratios for $c_3^{(1)}$.
 
@@ -142,4 +142,4 @@ Check that the lifts $a_j=j\omega+(j-1)/2$ satisfy $T-a_j\in(\omega+\frac12)\mat
 
 ## Notes and references {#sec-sm-cn-notes}
 
-The one-loop $c_n^{(1)}$ soliton masses that this S-matrix reproduces are those of Delius and Grisaru [-@delius_grisaru1995]; the competing values are in MacKay and Watts [-@mackay_watts1995]. The particle amplitudes used in the breather test are those of Delius, Grisaru and Zanon [-@dgz1992]. The $c_2^{(1)}\simeq b_2^{(1)}$ case was known from [@gmw1996]. The spinor R-matrix is that of Delius, Gould and Zhang [@dgz1996]; the S-matrix construction for $n\ge3$ is new here; code in `code/rmatrix/`.
+The one-loop $c_n^{(1)}$ soliton masses that this S-matrix reproduces are those of Delius and Grisaru [-@delius_grisaru1995]; the competing values are in MacKay and Watts [-@mackay_watts1995]. The particle amplitudes used in the breather test are those of Delius, Grisaru and Zanon [-@dgz1992]. The $c_2^{(1)}\simeq b_2^{(1)}$ case was known from @gmw1996. The spinor R-matrix is that of Delius, Gould and Zhang [-@dgz1996]; the S-matrix construction for $n\ge3$ is new here; code in `code/rmatrix/`.

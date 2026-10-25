@@ -71,7 +71,7 @@ S_{11}=\{1\}\{11\}\{19\}\{29\},\qquad h=30 .
 $$
 
 `code/smatrix_simply_laced.py` computes this product from (-@eq-dorey-formula).
-Its poles at $\theta=\frac{2\pi i}3$, $\frac{2\pi i}5$ and $\frac{i\pi}{15}$ are the fusings $1+1\to1$, $1+1\to2$ and $1+1\to3$, with $m_2=2m_1\cos\frac\pi5$ and $m_3=2m_1\cos\frac\pi{30}$. @fig-e8-poles shows where all six poles lie. The minimal part of the $e_8^{(1)}$ S-matrix is Zamolodchikov's S-matrix of the Ising model in a magnetic field [@zamolodchikov1989].
+Its poles at $\theta=\frac{2\pi i}3$, $\frac{2\pi i}5$ and $\frac{i\pi}{15}$ are the fusings $1+1\to1$, $1+1\to2$ and $1+1\to3$, with $m_2=2m_1\cos\frac\pi5$ and $m_3=2m_1\cos\frac\pi{30}$. @fig-e8-poles shows where all six poles lie. The minimal part of the $e_8^{(1)}$ S-matrix is Zamolodchikov's [-@zamolodchikov1989] S-matrix of the Ising model in a magnetic field.
 
 ![The poles of $S_{11}$ for $e_8^{(1)}$ in the physical strip, at $\theta=i\pi y/30$. Green: bound-state poles, with positive residue$/i$. Red: their crossed images. Circles: the zeros at $B=0.5$. `code/figures/ch13_f18_e8_poles.py` checks that the poles are simple and lie exactly at $y=2,10,12,18,20,28$, the residue signs, the fusing angles, unitarity and crossing.](figures/ch13_f18_e8_poles.svg){#fig-e8-poles fig-alt="The imaginary axis from 0 to i pi with six poles at positions 2, 10, 12, 18, 20 and 28 in units of pi over 30; the three at 2, 12 and 20 are bound states and the others their crossed images."}
 
@@ -97,7 +97,7 @@ $$
 \{x\}=\frac{(x-1)(x+1)}{(x-1+B)(x+1-B)},\qquad (x)=\frac{\sinh\left(\frac\theta2+\frac{i\pi x}{2h}\right)}{\sinh\left(\frac\theta2-\frac{i\pi x}{2h}\right)},\qquad B(\beta)=\frac{1}{2\pi}\frac{\beta^2}{1+\beta^2/4\pi},
 $$
 
-constructed by Braden, Corrigan, Dorey and Sasaki, Christe and Mussardo, and Klassen and Melzer (all 1990), with a universal root-system formula due to Dorey [@dorey1991].
+constructed by Braden, Corrigan, Dorey and Sasaki, Christe and Mussardo, and Klassen and Melzer (all 1990), with a universal root-system formula due to Dorey [-@dorey1991].
 
 **Non-simply-laced algebras.** S-matrices were proposed by Delius, Grisaru and Zanon [-@dgz1992] and by Corrigan, Dorey and Sasaki [-@corrigan1993]. They are conjectures, with the evidence listed in @sec-nsl-status. Here the Coxeter number "floats" with the coupling, between the Coxeter number $h$ of $\hat g$ and the number that plays its role in the classical masses of the dual theory $\hat g^\vee$ (@tbl-floating-h). The S-matrices of a dual pair are exchanged under strong–weak duality, in the coroot form of @sec-affine-folding.
 
@@ -136,5 +136,5 @@ Show that $B(4\pi/\beta)=2-B(\beta)$, and that $B$ is monotonic in $\beta$ with 
 
 ## Notes and references {#sec-simply-laced-notes}
 
-The simply-laced S-matrices were found by Braden, Corrigan, Dorey and Sasaki [-@braden1990], Christe and Mussardo [-@christe1990] and Klassen and Melzer [-@klassen1990]. Dorey's formula is in [@dorey1991], and his short note on the coupling dependence of affine Toda field theories [@dorey1993] followed two years later. Fring and Olive [@fring1992] proved uniformly, from Coxeter-element identities, that Dorey's formula satisfies crossing and the bootstrap. The $e_8$ S-matrix of the Ising model in a magnetic field is due to Zamolodchikov [-@zamolodchikov1989]. Dorey's lectures [-@dorey1998] give a detailed account of all of this.
+The simply-laced S-matrices were found by Braden, Corrigan, Dorey and Sasaki [-@braden1990], Christe and Mussardo [-@christe1990] and Klassen and Melzer [-@klassen1990]. Dorey [-@dorey1991] gave his formula, and his short note on the coupling dependence of affine Toda field theories [-@dorey1993] followed two years later. Fring and Olive [-@fring1992] proved uniformly, from Coxeter-element identities, that Dorey's formula satisfies crossing and the bootstrap. The $e_8$ S-matrix of the Ising model in a magnetic field is due to Zamolodchikov [-@zamolodchikov1989]. Dorey's lectures [-@dorey1998] give a detailed account of all of this.
 
