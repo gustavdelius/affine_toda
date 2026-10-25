@@ -426,7 +426,7 @@ $$
 $$ {#eq-l7-delta}
 :::
 
-The integral converges in the strip because the integrand decays like $e^{-k(\frac\pi2+\frac\pi{2\lambda}-|\frac\pi2-\operatorname{Im}u|)}$. So $\Phi$ is analytic and has no zeros there. This is the **minimal** solution: any other solution of (-@eq-l7-U) and (-@eq-l7-C) is $\Phi$ times a defect CDD factor (@sec-l1-unitarity-crossing), which brings poles or zeros into the strip, or makes the solution grow faster than exponentially there. It equals the product of Gamma functions of Konik and LeClair, in the form of Bowcock, Corrigan and Zambon (see the book's [scalar factor](book:eq-sgd-scalar)).
+The integral converges in the strip because the integrand decays like $e^{-k(\frac\pi2+\frac\pi{2\lambda}-|\frac\pi2-\operatorname{Im}u|)}$. So $\Phi$ is analytic and has no zeros there. We choose the normalized minimal scalar factor of Konik and LeClair. Multiplication by a defect CDD factor (@sec-l1-unitarity-crossing) preserves the scattering equations; the integral fixes that choice and its normalization, rather than deriving it from the defect Lagrangian. It equals the product of Gamma functions of Konik and LeClair, in the form of Bowcock, Corrigan and Zambon (see the book's [scalar factor](book:eq-sgd-scalar)).
 
 ::: {.callout-note collapse="true" title="Check it yourself"}
 Item (f) of `code/lectures/defects_l7_quantum.py` checks $M_n^\dagger M_n=(1+Y^2)$ and $\det M_n$, and crossing for all four kinds of amplitude: with a scalar factor it holds exactly at $q=-e^{-i\pi\lambda}$; at $-q$ the converting and keeping entries demand opposite signs; the antisymmetric conjugation repairs them. Item (g) checks that (-@eq-l7-Phi) equals the Gamma-function product to $10^{-11}$ at real and complex $u$, the real part through $\int_0^\infty\frac{1-\cos ku}{k\sinh(\pi k/2\lambda)}dk=\ln\cosh\lambda u$, the limit $\Phi\to1$, the absence of zeros and poles on a grid of the strip, and the derivative (-@eq-l7-K).
@@ -571,7 +571,7 @@ in the even sector. It does not depend on the state of the defect, as Konik and 
 
 ::: {#thm-l7-breather}
 ## The lightest breather sees the classical defect
-**[Theorem]** For every coupling $\lambda>1$,
+**[Established; reformulated, with an analytic proof]** For every coupling $\lambda>1$,
 
 $$
 \mathbb T_{B_1}(\theta)=\frac{i-\sinh(\theta-\theta_d)}{\cosh(\theta-\theta_d)}=-i\,\frac{\sinh\big(\frac{\theta-\theta_d}2-\frac{i\pi}4\big)}{\sinh\big(\frac{\theta-\theta_d}2+\frac{i\pi}4\big)},

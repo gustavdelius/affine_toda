@@ -141,7 +141,7 @@ $$
 :::
 
 ::: {.proof}
-Item 1 is the calculation above, which holds at every $(t,x)$ where $D\ne0$, and so in particular at $x=0$; for complex $c$ the fields are meromorphic and the conditions hold as identities between meromorphic functions. Item 2 is checked in @sec-l4-absorption for the first pair, and in @sec-l3-rapidity for the second.
+Item 1 is the calculation above, which holds at every $(t,x)$ where $D\ne0$, and so in particular at $x=0$; for complex $c$ the derivatives of the fields and the trigonometric expressions in the conditions are meromorphic in $Y$, so the conditions hold on every regular local branch. Item 2 is checked in @sec-l4-absorption for the first pair, and in @sec-l3-rapidity for the second.
 :::
 
 ::: {.callout-note collapse="true" title="Check it yourself"}

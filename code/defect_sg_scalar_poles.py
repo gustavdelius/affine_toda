@@ -26,7 +26,8 @@ Checks:
  7. Classical odd jump (prp-sgd-odd-jump): the type-I_- defect conditions (eq-sg-defect-conditions, with B_d of
     eq-sg-defect-potential) linearized about (phi, psi) = (0, 2 pi/beta) give, for phi = A e^{gt + kx}, psi - 2pi/beta
     = B e^{gt - kx}, k^2 = g^2 + m0^2, the determinant proportional to k (k - m0 cosh theta_d): modes
-    g = +-m0 sinh theta_d, k = m0 cosh theta_d; the growing one has A = 0.  Control: about (0, 0) the determinant is
+    g = +-m0 sinh theta_d, k = m0 cosh theta_d; the growing one has A = 0 for theta_d != 0.  At theta_d = 0 (g = 0,
+    k = m0) the whole matching matrix vanishes, so A and B are independent static modes.  Control: about (0, 0) the determinant is
     proportional to k (k + m0 cosh theta_d), with no localized mode.
  8. The emitted soliton of rapidity theta_d (prp-sg-delay (2)) starts as the growing mode: (psi - 2 pi/beta) e^{-gt}
     at x = 0 tends to a constant as t -> -infinity; the pair (0, soliton) solves the full defect conditions.
@@ -260,12 +261,16 @@ def check_odd_jump():
     grow = Mtx.subs({g: m0*sp.sinh(thd), k: m0*sp.cosh(thd)})
     # growing mode: the first equation forces A = 0 (theta_d != 0), the second is then empty
     a_zero = sp.simplify(grow[0, 1].rewrite(sp.exp)) == 0 and sp.simplify(grow[1, 1].rewrite(sp.exp)) == 0
+    a_zero = a_zero and sp.simplify(grow[1, 0].rewrite(sp.exp) + 2*m0*sp.sinh(thd).rewrite(sp.exp)) == 0
+    # theta_d = 0: gamma = 0, kappa = m0, and the whole matching matrix vanishes (two independent static zero modes)
+    static = all(sp.simplify(e) == 0 for e in Mtx.subs({thd: 0, g: 0, k: m0}))
     det_e, _, (g2, k2, m02, thd2, _) = linearized_determinant(odd=False)
     ratio_e = sp.simplify((det_e/(k2*(k2 + m02*sp.cosh(thd2)))).rewrite(sp.exp))
     control = ratio_e.free_symbols <= {beta} and ratio_e != 0
     report(f'7. odd jump: determinant = {sp.factor(ratio)} * kappa (kappa - m0 cosh theta_d); growing mode '
-           f'gamma = m0 sinh theta_d has A = 0; control (0, 0): kappa (kappa + m0 cosh theta_d), no localized mode',
-           bool(const and a_zero and control))
+           f'gamma = m0 sinh theta_d has A = 0 for theta_d != 0; at theta_d = 0 the matching matrix vanishes (A, B '
+           f'independent static modes); control (0, 0): kappa (kappa + m0 cosh theta_d), no localized mode',
+           bool(const and a_zero and static and control))
 
 
 def check_emission_tail():

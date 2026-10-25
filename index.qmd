@@ -41,18 +41,18 @@ The book states results but does not teach them step by step. Lecture notes do t
 
 Two further courses accompany Part VIII, on integrable defects. A defect is a line in spacetime that particles and solitons cross without being reflected. They were drafted by different AI models, and they teach the subject in different ways.
 
-- [*Integrable defects, from Bäcklund to Baxter*](https://gustavdelius.github.io/affine_toda/lectures/defects/) ([PDF](https://gustavdelius.github.io/affine_toda/lectures/defects/defects.pdf)), drafted by Claude, tells the story of the ideas. Each lecture asks one question and answers it. Lectures 1–6, on the classical theory, are written. Lectures 7–9, on the quantum theory, are in preparation.
+- [*Integrable defects, from Bäcklund to Baxter*](https://gustavdelius.github.io/affine_toda/lectures/defects/) ([PDF](https://gustavdelius.github.io/affine_toda/lectures/defects/defects.pdf)), drafted by Claude, tells the story of the ideas. Each lecture asks one question and answers it. All nine lectures are written. Lectures 1–6 cover the classical theory, and Lectures 7–9 cover quantum transmission, Q-operators and boundary fusion.
 - [*Lectures on integrable defects in affine Toda field theory*](https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/) ([PDF](https://gustavdelius.github.io/affine_toda/lectures/defects-gemini/defects-gemini.pdf)), drafted by Gemini, is organized around six big ideas. Its six lectures are complete and cover both the classical and the quantum theory.
 
 ### How they differ {#sec-about-differences .unnumbered}
 
 | | *Integrable defects, from Bäcklund to Baxter* | *Lectures on integrable defects* |
 |---|---|---|
-| Written so far | Lectures 1–6 of 9 | All 6 lectures |
-| Scope | The classical theory: what a line can do to particles, Bäcklund transformations, the defect conditions, solitons and waves crossing a defect, why only $a_r^{(1)}$ has such defects, Lax matrices and $r$-matrices | The classical theory in Lectures 1–3. The quantum theory in Lectures 4–6: Borel subalgebras, $q$-oscillators and Baxter's $Q$-operators, crossing and the sign of $q$, quantum tunnelling in $a_2^{(1)}$, defects meeting boundaries, breathers |
+| Written so far | All 9 lectures | All 6 lectures |
+| Scope | The classical theory in Lectures 1–6: point defects, Bäcklund transformations, defect conditions, solitons, Lax matrices and r-matrices. The quantum theory in Lectures 7–9: transmission matrices, Q-operators and boundary fusion | The classical theory in Lectures 1–3. The quantum theory in Lectures 4–6: Borel subalgebras, $q$-oscillators and Baxter's $Q$-operators, crossing and the sign of $q$, quantum tunnelling in $a_2^{(1)}$, defects meeting boundaries, breathers |
 | Pace | Slow. The classical theory takes six lectures. It starts from a $\delta$-function defect in a free field and from the surface geometry behind Bäcklund's construction | Fast. The classical theory takes three lectures, with sine-Gordon theory and $a_2^{(1)}$ as the main examples |
 | Style | One question per lecture, *Predict* boxes that ask you to guess a result before you calculate it, short declarative sentences, figures | Six big ideas, set-piece "blackboard calculations" with every step written out, an enthusiastic voice, figures |
-| Exercises | 53 so far, of three kinds: redo, rediscover and explore | 14 guided problems |
+| Exercises | 84, of three kinds: redo, rediscover and explore | 14 guided problems |
 | Checks | Every calculation shown in detail is checked by a script in `code/lectures/`, written from the lectures' own definitions | Figure scripts in `code/lectures/` check the plotted formulas and exercises; the main text also cites the book's scripts |
 
 ### Which to read {#sec-about-which .unnumbered}

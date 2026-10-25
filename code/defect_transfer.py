@@ -1,6 +1,6 @@
 """Chapter 40 (sec-q-operators): defect operators on the circle, Q-operators, the TQ relation and the twist limit.
 
-Ids checked: prp-defect-transfer, cnj-defect-tq, prp-defect-twist-limit (and prp-twist-defect of ch. 36 as the limit).
+Ids checked: prp-defect-transfer, prp-defect-tq, eq-dq-tq-blocks, prp-defect-twist-limit (and prp-twist-defect of ch. 36 as the limit).
 
 Setting: N sine-Gordon solitons with rapidities theta_j (an inhomogeneous spin-1/2 chain, y_j = e^{lambda theta_j}),
 lambda = 1.37, q = q_phys, Part VI conventions.  R_aj(y/y_j) = P Rcheck (boundary_common.rcheck), the twisted bulk
@@ -20,9 +20,9 @@ Checks:
     the window trace sum_{|n|<=K} w^{2n+s} <n|M|n> is a sector-dependent scalar times D_W := <0|M|0>; for |w| != 1
     this scalar grows without bound as K increases, the normalized operator does not change.  For the b^+ Weyl module
     the exponent is -mn instead (formal support w^2 = q^m).
- 5. Weyl: [D_W(y_d), D_W(y_d')] = 0; in the sector m, D_W commutes with t_w for w = q^{-m/2} (the support of the
-    formal sum sum_n (w^2 q^m)^n), and not with the untwisted t for m != 0.
- 6. cnj-defect-tq (Weyl), no fitted constants, every sector m with w_m = q^{-m/2}:
+ 5. Weyl: [D_W(y_d), D_W(y_d')] = 0; in the sector m, D_W commutes with t_w for w = q^{-m/2} (the twist selected by
+    the trace per state eq-dq-trace-per-state), and not with the untwisted t for m != 0.
+ 6. prp-defect-tq (Weyl), no fitted constants, every sector m with w_m = q^{-m/2}:
       t_{w_m}(i y_d) D_W(y_d) = q^{-N/2} D_W(q y_d) + prod_j q^{1/2} (q z_j^2 + q^-1)/(z_j^2 + 1) D_W(y_d/q),  z_j = y_j/y_d;
     checked for N = 2, ..., 6; for N = 4 the family {D_W(y_d)} spans 3 dimensions in the sector m = 0 (dimension 6), so
     the test is not empty (for N <= 3 it is weaker); control: the shifts q^{+-2} fail.
@@ -32,7 +32,13 @@ Checks:
     q^{s/2} times the Bloch-twisted bulk T_1 of prp-twist-defect with e^{i alpha_n} = q^{-(2n+s)/2};
     (c) as theta - theta_d -> +infinity, T/(Phi Y) tends to the charge-conjugating limit v_+|n> -> -i q^-n |n+1> v_-,
     v_-|n> -> -i q^{n+s} |n-1> v_+; (d) D_W tends to q^{ms/2}, a function of the charge alone.
-Windows: Fock n = 0..40 (80 for check 1), Weyl n = -6..6 (D_W) and -4..4 (T_1).  Runtime about 30 seconds.
+ 8. prp-defect-tq, the fusion blocks eq-dq-tq-blocks: the L^-1 entries displayed in the proof agree with the inverse of
+    borel_l_operator up to its scalar normalization, and the symbolic R_aj with Rmat; then, with sympy and identically in
+    t = q^n, r = q^s and Y, at y = i y_d the operator F_j = R_aj(y/y_j) L_jW^-1(y_j/y_d) maps V_j (x) S into itself,
+    S spanned by e_n = v_+|n> - q^{-2n-1-s} v_-|n+1>, acts on S in the basis q^n e_n as (1 + q^2 Y^2)/(1 + Y^2) L^-1(qY)
+    with offset s + 1, and on the quotient, in the basis q^-n of the classes of v_-|n>, as q^-1 L^-1(Y/q) with offset
+    s - 1.  Control: at y = 1.1 i y_d, S is not invariant.
+Windows: Fock n = 0..40 (80 for check 1), Weyl n = -6..6 (D_W) and -4..4 (T_1).  Runtime about 15 seconds.
 """
 import numpy as np
 from boundary_common import report, q_phys, sl2_spin, rcheck, prop_residual
@@ -207,7 +213,7 @@ report(f'prp-defect-transfer (Weyl, type I_-): [D_W(y_d), D_W(y_d\')] = 0 [{c_DD
        c_DD < 1e-12 and c_Dt < 1e-12 and c_un > 1e-3)
 
 
-# ---------------------------------------------------------------- 6. cnj-defect-tq (Weyl), predicted coefficients
+# ---------------------------------------------------------------- 6. prp-defect-tq (Weyl), predicted coefficients
 def tq_weyl(shift, ys, s=S):
     N = len(ys); mg = charges(N)
     z = ys/yd
@@ -229,7 +235,7 @@ sv = np.linalg.svd(fam, compute_uv=False)
 rank0 = int((sv/sv[0] > 1e-10).sum())
 ys6 = np.exp(LAM*np.array([0.31, -0.42, 0.77, 0.05, -0.2, 0.55]))          # first four as ys4
 r_w, r_w_bad = max(tq_weyl(q, ys6[:k]) for k in (2, 3, 4, 5, 6)), tq_weyl(q**2, ys4)
-report(f'cnj-defect-tq (Weyl, N = 2, ..., 6): in every sector m, t_w(i y_d) D_W(y_d) = q^(-N/2) D_W(q y_d) + prod_j q^(1/2)'
+report(f'prp-defect-tq (Weyl, N = 2, ..., 6): in every sector m, t_w(i y_d) D_W(y_d) = q^(-N/2) D_W(q y_d) + prod_j q^(1/2)'
        f'(q z_j^2 + q^-1)/(z_j^2 + 1) D_W(y_d/q), w = q^(-m/2), no fitted constant [{r_w:.0e}]; family rank {rank0} in the '
        f'6-dimensional sector m = 0; control: shifts q^(+-2) [{r_w_bad:.2f}]', r_w < 1e-10 and rank0 == 3 and r_w_bad > 1e-2)
 
@@ -315,3 +321,90 @@ dev_d = np.abs(DWf - np.diag(q**(mag4*S/2))).max()
 report(f'prp-defect-twist-limit (c), (d): as theta - theta_d -> +inf, T -> charge conjugation with the shift |n> -> |n+-1> '
        f'[{errC[0]:.0e} -> {errC[1]:.0e}]; as theta_j - theta_d -> -inf the Weyl defect operator D_W -> q^(ms/2), a function '
        f'of the charge alone [{dev_d:.0e}]', errC[1] < errC[0]/10 and dev_d < 1e-4)
+
+# ---------------------------------------------------------------- 8. prp-defect-tq: the two fusion blocks, exactly in n
+import sympy as sp
+# (a) the formulas of the proof are the book's: L^-1 from borel_l_operator (up to its scalar normalization) and R = Rmat
+Wt = fock_module_b(-1, q, yd, 6, S, 'weyl'); dWt = Wt['dim']; nt = list(Wt['n'])
+yt = 0.7*np.exp(0.4j); Yt = yt/yd
+Li = np.linalg.inv(borel_l_operator(-1, yt, Wt))
+ratios = []
+for n in range(-4, 5):
+    k, kp, km = nt.index(n), nt.index(n + 1), nt.index(n - 1)
+    ratios += [Li[k, k]/(q**n/(1 + Yt**2)), Li[dWt + kp, k]/(1j*Yt*q**(-n - 1 - S)/(1 + Yt**2)),
+               Li[dWt + k, dWt + k]/(q**(-n - S)/(1 + Yt**2)), Li[km, dWt + k]/(1j*Yt*q**(n - 1)/(1 + Yt**2))]
+ratios = np.array(ratios)
+dev_Li = np.abs(ratios/ratios[0] - 1).max()
+zt = 0.6*np.exp(0.7j)
+al_t, be_t = q*(zt**2 - 1)/(q**2*zt**2 - 1), zt*(q**2 - 1)/(q**2*zt**2 - 1)
+dev_R = np.abs(Rmat(zt) - np.array([[1, 0, 0, 0], [0, al_t, be_t, 0], [0, be_t, al_t, 0], [0, 0, 0, 1]])).max()
+# (b) exact blocks.  A vector is a dict {(b, a, k): coefficient}: soliton j in v_b, auxiliary soliton in v_a (0 = v_+,
+# 1 = v_-), defect state |n + k>; t stands for q^n and r for q^s.
+qq, tt, rr, YY = sp.symbols('q t r Y', nonzero=True)
+
+
+def add_to(out, key, val):
+    out[key] = out.get(key, 0) + val
+
+
+def linv_terms(b, k, Y_, r_):
+    """L^-1 on v_b (x) |n + k> with offset q^s = r_: list of (b', k', coefficient)."""
+    a_ = tt*qq**k
+    if b == 0:
+        return [(0, k, a_/(1 + Y_**2)), (1, k + 1, sp.I*Y_/(a_*qq*r_*(1 + Y_**2)))]
+    return [(1, k, 1/(a_*r_*(1 + Y_**2))), (0, k - 1, sp.I*Y_*a_/(qq*(1 + Y_**2)))]
+
+
+def fuse(vec, zfac=1):
+    """F_j = R_aj(y/y_j) L_jW^-1(y_j/y_d) with y/y_j = zfac i/Y (zfac = 1: y = i y_d, the point of the TQ relation)."""
+    z_ = zfac*sp.I/YY
+    al_, be_ = qq*(z_**2 - 1)/(qq**2*z_**2 - 1), z_*(qq**2 - 1)/(qq**2*z_**2 - 1)
+    out = {}
+    for (b, a, k), c in vec.items():
+        for b2, k2, c2 in linv_terms(b, k, YY, rr):
+            if a == b2:
+                add_to(out, (b2, a, k2), c*c2)
+            else:
+                add_to(out, (b2, a, k2), c*c2*al_)
+                add_to(out, (a, b2, k2), c*c2*be_)
+    return out
+
+
+def decode(vec):
+    """Components in the basis q^n e_n (key 'e') of S and q^-n f_n (key 'f') of the classes of v_- (x) |n>, using
+    v_+ |m> = q^-m (q^m e_m) + q^(-m-s) (q^-(m+1) f_(m+1)) and v_- |m> = q^m (q^-m f_m)."""
+    out = {}
+    for (b, a, k), c in vec.items():
+        a_ = tt*qq**k
+        if a == 0:
+            add_to(out, ('e', b, k), c/a_)
+            add_to(out, ('f', b, k + 1), c/(a_*rr))
+        else:
+            add_to(out, ('f', b, k), c*a_)
+    return out
+
+
+def basis(kind, b):
+    """Soliton j in v_b times q^n e_n (kind 'e') or q^-n f_n (kind 'f')."""
+    if kind == 'e':
+        return {(b, 0, 0): tt, (b, 1, 1): -1/(tt*qq*rr)}
+    return {(b, 1, 0): 1/tt}
+
+
+ok_blocks, broken = True, False
+for b in (0, 1):
+    got_e, got_f = decode(fuse(basis('e', b))), decode(fuse(basis('f', b)))
+    ok_blocks &= all(sp.simplify(c) == 0 for (kind, _, _), c in got_e.items() if kind == 'f')     # S is invariant
+    exp_e = {('e', b2, k2): c2*(1 + qq**2*YY**2)/(1 + YY**2) for b2, k2, c2 in linv_terms(b, 0, qq*YY, rr*qq)}
+    exp_f = {('f', b2, k2): c2/qq for b2, k2, c2 in linv_terms(b, 0, YY/qq, rr/qq)}
+    for key in set(exp_e) | {kk for kk in got_e if kk[0] == 'e'}:
+        ok_blocks &= sp.simplify(got_e.get(key, 0) - exp_e.get(key, 0)) == 0
+    for key in set(exp_f) | {kk for kk in got_f if kk[0] == 'f'}:
+        ok_blocks &= sp.simplify(got_f.get(key, 0) - exp_f.get(key, 0)) == 0
+    off = decode(fuse(basis('e', b), zfac=sp.Rational(11, 10)))
+    broken |= any(sp.simplify(c) != 0 for (kind, _, _), c in off.items() if kind == 'f')
+report(f'prp-defect-tq, the fusion blocks: the L^-1 entries of the proof are those of the book\'s L-operator up to its scalar '
+       f'[{dev_Li:.0e}] and R_aj is Rmat [{dev_R:.0e}]; at y = i y_d, exactly in t = q^n, r = q^s and Y, F_j = R_aj L_j^-1 '
+       f'maps V_j (x) S into itself, acts on S (basis q^n e_n) as (1 + q^2 Y^2)/(1 + Y^2) L^-1_(s+1)(qY) and on the quotient '
+       f'(basis q^-n f_n) as q^-1 L^-1_(s-1)(Y/q); control: at y = 1.1 i y_d, S is not invariant',
+       dev_Li < 1e-12 and dev_R < 1e-12 and ok_blocks and broken)
