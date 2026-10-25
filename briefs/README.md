@@ -190,3 +190,18 @@ PR #60 collected referee reports on Part VIII and on the Claude defect course. C
 | `pr60_verification_checkpoint.md` | The verifiers' checkpoint |
 
 **Integrated (2026-10-25).** Labels changed: `prp-dc-gauge` to [Theorem]; `prp-defect-transfer` (2) and `prp-defect-tq` (formerly `cnj-defect-tq`) to [Theorem] for the finite chain, with D–D commutation [Numerical]; `prp-sg-breather-transmission` and `prp-dq-two-weyl-pairs` to [Established; reformulated…]; in the lectures `thm-l7-breather`, `thm-l9-crossing` and `thm-l9-fusion` to [Established; reformulated…]. New or extended checks: `code/defect_ar_gauge.py`, `code/defect_transfer.py`, `code/defect_sg_scalar_poles.py`, `code/defect_fused_boundary.py`, `code/algebra_data.py`, `code/qsp_checks.py`, `code/rmatrix/smatrix/oneloop_ratio.py`.
+
+## Half-line lecture notes: two-phase referee pass (from 2026-10-25)
+
+The first referee pass on the course "Lectures on affine Toda field theory on the half-line" (`lecture-notes/half-line/`, six lectures, drafted by Gemini on 2026-10-24). It follows the two-phase design of the Part III pass above: a blind phase 1 with context only, then the coordinator's items. The lectures are reviewed as on main at 035351d. **Until both reports are in and integrated, nobody edits `lecture-notes/half-line/` or `code/lectures/halfline_*`.**
+
+| File | What it is |
+|---|---|
+| `referee_lectures_halfline.md` | Phase-1 brief. Phase-1 report: `referee_lectures_halfline_phase1_report.md` |
+| `referee_lectures_halfline_items.md` | Phase-2 items, written before phase 1 and held outside the repository until phase 1 is complete. SHA-256 `d51be2f6624287db3175a2b2810ae2dbe166ef0b80e86eb67c02f5a5890fea4f`. Report: `referee_lectures_halfline_report.md`, with the overlap table |
+
+Protocol for the editor:
+1. Start Codex (GPT-6 Astra, high) on the phase-1 brief from this worktree: `briefs/run_referee_agy.sh referee_lectures_halfline codex`, or by hand. Gemini drafted the lectures, so a Gemini referee would not be model-diverse here.
+2. When it reports "Phase 1 complete", commit the phase-1 report as it stands. Then copy the held items file into `briefs/`, check its SHA-256 against the value above, and commit it.
+3. Start phase 2 in the same Codex session: `briefs/run_referee_agy.sh referee_lectures_halfline_items codex` resumes it, or send "Phase 2: follow `briefs/referee_lectures_halfline_items.md`." by hand.
+4. When the report is in, integrate it with the `integrate-referee-report` skill, and record here which errors each phase found.
