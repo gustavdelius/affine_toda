@@ -191,4 +191,15 @@ As in the Part III experiment, the blind phase found the substance and the direc
 
 ### Not settled by this pass
 
-The global quantization of the rotor, a derivation (rather than a count) of the Coleman–Thun diagram, an all-rank proof of the scalar-factor telescoping, the four pre-arXiv sources (Cherednik, Sklyanin, Bernard–LeClair, Letzter), and the precise scope of Bernard–LeClair's $U_q(\hat{\mathfrak g}^\vee)$ remain as the report leaves them. The lectures now state these points with the corresponding qualification. No status label changed: the lectures carry none, and the book is not edited here.
+The global quantization of the rotor, a derivation (rather than a count) of the Coleman–Thun diagram, and an all-rank proof of the scalar-factor telescoping remain as the report leaves them. The lectures now state these points with the corresponding qualification. No status label changed: the lectures carry none, and the book is not edited here.
+
+### The four pre-arXiv sources (added 2026-10-25)
+
+The editor supplied the four sources that the referee could not read (from the editor's Zotero library; copies in `~/referee-copy/papers/<key>.pdf`). The coordinator checked each citing sentence against them.
+
+- **Cherednik (1984)**, cited with Sklyanin for the reflection equation (Lecture 1): correct. The paper treats factorized scattering on a half-line with elastic reflection, and its factorization condition (7) is the reflection equation.
+- **Sklyanin (1988)**, cited for the reflection equation (Lecture 1) and the double row (index, Lecture 2): correct for the double-row transfer matrix $\operatorname{tr}K_+T(u)K_-T^{-1}(-u)$. The paper is quantum (QISM); its §7 sketches the classical limit and defers "a more detailed study of the classical case". **Modified:** Lecture 2 now says so and credits the classical Lax-pair form for affine Toda to Bowcock, Corrigan, Dorey and Rietdijk, and the general $\sigma$ to Delius.
+- **Bernard and LeClair (1991)**: their §5a treats affine Toda theory "based on a simply laced Lie algebra" only, with symmetry algebra $U_q(\hat{\mathcal G})$; the paper does not treat non-simply-laced algebras or the dual algebra. **Modified:** Lecture 4 attributed $U_q(\hat g^\vee)$ for general affine Toda to them; it now says sine-Gordon and simply-laced theories, $U_q(\hat g)$, with the dual algebra for non-simply-laced $\hat g$ referred to the book. The index sentence ($U_q(\hat{\mathfrak g})$) was already within scope.
+- **Letzter (1999)**: correct. She defines a right coideal by $\Delta(C)\subset C\otimes D$ and proves that her quantum symmetric pair subalgebras $B_\theta$ are right coideals (Corollary 4.2), as the index says.
+
+**Book finding B12** (added): chapter 21 (`sec-qg-symmetry`) credits the general statement that the charges generate $U_q(\hat g^\vee)$ to `bernard1991` and `felder1992`. Bernard and LeClair treat only simply-laced algebras, and Felder and LeClair's paper is on perturbed minimal models. Check which source, if any, states the non-simply-laced case, and adjust the citation.

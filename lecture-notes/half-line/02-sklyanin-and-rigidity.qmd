@@ -96,7 +96,7 @@ On the half-line (or an interval $[x_-, x_+]$ with $x_+ = 0$), $a_t(\lambda;0)$ 
 
 Why did $\operatorname{tr} T(\lambda)$ fail? Because $T(\lambda)$ only propagates a test particle one way—from $x_-$ to the wall at $x_+=0$—and leaves it stranded at the wall!
 
-In 1988, Evgeny Sklyanin [@sklyanin1988] (generalized to arbitrary involutive anti-automorphisms $\sigma$ by Delius [@delius1998b]) had a brilliant geometric idea (Panel (a) of @fig-lec2-sklyanin-rigidity): **when the transport reaches the wall at $x_+=0$, bounce it off the wall with a reflection matrix $K_+(\lambda)$ and transport it all the way back to $x_-$ at the reflected spectral parameter $1/\lambda$!**
+In 1988, Evgeny Sklyanin [@sklyanin1988] had a brilliant geometric idea. He formulated it for quantum integrable systems, with a brief discussion of the classical limit. Bowcock, Corrigan, Dorey and Rietdijk used its classical Lax-pair form for affine Toda theory [@bcdr1995], and Delius generalized it to an arbitrary involutive anti-automorphism $\sigma$ [@delius1998b]. Here is the idea (Panel (a) of @fig-lec2-sklyanin-rigidity): **when the transport reaches the wall at $x_+=0$, bounce it off the wall with a reflection matrix $K_+(\lambda)$ and transport it all the way back to $x_-$ at the reflected spectral parameter $1/\lambda$!**
 
 Because the return trip runs backward from $x_+$ to $x_-$, we apply an involutive anti-automorphism $\sigma$ of the Lie algebra ($\sigma([X,Y]) = [\sigma(Y),\sigma(X)]$, so on group elements $\sigma(gh) = \sigma(h)\sigma(g)$ reversals of path ordering are automatic). This builds the **double-row monodromy matrix** $\mathcal T(\lambda)$ and its trace $\tau(\lambda)$ (the book's [double-row transfer matrix](book:eq-double-row)):
 $$

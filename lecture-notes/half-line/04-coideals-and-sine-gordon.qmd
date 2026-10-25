@@ -12,7 +12,7 @@
 
 ## The Mystery of the Surviving Non-Local Charges
 
-In Part VI of the book ([quantum-group symmetry](book:sec-qg-symmetry)), we saw one of the miracles of two-dimensional quantum field theory: Bernard and LeClair discovered that bulk imaginary-coupling affine Toda field theory possesses conserved **non-local charges** $Q_j$ and $\bar Q_j$ ($j = 0, \dots, r$), built as spatial integrals of chiral and antichiral vertex operators, which together with the topological charges $T_j$ generate the quantum affine algebra $U_q(\hat g^\vee)$. Because the bulk S-matrix commutes with the coproduct of these charges, finding $S(\theta)$ reduced from solving the cubic Yang–Baxter equation to solving Jimbo's **linear** intertwining equations!
+In Part VI of the book ([quantum-group symmetry](book:sec-qg-symmetry)), we saw one of the miracles of two-dimensional quantum field theory. Bernard and LeClair discovered that sine-Gordon theory, and imaginary-coupling affine Toda theory based on a simply-laced algebra, possess conserved **non-local charges** $Q_j$ and $\bar Q_j$ ($j = 0, \dots, r$), built as spatial integrals of chiral and antichiral vertex operators, which together with the topological charges $T_j$ generate the quantum affine algebra $U_q(\hat g)$ [@bernard1991]. For a non-simply-laced $\hat g$ the charges involve coroots, and the algebra is that of the dual, $U_q(\hat g^\vee)$ (see the book's chapter). Because the bulk S-matrix commutes with the coproduct of these charges, finding $S(\theta)$ reduced from solving the cubic Yang–Baxter equation to solving Jimbo's **linear** intertwining equations!
 
 When we place a wall at $x = 0$, what happens to $U_q(\hat g^\vee)$?
 
