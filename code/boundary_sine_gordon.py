@@ -26,8 +26,9 @@ Checks:
     Dirichlet and Neumann values.
  7. Excited boundary states (Bajnok-Palla-Takacs-Toth): bootstrap identity for Q on |0> (eta -> etabar),
     poles nu_0, nu_1 of sigma(eta,u), K on |0> (s <-> sbar, eta -> etabar) unitary and crossing-unitary.
- 8. Limits of the UV-IR relation (BPTT sec. 4; in Al. B. Zamolodchikov's normalization BPT hep-th/0108157 (3.2), (3.3)):
-    Neumann, Dirichlet, the eps-hat = 0 point, and the classical value of M_crit (the C = 1 boundary).
+ 8. Limits of the UV-IR relation (BPTT sec. 4; in Al. B. Zamolodchikov's normalization BPT hep-th/0108157 (3.2), (3.3),
+    with the sign of phi_0 of eq-bsg-dirichlet): Neumann, Dirichlet eta = -4 pi phi_0/beta_SG, the eps-hat = 0 point, and
+    the classical value of M_crit (the C = 1 boundary).
  9. Poles (sec-bsg-k-matrix): R_0 has simple poles at u = n pi/(2 lambda), none at pi/2 - n pi/(2 lambda); at these
     points Q is regular and P has the pole, except for vt = 0 and odd n; Neumann tower: P and Q have simple poles at
     u = pi/2 - pi/lambda and u = pi/2.
@@ -346,8 +347,9 @@ report(f'K on the first excited boundary |0> satisfies unitarity [{devU:.0e}] an
        devU < 1e-9 and devC < 1e-9)
 
 # ---------------------------------------------------------------- 8. limits of Al. B. Zamolodchikov's UV-IR relation (BPT hep-th/0108157 (3.2))
-# cos(eta/(lambda+1)) cosh(vt/(lambda+1)) = r cos(b phi0/2),  sin(eta/(lambda+1)) sinh(vt/(lambda+1)) = r sin(b phi0/2),
-# r = M_0/M_crit, beta_SG^2/8pi = 1/(lambda+1), M_crit = sqrt(2 mu/sin(beta_SG^2/8)).
+# cos(eta/(lambda+1)) cosh(vt/(lambda+1)) = r cos(b phi0/2),  sin(eta/(lambda+1)) sinh(vt/(lambda+1)) = -r sin(b phi0/2),
+# r = M_0/M_crit, beta_SG^2/8pi = 1/(lambda+1), M_crit = sqrt(2 mu/sin(beta_SG^2/8)).  The minus sign of the second
+# equation (BPT print +) is that of eq-bsg-dirichlet, the corrected GZ (5.27) (bsg_dirichlet_sign.py).
 def uvir_lhs(eta, vt, lam=LAM):
     return mp.cos(eta/(lam+1))*mp.cosh(vt/(lam+1)), mp.sin(eta/(lam+1))*mp.sinh(vt/(lam+1))
 
@@ -356,15 +358,15 @@ ok = True
 c, s_ = uvir_lhs(mp.pi*(LAM + 1)/2, mp.mpf(0))
 ok &= abs(c) < 1e-20 and abs(s_) < 1e-20                                               # Neumann <-> M_0 = 0
 bphi = mp.mpf('0.4'); V = mp.mpf(40)
-c, s_ = uvir_lhs((LAM + 1)*bphi, (LAM + 1)*V)
-ok &= abs(s_/c - mp.tan(bphi)) < 1e-20 and c > 1e15                                     # Dirichlet: r -> oo, eta = 4pi phi_0/beta
+c, s_ = uvir_lhs(-(LAM + 1)*bphi, (LAM + 1)*V)
+ok &= abs(s_/c + mp.tan(bphi)) < 1e-20 and c > 1e15                                     # Dirichlet: r -> oo, eta = -4pi phi_0/beta
 c, s_ = uvir_lhs(mp.pi/2, mp.mpf(0))
 ok &= abs(c - mp.cos(mp.pi/(2*(LAM + 1)))) < 1e-20 and abs(s_) < 1e-20                  # eps-hat = 0 point, phi_0 = 0
 bs2 = mp.mpf('1e-4'); m0 = mp.mpf(1); mu = m0**2/bs2                                     # classical limit: mu = m_0^2/beta^2
 Mcrit = mp.sqrt(2*mu/mp.sin(bs2/8))
 ok &= abs(Mcrit/(4*m0/bs2) - 1) < 1e-8                                                  # = M_0 of the C = 1 boundary
 report('Zamolodchikov UV-IR relation: M_0 -> 0 gives Neumann (eta, vt) = (pi(lambda+1)/2, 0); M_0 -> infinity gives '
-       'the Dirichlet eta = 4 pi phi_0/beta_SG; (pi/2, 0) <-> M_0/M_crit = cos(pi/(2(lambda+1))); classically '
+       'the Dirichlet eta = -4 pi phi_0/beta_SG; (pi/2, 0) <-> M_0/M_crit = cos(pi/(2(lambda+1))); classically '
        'M_crit -> 4 m_0/beta_SG^2, the C_0 = C_1 = 1 boundary', ok)
 
 # ---------------------------------------------------------------- 9. poles of R_0, P and Q (sec-bsg-k-matrix, "Poles")

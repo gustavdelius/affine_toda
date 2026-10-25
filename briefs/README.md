@@ -164,3 +164,13 @@ Both referees, Gemini 4 Argon (high) and Codex GPT-6 Astra (high), reported both
 `referee_lectures_gemini_report.md` preserves the received Gemini report and appends independent integration verdicts. Its reported commit `9b912ee` has the same lecture sources as integration base `031f162`; several quotations and proposed corrections are wrong. Valid findings and additional dependent errors were corrected in all six lectures and their roadmap. No status label was upgraded.
 
 The received script and archived independent checks/logs are in `referee_lectures_gemini_scripts/`. Maintained checks are `code/lectures/gemini_l126_verified.py`, `gemini_l3_verified.py` and `gemini_l45_verified.py`; the script index is `code/lectures/README.md`. Checkpoints are `gemini_lectures_integration_checkpoint.md`, `gemini_integration_l3_checkpoint.md` and `gemini_integration_l45_checkpoint.md`. Prepared in `.claude/worktrees/integrate-gemini-lectures`, branch `codex/integrate-gemini-lectures`.
+
+## The sign of φ_0 in the Dirichlet relation of boundary sine-Gordon theory (from 2026-10-25)
+
+Ghoshal and Zamolodchikov's Dirichlet relation ξ = 4πφ_0/β (their (5.27)) has the sign for a bulk on x ≥ 0; on their and the book's x ≤ 0 it is η = −4πφ_0/β_SG (`eq-bsg-dirichlet`). The UV–IR relation `cnj-bsg-uv-ir` inherits the sign, and with the correction it pairs each node with itself, as the non-local charges do. The earlier "node crossing" of ch. 30 and 33 was an artifact of the printed sign. The work is on branch `claude/eager-bun-c1cfa6`, stacked on PR #59 (chirality of the non-local charges). The new check is `code/bsg_dirichlet_sign.py`.
+
+| File | What it is |
+|---|---|
+| `referee_bsg_dirichlet_sign.md` | Referee brief for the correction: the charge argument, the semiclassical check by classical simulation, the node pairing, the changed UV–IR relation, the Appendix D items for Ghoshal–Zamolodchikov, Mattsson–Dorey and Bajnok–Palla–Takács–Tóth, prior art, downstream text in ch. 38, 43 and the lecture notes. Report: `referee_bsg_dirichlet_sign_report.md` |
+
+**Files under review: do not edit until the report is in.** `part7-half-line/30-boundary-sine-gordon.qmd` (`sec-bsg-parameters`, `prp-bsg-spectrum`, `sec-shg-boundary-breathers`, the chapter notes), `part7-half-line/33-boundary-quantum-groups.qmd` (`sec-boundary-charges`, `prp-dm-first-order`), the new items in `appendices/D-corrections.qmd`, and `code/bsg_dirichlet_sign.py`.

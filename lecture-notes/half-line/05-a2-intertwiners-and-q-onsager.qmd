@@ -242,9 +242,9 @@ Why did first-order boundary perturbation theory around the Neumann point miss $
    $$
    \hat\epsilon_j = \epsilon_* + \kappa\,\lambda_b \epsilon_j + O(\lambda_b^2).
    $$
-   In sine-Gordon, where $\mu_\pm = (\tilde\mu/\tilde\mu_{\rm crit})e^{\pm i\beta_{\rm SG}\phi_0/2}$ can be varied continuously, expanding the exact UV–IR formula $\hat\epsilon_{1,0}(\mu_\pm) = -\cos\big((\lambda+1)\arccos\mu_\pm\big)/\sin\pi\lambda$ around the Neumann point $\mu_\pm = 0$ gives
+   In sine-Gordon, where $\mu_\pm = (\tilde\mu/\tilde\mu_{\rm crit})e^{\pm i\beta_{\rm SG}\phi_0/2}$ can be varied continuously, expanding the exact UV–IR formula $\hat\epsilon_{1,0}(\mu_\mp) = -\cos\big((\lambda+1)\arccos\mu_\mp\big)/\sin\pi\lambda$ around the Neumann point $\mu_\pm = 0$ gives
    $$
-   \hat\epsilon_{1,0} = \epsilon_* - \frac{\lambda + 1}{2\sin(\pi\lambda/2)}\,\mu_\pm + O(\mu_\pm^2),
+   \hat\epsilon_{1,0} = \epsilon_* - \frac{\lambda + 1}{2\sin(\pi\lambda/2)}\,\mu_\mp + O(\mu^2),
    $$
    confirming both the intercept $\epsilon_*$ at Neumann ($\mu_\pm = 0$) and the zero $\hat\epsilon = 0$ at $\mu_\pm = \cos\frac{\pi}{2(\lambda+1)} \to 1$ (the uniform boundary $C \equiv +1$)!
 

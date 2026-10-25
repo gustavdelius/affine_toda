@@ -51,8 +51,8 @@ on any FAIL.
   (g) Sinh-Gordon. With T = Tcl, Tbar(theta) = Tcl(i pi - theta), Tbar K_D T = K(theta; E, F = 2 i theta_d/pi) for the
       Corrigan-Delius factor in h = 2 blocks; F = -2 i theta_d/pi gives the same (even in F), F = i theta_d/pi fails.
   (h) What is left of hbar. The classical fused boundary has C_{0,1} = cosh(theta_cl -+ ... ) and the classical limit of the
-      boundary UV-IR relation, cos((eta -+ i vartheta)/(lambda+1)) = C_{0,1}, gives eta = (lambda+1) psi0/2, vartheta =
-      (lambda+1) theta_cl; with vartheta = lambda theta_d this is lambda theta_d = (lambda+1) theta_cl. At m0 = 0 the defect
+      boundary UV-IR relation, cos((eta -+ i vartheta)/(lambda+1)) = C_{1,0} (each node with its own parameter; the
+      book's sign of phi_0, eq-bsg-dirichlet), gives eta = -(lambda+1) psi0/2, vartheta = (lambda+1) theta_cl; with vartheta = lambda theta_d this is lambda theta_d = (lambda+1) theta_cl. At m0 = 0 the defect
       transmits left-movers unchanged and flips right-movers, so Sigma(0, t) = 2 beta phi_L. Weights: h(e^{i Sigma/2}) =
       beta^2/8 pi = 1/(lambda+1), and (8 pi/beta^2)^2 h = lambda + 1, the spin of the non-local currents; theta_cl =
       (1 - h) theta_d is lambda theta_d = (lambda+1) theta_cl; continued to sinh-Gordon it is (1 - B/2) theta_cl, whose
@@ -824,9 +824,9 @@ ok_h = True
 for lam in (3.7, 11.2):
     for thcl, p0 in ((0.6, 0.8), (-0.35, 2.3)):
         C0, C1 = cmath.cosh(thcl + I * p0 / 2), cmath.cosh(thcl - I * p0 / 2)
-        # classical UV-IR: cos((eta - i vartheta)/(lambda+1)) = C0, cos((eta + i vartheta)/(lambda+1)) = C1
-        eta, vth = (lam + 1) * p0 / 2, (lam + 1) * thcl
-        ok_h = ok_h and abs(cmath.cos((eta - I * vth) / (lam + 1)) - C0) < 1e-12 and abs(cmath.cos((eta + I * vth) / (lam + 1)) - C1) < 1e-12
+        # classical UV-IR: cos((eta - i vartheta)/(lambda+1)) = C1, cos((eta + i vartheta)/(lambda+1)) = C0
+        eta, vth = -(lam + 1) * p0 / 2, (lam + 1) * thcl
+        ok_h = ok_h and abs(cmath.cos((eta - I * vth) / (lam + 1)) - C1) < 1e-12 and abs(cmath.cos((eta + I * vth) / (lam + 1)) - C0) < 1e-12
         # with vartheta = lambda theta_d
         thd = vth / lam
         ok_h = ok_h and abs(lam * thd - (lam + 1) * thcl) < 1e-12
@@ -872,7 +872,7 @@ for bb in (-3.0, -1.2, 0.5, 1.8, -3 + 2j):
     vals.append((mu / cmath.exp(1.2 * thb(bb)), mub / cmath.exp(-1.2 * thb(bb))))
 vals = np.array(vals)
 ok_h = ok_h and np.abs(vals - vals[0]).max() < 1e-12
-report("(h) what is left of hbar: the classical UV-IR limit maps the fused C0, C1 to eta = (lambda+1) psi0/2, vartheta "
+report("(h) what is left of hbar: the classical UV-IR limit maps the fused C0, C1 to eta = -(lambda+1) psi0/2, vartheta "
        "= (lambda+1) theta_cl, so lambda theta_d = (lambda+1) theta_cl and y_d = sigma^-(lambda+1); at m0 = 0 the defect "
        "passes left-movers and flips right-movers; h = beta^2/8pi = 1/(lambda+1), theta_cl = (1-h) theta_d; sinh-Gordon "
        "(1 - B/2) and Bajnok-Simon's 1 - b^2/8pi; Bajnok-Hollo-Watts couplings ~ e^{+-(6/5) theta_b}", ok_h)
