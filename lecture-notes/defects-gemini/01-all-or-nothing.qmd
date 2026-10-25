@@ -293,7 +293,7 @@ We have just proved the book's [Pure reflection or pure transmission](book:prp-r
 
 > **The All-or-Nothing Principle:** In any interacting integrable theory with a rapidity-dependent diagonal bulk $S$-matrix, an integrable defect without internal states **cannot both reflect and transmit**. Either $\mathbb{T}_a(\theta) \equiv 0$ (a purely reflecting defect, which is just two decoupled half-line boundaries back-to-back) or $R_a(\theta) \equiv 0$ (a **purely transmitting defect**, which conserves asymptotic momentum).
 
-As explained in the book's section [Reflection, transmission and a no-go theorem](book:sec-rt-algebra), Castro-Alvaredo, Fring, and Göhmann [@cafg2002] extended this no-go theorem to non-diagonal bulk $S$-matrices and defects with internal states whenever the reflection and transmission matrices commute in the defect space within a single communicating sector. Thus, in interacting integrable field theories—such as sine-Gordon, sinh-Gordon, and affine Toda theories—integrable line defects are **purely transmitting**.
+As explained in the book's section [Reflection, transmission and a no-go theorem](book:sec-rt-algebra), Castro-Alvaredo, Fring, and Göhmann [@cafg2002] extended this no-go theorem to non-diagonal bulk $S$-matrices and defects with internal states whenever the reflection and transmission matrices commute in the defect space within a single communicating sector. Under these hypotheses, a defect with nonzero transmission in an interacting theory is purely transmitting. The theorem does not exclude purely reflecting boundaries or cover arbitrary noncommuting defect degrees of freedom.
 
 ---
 
@@ -308,10 +308,12 @@ $$
 R(\theta)R(-\theta) + \mathbb{T}(\theta)\mathbb{T}(-\theta) = 1, \qquad
 R(\theta)\mathbb{T}(-\theta) + \mathbb{T}(\theta)R(-\theta) = 0,
 $$ {#eq-lec1-ising-unitarity}
-together with the crossing relation between reflection and transmission [@delfino_mussardo_simonetti1994, eq. (2.9)]:
+together with the separate crossing relations for reflection and transmission [@delfino_mussardo_simonetti1994, eq. (2.9)]:
 $$
-R(\theta) = \mathbb{T}\!\left(\frac{i\pi}{2} - \theta\right) \quad\Longleftrightarrow\quad \mathbb{T}(\theta) = \mathbb{T}(i\pi - \theta), \quad R(\theta) = -R(i\pi - \theta) \text{ (up to conventions)}.
+\mathbb{T}(\theta) = \mathbb{T}(i\pi - \theta), \qquad R(\theta) = -R(i\pi - \theta).
 $$
+The minus sign in reflection is the bulk Majorana scattering phase $S(2\theta)=-1$. These relations do not equate $R(\theta)$ with $\mathbb{T}(i\pi/2-\theta)$. The amplitudes below satisfy both crossing relations and the two unitarity equations, as checked in `code/lectures/gemini_l126_verified.py`.
+
 Specifically, for a line defect of strength $g$ in the free Majorana fermion action (a line of modified energy bonds in the lattice Ising model), solving the Dirac equation across $x=0$ gives (see [the book](book:eq-defect-zf)) with [@delfino_mussardo_simonetti1994, eq. (3.5)]:
 $$
 \mathbb{T}(\theta) = \frac{\cos\chi\,\sinh\theta}{\sinh\theta - i\sin\chi}, \qquad
@@ -650,7 +652,7 @@ $$
    \big[\mathbb{T}^{\rm cl}(\theta)\big]^2 = f_{-1/2}(\theta - \theta_d) = \frac{\sinh(\theta - \theta_d) - i}{\sinh(\theta - \theta_d) + i}, \qquad
    \big[\mathbb{T}^{\rm cl}_{\rm odd}(\theta)\big]^2 = f_{1/2}(\theta - \theta_d) = \frac{\sinh(\theta - \theta_d) + i}{\sinh(\theta - \theta_d) - i},
    $$
-   which satisfy the bulk unitarity and crossing equations $f(\theta)f(-\theta) = 1$ and $f(\theta) = f(i\pi - \theta)$! Why can a single bulk particle never have $\mathbb{T}^{\rm cl}(\theta)$ as its bulk $S$-matrix, whereas a defect can?
+   The unshifted blocks satisfy $f(u)f(-u) = 1$ and $f(u) = f(i\pi - u)$ in their argument $u$; a fixed real shift $u=\theta-\theta_d$ is not a bulk rapidity difference. These identities are checked in `code/lectures/gemini_l126_verified.py`. Why can a single bulk particle never have $\mathbb{T}^{\rm cl}(\theta)$ as its bulk $S$-matrix, whereas a defect can?
 :::
 
 ::: {#exr-lec1-doubled-re}

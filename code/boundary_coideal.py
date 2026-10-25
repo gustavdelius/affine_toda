@@ -27,8 +27,11 @@ Checks:
  8. B = Lbar (K (x) 1) L (eq-b-matrix) at first order in 1/y: leading terms of the universal R-matrix against the
     exact R-check; for the a_n vector representation (n <= 6) the coefficients are exactly the b_j of
     eq-coideal-generators, with eps = 0 (K = 1) or eps = (s eps_*, eps_*, ..., eps_*) (eq-an-k-matrix).
- 9. Sine-Gordon eps_j near the Neumann point from eq-bsg-eta-theta and cnj-bsg-uv-ir (prp-dm-first-order).
-Runtime: about a minute.
+ 9. Sine-Gordon eps_j near the Neumann point from eq-bsg-eta-theta and cnj-bsg-uv-ir (prp-dm-first-order): eps_1 depends
+    on mu_- ~ C_1 alone and eps_0 on mu_+ ~ C_0 alone (sign of phi_0 of eq-bsg-dirichlet).
+10. Delius-MacKay's q (their (3.10)) is 1/q: their charges Q_+- are left-movers, the book's f_0 k_0 and f_1 k_1, and their
+    Qbar_-+ are e_0, e_1; at the physical q these have DM's T-charges and coproducts with q_DM = 1/q, not with q.
+Runtime: about two minutes.
 """
 import numpy as np
 import sympy as sp
@@ -527,25 +530,66 @@ report('B = Lbar (K(x)1) L, a_n vector rep (n = 1..6), K = 1 and eq-an-k-matrix 
        'eps = 0 resp. (s eps_*, eps_*, ..., eps_*)', ok)
 
 # ---------------------------------------------------------------- 9. sine-Gordon: eps near the Neumann point
-# eq-bsg-eta-theta with cnj-bsg-uv-ir: cos((eta -+ i vartheta)/(lambda+1)) = mu_+-, mu_+- = (mu~/mu~_crit) e^{+-i beta phi_0/2}.
-# So eps_1 = -cos((lambda+1) arccos mu_+)/sin(pi lambda), eps_0 the same with mu_-, and near mu~ = 0
-# eps = eps_* - (lambda+1)/(2 sin(pi lambda/2)) mu_+- + O(mu^2); eps = 0 at phi_0 = 0, mu~/mu~_crit = cos(pi/(2(lambda+1))).
+# eq-bsg-eta-theta with cnj-bsg-uv-ir: cos((eta -+ i vartheta)/(lambda+1)) = mu_-+, mu_+- = (mu~/mu~_crit) e^{+-i beta phi_0/2}
+# (the sign of phi_0 of eq-bsg-dirichlet).  So eps_1 = -cos((lambda+1) arccos mu_-)/sin(pi lambda), eps_0 the same with
+# mu_+: mu_- ~ C_1 and mu_+ ~ C_0 (eq-bsg-c-dictionary), each node with its own parameter.  Near mu~ = 0
+# eps_(1,0) = eps_* - (lambda+1)/(2 sin(pi lambda/2)) mu_-+ + O(mu^2); eps = 0 at phi_0 = 0, mu~/mu~_crit = cos(pi/(2(lambda+1))).
 lamS = 1.37
 sS = np.sin(np.pi*lamS)
 eps_sg = lambda mu: -np.cos((lamS + 1)*np.arccos(mu + 0j))/sS
 ok = True
 for m_, ph in ((0.31, 0.4), (0.8, -1.1), (1.7, 0.25)):       # m_ = mu~/mu~_crit, ph = beta phi_0/2
-    Am, Ap = (lamS + 1)*np.arccos(m_*np.exp(1j*ph) + 0j), (lamS + 1)*np.arccos(m_*np.exp(-1j*ph) + 0j)
+    Am, Ap = (lamS + 1)*np.arccos(m_*np.exp(-1j*ph) + 0j), (lamS + 1)*np.arccos(m_*np.exp(1j*ph) + 0j)
     eta_s, vth_s = (Am + Ap)/2, (Ap - Am)/2j                   # Am = eta - i vartheta, Ap = eta + i vartheta
     ok &= abs(eta_s.imag) < 1e-12 and abs(vth_s.imag) < 1e-12
     e_, t_ = eta_s.real/(lamS + 1), vth_s.real/(lamS + 1)
-    ok &= (abs(np.cos(e_)*np.cosh(t_) - m_*np.cos(ph)) < 1e-12 and abs(np.sin(e_)*np.sinh(t_) - m_*np.sin(ph)) < 1e-12)
-    ok &= (abs(-np.cos(eta_s.real - 1j*vth_s.real)/sS - eps_sg(m_*np.exp(1j*ph))) < 1e-12 and
-           abs(-np.cos(eta_s.real + 1j*vth_s.real)/sS - eps_sg(m_*np.exp(-1j*ph))) < 1e-12)
+    ok &= (abs(np.cos(e_)*np.cosh(t_) - m_*np.cos(ph)) < 1e-12 and abs(np.sin(e_)*np.sinh(t_) + m_*np.sin(ph)) < 1e-12)
+    ok &= (abs(-np.cos(eta_s.real - 1j*vth_s.real)/sS - eps_sg(m_*np.exp(-1j*ph))) < 1e-12 and     # eps_1(mu_- ~ C_1)
+           abs(-np.cos(eta_s.real + 1j*vth_s.real)/sS - eps_sg(m_*np.exp(1j*ph))) < 1e-12)         # eps_0(mu_+ ~ C_0)
 hS, zS = 1e-5, np.exp(0.7j)
 dS = (eps_sg(hS*zS) - eps_sg(-hS*zS))/(2*hS*zS)
 kapS = -(lamS + 1)/(2*np.sin(np.pi*lamS/2))
 ok &= abs(eps_sg(0) - 1/(2*np.cos(np.pi*lamS/2))) < 1e-12 and abs(dS - kapS) < 1e-8
 ok &= abs(eps_sg(np.cos(np.pi/(2*(lamS + 1))))) < 1e-12
-report(f'sine-Gordon: eq-bsg-eta-theta + cnj-bsg-uv-ir give eps_(1,0) = -cos((lambda+1) arccos mu_+-)/sin(pi lambda), '
-       f'= eps_* - (lambda+1)/(2 sin(pi lambda/2)) mu_+- + O(mu^2) near Neumann; eps = 0 at mu_+- = cos(pi/(2(lambda+1)))', ok)
+report(f'sine-Gordon: eq-bsg-eta-theta + cnj-bsg-uv-ir give eps_(1,0) = -cos((lambda+1) arccos mu_-+)/sin(pi lambda), '
+       f'mu_- ~ C_1, mu_+ ~ C_0 (each node with its own parameter), = eps_* - (lambda+1)/(2 sin(pi lambda/2)) mu_-+ + O(mu^2) '
+       f'near Neumann; eps = 0 at mu_+- = cos(pi/(2(lambda+1)))', ok)
+
+# ---------------------------------------------------------------- 10. Delius-MacKay's sine-Gordon q is a convention
+# DM (hep-th/0112023) sec. 3: Euclidean z = (t + ix)/2 with t = i t_M, so their holomorphic phi is a function of x^+:
+# their Q_+- (currents e^{+-2i phi/bhat}) are built from left-movers, their Qbar_-+ from right-movers, and
+# Delta(Q_+-) = Q_+-(x)1 + q^{+-T}(x)Q_+-, Delta(Qbar_-+) = Qbar_-+(x)1 + q^{+-T}(x)Qbar_-+, with their (3.10)
+# q_DM = exp(2 pi i (1 - bhat^2)/bhat^2), bhat^2 = beta_SG^2/4pi.  In the book's labels (sec-nonlocal-charges, after
+# the chirality fix) Q_+ = f_0 k_0 and Q_- = f_1 k_1 (left-movers), Qbar_- = e_0 and Qbar_+ = e_1 (right-movers), and
+# DM's Qhat_+ = Q_+ + Qbar_- + eps q^T is b_0.  At the physical q these elements have exactly DM's T-charges and
+# coproducts with q_DM = 1/q, and not with q itself: (3.10) is the book's q seen through charges of the other chirality.
+lamD = np.sqrt(3.0)                                   # generic lambda = 8 pi/beta_SG^2 - 1
+qD = q_phys(lamD)
+bh2 = (8*np.pi/(lamD + 1))/(4*np.pi)                  # bhat^2 = beta_SG^2/4 pi
+qDM = np.exp(2j*np.pi*(1 - bh2)/bh2)
+ok = abs(qDM - 1/qD) < 1e-12
+A, B = sl2_spin(1, qD, np.exp(0.31 + 0.2j)), sl2_spin(1, qD, np.exp(-0.47 + 0.6j))
+H = np.diag([1.0, -1.0])                              # T on one soliton
+TT = kron(H, np.eye(2)) + kron(np.eye(2), H)
+qpow = lambda qq, s: np.diag(qq**(s*np.array([1.0, -1.0])))
+dm = {'Q_+': (lambda R: R[('f', 0)] @ R[('k', 0)], lambda: cop(A, B, 'f', 0) @ cop(A, B, 'k', 0), +1),
+      'Q_-': (lambda R: R[('f', 1)] @ R[('k', 1)], lambda: cop(A, B, 'f', 1) @ cop(A, B, 'k', 1), -1),
+      'Qbar_-': (lambda R: R[('e', 0)], lambda: cop(A, B, 'e', 0), +1),
+      'Qbar_+': (lambda R: R[('e', 1)], lambda: cop(A, B, 'e', 1), -1)}
+dev_dm, dev_q = 0, np.inf
+for name, (one, two, s) in dm.items():
+    X, D = one(A), two()
+    sT = +1 if name in ('Q_+', 'Qbar_+') else -1     # Q_+, Qbar_+ raise T by 2; Q_-, Qbar_- lower it
+    ok &= np.allclose(H @ X - X @ H, 2*sT*X)
+    for qq, store in ((qDM, 'dm'), (qD, 'q')):
+        Xa, Xb = one(A), one(B)
+        rhs = kron(Xa, np.eye(2)) + kron(qpow(qq, s), Xb)
+        r = np.abs(D - rhs).max()/np.abs(D).max()
+        if store == 'dm':
+            dev_dm = max(dev_dm, r)
+        else:
+            dev_q = min(dev_q, r)
+report(f'Delius-MacKay (3.10): q_DM = exp(2 pi i(1-bhat^2)/bhat^2) = 1/q at the physical q; in the book\'s V(y1)(x)V(y2) '
+       f'their Q_+- = f_0 k_0, f_1 k_1 (left-movers) and Qbar_-+ = e_0, e_1 (right-movers) have their T-charges and '
+       f'coproducts Q(x)1 + q_DM^(+-T)(x)Q [{dev_dm:.0e}], and not with q_DM -> q [{dev_q:.1f}]: a convention, not an error',
+       ok and dev_dm < 1e-12 and dev_q > 0.1)

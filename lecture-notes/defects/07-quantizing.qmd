@@ -40,13 +40,13 @@ We set $\hbar=1$, except in @sec-l7-weyl.
 
 ## The symmetry of the solitons {#sec-l7-bulk}
 
-**The charges.** Bernard and LeClair's charges are integrals of vertex operators of one chirality of the field (see the book's [non-local charges](book:sec-nonlocal-charges)). We call those built from left-movers $e_0$ and $e_1$. Those built from right-movers, multiplied by a power of $q^T$, we call $f_0$ and $f_1$. The topological charge $T$ gives $k_1=q^{T}$ and $k_0=k_1^{-1}$. Here
+**The charges.** Bernard and LeClair's charges are integrals of vertex operators of one chirality of the field (see the book's [non-local charges](book:sec-nonlocal-charges)). We call those built from right-movers $e_0$ and $e_1$. Those built from left-movers, multiplied by a power of $q^T$, we call $f_0$ and $f_1$. The topological charge $T$ gives $k_1=q^{T}$ and $k_0=k_1^{-1}$. Here
 
 $$
 q=e^{-8\pi^2i/\beta^2}=-e^{-i\pi\lambda},
 $$ {#eq-l7-q}
 
-which is a phase. A boost by rapidity $\vartheta$ multiplies the $e_j$ by $e^{\lambda\vartheta}$ and the $f_j$ by $e^{-\lambda\vartheta}$: the charges have Lorentz spin $\pm\lambda$. They satisfy the relations of $U_q(\widehat{sl}_2)$ at zero centre (see the book's [quantum affine algebras](book:sec-uqghat)),
+which is a phase. A boost by rapidity $\vartheta$ multiplies the $e_j$ by $e^{\lambda\vartheta}$ and the $f_j$ by $e^{-\lambda\vartheta}$: the charges have Lorentz spin $\pm\lambda$. A particle of large rapidity is a right-mover (@sec-l3-massless), and the $e_j$ are the charges that grow with the rapidity. They satisfy the relations of $U_q(\widehat{sl}_2)$ at zero centre (see the book's [quantum affine algebras](book:sec-uqghat)),
 
 $$
 k_ie_jk_i^{-1}=q^{a_{ij}}e_j,\qquad k_if_jk_i^{-1}=q^{-a_{ij}}f_j,\qquad[e_i,f_j]=\delta_{ij}\frac{k_i-k_i^{-1}}{q-q^{-1}},
