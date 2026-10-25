@@ -685,7 +685,7 @@ def fused_residual(c, kb):
 
 ok_e = ok_e and fused_residual(1, -1) == 0
 ok_e = ok_e and fused_residual(1, 0) != 0 and fused_residual(-1, -1) != 0
-report("(e) freezing is fusing: B(Phi, psi0) is the GZ potential with C0, C1 = cosh(theta_d -+ i psi0/2), every "
+report("(e) freezing is fusing: B(Phi, psi0) is the GZ potential with C0, C1 = cosh(theta_d +- i psi0/2), every "
        "boundary arises; Dirichlet flux of q_- + q_+ = -8 m0^2 sin psi0 d_t Phi_x; the fused boundary conserves "
        "(1/8m0^3) int (q_- + q_+) + D_-3 + D_+3 - (sin psi0/m0) Psi_x exactly (sympy), not without the last term, "
        "nor with q_- - q_+", ok_e)

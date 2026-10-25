@@ -19,14 +19,23 @@ Checks:
     phi_0 > 0 the pole must be in P^-, i.e. eta < 0: eta = -(lambda+1) beta phi_0/2, not GZ's sign.
  4. Independent check of the same sign, by classical scattering.  For real theta, P^+/P^- = cos(eta - i lambda theta)/
     cos(eta + i lambda theta) -> e^{2 i eta} for lambda theta >> 1 (the scalar factor is common), so semiclassically
-    d(delta_s - delta_sbar)/d phi_0 = 2 d eta/d phi_0.  The amplitude is e^{iS}, and dS/dphi_0 = int dt dL/dphi_0 =
-    -int dt phi_x(0,t), since dL/dphi_0 = (beta M_0/2) sin(beta(phi(0)-phi_0)/2) = -phi_x(0) by eq-bsg-boundary.
+    d(delta_s - delta_sbar)/d phi_0 = 2 d eta/d phi_0.  The amplitude is e^{iS_sc}, with S_sc the action with the static
+    ground state phi_g and the free asymptotic motion subtracted, and dS_sc/dphi_0 = -int dt [phi_x(0,t) - phi_x^g(0)],
+    since dL/dphi_0 = (beta M_0/2) sin(beta(phi(0)-phi_0)/2) = -phi_x(0) by eq-bsg-boundary; u_x^g(0) = 2 sin(u_0/2).
     A leapfrog simulation of a soliton and an antisoliton reflecting off the Dirichlet boundary (u_0 = 0.9, 2.0;
     v = 0.5, 0.8) gives int dt [u_x^s(0,t) - u_x^sbar(0,t)] = +8 pi, independent of u_0 and v.  So
     d(delta_s - delta_sbar)/d phi_0 = -8 pi/beta = -(lambda+1) beta: eta = -(lambda+1) beta phi_0/2.  GZ's sign would
     need -8 pi.  The convention e^{+iS} is checked on the same runs, blind to the sign of eta: the common phase
     2 arg sigma(eta, -i theta) depends on |eta| only, and its eta-derivative at lambda = 400 equals -(I_s + I_sbar)/8pi.
-Runtime: about 10 seconds.
+ 5. eq-bsg-dirichlet-flux.  The exact three-soliton solution u = 4 arg tau - 2 pi s, with
+    tau = 1 - v^2 z1 z2 - w z3 (z1 + z2) + i [z1 + z2 + z3 - v^2 w^2 z1 z2 z3],
+    z1,2 = s D e^{x cosh theta -+ t sinh theta}, z3 = (r/w) e^x, v = tanh theta, w = tanh^2(theta/2), r = tan(u_0/4),
+    D^2 = (w + r^2)/(v^2 w (1 + r^2 w)), solves the sine-Gordon equation, has u(0,t) = u_0 mod 2pi, an incoming
+    particle of charge s and the ground state at the wall before the collision.  Its flux is
+    I_s = int dt [u_x(0,t) - 2 sin(u_0/2)] = 4 pi s - 8 arctan(sin(u_0/2)/sinh theta), by quadrature; the simulation of
+    check 4 reproduces it, and -(I_s + I_sbar)/8pi = (2/pi) arctan(sin(u_0/2)/sinh theta) is the lambda -> oo limit of
+    d_eta arg sigma(eta, -i theta) at eta = (lambda+1) u_0/2 (Richardson extrapolation from lambda = 400, 800).
+Runtime: about 15 seconds.
 """
 import numpy as np
 import mpmath as mp
@@ -155,3 +164,73 @@ report(f'P^+/P^- -> e^(2 i eta) at lambda theta = 20 [{abs(ratio - np.exp(2j*eta
        f'({8*np.pi:.4f}) for u_0 = 0.9, 2.0, v = 0.5, 0.8; so d(delta_s - delta_sbar)/d phi_0 = -8pi/beta and '
        f'eta = -(lambda+1) beta phi_0/2 (GZ sign would need -8 pi)',
        abs(ratio - np.exp(2j*eta_)) < 1e-12 and all(abs(d - 8*np.pi) < 1e-2 for d in diffs))
+
+
+# ---------------------------------------------------------------- 5. the exact flux, eq-bsg-dirichlet-flux
+def tau_derivs(x, t, theta, u0, s):
+    """tau of the three-soliton Dirichlet reflection and its x, t derivatives up to second order."""
+    g, hh, v, w, r = np.cosh(theta), np.sinh(theta), np.tanh(theta), np.tanh(theta/2)**2, np.tan(u0/4)
+    D = np.sqrt((w + r*r)/(v*v*w*(1 + r*r*w)))
+    z = (s*D*np.exp(g*x - hh*t), s*D*np.exp(g*x + hh*t), (r/w)*np.exp(x))
+    kx, kt = (g, g, 1.0), (-hh, hh, 0.0)
+    out = [0, 0, 0, 0, 0]                          # tau, tau_x, tau_xx, tau_t, tau_tt
+    for c, n in ((1, (0, 0, 0)), (-v*v, (1, 1, 0)), (-w, (1, 0, 1)), (-w, (0, 1, 1)),
+                 (1j, (1, 0, 0)), (1j, (0, 1, 0)), (1j, (0, 0, 1)), (-1j*v*v*w*w, (1, 1, 1))):
+        m = c*z[0]**n[0]*z[1]**n[1]*z[2]**n[2]
+        px, pt = np.dot(kx, n), np.dot(kt, n)
+        for i, f in enumerate((1, px, px*px, pt, pt*pt)):
+            out[i] = out[i] + f*m
+    return out
+
+
+def exact_flux(theta, u0, s):
+    """int dt [u_x(0,t) - 2 sin(u0/2)] for u = 4 arg tau - 2 pi s, by quadrature."""
+    from scipy.integrate import quad
+    def f(t):
+        T = tau_derivs(0.0, t, theta, u0, s)
+        return 4*np.imag(T[1]/T[0]) - 2*np.sin(u0/2)
+    T = 70/np.sinh(theta)
+    return quad(f, -T, T, points=[0.0], limit=400, epsabs=1e-13, epsrel=1e-13)[0]
+
+
+res = bv = dI = 0.0
+ok_bg = True
+for theta in (0.4, 0.8, 1.3):
+    for u0 in (0.6, 1.4, -0.9):
+        for s in (1, -1):
+            X, T = np.meshgrid(np.linspace(-8, 0, 41), np.linspace(-6, 6, 41))
+            t0, tx, txx, tt, ttt = tau_derivs(X, T, theta, u0, s)
+            # u = 4 Im log tau: u_tt - u_xx + sin u, with sin u = sin(4 arg tau) = Im tau^4/|tau|^4
+            res = max(res, np.max(np.abs(4*np.imag(ttt/t0 - (tt/t0)**2) - 4*np.imag(txx/t0 - (tx/t0)**2)
+                                         + np.imag(t0**4)/np.abs(t0)**4)))
+            tb = tau_derivs(0.0, np.linspace(-10, 10, 201), theta, u0, s)[0]
+            bv = max(bv, np.max(np.abs(np.angle(np.exp(1j*(4*np.angle(tb) - u0))))))
+            closed = 4*np.pi*s - 8*np.arctan(np.sin(u0/2)/np.sinh(theta))
+            dI = max(dI, abs(exact_flux(theta, u0, s) - closed))
+            if u0 > 0:      # before the collision: phi(-oo) = -2 pi s/beta, ground state at the wall
+                xs = np.linspace(-80, 0, 80001)
+                uu = 4*np.unwrap(np.angle(tau_derivs(xs, -40.0, theta, u0, s)[0]))
+                uu += u0 - uu[-1]
+                i3 = np.argmin(abs(xs + 3))
+                ok_bg &= (abs(uu[0] + 2*np.pi*s) < 1e-6
+                          and abs(uu[i3] - 4*np.arctan(np.tan(u0/4)*np.exp(-3.0))) < 1e-4)
+# the simulation of check 4 against the closed form (v = tanh theta)
+dsim = max(abs(flux[(u0, v)][i] - (4*np.pi*s - 8*np.arctan(np.sin(u0/2)/np.sinh(np.arctanh(v)))))
+           for (u0, v) in pairs for i, s in ((0, 1), (1, -1)))
+report(f'exact three-soliton reflection: sine-Gordon residual {res:.0e}, u(0,t) = u_0 mod 2pi [{bv:.0e}], incoming '
+       f'charge s with the ground state at the wall; int dt [u_x(0,t) - 2 sin(u_0/2)] = 4 pi s - 8 arctan(sin(u_0/2)/'
+       f'sinh theta) [{dI:.0e}] for theta = 0.4, 0.8, 1.3, u_0 = 0.6, 1.4, -0.9; the simulation agrees [{dsim:.1e}]',
+       res < 1e-9 and bv < 1e-12 and ok_bg and dI < 1e-8 and dsim < 2e-2)
+
+# the convention e^{+iS}: lambda -> oo limit of d_eta arg sigma against the closed-form sum of the fluxes
+th5, u05 = 0.8, 1.4
+target = 2/np.pi*np.arctan(np.sin(u05/2)/np.sinh(th5))        # = -(I_s + I_sbar)/8pi
+dvals = []
+for lam5 in (400, 800):
+    eta5, h5 = (lam5 + 1)*u05/2, mp.mpf('1e-5')
+    dvals.append(float((mp.im(log_sigma(eta5 + h5, -1j*th5, lam5))
+                        - mp.im(log_sigma(eta5 - h5, -1j*th5, lam5)))/(2*h5)))
+extrap = 2*dvals[1] - dvals[0]
+report(f'e^(+iS) in closed form: d_eta arg sigma(eta, -i theta) at eta = (lambda+1) u_0/2, extrapolated to lambda -> oo, '
+       f'= {extrap:.6f}; -(I_s + I_sbar)/8pi = (2/pi) arctan(sin(u_0/2)/sinh theta) = {target:.6f} (theta = 0.8, '
+       f'u_0 = 1.4); e^(-iS) would need {-target:.6f}', abs(extrap - target) < 2e-4)
