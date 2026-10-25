@@ -646,3 +646,7 @@ These are leads, not additional established findings:
 - Several theorem/chapter numbers are typed into link text despite repository rules. The reference checker cannot make those link captions track renumbering.
 
 Phase-1 work stops here. This report is to remain unchanged after delivery; any directed follow-up belongs in the phase-2 report.
+
+---
+
+*Integrated 2026-10-25: see the `## Integration` section of `referee_lectures_halfline_combined.md`.*

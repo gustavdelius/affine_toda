@@ -3,19 +3,26 @@
 Half-Line Lecture 4 figure & verification script:
   lecture-notes/half-line/figures/l4_f1_coideal_sg.svg
 
-Verifies:
+Verifies, at sampled generic parameters (lambda = sqrt 2, so q is not a root of unity):
   1. Left coideal coproduct Delta(b_j) = (b_j - eps_j k_j) x 1 + k_j x b_j
      in V(y_1) x V(y_2) (prp-coideal-left).
-  2. Sine-Gordon linear intertwining equation K(y) pi_y(b_j) = pi_{1/y}(b_j) K(y):
-     - requires c_0 * c_1 = q^{-2} at eps_0 = eps_1 = 0
-     - gives the unique Ghoshal-Zamolodchikov matrix at c_0 = c_1 = q^{-1}
-     - solves the braid reflection equation on V(y_1) x V(y_2) (prp-sg-k-unique).
-  3. Physical sign of q = -exp(-i*pi*lambda): boundary crossing-unitarity with
-     ordinary charge conjugation s <-> s_bar holds at q = -exp(-i*pi*lambda)
-     and fails at +exp(-i*pi*lambda) (prp-bsg-k).
-  4. One-dimensional B-submodule of V(e^{-i*lambda*nu_n}) x C_eps at the bound-state
-     pole theta = i*nu_n gives beta_{1,0} = -cos(bar_eta +- i*vartheta)/sin(pi*lambda)
-     with bar_eta = pi*(lambda+1) - eta (prp-boundary-module, eq-bsg-excited-k).
+  2. Sine-Gordon intertwiner K(y) pi_y(b_j) = pi_{1/y}(b_j) K(y) and the braid reflection
+     equation (prp-sg-k-unique); with general coefficients c_j and eps = 0, a nonzero K exists
+     for generic y iff c_0 c_1 = q^-2 (smallest singular value of the 8x4 system), and
+     c_0 = c_1 = -1/q is also allowed (Exercise 4.1).
+  3. Sign of q: the six-vertex braid matrix obeys R(-q) = (Pi x 1) R(q) (Pi x 1), and
+     K(eps; -q) = K(-eps; q). The matrix part of boundary crossing-unitarity,
+     k(theta) ~ R(2 theta) k(-theta) with k = sum K_{abar}^b(i pi/2 - theta) v_a x v_b,
+     holds at q = -exp(-i pi lambda) with plain C, fails at +exp(-i pi lambda) with plain C,
+     and holds there with the twisted C = ((0,1),(-1,0)). Proportionality only: the scalar
+     factor is not tested.
+  4. Bound-state submodules: at y_n = i(-1)^n e^{-i eta}, v_n = (1, (-1)^n e^{-vartheta}) is a
+     common eigenvector of pi(b_1), pi(b_0) with beta_{1,0} = -cos(bar_eta +- i vartheta)/sin(pi lambda),
+     bar_eta = pi(lambda+1) - eta; common eigenvectors exist exactly at
+     y^2 in {-e^{+-2 i eta}, -e^{+-2 vartheta}} (roots of the resultant).
+  5. Parametrization and Neumann point: K/(-4i) = [[P0+, Q0], [Q0, P0-]] with (eta, vartheta);
+     at eta = pi(lambda+1)/2 the coideal value is 1/(2 cos(pi lambda/2)), nu_n = pi/2 - n pi/lambda,
+     E_n - E_0 = M sin(n pi/lambda) = m_{2n}/2, interior poles exactly for 0 < n < lambda/2.
 """
 from pathlib import Path
 import sys
@@ -152,15 +159,47 @@ def run_checks():
         max(err_int, err_re) < 1e-13,
     )
 
-    # Check 3: Boundary crossing-unitarity fixes physical sign q = -exp(-i*pi*lambda)
-    th = 0.37 - 0.12j
-    C_mat = np.array([[0.0, 1.0], [1.0, 0.0]], dtype=complex)
+    def smin_system(y, q, c0, c1):
+        """Smallest singular value of K -> (K b_j(y) - b_j(1/y) K)_{j=0,1} at eps = 0."""
+        b_y = sg_b_gens(y, q, 0.0, 0.0, c0, c1)
+        b_iy = sg_b_gens(1.0 / y, q, 0.0, 0.0, c0, c1)
+        M = np.zeros((8, 4), dtype=complex)
+        for idx in range(4):
+            Kb = np.zeros((2, 2), dtype=complex)
+            Kb.flat[idx] = 1.0
+            M[:, idx] = np.concatenate([(Kb @ b_y[j] - b_iy[j] @ Kb).ravel() for j in range(2)])
+        return np.linalg.svd(M, compute_uv=False)[-1]
 
-    def crossing_err(q_choice):
+    s_on = smin_system(y1, q_phys, 2.3 / q_phys, 1.0 / (2.3 * q_phys))
+    s_off = smin_system(y1, q_phys, 2.3 / q_phys, 1.1 / (2.3 * q_phys))
+    s_neg = smin_system(y1, q_phys, -1.0 / q_phys, -1.0 / q_phys)
+    report(
+        f"eps=0, general c_j: nonzero K for generic y iff c0*c1 = q^-2 (sigma_min on {s_on:.1e}, "
+        f"off {s_off:.3f}); c0=c1=-1/q also allowed ({s_neg:.1e})",
+        s_on < 1e-13 and s_off > 1e-3 and s_neg < 1e-13,
+    )
+
+    # Check 3: sign of q. Braid matrix and K under q -> -q, and the matrix part of
+    # boundary crossing-unitarity k(theta) ~ R(2 theta) k(-theta).
+    Pi1 = np.kron(np.diag([1.0, -1.0]), I2).astype(complex)
+    z_t = y1 / y2
+    err_Rq = np.max(np.abs(R_check_sg(z_t, -q_phys) - Pi1 @ R_check_sg(z_t, q_phys) @ Pi1))
+    err_Kq = np.max(np.abs(K_sg_coideal(y1, -q_phys, eps0, eps1) - K_sg_coideal(y1, q_phys, -eps0, -eps1)))
+    report(
+        f"q -> -q: R(-q) = (Pi x 1) R(q) (Pi x 1) (err={err_Rq:.1e}) and K(eps;-q) = K(-eps;q) (err={err_Kq:.1e})",
+        max(err_Rq, err_Kq) < 1e-13,
+    )
+
+    th = 0.37 - 0.12j
+    C_plain = np.array([[0.0, 1.0], [1.0, 0.0]], dtype=complex)
+    C_twist = np.array([[0.0, 1.0], [-1.0, 0.0]], dtype=complex)
+
+    def crossing_err(q_choice, C_mat):
         y_minus = np.exp(lam * (0.5j * np.pi - th))
         y_plus = np.exp(lam * (0.5j * np.pi + th))
         Km = K_sg_coideal(y_minus, q_phys, eps0, eps1)
         Kp = K_sg_coideal(y_plus, q_phys, eps0, eps1)
+        # k = sum_{a,b} K_{abar}^b v_a x v_b, K_{abar}^b = (K C)[b, a]; index (a,b) -> 2a+b
         km = (Km @ C_mat).T.reshape(4)
         kp = (Kp @ C_mat).T.reshape(4)
         z_2th = np.exp(2.0 * lam * th)
@@ -168,15 +207,16 @@ def run_checks():
         ratio = np.vdot(km, lhs_vec) / np.vdot(km, km)
         return np.linalg.norm(lhs_vec - ratio * km) / np.linalg.norm(lhs_vec)
 
-    err_q_phys = crossing_err(q_phys)
-    err_q_wrong = crossing_err(-q_phys)
+    err_q_phys = crossing_err(q_phys, C_plain)
+    err_q_wrong = crossing_err(-q_phys, C_plain)
+    err_q_twist = crossing_err(-q_phys, C_twist)
     report(
-        f"Boundary crossing-unitarity holds at physical q=-e^{{-i*pi*lam}} (err={err_q_phys:.2e}) "
-        f"and fails at +e^{{-i*pi*lam}} (err={err_q_wrong:.2f})",
-        err_q_phys < 1e-13 and err_q_wrong > 0.1,
+        f"Matrix part of boundary crossing-unitarity: plain C at q=-e^{{-i*pi*lam}} (err={err_q_phys:.1e}), "
+        f"fails at +e^{{-i*pi*lam}} (err={err_q_wrong:.2f}), twisted C restores it there (err={err_q_twist:.1e})",
+        err_q_phys < 1e-13 and err_q_wrong > 0.1 and err_q_twist < 1e-13,
     )
 
-    # Check 4: 1D B-submodule at boundary bound-state pole theta = i*nu_n (prp-boundary-module)
+    # Check 4: one-dimensional B-submodules of V(y) x C_eps (prp-boundary-module)
     eta = 1.85
     vartheta = 0.42
     e1_eta = -np.cos(eta - 1.0j * vartheta) / np.sin(np.pi * lam)
@@ -186,23 +226,67 @@ def run_checks():
     beta0_exact = -np.cos(bar_eta - 1.0j * vartheta) / np.sin(np.pi * lam)
 
     max_err_sub = 0.0
-    for n_idx in (0, 1, 2):
+    for n_idx in (0, 1, 2, 3):
         nu_n = eta / lam - (2 * n_idx + 1) * np.pi / (2.0 * lam)
         y_refl = np.exp(-1.0j * lam * nu_n)
+        max_err_sub = max(max_err_sub, abs(y_refl - 1.0j * (-1) ** n_idx * np.exp(-1.0j * eta)))
         b0_sub, b1_sub = sg_b_gens(y_refl, q_phys, e0_eta, e1_eta)
-        # Find eigenvectors of b1_sub and check common eigenvector with b0_sub
-        vals, vecs = np.linalg.eig(b1_sub)
-        best = 1e9
-        for k_col in range(2):
-            v = vecs[:, k_col]
-            e1_err = abs(vals[k_col] - beta1_exact)
-            e0_err = np.linalg.norm(b0_sub @ v - beta0_exact * v) / np.linalg.norm(v)
-            best = min(best, max(e1_err, e0_err))
-        max_err_sub = max(max_err_sub, best)
+        v = np.array([1.0, (-1) ** n_idx * np.exp(-vartheta)], dtype=complex)
+        max_err_sub = max(
+            max_err_sub,
+            np.linalg.norm(b1_sub @ v - beta1_exact * v),
+            np.linalg.norm(b0_sub @ v - beta0_exact * v),
+        )
+    # all branches: resultant in alpha of y^2 a^2 + y E1 a - 1 and a^2 - y E0 a - y^2,
+    # with E_j = eps_j (q - 1/q); as a polynomial in Y = y^2 it is (1-Y^2)^2 - Y (E0 Y + E1)(E1 Y + E0)
+    E1c = e1_eta * (q_phys - 1.0 / q_phys)
+    E0c = e0_eta * (q_phys - 1.0 / q_phys)
+    res_poly = np.polysub(
+        np.polymul([-1.0, 0.0, 1.0], [-1.0, 0.0, 1.0]),
+        np.polymul([1.0, 0.0], np.polymul([E0c, E1c], [E1c, E0c])),
+    )
+    Y_roots = np.sort_complex(np.roots(res_poly))
+    Y_expected = np.sort_complex(
+        np.array([-np.exp(2j * eta), -np.exp(-2j * eta), -np.exp(2 * vartheta), -np.exp(-2 * vartheta)])
+    )
+    err_branch = np.max(np.abs(Y_roots - Y_expected))
     report(
-        f"1D B-submodule at y=e^{{-i*lam*nu_n}} has eigenvalues beta_{{1,0}} with bar_eta=pi(lam+1)-eta "
-        f"(max err={max_err_sub:.2e})",
-        max_err_sub < 1e-13,
+        f"Common eigenvector v_n=(1,(-1)^n e^(-vartheta)) at y_n=i(-1)^n e^(-i eta) with beta_(1,0)=-cos(bar_eta +- i vartheta)/sin(pi lam) "
+        f"(max err={max_err_sub:.1e}); all branches y^2 in {{-e^(+-2i eta), -e^(+-2 vartheta)}} (err={err_branch:.1e})",
+        max_err_sub < 1e-13 and err_branch < 1e-10,
+    )
+
+    # Check 5: (eta, vartheta) form of K and the Neumann point
+    u_t = 0.27 + 0.05j
+    K_u = K_sg_coideal(np.exp(1j * lam * u_t), q_phys, e0_eta, e1_eta)
+    Pp = np.cos(lam * u_t) * np.cos(eta) * np.cosh(vartheta) - np.sin(lam * u_t) * np.sin(eta) * np.sinh(vartheta)
+    Pm = np.cos(lam * u_t) * np.cos(eta) * np.cosh(vartheta) + np.sin(lam * u_t) * np.sin(eta) * np.sinh(vartheta)
+    Q0 = -np.sin(lam * u_t) * np.cos(lam * u_t)
+    err_param = np.max(np.abs(K_u / (-4j) - np.array([[Pp, Q0], [Q0, Pm]])))
+    eps_N = -np.cos(0.5 * np.pi * (lam + 1.0)) / np.sin(np.pi * lam)
+    err_N = max(
+        abs(eps_N - 1.0 / (2.0 * np.cos(0.5 * np.pi * lam))),
+        abs((1 - q_phys) * (1 - 1 / q_phys) - 4.0 * np.cos(0.5 * np.pi * lam) ** 2),
+    )
+    lam_b = 7.3  # pole kinematics only (no representation theory involved)
+    eta_N = 0.5 * np.pi * (lam_b + 1.0)
+    inside = []
+    for n_idx in range(10):
+        nu_n = eta_N / lam_b - (2 * n_idx + 1) * np.pi / (2.0 * lam_b)
+        m_k = lambda k: 2.0 * np.sin(k * np.pi / (2.0 * lam_b))
+        err_N = max(
+            err_N,
+            abs(nu_n - (0.5 * np.pi - n_idx * np.pi / lam_b)),
+            abs(np.cos(nu_n) - 0.5 * m_k(2 * n_idx)),
+            abs(np.cos(nu_n) - m_k(n_idx) * np.cos(n_idx * np.pi / (2.0 * lam_b))),
+        )
+        if 0.0 < nu_n < 0.5 * np.pi:
+            inside.append(n_idx)
+    ok_range = inside == [n for n in range(1, 10) if n < lam_b / 2.0]
+    report(
+        f"K/(-4i) = [[P0+,Q0],[Q0,P0-]] (err={err_param:.1e}); Neumann eps_*=1/(2cos(pi lam/2)), "
+        f"nu_n=pi/2-n pi/lam, E_n=m_(2n)/2 (err={err_N:.1e}), interior poles n={inside}",
+        err_param < 1e-13 and err_N < 1e-13 and ok_range,
     )
 
 

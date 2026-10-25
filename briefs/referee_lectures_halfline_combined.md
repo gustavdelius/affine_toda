@@ -127,3 +127,68 @@ Agents: **A** = `index.qmd`, Lectures 1 and 2; **B** = Lectures 3 and 4; **C** =
 - **C1** `code/lectures/README.md` half-line rows: stale ids, $K_{-b}$ (actually $K_{b+2}$), vacuum energy $(3-\sqrt3)$ (actually $(4-3\sqrt3)$), attraction labels, and the new checks the agents add. P1 2.25.
 - **C2** G5 book findings, recorded as pending for a separate book PR.
 - **C3** Render, `check-refs.py`, the `## Integration` record below, `briefs/README.md`, and unfreezing the course.
+
+## Integration (2026-10-25)
+
+Integrated on branch `claude/referee-halfline-lectures` by three Opus integration agents, A (index, Lectures 1–2), B (Lectures 3–4) and C (Lectures 5–6), from `referee_lectures_halfline_integration_prompt.md`. Each agent verified every item before editing, with its own scripts, written from the lectures' and the book's definitions (`referee_lectures_halfline_scripts/integration_*`; none imports the referee's scripts). Their checkpoints, `referee_lectures_halfline_integration_{A,B,C}_checkpoint.md`, give one line per item with its evidence, a `## Table` and a `## Pending` section. The coordinator reviewed every diff, re-derived the items listed below, and wrote the README rows and this record.
+
+### Verdicts
+
+| Group | Items | Verified | Modified | Rejected |
+|---|---|---|---|---|
+| A: I1–I6, L1-1–L1-19, L2-1–L2-10, G1–G4 | 41 | 37 | 4 | 0 |
+| B: L3-1–L3-10, L4-1–L4-16, G1–G4 | 30 | 26 | 4 | 0 |
+| C: L5-1–L5-12, L6-1–L6-17, G1–G4 | 33 | 27 | 6 | 0 |
+| **Total** | **104** | **90** | **14** | **0** |
+
+No finding was rejected. The modified items, where the edit departs from the report's proposal:
+
+- **L1-1** (continuity equations): the repair follows the book's spin labels (`sec-factorization`): a current $(T_{s+1},\mathcal X_{s-1})$ with $\partial_-T=\partial_+\mathcal X$ has spin $-s$, density $T-\mathcal X$ and flux $T+\mathcal X$; $Q_{\pm1}=E\pm P$, so $\widehat Q_1=2(E_{\rm bulk}+\mathcal B)$. The referee's counterexample ($T=t+x$, $\Theta=t-x$) satisfies both the printed and the corrected form and refutes nothing; $T=t-x$, $\Theta=t+x$ refutes the printed form. The finding itself is right.
+- **L1-6** (rotation): derived as the continuation of a boost with rapidity $-i\pi/2$, which gives both rapidity assignments, instead of the report's prose.
+- **L2-4** (mixed branches): a shorter propagation argument; node 2's spectator equations kill $k_{12},k_{21}$ for any $C_2$.
+- **I3**, **L3-6**, **L6-12**: the coordinator's common wording for the rotor (inertia $I=6/(\beta^2m_1)$, a rotor-like tower, a global rotor is an interpretation) and for the status sentences of the index.
+- **L3-10**: the pole of the self-conjugate exercise is on the strip edge; it is double in $\theta$ and simple in $p$.
+- **L4-11**: the book's vector form of crossing-unitarity instead of the report's component display, to avoid a second index convention.
+- **L4-16**: the report's claim that Kolb uses the opposite coproduct is **wrong**. Kolb (arXiv:1207.6036, eqs. (3.3)–(3.4) and Prop. 5.2) uses the book's coproduct; his coideals are right coideals because their generators are built around $f_j$. The lecture says so in one parenthesis.
+- **L5-3**: Gandenberger hep-th/9911178 is cited for explicit non-diagonal $a_n^{(1)}$ solutions, without a claim of formula-level equivalence with the Toeplitz matrix.
+- **L5-4**: for $a_2$ the obstruction is proved from the disjoint spectra of $k_i^2k_j$ on $V$ and $\bar V$ (no inverse needed); for general $n$ the conjugation argument is done in the represented algebra.
+- **L6-7**: the CDD statement was verified; the alternative factor is called admissible only for unitarity and crossing (see book finding B8).
+- **L6-13**: the Coleman–Thun count is made explicit (four bulk lines and two boundary segments, two loops, order 2, lowered to 1 by the zero), from the topology of Dorey, Tateo and Watts's Lee–Yang diagram.
+- **L6-16**: Exercise 6.2(3) uses Kim's actual $a_2$ proposal $[\frac12][\frac32]$ instead of the report's $B(2-B)/2$ construction.
+
+### Coordinator's checks
+
+- Re-derived by hand: the $a_2$ interval-to-pattern table (literal integer indices), $ks=2m\sin^2\frac{\pi a}h$ and the constant ratio $k-mC$, the rotation as a continued boost, the Lee–Yang doubling identity and the bootstrap sign, the $C=-1$ cases of the breather exercise, the node-locality of `eq-boundary-k-equation` without $n_j$, and the soliton-bootstrap test of the CDD factors (`integration_coord_cdd_bootstrap.py`).
+- Read the source behind the self-duality history: Delius–Gandenberger write that the earlier papers "had assumed that the reflection amplitudes should be invariant under $B\rightarrow 2-B$".
+- Fixed two small points the agents left: a non-sequitur about the asymptotics of $E$ in Lecture 3, and the description of the $q$-Dolan–Grady check in Lecture 5.
+- Reran all six lecture scripts: 10 + 9 + 7 + 7 + 8 + 11 = 52 PASS, each in at most about 8 s. `check-refs.py lecture-notes/half-line` passes. Rewrote the six half-line rows of `code/lectures/README.md` (item C1): current ids, the shift $K_b^{(1)}=K_{b+2}$, $E_{\rm vac}=\frac{2m}{\beta^2}(4-3\sqrt3)$, and the new checks. Every id in those rows exists.
+- Rendered the course, HTML and PDF, in a scratch copy with `render-scratch.sh --pdf --project lecture-notes/half-line`: no warnings, no unresolved cross-references in the HTML, and none in the 97-page PDF. Checked the corrected legend of `fig-lec3-mirror-images` by eye.
+
+### Phase 1 against phase 2
+
+Every major mathematical error was already in the blind phase-1 list: the vacuum sign table, the Lee–Yang doubling step and $\Gamma^2$, the continuity equations and the Euclidean map, the twisted-equation domains, the Dirichlet argument, the mirror $k$ and positivity proof, the Robin factor at $C=0$, $Z^T$, the $a_2$ fusion angle, the Coleman–Thun arithmetic, and the conjectures presented as settled. Phase 1 alone also found the stale script README.
+
+The directed phase 2 added:
+- index and sign errors inside derivations: the order $S_{cd}^{ba}$ in the crossing derivation, the sign of the one-point residue, the bootstrap channels $S_{ba}$, the factor 2 in $Q_1+Q_{-1}$, the space of the crossed boundary vector, and the crossing display of Lecture 4;
+- exercise defects (1.1, 2.3, 4.1, 4.2, 5.1) and the coupling-dependent weight of the "spin-1" currents;
+- provenance and scope: Kim's self-duality history, the Dorey–Tateo–Watts formula, the Mezincescu–Nepomechie and Baseilhac–Belliard credits, Kolb's parameter sets and universal $K$-matrices, and the new citation of Gandenberger hep-th/9911178.
+
+As in the Part III experiment, the blind phase found the substance and the directed phase found the provenance and the smaller derivation slips. The referee made two errors that the integration caught: the Kolb coproduct (L4-16) and the void counterexample (L1-1). P1 2.15's remark that the book "separates the Neumann case correctly" is too generous (B5).
+
+### Book findings (pending; for a separate book PR, not edited here)
+
+- **B1** `part7-half-line/35-quantum-symmetric-pairs.qmd` ≈158: the proof after `prp-serre-obstruction` conjugates by $\kappa^{-r}$ without showing $\kappa^{-1}\in B_{\hat\epsilon}$. Repair in the represented algebra (Cayley–Hamilton), or by the disjoint spectra for $a_2$. Confirmed by the coordinator and agent C.
+- **B2** Chapter 31 ≈145 and `exr-node-local`: without $n_j$ the equations stay node-local, with $C_j/\sqrt{n_j}$; for $d_4^{(1)}$ the central node then needs $C_2^2=2$. "Couple the nodes" and "no longer decouple" are wrong. Confirmed by the coordinator and agent A.
+- **B3** `thm-k-reflection`, hypothesis (iii): "agree at one point" should read "agree on a fixed nonzero matrix element for every generic pair of rapidities".
+- **B4** Chapter 36 ≈282: "So the rotor must run through all three … patterns" is part of an interpretation; "would have to".
+- **B5** `eq-linear-reflection` (ch. 32): $-[(a)(h-a)]^{-C}$ gives $-1$ at $C=0$; write $[-(a)(h-a)]^{-C}$.
+- **B6** `eq-sg-neumann-eps`: name the branch $2\cos(\pi\lambda/2)$ of the square root.
+- **B7** Chapter 36 ≈288: Dorey, Tateo and Watts do not print a general $P-2L$ rule lowered by one per zero; "as applied by".
+- **B8** `sec-an-nondiagonal-k` (ch. 34): "The replacement also satisfies the soliton-bootstrap condition" holds only for odd $n$. For $n=2,4$ both $P_{\omega/2}$ and $P_{(\omega+1)/2}$ fail $\sigma(\mu)=\prod_{k=1}^n\sigma(\mu+T-k\omega)$ (`integration_C_cdd_bootstrap.py`, `integration_coord_cdd_bootstrap.py`; the earlier check covered $a_3$ only). Whether that diagonal condition is the right test for $A^{(+)}$ at all is open; for even $n$, including Gandenberger's $a_2$, the book does not say whether $A^{(+)}$ satisfies a soliton bootstrap.
+- **B9** Chapter 36 ≈158: "The same applies to the other self-dual proposals" can be read as saying that they agree at one loop; Kim says the Fring–Köberle and Sasaki $a_3$ factors do not.
+- **B10** `sec-boundary-lee-yang`: "Unitarity and crossing-unitarity are linear in $K$"; unitarity is quadratic (the conclusion, invariance under $K\to-K$, holds).
+- **B11** (optional) Chapter 33: for $\lambda>2$ the UV–IR curve has several zeros of $\hat\epsilon$; $\cos\frac{\pi}{2(\lambda+1)}$ is the one nearest the uniform point.
+
+### Not settled by this pass
+
+The global quantization of the rotor, a derivation (rather than a count) of the Coleman–Thun diagram, an all-rank proof of the scalar-factor telescoping, the four pre-arXiv sources (Cherednik, Sklyanin, Bernard–LeClair, Letzter), and the precise scope of Bernard–LeClair's $U_q(\hat{\mathfrak g}^\vee)$ remain as the report leaves them. The lectures now state these points with the corresponding qualification. No status label changed: the lectures carry none, and the book is not edited here.

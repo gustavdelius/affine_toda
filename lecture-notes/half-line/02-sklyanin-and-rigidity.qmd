@@ -1,7 +1,7 @@
 # Sklyanin's Double Row and the Rigidity of Higher-Rank Boundaries {#sec-lec2-sklyanin-rigidity}
 
-> **Companion to [Chapter 31: Classically integrable boundary conditions](book:sec-boundary-conditions).**
-> In Lecture 1 we treated the wall at $x=0$ abstractly through its reflection amplitude $K(\theta)$. Now we open up the classical field theory and ask: *what boundary potential $\mathcal B(\vec\phi(0,t))$ can we actually write down at $x=0$ without destroying integrability?* Using Sklyanin's double-row monodromy matrix, we will reduce classical integrability to a single node-by-node matrix equation for $K(\lambda)$. Solving that equation on the blackboard for $a_1^{(1)}$ ($2\times 2$ matrices) and $a_2^{(1)}$ ($3\times 3$ matrices) will reveal one of the central discoveries of the 1990s: **the spectator-state determinant $1 - C_j^2$**, which leaves sine-Gordon completely continuous while freezing higher-rank $a_n^{(1)}$ boundaries to the discrete signs $C_j\in\{0,\pm 1\}$.
+> **Companion to the book's chapter on [classically integrable boundary conditions](book:sec-boundary-conditions).**
+> In Lecture 1 we treated the wall at $x=0$ abstractly through its reflection amplitude $K(\theta)$. Now we open up the classical field theory and ask: *what boundary potential $\mathcal B(\vec\phi(0,t))$ can we actually write down at $x=0$ without destroying integrability?* Using Sklyanin's double-row monodromy matrix, we will reduce classical integrability to a single node-by-node matrix equation for $K(\lambda)$. Solving that equation on the blackboard for $a_1^{(1)}$ ($2\times 2$ matrices) and $a_2^{(1)}$ ($3\times 3$ matrices) will show the mechanism behind a central result of the 1990s [@cdrs1994; @bcdr1995]: **the spectator-state determinant $1 - C_j^2$**, which leaves the two sine-Gordon boundary parameters continuous while restricting the $a_2^{(1)}$ parameters to $C_j\equiv0$ or $C_j=\pm 1$. The calculation proves this restriction in the defining representation of $a_2^{(1)}$; the book summarizes the classification for the other algebras, with its stated evidence.
 
 ---
 
@@ -9,7 +9,7 @@
 
 Let us place an affine Toda field $\vec\phi(x,t)\in\mathbb R^r$ (or $\mathbb C^r$ at imaginary coupling) on the left half-line $x\le 0$. How do we couple the field to a wall at $x=0$?
 
-We subtract a boundary potential $\mathcal B\bigl(\vec\phi(0,t)\bigr)$ from the bulk action (`eq-boundary-action` in [Section 31.1](book:sec-boundary-potential)):
+We subtract a boundary potential $\mathcal B\bigl(\vec\phi(0,t)\bigr)$ from the bulk action (the book's [boundary action](book:eq-boundary-action)):
 $$
 S = \int_{-\infty}^\infty dt\,\left[\int_{-\infty}^0 \mathcal L_{\rm bulk}\,dx - \mathcal B\bigl(\vec\phi(0,t)\bigr)\right],
 $$ {#eq-lec2-action}
@@ -19,13 +19,13 @@ When we vary $\vec\phi \to \vec\phi + \delta\vec\phi$, integrating $-\partial_x\
 $$
 \partial_x\vec\phi\Big|_{x=0} = -\nabla_{\vec\phi}\mathcal B\bigl(\vec\phi(0,t)\bigr).
 $$ {#eq-lec2-bc-general}
-Notice that for *any* function $\mathcal B(\vec\phi)$ whatsoever, the total half-line energy (`eq-boundary-energy` in [Section 31.1](book:sec-boundary-potential)),
+Notice that for *any* function $\mathcal B(\vec\phi)$ whatsoever, the total half-line energy (the book's [boundary energy](book:eq-boundary-energy)),
 $$
 E = \int_{-\infty}^0 \left(\frac{1}{2}(\partial_t\vec\phi)^2 + \frac{1}{2}(\partial_x\vec\phi)^2 + V(\vec\phi)\right)dx + \mathcal B\bigl(\vec\phi(0,t)\bigr),
 $$ {#eq-lec2-energy}
 is automatically conserved: differentiating $E$ with respect to $t$, using $\ddot{\vec\phi} - \vec\phi'' + \nabla V = 0$ in $x<0$, and integrating $\dot{\vec\phi}\cdot\vec\phi''$ by parts gives
 $$
-\frac{dE}{dt} = \dot{\vec\phi}(0,t)\cdot\Bigl(\partial_x\vec\phi(0,t) + \nabla\mathcal B\bigl(\vec\phi(0,t)\bigr)\Bigr) = 0!
+\frac{dE}{dt} = \dot{\vec\phi}(0,t)\cdot\Bigl(\partial_x\vec\phi(0,t) + \nabla\mathcal B\bigl(\vec\phi(0,t)\bigr)\Bigr) = 0
 $$
 Energy conservation is cheap—any wall conserves energy. Integrability is the vastly more demanding requirement that an *infinite tower* of higher-spin charges $\widehat Q_s$ be conserved simultaneously.
 
@@ -40,14 +40,14 @@ where $\vec\alpha_0, \dots, \vec\alpha_r$ are the affine simple roots and $n_j$ 
 
 What form must $\mathcal B(\vec\phi)$ take to have any hope of being integrable? Look at the scale of the terms in the energy density: $\frac{1}{2}(\partial_x\vec\phi)^2$ has the same engineering dimension as $V(\vec\phi) \sim m^2 e^{\beta\vec\alpha_j\cdot\vec\phi}$. At the wall $x=0$, the boundary condition (-@eq-lec2-bc-general) equates the *first* derivative $\partial_x\vec\phi$ (which is like a square root of $(\partial_x\vec\phi)^2$) to $-\nabla\mathcal B$. Even better, as we are about to see in Sklyanin's Lax pair, the Lax connection $a_t(\lambda)$ already carries the **half-exponent** $e^{\beta\vec\alpha_j\cdot\vec\phi/2}$!
 
-To match the exponentials in $a_t(\lambda)$, the boundary potential must be a sum over the affine simple roots with half the bulk exponent (`eq-boundary-potential` in [Section 31.1](book:sec-boundary-potential)) [@cdrs1994; @bcdr1995]:
+To match the exponentials in $a_t(\lambda)$, the boundary potential must be a sum over the affine simple roots with half the bulk exponent (the book's [boundary potential](book:eq-boundary-potential)) [@cdrs1994; @bcdr1995]:
 $$
 \begin{aligned}
 \mathcal B_{\rm real}(\vec\phi) &= \frac{2m}{\beta^2}\sum_{j=0}^r C_j\sqrt{\frac{2n_j}{\vec\alpha_j^2}}\,\bigl(e^{\beta\vec\alpha_j\cdot\vec\phi/2} - 1\bigr), \\
 \mathcal B_{\rm imag}(\vec\phi) &= -\frac{2m}{\beta^2}\sum_{j=0}^r C_j\sqrt{\frac{2n_j}{\vec\alpha_j^2}}\,\bigl(e^{i\beta\vec\alpha_j\cdot\vec\phi/2} - 1\bigr),
 \end{aligned}
 $$ {#eq-lec2-boundary-potential}
-giving the boundary conditions (`eq-boundary-condition` in [Section 31.1](book:sec-boundary-potential))
+giving the boundary conditions (the book's [boundary condition](book:eq-boundary-condition))
 $$
 \begin{aligned}
 \partial_x\vec\phi\Big|_{x=0} &= -\frac{m}{\beta}\sum_{j=0}^r C_j\sqrt{\frac{2n_j}{\vec\alpha_j^2}}\;\vec\alpha_j\,e^{\beta\vec\alpha_j\cdot\vec\phi/2} \qquad\text{(real coupling)}, \\
@@ -70,7 +70,7 @@ C_j\sqrt{\frac{2n_j}{\vec\alpha_j^2}} \;\propto\; n_j
 \quad\Longleftrightarrow\quad
 C_j \;\propto\; \sqrt{n_j\vec\alpha_j^2}.
 $$
-For $a_n^{(1)}$ (where $n_j=1$ and $\vec\alpha_j^2=2$ for all $j$), this holds if and only if **all $C_j$ are equal** (such as the **Neumann boundary** $C_j\equiv 0$ or the **uniform boundary** $C_j\equiv +1$). If you flip even a single sign $C_j$ relative to the others in $a_n^{(1)}$, then $\vec\phi=0$ is **no longer a solution** at $x=0$: the boundary exerts a non-zero force at $\vec\phi=0$, and the true ground state of the half-line theory must be a **non-constant static background** $\vec\phi_{\rm vac}(x)$ (which we will build out of frozen mirror solitons in Lecture 3!). Even more strikingly, for $d_4^{(1)}$ (where the central node has $n_2=2$ while the outer four nodes have $n_j=1$), *none* of the $32$ integrable sign choices $C_j = \pm 1$ satisfies $C_j \propto \sqrt{n_j}$, so $d_4^{(1)}$ never admits a constant vacuum for any $C_j=\pm 1$!
+For $a_n^{(1)}$ (where $n_j=1$ and $\vec\alpha_j^2=2$ for all $j$), this holds if and only if **all $C_j$ are equal** (such as the **Neumann boundary** $C_j\equiv 0$ or the **uniform boundary** $C_j\equiv +1$). If you flip even a single sign $C_j$ relative to the others in $a_n^{(1)}$, then $\vec\phi=0$ is **no longer a solution** at $x=0$: the boundary exerts a non-zero force at $\vec\phi=0$. If a ground state exists for such a pattern, it cannot be the zero field; it must be a **non-constant static background** $\vec\phi_{\rm vac}(x)$. Lecture 3 constructs such backgrounds, out of frozen mirror solitons, for some of the sign patterns. Even more strikingly, for $d_4^{(1)}$ (where the central node has $n_2=2$ while the outer four nodes have $n_j=1$), *none* of the $32$ integrable sign choices $C_j = \pm 1$ satisfies $C_j \propto \sqrt{n_j}$, so $d_4^{(1)}$ never admits a constant vacuum for any $C_j=\pm 1$.
 
 ---
 
@@ -78,7 +78,7 @@ For $a_n^{(1)}$ (where $n_j=1$ and $\vec\alpha_j^2=2$ for all $j$), this holds i
 
 How do we systematically manufacture an infinite tower of conserved charges on $x\le 0$?
 
-On the full line (or a periodic circle $[x_-, x_+]$), the affine Toda equations of motion are the zero-curvature condition $[\partial_x + a_x(\lambda), \partial_t + a_t(\lambda)] = 0$, with Lax components (`eq-boundary-lax-at` in [Section 31.2](book:sec-sklyanin)):
+On the full line (or a periodic circle $[x_-, x_+]$), the affine Toda equations of motion are the zero-curvature condition $[\partial_x + a_x(\lambda), \partial_t + a_t(\lambda)] = 0$, with Lax components (the book's [Lax components](book:eq-boundary-lax-at)):
 $$
 \begin{aligned}
 a_t(\lambda) &= \frac{\beta}{2}\,\partial_x\vec\phi\cdot\vec H + \frac{m}{2}\sum_{j=0}^r c_j\,e^{\beta\vec\alpha_j\cdot\vec\phi/2}\bigl(\lambda E_{\vec\alpha_j} - \lambda^{-1} E_{-\vec\alpha_j}\bigr), \\
@@ -98,7 +98,7 @@ Why did $\operatorname{tr} T(\lambda)$ fail? Because $T(\lambda)$ only propagate
 
 In 1988, Evgeny Sklyanin [@sklyanin1988] (generalized to arbitrary involutive anti-automorphisms $\sigma$ by Delius [@delius1998b]) had a brilliant geometric idea (Panel (a) of @fig-lec2-sklyanin-rigidity): **when the transport reaches the wall at $x_+=0$, bounce it off the wall with a reflection matrix $K_+(\lambda)$ and transport it all the way back to $x_-$ at the reflected spectral parameter $1/\lambda$!**
 
-Because the return trip runs backward from $x_+$ to $x_-$, we apply an involutive anti-automorphism $\sigma$ of the Lie algebra ($\sigma([X,Y]) = [\sigma(Y),\sigma(X)]$, so on group elements $\sigma(gh) = \sigma(h)\sigma(g)$ reversals of path ordering are automatic). This builds the **double-row monodromy matrix** $\mathcal T(\lambda)$ and its trace $\tau(\lambda)$ (`eq-double-row` in [Section 31.2](book:sec-sklyanin)):
+Because the return trip runs backward from $x_+$ to $x_-$, we apply an involutive anti-automorphism $\sigma$ of the Lie algebra ($\sigma([X,Y]) = [\sigma(Y),\sigma(X)]$, so on group elements $\sigma(gh) = \sigma(h)\sigma(g)$ reversals of path ordering are automatic). This builds the **double-row monodromy matrix** $\mathcal T(\lambda)$ and its trace $\tau(\lambda)$ (the book's [double-row transfer matrix](book:eq-double-row)):
 $$
 \mathcal T(\lambda) = T(\lambda)\,K_-(1/\lambda)\,\sigma\bigl(T(1/\lambda)\bigr), \qquad
 \tau(\lambda) = \operatorname{tr}\Bigl(K_+(\lambda)\,\mathcal T(\lambda)\Bigr).
@@ -106,7 +106,7 @@ $$ {#eq-lec2-double-row}
 
 ### Blackboard Calculation 1: Differentiating the Double-Row Transfer Matrix
 
-Let us differentiate $\tau(\lambda)$ with respect to time $t$ assuming $K_\pm(\lambda)$ are field-independent matrices ([Proposition 31.1](book:prp-sklyanin)). Write $\mu = 1/\lambda$, $T = T(\lambda)$, and $T' = T(\mu)$.
+Let us differentiate $\tau(\lambda)$ with respect to time $t$ assuming $K_\pm(\lambda)$ are field-independent matrices (the book's [statement of Sklyanin's construction](book:prp-sklyanin)). Write $\mu = 1/\lambda$, $T = T(\lambda)$, and $T' = T(\mu)$.
 
 First, apply the anti-automorphism $\sigma$ to the evolution equation (-@eq-lec2-dt-t) for $T' = T(\mu)$, remembering that $\sigma(AB) = \sigma(B)\sigma(A)$ reverses the order of matrices:
 $$
@@ -123,11 +123,11 @@ $$
 &\quad + \operatorname{tr}\Bigl(K_+(\lambda)\,T\,\underline{\Bigl[a_t(\lambda; x_-)\,K_-(1/\lambda) + K_-(1/\lambda)\,\sigma\bigl(a_t(1/\lambda; x_-)\bigr)\Bigr]}\,\sigma(T')\Bigr).
 \end{aligned}
 $$ {#eq-lec2-dt-tau}
-Look at the two underlined brackets in (-@eq-lec2-dt-tau)! On the half-line $x\le 0$, we send $x_-\to -\infty$ where the fields sit at a vacuum and take $K_- = \mathbf 1$, while at the wall $x_+=0$ (dropping the subscript $+$ on $K$) the entire double-row transfer matrix $\tau(\lambda)$ is conserved for every $\lambda$ if at $x=0$:
+Look at the two underlined brackets in (-@eq-lec2-dt-tau). On the half-line $x\le 0$, we send $x_-\to -\infty$, where the fields sit at a vacuum. There only the step-operator terms of $a_t$ survive, with constant coefficients. For the transposition $\sigma(X)=X^T$ used below, $\lambda E_{\vec\alpha_j}-\lambda^{-1}E_{-\vec\alpha_j}$ changes sign under $\lambda\to1/\lambda$ followed by transposition, so $a_t(\lambda)+a_t(1/\lambda)^T=0$ at the vacuum, and the second bracket vanishes with $K_- = \mathbf 1$. (For another involution, or other asymptotics, this has to be checked.) At the wall $x_+=0$ (dropping the subscript $+$ on $K$) the double-row transfer matrix $\tau(\lambda)$ is then conserved for every $\lambda$ if at $x=0$:
 $$
 K(\lambda)\,a_t(\lambda)\Big|_{x=0} + \sigma\bigl(a_t(1/\lambda)\bigr)\Big|_{x=0}\,K(\lambda) = 0.
 $$ {#eq-lec2-compatibility}
-Even better: if $K(\lambda)$ also satisfies Sklyanin's **classical reflection equation** (`eq-classical-reflection` in [Section 31.2](book:sec-sklyanin)) with the classical $r$-matrix $r(\lambda_1/\lambda_2)$, then the Poisson brackets of the transfer matrices vanish, $\{\tau(\lambda_1), \tau(\lambda_2)\} = 0$, so all the half-line charges expanded from $\ln\tau(\lambda)$ are in involution!
+Conservation is not yet involution. Suppose in addition that the bulk fields have Sklyanin's ultralocal Poisson bracket, with classical $r$-matrix $r(\lambda_1/\lambda_2)$, and that both $K_+=K$ and $K_-$ satisfy their **classical reflection equations** (the book's [classical reflection equation](book:eq-classical-reflection); $K_-=\mathbf 1$ satisfies its equation). Then the Poisson brackets of the transfer matrices vanish, $\{\tau(\lambda_1), \tau(\lambda_2)\} = 0$, so all the half-line charges expanded from $\ln\tau(\lambda)$ are in involution.
 
 ### Reducing Compatibility to the Node-Local Master Equation
 
@@ -148,7 +148,7 @@ $$
 \sqrt{\frac{2n_j}{\vec\alpha_j^2}}\,\vec\alpha_j\cdot\vec H
 = \sqrt{\frac{2n_j}{\vec\alpha_j^2}}\,\frac{\vec\alpha_j^2}{2}\,h_j
 = \sqrt{\frac{n_j\vec\alpha_j^2}{2}}\,h_j
-= c_j\,h_j!
+= c_j\,h_j
 $$
 Therefore, at $x=0$:
 $$
@@ -162,14 +162,14 @@ a_t(\lambda)\Big|_{x=0} &= \frac{m}{2}\sum_{j=0}^r c_j\,e^{\beta\vec\alpha_j\cdo
 a_t(1/\lambda)^T\Big|_{x=0} &= -\frac{m}{2}\sum_{j=0}^r c_j\,e^{\beta\vec\alpha_j\cdot\vec\phi(0)/2}\bigl(C_j h_j + \lambda E_{\vec\alpha_j} - \lambda^{-1} E_{-\vec\alpha_j}\bigr).
 \end{aligned}
 $$
-Because the boundary field $\vec\phi(0,t)$ can take arbitrary values as waves hit the wall, the $r+1$ exponential functions $e^{\beta\vec\alpha_j\cdot\vec\phi(0)/2}$ ($j=0,\dots,r$) are linearly independent functions of $\vec\phi(0,t)$. For a field-independent matrix $K(\lambda)$ to satisfy $K(\lambda)a_t(\lambda) + a_t(1/\lambda)^T K(\lambda) = 0$, the coefficient of *each exponential $e^{\beta\vec\alpha_j\cdot\vec\phi(0)/2}$ must vanish separately*! The common prefactor $\frac{m}{2}c_j$ drops out completely, leaving the **node-by-node compatibility equation** (`eq-boundary-k-equation` in [Section 31.3](book:sec-durham-classification)) [@bcdr1995]:
+Because the boundary field $\vec\phi(0,t)$ can take arbitrary values as waves hit the wall, the $r+1$ exponential functions $e^{\beta\vec\alpha_j\cdot\vec\phi(0)/2}$ ($j=0,\dots,r$) are linearly independent functions of $\vec\phi(0,t)$. For a field-independent matrix $K(\lambda)$ to satisfy $K(\lambda)a_t(\lambda) + a_t(1/\lambda)^T K(\lambda) = 0$, the coefficient of *each exponential $e^{\beta\vec\alpha_j\cdot\vec\phi(0)/2}$ must vanish separately*! The common prefactor $\frac{m}{2}c_j$ drops out completely, leaving the **node-by-node compatibility equation** (the book's [node equation](book:eq-boundary-k-equation)) [@bcdr1995]:
 $$
 K(\lambda)\bigl(-C_j h_j + \lambda E_{\vec\alpha_j} - \lambda^{-1} E_{-\vec\alpha_j}\bigr)
 = \bigl(C_j h_j + \lambda E_{\vec\alpha_j} - \lambda^{-1} E_{-\vec\alpha_j}\bigr)\,K(\lambda)
 \qquad \forall\,j\in\{0,1,\dots,r\}.
 $$ {#eq-lec2-node-k}
 
-![**Left:** Sklyanin's double-row monodromy matrix $\mathcal T(\lambda) = T(\lambda)K_-(1/\lambda)\sigma(T(1/\lambda))$ on the half-line $x\le 0$. Sending the parallel transport forward at $\lambda$, reflecting through $K_+(\lambda)$ at $x=0$, and returning at $1/\lambda$ makes $\dot\tau(\lambda)=0$ whenever the node-local compatibility equation (-@eq-lec2-node-k) holds. **Right:** Smallest singular value $\sigma_{\min}$ of the homogeneous linear system (-@eq-lec2-node-k) as a function of the boundary coupling $C$. A non-zero $K(\lambda)$ exists if and only if $\sigma_{\min}=0$. For $a_1^{(1)}$ (dashed blue), $\sigma_{\min}\equiv 0$ for all $C$; for $a_2^{(1)}$ (solid green and dash-dotted orange), $\sigma_{\min}$ vanishes only at the isolated rigid points $C=0$ (Neumann) and $C=\pm 1$. Verified and plotted by `code/lectures/halfline_l2_f1_sklyanin_rigidity.py`.](figures/l2_f1_sklyanin_rigidity.svg){#fig-lec2-sklyanin-rigidity width=100%}
+![**Left:** Sklyanin's double-row monodromy matrix $\mathcal T(\lambda) = T(\lambda)K_-(1/\lambda)\sigma(T(1/\lambda))$ on the half-line $x\le 0$. Sending the parallel transport forward at $\lambda$, reflecting through $K_+(\lambda)$ at $x=0$, and returning at $1/\lambda$ makes $\dot\tau(\lambda)=0$ whenever the node-local compatibility equation (-@eq-lec2-node-k) holds. **Right:** Smallest singular value $\sigma_{\min}$ of the homogeneous linear system (-@eq-lec2-node-k) as a function of a boundary coupling $C$, at one value of the spectral parameter. A non-zero $K(\lambda)$ exists if and only if $\sigma_{\min}=0$. For $a_1^{(1)}$ (dashed blue, $C_0=C$ with $C_1=0.75$), $\sigma_{\min}\equiv 0$ for all $C$. For $a_2^{(1)}$ two slices are shown. On the equal-coupling slice $C_0=C_1=C_2=C$ (solid green), $\sigma_{\min}$ vanishes at $C=0$ (Neumann) and $C=\pm1$. On the slice $(C_0,C_1,C_2)=(C,+1,-1)$ (dash-dotted orange) it vanishes only at $C=\pm 1$: at $C=0$ the pattern is mixed, and the propagation argument of Blackboard Calculation 2 excludes it. The left panel is a schematic; the right panel samples two slices, while the classification itself is the argument in the text. Both are drawn by `code/lectures/halfline_l2_f1_sklyanin_rigidity.py`.](figures/l2_f1_sklyanin_rigidity.svg){#fig-lec2-sklyanin-rigidity width=100%}
 
 ---
 
@@ -235,7 +235,7 @@ K_{a_1^{(1)}}(\lambda) = \begin{pmatrix}
 -2(C_1\lambda - C_0\lambda^{-1}) & \lambda^2 - \lambda^{-2}
 \end{pmatrix},
 $$ {#eq-lec2-k-a1}
-which is non-zero and invertible for **arbitrary complex numbers $(C_0, C_1)$** (`code/lectures/halfline_l2_f1_sklyanin_rigidity.py`)!
+which solves both node equations for **arbitrary complex numbers $(C_0, C_1)$**. For every fixed pair $(C_0,C_1)$ it is invertible at generic $\lambda$: $\lambda^4\det K = \lambda^8 - 4C_0C_1\lambda^6 + (4C_0^2+4C_1^2-2)\lambda^4 - 4C_0C_1\lambda^2 + 1$ is a nonzero polynomial in $\lambda$. At isolated values of $\lambda$ it can fail to be invertible; at $C_0=C_1=0$ and $\lambda=1$ the displayed matrix even vanishes. `code/lectures/halfline_l2_f1_sklyanin_rigidity.py` checks the formula and its determinant at sample values.
 
 ### Case B: The $3\times 3$ Laboratory $a_2^{(1)}$ and the Spectator Determinant $1 - C_j^2$
 
@@ -264,29 +264,35 @@ Let us plug a $3\times 3$ matrix $K(\lambda) = (k_{ab})_{a,b=1}^3$ into the node
    $$
    \begin{pmatrix} C_1 & \lambda \\ -\lambda^{-1} & -C_1 \end{pmatrix}
    \begin{pmatrix} k_{13} \\ k_{23} \end{pmatrix}
-   = \begin{pmatrix} 0 \\ 0 \end{pmatrix}!
+   = \begin{pmatrix} 0 \\ 0 \end{pmatrix}
    $$ {#eq-lec2-spectator-col}
    Similarly, because the third row of $X_1(+C_1)$ is zero, the third row of the left-hand side must vanish:
    $$
    \begin{pmatrix} k_{31} & k_{32} \end{pmatrix}
    \begin{pmatrix} -C_1 & \lambda \\ -\lambda^{-1} & C_1 \end{pmatrix}
-   = \begin{pmatrix} 0 & 0 \end{pmatrix}!
+   = \begin{pmatrix} 0 & 0 \end{pmatrix}
    $$ {#eq-lec2-spectator-row}
 
 **Stop and take a good look at (-@eq-lec2-spectator-col) and (-@eq-lec2-spectator-row)!** What is the determinant of that $2\times 2$ matrix?
 $$
 \det\begin{pmatrix} C_1 & \lambda \\ -\lambda^{-1} & -C_1 \end{pmatrix}
 = -C_1^2 - \lambda\bigl(-\lambda^{-1}\bigr)
-= 1 - C_1^2!
+= 1 - C_1^2
 $$ {#eq-lec2-spectator-det}
-Notice that $\lambda$ and $-\lambda^{-1}$ multiplied to $-1$, so the $\lambda$-dependence cancelled completely out of the determinant, leaving the pure number $1 - C_1^2$!
+Notice that $\lambda$ and $-\lambda^{-1}$ multiplied to $-1$, so the $\lambda$-dependence cancelled completely out of the determinant, leaving the pure number $1 - C_1^2$.
 
 Now watch the two possibilities unfold:
 
-- **Branch I ($C_j^2 \ne 1$):** If $C_1^2 \ne 1$, the matrix $\begin{pmatrix} C_1 & \lambda \\ -\lambda^{-1} & -C_1 \end{pmatrix}$ is invertible, so (-@eq-lec2-spectator-col)–(-@eq-lec2-spectator-row) force $k_{13} = k_{23} = k_{31} = k_{32} = 0$. Applying the same spectator argument to node $2$ (which kills $k_{12}, k_{21}$ unless $C_2^2 = 1$) forces *every* off-diagonal entry of $K(\lambda)$ to vanish! Once $k_{ab} = 0$ for all $a\ne b$, (-@eq-lec2-a2-active) reads $0 = -2 C_j k_{11}$, which for an invertible $K(\lambda)$ ($k_{11}\ne 0$) forces
+- **Branch I (some $C_j^2 \ne 1$):** By the cyclic symmetry of the three nodes we may take $C_1^2 \ne 1$. Then the matrix $\begin{pmatrix} C_1 & \lambda \\ -\lambda^{-1} & -C_1 \end{pmatrix}$ is invertible, so (-@eq-lec2-spectator-col)–(-@eq-lec2-spectator-row) force $k_{13} = k_{23} = k_{31} = k_{32} = 0$. Now look at node $2$, which acts in the $\{2,3\}$ block with spectator $|1\rangle$. Its spectator equations, obtained exactly as for node 1, read
+  $$
+  C_2k_{21}+\lambda k_{31}=0,\qquad -\lambda^{-1}k_{21}-C_2k_{31}=0,\qquad
+  -C_2k_{12}-\lambda^{-1}k_{13}=0,\qquad \lambda k_{12}+C_2k_{13}=0.
+  $$
+  With $k_{31}=k_{13}=0$, the second and fourth equations give $k_{21}=k_{12}=0$, whatever the value of $C_2$. So *every* off-diagonal entry of $K(\lambda)$ vanishes. The active-block equations of the three nodes, of which (-@eq-lec2-a2-active) is the one for node 1, then read $k_{11}=k_{22}=k_{33}$ and $0 = -2 C_j k_{11}$ for $j=0,1,2$. A non-zero $K(\lambda)$ has $k_{11}\ne 0$, so
   $$
   C_0 = C_1 = C_2 = 0 \qquad\text{(the Neumann boundary, with } K(\lambda) = \mathbf 1\text{)}.
   $$
+  In particular a mixed pattern, with some $C_j^2=1$ and others not, admits no solution: as soon as one $C_j^2\ne1$, all the $C_j$ vanish.
 - **Branch II ($C_j^2 = 1$ for all $j=0,1,2$):** If $C_0, C_1, C_2 \in \{+1, -1\}$, then $1 - C_j^2 = 0$ for every node! Then (-@eq-lec2-spectator-col)–(-@eq-lec2-spectator-row) for nodes $1, 2, 0$ reduce to simple rank-1 ratios between the six off-diagonal entries:
   $$
   \begin{aligned}
@@ -307,10 +313,10 @@ Now watch the two possibilities unfold:
   s\lambda^2 - \lambda^{-1} & 2 C_1 & -2 C_1 C_2 \lambda \\
   -2 C_0 C_2 \lambda & s\lambda^2 - \lambda^{-1} & 2 C_2 \\
   2 C_0 & -2 C_0 C_1 \lambda & s\lambda^2 - \lambda^{-1}
-  \end{pmatrix}, \qquad s = C_0 C_1 C_2 = \pm 1!
+  \end{pmatrix}, \qquad s = C_0 C_1 C_2 = \pm 1
   $$ {#eq-lec2-k-a2}
 
-Look at Panel (b) of @fig-lec2-sklyanin-rigidity: for $a_1^{(1)}$ the smallest singular value of the linear system for $K(\lambda)$ is identically zero for all $C$, whereas for $a_2^{(1)}$ it touches zero *only* at $C=0$ and $C=\pm 1$. That is the entire mechanism behind the Durham classification table ([Table 31.1](book:tbl-durham) and [Proposition 31.2](book:prp-durham)): whenever a node $j$ has a spectator state that overlaps with an adjacent node $i$, the spectator determinant $1 - C_j^2$ forces $C_j = \pm 1$!
+So for $a_2^{(1)}$ in its defining representation we have proved the restriction: a non-zero $K(\lambda)$ exists for $C_j\equiv0$ and for all eight patterns $C_j=\pm1$, and for nothing else. Panel (b) of @fig-lec2-sklyanin-rigidity shows two slices of this result: for $a_1^{(1)}$ the smallest singular value of the linear system for $K(\lambda)$ is identically zero, whereas for $a_2^{(1)}$ it touches zero only at the allowed points. The same spectator mechanism, with non-commuting neighbouring nodes, underlies the book's [classification table](book:tbl-durham) for the simply-laced algebras. The book [states that classification](book:prp-durham) with its evidence: it is checked numerically, algebra by algebra, with an analytic necessity argument in the simply-laced case [@bcdr1995], and in several non-simply-laced algebras some nodes keep continuous parameters.
 
 ---
 
@@ -320,15 +326,15 @@ Two natural questions immediately follow from our blackboard calculation:
 
 ### 1. What About the Purely Dirichlet Boundary $\vec\phi(0,t) = \vec\phi_0$?
 
-In sine-Gordon ($a_1^{(1)}$), we can fix $\phi(0,t) = \phi_0$ by taking the limit $C_0, C_1 \to \infty$ with $C_0/C_1 = e^{i\beta_{\rm SG}\phi_0}$ in (-@eq-lec2-k-a1): dividing (-@eq-lec2-k-a1) by $-2C_1$ gives a perfectly invertible antidiagonal $K$-matrix!
+In sine-Gordon ($a_1^{(1)}$), we can fix $\phi(0,t) = \phi_0$ by taking the limit $C_0, C_1 \to \infty$ with $C_0/C_1 = e^{i\beta_{\rm SG}\phi_0}$ in (-@eq-lec2-k-a1): dividing (-@eq-lec2-k-a1) by $-2C_1$ gives, in the limit, an antidiagonal $K$-matrix that is invertible at generic $\lambda$.
 
 Why can we not take $C_j \to \infty$ in $a_2^{(1)}$? Because $C_j$ is frozen to $\pm 1$! And what if we don't use a boundary potential $\mathcal B$ at all, but simply clamp $\vec\phi(0,t) = \vec\phi_0$ directly in Sklyanin's compatibility equation (-@eq-lec2-compatibility)?
 
-Then $\partial_x\vec\phi(0,t)$ at the wall is an unconstrained, arbitrary vector! For $K(\lambda)a_t(\lambda) + a_t(1/\lambda)^T K(\lambda) = 0$ to hold for arbitrary $\partial_x\vec\phi(0,t)$, the Cartan part forces $[K(\lambda), \vec H] = 0$, so in $a_n^{(1)}$ ($n\ge 2$), $K(\lambda)$ must be **diagonal**. But a diagonal matrix $K(\lambda)$ cannot intertwine the $n+1 \ge 3$ distinct step operators $\lambda E_{\vec\alpha_j} - \lambda^{-1} E_{-\vec\alpha_j}$ at both $+\vec\alpha_j$ and $-\vec\alpha_j$ unless $\lambda^{2h} = 1$ ([Proposition 31.3](book:prp-no-dirichlet)). Thus **full Dirichlet boundary conditions are never integrable in Sklyanin's framework for $\hat{\mathfrak g} \ne a_1^{(1)}$!**
+Then $\partial_x\vec\phi(0,t)$ at the wall is an unconstrained, arbitrary vector. With $\sigma=T$ the Cartan generators are symmetric, so the Cartan part of $K(\lambda)a_t(\lambda) + a_t(1/\lambda)^T K(\lambda)$ is $\frac\beta2\bigl(K\,\partial_x\vec\phi\cdot\vec H+\partial_x\vec\phi\cdot\vec H\,K\bigr)$. For it to vanish for arbitrary $\partial_x\vec\phi(0,t)$ we need the **anticommutator** $\{K(\lambda), H\} = 0$ for every Cartan generator $H$. In the defining representation of $a_n^{(1)}$, $H=\operatorname{diag}(h_1,\dots,h_{n+1})$ with $\sum_ah_a=0$, and $\{K,H\}_{ab}=(h_a+h_b)\,k_{ab}$. For $n\ge2$ every pair $(a,b)$ has some traceless $H$ with $h_a+h_b\ne0$: for $a\ne b$ take $h_a=1$, $h_b=0$ and $h_c=-1$ for a third index $c$; for $a=b$ take any $h_a\ne0$. So $K=0$. For $a_1^{(1)}$ the two weights are opposite, $h_1=-h_2$, and the off-diagonal entries survive: this is the antidiagonal Dirichlet $K$ found above. Thus **full Dirichlet has no non-zero field-independent $K$ in our $a_n^{(1)}$, $n\ge2$, laboratory.** The book proves a more general statement (its [no-Dirichlet theorem](book:prp-no-dirichlet)), for untwisted algebras other than $a_1^{(1)}$, finite-dimensional evaluation representations without trivial summands, and the stated choices of $\sigma$. It does not exclude other constructions, for example a $K$ that depends on the fields.
 
 ### 2. Changing $\sigma$ from Transposition to Hermitian Conjugation ($\sigma = \dagger$)
 
-As we will see in Lecture 3, every boundary condition in [Table 31.1](book:tbl-durham) obtained from $\sigma(X) = X^T$ turns an incoming $a_n^{(1)}$ soliton of species $a$ into an outgoing **antisoliton** of species $\bar a = n+1-a$. Why? Because transposition reverses the root $\vec\alpha \to -\vec\alpha$ without complex-conjugating the complex affine Toda field $\vec\phi$.
+As we will see in Lecture 3, the mirror-image solutions for the boundaries obtained from $\sigma(X) = X^T$ turn an incoming $a_n^{(1)}$ soliton of species $a$ into an outgoing **antisoliton** of species $\bar a = n+1-a$ (the book checks numerically, for $a_2^{(1)}$ and $a_3^{(1)}$, that [no same-species image exists](book:prp-antisoliton-return)). Heuristically, transposition reverses the roots $\vec\alpha \to -\vec\alpha$ without complex-conjugating the complex affine Toda field $\vec\phi$.
 
 In 1998, Delius [@delius1998b] asked: what if, at imaginary coupling where solitons live and $\vec\phi = \operatorname{Re}\vec\phi + i\operatorname{Im}\vec\phi$ is complex, we replace transposition $\sigma(X) = X^T$ by **Hermitian conjugation** $\sigma(X) = X^\dagger$ (which is antilinear: it transposes the matrices *and* complex-conjugates their field coefficients)?
 
@@ -345,20 +351,20 @@ a_t(\lambda) + a_t(1/\lambda)^\dagger
 = -\beta\,\partial_x(\operatorname{Im}\vec\phi)\cdot\vec H
 + i m\sum_{j=0}^r c_j\,\operatorname{Im}\bigl(e^{i\beta\vec\alpha_j\cdot\vec\phi/2}\bigr)\bigl(\lambda E_{\vec\alpha_j} - \lambda^{-1} E_{-\vec\alpha_j}\bigr).
 $$ {#eq-lec2-sp-sum}
-Look at (-@eq-lec2-sp-sum): it vanishes identically at $x=0$ if and only if ([Proposition 31.4](book:prp-soliton-preserving))
+Look at (-@eq-lec2-sp-sum): it vanishes identically at $x=0$ if and only if (the book's [soliton-preserving condition](book:prp-soliton-preserving))
 $$
 \operatorname{Re}\vec\phi(0,t) \in \frac{2\pi}{\beta}\Lambda_W^\vee \quad\text{(Dirichlet on }\operatorname{Re}\vec\phi\text{)},
 \qquad
-\partial_x\operatorname{Im}\vec\phi(0,t) = 0 \quad\text{(Neumann on }\operatorname{Im}\vec\phi\text{)}!
+\partial_x\operatorname{Im}\vec\phi(0,t) = 0 \quad\text{(Neumann on }\operatorname{Im}\vec\phi\text{)}
 $$ {#eq-lec2-soliton-preserving}
-More generally, taking the constant diagonal matrix $K_+ = e^{i\pi\vec\nu\cdot\vec H}$ for any coweight $\vec\nu\in\Lambda_W^\vee$ allows $\operatorname{Re}\vec\phi(0,t) \in \frac{\pi}{\beta}\vec\nu + \frac{2\pi}{\beta}\Lambda_W^\vee$ ([Proposition 31.5](book:prp-soliton-preserving-half), verified in `code/lectures/halfline_l2_f1_sklyanin_rigidity.py`). Because (-@eq-lec2-soliton-preserving) combines parity $P: x\to -x$ with the antilinear involution $\Theta: \vec\phi \to -\bar{\vec\phi}$ via the image relation $\vec\phi(x,t) = 2\vec v - \overline{\vec\phi(-x,t)}$, a soliton bouncing off this wall comes back as a **soliton of the same species**!
+More generally, taking the constant diagonal matrix $K_+ = e^{i\pi\vec\nu\cdot\vec H}$ for any coweight $\vec\nu\in\Lambda_W^\vee$ allows $\operatorname{Re}\vec\phi(0,t) \in \frac{\pi}{\beta}\vec\nu + \frac{2\pi}{\beta}\Lambda_W^\vee$ (the book's [coweight extension](book:prp-soliton-preserving-half)). The reason is a root phase. $K_+$ commutes with $\vec H$, so with Neumann on $\operatorname{Im}\vec\phi$ the Cartan terms still cancel, and it conjugates each step operator into $(-1)^{\vec\alpha_j\cdot\vec\nu}E_{\pm\vec\alpha_j}$. Writing $w_j=e^{i\beta\vec\alpha_j\cdot\vec\phi/2}$, the node-$j$ step terms of $K_+a_t(\lambda)+a_t(1/\lambda)^\dagger K_+$ are proportional to $\bigl((-1)^{\vec\alpha_j\cdot\vec\nu}w_j-\bar w_j\bigr)(\lambda E_{\vec\alpha_j}-\lambda^{-1}E_{-\vec\alpha_j})K_+$, and they vanish when $\bar w_j/w_j=e^{-i\beta\vec\alpha_j\cdot\operatorname{Re}\vec\phi}=(-1)^{\vec\alpha_j\cdot\vec\nu}$ for every $j$, which is the stated condition. `code/lectures/halfline_l2_f1_sklyanin_rigidity.py` illustrates this for one coweight of $a_2^{(1)}$. Because (-@eq-lec2-soliton-preserving) combines parity $P: x\to -x$ with the antilinear involution $\Theta: \vec\phi \to -\bar{\vec\phi}$ via the image relation $\vec\phi(x,t) = 2\vec v - \overline{\vec\phi(-x,t)}$, a soliton bouncing off this wall comes back as a **soliton of the same species**!
 
 ---
 
 ## Guided Rediscovery Exercises
 
 ::: {#exr-lec2-normalization}
-### Exercise 2.1: Why the Normalization $\sqrt{2n_j/\vec\alpha_j^2}$ in $\mathcal B(\vec\phi)$ is Not Optional ([Exercise 31.2](book:exr-node-local))
+### Why the Normalization $\sqrt{2n_j/\vec\alpha_j^2}$ in $\mathcal B(\vec\phi)$ is Not Optional (the book's [normalization exercise](book:exr-node-local))
 
 Suppose an unsuspecting theorist writes down the boundary potential (-@eq-lec2-boundary-potential) without the Kac label $n_j$ inside the square root, i.e. using $\sqrt{2/\vec\alpha_j^2}$ instead of $\sqrt{2n_j/\vec\alpha_j^2}$.
 
@@ -367,32 +373,33 @@ Suppose an unsuspecting theorist writes down the boundary potential (-@eq-lec2-b
    K(\lambda)\left(-\frac{C_j}{\sqrt{n_j}}h_j + \lambda E_{\vec\alpha_j} - \lambda^{-1} E_{-\vec\alpha_j}\right)
    = \left(\frac{C_j}{\sqrt{n_j}}h_j + \lambda E_{\vec\alpha_j} - \lambda^{-1} E_{-\vec\alpha_j}\right)K(\lambda).
    $$
-2. Apply our spectator-determinant formula (-@eq-lec2-spectator-det) to each node $j$ of a simply-laced algebra such as $d_4^{(1)}$ (where the central node has Kac label $n_2 = 2$ while the four outer nodes have $n_0=n_1=n_3=n_4=1$). What value of $C_2^2$ does the spectator determinant force if $K(\lambda)$ is not diagonal?
-3. Conclude that if one demands $|C_j| = 1$ in the unnormalized potential for $d_4^{(1)}$, no invertible $K(\lambda)$ exists for any sign choice!
+2. The equation is still node-local; only the coefficient of $h_j$ has changed. Work in the 8-dimensional vector representation of $d_4^{(1)}$, with basis $e_{\pm1},\dots,e_{\pm4}$ and simple roots $\vec\alpha_0=-e_1-e_2$, $\vec\alpha_1=e_1-e_2$, $\vec\alpha_2=e_2-e_3$, $\vec\alpha_3=e_3-e_4$, $\vec\alpha_4=e_3+e_4$. The central node has Kac label $n_2 = 2$, the four outer nodes $n_0=n_1=n_3=n_4=1$. Each $E_{\vec\alpha_j}$ acts on two doublets (for $\vec\alpha_2$: $e_3\to e_2$ and $e_{-2}\to e_{-3}$) and annihilates the other four basis vectors, its spectators. Write the spectator equations between a doublet and a spectator; they have the structure of (-@eq-lec2-spectator-col)–(-@eq-lec2-spectator-row), with determinant $1-C_j^2/n_j$ in place of $1-C_j^2$. What value of $C_2^2$ does the spectator determinant force if $K(\lambda)$ is not diagonal?
+3. Conclude that if one demands $|C_j| = 1$ in the unnormalized potential for $d_4^{(1)}$, no invertible $K(\lambda)$ exists for any sign choice, whereas $C_2^2=2$ (with the outer $C_j=\pm1$) is allowed. `code/lectures/halfline_l2_f1_sklyanin_rigidity.py` checks both statements for all 32 sign patterns.
 :::
 
 ::: {#exr-lec2-a1-dirichlet}
-### Exercise 2.2: The Ghoshal–Zamolodchikov Dictionary and the Dirichlet Limit of $a_1^{(1)}$ ([Exercises 31.3 & 31.6](book:exr-gz-dictionary))
+### The Ghoshal–Zamolodchikov Dictionary and the Dirichlet Limit of $a_1^{(1)}$ (the book's exercises on the [classical sine-Gordon $K$](book:exr-sg-k-classical) and the [Ghoshal–Zamolodchikov dictionary](book:exr-gz-dictionary))
 
 In sine-Gordon ($a_1^{(1)}$ at imaginary coupling, with $\vec\alpha_1 = -\vec\alpha_0 = \sqrt{2}$, $n_0=n_1=1$, $\beta_{\rm SG} = \sqrt{2}\beta$, and $m_0 = 2m$), Ghoshal and Zamolodchikov [@gz1994] wrote the boundary potential as
 $$
 \mathcal B_{\rm GZ}(\phi) = -M_0\cos\!\left(\frac{\beta_{\rm SG}}{2}(\phi - \phi_0)\right).
 $$
 
-1. Expand $\cos\bigl(\frac{\beta_{\rm SG}}{2}(\phi - \phi_0)\bigr)$ into exponentials $e^{\pm i\beta_{\rm SG}\phi/2}$ and match term-by-term with $\mathcal B_{\rm imag}(\phi)$ in (-@eq-lec2-boundary-potential) (up to an additive constant) to derive the dictionary ([Table 31.2](book:tbl-boundary-dictionary)):
+1. Expand $\cos\bigl(\frac{\beta_{\rm SG}}{2}(\phi - \phi_0)\bigr)$ into exponentials $e^{\pm i\beta_{\rm SG}\phi/2}$ and match term-by-term with $\mathcal B_{\rm imag}(\phi)$ in (-@eq-lec2-boundary-potential) (up to an additive constant) to derive the dictionary (the book's [dictionary table](book:tbl-boundary-dictionary)):
    $$
    C_0 = \frac{\beta_{\rm SG}^2 M_0}{4m_0}\,e^{i\beta_{\rm SG}\phi_0/2}, \qquad
    C_1 = \frac{\beta_{\rm SG}^2 M_0}{4m_0}\,e^{-i\beta_{\rm SG}\phi_0/2}.
    $$
 2. Substitute these $(C_0, C_1)$ into our explicit $2\times 2$ matrix $K_{a_1^{(1)}}(\lambda)$ in (-@eq-lec2-k-a1). Which values of $(M_0, \phi_0)$ give the Neumann boundary ($C_0=C_1=0$) and the uniform boundary ($C_0=C_1=+1$)?
-3. Now take the **Dirichlet limit** $M_0 \to \infty$ at fixed $\phi_0$ (which clamps $\phi(0,t) = \phi_0$). Divide $K_{a_1^{(1)}}(\lambda)$ by $\frac{\beta_{\rm SG}^2 M_0}{2m_0}$ before taking $M_0\to\infty$ and find the explicit $2\times 2$ antidiagonal matrix $K_{\rm Dir}(\lambda; \phi_0)$. Verify directly that $K_{\rm Dir}(\lambda; \phi_0)$ solves Sklyanin's compatibility equation $K\,a_t(\lambda) + a_t(1/\lambda)^T K = 0$ when $\phi(0,t) = \phi_0$ and $\partial_x\phi(0,t)$ is arbitrary!
+3. Now take the **Dirichlet limit** $M_0 \to \infty$ at fixed $\phi_0$ (which clamps $\phi(0,t) = \phi_0$). Divide $K_{a_1^{(1)}}(\lambda)$ by $\frac{\beta_{\rm SG}^2 M_0}{2m_0}$ before taking $M_0\to\infty$ and find the explicit $2\times 2$ antidiagonal matrix $K_{\rm Dir}(\lambda; \phi_0)$. Verify directly that $K_{\rm Dir}(\lambda; \phi_0)$ solves Sklyanin's compatibility equation $K\,a_t(\lambda) + a_t(1/\lambda)^T K = 0$ when $\phi(0,t) = \phi_0$ and $\partial_x\phi(0,t)$ is arbitrary. (It anticommutes with $h_1$, as the Dirichlet argument of this lecture requires.)
 :::
 
 ::: {#exr-lec2-coweight-symmetries}
-### Exercise 2.3: Connecting All 8 Sign Patterns of $a_2^{(1)}$ by Inversion and Coweight Flips
+### Connecting All 8 Sign Patterns of $a_2^{(1)}$ by Inversion and Coweight Flips
 
 In Blackboard Calculation 2 we found the explicit $3\times 3$ matrix $K_{a_2^{(1)}}(\lambda)$ (-@eq-lec2-k-a2) for all 8 sign patterns $(C_0, C_1, C_2)\in\{\pm 1\}^3$. Let us see how all 8 solutions are generated from the single uniform solution $C_{\rm unif} = (+1,+1,+1)$!
 
 1. Take the node-by-node equation (-@eq-lec2-node-k) and multiply on the left and right by $K(\lambda)^{-1}$. Show that $K(\lambda)^{-1}$ solves (-@eq-lec2-node-k) with $C_j \mapsto -C_j$ for all $j$. Check this explicitly by computing the matrix inverse of $K_{a_2^{(1)}}(\lambda)$ in (-@eq-lec2-k-a2) for $(+1,+1,+1)$ and comparing it (up to a scalar factor $\det K$) with (-@eq-lec2-k-a2) for $(-1,-1,-1)$.
-2. Let $D = \operatorname{diag}(d_1, d_2, d_3)$ with $d_a \in \{\pm 1\}$. Show that conjugating (-@eq-lec2-node-k) by $D$, i.e. replacing $K(\lambda) \mapsto D\,K(\lambda)\,D^{-1}$, flips the signs of $C_j$ and $\lambda$ on the nodes where $d_j d_{j+1} = -1$, and verify how coweight conjugations together with $K\mapsto K^{-1}$ partition the 8 sign patterns of $a_2^{(1)}$ into the two equivalence classes $s = C_0 C_1 C_2 = +1$ (four **solitonic** sign patterns) and $s = C_0 C_1 C_2 = -1$ (four **non-solitonic** sign patterns).
+2. Let $D = \operatorname{diag}(d_1, d_2, d_3)$ with $d_a \in \{\pm 1\}$; up to a scalar this is $e^{i\pi\vec\mu\cdot\vec H}$ for a coweight $\vec\mu$. Node $j$ links two basis vectors $a,b$ (node 1 links 1 and 2, node 2 links 2 and 3, node 0 links 3 and 1). Show that $DE_{\pm\vec\alpha_j}D^{-1}=t_jE_{\pm\vec\alpha_j}$ with $t_j=d_ad_b$, and conclude that $D\,K(\lambda)\,D^{-1}$ solves (-@eq-lec2-node-k) with $C_j\mapsto t_jC_j$, at the **same** $\lambda$. (Multiply the conjugated node equation by $t_j$.)
+3. Show that $t_0t_1t_2=1$, so the coweight flips preserve $s = C_0 C_1 C_2$ and split the 8 sign patterns into two classes of four, $s=+1$ and $s=-1$. Show that inversion $K\mapsto K^{-1}$ changes $s$ to $-s$, so that inversion and coweight flips together generate all eight patterns from the uniform pattern $(+1,+1,+1)$. Finally, list the $s=+1$ class: it consists of the uniform pattern and the three patterns with two minus signs, which are the **solitonic** patterns of Lecture 3.
 :::

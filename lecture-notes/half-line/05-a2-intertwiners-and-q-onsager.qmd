@@ -1,13 +1,13 @@
 # Higher-Rank Soliton Reflection, $a_2^{(1)}$ Intertwiners, and Generalized $q$-Onsager Algebras {#sec-lec5-a2-qsp}
 
-*Companion to [Chapter 33](book:sec-boundary-qg), [Chapter 34](book:sec-soliton-reflection), and [Chapter 35](book:sec-qsp) of the main text.*
+*Companion to the main text's chapters on [boundary quantum groups](book:sec-boundary-qg), [soliton reflection matrices](book:sec-soliton-reflection) and [quantum symmetric pairs](book:sec-qsp).*
 
 ::: {.callout-note appearance="simple" icon=false title="What You Will Learn in This Lecture"}
-- How the **quantum spectator-state trap** in the linear intertwining equation $K(y)\pi_{V,y}(b_j) = \pi_{\bar V,1/y}(b_j)K(y)$ forces the quantum boundary parameters $\hat\epsilon_j$ of $a_n^{(1)}$ ($n \ge 2$) into the discrete set $\{0\} \cup \{\pm\epsilon_*\}^{n+1}$ where $\epsilon_* = \big[(1-q)(1-q^{-1})\big]^{-1/2} = \big[2\cos(\pi\omega/2)\big]^{-1}$.
-- How to derive the **three $a_2^{(1)}$ soliton reflection matrices** ($K_{\hat\epsilon=0} = \mathbf{1}$ and the two non-diagonal Toeplitz matrices $K_{s=\pm 1}$) on the blackboard from linear equations, and verify their boundary unitarity and crossing-unitarity.
-- The **algebraic origin of $\epsilon_*$**: how the **deformed quantum Serre relation** $F_{ij}(b_i,b_j) = q c_i b_j + \hat\epsilon_j\big((1-q)(1-q^{-1})\hat\epsilon_i^2 - q c_i\big)k_i^2 k_j$ produces a fatal Cartan obstruction $k_i^2 k_j \in B_{\hat\epsilon}$ unless $\hat\epsilon_j = 0$ or $\hat\epsilon_i^2 = \epsilon_*^2$.
-- Why $\hat\epsilon = 0$ is a standard **Letzter–Kolb quantum symmetric pair**, whereas $\hat\epsilon_j = \pm\epsilon_*$ lies outside Kolb's parameter set and generates Baseilhac and Belliard's **generalized $q$-Onsager algebra**.
-- How to resolve the **Neumann vs. uniform boundary puzzle**: why first-order perturbation theory around Neumann missed the non-analytic bulk-coupling shift $\epsilon_*$, and why **$\hat\epsilon = 0$ is the uniform boundary $C \equiv +1$** while **$s = +1$ ($\hat\epsilon_j = +\epsilon_*$) is the Neumann boundary $C \equiv 0$**.
+- How the **quantum spectator-state trap** in the linear intertwining equation $K(y)\pi_{V,y}(b_j) = \pi_{\bar V,1/y}(b_j)K(y)$ restricts the quantum boundary parameters $\hat\epsilon_j$ of $a_2^{(1)}$ to the discrete set $\{0\} \cup \{\pm\epsilon_*\}^{3}$, where $\epsilon_* = \big[(1-q)(1-q^{-1})\big]^{-1/2} = \big[2\cos(\pi\omega/2)\big]^{-1}$. The book checks the same restriction for $a_n^{(1)}$ up to $n=7$ and sketches it for all $n\ge2$.
+- How to derive the **three $a_2^{(1)}$ soliton reflection matrices** ($K_{\hat\epsilon=0} = \mathbf{1}$ and the two non-diagonal Toeplitz matrices $K_{s=\pm 1}$) on the blackboard from linear equations, and check their boundary unitarity and the matrix part of their crossing-unitarity.
+- The **algebraic origin of $\epsilon_*$**: how the **deformed quantum Serre relation** $F_{ij}(b_i,b_j) = q c_i b_j + \hat\epsilon_j\big((1-q)(1-q^{-1})\hat\epsilon_i^2 - q c_i\big)k_i^2 k_j$ puts the Cartan element $k_i^2 k_j$ into $B_{\hat\epsilon}$ unless $\hat\epsilon_j = 0$ or $\hat\epsilon_i^2 = \epsilon_*^2$, and why that leaves no intertwiner.
+- Why $\hat\epsilon = 0$ is a standard **Letzter–Kolb quantum symmetric pair**, whereas $\hat\epsilon_j = \pm\epsilon_*$ lies outside Kolb's parameter set and realizes the relations of Baseilhac and Belliard's **generalized $q$-Onsager algebra**.
+- The **Neumann vs. uniform boundary puzzle**: the book's conjectured dictionary pairs **$\hat\epsilon = 0$ with the uniform boundary $C \equiv +1$** and **$s = +1$ ($\hat\epsilon_j = +\epsilon_*$) with the Neumann boundary $C \equiv 0$**, and a term non-analytic in the bulk coupling explains how first-order perturbation theory around Neumann could miss the constant $\epsilon_*$.
 :::
 
 ## From $a_1^{(1)}$ Freedom to $a_2^{(1)}$ Quantum Rigidity
@@ -19,7 +19,7 @@ In Lecture 2, we discovered a dramatic classical contrast between rank $1$ and r
 
 In Lecture 4, we quantized $a_1^{(1)}$ using the coideal generators $b_j = e_j + q^{-1}f_j k_j + \hat\epsilon_j k_j$ ($j = 0, 1$), and found that the Ghoshal–Zamolodchikov reflection matrix exists for **every** pair $(\hat\epsilon_0, \hat\epsilon_1) \in \mathbb{C}^2$.
 
-Now step up to **$a_2^{(1)}$** ($N = 3$, Coxeter number $h = 3$, [Section 33.7](book:sec-epsilon-constraint) and [Section 34.4](book:sec-an-diagonal-k)–[34.5](book:sec-an-nondiagonal-k)). What happens when we impose the linear intertwining equation
+Now step up to **$a_2^{(1)}$** ($N = 3$, Coxeter number $h = 3$; see the book's sections on [quantum and classical boundary parameters](book:sec-epsilon-constraint), [diagonal](book:sec-an-diagonal-k) and [non-diagonal](book:sec-an-nondiagonal-k) $a_n$ reflection matrices). What happens when we impose the linear intertwining equation
 $$
 K(\theta)\,\pi_{V,\theta}(b_j) = \pi_{\bar V,-\theta}(b_j)\,K(\theta), \qquad j = 0, 1, 2
 $$
@@ -33,7 +33,7 @@ Let us work it out on the blackboard—and watch the **quantum spectator-state t
 
 ### Step 1: The Representations $V(y)$ and $\bar V(1/y)$
 
-Let $\{|1\rangle, |2\rangle, |3\rangle\}$ be the weight basis of the 3-dimensional vector representation $V(y)$ of $U_q(a_2^{(1)})$, with spectral parameter $y = e^{\omega\theta}$ ($\omega = \frac{4\pi}{\beta^2} - 1$) and physical deformation parameter $q = -e^{-i\pi\omega}$ ([Section 34.4](book:sec-an-diagonal-k)).
+Let $\{|1\rangle, |2\rangle, |3\rangle\}$ be the weight basis of the 3-dimensional vector representation $V(y)$ of $U_q(a_2^{(1)})$, with spectral parameter $y = e^{\omega\theta}$ ($\omega = \frac{4\pi}{\beta^2} - 1$) and physical deformation parameter $q = -e^{-i\pi\omega}$ (see the book's [diagonal $a_n$ reflection matrices](book:sec-an-diagonal-k)).
 
 Each node $j \in \{0, 1, 2\}$ corresponds to a directed pair of indices $(a, b)$:
 
@@ -43,9 +43,9 @@ Each node $j \in \{0, 1, 2\}$ corresponds to a directed pair of indices $(a, b)$
 
 Notice that on $V(y)$, $e_j = y E_j = y e_{ab}$ and $f_j = y^{-1} F_j = y^{-1} e_{ba}$. What about $q^{-1} f_j k_j$? Since $k_j|a\rangle = q|a\rangle$, we have
 $$
-q^{-1} f_j k_j = q^{-1}(y^{-1} e_{ba})\,k_j = q^{-1} y^{-1} q\,e_{ba} = y^{-1} e_{ba}!
+q^{-1} f_j k_j = q^{-1}(y^{-1} e_{ba})\,k_j = q^{-1} y^{-1} q\,e_{ba} = y^{-1} e_{ba}.
 $$
-Now look at the conjugate representation $\bar V(y)$, which is obtained by composing $V(1/y)$ with the quantum Chevalley involution $\omega_q : e_j \leftrightarrow f_j,\, k_j \mapsto k_j^{-1}$ ([Section 34.4](book:sec-an-diagonal-k)). At the reflected rapidity $-\theta$ (where $y \mapsto 1/y$), $\bar V(1/y)$ has:
+Now look at the conjugate representation $\bar V(y)$, which is obtained by composing $V(1/y)$ with the quantum Chevalley involution $\omega_q : e_j \leftrightarrow f_j,\, k_j \mapsto k_j^{-1}$ ([diagonal $a_n$ reflection matrices](book:sec-an-diagonal-k)). At the reflected rapidity $-\theta$ (where $y \mapsto 1/y$), $\bar V(1/y)$ has:
 $$
 \pi_{\bar V,1/y}(e_j) = y^{-1} F_j = y^{-1} e_{ba}, \qquad
 \pi_{\bar V,1/y}(f_j) = y E_j = y e_{ab}, \qquad
@@ -53,9 +53,9 @@ $$
 $$
 Since $k_j^{-1}|b\rangle = q|b\rangle$, the second term $q^{-1} f_j k_j$ on $\bar V(1/y)$ is
 $$
-\pi_{\bar V,1/y}(q^{-1} f_j k_j) = q^{-1}(y e_{ab})\,k_j^{-1} = q^{-1} y q\,e_{ab} = y e_{ab}!
+\pi_{\bar V,1/y}(q^{-1} f_j k_j) = q^{-1}(y e_{ab})\,k_j^{-1} = q^{-1} y q\,e_{ab} = y e_{ab}.
 $$
-Look at that symmetry ([Proposition 33.5](book:prp-an-k-existence)): **the off-diagonal part of $b_j = e_j + q^{-1}f_j k_j + \hat\epsilon_j k_j$ is the exact same matrix $A_j(y) = y e_{ab} + y^{-1} e_{ba}$ on both $V(y)$ and $\bar V(1/y)$!** Only the diagonal Cartan part flips from $\hat\epsilon_j k_j$ to $\hat\epsilon_j k_j^{-1}$:
+Look at that symmetry (proof of the book's [allowed quantum boundary parameters](book:prp-an-k-existence)): **the off-diagonal part of $b_j = e_j + q^{-1}f_j k_j + \hat\epsilon_j k_j$ is the exact same matrix $A_j(y) = y e_{ab} + y^{-1} e_{ba}$ on both $V(y)$ and $\bar V(1/y)$!** Only the diagonal Cartan part flips from $\hat\epsilon_j k_j$ to $\hat\epsilon_j k_j^{-1}$:
 $$
 \pi_{V,y}(b_j) = A_j(y) + \hat\epsilon_j k_j, \qquad
 \pi_{\bar V,1/y}(b_j) = A_j(y) + \hat\epsilon_j k_j^{-1}, \qquad
@@ -75,7 +75,7 @@ Fix node $j$ with active indices $(a, b)$, and let $c \notin \{a, b\}$ be the **
   - For row $r = a$: $(A_j K)_{ac} = y K_{bc}$ and $(k_j^{-1} K)_{ac} = q^{-1} K_{ac}$.
   - For row $r = b$: $(A_j K)_{bc} = y^{-1} K_{ac}$ and $(k_j^{-1} K)_{bc} = q K_{bc}$.
 
-Therefore, the $(a, c)$ and $(b, c)$ entries of the intertwining equation form a closed $2\times 2$ homogeneous linear system for $(K_{ac}, K_{bc})$ ([Proposition 33.5](book:prp-an-k-existence)):
+Therefore, the $(a, c)$ and $(b, c)$ entries of the intertwining equation form a closed $2\times 2$ homogeneous linear system for $(K_{ac}, K_{bc})$ (as in the book's [allowed quantum boundary parameters](book:prp-an-k-existence)):
 $$
 \begin{aligned}
 \hat\epsilon_j(1 - q^{-1}) K_{ac} - y K_{bc} &= 0, \\
@@ -83,7 +83,7 @@ $$
 \end{aligned}
 \quad\Longleftrightarrow\quad
 \begin{pmatrix} \hat\epsilon_j(q^{-1} - 1) & y \\ y^{-1} & \hat\epsilon_j(q - 1) \end{pmatrix}
-\begin{pmatrix} K_{ac} \\ K_{bc} \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}!
+\begin{pmatrix} K_{ac} \\ K_{bc} \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix}.
 $$
 Compute the determinant of this $2\times 2$ spectator matrix:
 $$
@@ -94,24 +94,27 @@ $$
 The exact same determinant governs the spectator row $(K_{ca}, K_{cb})$!
 
 ::: {.callout-important appearance="simple" title="The Two Branches of $a_n^{(1)}$ Soliton Reflection"}
-Look at that determinant $\hat\epsilon_j^2(1 - q)(1 - q^{-1}) - 1$. Just as in our classical calculation in Lecture 2, there are only two ways to obtain a non-zero reflection matrix $K(y)$ ([Proposition 33.5](book:prp-an-k-existence), [eq. 33.12](book:eq-an-eps-condition)):
+Look at that determinant $\hat\epsilon_j^2(1 - q)(1 - q^{-1}) - 1$. Just as in our classical calculation in Lecture 2, it leaves two ways to obtain a non-zero reflection matrix $K(y)$ (the book's [allowed quantum boundary parameters](book:prp-an-k-existence), [existence condition](book:eq-an-eps-condition)):
 
-1. **Branch 1 (Diagonal reflection, $\hat\epsilon_j = 0$ for all $j$):** If $\hat\epsilon_j^2 \ne \big[(1-q)(1-q^{-1})\big]^{-1}$ for all $j$, the spectator determinants are all non-zero, forcing every off-diagonal entry $K_{ac} = K_{bc} = 0$, so $K$ must be diagonal. Then the $(a, b)$ entry of $K A_j - A_j K + \hat\epsilon_j(K k_j - k_j^{-1}K) = 0$ gives $y(K_{aa} - K_{bb}) = 0 \implies K = \kappa\,\mathbf{1}$, and the $(a, a)$ entry gives $\hat\epsilon_j(q - q^{-1})\kappa = 0 \implies \hat\epsilon_j = 0$ for all $j$!
+1. **Branch 1 (Diagonal reflection, $\hat\epsilon_j = 0$ for all $j$):** If $\hat\epsilon_j^2 \ne \big[(1-q)(1-q^{-1})\big]^{-1}$ for all $j$, the spectator determinants are all non-zero, forcing every off-diagonal entry $K_{ac} = K_{bc} = 0$, so $K$ must be diagonal. Then the $(a, b)$ entry of $K A_j - A_j K + \hat\epsilon_j(K k_j - k_j^{-1}K) = 0$ gives $y(K_{aa} - K_{bb}) = 0 \implies K = \kappa\,\mathbf{1}$, and the $(a, a)$ entry gives $\hat\epsilon_j(q - q^{-1})\kappa = 0 \implies \hat\epsilon_j = 0$ for all $j$.
 2. **Branch 2 (Non-diagonal Toeplitz reflection, $\hat\epsilon_j^2 = \epsilon_*^2$ for all $j$):** Every spectator determinant vanishes if and only if
    $$
    \boxed{\hat\epsilon_j^2 = \epsilon_*^2 \equiv \frac{1}{(1 - q)(1 - q^{-1})} = \frac{1}{4\cos^2(\pi\omega/2)} \qquad \forall\, j = 0, \dots, n.}
    $$
+   This special value is not new. Baseilhac and Belliard published it, in the form $\hat\epsilon_j = \pm i/(q^{1/2} - q^{-1/2})$, as the condition under which the boundary charges satisfy their generalized $q$-Onsager relations [@baseilhac_belliard2010]. Here it comes out of the intertwining equation.
 :::
+
+**Mixed patterns.** The two branches do not yet cover a pattern in which some determinants vanish and others do not. For $a_2^{(1)}$ the missing step is short. Suppose node $j$ has $\hat\epsilon_j^2 \ne \epsilon_*^2$, with spectator $c$. Its two $2\times 2$ systems give $K_{ac} = K_{bc} = K_{ca} = K_{cb} = 0$: every off-diagonal entry in row $c$ and column $c$ vanishes. Now take another node $j'$. Its active pair contains $c$ and one of $a, b$, and its spectator $c'$ is the other one. Each of its $2\times 2$ systems has $y$ or $y^{-1}$ in the off-diagonal positions, so once one unknown of a pair vanishes, the equation in which the other unknown has coefficient $y^{\pm 1}$ forces it to vanish too. The column-$c'$ pair of node $j'$ contains an entry of row $c$, and its row-$c'$ pair contains an entry of column $c$. So the two remaining off-diagonal entries, $K_{ab}$ and $K_{ba}$, vanish as well, whatever $\hat\epsilon_{j'}$ is. Then $K$ is diagonal, and the argument of Branch 1 gives $K = \kappa\,\mathbf{1}$ and $\hat\epsilon_0 = \hat\epsilon_1 = \hat\epsilon_2 = 0$. For $a_2^{(1)}$ the dichotomy is therefore complete: a non-zero $K$ exists only if all $\hat\epsilon_j = 0$ or all $\hat\epsilon_j^2 = \epsilon_*^2$. The script tests this on all $4^3 = 64$ patterns with $\hat\epsilon_j \in \{0, \epsilon_*, -\epsilon_*, \frac{e}{4}\epsilon_*\}$. For general $n$ the book checks the dichotomy numerically up to $n = 7$ and sketches the propagation around the cycle of nodes.
 
 ### Step 3: Solving for the Non-Diagonal Toeplitz Matrix $K_s(y)$ at $\hat\epsilon_j = \pm\epsilon_*$
 
-Suppose $\hat\epsilon_j^2 = \epsilon_*^2$ for all $j = 0, 1, 2$. Up to diagonal Cartan gauge transformations $K \mapsto \pi_{\bar V}(g)K\pi_V(g)^{-1}$, only the product of signs $s = \prod_{j=0}^n (\hat\epsilon_j/\epsilon_*) \in \{+1, -1\}$ is gauge-invariant ([Proposition 33.5](book:prp-an-k-existence)). Fix the gauge $\hat\epsilon_1 = \hat\epsilon_2 = +\epsilon_*$ and $\hat\epsilon_0 = s\epsilon_*$ with $s = \pm 1$.
+Suppose $\hat\epsilon_j^2 = \epsilon_*^2$ for all $j = 0, 1, 2$. Up to diagonal Cartan gauge transformations $K \mapsto \pi_{\bar V}(g)K\pi_V(g)^{-1}$, only the product of signs $s = \prod_{j=0}^n (\hat\epsilon_j/\epsilon_*) \in \{+1, -1\}$ is gauge-invariant within the parity-symmetric normalization $c_j = q^{-1}$ (book's [allowed quantum boundary parameters](book:prp-an-k-existence)). Fix the gauge $\hat\epsilon_1 = \hat\epsilon_2 = +\epsilon_*$ and $\hat\epsilon_0 = s\epsilon_*$ with $s = \pm 1$.
 
 Notice that with $q = -e^{-i\pi\omega}$ and $w = (-q)^{1/2} = e^{-i\pi\omega/2}$, we have $1 - q = 1 + w^2 = w(w + w^{-1}) = \frac{w}{\epsilon_*}$ and $1 - q^{-1} = \frac{w^{-1}}{\epsilon_*}$. Thus in the spectator equation $\hat\epsilon_j(1 - q^{-1})K_{ac} = y K_{bc}$, substituting $\hat\epsilon_j = \epsilon_*$ gives
 $$
-\epsilon_*\cdot\frac{w^{-1}}{\epsilon_*} K_{ac} = y K_{bc} \quad\implies\quad K_{bc} = (w y)^{-1} K_{ac} = X^{-1} K_{ac}, \qquad X \equiv (-q)^{1/2} y = e^{\omega(\theta - i\pi/2)}!
+\epsilon_*\cdot\frac{w^{-1}}{\epsilon_*} K_{ac} = y K_{bc} \quad\implies\quad K_{bc} = (w y)^{-1} K_{ac} = X^{-1} K_{ac}, \qquad X \equiv (-q)^{1/2} y = e^{\omega(\theta - i\pi/2)}.
 $$
-Stepping through the indices $(a, b)$ and using the $(a, a)$ diagonal equations yields the remarkably clean **Toeplitz matrix** ([eq. 34.7](book:eq-an-k-matrix), [Proposition 34.4](book:prp-an-nondiagonal)), valid for any $N = n + 1$:
+Stepping through the indices $(a, b)$ and using the $(a, a)$ diagonal equations yields, for $a_2^{(1)}$, the **Toeplitz matrix** below with $N = 3$ (@exr-lec5-toeplitz-solve):
 $$
 K_{ij}(y) = \begin{cases}
 X^{\,j - i - N/2}, & j > i, \\[4pt]
@@ -119,7 +122,7 @@ s\,X^{\,j - i + N/2}, & j < i, \\[4pt]
 \dfrac{(-q)^{1/2} X^{-N/2} - s\,(-q)^{-1/2} X^{N/2}}{\epsilon_*(q^{-1} - q)}, & j = i.
 \end{cases}
 $$
-For $a_2^{(1)}$ ($N = 3$), writing out this $3\times 3$ matrix explicitly gives Gandenberger's non-diagonal reflection matrices $K^{(+)}$ ($s = +1$) and $K^{(-)}$ ($s = -1$) [@gandenberger1999a]:
+The same formula with general $N = n + 1$ is the book's [Toeplitz matrix](book:eq-an-k-matrix) for all $a_n^{(1)}$; the book checks that it is the intertwiner for $n = 2, 3, 4$ ([non-diagonal $a_n$ reflection matrices](book:prp-an-nondiagonal)). Gandenberger had found explicit non-diagonal solutions of the $a_n^{(1)}$ reflection equation for every $n$, two of them distinguished by signs, by solving the reflection equation directly rather than from a coideal [@gandenberger1999b]. For $a_2^{(1)}$ ($N = 3$), writing out the matrix explicitly gives his earlier non-diagonal reflection matrices $K^{(+)}$ ($s = +1$) and $K^{(-)}$ ($s = -1$), up to transposition and with his free gauge parameters set to 1 [@gandenberger1999a]:
 $$
 K_s(y) = \begin{pmatrix}
 \kappa_s(X) & X^{-1/2} & X^{1/2} \\
@@ -128,7 +131,7 @@ s X^{-1/2} & s X^{1/2} & \kappa_s(X)
 \end{pmatrix}, \qquad
 \kappa_s(X) = \frac{w X^{-3/2} - s w^{-1} X^{3/2}}{\epsilon_*(q^{-1} - q)}.
 $$
-As verified in `code/lectures/halfline_l5_f1_a2_serre.py`, $K_s(y)$ satisfies boundary unitarity $K_s(-\theta)^T K_s(\theta) = U_s\,\mathbf{1}$ with $U_s = \frac{s\cosh 2T\theta - \cos\pi T}{2\sin^2(\pi\omega/2)}$ ($T = \frac{3}{2}\omega$), and its boundary-state vector satisfies matrix crossing-unitarity $k(\theta) = \Psi_s(\mu)\,\check R_{\bar V\bar V}(2\theta)\,k(-\theta)$!
+The matrix $K_s(y)$ satisfies boundary unitarity $K_s(-\theta)^T K_s(\theta) = U_s\,\mathbf{1}$ with $U_s = \frac{s\cosh 2T\theta - \cos\pi T}{2\sin^2(\pi\omega/2)}$ ($T = \frac{3}{2}\omega$; @exr-lec5-cyclic-unitarity proves it), and its boundary-state vector satisfies the matrix part of crossing-unitarity, $k(\theta) = \Psi_s(\mu)\,\check R_{\bar V\bar V}(2\theta)\,k(-\theta)$, with the scalar $\Psi_s$ of the book's [non-diagonal $a_n$ reflection matrices](book:sec-an-nondiagonal-k). The script `code/lectures/halfline_l5_f1_a2_serre.py` tests both matrix identities for $s = \pm 1$ at one sample rapidity. Full crossing-unitarity also constrains the scalar factor, which is the subject of Lecture 6.
 
 ---
 
@@ -136,13 +139,13 @@ As verified in `code/lectures/halfline_l5_f1_a2_serre.py`, $K_s(y)$ satisfies bo
 
 Why did the representation-theoretic computation on the 3-dimensional vector module $V(y)$ single out the exact number $\epsilon_*^2 = \frac{1}{(1-q)(1-q^{-1})}$? Is $\epsilon_*$ just an accident of the 3-dimensional representation, or does it come from the intrinsic structure of the coideal subalgebra $B_{\hat\epsilon} \subset U_q(\hat g)$?
 
-In [Chapter 35](book:sec-qsp) ([Section 35.2](book:sec-letzter-kolb)), we learn that the answer lies in the **quantum Serre relation** of the coideal!
+The book's chapter on [quantum symmetric pairs](book:sec-qsp) ([Letzter–Kolb coideals](book:sec-letzter-kolb)) locates the answer in the **quantum Serre relation** of the coideal.
 
 In $U_q(\hat g)$, any two adjacent simply-laced nodes $i, j$ ($a_{ij} = -1$) obey the quantum Serre relation
 $$
 F_{ij}(e_i, e_j) = 0, \qquad F_{ij}(x, y) \equiv x^2 y - [2]_q\, x y x + y x^2, \qquad [2]_q = q + q^{-1}.
 $$
-What happens when we plug the coideal generators $b_i = e_i + \varphi_i + \hat\epsilon_i k_i$ (where $\varphi_i = c_i f_i k_i$) into the quantum Serre polynomial $F_{ij}(b_i, b_j)$? Let us compute the weight-$0$ (Cartan) piece on the blackboard ([Proposition 35.2](book:prp-serre-obstruction), [eq. 35.4](book:eq-serre-obstruction))!
+What happens when we plug the coideal generators $b_i = e_i + \varphi_i + \hat\epsilon_i k_i$ (where $\varphi_i = c_i f_i k_i$) into the quantum Serre polynomial $F_{ij}(b_i, b_j)$? Let us compute the weight-$0$ (Cartan) piece on the blackboard (the book's [Serre relation of the boundary coideal](book:prp-serre-obstruction)).
 
 ### Step 1: Isolate the Cartan Term $F_{ij}(b_i, \hat\epsilon_j k_j)$
 
@@ -165,7 +168,7 @@ Check the nine possible pairs $(X, Y)$:
 1. **Diagonal squares $e_i^2$ and $\varphi_i^2$:** Here $s_X = s_Y = q^{\mp 1}$, so $C = 1 - (q + q^{-1})q^{\mp 1} + q^{\mp 2} = 0$!
 2. **Cross terms with $k_i$:** For $e_i k_i$ ($s_X = q^{-1}, s_Y = 1$) and $k_i e_i = q^2 e_i k_i$ ($s_X = 1, s_Y = q^{-1}$), their sum is
    $$
-   \big(1 - [2]_q + q^{-1}\big)e_i k_i + \big(1 - [2]_q q^{-1} + q^{-1}\big) q^2 e_i k_i = (-q + q - 1 + 1)e_i k_i = 0!
+   \big(1 - [2]_q + q^{-1}\big)e_i k_i + \big(1 - [2]_q q^{-1} + q^{-1}\big) q^2 e_i k_i = (-q + q - 1 + 1)e_i k_i = 0.
    $$
    Similarly, the $\varphi_i k_i$ and $k_i \varphi_i$ terms cancel identically.
 3. **The weight-zero terms $e_i\varphi_i$, $\varphi_i e_i$, and $\hat\epsilon_i^2 k_i^2$:**
@@ -178,11 +181,11 @@ $$
 (1 - q^2)e_i(c_i f_i k_i) + (1 - q^{-2})(c_i f_i k_i)e_i
 = c_i(1 - q^2)(e_i f_i - f_i e_i)k_i
 = c_i(1 - q^2)\frac{k_i - k_i^{-1}}{q - q^{-1}} k_i
-= -q c_i(k_i^2 - 1)!
+= -q c_i(k_i^2 - 1).
 $$
-Combining this with the $e_j$ and $\varphi_j$ parts (which each contribute $q c_i e_j$ and $q c_i \varphi_j$), the $-q c_i(-1)\hat\epsilon_j k_j = +q c_i \hat\epsilon_j k_j$ piece completes $q c_i(e_j + \varphi_j + \hat\epsilon_j k_j) = q c_i b_j$, leaving [Proposition 35.2](book:prp-serre-obstruction) ([eq. 35.4](book:eq-serre-obstruction)):
+Combining this with the $e_j$ and $\varphi_j$ parts (which each contribute $q c_i e_j$ and $q c_i \varphi_j$), the $-q c_i(-1)\hat\epsilon_j k_j = +q c_i \hat\epsilon_j k_j$ piece completes $q c_i(e_j + \varphi_j + \hat\epsilon_j k_j) = q c_i b_j$, leaving the book's [deformed Serre relation](book:eq-serre-obstruction):
 $$
-\boxed{F_{ij}(b_i, b_j) = q c_i b_j + \hat\epsilon_j\Big((1 - q)(1 - q^{-1})\hat\epsilon_i^2 - q c_i\Big) k_i^2 k_j!}
+\boxed{F_{ij}(b_i, b_j) = q c_i b_j + \hat\epsilon_j\Big((1 - q)(1 - q^{-1})\hat\epsilon_i^2 - q c_i\Big) k_i^2 k_j.}
 $$
 
 ### Step 2: Why the Obstruction Kills $K(y)$ Unless $\hat\epsilon_j = 0$ or $\hat\epsilon_i^2 = \epsilon_*^2$
@@ -191,29 +194,39 @@ Look at the second term on the right-hand side of the deformed Serre relation:
 $$
 \text{Obstruction}_{ij} = \hat\epsilon_j\Big((1 - q)(1 - q^{-1})\hat\epsilon_i^2 - q c_i\Big) k_i^2 k_j.
 $$
-In our parity-symmetric normalization $c_i = q^{-1}$, we have $q c_i = 1$. Suppose this obstruction does **not** vanish! Then the Cartan element $\kappa = k_i^2 k_j = F_{ij}(b_i, b_j) - b_j$ belongs to the coideal subalgebra $B_{\hat\epsilon}$!
+In our parity-symmetric normalization $c_i = q^{-1}$, we have $q c_i = 1$, and the relation reads
+$$
+F_{ij}(b_i, b_j) - b_j = d_{ij}\, k_i^2 k_j, \qquad d_{ij} = \hat\epsilon_j\Big((1 - q)(1 - q^{-1})\hat\epsilon_i^2 - 1\Big).
+$$
+Suppose $d_{ij} \ne 0$. Then the Cartan element $\kappa = k_i^2 k_j = \big(F_{ij}(b_i, b_j) - b_j\big)/d_{ij}$ is a polynomial in the generators, so it belongs to the coideal subalgebra $B_{\hat\epsilon}$.
 
-Why is $\kappa = k_i^2 k_j \in B_{\hat\epsilon}$ fatal? Because conjugating $b_i$ by $\kappa^r$ ($r = 0, 1, 2$) scales $e_i$ by $q^{3r}$, $f_i k_i$ by $q^{-3r}$, and $k_i$ by $1$, which allows you to separate $e_i$, $f_i k_i$, and $k_i^2$ individually inside $B_{\hat\epsilon}$ ([Section 35.2](book:sec-letzter-kolb))! Any intertwiner $K : V(\theta) \to \bar V(-\theta)$ would then have to intertwine $k_m^2$ with $k_m^{-2}$ for every node $m$, which maps weight $\mu$ to weight $-\mu$. Since the vector representation $V$ of $a_n$ ($n \ge 2$) is not self-conjugate ($-\mu$ is a weight of $\bar V$, not $V$), **no non-zero intertwiner $K$ can exist unless the Cartan obstruction vanishes for every pair of adjacent nodes!**
+Why is $\kappa \in B_{\hat\epsilon}$ fatal? An intertwiner $K : V(\theta) \to \bar V(-\theta)$ intertwines the action of every element of $B_{\hat\epsilon}$, so $K\,\pi_V(\kappa) = \pi_{\bar V}(\kappa)\,K$. In $a_2^{(1)}$ take $(i, j) = (1, 2)$. On $V$, $\pi_V(k_1^2 k_2) = \operatorname{diag}(q^2, q^{-1}, q^{-1})$. On $\bar V$, where $k_j$ acts as the inverse matrix, $\pi_{\bar V}(k_1^2 k_2) = \operatorname{diag}(q^{-2}, q, q)$. The $(r, c)$ entry of $K\,\pi_V(\kappa) = \pi_{\bar V}(\kappa)\,K$ reads $(\lambda_c - \bar\lambda_r)K_{rc} = 0$, where $\lambda_c$ and $\bar\lambda_r$ are the diagonal entries. For $q$ not a root of unity the two spectra are disjoint, so $K = 0$. The same holds for every ordered pair of adjacent nodes of $a_2^{(1)}$ (checked in `code/lectures/halfline_l5_f1_a2_serre.py`). So **no non-zero intertwiner exists unless $d_{ij} = 0$ for every pair of adjacent nodes.**
+
+For $a_n^{(1)}$ with $n \ge 3$ this short argument fails, because $k_i^2 k_j$ acts as $1$ on the basis vectors it does not involve, on $V$ and on $\bar V$ alike. The book's argument ([Serre relation of the boundary coideal](book:prp-serre-obstruction) and the discussion after it) conjugates $b_i$ by $\kappa^r$ ($r = 0, 1, 2$), which scales $e_i$ by $q^{3r}$, $f_i k_i$ by $q^{-3r}$ and $k_i$ by $1$, so that $e_i$, $f_i k_i$ and then $k_i^2$ can be separated. Propagated along the diagram, this makes $K$ intertwine every $k_m^2$, so that $K$ maps a vector of weight $\mu$ to vectors of weight $-\mu$; the vector representation of $a_n$, $n \ge 2$, contains no such pair, and $K = 0$. One step needs care: $\kappa \in B_{\hat\epsilon}$ does not by itself put $\kappa^{-1}$ into $B_{\hat\epsilon}$. On a fixed finite-dimensional representation, however, the inverse of the invertible matrix $\pi(\kappa)$ is a polynomial in $\pi(\kappa)$ (Cayley–Hamilton), so the conjugation can be done in the represented algebra, and that is all the argument about $K$ needs.
 
 Setting the obstruction to zero for $c_i = q^{-1}$:
 $$
 \hat\epsilon_j\Big((1 - q)(1 - q^{-1})\hat\epsilon_i^2 - 1\Big) = 0 \qquad \forall\, \text{adjacent } i \sim j.
 $$
-On any connected Dynkin diagram with $a_{ij} = -1$, if even a single $\hat\epsilon_j \ne 0$, then every neighbor $i$ must have $\hat\epsilon_i^2 = \big[(1-q)(1-q^{-1})\big]^{-1} = \epsilon_*^2 \ne 0$, which propagates around the entire diagram!
+On any connected Dynkin diagram with $a_{ij} = -1$, if even a single $\hat\epsilon_j \ne 0$, then every neighbor $i$ must have $\hat\epsilon_i^2 = \big[(1-q)(1-q^{-1})\big]^{-1} = \epsilon_*^2 \ne 0$, which propagates around the entire diagram.
 
 ::: {.callout-tip appearance="simple" title="Quantum Symmetric Pairs vs. Generalized $q$-Onsager Algebras"}
-This single equation explains the relationship between physics and the mathematical literature ([Chapter 35](book:sec-qsp), [Table 35.1](book:tbl-physics-qsp)):
+This single equation explains the relationship between physics and the mathematical literature (the book's chapter on [quantum symmetric pairs](book:sec-qsp) and its [table of physical reflection matrices](book:tbl-physics-qsp)):
 
-- **Why $a_1^{(1)}$ (sine-Gordon) is unrestricted:** In $a_1^{(1)}$, $a_{01} = -2$ (not $-1$!). The degree-4 quantum Serre polynomial is antisymmetric under word reversal, so its weight-zero terms cancel in pairs for **any** $(\hat\epsilon_0, \hat\epsilon_1)$, giving the **$q$-Dolan–Grady relations** ([Proposition 35.5](book:prp-q-dolan-grady), [eq. 35.5](book:eq-q-dolan-grady)) of the **$q$-Onsager algebra**.
-- **Letzter–Kolb Quantum Symmetric Pairs ($\hat\epsilon = 0$):** In Kolb's general theory of quantum symmetric pairs [@kolb2014], non-zero scalar parameters $s_i = \hat\epsilon_i$ are forbidden whenever a node has a neighbor with odd $-a_{ij}$ ($\mathcal{S} = \{0\}$). Thus for $a_n^{(1)}$ ($n \ge 2$), only the diagonal case $\hat\epsilon = 0$ ($K = \mathbf{1}$) is a Letzter–Kolb quantum symmetric pair coideal (for which a universal K-matrix exists [@balagovic_kolb2019; @appel_vlaar2022]).
-- **Generalized $q$-Onsager Algebras ($\hat\epsilon_j = \pm\epsilon_*$):** At the special value $\hat\epsilon_j^2 = \epsilon_*^2$, the Cartan obstruction in $F_{ij}(b_i, b_j)$ miraculously vanishes even though $a_{ij} = -1$! The generators satisfy $F_{ij}(b_i, b_j) = b_j$, defining Baseilhac and Belliard's **generalized $q$-Onsager algebra** $O_q(\hat g)$ [@baseilhac_belliard2010], obtained from $B_0$ by a one-dimensional character twist $(\mathrm{id}\otimes\chi)\circ\Delta$.
+- **Why $a_1^{(1)}$ (sine-Gordon) is unrestricted:** In $a_1^{(1)}$, $a_{01} = -2$, so the quantum Serre polynomial has degree four, $x^3 y - [3]_q x^2 y x + [3]_q x y x^2 - y x^3$ with $[3]_q = q^2 + 1 + q^{-2}$. Its antisymmetry under word reversal does not by itself remove the Cartan terms, because weight-zero products such as $[e_i, f_i]k_i$ do not vanish. Expanding it on the coideal generators and using the commutation relations of $U_q(a_1^{(1)})$, the Cartan terms do cancel, for **any** $(\hat\epsilon_0, \hat\epsilon_1)$, and what remains is the **$q$-Dolan–Grady relation** [@kolb2014] (the book's [sine-Gordon boundary algebra](book:prp-q-dolan-grady)):
+  $$
+  b_i^3 b_j - [3]_q\, b_i^2 b_j b_i + [3]_q\, b_i b_j b_i^2 - b_j b_i^3 = q c_i (q + q^{-1})^2\,(b_i b_j - b_j b_i), \qquad (i, j) = (0, 1), (1, 0).
+  $$
+  It contains no $\hat\epsilon$, which is why every $(\hat\epsilon_0, \hat\epsilon_1)$ is allowed. These relations define the **$q$-Onsager algebra**; the script checks them for arbitrary $c_i$ and $\hat\epsilon_i$ on a three-fold tensor product.
+- **Letzter–Kolb Quantum Symmetric Pairs ($\hat\epsilon = 0$):** In Kolb's theory of quantum symmetric pairs [@kolb2014], for the split diagram used here (no black nodes, trivial diagram involution), a non-zero scalar parameter $s_i = \hat\epsilon_i$ is forbidden whenever node $i$ has a neighbor $j$ with $a_{ij}$ odd. Every node of $a_n^{(1)}$, $n \ge 2$, has such a neighbor, so the parameter set is $\mathcal{S} = \{0\}$, and only the diagonal case $\hat\epsilon = 0$ ($K = \mathbf{1}$) is a quantum symmetric pair coideal in Kolb's sense. Universal K-matrices for quantum symmetric pairs were constructed in finite type by Balagović and Kolb [@balagovic_kolb2019], and extended to the Kac–Moody setting, with a generalized reflection equation, by Appel and Vlaar [@appel_vlaar2022].
+- **Generalized $q$-Onsager Algebras ($\hat\epsilon_j = \pm\epsilon_*$):** At the special value $\hat\epsilon_j^2 = \epsilon_*^2$, the Cartan term in $F_{ij}(b_i, b_j)$ vanishes even though $a_{ij} = -1$. The generators then satisfy $F_{ij}(b_i, b_j) = b_j$ for adjacent nodes, the defining relations of Baseilhac and Belliard's **generalized $q$-Onsager algebra** $O_q(\hat g)$; Baseilhac and Belliard found both these relations and the value $\epsilon_*$ [@baseilhac_belliard2010]. This embedded coideal is the image of $B_0$ under a character twist. Since $\Delta(b_j) = (e_j + q^{-1}f_j k_j)\otimes 1 + k_j\otimes b_j$, a one-dimensional representation $\chi$ of $B_0$ with $\chi(b_j) = \pm\epsilon_*$ (the book's [one-dimensional modules](book:prp-one-dim-modules)) gives the algebra map $(\mathrm{id}\otimes\chi)\circ\Delta : b_j \mapsto b_j + \chi(b_j)\,k_j$ from $B_0$ onto $B_{\pm\epsilon_*}$. Whether this map is injective has not been checked.
 :::
 
-![Left: the smallest singular value $\sigma_{\min}(\mathcal{M}(\hat\epsilon))$ of the $27\times 9$ linear intertwining system for $a_2^{(1)}$ and the scaled Serre Cartan obstruction $|\hat\epsilon(\hat\epsilon^2/\epsilon_*^2 - 1)|$, both pinching to zero precisely at $\hat\epsilon = 0$ ($K = \mathbf{1}$) and $\hat\epsilon = \pm\epsilon_*$ ($s = \pm 1$). Right: how the exact sine-Gordon UV–IR curve $\hat\epsilon(\mu)/\epsilon_*$ interpolates from the Neumann boundary ($\mu = 0$, $\hat\epsilon = +\epsilon_*$) to the uniform boundary ($\mu \to 1$, $\hat\epsilon = 0$), showing why a naive $g=0$ perturbative expansion around Neumann misses the constant $\epsilon_*$, generated by `code/lectures/halfline_l5_f1_a2_serre.py`.](figures/l5_f1_a2_serre.svg){#fig-lec5-a2-serre width=100%}
+![Left: the smallest singular value $\sigma_{\min}(\mathcal{M}(\hat\epsilon))$ of the $27\times 9$ linear intertwining system for $a_2^{(1)}$ on the slice $\hat\epsilon_0 = \hat\epsilon_1 = \hat\epsilon_2 = \hat\epsilon$, and the scaled Serre Cartan coefficient $|\hat\epsilon(\hat\epsilon^2/\epsilon_*^2 - 1)|$; both vanish exactly at $\hat\epsilon = 0$ ($K = \mathbf{1}$) and $\hat\epsilon = \pm\epsilon_*$ ($s = \pm 1$). Right: the sine-Gordon curve $\hat\epsilon(\mu)/\epsilon_*$ implied by the conjectured UV–IR relation at $\lambda = 2\sqrt3$, with its tangent at the Neumann point $\mu = 0$ ($\hat\epsilon = +\epsilon_*$) and the line of the same slope through $\hat\epsilon = 0$ that a reading with $\hat\epsilon = 0$ at Neumann would give. The zero of $\hat\epsilon$ nearest to $\mu = 1$ lies at $\mu_0 = \cos\frac{\pi}{2(\lambda+1)}$, which tends to the uniform boundary $\mu = 1$ only as $\lambda \to \infty$. Generated by `code/lectures/halfline_l5_f1_a2_serre.py`.](figures/l5_f1_a2_serre.svg){#fig-lec5-a2-serre width=100%}
 
 ---
 
-## Resolving the Neumann vs. Uniform Boundary Puzzle
+## The Neumann vs. Uniform Boundary Puzzle and the Conjectured Dictionary
 
 We now have three quantum reflection matrices for $a_n^{(1)}$ ($n \ge 2$):
 
@@ -227,28 +240,34 @@ And on the classical side (Lectures 2 and 3), we have three coweight-equivalence
 2. **$\prod_j C_j = +1$** (containing the **uniform boundary** $C_j \equiv +1$ and the solitonic boundaries),
 3. **$\prod_j C_j = -1$** (containing $C_j \equiv -1$ for even $n$).
 
-If you only looked at the first-order perturbative derivation of the charges $\hat Q_j = Q_j + \bar Q_j + \hat\epsilon_j q^{T_j}$ in Lecture 4, where $\hat\epsilon_j$ came from the first-order OPE with the boundary perturbation $\lambda_b \sum_j \epsilon_j e^{i\beta\vec\alpha_j\cdot\tilde\phi(0)/2}$, you would naturally assume that $\lambda_b = 0$ (Neumann) corresponds to $\hat\epsilon_j = 0$! Delius and MacKay [@delius_mackay2003] made that very assumption.
+Three and three is a parallel, not a dictionary. The quantum sign $s = \prod_j(\hat\epsilon_j/\epsilon_*)$ is not the classical product $\prod_j C_j$: the dictionary proposed below pairs $\hat\epsilon = 0$ with the class $\prod_j C_j = +1$ and $s = +1$ with Neumann. The quantum point $s = -1$ and the classical class $\prod_j C_j = -1$ are left without partners, and whether they belong together is open.
 
-**Why is that assumption wrong?** As stated in [Conjecture 33.1](book:cnj-neumann-coideal) and [Proposition 33.6](book:prp-dm-first-order) ([Section 33.7](book:sec-epsilon-constraint)):
+If you only looked at the first-order perturbative derivation of the charges $\hat Q_j = Q_j + \bar Q_j + \hat\epsilon_j q^{T_j}$ in Lecture 4, where $\hat\epsilon_j$ came from the first-order OPE with the boundary perturbation $\lambda_b \sum_j \epsilon_j e^{i\beta\vec\alpha_j\cdot\tilde\phi(0)/2}$, you would naturally assume that $\lambda_b = 0$ (Neumann) corresponds to $\hat\epsilon_j = 0$. That is the natural reading of Delius and MacKay's first-order computation, in which the charges at the Neumann point are $Q_j + \bar Q_j$ [@delius_mackay2003].
 
-- **$\hat\epsilon = 0$ ($K = \mathbf{1}$) belongs to the uniform boundary $C \equiv +1$**,
-- **$s = +1$ ($\hat\epsilon_j = +\epsilon_*$) belongs to the Neumann boundary $C \equiv 0$**!
+**The conjectured dictionary.** The book proposes the opposite assignment ([coideal parameters of the $a_n^{(1)}$ boundaries](book:cnj-neumann-coideal), a conjecture; see the discussion of [quantum and classical boundary parameters](book:sec-epsilon-constraint)):
 
-Why did first-order boundary perturbation theory around the Neumann point miss $\epsilon_*$? Look at the right panel of @fig-lec5-a2-serre and the supporting argument of [Proposition 33.6](book:prp-dm-first-order):
+- **$\hat\epsilon = 0$ ($K = \mathbf{1}$) is assigned to the uniform boundary $C \equiv +1$**,
+- **$s = +1$ ($\hat\epsilon_j = +\epsilon_*$) is assigned to the Neumann boundary $C \equiv 0$**.
+
+In sine-Gordon the [Neumann point](book:eq-sg-neumann-eps) is $\hat\epsilon_0 = \hat\epsilon_1 = \epsilon_*$, the rank-one case of the special value. For higher rank the support comes from Gandenberger's comparison of the $a_2^{(1)}$ amplitudes with Kim's one-loop results [@gandenberger1999a], from the [semiclassical time delays](book:sec-boundary-semiclassics), and from the matrix fusion and classical limits of Lecture 6. A general field-theoretic derivation is open.
+
+How could first-order boundary perturbation theory around the Neumann point miss $\epsilon_*$? Look at the right panel of @fig-lec5-a2-serre and the book's supporting argument for [what first-order perturbation theory fixes](book:prp-dm-first-order), which is itself labelled a conjecture for $n \ge 2$:
 
 1. In Delius and MacKay's normalization of the bulk charges, the overall normalization constant scales as $c \propto g^{1/2}$ where $g$ is the **bulk** coupling constant.
-2. Therefore, a constant term $\epsilon_* q^{T_j}$ in the normalized Neumann charge corresponds in the unnormalized field-theory charge to a term of order $g^{1/2} q^{T_j}$—which is **non-analytic in the bulk coupling $g$** and vanishes in the free theory $g = 0$!
+2. Therefore, a constant term $\epsilon_* q^{T_j}$ in the normalized Neumann charge corresponds in the unnormalized field-theory charge to a term of order $g^{1/2} q^{T_j}$, which is **non-analytic in the bulk coupling $g$** and vanishes in the free theory $g = 0$.
 3. First-order boundary perturbation theory in $\lambda_b$ at $g = 0$ computes only the **slope** $\partial\hat\epsilon_j/\partial\lambda_b\big|_{\lambda_b=0}$, not the intercept at $\lambda_b = 0$:
    $$
    \hat\epsilon_j = \epsilon_* + \kappa\,\lambda_b \epsilon_j + O(\lambda_b^2).
    $$
-   In sine-Gordon, where $\mu_\pm = (\tilde\mu/\tilde\mu_{\rm crit})e^{\pm i\beta_{\rm SG}\phi_0/2}$ can be varied continuously, expanding the exact UV–IR formula $\hat\epsilon_{1,0}(\mu_\mp) = -\cos\big((\lambda+1)\arccos\mu_\mp\big)/\sin\pi\lambda$ around the Neumann point $\mu_\pm = 0$ gives
+   In sine-Gordon, where $\mu_\pm = (\tilde\mu/\tilde\mu_{\rm crit})e^{\pm i\beta_{\rm SG}\phi_0/2}$ can be varied continuously, the conjectured UV–IR relation gives $\hat\epsilon_{1,0}(\mu_\mp) = -\cos\big((\lambda+1)\arccos\mu_\mp\big)/\sin\pi\lambda$. Expanding around the Neumann point $\mu_\pm = 0$ gives
    $$
-   \hat\epsilon_{1,0} = \epsilon_* - \frac{\lambda + 1}{2\sin(\pi\lambda/2)}\,\mu_\mp + O(\mu^2),
+   \hat\epsilon_{1,0} = \epsilon_* - \frac{\lambda + 1}{2\sin(\pi\lambda/2)}\,\mu_\mp + O(\mu^2).
    $$
-   confirming both the intercept $\epsilon_*$ at Neumann ($\mu_\pm = 0$) and the zero $\hat\epsilon = 0$ at $\mu_\pm = \cos\frac{\pi}{2(\lambda+1)} \to 1$ (the uniform boundary $C \equiv +1$)!
+   So, assuming the UV–IR relation, the intercept at Neumann is $\epsilon_*$, and the zero of $\hat\epsilon$ nearest to $\mu_\pm = 1$ lies at $\mu_\pm = \cos\frac{\pi}{2(\lambda+1)}$, which tends to the uniform boundary $\mu_\pm = 1$ only in the classical limit $\lambda \to \infty$.
 
-In Lecture 6, we will see the triumphant confirmation of this dictionary: when we fuse solitons into breathers and continue to real coupling, $K = \mathbf{1}$ ($\hat\epsilon = 0$) produces the exact particle reflection factor of the **uniform boundary $C \equiv +1$**, while $K_+$ ($s = +1$, $\hat\epsilon_j = +\epsilon_*$) produces the exact particle reflection factor of the **Neumann boundary $C \equiv 0$**—and the two are exchanged by weak–strong duality $B \leftrightarrow 2 - B$!
+The non-analytic normalization explains how the intercept could escape the perturbative computation; it does not prove that the intercept is there.
+
+In Lecture 6 we test the dictionary further. Fusing solitons into breathers and continuing to real coupling, $K = \mathbf{1}$ ($\hat\epsilon = 0$) gives particle amplitudes whose classical limit is the linearized reflection factor of the **uniform boundary $C \equiv +1$**, and $K_+$ ($s = +1$), with a scalar factor chosen for the purpose, gives amplitudes whose classical limit is that of the **Neumann boundary $C \equiv 0$**. The two sets of amplitudes are exchanged exactly by $B \leftrightarrow 2 - B$. This is consistent with the dictionary; it does not prove it.
 
 ---
 
@@ -258,7 +277,7 @@ In Lecture 6, we will see the triumphant confirmation of this dictionary: when w
 ### Deriving the Diagonal Entry $\kappa_s(X)$ of the $a_2^{(1)}$ Toeplitz Matrix
 In Blackboard Calculation 1, we showed from the spectator equations that for $\hat\epsilon_1 = \hat\epsilon_2 = +\epsilon_*$ and $\hat\epsilon_0 = s\epsilon_*$, the off-diagonal entries of $K_s(y)$ satisfy $K_{bc} = X^{-1} K_{ac}$ for $j = 1, 2$, where $X = (-q)^{1/2} y = w y$ and $w = (-q)^{1/2} = e^{-i\pi\omega/2}$.
 
-1. Fix the overall normalization by setting $K_{12} = K_{23} = X^{-1/2}$ and $K_{13} = X^{1/2}$. Use the spectator equations for node $j = 0$ (where $(a, b) = (3, 1)$, spectator $c = 2$, and $\hat\epsilon_0 = s\epsilon_*$) to show that $K_{31} = s X^{-1/2}$, $K_{21} = s X^{1/2}$, and $K_{32} = s X^{1/2}$.
+1. Fix the overall normalization by setting $K_{12} = K_{23} = X^{-1/2}$ and $K_{13} = X^{1/2}$. Use the spectator equations for node $j = 0$ (where $(a, b) = (3, 1)$, spectator $c = 2$, and $\hat\epsilon_0 = s\epsilon_*$) to show that $K_{32} = s X K_{12} = s X^{1/2}$ and $K_{21} = s X K_{23} = s X^{1/2}$. Node 0's spectator equations do not involve $K_{31}$; use the spectator-row equation of node $j = 1$ (row $c = 3$) to show that $K_{31} = X^{-1}K_{32} = s X^{-1/2}$.
 2. Now write out the $(1, 1)$ entry of the intertwining equation $K A_1(y) + \epsilon_* K k_1 = A_1(y) K + \epsilon_* k_1^{-1} K$ for node $j = 1$:
    $$
    y^{-1} K_{12} + \epsilon_* q K_{11} = y K_{21} + \epsilon_* q^{-1} K_{11}.
@@ -267,17 +286,17 @@ In Blackboard Calculation 1, we showed from the spectator equations that for $\h
    $$
    K_{11} = \frac{w X^{-3/2} - s w^{-1} X^{3/2}}{\epsilon_*(q^{-1} - q)},
    $$
-   recovering the exact diagonal entry of [eq. 34.7](book:eq-an-k-matrix)!
+   recovering the diagonal entry of the book's [Toeplitz matrix](book:eq-an-k-matrix).
 :::
 
 ::: {#exr-lec5-serre-ej}
 ### Completing the $e_j$ Piece of the Deformed Quantum Serre Relation
-In Blackboard Calculation 2, we computed the Cartan piece $F_{ij}(b_i, \hat\epsilon_j k_j)$ of [Proposition 35.2](book:prp-serre-obstruction). Now let us compute $F_{ij}(b_i, e_j)$ for adjacent simply-laced nodes ($a_{ij} = -1$), where $b_i = e_i + \varphi_i + \hat\epsilon_i k_i$ with $\varphi_i = c_i f_i k_i$.
+In Blackboard Calculation 2, we computed the Cartan piece $F_{ij}(b_i, \hat\epsilon_j k_j)$ of the book's [Serre relation of the boundary coideal](book:prp-serre-obstruction). Now let us compute $F_{ij}(b_i, e_j)$ for adjacent simply-laced nodes ($a_{ij} = -1$), where $b_i = e_i + \varphi_i + \hat\epsilon_i k_i$ with $\varphi_i = c_i f_i k_i$.
 
 1. Using $F_{ij}(e_i, e_j) = 0$ (the bulk quantum Serre relation), $\varphi_i e_j = q^{-1} e_j \varphi_i$, and $k_i e_j = q^{-1} e_j k_i$, verify that the terms in $F_{ij}(b_i, e_j)$ quadratic in $\varphi_i$, quadratic in $k_i$, or linear in $k_i$ all vanish identically.
 2. Show that the remaining terms, which are linear in both $e_i$ and $\varphi_i$, reduce via $\varphi_i e_i = q^2 e_i \varphi_i - q^2 D_i$ (where $D_i = c_i(k_i^2 - 1)/(q - q^{-1})$ and $k_i^2 e_j = q^{-2} e_j k_i^2$) to
    $$
-   -q^2 D_i e_j + e_j D_i = q c_i e_j!
+   -q^2 D_i e_j + e_j D_i = q c_i e_j.
    $$
 :::
 
@@ -291,9 +310,9 @@ $$
    $$
    K_s(y) = \kappa_s(X)\,\mathbf{1} + X^{-1/2} Z + X^{1/2} Z^2.
    $$
-2. Let $v_\zeta$ be an eigenvector of $Z$ with eigenvalue $\zeta$ ($\zeta^3 = s$). Show that $K_s(\theta)\,v_\zeta = \kappa(\zeta)\,v_\zeta$ where ([Section 34.5](book:sec-an-nondiagonal-k))
+2. Let $v_\zeta$ be an eigenvector of $Z$ with eigenvalue $\zeta$ ($\zeta^3 = s$). Show that $K_s(\theta)\,v_\zeta = \kappa(\zeta)\,v_\zeta$ where (see the book's [non-diagonal $a_n$ reflection matrices](book:sec-an-nondiagonal-k))
    $$
    \kappa(\zeta) = \frac{(1 - s X^3)(X\zeta + q)}{w X^{3/2}(w - w^{-1})(X\zeta - 1)}, \qquad w = (-q)^{1/2} = e^{-i\pi\omega/2}.
    $$
-3. Since $Z^T = s Z^{-1}$, $v_\zeta$ is an eigenvector of $K_s(-\theta)^T$ with $X \mapsto w^2/X$ and $\zeta \mapsto \zeta^{-1}$. Multiply the two eigenvalues together to prove that the $\zeta$-dependent factors $(X\zeta + q)(w^2 X^{-1}\zeta^{-1} - 1)^{-1}$ cancel completely, leaving $K_s(-\theta)^T K_s(\theta) = U_s\,\mathbf{1}$ with $U_s = \frac{s\cosh(3\omega\theta) - \cos(3\pi\omega/2)}{2\sin^2(\pi\omega/2)}$!
+3. Since $Z$ is a signed permutation matrix, $Z^T Z = \mathbf{1}$, so $Z^T = Z^{-1}$ for both signs of $s$. Hence $v_\zeta$ is an eigenvector of $K_s(-\theta)^T$ with $X \mapsto w^2/X$ and $\zeta \mapsto \zeta^{-1}$. Multiply the two eigenvalues together to prove that the $\zeta$-dependent factors $(X\zeta + q)(w^2 X^{-1}\zeta^{-1} - 1)^{-1}$ cancel completely, leaving $K_s(-\theta)^T K_s(\theta) = U_s\,\mathbf{1}$ with $U_s = \frac{s\cosh(3\omega\theta) - \cos(3\pi\omega/2)}{2\sin^2(\pi\omega/2)}$.
 :::

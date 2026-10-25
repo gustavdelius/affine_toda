@@ -1,17 +1,27 @@
 """Lecture 5 verification and figure: a_2^(1) intertwiner rigidity, Serre obstruction, and q-Onsager.
 
-Verifies:
- 1. For a_2^(1), the 27x9 linear intertwining system K(y) pi_{V,y}(b_j) = pi_{Vbar,1/y}(b_j) K(y)
-    has a non-trivial nullspace if and only if eps_j = 0 (giving K = I) or eps_j^2 = eps_*^2 =
-    1/((1-q)(1-q^-1)) = 1/(4 cos^2(pi*omega/2)) (giving the closed-form Toeplitz matrices K_{s=+-1}).
- 2. The closed-form matrices K_{s=+-1}(y) and K_{eps=0}(y) = I solve the soliton-conjugating
-    reflection equation for all four pairs (mu, nu) in {V, Vbar}^2.
- 3. The deformed quantum Serre relation F_{ij}(b_i, b_j) = q c_i b_j + eps_j((1-q)(1-q^-1) eps_i^2 - q c_i) k_i^2 k_j
-    holds on V(y_1) x Vbar(y_2) x V(y_3), and its Cartan obstruction vanishes iff eps_j = 0 or eps_i^2 = eps_*^2.
- 4. Boundary unitarity K(-theta)^T K(theta) = U_s I and matrix boundary crossing-unitarity
-    k(theta) = Psi_s(mu) R_{Vbar Vbar}(2 theta) k(-theta) hold to machine precision.
- 5. Generates lecture-notes/half-line/figures/l5_f1_a2_serre.svg.
+Checks (one PASS/FAIL line each, at the generic coupling omega = sqrt2 - 1):
+ 1. The 27x9 linear intertwining system K(y) pi_{V,y}(b_j) = pi_{Vbar,1/y}(b_j) K(y) has a non-zero solution at
+    eps = 0 (K = I) and at eps_j = +-eps_*, eps_*^2 = 1/((1-q)(1-q^-1)) (the closed-form Toeplitz matrices K_{s=+-1}),
+    and none at a sampled generic and a sampled mixed pattern.
+ 2. Mixed patterns: over all 4^3 = 64 node patterns with eps_j in {0, eps_*, -eps_*, (e/4) eps_*}, a solution exists
+    for exactly the all-zero pattern and the eight patterns with all eps_j = +-eps_*.
+ 3. The matrices K_{s=+-1}(y) and K_{eps=0}(y) = I solve the soliton-conjugating reflection equation for all four pairs
+    (mu, nu) in {V, Vbar}^2 (up to a fitted scalar when mu != nu).
+ 4. The deformed quantum Serre relation F_ij(b_i, b_j) = q c_i b_j + eps_j((1-q)(1-q^-1) eps_i^2 - q c_i) k_i^2 k_j
+    holds on V(y_1) x Vbar(y_2) x V(y_3), and F_ij(b_i, b_j) = b_j at eps = +-eps_*.
+ 5. The a_2 obstruction argument: for every ordered pair of adjacent nodes, the spectra of k_i^2 k_j on V and on Vbar
+    are disjoint, so K pi_V(k_i^2 k_j) = pi_Vbar(k_i^2 k_j) K forces K = 0.
+ 6. a_1^(1): the coideal generators satisfy the q-Dolan-Grady relation
+    b_i^3 b_j - [3] b_i^2 b_j b_i + [3] b_i b_j b_i^2 - b_j b_i^3 = q c_i (q + 1/q)^2 [b_i, b_j] for arbitrary c_i, eps_i.
+ 7. Exercises 5.1 and 5.3: the entries K_31, K_21, K_32 and their node equations, Z^T Z = 1, and the eigenvalue
+    kappa(zeta) of K_s on the eigenvectors of the twisted cyclic shift Z.
+ 8. Boundary unitarity K(-theta)^T K(theta) = U_s I and the matrix part of crossing-unitarity
+    k(theta) = Psi_s(mu) R_{Vbar Vbar}(2 theta) k(-theta), at one sample rapidity.
+ 9. Generates lecture-notes/half-line/figures/l5_f1_a2_serre.svg; the right panel plots the curve implied by the
+    conjectured sine-Gordon UV-IR relation at lambda = 2 sqrt3.
 """
+import itertools
 import sys
 from pathlib import Path
 import numpy as np
@@ -157,12 +167,29 @@ def main():
         and min(s_generic, s_mixed) > 0.1
     )
     report(
-        f"a_2^(1) intertwiner K exists iff eps=0 or eps_j^2=eps_*^2 and matches Toeplitz closed form "
-        f"(err={max(err_zero, err_plus, err_minus):.2e}, generic s_min={s_generic:.2f})",
+        f"a_2^(1) intertwiner exists at eps=0 and eps_j=+-eps_* and matches the Toeplitz closed form, not at sampled "
+        f"generic/mixed eps (err={max(err_zero, err_plus, err_minus):.2e}, generic s_min={s_generic:.2f})",
         ok1,
     )
 
-    # 2. Check soliton-conjugating reflection equation for all 4 pairs (mu, nu) in {V, Vbar}^2
+    # 2. Mixed patterns: all 64 patterns with eps_j in {0, eps_*, -eps_*, (e/4) eps_*}
+    vals = [0.0, eps_star, -eps_star, 0.25 * np.e * eps_star]
+    n_allowed, pattern_ok, worst_gap = 0, True, np.inf
+    for pat in itertools.product(range(4), repeat=3):
+        s_pat, _ = k_intertwiner_svd(q, y0, [vals[i] for i in pat])
+        expected = all(i == 0 for i in pat) or all(i in (1, 2) for i in pat)
+        exists = s_pat < 1e-12
+        n_allowed += exists
+        pattern_ok &= exists == expected
+        if not expected:
+            worst_gap = min(worst_gap, s_pat)
+    report(
+        f"a_2^(1): of 64 patterns eps_j in {{0, +-eps_*, (e/4)eps_*}}, K exists for exactly the all-zero and the 8 "
+        f"all-(+-eps_*) patterns ({n_allowed} found; smallest s_min elsewhere {worst_gap:.2f})",
+        pattern_ok and n_allowed == 9 and worst_gap > 0.05,
+    )
+
+    # 3. Check soliton-conjugating reflection equation for all 4 pairs (mu, nu) in {V, Vbar}^2
     y1 = np.exp(omega * (0.51 - 0.12j))
     y2 = np.exp(omega * (0.23 + 0.09j))
     I3 = np.eye(3, dtype=complex)
@@ -202,11 +229,11 @@ def main():
 
     report(
         f"Soliton-conjugating reflection equation holds for all (mu,nu) in {{V,Vbar}}^2 and all 3 K-matrices "
-        f"(max err={re_max_err:.2e})",
+        f"(up to a fitted scalar when mu != nu; max err={re_max_err:.2e})",
         re_max_err < 1e-12,
     )
 
-    # 3. Check deformed quantum Serre relation F_{ij}(b_i, b_j) on V(y1) x Vbar(y2) x V(y3)
+    # 4. Check deformed quantum Serre relation F_{ij}(b_i, b_j) on V(y1) x Vbar(y2) x V(y3)
     W = tensor_rep(tensor_rep(a2_rep(q, 0.8 + 0.3j, False), a2_rep(q, 1.2 - 0.2j, True)), a2_rep(q, 0.6 - 0.4j, False))
     two_q = q + 1.0 / q
     serre_err = 0.0
@@ -232,7 +259,77 @@ def main():
         max(serre_err, F_star_err) < 1e-13,
     )
 
-    # 4. Check boundary unitarity K(-theta)^T K(theta) = U_s I and matrix crossing-unitarity
+    # 5. a_2 obstruction argument: spectra of k_i^2 k_j on V and Vbar are disjoint for adjacent i, j
+    V1, Vb1 = a2_rep(q, 1.0, conj=False), a2_rep(q, 1.0, conj=True)
+    sylv_min = np.inf
+    for i, j in [(1, 2), (2, 1), (2, 0), (0, 2), (0, 1), (1, 0)]:
+        kV = V1[("k", i)] @ V1[("k", i)] @ V1[("k", j)]
+        kVb = Vb1[("k", i)] @ Vb1[("k", i)] @ Vb1[("k", j)]
+        # K kV - kVb K = 0 as a linear map on vec(K) (row-major)
+        S_op = np.kron(np.eye(3), kV.T) - np.kron(kVb, np.eye(3))
+        sylv_min = min(sylv_min, np.linalg.svd(S_op, compute_uv=False)[-1])
+    k12 = np.diag(V1[("k", 1)] @ V1[("k", 1)] @ V1[("k", 2)])
+    report(
+        f"a_2^(1): k_1^2 k_2 = diag(q^2, 1/q, 1/q) on V, inverse on Vbar; for all adjacent pairs K kappa_V = kappa_Vbar K "
+        f"forces K = 0 (smallest singular value {sylv_min:.2f})",
+        np.allclose(k12, [q ** 2, 1 / q, 1 / q]) and sylv_min > 0.1,
+    )
+
+    # 6. a_1^(1): q-Dolan-Grady relation for arbitrary c_i and eps_i
+    def a1_rep(y):
+        E = np.array([[0, 1], [0, 0]], dtype=complex)
+        F = E.T.copy()
+        k = np.diag([q, 1 / q])
+        return {"dim": 2, ("e", 1): y * E, ("f", 1): F / y, ("k", 1): k,
+                ("e", 0): y * F, ("f", 0): E / y, ("k", 0): np.linalg.inv(k)}
+
+    def tensor2(A, B):
+        IA, IB = np.eye(A["dim"]), np.eye(B["dim"])
+        T = {"dim": A["dim"] * B["dim"]}
+        for j in (0, 1):
+            T[("e", j)] = np.kron(A[("e", j)], IB) + np.kron(A[("k", j)], B[("e", j)])
+            T[("f", j)] = np.kron(A[("f", j)], np.linalg.inv(B[("k", j)])) + np.kron(IA, B[("f", j)])
+            T[("k", j)] = np.kron(A[("k", j)], B[("k", j)])
+        return T
+
+    W1 = tensor2(tensor2(a1_rep(0.8 + 0.3j), a1_rep(1.1 - 0.5j)), a1_rep(0.6 + 0.2j))
+    q3 = q ** 2 + 1.0 + q ** -2
+    dg_err = 0.0
+    for c_pair, e_pair in [((1 / q, 1 / q), (0.31 - 0.72j, 1.17 + 0.4j)),
+                           ((0.7 + 0.2j, -1.3 + 0.5j), (-0.44 + 0.9j, 0.25 - 0.6j)),
+                           ((1 / q, 1 / q), (eps_star, 0.0))]:
+        b = {jj: coideal_b(W1, jj, c_pair[jj], e_pair[jj]) for jj in (0, 1)}
+        for i, j in [(0, 1), (1, 0)]:
+            bi, bj = b[i], b[j]
+            lhs = bi @ bi @ bi @ bj - q3 * bi @ bi @ bj @ bi + q3 * bi @ bj @ bi @ bi - bj @ bi @ bi @ bi
+            rhs = q * c_pair[i] * (q + 1 / q) ** 2 * (bi @ bj - bj @ bi)
+            dg_err = max(dg_err, np.linalg.norm(lhs - rhs) / np.linalg.norm(lhs))
+    report(f"a_1^(1) coideal satisfies the q-Dolan-Grady relation for arbitrary c_i, eps_i (rel err={dg_err:.2e})",
+           dg_err < 1e-12)
+
+    # 7. Exercises 5.1 and 5.3
+    th_ex = 0.43 + 0.17j
+    y_ex = np.exp(omega * th_ex)
+    w = np.exp(-0.5j * np.pi * omega)
+    X = w * y_ex
+    ex_err = 0.0
+    for s_sign in (+1, -1):
+        K = k_a2_closed(q, y_ex, s_sign)
+        ex_err = max(ex_err, abs(K[2, 0] - s_sign * X ** -0.5), abs(K[1, 0] - s_sign * X ** 0.5),
+                     abs(K[2, 1] - s_sign * X ** 0.5),
+                     abs(K[2, 1] - s_sign * X * K[0, 1]), abs(K[1, 0] - s_sign * X * K[1, 2]),  # node 0 spectator
+                     abs(K[2, 0] - K[2, 1] / X))  # node 1 spectator row
+        Z = np.array([[0, 1, 0], [0, 0, 1], [s_sign, 0, 0]], dtype=complex)
+        ex_err = max(ex_err, np.linalg.norm(Z.T @ Z - np.eye(3)),
+                     np.linalg.norm(K - (K[0, 0] * np.eye(3) + X ** -0.5 * Z + X ** 0.5 * Z @ Z)))
+        for zeta in np.roots([1, 0, 0, -s_sign]):
+            lam_z = K[0, 0] + X ** -0.5 * zeta + X ** 0.5 * zeta ** 2
+            kappa_z = (1 - s_sign * X ** 3) * (X * zeta + q) / (w * X ** 1.5 * (w - 1 / w) * (X * zeta - 1))
+            ex_err = max(ex_err, abs(lam_z - kappa_z) / abs(lam_z))
+    report(f"Exercises 5.1 and 5.3: K_31, K_21, K_32 from the node equations, Z^T Z = 1, eigenvalues kappa(zeta) "
+           f"(max err={ex_err:.2e})", ex_err < 1e-12)
+
+    # 8. Check boundary unitarity K(-theta)^T K(theta) = U_s I and matrix crossing-unitarity
     theta_test = 0.37 - 0.11j
     T_param = 1.5 * omega  # h*omega/2 with h=3
     mu_test = -1j * T_param * theta_test / np.pi
@@ -261,12 +358,12 @@ def main():
         unit_cross_err = max(unit_cross_err, np.linalg.norm(k_th - Psi_s * (R_WbWb @ k_mth)))
 
     report(
-        f"Boundary unitarity K(-th)^T K(th) = U_s I and crossing k(th) = Psi_s R(2th) k(-th) "
+        f"Boundary unitarity K(-th)^T K(th) = U_s I and matrix crossing k(th) = Psi_s R(2th) k(-th) "
         f"(max err={unit_cross_err:.2e})",
         unit_cross_err < 1e-13,
     )
 
-    # 5. Generate two-panel figure
+    # 9. Generate two-panel figure
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11.2, 4.4))
 
     # Left panel: Smallest singular value of 27x9 intertwiner system & Serre obstruction vs eps / eps_*
@@ -309,11 +406,11 @@ def main():
     ax1.legend(loc="upper center", fontsize=8, framealpha=0.92)
     ax1.grid(True, color=LIGHTGREY, lw=0.6)
 
-    # Right panel: Why first-order perturbation theory around Neumann missed eps_*
-    lam_sg = 3.4
+    # Right panel: the curve implied by the conjectured UV-IR relation, and why a first-order reading misses eps_*
+    lam_sg = 2.0 * np.sqrt(3.0)  # generic coupling (not a root of unity)
     eps_star_sg = 1.0 / (2.0 * np.cos(0.5 * np.pi * lam_sg))
     mu_grid = np.linspace(-0.25, 1.0, 250)
-    # Exact UV-IR curve: eps_hat(mu) / eps_* = -cos((lam+1) arccos(mu)) / (sin(pi*lam) * eps_*)
+    # Conjectured UV-IR curve: eps_hat(mu) / eps_* = -cos((lam+1) arccos(mu)) / (sin(pi*lam) * eps_*)
     eps_exact_ratio = -np.cos((lam_sg + 1.0) * np.arccos(np.clip(mu_grid, -1.0, 1.0))) / (
         np.sin(np.pi * lam_sg) * eps_star_sg
     )
@@ -323,18 +420,18 @@ def main():
     eps_tangent_naive = slope_neumann * mu_grid
 
     ax2.plot(mu_grid, eps_exact_ratio, color=BLUE, lw=2.3,
-             label=r"Exact UV–IR curve $\hat\epsilon(\mu)/\epsilon_*$ ($\lambda=3.4$)")
+             label=r"UV–IR curve $\hat\epsilon(\mu)/\epsilon_*$ (conjectured; $\lambda=2\sqrt{3}$)")
     ax2.plot(mu_grid, eps_tangent_true, color=GREEN, lw=1.7, ls="--",
-             label=r"True $O(\mu)$ tangent at Neumann: $\epsilon_* + \kappa\mu$")
+             label=r"Tangent at Neumann: $\epsilon_* + \kappa\mu$")
     ax2.plot(mu_grid, eps_tangent_naive, color=RED, lw=1.5, ls=":",
-             label=r"Naive $g=0$ reading: $0 + \kappa\mu$ (misses $\epsilon_*$)")
+             label=r"Reading with $\hat\epsilon=0$ at Neumann: $0 + \kappa\mu$")
 
     mu_zero = np.cos(np.pi / (2.0 * (lam_sg + 1.0)))
     ax2.plot(0.0, 1.0, "o", color=ORANGE, markersize=8, zorder=5)
     ax2.annotate(
         r"Neumann ($\mu=0$)" + "\n" + r"$\hat\epsilon = +\epsilon_*$ ($s=+1$)",
         xy=(0.0, 1.0),
-        xytext=(0.18, 1.25),
+        xytext=(0.03, 0.66),
         fontsize=8.2,
         color=ORANGE,
         fontweight="bold",
@@ -343,10 +440,10 @@ def main():
 
     ax2.plot(mu_zero, 0.0, "s", color=GREEN, markersize=7.5, zorder=5)
     ax2.annotate(
-        r"Uniform limit ($\mu \to 1$)" + "\n" + r"$\hat\epsilon = 0$ ($K=\mathbf{1}$)",
+        r"$\hat\epsilon = 0$ ($K=\mathbf{1}$) nearest $\mu=1$:" + "\n" + r"$\mu_0=\cos\frac{\pi}{2(\lambda+1)}$, $\to 1$ only as $\lambda\to\infty$",
         xy=(mu_zero, 0.0),
-        xytext=(0.42, -0.68),
-        fontsize=8.2,
+        xytext=(0.455, 0.42),
+        fontsize=7.6,
         color=GREEN,
         fontweight="bold",
         arrowprops=dict(arrowstyle="->", color=GREEN, lw=1.1),
@@ -356,7 +453,7 @@ def main():
     ax2.axvline(0.0, color=GREY, lw=0.8)
     ax2.set_xlabel(r"Boundary coupling $\mu = \tilde\mu / \tilde\mu_{\mathrm{crit}} \propto C_j$")
     ax2.set_ylabel(r"Normalized coideal parameter $\hat\epsilon / \epsilon_*$")
-    ax2.set_title(r"Neumann ($\hat\epsilon=\epsilon_*$) vs. Uniform ($\hat\epsilon=0$) Boundary")
+    ax2.set_title(r"Sine-Gordon, assuming the UV–IR relation")
     ax2.set_xlim(-0.22, 1.02)
     ax2.set_ylim(-1.1, 1.65)
     ax2.legend(loc="lower left", fontsize=7.8, framealpha=0.92)

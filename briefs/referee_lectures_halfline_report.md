@@ -549,3 +549,7 @@ These are editorial or mathematical leads, not additional wrong verdicts:
 Validation: both independent phase-2 scripts completed successfully after the final additions. `python3 check-refs.py lecture-notes/half-line` passed all seven structural checks (8 files, 102 IDs, 351 bibliography keys). The frozen P1 file still has the SHA-256 recorded in this report header. These checks do not certify the unresolved physical or historical claims.
 
 Phase 2 stops with this report. All proposed source changes remain recommendations for the editor to verify and integrate; the frozen phase-1 report is unchanged.
+
+---
+
+*Integrated 2026-10-25: see the `## Integration` section of `referee_lectures_halfline_combined.md`.*

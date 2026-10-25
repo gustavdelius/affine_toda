@@ -193,15 +193,20 @@ PR #60 collected referee reports on Part VIII and on the Claude defect course. C
 
 ## Half-line lecture notes: two-phase referee pass (from 2026-10-25)
 
-The first referee pass on the course "Lectures on affine Toda field theory on the half-line" (`lecture-notes/half-line/`, six lectures, drafted by Gemini on 2026-10-24). It follows the two-phase design of the Part III pass above: a blind phase 1 with context only, then the coordinator's items. The lectures are reviewed as on main at 035351d. **Until both reports are in and integrated, nobody edits `lecture-notes/half-line/` or `code/lectures/halfline_*`.**
+The first referee pass on the course "Lectures on affine Toda field theory on the half-line" (`lecture-notes/half-line/`, six lectures, drafted by Gemini on 2026-10-24). It follows the two-phase design of the Part III pass above: a blind phase 1 with context only, then the coordinator's items. The lectures are reviewed as on main at 035351d. The course was frozen until the integration below.
 
 | File | What it is |
 |---|---|
 | `referee_lectures_halfline.md` | Phase-1 brief. Phase-1 report: `referee_lectures_halfline_phase1_report.md` |
 | `referee_lectures_halfline_items.md` | Phase-2 items, written before phase 1 and held outside the repository until phase 1 is complete. SHA-256 `d51be2f6624287db3175a2b2810ae2dbe166ef0b80e86eb67c02f5a5890fea4f`. Report: `referee_lectures_halfline_report.md`, with the overlap table |
+| `referee_lectures_halfline_phase1_report.md`, `referee_lectures_halfline_report.md` | Codex GPT-6 (high), phase 1 (25 ranked risks) and phase 2 (12 items, 18 exercises), committed as received; scripts and logs in `referee_lectures_halfline_scripts/` |
+| `referee_lectures_halfline_combined.md` | The coordinator's merge of the two reports into one checklist (by lecture, with general items and book findings), and at its end the `## Integration` section: verdicts, coordinator's checks, phase-1 against phase-2 overlap, and the pending book findings B1–B11 |
+| `referee_lectures_halfline_integration_prompt.md`, `referee_lectures_halfline_integration_{A,B,C}_checkpoint.md` | The prompt of the three integration agents (A: index, Lectures 1–2; B: 3–4; C: 5–6) and their checkpoints, one line per item with its evidence; their scripts are `referee_lectures_halfline_scripts/integration_*` |
 
 Protocol for the editor:
 1. Start Codex (GPT-6 Astra, high) on the phase-1 brief from this worktree: `briefs/run_referee_agy.sh referee_lectures_halfline codex`, or by hand. Gemini drafted the lectures, so a Gemini referee would not be model-diverse here.
 2. When it reports "Phase 1 complete", commit the phase-1 report as it stands. Then copy the held items file into `briefs/`, check its SHA-256 against the value above, and commit it.
 3. Start phase 2 in the same Codex session: `briefs/run_referee_agy.sh referee_lectures_halfline_items codex` resumes it, or send "Phase 2: follow `briefs/referee_lectures_halfline_items.md`." by hand.
 4. When the report is in, integrate it with the `integrate-referee-report` skill, and record here which errors each phase found.
+
+**Integrated (2026-10-25).** 104 checklist items: 90 verified, 14 modified, none rejected; the course is no longer frozen. Every major mathematical error was already found by the blind phase 1; phase 2 added index and sign slips inside derivations, exercise defects, and the provenance and scope items. Main changes: the $a_2$ vacuum sign table and Figure 3 legend, the Lee–Yang doubling proof and $\Gamma^2$, the continuity equations and the Euclidean rotation, the twisted reflection equation, the crossing index order and bootstrap channels, the one-point residue sign, the Dirichlet argument, the mirror-shift proof, the obstruction proof of Lecture 5, the CDD choice behind the uniform–Neumann duality, the Coleman–Thun count, and the status of every conjectural identification (UV–IR relation, Neumann coideal and amplitudes, rotor). The six lecture scripts now test the corrected claims (52 checks). No status label changed. Eleven book findings (B1–B11 in the combined file) are pending for a separate book PR.
