@@ -37,6 +37,7 @@ This appendix lists the original results of the book, part by part, so that a re
 - **[Proposition, sketch]** The coideals with these parameters are not quantum symmetric pairs in Kolb's sense, but images of the standard one under a character twist, as Dobson and Kolb found for Kolb's nonstandard parameters (@prp-one-dim-modules).
 - **[Theorem]** For every $g^{(1)}\ne a_1^{(1)}$, Dirichlet conditions on all components admit no Sklyanin construction with a field-independent $K$ in any finite-dimensional evaluation representation without trivial summands. Corrigan had remarked, without proof, that Dirichlet conditions are not generally permitted (@prp-no-dirichlet).
 - **[Numerical]** The classically integrable boundary conditions of @tbl-durham include a new branch for $c_2^{(1)}=b_2^{(1)}$, and correct those of Bowcock, Corrigan, Dorey and Rietdijk for $g_2^{(1)}$ and $d_4^{(3)}$ (@prp-durham).
+- **[Numerical]** The sign of $\phi_0$ in the Dirichlet relation of sine-Gordon theory on $x\le0$ is the opposite of the one printed by Ghoshal and Zamolodchikov: the boundary bound state that becomes degenerate with the ground state at $\phi_0=\pi/\beta_{\rm SG}$ is formed by an antisoliton. The classical scattering phases, from an exact three-soliton solution, confirm the sign. With it the conjectured UV–IR relation pairs each coideal parameter with the boundary coupling of its own node, as the non-local charges do. We have not found this correction in the literature, but do not claim priority (@sec-bsg-parameters).
 
 **Defects (chapters 37–44).**
 

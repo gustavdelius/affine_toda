@@ -1,0 +1,13 @@
+PASS item 1: static states, charges a/2pi and a/2pi-1, gap 8cos(a/2) (units m0/beta^2) 
+PASS item 1: at theta = i pi/2, cosh theta = 0 (zero energy), sinh theta = i (momentum iM) 
+PASS item 2: exact solution solves sine-Gordon, u(0,t) = a mod 2pi [res 1.4e-14, bv 2.3e-15]
+PASS item 2: incoming particle has charge s and the wall carries the ground state before the collision 
+PASS item 2: u_x(0,t) - 2 sin(a/2) = 4h sqrt(1-k^2)/(s cosh ht + k) [1.2e-14]
+PASS item 2: I_s = 4 pi s - 8 arctan(sin(a/2)/sinh theta), I_+ - I_- = 8 pi [2.7e-14]
+PASS item 2: d_eta arg sigma -> (2/pi) arctan(sin(a/2)/sinh theta) = -(I_+ + I_-)/8pi (sign fails for e^{-iS}) [lam=200,400,800: [0.40077671479324334, 0.40014620349214564, 0.39983140789842125]; extrap 0.399517; target 0.399517]
+PASS item 3: f(0) = eps_*, f'(0) = -(lambda+1)/(2 sin(pi lambda/2)); value depends on the arccos branch 
+PASS item 4: for phi_0 > 0, vartheta >= 0 the corrected relation tends to eta = -(pi/2)(lambda+1) at Neumann and to eta = -(lambda+1) beta phi_0/2 at Dirichlet 
+PASS item 4: K(-eta, vartheta) = C K(eta, vartheta) C (P+ <-> P-, Q and sigma even) [sigma evenness 6e-26]
+PASS item 5: MD charge (beta/2pi)[phi(0) - phi(-oo)] with phi(-oo) = 2pi/beta is beta phi0/2pi - 1 
+   C0 = cosh(I*psi0/2 + theta_d)   C1 = (exp(2*theta_d) + exp(I*psi0))*exp(-I*psi0/2 - theta_d)/2
+PASS item 7: frozen defect potential has C0 = cosh(theta_d + i psi0/2), C1 = cosh(theta_d - i psi0/2): "+-" ordering 
