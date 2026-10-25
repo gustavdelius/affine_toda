@@ -254,7 +254,7 @@ k_\pm&=y\,e^{\pm i\eta}+y^{-1}e^{\mp i\eta},\qquad u=-i\theta,
 \end{aligned}
 $$
 
-with $\eta=\frac{(\lambda+1)\psi_0}2$, the relation of Ghoshal and Zamolodchikov (see the book's [Dirichlet relation](book:eq-bsg-dirichlet)), and the boundary-independent factor $R_0$ and the factor $\sigma_{\rm GZ}$ of the book. (We write $\sigma_{\rm GZ}$ for the book's $\sigma$, which has nothing to do with the defect parameter.)
+with $\eta=-\frac{(\lambda+1)\psi_0}2$, the relation of Ghoshal and Zamolodchikov with the sign of $\psi_0$ that the book's half-line $x\le0$ requires (see the book's [Dirichlet relation](book:eq-bsg-dirichlet)), and the boundary-independent factor $R_0$ and the factor $\sigma_{\rm GZ}$ of the book. (We write $\sigma_{\rm GZ}$ for the book's $\sigma$, which has nothing to do with the defect parameter.)
 
 **On a charge sector.** The matrices conserve the total charge, so $K_{\rm f}$ maps the pair $v_+\otimes|n\rangle$, $v_-\otimes|n+1\rangle$ to itself. On it, $\mathbb T(\theta)$ is $\Phi(\theta-\theta_d)\,A(Y)\,D_n$ with
 
@@ -340,13 +340,13 @@ Item (f) of `code/lectures/defects_l9_fusion.py` checks with sympy, identically 
 We now have the same fused boundary twice. Classically, @sec-l9-freezing gives the parameters (-@eq-l9-C), built from $\theta_d^{\rm cl}=-\ln\sigma$ and $\psi_0$. Quantum mechanically, @thm-l9-dirichlet gives $(\eta,\vartheta)=(\eta,\lambda\theta_d)$. What connects them is the relation between the parameters of the Lagrangian of a boundary and those of its reflection matrix, which is dynamical. For sine-Gordon theory it is the boundary UV–IR relation of Bajnok, Palla, Takács and Tóth and of Al. Zamolodchikov (see the book's [UV–IR relation](book:cnj-bsg-uv-ir)):
 
 $$
-\cos\frac{\eta\mp i\vartheta}{\lambda+1}=\mu_\pm,
+\cos\frac{\eta\mp i\vartheta}{\lambda+1}=\mu_\mp,
 $$
 
-where $\mu_\pm$ are the two normal-ordered boundary couplings, divided by a critical value, which in the classical limit are $C_0$ and $C_1$. For the fused boundary, $\cos\frac{\eta-i\vartheta}{\lambda+1}=\cosh(\theta_d^{\rm cl}+\frac{i\psi_0}2)=\cos(\frac{\psi_0}2-i\theta_d^{\rm cl})$ and its partner give
+where $\mu_\pm$ are the two normal-ordered boundary couplings, divided by a critical value, which in the classical limit are $C_0$ and $C_1$. For the fused boundary, $\cos\frac{\eta-i\vartheta}{\lambda+1}=\cosh(\theta_d^{\rm cl}-\frac{i\psi_0}2)=\cos(-\frac{\psi_0}2-i\theta_d^{\rm cl})$ and its partner give
 
 $$
-\eta=\frac{(\lambda+1)\psi_0}2,\qquad\vartheta=(\lambda+1)\,\theta_d^{\rm cl}.
+\eta=-\frac{(\lambda+1)\psi_0}2,\qquad\vartheta=(\lambda+1)\,\theta_d^{\rm cl}.
 $$
 
 The first is the Dirichlet relation, a consistency check. The second, with $\vartheta=\lambda\theta_d$, says:
@@ -381,7 +381,7 @@ the conjecture again, up to an additive constant that depends on how the two cou
 **What is left.** For the lightest particle, almost nothing. $B_1$ crosses with exactly the classical factor $\mathbb T^{\rm cl}(\theta-\theta_d)$ (@thm-l7-breather), and $\hbar$ survives only in the rescaled rapidity: the quantum particle sees the classical defect, displaced by $\theta_d-\theta_d^{\rm cl}=\frac h{1-h}\theta_d^{\rm cl}$. For solitons, $Y=e^{\lambda\theta}/y_d=e^{\lambda\theta}\sigma^{8\pi/\hbar\beta^2}$. The defect enters through its classical parameter raised to the power $8\pi/\hbar\beta^2$, the power that turns the exponentials of the classical defect matrix into the soliton Weyl pair of Lecture 7, up to a sign in the exponent. The soliton's rapidity enters with $\lambda=8\pi/\hbar\beta^2-1$, because the non-local charges are integrals of currents of spin $\lambda+1$. This is where the $-1$ of Lecture 7, which the canonical pair alone did not explain, sits (@sec-l7-weyl). Penati and Polvara found quantum anomalies in the conservation laws of the Lagrangian defect [@penati_polvara2019], so whether it is quantum integrable as it stands is open (see the book's [open problems](book:sec-defect-open-problems)).
 
 ::: {.callout-note collapse="true" title="Check it yourself"}
-Item (h) of `code/lectures/defects_l9_fusion.py` checks that the classical limit of the boundary UV–IR relation maps (-@eq-l9-C) to $\eta=\frac{(\lambda+1)\psi_0}2$ and $\vartheta=(\lambda+1)\theta_d^{\rm cl}$, and $y_d=\sigma^{-(\lambda+1)}$. With sympy it checks that the defect conditions at $m_0=0$ give $\psi_L'=\phi_L'$ and $\psi_R'=-\phi_R'$. It checks the weights $h=\frac1{\lambda+1}$ and $(8\pi/\beta^2)^2h=\lambda+1$, that $\theta_d^{\rm cl}=(1-h)\theta_d$ continued to sinh-Gordon theory is $(1-\frac B2)\theta_d^{\rm cl}$ with the one-loop term of Bajnok and Simon, and that the Lee–Yang couplings of Bajnok, Holló and Watts are $e^{\pm\frac65\theta_b}$ times constants.
+Item (h) of `code/lectures/defects_l9_fusion.py` checks that the classical limit of the boundary UV–IR relation maps (-@eq-l9-C) to $\eta=-\frac{(\lambda+1)\psi_0}2$ and $\vartheta=(\lambda+1)\theta_d^{\rm cl}$, and $y_d=\sigma^{-(\lambda+1)}$. With sympy it checks that the defect conditions at $m_0=0$ give $\psi_L'=\phi_L'$ and $\psi_R'=-\phi_R'$. It checks the weights $h=\frac1{\lambda+1}$ and $(8\pi/\beta^2)^2h=\lambda+1$, that $\theta_d^{\rm cl}=(1-h)\theta_d$ continued to sinh-Gordon theory is $(1-\frac B2)\theta_d^{\rm cl}$ with the one-loop term of Bajnok and Simon, and that the Lee–Yang couplings of Bajnok, Holló and Watts are $e^{\pm\frac65\theta_b}$ times constants.
 :::
 
 ## The classical breather {#sec-l9-breather}

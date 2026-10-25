@@ -38,7 +38,7 @@ The book's conventions are in `01-introduction.qmd`, section `sec-conventions`. 
 - **Twisted algebras.** Some literature gives the longest root of X_n^(k) squared length 2k, so β²_lit = β²/k.
 - **The Bethe–Yang operator.** It is R in some sources and P·Ř in others; check which one a formula uses.
 - **Bibliography keys.** `dgz1992` is Delius–Grisaru–Zanon and `dgz1996` is Delius–Gould–Zhang. In prose, spell out the names.
-- **Half-line notation.** Ghoshal–Zamolodchikov's boundary ξ clashes with the book's ξ = π/λ; use the (η, ϑ) of `eq-bsg-eta-theta`. In sine-Gordon the coideal and boundary labels cross: ε̂_1 goes with C_0 and ε̂_0 with C_1 (`sec-bsg-parameters`).
+- **Half-line notation.** Ghoshal–Zamolodchikov's boundary ξ clashes with the book's ξ = π/λ; use the (η, ϑ) of `eq-bsg-eta-theta`. Their Dirichlet relation ξ = 4πφ_0/β (GZ (5.27)), which Mattsson–Dorey and the UV–IR relation of Bajnok et al. take over, has the sign for a bulk on x ≥ 0. On the book's x ≤ 0 it is η = −4πφ_0/β (`eq-bsg-dirichlet`), and the UV–IR relation pairs each node with itself, ε̂_j with C_j, as the non-local charges do (`sec-bsg-parameters`). Copying the printed sign makes the nodes look crossed.
 - **Roots of unity.** q is a root of unity exactly when ω is rational. Short decimals such as 0.3, 0.7 or 1.37 are therefore roots of unity, where representations degenerate and R-matrix code silently returns garbage. Use generic values such as √2 or e/2.
 
 ## Check scripts and numerics

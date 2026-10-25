@@ -23,8 +23,9 @@ Conventions: x^pm = t pm x, d_pm = d_t pm d_x, E + P has Lorentz spin +1, T = (b
    Q = int (J - H).
 7. Boundary sine-Gordon node pairing (sec-bsg-parameters): J_+ = e^{-i a phi_R} and Jbar_- = e^{-i a phi_L},
    which build b_1, have their double poles with e^{i beta phi} and with the Neumann boundary operator
-   e^{i beta phi/2}, the C_1 terms; cnj-bsg-uv-ir with eq-bsg-eta-theta makes eps-hat_1 a function of
-   mu_+ ~ C_0 alone; charge conjugation exchanges eps-hat_0, eps-hat_1 in eq-bsg-k-matrix and C_0, C_1.
+   e^{i beta phi/2}, the C_1 terms; cnj-bsg-uv-ir (with the sign of phi_0 of eq-bsg-dirichlet) and eq-bsg-eta-theta
+   make eps-hat_1 a function of mu_- ~ C_1 alone, the same pairing; with Ghoshal-Zamolodchikov's sign it would be
+   mu_+ ~ C_0. Charge conjugation exchanges eps-hat_0, eps-hat_1 in eq-bsg-k-matrix and C_0, C_1.
 """
 import numpy as np
 import sympy as sp
@@ -270,16 +271,20 @@ def eps_hat(eta, vt):
 
 
 def eta_vt(mup, mum):
-    """cos((eta -+ i vt)/(lam + 1)) = mu_+-  (cnj-bsg-uv-ir)."""
+    """cos((eta -+ i vt)/(lam + 1)) = mu_-+  (cnj-bsg-uv-ir with the sign of phi_0 of eq-bsg-dirichlet)."""
     zp, zm = np.arccos(mup + 0j), np.arccos(mum + 0j)
-    return (lam + 1) * (zp + zm) / 2, (lam + 1) * (zm - zp) / (2j)
+    return (lam + 1) * (zm + zp) / 2, (lam + 1) * (zp - zm) / (2j)
 
 
-mup = 0.4 + 0.3j
-e1a, _ = eps_hat(*eta_vt(mup, 0.4 - 0.3j))
-e1b, _ = eps_hat(*eta_vt(mup, 0.7 + 0.1j))
-report('cnj-bsg-uv-ir with eq-bsg-eta-theta: eps-hat_1 depends on mu_+ ~ C_0 alone (the crossed pairing)',
-       abs(e1a - e1b) < 1e-9)
+mum = 0.4 - 0.3j                                # mu_- = (mu~/mu~_crit) e^{-i beta phi_0/2} ~ C_1
+e1a, e0a = eps_hat(*eta_vt(0.4 + 0.3j, mum))
+e1b, e0b = eps_hat(*eta_vt(0.7 + 0.1j, mum))
+mu_r, ph = 0.5, 0.3                             # the relation itself: cos(eta')cosh(vt') = r cos, sin(eta')sinh(vt') = -r sin
+et_, vt_ = eta_vt(mu_r * np.exp(1j * ph), mu_r * np.exp(-1j * ph))
+ok_rel = (abs(np.cos(et_ / (lam + 1)) * np.cosh(vt_ / (lam + 1)) - mu_r * np.cos(ph)) < 1e-12
+          and abs(np.sin(et_ / (lam + 1)) * np.sinh(vt_ / (lam + 1)) + mu_r * np.sin(ph)) < 1e-12)
+report('cnj-bsg-uv-ir with eq-bsg-eta-theta: eps-hat_1 depends on mu_- ~ C_1 alone, the pairing of the charges',
+       abs(e1a - e1b) < 1e-9 and abs(e0a - e0b) > 1e-3 and ok_rel)
 
 
 def Kc(y, e0, e1, qq):

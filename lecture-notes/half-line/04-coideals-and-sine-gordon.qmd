@@ -262,11 +262,11 @@ K_{ab}(\theta) = \sum_{c,d} S_{cd}^{ba}(2\theta)\,K_{\bar d\bar c}(i\pi - \theta
 $$
 With the plain physical charge conjugation $s \leftrightarrow \bar s$ ($C = \left(\begin{smallmatrix} 0 & 1 \\ 1 & 0 \end{smallmatrix}\right)$), boundary crossing-unitarity holds **if and only if** $q = -e^{-i\pi\lambda}$! At the wrong sign $q = +e^{-i\pi\lambda}$, the matrix part of boundary crossing-unitarity fails with an $O(1)$ error unless you twist charge conjugation by a Klein factor $C = \left(\begin{smallmatrix} 0 & 1 \\ -1 & 0 \end{smallmatrix}\right)$ (verified in `code/lectures/halfline_l4_f1_coideal_sg.py` and shown in @fig-lec4-coideal).
 
-### The UV–IR Dictionary and the Node-Label Crossing
+### The UV–IR Dictionary and the Node Labels
 
 How do the quantum reflection parameters $(\eta, \vartheta)$ (or $\hat\epsilon_1, \hat\epsilon_0$) relate to the Lagrangian boundary couplings $(M_0, \phi_0)$ (or $C_0, C_1$)? The **UV–IR relation** ([Conjecture 30.1](book:cnj-bsg-uv-ir)) states that with $\mu_\pm = (\tilde\mu/\tilde\mu_{\rm crit})e^{\pm i\beta_{\rm SG}\phi_0/2} \propto C_{0,1}$,
 $$
-\cos\frac{\eta \mp i\vartheta}{\lambda + 1} = \mu_\pm.
+\cos\frac{\eta \mp i\vartheta}{\lambda + 1} = \mu_\mp.
 $$
 Look at what this implies for three landmark boundary conditions ([Section 30.4](book:sec-bsg-parameters), [Section 33.5](book:sec-sg-k-from-symmetry)):
 
@@ -278,7 +278,7 @@ Look at what this implies for three landmark boundary conditions ([Section 30.4]
    $$
    **Hold on!** At the Neumann point $C_0 = C_1 = 0$, the quantum coideal parameter $\hat\epsilon_j$ is **not zero**—it equals the non-trivial special value $\epsilon_* = \big[(1-q)(1-q^{-1})\big]^{-1/2}$!
 2. **The point $\hat\epsilon_0 = \hat\epsilon_1 = 0$:** Here $(\eta, \vartheta) = (\frac{\pi}{2}, 0)$, so $K(\theta)$ is purely off-diagonal (every soliton reflects into an antisoliton). By the UV–IR relation, this sits at $\tilde\mu/\tilde\mu_{\rm crit} = \cos\frac{\pi}{2(\lambda+1)}$, which in the classical limit $\lambda \to \infty$ ($\beta_{\rm SG} \to 0$) tends to the **uniform boundary** $C_0 = C_1 = 1$, **not** Neumann! We will see in Lecture 5 why this shift by $\epsilon_*$ is one of the deepest themes of Part VII.
-3. **Node-label crossing ($\hat\epsilon_1 \leftrightarrow C_0$, $\hat\epsilon_0 \leftrightarrow C_1$):** Notice that $\hat\epsilon_1$ is a function of $\mu_+ \propto C_0$ alone, while $\hat\epsilon_0$ is a function of $\mu_- \propto C_1$ alone ([Section 30.4](book:sec-bsg-parameters)). Why do the node labels $0$ and $1$ cross in sine-Gordon? Because in Part VI's bulk conventions ([Section 21.2](book:sec-qg-coproduct)), $e_1 = Q_+$ is built from the current $J_+$ whose double pole is with $e^{-i\beta_{\rm SG}\phi}$, which is the vertex operator of the affine root $\alpha_0 = -\sqrt{2}$!
+3. **Node labels ($\hat\epsilon_1 \leftrightarrow C_1$, $\hat\epsilon_0 \leftrightarrow C_0$):** Notice that $\hat\epsilon_1$ is a function of $\mu_- \propto C_1$ alone, while $\hat\epsilon_0$ is a function of $\mu_+ \propto C_0$ alone ([Section 30.4](book:sec-bsg-parameters)). Each node is paired with its own boundary coupling, as the non-local charges require: $b_1$ is built from $J_+ = e^{-ia\phi_R}$ and $\bar J_- = e^{-ia\phi_L}$, whose double poles are with $e^{i\beta_{\rm SG}\phi}$, the vertex operator of the root $\alpha_1 = \sqrt{2}$, and with the boundary term $e^{i\beta_{\rm SG}\phi/2}$, whose coefficient is $C_1$ ([Section 21.2](book:sec-qg-coproduct)). The sign of $\phi_0$ in this relation is the opposite of the one printed by Ghoshal and Zamolodchikov and by Bajnok et al. On the half-line $x \le 0$ the Dirichlet bound state that becomes degenerate at $\phi_0 = \pi/\beta_{\rm SG}$ is reached by absorbing an *antisoliton*, so its pole sits in $P^-$, and $\eta = -4\pi\phi_0/\beta_{\rm SG}$ (the book's [Dirichlet relation](book:eq-bsg-dirichlet)). With the printed sign the node labels would appear to cross.
 
 ---
 
