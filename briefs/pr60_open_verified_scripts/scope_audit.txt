@@ -1,0 +1,177 @@
+
+CANDIDATE prp-soliton-preserving-half part7-half-line/31-boundary-conditions.qmd 260
+::: {#prp-soliton-preserving-half}
+**[Theorem]** Let $\vec\nu$ be a coweight. With $\sigma$ = Hermitian conjugation and $K_+=e^{i\pi\vec\nu\cdot\vec H}$, the compatibility condition (-@eq-boundary-compatibility) holds at imaginary coupling if
+
+$$
+\operatorname{Re}\vec\phi(0,t)\in\frac\pi\beta\vec\nu+\frac{2\pi}\beta\Lambda_W^\vee,\qquad\partial_x\operatorname{Im}\vec\phi(0,t)=0 .
+$$ {#eq-soliton-preserving-half}
+
+For $a_n^{(1)}$ in the defining representation, a field-independent $K_+$ compatible with Dirichlet on $\operatorname{Re}\vec\phi$ and Neumann on $\operatorname{Im}\vec\phi$ exists only if $\operatorname{Re}\vec\phi(0)\in\frac\pi\beta\Lambda_W^\vee$, and it is then a multiple of $e^{i\pi\vec\nu\cdot\vec H}$. Every constant diagonal $K_+$ solves (-@eq-classical-reflection) at real spectral parameters. As for $K_+=1$, the involution of the charges is not proved.
+
+CANDIDATE prp-sp-scalar part7-half-line/34-soliton-reflection.qmd 348
+::: {#prp-sp-scalar}
+## Scalar factors of the soliton-preserving matrices
+**[Numerical]** Let $\varepsilon=\eta/i\pi$ and $\bar\varepsilon=\bar\eta/i\pi=\varepsilon+\omega l-T$, let $G_j$ be as in (-@eq-an-diagonal-scalar), and
+$$
+\mathcal G_{c,c'}(x)=\frac{G_0(x,c)}{G_0(x,c')}\prod_{j\ge1}\frac{G_j(x,c)\,G_j(x,1-c)}{G_j(x,c')\,G_j(x,1-c')},
+$$
+with $\mathcal G^{(2)}_{c,c'}$ the same with $G_{2j}$ in place of $G_j$. Then
+$$
+
+CANDIDATE prp-dn-uniform-vacuum part7-half-line/36-particle-reflection.qmd 304
+::: {#prp-dn-uniform-vacuum}
+## The uniform vacuum of $d_n^{(1)}$
+**[Theorem]** At real coupling with real $C_j\ge0$, there exists a unique static field of finite energy on $x\le0$ satisfying (-@eq-boundary-condition), and it is the vacuum. For $C\equiv+1$ it is invariant under the symmetries of the extended Dynkin diagram. In units $m=\beta=1$, with $\vec\alpha_0=-\vec e_1-\vec e_2$, $\vec\alpha_i=\vec e_i-\vec e_{i+1}$ for $1\le i<n$ and $\vec\alpha_n=\vec e_{n-1}+\vec e_n$:
+
+- for $d_4^{(1)}$ it is $\vec\phi=f\,(\vec e_2-\vec e_3)$ with $u=e^f$, $u'=(u-1)\sqrt{2u(u+2)}$ and $u(0)=\frac98$, a Tzitzéica kink;
+- for $d_5^{(1)}$ it is $\vec\phi=f\,(\vec e_2-\vec e_4)$ with $\tanh\frac f4=e^{2(x-x_0)}$ and $e^{f(0)}=4-2\sqrt2$, a sinh-Gordon kink.
+
+Both are regular on $x\le0$, and their energies are $(16\sqrt2-8-6\sqrt6)\frac m{\beta^2}$ and $\big(32(1+\sqrt2)\sin\frac\pi8-24-4\sqrt2\big)\frac m{\beta^2}$.
+
+CANDIDATE prp-dn-uniform-classical part7-half-line/36-particle-reflection.qmd 328
+::: {#prp-dn-uniform-classical}
+## The classical limit of the uniform amplitude
+**[Numerical]** For $d_4^{(1)}$, $d_5^{(1)}$ and $d_6^{(1)}$, the linearized reflection about the $C\equiv+1$ vacuum is diagonal in the particle basis, and for every particle $a$, spinors included,
+$$
+K_a^{\rm cl}(\theta)=\prod_bS_{ab}(\theta)\Big|_{B=1} .
+$$
+For $a=1$ this is the $B\to0$ limit of (-@eq-dn-uniform-amplitude). For $d_4^{(1)}$ and $d_5^{(1)}$ the linearized equation has no bound state at the frequencies sampled below the lowest bulk threshold; $d_6^{(1)}$ has not been scanned.
+:::
+
+CANDIDATE prp-dn-nondiagonal-scalar part7-half-line/34-soliton-reflection.qmd 261
+::: {#prp-dn-nondiagonal-scalar}
+## Scalar factors of the $d_n$ matrices with $\hat\epsilon_j^2=\epsilon_*^2$
+**[Numerical]** For $n=4,5,6$:
+
+(i) $K(-\theta)K(\theta)=U_\varsigma\mathbf 1$ with
+$$
+U_\varsigma=\varsigma\,\frac{(\cos2\pi\mu-\varsigma\cos\pi T)(\cos2\pi\mu-\varsigma\cos\pi\omega)}{2\sin^2\frac{\pi\omega}2\,(\cos2\pi\mu-\varsigma)} ,
+$$
+
+CANDIDATE prp-twist-defect part8-defects/37-defect-scattering.qmd 237
+::: {#prp-twist-defect}
+## Twist defects
+**[Theorem]** Let the particles carry topological charges $\mu$ that the bulk S-matrix conserves, and let $\alpha$ be a vector of angles. The defect with $\mathcal W=\mathbb C$ and
+
+$$
+\mathbb T_\mu(\theta)=e^{i\alpha\cdot\mu},\qquad\bar{\mathbb T}_\mu(\theta)=e^{-i\alpha\cdot\mu}
+$$
+
+
+CANDIDATE prp-sg-spin-three part8-defects/39-defect-conditions.qmd 231
+::: {#prp-sg-spin-three}
+## The spin-$\pm3$ charges of the sine-Gordon defect
+**[Theorem]** Let
+$$
+q_{\mp3}(\phi)=\frac{\beta^2}{8m_0^3}\Big[(\partial_\pm^2\phi)^2-\frac{\beta^2}4(\partial_\pm\phi)^4+m_0^2\cos(\beta\phi)\,(\partial_\pm\phi)^2\Big],
+$$
+which for the upper sign is $\beta^2/8m_0^3$ times the density $T_4-\mathcal X_2$ of (-@eq-spin3-current) continued to sine-Gordon theory, and let
+$$
+
+CANDIDATE prp-dc-gauge part8-defects/39-defect-conditions.qmd 318
+::: {#prp-dc-gauge}
+## The defect matrix as a gauge transformation
+**[Theorem for type I$_-$; Numerical for type I$_+$]** Let $\vec\phi$ and $\vec\psi$ satisfy the defect conditions (-@eq-defect-conditions) of either type on an open region, and let $\mathcal A_\pm$ be the Lax pair (-@eq-lax-pair) with $\beta\to b$. Then, for all $\lambda$, the defect matrix (-@eq-defect-lax-matrix) satisfies
+$$
+\partial_\pm L_d=L_d\,\mathcal A_\pm(\vec\psi)-\mathcal A_\pm(\vec\phi)\,L_d .
+$$ {#eq-dc-gauge}
+For type I$_-$ the $\partial_+$ equation is equivalent to the first half of the Bäcklund transformation in components above, and the $\partial_-$ equation to the second half. Wherever $L_d$ is invertible, which fails only at finitely many $\lambda$, the curvature $[\partial_++\mathcal A_+,\partial_-+\mathcal A_-]$ of $\vec\psi$ is $L_d^{-1}$ times that of $\vec\phi$ times $L_d$. So $\vec\psi$ solves the field equation exactly when $\vec\phi$ does.
+:::
+
+CANDIDATE prp-defect-theta part8-defects/39-defect-conditions.qmd 437
+::: {#prp-defect-theta}
+## The antilinear symmetry with a defect
+**[Theorem]** For both types of massive $a_r^{(1)}$ defect at imaginary coupling, with $\beta\ne0$ and $\sigma\in\mathbb C^\times$,
+$$
+\overline{\mathcal B_d(\vec\phi,\vec\psi;\sigma)}=\mathcal B_d(-\bar{\vec\phi},-\bar{\vec\psi};\bar\sigma)
+$$
+for all complex fields. Hence $\Theta:(\vec\phi,\vec\psi)\mapsto(-\bar{\vec\phi},-\bar{\vec\psi})$ maps solutions of the defect theory with parameter $\sigma$ to solutions with parameter $\bar\sigma$, and it is a symmetry if and only if $\sigma$ is real, that is $\theta_d\in\mathbb R+i\pi\mathbb Z$. Then $E+\mathcal B_d$ and $P+P_d$ of $\Theta\vec\phi$ are the complex conjugates of those of $\vec\phi$. At real coupling the same holds for plain complex conjugation, the form $\Theta$ takes there (@exr-theta-solutions).
+:::
+
+CANDIDATE prp-ds-absorption part8-defects/40-defect-solitons.qmd 104
+::: {#prp-ds-absorption}
+## Absorption and emission
+**[Theorem]** Consider a type-I$_\mp$ defect of class $p$ with real $\theta_d$, a soliton of species $a$, and write $\theta_{\rm abs}=\theta_d+i\chi$.
+
+1. At $\theta=\theta_{\rm abs}$ two configurations solve the defect conditions for all $t$, as meromorphic solutions, wherever their $\tau$-functions are nonzero: the soliton on $x<0$ with $\vec\psi$ constant, and $\vec\phi$ constant with the soliton on $x>0$. If $a+2p\not\equiv0$ mod $h$, then $\cos\chi\ne0$, and in both configurations $|E|$ moves with the velocity $\tanh\theta_d$. For $\theta_d>0$ they describe absorption from the left and emission to the right; for $\theta_d<0$, emission to the left and absorption from the right; for $\theta_d=0$ the envelope is stationary. Absorbed and emitted solitons move in the direction of $\operatorname{sign}\theta_d$, for every species and class. If $a+2p\equiv0$ mod $h$, then $\cos\chi=0$ and $|E|$ is constant: the two configurations solve the conditions but have no localized envelope, and describe neither absorption nor emission.
+2. $\operatorname{Re}\cosh\theta_{\rm abs}=\cosh\theta_d\,\sin\frac{\pi(a+2p)}h$. If this is positive, the object is the species-$a$ soliton at $\theta_{\rm abs}$, absorption changes the class from $p$ to $p+a$, and the defect stores $M_a(\cosh\theta_{\rm abs},\sinh\theta_{\rm abs})$. If it is negative, the object is the soliton of species $\bar a$ at $\theta_{\rm abs}+i\pi$, absorbed by the class $p+a$; a soliton of species $a$ is then never absorbed by a defect of class $p$.
+3. $\theta_{\rm abs}$ is real, and then equal to $\theta_d$, exactly when $a+2p\equiv h/2$ mod $2h$. This requires $h$ even and $a\equiv h/2$ mod 2, and then exactly one class absorbs species $a$ at real rapidity: the species $h/2-2q$ is absorbed by the class $q$ mod $h$. Without a charged jump only the self-conjugate species is absorbed at real rapidity, but, for example, species 1 of $a_5^{(1)}$ is absorbed at $\theta=\theta_d$ by a defect of class 1.
+:::
+
+CANDIDATE prp-defect-frozen-soliton part8-defects/40-defect-solitons.qmd 181
+::: {#prp-defect-frozen-soliton}
+## A pair of defects as a frozen soliton
+**[Theorem]** Let $1\le b,c<h$, $\theta_c\in\mathbb R$ and $\omega^b=e^{2i\gamma_b}$. The defect parameters are finite and nonzero, and in item 2 the parameters are the effective ones, after any class shifts (-@eq-ds-class-shift).
+
+1. Two defects of the same type delay species $b$ by $\kappa A_{cb}(\theta-\theta_c)^{\pm1}$, for some constant $\kappa$ and some parameters, classes and $\theta_c$, only if $b=h/2$; for $b=h/2$ two type-I$_-$ defects do. So for $r\ge2$ no pair of defects of one type is a frozen soliton.
+2. A type-I$_-$ defect with parameter $\vartheta=\theta_c+i(\frac\pi2+\gamma_c)$ and a type-I$_+$ defect with parameter $\bar\vartheta$ delay every species $b$ by
+$$
+z_b(\theta-\vartheta)\,z_b(\bar\vartheta-\theta)=\omega^bA_{cb}(\theta-\theta_c),
+
+CANDIDATE prp-fused-bdg part8-defects/43-defects-and-boundaries.qmd 195
+::: {#prp-fused-bdg}
+## Fused boundaries and the oscillator boundary
+**[Theorem, by hand; numerically checked]** (1) On the fused system, (-@eq-dbd-dressed-k) satisfies $\partial_tK_\phi=K_\phi\,a_t(\lambda)+\sigma\big(a_t(1/\lambda)\big)K_\phi$, so ${\rm tr}\big(K_\phi(\lambda)\mathcal T(\lambda)\big)$ is conserved. This holds for every $a_r^{(1)}$ boundary of @tbl-durham, including Neumann, and both defect types (checked for type I$_-$). (2) The sine-Gordon defect potential (-@eq-sg-defect-potential) of type I$_-$ is the oscillator Hamiltonian (-@eq-bsg-oscillator) at the complex values
+$$
+\hat p=\frac{\beta_{\rm SG}\psi}2-i\theta_d,\qquad\hat q=\frac{\beta_{\rm SG}\psi}2+i\theta_d ,
+$$
+up to a constant. A defect fused onto the Dirichlet boundary $\psi=\phi_D$ is the static Ghoshal–Zamolodchikov boundary with $C_1=\cos\hat q=\cosh(\theta_d-\frac{i\beta_{\rm SG}\phi_D}2)$ and $C_0=\cos\hat p$: the oscillator frozen at a complex point. (3) A defect fused onto a Neumann boundary is a dynamical boundary with one boundary variable $\psi(t)$, conjugate to $\phi(0)$ through the defect's kinetic term (-@eq-dc-defect-bracket). It is not the boundary of Baseilhac, Delius and George: there $(\hat p,\hat q)$ is an independent canonical pair, the boundary condition has no $\partial_t\psi$ term, and the oscillator flow does not preserve $\hat p-\hat q=-2i\theta_d$.
+:::
+
+CANDIDATE prp-an-particle-transmission part8-defects/44-particle-transmission.qmd 75
+::: {#prp-an-particle-transmission}
+## Particle transmission factors of $a_r^{(1)}$
+**[Theorem]** For every $h\ge2$ and both types, the factors (-@eq-dpt-particle) and $\mathbb T^+_a$:
+
+1. satisfy defect unitarity and crossing, in the combined form $\mathbb T_a(\theta)\,\mathbb T_{\bar a}(\theta+i\pi)=1$;
+2. satisfy the bulk bootstrap at every fusing of $a_r^{(1)}$; the fusing angles $\frac{\pi(a+b)}h$ and $\frac{\pi(2h-a-b)}h$ are poles of (-@eq-an-smatrix);
+3. are phases for real $\theta$ and real $\theta_d$, and satisfy Hermitian analyticity $\bar{\mathbb T}_a(\theta)=\overline{\mathbb T_a(-\theta)}$ for real $\theta$;
+4. have no pole in the physical strip for real $\theta_d$. The pole of $\mathbb T_a$ is at $\theta_d-i(\pi-\gamma_a)$ and that of $\mathbb T^+_a$ at $\theta_d-i\gamma_a$;
+
+CANDIDATE prp-dpt-vacuum part8-defects/44-particle-transmission.qmd 138
+::: {#prp-dpt-vacuum}
+## The vacuum of the real-coupling defect
+**[Theorem]** At real coupling and for real fields, $\mathcal B_d^{\rm I_\mp}(\vec\phi,\vec\psi;\sigma)\ge0$ for $\sigma>0$, with equality only at $\vec\phi=\vec\psi=0$. So $\vec\phi=\vec\psi=0$ is the unique minimum of the static energy. For $\sigma<0$, $\mathcal B_d$ is unbounded below.
+:::
+
+::: {.proof}
+In $\mathcal B_d=\frac m{\beta^2}\sum_j[\sigma(f_j-1)+\sigma^{-1}(g_j-1)]$ the exponents of $f_j$ and of $g_j$ sum to zero over $j$, since $\sum_j\vec\alpha_j=0$. By convexity, $\sum_j(f_j-1)\ge\sum_j\log f_j=0$, with equality only if every $f_j=1$, and likewise for the $g_j$. All $g_j=1$ means $\mathsf D(\vec\phi-\vec\psi)=0$, so $\vec\phi=\vec\psi$ because $\mathsf D$ is invertible. Then all $f_j=1$ means $(\mathsf D+\mathsf D^{\mathsf T})\vec\phi=2\vec\phi=0$. Type I$_+$ is $\sigma\to1/\sigma$. The bulk energy is non-negative and vanishes only on constant zero fields. For $\sigma<0$ take $\vec\phi=\vec\psi=t\vec v$ with $\vec v\ne0$. Then every $g_j=1$, while $\sum_j(f_j-1)=\sum_je^{t\beta\vec\alpha_j\cdot\vec v}-h\to\infty$ as $t\to\infty$, because some $\vec\alpha_j\cdot\vec v>0$; so $\mathcal B_d\to-\infty$, for both types. Linear layers of width $e^{-At/2}$, $A=\max_j\beta\vec\alpha_j\cdot\vec v$, join these values to zero at a bulk cost $O(t^2e^{At/2})$, so the total static energy is unbounded below as well. Check (g) samples random fields for $r=2,3$ and both types (`code/defect_particle_transmission.py`).
+:::
+OLD REPORT TARGET prp-cn-smatrix ABSENT
+OLD REPORT TARGET prp-a2n-smatrix ABSENT
+OLD REPORT TARGET prp-e6-smatrix ABSENT
+OLD REPORT TARGET prp-f4-r ABSENT
+OLD REPORT TARGET prp-f4-breathers ABSENT
+OLD REPORT TARGET prp-dn-vector-r ABSENT
+OLD REPORT TARGET prp-sector-table ABSENT
+OLD REPORT TARGET eq-boundary-anomaly ABSENT
+OLD REPORT TARGET eq-boundary-topological ABSENT
+OLD REPORT QUOTE part5-semiclassics/20-one-loop-masses.qmd 'The shifts of all mass ratios vanish' ABSENT
+OLD REPORT QUOTE preface.qmd 'Every result in the book carries a status label' ABSENT
+EXERCISES lecture-notes/defects/01-mirrors-and-windows.qmd 8
+EXERCISES lecture-notes/defects/02-backlund-machine.qmd 7
+EXERCISES lecture-notes/defects/03-freezing.qmd 9
+EXERCISES lecture-notes/defects/04-what-gets-through.qmd 10
+EXERCISES lecture-notes/defects/05-why-the-cycle.qmd 9
+EXERCISES lecture-notes/defects/06-classical-algebra.qmd 10
+EXERCISES lecture-notes/defects/07-quantizing.qmd 10
+EXERCISES lecture-notes/defects/08-q-operators.qmd 10
+EXERCISES lecture-notes/defects/09-folding-fusing.qmd 11
+TOTAL CLAUDE EXERCISES 84
+PASS exercise census: 84 in nine existing lectures
+PASS Proposition is supported; Refuted is not a coloured status
+STALE code/irf/out_ha.txt 9 W3(5,7) r=2 r mod p=2 lam=0.400 breathers=yes => no
+STALE code/irf/out_ha.txt 11 W3(8,11) r=3 r mod p=3 lam=0.375 breathers=yes => no
+STALE code/irf/out_qsign/irf_ha_q1.txt 9 W3(5,7) r=2 r mod p=2 lam=0.400 breathers=yes => no
+STALE code/irf/out_qsign/irf_ha_q1.txt 11 W3(8,11) r=3 r mod p=3 lam=0.375 breathers=yes => no
+STALE code/irf/out_qsign/irf_ha_q-1.txt 9 W3(5,7) r=2 r mod p=2 lam=0.400 breathers=yes => no
+STALE code/irf/out_qsign/irf_ha_q-1.txt 11 W3(8,11) r=3 r mod p=3 lam=0.375 breathers=yes => no
+STALE code/irf/out_qsign/irf_tm2_q1.txt 5 W3(8,11) r=3 lam=0.375 breathers=yes => no
+STALE code/irf/out_qsign/irf_tm2_q-1.txt 5 W3(8,11) r=3 lam=0.375 breathers=yes => no
+PASS stale output flags independently classified by integer inequality
+SHA256 part7-half-line/33-boundary-quantum-groups.qmd 7770d2c451cc5413ee6782df1960b1588e2ffd40c82fbb0fb8a5e89190a06c76
+SHA256 part9-foundations/48-continuum-window.qmd 74dc1bec5f9c01e77a2a6899410a9f32fb54b2c473e5e198164893e443b4a976
+SHA256 part5-semiclassics/20-one-loop-masses.qmd 95bcb05007397bd04b02d2732b669f4c80882ff0a254fe0198f624d45bfbfeb3
+SHA256 appendices/E-original-results.qmd 4d9f5ec834208cd1bc271595e5407eaaaab762b8576000932949c9a078963362
+SHA256 preface.qmd 14a87d10075dcb4650b5dbeff4d74a370b94da03887c7f797d5be46d19d89cb0

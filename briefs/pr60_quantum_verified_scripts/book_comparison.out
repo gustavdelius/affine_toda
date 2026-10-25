@@ -1,0 +1,7 @@
+PASS 5. lambda = 21.471: 11 poles with -pi/2 < Im u < 0 (#(2n+1 < lambda) ~ lambda/2); 6 in the Gamma ratio (n even, ~lambda/4 as Nemes counted), 5 in 1/(1+iY)
+PASS 6. widths Gamma_n = m_(2n+1) sinh theta_d exactly; max |Gamma_n/Gamma_0 - (2n+1)|, n <= 3, at lambda ~ 10, 100, 1000: 1.0e+00, 1.3e-02, 1.4e-04
+PASS 7. odd jump: determinant = -2 * kappa (kappa - m0 cosh theta_d); growing mode gamma = m0 sinh theta_d has A = 0; control (0, 0): kappa (kappa + m0 cosh theta_d), no localized mode
+PASS 8. the emitted soliton of rapidity theta_d starts as the growing mode: (psi - 2pi/beta) e^(-gamma t) -> -3.076923; (0, soliton) solves the defect conditions (residual 1.7e-21)
+PASS 9. inverted oscillator: [X, P] = [x, p]; H = (p^2 - g^2 x^2)/2 = g(XP + PX)/2 (noncommutative); H X^n = -i hbar g (n + 1/2) X^n
+PASS 13. two Weyl pairs from [phi, psi] = -i hbar (realized on functions): qhat = e^(i hbar b^2/4), q_s = e^(4 pi^2 i/(hbar b^2)); cross pairs commute up to -1, squares exactly; at b = i beta/sqrt2, hbar = 1, qhat = e^(-i beta^2/8), q_s = -e^(-i pi lambda), U_s = q^(n+s/2) on |n>, X shifts n by 1
+PASS 14. Faddeev (14)-(16) consistent; printed (18) alpha beta~ = alpha~ beta = hbar leaves a phase e^(-2 pi i hbar^2); hbar alpha beta~ = -hbar alpha~ beta = 1 commutes and gives q~ = e^(-i pi/tau)

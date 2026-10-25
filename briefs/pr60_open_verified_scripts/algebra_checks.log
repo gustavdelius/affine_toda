@@ -1,0 +1,8 @@
+PASS O1: symbolic coideal intertwining, both nodes
+PASS O7a: independent E8 Hessian masses [1.         1.61803399 1.98904379 2.40486717 2.9562952  3.21834046
+ 3.89115682 4.78338612] max error 2.6645352591003757e-15
+PASS O7b: exact symbolic BK (19), arbitrary q,c,alpha,beta
+PASS O7b: exact symbolic q-Dolan-Grady, both signs
+PASS O6: report inequality is false: m=2 alpha=1, 1-gamma=0 < alpha/(2m)=1/4
+PASS O6: hook counts, sum=1, corrected exponent bound for 145 labelled trees
+PASS O6: exact nested integral 25/24
