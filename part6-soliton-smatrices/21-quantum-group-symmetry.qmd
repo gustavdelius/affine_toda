@@ -11,27 +11,29 @@ The local charges of @sec-conserved-charges make the S-matrix factorize, but the
 
 ## Non-local charges {#sec-nonlocal-charges}
 
-Consider first sine-Gordon theory in the variables of @sec-sg-dictionary. At the conformal point $m_0=0$ the field splits into left- and right-moving parts, $\phi=\phi_L(x^+)+\phi_R(x^-)$, with $x^\pm=t\pm x$. Chiral vertex operators $e^{ia\phi_L}$ are holomorphic currents of conformal weight $h=a^2/8\pi$ in the normalization in which $e^{i\beta_{\rm SG}\phi}$ has weights $h=\bar h=\beta_{\rm SG}^2/8\pi$.
+Consider first sine-Gordon theory in the variables of @sec-sg-dictionary. At the conformal point $m_0=0$ the field splits into left- and right-moving parts, $\phi=\phi_L(x^+)+\phi_R(x^-)$, with $x^\pm=t\pm x$. The chiral vertex operators $e^{ia\phi_R}$ and $e^{ia\phi_L}$ have conformal weight $h=a^2/8\pi$ in the normalization in which $e^{i\beta_{\rm SG}\phi}$ has weights $h=\bar h=\beta_{\rm SG}^2/8\pi$. A conserved density of weight $h$ that depends only on $x^-$ gives a charge of Lorentz spin $h-1$, as $\frac12(\partial_-\phi)^2$ gives $E+P$, of spin 1. A density that depends only on $x^+$ gives spin $1-h$, as $\frac12(\partial_+\phi)^2$ gives $E-P$. So the charges of positive spin are built from the right-movers.
 
-Bernard and LeClair choose the exponent $a=8\pi/\beta_{\rm SG}$, for which $J_\pm$ has a double pole with $e^{\mp i\beta_{\rm SG}\phi}$, so that it remains conserved when the perturbation is switched on. The current carries topological charge $\pm2$, since it shifts $\phi$ by $\pm4\pi/\beta_{\rm SG}$: $[T,Q_\pm]=\pm2Q_\pm$ with $T=\pm1$ on the soliton and antisoliton.
-
-$$
-J_\pm=e^{\pm ia\phi_L},\qquad h_J=\frac{8\pi}{\beta_{\rm SG}^2}.
-$$
-
-At the conformal point $\partial_-J_\pm=0$, and $\int dx\,J_\pm$ is conserved. When the perturbation $\frac{m_0^2}{\beta_{\rm SG}^2}\cos\beta_{\rm SG}\phi$ is switched on, conformal perturbation theory shows that conservation survives to first order, and in fact exactly, in the form
+Bernard and LeClair choose the exponent $a=8\pi/\beta_{\rm SG}$. In the book's conventions for rapidity and topological charge, the right-moving currents are
 
 $$
-\partial_-J_\pm=\partial_+\mathcal H_\pm ,
+J_\pm=e^{\mp ia\phi_R},\qquad h_J=\frac{8\pi}{\beta_{\rm SG}^2}.
+$$
+
+$J_\pm$ has a double pole with $e^{\pm i\beta_{\rm SG}\phi}$, so that it remains conserved when the perturbation is switched on. It carries topological charge $\pm2$, since it shifts $\phi(+\infty)-\phi(-\infty)$ by $\pm4\pi/\beta_{\rm SG}$: $[T,Q_\pm]=\pm2Q_\pm$ with $T=\pm1$ on the soliton and antisoliton.
+
+At the conformal point $\partial_+J_\pm=0$, and $\int dx\,J_\pm$ is conserved. When the perturbation $\frac{m_0^2}{\beta_{\rm SG}^2}\cos\beta_{\rm SG}\phi$ is switched on, conformal perturbation theory shows that conservation survives to first order, and in fact exactly, in the form
+
+$$
+\partial_+J_\pm=\partial_-\mathcal H_\pm ,
 $$
 
 where $\mathcal H_\pm$ is proportional to $m_0^2$ times a vertex operator containing both chiralities. The conserved charges
 
 $$
-Q_\pm=\int dx\,\big(J_\pm+\mathcal H_\pm\big),\qquad\bar Q_\pm=\int dx\,\big(\bar J_\pm+\bar{\mathcal H}_\pm\big)
+Q_\pm=\int dx\,\big(J_\pm-\mathcal H_\pm\big),\qquad\bar Q_\pm=\int dx\,\big(\bar J_\pm-\bar{\mathcal H}_\pm\big)
 $$
 
-are built from right-movers in the second case. They are **non-local**, because $\phi_L$ is a non-local functional of $\phi$ and its conjugate momentum: $\phi_L(x)$ involves $\int^x\pi\,dy$. Their Lorentz spins are $\pm(h_J-1)$:
+are built in the second case from the left-moving currents $\bar J_\pm=e^{\pm ia\phi_L}$, which carry the same topological charge $\pm2$ and satisfy $\partial_-\bar J_\pm=\partial_+\bar{\mathcal H}_\pm$. The charges are **non-local**, because $\phi_R$ and $\phi_L$ are non-local functionals of $\phi$ and its conjugate momentum: $\phi_{R,L}(x)=\frac12\big(\phi(x)\mp\int_{-\infty}^x\pi\,dy\big)$ up to a constant. The Lorentz spin is $h_J-1$ for $Q_\pm$ and $1-h_J$ for $\bar Q_\pm$ (`code/nonlocal_charge_chirality.py`):
 
 $$
 s=\frac{8\pi}{\beta_{\rm SG}^2}-1=\lambda ,
@@ -39,17 +41,17 @@ $$ {#eq-nonlocal-spin}
 
 the same $\lambda$ that appears in the sine-Gordon S-matrix (-@eq-sg-smatrix). For $\beta_{\rm SG}^2<8\pi$ the spin is positive and in general not an integer.
 
-For a general $\hat g$ there are charges $Q_j$, $\bar Q_j$, one pair for each node $j=0,\dots,r$ of the affine Dynkin diagram, built from vertex operators of $\phi_L$ in the direction of the coroot $\vec\alpha_j^\vee$, together with the topological charges $\vec T$ [@bernard1991; @felder1992]. Since the vertex operators involve coroots, the relations they satisfy are those of the dual algebra. For simply-laced $\hat g$ every charge has spin $\frac{4\pi}{\beta^2}-1$ in the normalization of @sec-lie-algebraic-data; for $a_1^{(1)}$ this is (-@eq-nonlocal-spin), since $\beta_{\rm SG}^2=2\beta^2$.
+For a general $\hat g$ there are charges $Q_j$, $\bar Q_j$, one pair for each node $j=0,\dots,r$ of the affine Dynkin diagram, built from vertex operators of $\phi_R$ and of $\phi_L$, respectively, in the direction of the coroot $\vec\alpha_j^\vee$, together with the topological charges $\vec T$ [@bernard1991; @felder1992]. Since the vertex operators involve coroots, the relations they satisfy are those of the dual algebra. For simply-laced $\hat g$ every charge has spin $\frac{4\pi}{\beta^2}-1$ in the normalization of @sec-lie-algebraic-data; for $a_1^{(1)}$ this is (-@eq-nonlocal-spin), since $\beta_{\rm SG}^2=2\beta^2$.
 
 ## The coproduct and the algebra {#sec-qg-coproduct}
 
-A non-local charge acting on a two-soliton state is not the sum of its actions on the two solitons. The charge density at a point $x$ involves the field to the left of $x$, through $\phi_L$. When the density passes the first soliton, it picks up a phase from the topological charge of that soliton. The result is a coproduct of the form
+A non-local charge acting on a two-soliton state is not the sum of its actions on the two solitons. The charge density at a point $x$ involves the field to the left of $x$, through $\phi_R$. When the density passes the first soliton, it picks up a phase from the topological charge of that soliton. The result is a coproduct of the form
 
 $$
 \Delta(Q_j)=Q_j\otimes1+q^{T_j}\otimes Q_j ,
 $$
 
-where $T_j$ is the component of the topological charge along the corresponding coroot, and $q$ is the braiding phase of the chiral vertex operators. With this coproduct Bernard and LeClair find [@bernard1991]
+where $T_j$ is the component of the topological charge along the corresponding coroot, and $q$ is the braiding phase of the chiral vertex operators. For sine-Gordon, let $V_T=e^{-iT\frac{4\pi}{\beta_{\rm SG}}\phi_R}$ be the right-moving vertex operator of topological charge $T$. Then $J_+(x)V_T(y)=q^TV_T(y)J_+(x)$ for $y<x$. The same phase follows from the factor $e^{-ia\phi/2}$ of $J_+$, which is $q^n$ on the vacuum $\phi=2\pi n/\beta_{\rm SG}$ (`code/nonlocal_charge_chirality.py`). This is the value found by Bernard and LeClair [@bernard1991],
 
 $$
 q=e^{-i\pi h_J}=e^{-8\pi^2i/\beta_{\rm SG}^2}=e^{-4\pi^2i/\beta^2},
@@ -57,11 +59,11 @@ $$ {#eq-q-physical}
 
 which for sine-Gordon is $q=-e^{-i\pi\lambda}$. For a general $\hat g$, $q_j=q^{\vec\alpha_j^{\vee2}/2}$. This is the structure of @sec-hopf: the coproduct is not cocommutative, and the order of the solitons matters. It is the opposite of the coproduct (-@eq-coproduct), and with (-@eq-coproduct) the same charges give $q^{-1}$, the value of @sec-six-vertex. The sign of $q$ is not a convention: it changes the relative sign of the transmission and reflection amplitudes (@sec-six-vertex), and only (-@eq-q-physical) reproduces Zamolodchikov's S-matrix and passes the crossing test of @sec-crossing-sign. Computing the commutation relations of the charges and the topological charges gives the Drinfeld–Jimbo relations of @sec-uqghat for $U_q(\hat g^\vee)$ at zero centre, with the $Q_j$ as the $e_j$, the $\bar Q_j\,q^{-T_j}$ as the $f_j$ (up to a constant), and $q^{T_j}$ as the $k_j$, for the coproduct $\Delta(e_j)=e_j\otimes1+k_j\otimes e_j$, $\Delta(f_j)=f_j\otimes k_j^{-1}+1\otimes f_j$ [@bernard1991; @felder1992]. For sine-Gordon this is $U_q(\widehat{sl}_2)$: $(Q_+,\bar Q_-,T)$ give $(e_1,f_1,k_1)$ and $(Q_-,\bar Q_+,-T)$ give $(e_0,f_0,k_0)$.
 
-**Why the dual algebra.** The vertex operators that define the charges are exponentials of $\phi_L$ in directions $\vec\alpha_j^\vee$, and their mutual braiding is governed by the inner products $\vec\alpha_i^\vee\cdot\vec\alpha_j^\vee$, which form the Cartan matrix of the dual root system (@sec-dynkin). For simply-laced and self-dual algebras the distinction disappears. For $c_n^{(1)}$, for example, the soliton symmetry is $U_q(d_{n+1}^{(2)})$, which is why Part VI needs R-matrices of twisted algebras.
+**Why the dual algebra.** The vertex operators that define the charges are exponentials of $\phi_R$ and $\phi_L$ in directions $\vec\alpha_j^\vee$, and their mutual braiding is governed by the inner products $\vec\alpha_i^\vee\cdot\vec\alpha_j^\vee$, which form the Cartan matrix of the dual root system (@sec-dynkin). For simply-laced and self-dual algebras the distinction disappears. For $c_n^{(1)}$, for example, the soliton symmetry is $U_q(d_{n+1}^{(2)})$, which is why Part VI needs R-matrices of twisted algebras.
 
 ## Lorentz spin and the gradation {#sec-qg-gradation}
 
-The solitons of a multiplet form a representation of $U_q(\hat g^\vee)$ in which the charges act on one-soliton states of rapidity $\theta$. A Lorentz boost by $\vartheta$ multiplies a charge of spin $s$ by $e^{s\vartheta}$ and shifts the rapidity of the soliton. So the representation on solitons of rapidity $\theta$ is an evaluation representation $V(x)$ whose spectral parameter depends on $\theta$. If $e_j$ has spin $s_j$, it acts with a factor $e^{s_j\theta}=x^{s_j/2T}$, where $x=e^{2T\theta}$. From here on $x$ always denotes this spectral parameter; the spatial coordinate $x$ of @sec-nonlocal-charges and of Parts I–V does not appear again in Part VI. Gradations that redistribute the spins among the generators are related by rapidity-dependent changes of basis (@sec-gradations), so only the total spin $\sum_jn_j^\vee s_j$ of the null root $\sum_jn_j^\vee\vec\alpha_j^\vee$ of $\hat g^\vee$ (normalized by $n_0^\vee=1$, since $x$ multiplies $e_0$ once) is fixed, and it determines $T$. The charge of node $j$ is built from $\exp(-i\frac{4\pi}\beta\vec\alpha_j^\vee\cdot\vec\phi_L)$, of weight $8\pi/(\beta^2\vec\alpha_j^2)$, so its spin is
+The solitons of a multiplet form a representation of $U_q(\hat g^\vee)$ in which the charges act on one-soliton states of rapidity $\theta$. A Lorentz boost by $\vartheta$ multiplies a charge of spin $s$ by $e^{s\vartheta}$ and shifts the rapidity of the soliton. So the representation on solitons of rapidity $\theta$ is an evaluation representation $V(x)$ whose spectral parameter depends on $\theta$. If $e_j$ has spin $s_j$, it acts with a factor $e^{s_j\theta}=x^{s_j/2T}$, where $x=e^{2T\theta}$. From here on $x$ always denotes this spectral parameter; the spatial coordinate $x$ of @sec-nonlocal-charges and of Parts I–V does not appear again in Part VI. Gradations that redistribute the spins among the generators are related by rapidity-dependent changes of basis (@sec-gradations), so only the total spin $\sum_jn_j^\vee s_j$ of the null root $\sum_jn_j^\vee\vec\alpha_j^\vee$ of $\hat g^\vee$ (normalized by $n_0^\vee=1$, since $x$ multiplies $e_0$ once) is fixed, and it determines $T$. The charge $e_j$ of node $j$ is built from $\exp(-i\frac{4\pi}\beta\vec\alpha_j^\vee\cdot\vec\phi_R)$, of weight $8\pi/(\beta^2\vec\alpha_j^2)$, so its spin is
 
 $$
 s_j=\frac{8\pi}{\beta^2\vec\alpha_j^2}-1 :
@@ -117,7 +119,7 @@ What the symmetry does not fix is the scalar factor, and in particular the posit
 ## Exercises {#sec-qg-symmetry-exercises}
 
 ::: {#exr-nonlocal-spin}
-A density of conformal weights $(h,\bar h)$ has Lorentz spin $h-\bar h$, and $\int dx$ lowers the spin by one. Use this to show that $\int dx\,J_\pm$ has spin $h_J-1$, and check that $\mathcal H_\pm=m_0^2V_\pm$ with $V_\pm$ of weights $(h_J-2+\beta_{\rm SG}^2/8\pi,\ \beta_{\rm SG}^2/8\pi)$, so that, counting the weights of $m_0^2$, $\mathcal H_\pm$ has weights $(h_J-1,1)$ as $\partial_-J_\pm=\partial_+\mathcal H_\pm$ requires.
+A density of conformal weights $(h,\bar h)$, for its dependence on $x^-$ and on $x^+$, has Lorentz spin $h-\bar h$, and $\int dx$ lowers the spin by one. Use this to show that $\int dx\,J_\pm$ has spin $h_J-1$, and check that $\mathcal H_\pm=m_0^2V_\pm$ with $V_\pm$ of weights $(h_J-2+\beta_{\rm SG}^2/8\pi,\ \beta_{\rm SG}^2/8\pi)$, so that, counting the weights of $m_0^2$, $\mathcal H_\pm$ has weights $(h_J-1,1)$ as $\partial_+J_\pm=\partial_-\mathcal H_\pm$ requires.
 :::
 
 ::: {#exr-coproduct-q}
