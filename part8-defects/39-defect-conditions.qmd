@@ -420,7 +420,7 @@ Momentum conservation in the folded theory forces the two parameters of the pair
 $$
 \frac{\mathbb T^{\rm cl}_k}{\mathbb T^{\rm cl}_{h-k}}=\frac{1-x^2e^{2i\gamma}}{1-x^2e^{-2i\gamma}}
 $$
-takes the same value at $\sigma_1$ and at $\sigma_2$. For $2k\ne h$ this is an injective Möbius map of $x^2$, so the pair folds exactly when $\sigma_2=\pm\sigma_1$. At $\sigma_2=-\sigma_1$, $\mathbb T^{\rm cl}_k(\sigma)\,\mathbb T^{\rm cl}_{h-k}(-\sigma)=1$, and the pair is transparent. At $\sigma_2=\sigma_1$, with $u=\theta-\theta_d$ and the block (-@eq-fx-block),
+takes the same value at $\sigma_1$ and at $\sigma_2$. For $2k\ne h$ this is an injective Möbius map of $x^2$, so the linear scattering of the pair preserves the folding exactly when $\sigma_2=\pm\sigma_1$. For $2k=h$ the ratio is $1$ and gives no condition. At $\sigma_2=-\sigma_1$, $\mathbb T^{\rm cl}_k(\sigma)\,\mathbb T^{\rm cl}_{h-k}(-\sigma)=1$, and the pair is transparent. At $\sigma_2=\sigma_1$, with $u=\theta-\theta_d$ and the block (-@eq-fx-block),
 $$
 \mathbb T^{\rm cl}_k\,\mathbb T^{\rm cl}_{h-k}=\frac{\sinh u-i\sin\gamma_k}{\sinh u+i\sin\gamma_k}=\frac1{f_{k/h}(u)} ,
 $$
@@ -428,7 +428,7 @@ and continued to $\theta-\frac{i\pi}2$ this gives the delay of a folded soliton,
 $$
 z_kz_{h-k}=\frac{\cosh u+\sin\gamma_k}{\cosh u-\sin\gamma_k} .
 $$
-It is real for real rapidities, so folded solitons are delayed or advanced and keep their charge. Robertson found the condition $\sigma_2=\pm\sigma_1$ and the reality of the delay from the solitons themselves [@robertson2014a, Sec. 3.1]; the linear waves show both in two lines. For $a_2^{(1)}\to a_2^{(2)}$, $\gamma_1=\frac\pi3$, and $z_1z_2$ is the delay $z_1$ of the Tzitzéica defect of @sec-type-two-atft as a function of $\theta-\theta_d$. We have not matched the defect parameters of the two descriptions; Corrigan and Zambon rescale $\sigma$ when they fold [@cz2009b, Sec. 5]. All of this is checked in `code/defect_fused_boundary.py`.
+For $2k\ne h$ it is finite and positive for real rapidities, so folded solitons are delayed or advanced and keep their charge. For $2k=h$ it is $\coth^2\frac u2$, which has a pole at $u=0$. Robertson found the condition $\sigma_2=\pm\sigma_1$ and the reality of the delay from the solitons themselves [@robertson2014a, Sec. 3.1]; the linear waves show both in two lines. For $a_2^{(1)}\to a_2^{(2)}$, $\gamma_1=\frac\pi3$, and $z_1z_2$ is the delay $z_1$ of the Tzitzéica defect of @sec-type-two-atft, in its sector $e^{\hat\lambda}\to1$, as a function of $\theta-\theta_d$. We have not matched the defect parameters of the two descriptions; when they fold, Corrigan and Zambon replace their $\sigma$ by $1/(\sqrt2\sigma)$ [@cz2009b, Sec. 5]. All of this is checked in `code/defect_fused_boundary.py`.
 
 ## Reality and the defect {#sec-defect-theta}
 

@@ -14,7 +14,9 @@ Checks:
     -4 e^{-t/2} e^{-(2l-1) lam t} sinh(lam t/2) sinh(xt/pi + lam t/2); the sum over l gives the kernel of
     ln sigma(x,u) = ln(cos x/cos(x+lam u)) - int sinh(lam u t/pi) sinh(xt/pi+lam t/2)/(sinh(t/2) cosh(lam t/2)) dt/t
     (sympy).  The integral equals the Gamma product at complex (x, u) in the strip |Re x| + |Re lam u| < pi/2, and
-    sigma(i vartheta, u) -> 1 as vartheta -> infinity (the Dirichlet limit used for K_D).
+    sigma(i vartheta, u) -> 1 as vartheta -> infinity (the Dirichlet limit used for K_D), also in the split form of the
+    proof, ln cosh(lam d) - (1/2) ln cosh(lam(theta-d)) - (1/2) ln cosh(lam(theta+d)) + i int (bounded amplitude) cos(kd),
+    against the Gamma product; the raw sin(k theta) sin(kd) part tends to lam theta, so it is not a Riemann-Lebesgue term.
  2. The two integrals of the proof at x = i lam theta_d, u = -i theta (k = lam t/pi), against the Gamma products of
     sigma and of Phi; the integral of (1 - cos kv)/(k sinh(pi k/2lam)) is ln cosh(lam v); the elementary remainder
     lam theta + ln cosh(lam theta_d) - ln cosh(lam(theta+theta_d)) is ln((1+y_d^-2)/(1+y^-2 y_d^-2)) (sympy).
@@ -30,8 +32,10 @@ Checks:
     at a Dirichlet end the flux of q_{-3}+q_{+3} is -(beta/m0) sin(beta phi_D) d/dt psi_x.
  6. The fused boundary (prp-sg-fused-spin-three): with phi_x = -dB_d/dphi(phi, phi_D) at x = 0 and
     psi_x = phi_t + dB_d/dpsi(phi, phi_D), Q = int (q_{-3}+q_{+3}) + D_{-3} + D_{+3} - (beta/m0) sin(beta phi_D) psi_x
-    is conserved identically, sigma and phi_D symbolic.  Controls: without the last term, and with q_{-3} - q_{+3}
-    (and D_{-3} - D_{+3}), it is not.
+    is conserved identically, sigma and phi_D symbolic.  The steps of the proof by hand: with f = phi(t,0), v = f_t,
+    a = f_tt, F = phi_x(f), the flux is -(2b^2/m0^3) F' v a + (b^4/4m0^3) F v^3 + U' v; F'' = -b^2 F/4; the boundary
+    terms are -(b^2/m0^3) F' v^2 + U(f), the defect terms alone having the linear term (b/m0) sin(b phi_D) v.
+    Controls: without the last term, and with q_{-3} - q_{+3} (and D_{-3} - D_{+3}), it is not.
  7. The boost heuristic for cnj-defect-parameter: h = beta^2/8pi = 1/(lam+1); theta_d^cl = (1-h) theta_d is
     lam theta_d = (lam+1) theta_d^cl; at lam = -2/B it is theta_d = (1 - B/2) theta_d^cl, and with
     B = 2b^2/(8pi+b^2) its first correction is -b^2/8pi (Bajnok-Simon (17), (23)).  Bajnok-Holló-Watts (101)-(102):
@@ -41,13 +45,13 @@ Checks:
     D^T on mode k equals D on mode h-k (h = 3..6), so the mirror image transmits particle k with T_{h-k}.
     T_k/T_{h-k} = (1 - x^2 e^{2i gamma})/(1 - x^2 e^{-2i gamma}); the pair folds iff sigma_2 = +-sigma_1
     (controls: four other ratios fail); -sigma_1 is transparent; +sigma_1 gives 1/f_{k/h}(u) and the folded soliton
-    delay (cosh u + sin gamma)/(cosh u - sin gamma); for h = 3 this is the Tzitzeica z_1 of ch. 39; for h = 2 the
-    ratio is identically 1.
+    delay (cosh u + sin gamma)/(cosh u - sin gamma); for h = 3 this is the Tzitzeica z_1 of ch. 39; for 2k = h the
+    ratio is identically 1 (no condition) and the delay is coth^2(u/2).
  9. Chirality (prp-diagonal-borel, reading): at m0 = 0 the type-I_- conditions give psi_L = phi_L, psi_R = -phi_R and
     type I_+ gives psi_L = -phi_L, psi_R = phi_R; a left-mover f(t+x) carries E - P = (1/2)(d_+ phi)^2 and no E + P;
     on V(theta) the f_1 act with 1/y and the e_1 with y; the type-I_- matrix part tends to the twist
     diag(q^-n, q^{n+s}) as theta - theta_d -> -infinity and to the off-diagonal conversion as theta - theta_d -> +infinity.
-Runtime: about two minutes.
+Runtime: about two and a half minutes.
 """
 import mpmath as mp
 import numpy as np
@@ -125,9 +129,24 @@ def check_sigma_integral():
         for x, u in [(mp.mpf('0.4') + 0.7j, mp.mpf('0.1') - 0.3j), (-0.2 + 0.3j, 0.05 + 0.9j), (0.9j, -0.6j)]:
             errs.append(rel(mp.exp(lnsigma_int(x, u, lam_n)), mp.exp(lnsigma_gamma(x, u, lam_n))))
     dev = [abs(mp.exp(lnsigma_gamma(1j * vt, 0.3j, LAMS[0])) - 1) for vt in (10, 20)]   # Dirichlet limit
+    # the Dirichlet limit as proved: at x = i lam d, u = -i theta, real theta, ln sigma = ln cosh(lam d)
+    # - (1/2) ln cosh(lam(theta-d)) - (1/2) ln cosh(lam(theta+d)) + i int sin(k theta) tanh(pi k/2) cos(kd)/(k sinh(pi k/2lam)),
+    # whose amplitude is bounded at k = 0; the raw sin(k theta) sin(kd)/(k sinh) part tends to lam theta, not to 0
+    lam, th = LAMS[0], mp.mpf('0.43')
+    kq = lambda f: mp.quad(f, mp.linspace(0, 60, 121) + [mp.inf])
+    rl, raw = [], []
+    for d in (1, 2, 4, 8):
+        osc = kq(lambda k: mp.sin(k * th) * mp.tanh(PI * k / 2) * mp.cos(k * d) / (k * mp.sinh(PI * k / (2 * lam))))
+        r1 = (mp.log(mp.cosh(lam * d)) - (mp.log(mp.cosh(lam * (th - d))) + mp.log(mp.cosh(lam * (th + d)))) / 2
+              + 1j * osc)
+        errs.append(rel(mp.exp(r1), mp.exp(lnsigma_gamma(1j * lam * d, -1j * th, lam))))
+        rl.append(abs(r1))
+        raw.append(kq(lambda k: mp.sin(k * th) * mp.sin(k * d) / (k * mp.sinh(PI * k / (2 * lam)))))
+    ok4 = rl[-1] < rl[0] / 100 and abs(raw[-1] - lam * th) < 1e-6
     report('Malmsten step for sigma (sympy) and the integral of ln sigma = Gamma product, max rel err %.1e; '
-           'sigma(i vartheta, u) - 1 = %.0e, %.0e at vartheta = 10, 20' % (float(max(errs)), dev[0], dev[1]),
-           ok1 and ok2 and ok3 and max(errs) < 1e-12 and dev[1] < dev[0] / 100)
+           'sigma(i vartheta, u) - 1 = %.0e, %.0e at vartheta = 10, 20; split form of the Dirichlet limit: |ln sigma| '
+           '= %.0e at d = 8, raw part -> lam theta' % (float(max(errs)), dev[0], dev[1], rl[-1]),
+           ok1 and ok2 and ok3 and ok4 and max(errs) < 1e-12 and dev[1] < dev[0] / 100)
 
 
 # ---------------------------------------------------------------- 2. the steps of the proof of the scalar identity
@@ -335,8 +354,19 @@ def check_fused_charge():
     ok = zero(jsum, Dm + Dp + extra)
     no_extra = not zero(jsum, Dm + Dp)
     diff = not any(zero(jdiff, Dm - Dp + c * psx) for c in (0, -b / m0 * sp.sin(b * phD), b / m0 * sp.sin(b * phD)))
-    report('fused boundary conserves int(q_-3 + q_+3) + D_-3 + D_+3 - (beta/m0) sin(beta phi_D) psi_x; controls '
-           '(no Dirichlet term; q_-3 - q_+3) fail', ok and no_extra and diff)
+    # the steps of the proof by hand: v = f1, a = f2, F = phi_x(f)
+    v, a, F = f1, f2, phx
+    Fp = sp.diff(F, f)
+    bracket = b**2 / (2 * m0) * F * sp.cos(b * f) - b / m0 * Fp * sp.sin(b * f) + b**4 / (4 * m0**3) * F**3
+    steps = is_zero(jsum - (-2 * b**2 / m0**3 * Fp * v * a + b**4 / (4 * m0**3) * F * v**3 + bracket * v), [f, phD])
+    steps &= is_zero(sp.diff(F, f, 2) + b**2 / 4 * F, [f, phD])
+    H = sp.expand(Dm + Dp + extra)
+    steps &= is_zero(H.coeff(v, 2) + b**2 / m0**3 * Fp, [f, phD]) and is_zero(H.coeff(v, 1), [f, phD])
+    steps &= is_zero(sp.diff(H.coeff(v, 0), f) - bracket, [f, phD])
+    lin = is_zero(sp.expand(Dm + Dp).coeff(v, 1) - b / m0 * sp.sin(b * phD), [f, phD])   # what the Dirichlet term cancels
+    report('fused boundary conserves int(q_-3 + q_+3) + D_-3 + D_+3 - (beta/m0) sin(beta phi_D) psi_x; steps of the '
+           'proof (flux in v, a; F\'\' = -beta^2 F/4; boundary term = -(beta^2/m0^3) F\' v^2 + U(f), U\' = bracket); '
+           'controls (no Dirichlet term; q_-3 - q_+3) fail', ok and no_extra and diff and steps and lin)
 
 
 # ---------------------------------------------------------------- 7. the boost heuristic
@@ -395,9 +425,11 @@ def check_folding():
     z1 = sp.coth(u / 2 - sp.I * sp.pi / 12) * sp.coth(u / 2 + sp.I * sp.pi / 12)
     vals = [complex(sp.N((zz.subs(g, sp.pi / 3) - z1).subs(u, uu))) for uu in (0.37, -1.2 + 0.4j, 2.1 - 0.3j)]
     ok_tz = max(abs(v) for v in vals) < 1e-12
+    # 2k = h (gamma = pi/2): no condition, and the delay is coth^2(u/2), with a pole at u = 0
     ok_h2 = sp.simplify(ratio.subs(g, sp.pi / 2) - 1) == 0
+    ok_h2 &= sp.simplify((zz.subs(g, sp.pi / 2) - sp.coth(u / 2)**2).rewrite(sp.exp)) == 0
     report('folding: mirror transmits k as h-k; T_k/T_{h-k} Mobius in x^2; folds iff sigma_2 = +-sigma_1 '
-           '(4 controls fail); transparency; 1/f_{k/h}; soliton delay; Tzitzeica z_1; h = 2',
+           '(4 controls fail); transparency; 1/f_{k/h}; soliton delay; Tzitzeica z_1; 2k = h',
            all([ok_lin, ok_hk, ok_ratio, ok_pm, ctrl, ok_transp, ok_f, ok_z, ok_tz, ok_h2]))
 
 
