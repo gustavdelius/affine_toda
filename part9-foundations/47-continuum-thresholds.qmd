@@ -147,7 +147,7 @@ Then parts 1 and 2 of @prp-continuum-limit hold, for every affine algebra. Unifo
 
 :::
 
-For sine-Gordon, $\beta^2_{\rm UV}=2\pi$, so @thm-below-2pi covers the whole range of @prp-continuum-limit, consistent with [@frohlich1976].
+For sine-Gordon, $\beta^2_{\rm UV}=2\pi$, so @thm-below-2pi covers the whole range of @prp-continuum-limit, consistent with @frohlich1976.
 
 ::: {#lem-newton}
 ## Lattice Newton theorem
@@ -257,4 +257,4 @@ For a neutral pair of charges $\pm q$ in two dimensions with covariance $C(x)\si
 
 ## Notes and references {#sec-continuum-limit-notes}
 
-The continuum limit of the two-component Coulomb gas, that is of sine-Gordon below the first threshold, is due to Fröhlich [@frohlich1976] and Benfatto, Gallavotti and Nicolò [@benfatto1982]. The relation with imaginary multiplicative chaos is discussed in [@junnila2020; @lacoin2015]. The multi-component statements are new here.
+The continuum limit of the two-component Coulomb gas, that is of sine-Gordon below the first threshold, is due to Fröhlich [-@frohlich1976] and Benfatto, Gallavotti and Nicolò [-@benfatto1982]. The relation with imaginary multiplicative chaos is discussed in @junnila2020 and @lacoin2015. The multi-component statements are new here.
