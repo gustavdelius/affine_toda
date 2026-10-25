@@ -29,7 +29,9 @@ Checks:
     eq-coideal-generators, with eps = 0 (K = 1) or eps = (s eps_*, eps_*, ..., eps_*) (eq-an-k-matrix).
  9. Sine-Gordon eps_j near the Neumann point from eq-bsg-eta-theta and cnj-bsg-uv-ir (prp-dm-first-order): eps_1 depends
     on mu_- ~ C_1 alone and eps_0 on mu_+ ~ C_0 alone (sign of phi_0 of eq-bsg-dirichlet).
-Runtime: about a minute.
+10. Delius-MacKay's q (their (3.10)) is 1/q: their charges Q_+- are left-movers, the book's f_0 k_0 and f_1 k_1, and their
+    Qbar_-+ are e_0, e_1; at the physical q these have DM's T-charges and coproducts with q_DM = 1/q, not with q.
+Runtime: about two minutes.
 """
 import numpy as np
 import sympy as sp
@@ -552,3 +554,42 @@ ok &= abs(eps_sg(np.cos(np.pi/(2*(lamS + 1))))) < 1e-12
 report(f'sine-Gordon: eq-bsg-eta-theta + cnj-bsg-uv-ir give eps_(1,0) = -cos((lambda+1) arccos mu_-+)/sin(pi lambda), '
        f'mu_- ~ C_1, mu_+ ~ C_0 (each node with its own parameter), = eps_* - (lambda+1)/(2 sin(pi lambda/2)) mu_-+ + O(mu^2) '
        f'near Neumann; eps = 0 at mu_+- = cos(pi/(2(lambda+1)))', ok)
+
+# ---------------------------------------------------------------- 10. Delius-MacKay's sine-Gordon q is a convention
+# DM (hep-th/0112023) sec. 3: Euclidean z = (t + ix)/2 with t = i t_M, so their holomorphic phi is a function of x^+:
+# their Q_+- (currents e^{+-2i phi/bhat}) are built from left-movers, their Qbar_-+ from right-movers, and
+# Delta(Q_+-) = Q_+-(x)1 + q^{+-T}(x)Q_+-, Delta(Qbar_-+) = Qbar_-+(x)1 + q^{+-T}(x)Qbar_-+, with their (3.10)
+# q_DM = exp(2 pi i (1 - bhat^2)/bhat^2), bhat^2 = beta_SG^2/4pi.  In the book's labels (sec-nonlocal-charges, after
+# the chirality fix) Q_+ = f_0 k_0 and Q_- = f_1 k_1 (left-movers), Qbar_- = e_0 and Qbar_+ = e_1 (right-movers), and
+# DM's Qhat_+ = Q_+ + Qbar_- + eps q^T is b_0.  At the physical q these elements have exactly DM's T-charges and
+# coproducts with q_DM = 1/q, and not with q itself: (3.10) is the book's q seen through charges of the other chirality.
+lamD = np.sqrt(3.0)                                   # generic lambda = 8 pi/beta_SG^2 - 1
+qD = q_phys(lamD)
+bh2 = (8*np.pi/(lamD + 1))/(4*np.pi)                  # bhat^2 = beta_SG^2/4 pi
+qDM = np.exp(2j*np.pi*(1 - bh2)/bh2)
+ok = abs(qDM - 1/qD) < 1e-12
+A, B = sl2_spin(1, qD, np.exp(0.31 + 0.2j)), sl2_spin(1, qD, np.exp(-0.47 + 0.6j))
+H = np.diag([1.0, -1.0])                              # T on one soliton
+TT = kron(H, np.eye(2)) + kron(np.eye(2), H)
+qpow = lambda qq, s: np.diag(qq**(s*np.array([1.0, -1.0])))
+dm = {'Q_+': (lambda R: R[('f', 0)] @ R[('k', 0)], lambda: cop(A, B, 'f', 0) @ cop(A, B, 'k', 0), +1),
+      'Q_-': (lambda R: R[('f', 1)] @ R[('k', 1)], lambda: cop(A, B, 'f', 1) @ cop(A, B, 'k', 1), -1),
+      'Qbar_-': (lambda R: R[('e', 0)], lambda: cop(A, B, 'e', 0), +1),
+      'Qbar_+': (lambda R: R[('e', 1)], lambda: cop(A, B, 'e', 1), -1)}
+dev_dm, dev_q = 0, np.inf
+for name, (one, two, s) in dm.items():
+    X, D = one(A), two()
+    sT = +1 if name in ('Q_+', 'Qbar_+') else -1     # Q_+, Qbar_+ raise T by 2; Q_-, Qbar_- lower it
+    ok &= np.allclose(H @ X - X @ H, 2*sT*X)
+    for qq, store in ((qDM, 'dm'), (qD, 'q')):
+        Xa, Xb = one(A), one(B)
+        rhs = kron(Xa, np.eye(2)) + kron(qpow(qq, s), Xb)
+        r = np.abs(D - rhs).max()/np.abs(D).max()
+        if store == 'dm':
+            dev_dm = max(dev_dm, r)
+        else:
+            dev_q = min(dev_q, r)
+report(f'Delius-MacKay (3.10): q_DM = exp(2 pi i(1-bhat^2)/bhat^2) = 1/q at the physical q; in the book\'s V(y1)(x)V(y2) '
+       f'their Q_+- = f_0 k_0, f_1 k_1 (left-movers) and Qbar_-+ = e_0, e_1 (right-movers) have their T-charges and '
+       f'coproducts Q(x)1 + q_DM^(+-T)(x)Q [{dev_dm:.0e}], and not with q_DM -> q [{dev_q:.1f}]: a convention, not an error',
+       ok and dev_dm < 1e-12 and dev_q > 0.1)
