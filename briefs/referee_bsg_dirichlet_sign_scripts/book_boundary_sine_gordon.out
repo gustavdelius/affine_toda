@@ -1,0 +1,32 @@
+PASS K(theta) from the coideal equals the closed form (unique)
+PASS reflection equation (braid form) at the physical q [9e-16]
+PASS the same K also solves it with the R-check at -q [1e-15]: the RE does not see the sign of q
+PASS K(eps_0, eps_1; -q) = K(-eps_0, -eps_1; q)
+PASS R-check(-q) = (Pi (x) 1) R-check(q) (Pi (x) 1), Pi = diag(1,-1): S_T -> -S_T
+PASS GZ (5.12): K = R(u)[[cos(xi+lambda u), k/2 sin 2lambda u],[.., cos(xi-lambda u)]] with eps_1 = eps e^{i xi}, eps_0 = eps e^{-i xi}, k = 1/(eps sin pi lambda)
+PASS BPT (3.2): eps_1 = -cos(eta - i vt)/sin(pi lambda), eps_0 = -cos(eta + i vt)/sin(pi lambda); consistent with GZ (5.25)
+PASS Neumann (GZ xi=0, k=1/sin(pi lambda/2); BPT eta=pi(lambda+1)/2, vt=0): eps_0 = eps_1 = 1/(2cos(pi lambda/2)) = (2-q-1/q)^(-1/2)
+PASS dictionary: eps_0 = eps_1 = 0 <-> BPT (eta, vt) = (pi/2, 0); BPT (0, 0) <-> eps_0 = eps_1 = -1/sin(pi lambda)
+PASS GZ (5.23) normalizer diverges: log Pi(x,pi/2) grows by (lambda/4) log 4 per factor 4 in l_max [0.4749 vs 0.4748]; BPT form used instead
+PASS GZ a(theta) = sin(lambda(pi-u)) rho(u) equals the book S_0 (eq-sg-s0) [1e-21]
+PASS sigma(x,u)sigma(x,-u) = cos^2x/(cos(x+lambda u)cos(x-lambda u)) and sigma(x,pi/2-u) = sigma(x,pi/2+u) (GZ (5.24), BPT normalization) [3e-21]
+PASS crossing-unitarity k(theta) = f(theta) R(2theta) k(-theta): matrix part consistent at q with C = sigma_x [8e-16], inconsistent at -q [1.40], restored at -q only by C = [[0,1],[-1,0]] [7e-16]
+PASS boundary unitarity K(theta)K(-theta) = 1 with R_0 sigma(eta) sigma(i vt)/(cos eta cosh vt) [2e-16]
+PASS boundary crossing-unitarity k(theta) = S_0(2theta) R(2theta) k(-theta) with the book S_0 [8e-16] (generic point and Neumann)
+PASS breather bootstrap from the BPT soliton K: B_1, B_2 reflect diagonally with exactly Ghoshal (3.5)-(3.10) [1e-15]; singlet in V(theta - i u_n/2) (x) V(theta + i u_n/2) only
+PASS B_1 reflection factor: unitarity and crossing-unitarity with S_11 = f_(xi/pi) [2e-21]
+PASS Ghoshal B_1 factor at lambda = -2/B equals Corrigan-Delius (2.5) with E = B eta/pi, F = i B vt/pi [2e-21]
+PASS Dirichlet phi_0 = 0 (eta = 0, vt -> infinity) gives K_D = (2-B/2)(1+B/2)/(1) [9e-10]; Neumann eta = pi(lambda+1)/2 gives E = B/2 - 1, i.e. |E| = 1 - B/2
+PASS BPTT bootstrap on the first excited state: a(u - nu_0) Q(eta, vt, u) b(u + nu_0) = Q(etabar, vt, u), etabar = pi(lambda+1) - eta [1e-20]; nu_n = eta/lambda - (2n+1)pi/(2lambda)
+PASS sigma(eta, u) has simple poles at u = nu_0, nu_1 in the physical strip (boundary bound states |0>, |1>)
+PASS K on the first excited boundary |0> satisfies unitarity [1e-16] and crossing-unitarity [4e-16]
+PASS Zamolodchikov UV-IR relation: M_0 -> 0 gives Neumann (eta, vt) = (pi(lambda+1)/2, 0); M_0 -> infinity gives the Dirichlet eta = -4 pi phi_0/beta_SG; (pi/2, 0) <-> M_0/M_crit = cos(pi/(2(lambda+1))); classically M_crit -> 4 m_0/beta_SG^2, the C_0 = C_1 = 1 boundary
+PASS R_0 has simple poles at u = n pi/(2 lambda), n = 1, 2, 3 < lambda = 3.3 [orders [1.0, 1.0, 1.0]], and none at pi/2 - n pi/(2 lambda) [[0.0, 0.0, -0.0]]
+PASS at u = n pi/(2 lambda): Q is regular, P has the simple pole for generic (eta, vt) = (2.1, 0.3); for vt = 0 P keeps it only for even n (n = 1, 2, 3)
+PASS Neumann point: P and Q have simple poles at u = pi/2 - pi/lambda (energy M sin(pi/lambda)) and at u = pi/2 [orders [(1.0, 1.0), (1.0, 1.0)]]
+PASS GZ (5.22) with sigma normalized by (5.24): R(u)R(-u) M(u)M(-u) = k^2/cos^2 xi = 1.3434606 [5e-21] instead of 1 (M(u)M(-u) = (5.20) denominator [8e-22]); with prefactor 1/k it is 1 [4e-21]
+PASS the residue of R-check(theta_12) at theta_12 = i u_n is rank 1 and its image is the breather singlet in V(theta - i u_n/2) (x) V(theta + i u_n/2) (n = 1, 2, lambda = 3.3) [overlap - 1: 1e-16]
+PASS BPTT a_n: a(u+nu_n)a(u-nu_n)/(a(u+nu_0)a(u-nu_0)) = prod_(l=1)^n {2(eta/pi - l)} for n = 1, 2, 3 [2e-20]; bootstrap a(u - nu_n) Q(eta) b(u + nu_n) = Q(etabar) a_n for n = 0, 1, 2 [3e-20]
+PASS a(u - pi/lam) = tan(u/2) tan(pi/2lam - u/2) a(u) [1e-20]; hence ratio = product form for all n (n <= 6: 1e-19) and the bootstrap for all n from n = 0 (n <= 5: 7e-20)
+PASS B_1, B_2 on the excited boundaries |0>, |1>: the full matrix bootstrap gives K_(B_m)(etabar) b_mk, b_mk = a_k(u + pi/2 - m pi/2lam) a_k(u - pi/2 + m pi/2lam) (BPTT (3.9)) [1e-15]
+PASS Pi K(eps_0, eps_1) Pi is proportional to K(-eps_0, -eps_1), Pi = diag(1,-1) (exr-bsg-sign-q)

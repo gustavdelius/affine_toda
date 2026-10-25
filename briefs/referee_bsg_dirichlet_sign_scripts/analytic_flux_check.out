@@ -1,0 +1,5 @@
+PASS closed boundary derivative residual 5.329070518200751e-15
+Elementary integral: I_s = 4*pi*s - 8*asin(k), k=sin(a/2)/sqrt(sinh(theta)^2+sin(a/2)^2)
+large-lambda 301.4142135623731 cutoff-extrapolated 0.4003522948365846 target 0.3995169208679524
+large-lambda 1001.4142135623731 cutoff-extrapolated 0.39976813035905656 target 0.3995169208679524
+large-lambda 3001.414213562373 cutoff-extrapolated 0.399600714320874 target 0.3995169208679524
