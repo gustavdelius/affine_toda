@@ -54,7 +54,7 @@ $$
 \hat Q_j=Q_j+\bar Q_j+\hat\epsilon_j\,q^{T_j},\qquad j=0,\dots,r .
 $$ {#eq-boundary-charges}
 
-Mezincescu and Nepomechie had found these charges for boundary sine-Gordon at the free-fermion point by direct computation [@mezincescu_nepomechie1998]. In $\hat\epsilon_j\propto\lambda_b\epsilon_j$ the label $j$ is that of Delius and MacKay's $a_n$ computation, in which the charge of node $j$ meets the boundary term of the same node [@delius_mackay2003, eqs. (4.8)–(4.12)]. For sine-Gordon with the labels of @sec-qg-coproduct the two are crossed: $\hat\epsilon_1$ comes from the boundary term of $C_0$, and $\hat\epsilon_0$ from that of $C_1$ (@sec-bsg-parameters). We return in @sec-epsilon-constraint to what the first-order computation does and does not determine.
+Mezincescu and Nepomechie had found these charges for boundary sine-Gordon at the free-fermion point by direct computation [@mezincescu_nepomechie1998]. In $\hat\epsilon_j\propto\lambda_b\epsilon_j$ the label $j$ is that of Delius and MacKay's $a_n$ computation, in which the charge of node $j$ meets the boundary term of the same node [@delius_mackay2003, eqs. (4.8)–(4.12)]. For sine-Gordon the labels of @sec-qg-coproduct also pair each node with itself, but @cnj-bsg-uv-ir pairs them crossed, $\hat\epsilon_1$ with $C_0$ and $\hat\epsilon_0$ with $C_1$; the two differ by charge conjugation (@sec-bsg-parameters). We return in @sec-epsilon-constraint to what the first-order computation does and does not determine.
 
 **Book conventions.** The dictionary of @sec-qg-coproduct identifies $Q_j\to e_j$, $q^{T_j}\to k_j$, and $\bar Q_jq^{-T_j}\to f_j$ up to a constant. So $\bar Q_j\propto f_jk_j$, and the conserved charges are
 
