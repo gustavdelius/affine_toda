@@ -91,6 +91,12 @@ The book's conventions are in `01-introduction.qmd`, section `sec-conventions`. 
 
 ## Refereeing (Codex, Gemini, or a Claude referee)
 
+- **Choosing the referee model.**
+  - **Targeted single-phase passes** (new `[Theorem]` upgrades, Appendix D corrections, single chapters) and **phase 2 (directed)** of a two-phase pass: use **Codex** (`gpt-6-astra`, high), which has the highest precision, searches prior art thoroughly, and marks unverified claims `"unclear"`.
+  - **Phase 1 (blind)** of a multi-chapter pass: run **Codex**, or **Codex and Gemini in parallel** (`briefs/run_referee_agy.sh <brief> both`); Gemini's blind pass catches complementary geometric and analytic issues, whereas its directed phase 2 tends to overclaim.
+  - **Fast triage** when Codex quota is scarce: use **Gemini** (`gemini-4-argon-high` or `gemini-3.8-flash-high`), verifying every finding and replacement text under Rule 1.
+  - **Fallback** when both are out of quota: use **Claude (Opus)** and state in the report header that the pass is not model-diverse.
+  - `briefs/run_referee_agy.sh <brief-name> [codex|gemini|both|<model>]` runs either CLI in a throwaway copy under `~/referee-copy/`.
 - **Write access.** Edit no existing file, and do not run figure scripts in a shared worktree. Write scratch work only under `referee_scratch/<tag>/` and the report only where the brief says (`briefs/<name>_report.md`).
 - **Commands.** Run no git command that changes the index or the working tree (commit, checkout, stash, reset, rebase, restore), and no `quarto render`.
 - **Two-phase passes.** A referee pass may be split into a blind phase 1 and a directed phase 2 (see `briefs/referee_classical_09_11.md`). In phase 1 the brief gives only context, conventions, sources and the evidence rule; the referee writes its own ranked list of risky claims, checks them, and writes `briefs/<name>_phase1_report.md`. Only after phase 1 is committed is the held items list given for phase 2, which aims at prior art, citation scope, interpretive sentences, and claims that a script checks something.
