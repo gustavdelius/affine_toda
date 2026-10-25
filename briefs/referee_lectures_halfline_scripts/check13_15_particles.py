@@ -1,0 +1,22 @@
+import mpmath as m
+m.mp.dps=40;h=3;t=m.mpf('.71')
+def b(x,t=t):return m.sinh(t/2+1j*m.pi*x/(2*h))/m.sinh(t/2-1j*m.pi*x/(2*h))
+def KN(B,t=t):return b(2+B/2,t)/(b(2,t)*b(B/2,t))
+def KU(B,t=t):return b(3-B/2,t)/(b(2,t)*b(1-B/2,t))
+der=m.diff(KN,0)/(2*m.pi)
+printed=-m.cos(t/(2j))/(4*m.sin(3*t/(2j)))
+correct=-1j*m.sinh(t)/(8*(m.cosh(t)+m.mpf('.5'))*(m.cosh(t)-1))
+print('13 beta^2 coefficient exact',der,'printed',printed,'correct',correct)
+print('13 false alternative block formula error',abs(KN(.43)+b(2+.43/2)/(b(2)*b(3-.43/2))))
+print('13 purported self-dual ratio difference',abs(KN(.43)/KU(.43)*KU(0)-KN(1.57)/KU(1.57)*KU(0)))
+assert abs(der-correct)<m.mpf('1e-30')
+B=m.sqrt(2)/3
+S=lambda t:b(2,t)/(b(B,t)*b(2-B,t))
+res=abs(KU(B)-KU(B,t+1j*m.pi/3)*S(2*t)*KU(B,t-1j*m.pi/3))
+print('14 bootstrap error',res,'mass at u=pi/3',2*m.cos(m.pi/6),'mass at u=2pi/3',2*m.cos(m.pi/3))
+assert res<m.mpf('1e-30')
+for C in [0,1,-1]:
+    k=(m.sinh(t)-1j*C*m.sin(m.pi/3))/(m.sinh(t)+1j*C*m.sin(m.pi/3))
+    printed=-(b(1)*b(2))**(-C)
+    print('15 C',C,'rational-block difference',abs(k-printed))
+print('PASS 13-15: corrected loop coefficient, bootstrap, and Robin reflection; printed exceptions exposed')

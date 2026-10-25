@@ -1,0 +1,12 @@
+correct S_cd matrix proportionality residual 1.8642342584259666e-16
+printed S_dc matrix proportionality residual 0.8520064344039185
+PASS crossing lower-index order is fixed by lecture ZF convention
+Kim a3 species 1 derivative error 4.3790577e-47
+Kim a3 species 2 derivative error 6.5685866e-47
+PASS direct source Kim one-loop light/heavy coefficients match KN
+Kim actual a2 formula dual residual 0.0
+Kim actual a2 formula dual residual 0.0
+PASS a1 Dirichlet K limit and arbitrary Cartan derivative
+PASS parity vacuum shift lies in coweight lattice for h=3..9, every species; branch changes add roots
+PASS actual Kim a2 minus KN: first derivative 4.0783153e-56 B^2 coefficient (0.0 + 0.37357808231122j)
+PASS CDRS all-rank candidate equals dual minus product, h=3..8 all a

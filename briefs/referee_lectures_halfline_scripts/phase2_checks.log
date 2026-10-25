@@ -1,0 +1,18 @@
+PASS quantum mixed branches: 64 patterns; allowed max/min disallowed 8.556670392733995e-16 0.19525097581700077
+PASS Toeplitz N=3..8 both signs, max entry residual 1.4655364458042816e-15
+PASS D4 all32 normalized signs invertible; max residual/min det 9.674066961379166e-16 3.4884727900551665e-10 missing sqrt(n) min singular 0.1848689931898666
+general c product factor 1 smallest singular 4.1107961033455407e-16
+general c product factor 1.1 smallest singular 0.07410029992177818
+PASS general-c intertwiner condition at generic y
+PASS arbitrary-parameter Dolan Grady on 8-dim tensor, residual 1.5747620596908012e-15
+PASS arbitrary-parameter Dolan Grady on 8-dim tensor, residual 1.1240151438116956e-15
+CDD change B, abs change /B^2 0.01 0.74948305927916
+CDD change B, abs change /B^2 0.001 0.74738719476633
+CDD change B, abs change /B^2 0.0001 0.74717925105593
+PASS CDD change first appears at B^2 in samples
+PASS bulk bootstrap S11 error / wrong S12 error 3.9256232e-51 0.14703495299978
+PASS CT pole energy matches transition b[-2,2] -> b[-1,2]; labels 0<p<1.5
+PASS LY reflection pole uses -i Gamma g/2; residue (1.7583302491977e-25 + 1.26794919243112j) Gamma^2 (-3.46410161513775 + 0.0j)
+contact n=2 regulator, integral,target 0.01 (0.0 - 1.84297656134j) (0.0 - 1.88495559215j)
+contact n=2 regulator, integral,target 0.001 (0.0 - 1.88070735211j) (0.0 - 1.88495559215j)
+PASS all phase-2 checks

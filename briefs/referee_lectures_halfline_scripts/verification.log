@@ -1,0 +1,108 @@
+
+check01_vacuum.py
+chi 0.25 actual (0.0, (1, -1, -1)) printed residual 11.60483814564636
+chi 2.0 actual (2.2315206618374916e-15, (-1, -1, 1)) printed residual 2.2315206618374916e-15
+chi -2.0 actual (1.1102230246251565e-15, (-1, 1, -1)) printed residual 4.827855074794511
+PASS: direct boundary equation identifies the sign patterns independently
+
+check02_metric.py
+chi=0 I=3.46410161514 I*sqrt(3)=6 quad_error=3.8e-14
+chi=0.25 I=3.46410161514 I*sqrt(3)=6 quad_error=3.8e-14
+chi=0.6 I=3.46410161514 I*sqrt(3)=6 quad_error=3.8e-12
+chi=1 I=3.46410161514 I*sqrt(3)=6 quad_error=2.3e-12
+chi=1.0461975512 I=3.46410161501 I*sqrt(3)=5.99999999978 quad_error=1.9e-10
+PASS: I=6/(beta^2*m1), for beta=m=1, across each sampled interval
+
+check03_04_ly.py
+3 printed shift residual 6.753223014464259e-16
+3 actual 4-b shift residual 4.041272810440265e-16
+PASS 3: bootstrap shifts b to b+2, equivalently 4-b
+4 printed doubled S residual 0.8244263631640227
+4 corrected doubled S residual 4.577566798522237e-16
+4 identity K bootstrap residual 7.021666937153402e-16
+4 doubling arbitrary block residual 1.1102230246251565e-16
+PASS 4: corrected block doubling and positive identity K satisfy bootstrap
+
+check06_ct.py
+eps 0.0000000001 -i Res (-1.1874897238607920702 - 2.6536190979274128392e-10j) identity residual 1.4452e-9 zero derivative (8.7445883833934e-10 - 2.2114724331825j)
+eps 0.00000000000000000001 -i Res (-1.1874897238607920702 - 2.6536190979274128393e-20j) identity residual 1.4452e-19 zero derivative (8.7445883833934e-20 - 2.2114724331825j)
+PASS 6: simple pole, negative residue, simple reflection zero, residue identity
+
+check07_09_algebra.py
+7 labels [-2.0, -3.235, -0.765] continuation error 1.2738115944464653e-16
+PASS 7: continuation correct using block period 2h
+8 dim 3 Serre residual 1.2412670766236366e-16
+8 dim 9 Serre residual 2.2887833992611187e-16
+8 dim 27 Serre residual 3.2730697083401687e-16
+PASS 8: deformed Serre identity on fundamental and independent tensor modules
+9 s 1 unitarity error 4.577566798522237e-16
+9 Z^T-Z^-1 0.0 printed Z^T-sZ^-1 0.0
+9 s -1 unitarity error 9.155133597044475e-16
+9 Z^T-Z^-1 0.0 printed Z^T-sZ^-1 2.0
+PASS 9: matrix unitarity; printed transpose identity false for s=-1
+
+check10_mirror.py
+10 C 1 printed derivative error 0.26993552498725826 correct derivative error 4.47545209131181e-16 constant ratios [1.05328599+2.68389305e-17j 1.05328599+1.74672566e-15j
+ 1.05328599+0.00000000e+00j]
+10 C -1 printed derivative error 71.49925508011378 correct derivative error 7.105427357601002e-15 constant ratios [3.05328599-3.34329502e-17j 3.05328599+9.67056119e-16j
+ 3.05328599+0.00000000e+00j]
+10 correct k= 2.053285988601335 main printed 2ms= 1.461072649720632 exercise printed 2m*a/s= 2.370930436484535
+PASS 10: boundary identity with corrected derivative and k*s=2m*sin^2(pi*a/h)
+
+check12_submodule.py
+12 eigenvalue residual node 1 5.155369359468229e-16
+12 eigenvalue residual node 0 5.828670879282072e-16
+12 branch y2 (0.4902608213406994+0.8715757724135882j) common eigenvector residual 6.49296592341563e-16
+12 branch y2 (0.4902608213406994-0.8715757724135882j) common eigenvector residual 5.064917260848195e-16
+12 branch y2 -2.3631606937057947 common eigenvector residual 5.926969055564841e-16
+12 branch y2 -0.4231620823177488 common eigenvector residual 1.4752290795525882e-16
+PASS 12: physical-pole eigenvalues correct; four generic reducibility branches
+
+check13_15_particles.py
+13 beta^2 coefficient exact (-8.507674306654990665429816802229524654039e-52 - 0.2080654938190177169576647366463832276138j) printed (0.0 - 0.2080654938190177169576647366463832276138j) correct (0.0 - 0.2080654938190177169576647366463832276138j)
+13 false alternative block formula error 0.7023188300020004660505997896679878599014
+13 purported self-dual ratio difference 1.633604416527052794083831484086190504971
+14 bootstrap error 2.335896197358973109818036064533983768958e-41 mass at u=pi/3 1.732050807568877293527446341505872366943 mass at u=2pi/3 1.0
+15 C 0 rational-block difference 2.0
+15 C 1 rational-block difference 2.008901478456057752876258730604423765803e-41
+15 C -1 rational-block difference 2.008901478456057752876258730604423765803e-41
+PASS 13-15: corrected loop coefficient, bootstrap, and Robin reflection; printed exceptions exposed
+
+check16_qsign.py
+16 twist error 0.0
+16 q multiplier 1 C lower-left 1 crossing proportionality residual 1.8642342584259666e-16
+16 q multiplier 1 C lower-left -1 crossing proportionality residual 0.7725169976877534
+16 q multiplier -1 C lower-left 1 crossing proportionality residual 0.7725169976877534
+16 q multiplier -1 C lower-left -1 crossing proportionality residual 1.8642342584259666e-16
+PASS 16: independent coproduct solve confirms q-sign/twist and matrix crossing test
+
+check17_18_fusion.py
+17 intercept -0.8254913483990253 epsilon* -0.8254913483990252 slope finite difference -1.5170505149875169 predicted -1.5170505149580262
+18 affine singlet residual 1.3911054626160788e-15 matrix fusion residual 1.0420730971689555e-14
+PASS 17-18: SG Taylor coefficients and independently solved a2 matrix fusion
+
+check18_scalar.py
+18 scalar cutoff 30 relative residual 1.4410967064e-7
+18 scalar cutoff 60 relative residual 1.80194290207e-8
+18 scalar cutoff 120 relative residual 2.25260751456e-9
+18 scalar cutoff 300 relative residual 1.44170087107e-10
+PASS 18: 45-digit Gamma product fusion converges to the three-block factor
+
+check19_classical.py
+PASS 19: exact symbolic node equations for arbitrary a1 parameters and all 8 a2 patterns
+
+check22_24_residues_energy.py
+22 Gamma^2 (-3.4641016151377545871 - 3.9999993704630754785e-20j) g^2 (-1.8564064605510183482 - 4.2871870788979633036e-20j)
+24 degeneracy 0.96592582628906828675 0.96592582628906828675
+PASS 22,24: independent residues, energy sums, exact B=1/2 degeneracy
+
+check25_coverage.py
+halfline_l1_f1_reflection_crossing.py report call sites [118, 136, 153, 183, 192]
+halfline_l2_f1_sklyanin_rigidity.py report call sites [163, 185, 214, 237]
+halfline_l3_f1_mirror_images.py report call sites [145, 162, 221, 240]
+halfline_l4_f1_coideal_sg.py report call sites [131, 150, 173, 202]
+halfline_l5_f1_a2_serre.py report call sites [159, 203, 229, 263]
+halfline_l6_f1_particles_duality.py report call sites [133, 178, 221, 258]
+25 actual energy -2.3923048454132623 README energy 2.5358983848622456
+25 corrected braid convention 4.002966042486721e-16 printed convention 10.037619796872784
+PASS 25: scope inventory, independently checked README energy and braid-convention blind spot
