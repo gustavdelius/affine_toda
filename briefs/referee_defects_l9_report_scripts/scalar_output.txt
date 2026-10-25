@@ -1,0 +1,16 @@
+PASS sigma integral lambda=1.4142136 residual=5.871997e-16
+PASS sigma cutoff stability residual=1.817683e-14
+PASS fusion Gamma identity theta=0.43 residual=4.030628e-16
+PASS fusion Gamma identity theta=(0.37 + 0.16j) residual=3.15624e-16
+PASS sigma integral lambda=1.3591409 residual=5.83956e-16
+PASS sigma cutoff stability residual=1.807643e-14
+PASS fusion Gamma identity theta=0.43 residual=4.618682e-16
+PASS fusion Gamma identity theta=(0.37 + 0.16j) residual=3.648739e-16
+PASS sigma integral lambda=2.236068 residual=6.418323e-16
+PASS sigma cutoff stability residual=1.986788e-14
+PASS fusion Gamma identity theta=0.43 residual=9.869072e-17
+PASS fusion Gamma identity theta=(0.37 + 0.16j) residual=6.750293e-17
+Dirichlet limit vartheta=2 abs(sigma-1)=0.25416583
+Dirichlet limit vartheta=4 abs(sigma-1)=0.059125418
+Dirichlet limit vartheta=8 abs(sigma-1)=0.0034577177
+Dirichlet limit vartheta=12 abs(sigma-1)=0.00020434908

@@ -1,0 +1,9 @@
+PASS Malmsten step for sigma (sympy) and the integral of ln sigma = Gamma product, max rel err 1.2e-26; sigma(i vartheta, u) - 1 = 6e-04, 5e-07 at vartheta = 10, 20
+PASS proof steps: the two integrals, the ln cosh integral, the elementary remainder, max err 2.0e-16
+PASS scalar identity of prp-defect-fusion-k (3) from the Gamma products, max rel err 8.1e-26; control (lam+1) theta_d min err 1.1e-02
+PASS matrix part: K_f = (Lambda D_n)^-1 GZ (Lambda D_n) at vartheta = lam theta_d, common factor 1 iff the scalar identity; controls -lam theta_d, theta_d fail
+PASS spin-3 currents conserved on shell; defect flux = -d/dt D_{-+3} (type I_-); Dirichlet flux = -(beta/m0) sin(beta phi_D) d_t psi_x
+PASS fused boundary conserves int(q_-3 + q_+3) + D_-3 + D_+3 - (beta/m0) sin(beta phi_D) psi_x; controls (no Dirichlet term; q_-3 - q_+3) fail
+PASS boost heuristic: h = 1/(lam+1), sinh-Gordon (1-B/2) and one loop, BHW 6/5 = 1-h, KL d(g) = 1-h
+PASS folding: mirror transmits k as h-k; T_k/T_{h-k} Mobius in x^2; folds iff sigma_2 = +-sigma_1 (4 controls fail); transparency; 1/f_{k/h}; soliton delay; Tzitzeica z_1; h = 2
+PASS chirality: massless I_- passes left-movers, I_+ right-movers; left-movers carry E - P only; f_1 ~ 1/y, e_1 ~ y; the I_- block is a twist for theta << theta_d, converting for theta >> theta_d
