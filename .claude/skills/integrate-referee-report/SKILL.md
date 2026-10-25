@@ -5,19 +5,20 @@ description: Verify and integrate a referee report on the affine Toda book (from
 
 # Integrating a referee report
 
-A referee report is a list of claims to check, not a list of edits to make. Rule 1 of `AGENTS.md` applies to every item. This procedure was used for Parts VII–IX in October 2026. Good models of the record it leaves are commit df973fb and the `## Integration` section of `briefs/referee_defects_41_report.md`.
+A referee report is a list of claims to check, not a list of edits to make. Rule 1 of `AGENTS.md` applies to every item. Good models of the record it leaves are commit df973fb, the `## Integration` section of `briefs/referee_defects_41_report.md` (single-phase), and `briefs/referee_classical_09_11_phase1_combined.md` (two-phase, dual-model).
 
 ## 1. Freeze the evidence
 
-1. Make sure the referee has finished. A Codex report ends with its last item. A Gemini coordinator ends with "Referee pass complete."
+1. Make sure the referee has finished. A single-phase or phase-2 report ends with its last item; a phase-1 report ends with `"Phase 1 complete"`; a Gemini coordinator ends with `"Referee pass complete."`
 2. Note the commit the referee reviewed, from the report header. Line numbers in the report refer to that commit or to its review copy, so match passages by content.
-3. Commit the report unchanged ("… as received"), staging it by name.
+3. Commit each report unchanged ("… as received"), staging it by name. In a two-phase pass, commit `briefs/<name>_phase1_report.md` as received before handing the referee the held phase-2 items file `briefs/<name>_items.md` (and commit `*_items.md` at that point), then commit `briefs/<name>_report.md` as received when phase 2 completes.
 4. Copy the referee's check scripts into `briefs/<report-name>_scripts/`. Leave out report-format validators and rendered pages of papers. Rerun the scripts from there and compare their outputs with those in the report. Some scripts write relative to their cwd (for example into `referee_scratch/`); run those from a scratch directory with symlinks.
 
 ## 2. Triage
 
 - **Small reports** (a few items, no proofs) can be integrated in the main session.
-- **Large reports** go to one background agent per report, on Opus. Fill in `agent-prompt.md` (next to this file). An integration agent typically runs 30–50 minutes. It must keep a checkpoint file, so that a fresh agent can resume after a usage cutoff; resuming a large agent with SendMessage also works.
+- **Large reports** go to one background agent per report (or per chapter group), on Opus. Fill in `agent-prompt.md` (next to this file). An integration agent typically runs 30–50 minutes. It must keep a checkpoint file, so that a fresh agent can resume after a usage cutoff; resuming a large agent with SendMessage also works.
+- **Two-phase or multi-model passes.** When both phase 1 and phase 2 (or both Codex and Gemini) have reported on the same chapters, merge the unique findings into a combined checklist (such as `briefs/<name>_phase1_combined.md`) so integration agents do not verify or edit the same passage twice.
 - **Files under review.** Name any files another referee is reviewing right now. Nobody edits them; edits they need are recorded as pending in the status file.
 
 ## 3. Verify each item
@@ -44,7 +45,7 @@ Mark each item **verified**, **modified** or **rejected**, with the reason.
 
 ## 5. Record and finish
 
-1. Append `## Integration` to the report. Give a table of item, verdict, how it was checked, and files changed, and list what was not integrated and why.
-2. Update the part's status record if it has one, for example `briefs/part8_defects_status.md`, or the status block of `briefs/halfline_open_problems.md`.
+1. Append `## Integration` to the report (or to the combined report for a two-phase / multi-model pass, with a pointer at the end of each individual report). Give a table of item, verdict, how it was checked, and files changed, and list what was not integrated and why. For a two-phase pass, also record the overlap table showing which verified errors were found in phase 1 versus phase 2.
+2. Update the part's status record if it has one, for example `briefs/part8_defects_status.md`, `briefs/README.md`, or the status block of `briefs/halfline_open_problems.md`.
 3. Run the chapter scripts (all PASS) and `python3 check-refs.py`. Before a PR, also run `./render-scratch.sh`.
 4. Commit by named files. Push or open a PR only when the editor asks. The PR description lists every label upgraded without a second referee pass.
