@@ -1,12 +1,12 @@
 # From Solitons to Breathers, Particles, and Weak–Strong Boundary Duality {#sec-lec6-particles-duality}
 
-*Companion to [Chapter 30](book:sec-boundary-sine-gordon), [Chapter 34](book:sec-soliton-reflection), and [Chapter 36](book:sec-particle-reflection) of the main text.*
+*Companion to the main text's chapters on [boundary sine-Gordon](book:sec-boundary-sine-gordon), [soliton reflection matrices](book:sec-soliton-reflection) and [breather and particle reflection amplitudes](book:sec-particle-reflection).*
 
 ::: {.callout-note appearance="simple" icon=false title="What You Will Learn in This Lecture"}
-- Why the **soliton detour** ($\text{Solitons} \to \text{Breathers} \to \text{Particles}$) is indispensable on the half-line, and how early proposals that assumed boundary self-duality failed beyond one loop.
-- How **boundary unitarity and crossing-unitarity** determine the infinite-product Gamma-function scalar factors $A(\mu)$ and $A^{(\pm)}(\mu)$ of the $a_n^{(1)}$ soliton reflection matrices, and how **boundary fusion** onto the singlet breather $B_1 \subset V(\theta_a)\otimes \bar V(\theta_b)$ telescopes those infinite products into elementary hyperbolic blocks!
-- How analytic continuation $\omega \to -2/B$ produces the exact real-coupling **particle reflection amplitudes** $K_a(\theta)$ for the **uniform boundary** ($C \equiv +1$, $\hat\epsilon = 0$) and $K_a^N(\theta)$ for the **Neumann boundary** ($C \equiv 0$, $\hat\epsilon_j = +\epsilon_*$), and why **weak–strong duality $B \leftrightarrow 2 - B$ swaps the two boundaries**.
-- How a stationary soliton trapped in front of the wall dresses the reflection amplitude for **solitonic boundaries** ($\prod_j C_j = +1$), generating the $a_2^{(1)}$ boundary bound-state tower $b_{n,m}$ and quantizing Lecture 3's vacuum modulus $\chi$ into a **quantum rotor** $b_{n,-n}$ with $E_n \sim \frac{n^2}{2I}$.
+- Why the half-line particle amplitudes were found by the **soliton detour** ($\text{Solitons} \to \text{Breathers} \to \text{Particles}$), and why one-loop agreement could not settle the boundary self-duality that earlier proposals assumed.
+- How **boundary unitarity and crossing-unitarity** constrain the infinite-product Gamma-function scalar factors $A(\mu)$ and $A^{(\pm)}(\mu)$ of the $a_n^{(1)}$ soliton reflection matrices up to CDD factors, and how **boundary fusion** onto the singlet breather $B_1 \subset V(\theta_a)\otimes \bar V(\theta_b)$ reduces those products to elementary hyperbolic blocks.
+- How analytic continuation $\omega \to -2/B$ gives the proposed real-coupling **particle reflection amplitudes** $K_a(\theta)$ for the **uniform boundary** ($C \equiv +1$, $\hat\epsilon = 0$) and $K_a^N(\theta)$ for the **Neumann boundary** ($C \equiv 0$, $\hat\epsilon_j = +\epsilon_*$), and why, with a CDD factor chosen for the purpose, **weak–strong duality $B \leftrightarrow 2 - B$ exchanges the two**.
+- How a stationary soliton held in front of the wall dresses the reflection amplitude for **solitonic boundaries** ($\prod_j C_j = +1$), generating the $a_2^{(1)}$ boundary bound-state tower $b_{n,m}$, whose diagonal states $b_{n,-n}$ have the **rotor-like** weak-coupling energies $\frac{n^2}{2I}$ suggested by Lecture 3's vacuum modulus $\chi$.
 - How **boundary Coleman–Thun diagrams** with reflection at a **zero** of an intermediate reflection factor lower a double pole to a simple pole with a negative residue $-i\operatorname{Res} K < 0$.
 :::
 
@@ -14,15 +14,15 @@
 
 In the bulk (Part IV of the book), the exact S-matrices $S_{ab}(\theta)$ of real-coupling affine Toda particles were found directly from the bulk bootstrap axioms and the minimal-pole assumption; only later were they recovered from the imaginary-coupling soliton S-matrices by fusing a soliton and an antisoliton into the lowest breather $B_1$ and analytically continuing $\beta^2 \to -\beta^2$.
 
-On the half-line, history tried the direct route first—and ran into a wall ([Chapter 36](book:sec-particle-reflection)):
+On the half-line, history tried the direct route first, and ran into a wall (the book's [breather and particle reflection amplitudes](book:sec-particle-reflection)):
 
-1. **Unknown boundary bound states:** Unlike the bulk, where the particle spectrum is visible in the quadratic part of the Lagrangian, a half-line theory can have a rich tower of boundary bound states whose poles sit in the physical strip $0 < \operatorname{Im}\theta < \frac{\pi}{2}$. Nothing in the classical Lagrangian tells you in advance which CDD factors to include!
-2. **The failure of naive self-duality:** In the early 1990s, several authors [@sasaki1993; @fring_koberle1994a; @kim1995] tried to fix the CDD ambiguity by assuming that, just like the bulk S-matrix $S_{ab}(\theta)$, the particle reflection amplitude $K_a(\theta)$ of a given boundary condition is **self-dual** under weak–strong coupling duality $\beta \leftrightarrow 4\pi/\beta$ ($B \leftrightarrow 2 - B$). Those self-dual formulas matched one-loop perturbation theory at $O(\beta^2)$, because any function of $B = \frac{2\beta^2}{\beta^2 + 4\pi} = \frac{\beta^2}{2\pi} - \frac{\beta^4}{8\pi^2} + \cdots$ that replaces $B$ by $\frac{1}{2}B(2-B)$ has the **exact same $O(\beta^2)$ derivative at $B = 0$**!
+1. **Unknown boundary bound states:** Unlike the bulk, where the particle spectrum is visible in the quadratic part of the Lagrangian, a half-line theory can have a rich tower of boundary bound states whose poles sit in the physical strip $0 < \operatorname{Im}\theta < \frac{\pi}{2}$. Nothing in the classical Lagrangian tells you in advance which CDD factors to include.
+2. **Self-duality as an assumption:** Early bootstrap constructions [@sasaki1993; @fring_koberle1994a] left the CDD and boundary-identification problem open. Kim computed Neumann reflection amplitudes to one loop and fixed the remaining freedom by assuming that, like the bulk S-matrix $S_{ab}(\theta)$, the reflection amplitude of a given boundary is **self-dual** under weak–strong duality $\beta \leftrightarrow 4\pi/\beta$ ($B \leftrightarrow 2 - B$) [@kim1995]; he noted that the earlier minimal $a_3^{(1)}$ factors do not agree with his one-loop result. As Gandenberger and Delius and Gandenberger point out, all these proposals assumed invariance under $B \to 2 - B$ [@gandenberger1999a; @delius_gandenberger1999]. One loop cannot test that assumption: since $B = \frac{2\beta^2}{\beta^2 + 4\pi} = \frac{\beta^2}{2\pi} - \frac{\beta^4}{8\pi^2} + \cdots$, replacing $B$ by $\frac{1}{2}B(2-B)$ in any amplitude makes it self-dual and leaves its $O(\beta^2)$ term unchanged (@exr-lec6-kim-oneloop).
 
-It was Corrigan [@corrigan1998], Gandenberger [@gandenberger1999a], and Delius and Gandenberger [@delius_gandenberger1999] who discovered the true path—our **Fifth Big Idea**:
+Corrigan observed in the rank-one case that the sinh-Gordon reflection factors are not self-dual, and that duality relates different boundary conditions [@corrigan1998]. Gandenberger, for $a_2^{(1)}$ [@gandenberger1999a], and Delius and Gandenberger, for all $a_n^{(1)}$ [@delius_gandenberger1999], conjectured that the Neumann amplitudes are the duals of the uniform ones. The book adds the coideal interpretation of the soliton side. Together these give our **Fifth Big Idea**:
 
 ::: {.callout-important appearance="simple" title="The Soliton–Breather–Particle Detour and Boundary Duality"}
-To find the exact quantum reflection amplitudes of real-coupling affine Toda particles, we must travel around a three-step square:
+To find the quantum reflection amplitudes of real-coupling affine Toda particles, we travel around a three-step square:
 $$
 \begin{array}{ccc}
 \text{Imaginary-coupling solitons } K_\mu(\theta) & \xrightarrow{\text{Boundary fusion}} & \text{Lowest breather } K_{B_1}(\mu) \\[6pt]
@@ -30,27 +30,27 @@ $$
 \text{Half-line non-local charges } b_j & & \text{Real-coupling particles } K_a(\theta)
 \end{array}
 $$
-When we carry out this program, we discover that **weak–strong duality $B \leftrightarrow 2 - B$ is not a symmetry of a single half-line boundary condition**: instead, it **swaps the uniform boundary ($C \equiv +1$, $\hat\epsilon = 0$) and the Neumann boundary ($C \equiv 0$, $\hat\epsilon_j = +\epsilon_*$)**!
+Carried out with the minimal scalar factor for $K = \mathbf{1}$, and with a CDD factor chosen for exact duality for $K_+$, this program gives two sets of particle amplitudes that are exchanged exactly by $B \leftrightarrow 2 - B$. Under the conjectured dictionary of Lecture 5 they belong to the uniform boundary ($C \equiv +1$, $\hat\epsilon = 0$) and the Neumann boundary ($C \equiv 0$, $\hat\epsilon_j = +\epsilon_*$). On this reading, **weak–strong duality is not a symmetry of a single half-line boundary condition; it exchanges two of them**. The physical identification rests on the continuation conjecture and on the dictionary, not on the algebra alone.
 :::
 
 ---
 
 ## Blackboard Calculation 1: From Soliton Scalar Factors to Breather and Particle Amplitudes
 
-Let us carry out the soliton-to-particle calculation on the blackboard for the $a_n^{(1)}$ theories ($h = n + 1$), following [Section 34.4](book:sec-an-diagonal-k)–[34.5](book:sec-an-nondiagonal-k) and [Section 36.1](book:sec-breather-reflection)–[36.4](book:sec-neumann-duality).
+Let us carry out the soliton-to-particle calculation on the blackboard for the $a_n^{(1)}$ theories ($h = n + 1$), following the book's sections on [diagonal](book:sec-an-diagonal-k) and [non-diagonal](book:sec-an-nondiagonal-k) $a_n$ reflection matrices, [breather reflection amplitudes](book:sec-breather-reflection), the [uniform boundary](book:sec-uniform-boundary) and the [Neumann boundary and duality](book:sec-neumann-duality).
 
 ### Step 1: The Diagonal Soliton Reflection Matrix ($\hat\epsilon = 0$) and Its Scalar Factor
 
-For $\hat\epsilon = 0$, the matrix part of the soliton reflection matrix $V(\theta) \to \bar V(-\theta)$ is the identity matrix $\mathbf{1} : |v_i\rangle \mapsto |\bar v_i\rangle$ ([eq. 34.3](book:eq-an-diagonal-k)):
+For $\hat\epsilon = 0$, the matrix part of the soliton reflection matrix $V(\theta) \to \bar V(-\theta)$ is the identity matrix $\mathbf{1} : |v_i\rangle \mapsto |\bar v_i\rangle$ (the book's [diagonal reflection matrix](book:eq-an-diagonal-k)):
 $$
 K(\theta) = A(\mu)\,\mathbf{1}, \qquad \mu = -\frac{i T\theta}{\pi}, \qquad T = \frac{h\omega}{2}.
 $$
-What fixes the scalar factor $A(\mu)$? Boundary unitarity and boundary crossing-unitarity ([eq. 34.4](book:eq-an-diagonal-scalar-eqs))! Because $\mathbf{1}$ sends every soliton $|v_i\rangle$ to its own antisoliton $|\bar v_i\rangle$, the boundary-state vector $\sum_i |\bar v_i\rangle \otimes |v_i\rangle$ is acted on by the crossed bulk S-matrix with the identical-soliton scalar factor $F_{11}(2\mu)$:
+What constrains the scalar factor $A(\mu)$? Boundary unitarity and boundary crossing-unitarity (the book's [functional equations](book:eq-an-diagonal-scalar-eqs)). Because $\mathbf{1}$ sends every soliton $|v_i\rangle$ to its own antisoliton $|\bar v_i\rangle$, the crossed boundary-state vector is $\sum_i |\bar v_i\rangle \otimes |\bar v_i\rangle \in \bar V\otimes\bar V$. The crossed bulk S-matrix acts on it only through its identical-soliton scalar factor $F_{11}(2\mu)$, because the braid matrix $\check R_{\bar V\bar V}$, normalized to 1 on identical solitons, fixes every $|\bar v_i\rangle \otimes |\bar v_i\rangle$ (checked in `code/lectures/halfline_l6_f1_particles_duality.py`):
 $$
 A(\mu)\,A(-\mu) = 1, \qquad
 \frac{A\big(-\mu + \frac{h}{4}\omega\big)}{A\big(\mu + \frac{h}{4}\omega\big)} = F_{11}(2\mu).
 $$
-Just as in Lecture 1, taking logarithms or using the Gamma-function reflection identity $\Gamma(z)\Gamma(1-z) = \frac{\pi}{\sin\pi z}$ yields Delius and Gandenberger's minimal infinite-product solution ([eq. 34.5](book:eq-an-diagonal-scalar), [Proposition 34.3](book:prp-an-diagonal-scalar)):
+These two equations fix $A$ only up to CDD factors: any $\sigma(\mu)$ with $\sigma(\mu)\sigma(-\mu) = 1$ and $\sigma(-\mu + \frac h4\omega) = \sigma(\mu + \frac h4\omega)$ can multiply a solution. Delius and Gandenberger chose the minimal solution, an infinite product of Gamma functions [@delius_gandenberger1999]; the book checks numerically for $n = 2, 3, 4$ that it satisfies both equations ([diagonal scalar factor](book:prp-an-diagonal-scalar)):
 $$
 A(\mu) = \Big(-\frac{h}{4}\omega\Big)_I \prod_{k=1}^\infty \frac{G_{2k}\big(2\mu, -\frac{3}{2}h\omega + 1\big)\,G_{2k}\big(2\mu, -\frac{1}{2}h\omega\big)}{G_{2k}\big(2\mu, -\frac{3}{2}n\omega - \frac{1}{2}\omega + 1\big)\,G_{2k}\big(2\mu, -\frac{1}{2}n\omega - \frac{3}{2}\omega\big)},
 $$
@@ -58,11 +58,11 @@ where $G_j(\mu, a) = \frac{\Gamma(\mu + j h\omega + a)}{\Gamma(-\mu + j h\omega 
 $$
 (a)_I = \frac{\sin\frac{\pi(\mu + a)}{h\omega}}{\sin\frac{\pi(\mu - a)}{h\omega}} = \frac{\sinh\big(\frac{\theta}{2} + \frac{i\pi a}{h\omega}\big)}{\sinh\big(\frac{\theta}{2} - \frac{i\pi a}{h\omega}\big)}.
 $$
-Notice that in terms of the standard real-coupling block $(x) = \frac{\sinh(\frac{\theta}{2} + \frac{i\pi x}{2h})}{\sinh(\frac{\theta}{2} - \frac{i\pi x}{2h})}$ of Lecture 1 ([eq. 29.10](book:eq-blocks)), $(a)_I$ is simply $(2a/\omega)$!
+Notice that in terms of the standard real-coupling block $(x) = \frac{\sinh(\frac{\theta}{2} + \frac{i\pi x}{2h})}{\sinh(\frac{\theta}{2} - \frac{i\pi x}{2h})}$ of Lecture 1 (the book's [blocks](book:eq-blocks)), $(a)_I$ is simply $(2a/\omega)$.
 
 ### Step 2: Boundary Fusion onto the Lowest Breather $B_1$
 
-Now let a fundamental soliton $V(\mu_a)$ and an antisoliton $\bar V(\mu_b)$ fuse into the **lowest breather $B_1(\mu)$**, which is the $U_q(\hat g)$-singlet state in $V(\mu_a) \otimes \bar V(\mu_b)$ at rapidities ([Section 36.1](book:sec-breather-reflection)):
+Now let a fundamental soliton $V(\mu_a)$ and an antisoliton $\bar V(\mu_b)$ fuse into the **lowest breather $B_1(\mu)$**, which is the $U_q(\hat g)$-singlet state in $V(\mu_a) \otimes \bar V(\mu_b)$ at rapidities (the book's [breather reflection amplitudes](book:sec-breather-reflection)):
 $$
 \mu_a = \mu - \Big(\frac{h\omega}{4} - \frac{1}{2}\Big), \qquad
 \mu_b = \mu + \Big(\frac{h\omega}{4} - \frac{1}{2}\Big).
@@ -77,7 +77,7 @@ Therefore, the breather reflection amplitude is simply the scalar product
 $$
 K_{B_1}(\mu) = A\Big(\mu - \frac{h\omega}{4} + \frac{1}{2}\Big)\,F_{11}(2\mu)\,A\Big(\mu + \frac{h\omega}{4} - \frac{1}{2}\Big).
 $$
-Use the crossing-unitarity equation $F_{11}(2\mu) = \frac{A(-\mu + \frac{h}{4}\omega)}{A(\mu + \frac{h}{4}\omega)}$ to substitute for $F_{11}(2\mu)$: every single infinite product of Gamma functions $G_{2k}$ telescopes through $\Gamma(z+1) = z\Gamma(z)$ and $\Gamma(z)\Gamma(1-z) = \frac{\pi}{\sin\pi z}$ into **three elementary trigonometric blocks** ([eq. 36.1](book:eq-breather-k-imaginary), [Proposition 36.1](book:prp-breather-amplitude)):
+Use the crossing-unitarity equation $F_{11}(2\mu) = \frac{A(-\mu + \frac{h}{4}\omega)}{A(\mu + \frac{h}{4}\omega)}$ to substitute for $F_{11}(2\mu)$. Delius and Gandenberger showed that, for the minimal $A$, the infinite products of Gamma functions then cancel, through $\Gamma(z+1) = z\Gamma(z)$ and $\Gamma(z)\Gamma(1-z) = \frac{\pi}{\sin\pi z}$, and leave **three elementary trigonometric blocks** [@delius_gandenberger1999] (the book's [lowest-breather reflection amplitude](book:prp-breather-amplitude), whose scalar identity the book also checks numerically for $n = 1, 2, 3$). We do not repeat the Gamma-function algebra here. A CDD factor $\sigma$ in $A$ would multiply the result by $\sigma(\mu_a)\sigma(\mu_b)$:
 $$
 \boxed{K_{B_1}(\mu) = \Big(-\frac{n}{2}\omega\Big)_I \Big(\frac{1}{2} - \frac{h}{2}\omega\Big)_I \Big(-\frac{\omega}{2} - \frac{1}{2}\Big)_I.}
 $$
@@ -88,17 +88,17 @@ Now continue from imaginary coupling to real coupling ($\beta^2 \to -\beta^2$), 
 $$
 \omega \;\longrightarrow\; -\frac{4\pi}{\beta^2} - 1 = -\frac{2}{B}, \qquad B(\beta) = \frac{2\beta^2}{\beta^2 + 4\pi} \in (0, 2).
 $$
-Since $(a)_I = (2a/\omega)$, replacing $\omega \to -2/B$ turns every imaginary-coupling block $(a)_I$ into the real-coupling block $(-a B)$! Let us apply this rule to the three blocks of $K_{B_1}(\mu)$:
+Since $(a)_I = (2a/\omega)$, replacing $\omega \to -2/B$ turns every imaginary-coupling block $(a)_I$ into the real-coupling block $(-a B)$, where $a$ may itself depend on $\omega$. Let us apply this rule to the three blocks of $K_{B_1}(\mu)$:
 
 1. $\big(-\frac{n}{2}\omega\big)_I = (-n)_{\text{block}} = (h - 1)^{-1}$ (since $(-x) = (x)^{-1}$ and $n = h - 1$),
-2. $\big(\frac{1}{2} - \frac{h}{2}\omega\big)_I \to \big(-\frac{B}{2} + h\big) = \big(h - \frac{B}{2}\big)$,
+2. $\big(\frac{1}{2} - \frac{h}{2}\omega\big)_I \to \big(-h - \frac{B}{2}\big) = \big(h - \frac{B}{2}\big)$, since $\frac{2}{\omega}\big(\frac12 - \frac h2\omega\big) = \frac1\omega - h \to -\frac B2 - h$, and the blocks have period $2h$: $(x + 2h) = (x)$,
 3. $\big(-\frac{\omega}{2} - \frac{1}{2}\big)_I \to \big(-1 + \frac{B}{2}\big) = \big(1 - \frac{B}{2}\big)^{-1}$.
 
-Multiplying the three factors gives the lightest particle reflection amplitude ([eq. 36.3](book:eq-breather-continuation)):
+Multiplying the three factors gives the continued amplitude of the lightest particle (the book's [continued breather amplitude](book:eq-breather-continuation)):
 $$
 \boxed{K_1(\theta) = \frac{\big(h - \frac{B}{2}\big)}{(h - 1)\,\big(1 - \frac{B}{2}\big)}.}
 $$
-And iterating the bulk boundary bootstrap $K_{a+b}(\theta) = K_a\big(\theta + \frac{i\pi b}{h}\big)\,S_{ab}\big(2\theta + \frac{i\pi(b-a)}{h}\big)\,K_b\big(\theta - \frac{i\pi a}{h}\big)$ produces the reflection amplitude for every particle $a = 1, \dots, n$ ([eq. 36.4](book:eq-uniform-amplitude), [Proposition 36.2](book:prp-uniform-amplitude)):
+And iterating the bulk boundary bootstrap $K_{a+b}(\theta) = K_a\big(\theta + \frac{i\pi b}{h}\big)\,S_{ab}\big(2\theta + \frac{i\pi(b-a)}{h}\big)\,K_b\big(\theta - \frac{i\pi a}{h}\big)$ gives the amplitude for every particle $a = 1, \dots, n$ [@delius_gandenberger1999] (the book's [uniform amplitude](book:eq-uniform-amplitude); the book checks its bootstrap, unitarity and crossing numerically for $n \le 7$, [properties of the uniform amplitude](book:prp-uniform-amplitude)):
 $$
 \boxed{K_a(\theta) = \prod_{c=1}^a \frac{(c - 1)\,\big(h + 1 - c - \frac{B}{2}\big)}{(h - c)\,\big(c - \frac{B}{2}\big)}.}
 $$
@@ -108,19 +108,19 @@ $$
 \lim_{B\to 0} K_a(\theta) = \prod_{c=1}^a \frac{(c - 1)\,(h + 1 - c)}{(h - c)\,(c)}
 = \frac{(0)\,(h)}{(h - a)\,(a)} = -\frac{1}{(a)\,(h - a)},
 $$
-since $(0) = +1$ and $(h) = \frac{\sinh(\theta/2 + i\pi/2)}{\sinh(\theta/2 - i\pi/2)} = -1$. Look back at Lecture 3 ([eq. 32.16](book:eq-linear-reflection)): $-\frac{1}{(a)(h-a)}$ is the **exact classical linearized reflection factor of the uniform boundary $C_j \equiv +1$**! The soliton detour with $\hat\epsilon = 0$ ($K = \mathbf{1}$) has landed squarely on the uniform boundary $C \equiv +1$!
+since $(0) = +1$ and $(h) = \frac{\sinh(\theta/2 + i\pi/2)}{\sinh(\theta/2 - i\pi/2)} = -1$. Look back at Lecture 3 (the book's [linearized reflection factors](book:eq-linear-reflection)): $-\frac{1}{(a)(h-a)}$ is the **classical linearized reflection factor of the uniform boundary $C_j \equiv +1$**. So the classical limit of the amplitude obtained from $K = \mathbf{1}$ ($\hat\epsilon = 0$) agrees with the uniform boundary. That $K_a$ is the uniform boundary's amplitude at finite coupling is the book's [continuation conjecture](book:cnj-reflection-continuation), applied with the dictionary of Lecture 5.
 
 ---
 
 ## Blackboard Calculation 2: The Non-Diagonal $s = +1$ Matrix, the Neumann Boundary, and Weak–Strong Duality
 
-Now let us do the exact same calculation for the non-diagonal Toeplitz soliton reflection matrix $K_+(y)$ ($s = +1$, where $\hat\epsilon_j = +\epsilon_*$ for all $j$, [Section 34.5](book:sec-an-nondiagonal-k) and [Section 36.4](book:sec-neumann-duality)).
+Now let us do the same calculation for the non-diagonal Toeplitz soliton reflection matrix $K_+(y)$ ($s = +1$, where $\hat\epsilon_j = +\epsilon_*$ for all $j$; see the book's [non-diagonal $a_n$ reflection matrices](book:sec-an-nondiagonal-k) and [Neumann boundary and duality](book:sec-neumann-duality)).
 
-1. **Matrix projection onto the singlet breather:** When the singlet state $v_{\text{sing}} \in V(\theta_a) \otimes \bar V(\theta_b)$ reflects via $(1 \otimes K_V(\theta_a))\,\check R_{VV}(2\theta)\,(1 \otimes K_{\bar V}(\theta_b))$ (where $K_{\bar V} = K_V^T$), the matrix part no longer acts as $1$: instead, it maps $v_{\text{sing}}$ to $c_+(\mu)\,v_{\text{sing}}$ where ([Proposition 34.5](book:prp-an-nondiagonal-scalar), verified in `code/lectures/halfline_l6_f1_particles_duality.py`):
+1. **Matrix projection onto the singlet breather:** When the singlet state $v_{\text{sing}} \in V(\theta_a) \otimes \bar V(\theta_b)$ reflects via $(1 \otimes K_V(\theta_a))\,\check R_{VV}(2\theta)\,(1 \otimes K_{\bar V}(\theta_b))$ (where $K_{\bar V} = K_V^T$), the matrix part no longer acts as $1$: instead, it maps $v_{\text{sing}}$ to $c_+(\mu)\,v_{\text{sing}}$, where (the book's [scalar factors of the matrices with $s = \pm1$](book:prp-an-nondiagonal-scalar), checked there for $n = 2, 3, 4$; the script `code/lectures/halfline_l6_f1_particles_duality.py` tests the $a_2^{(1)}$ case)
    $$
    c_+(\mu) = -\frac{\cos\pi\mu\,\cos\pi\big(\mu + \frac{\omega}{2}\big)\,\cos\pi(\mu - T)}{\sin^2\frac{\pi\omega}{2}\,\cos\pi\big(\mu - \frac{\omega}{2}\big)}.
    $$
-2. **Combining with the scalar factor $A^{(+)}(\mu)$:** Multiplying by $A^{(+)}(\mu_a)\,F_{11}(2\mu)\,A^{(+)}(\mu_b)$ (where $A^{(+)}(\mu)$ solves $A^{(+)}(\mu)A^{(+)}(-\mu)U_+ = 1$ and $\frac{A^{(+)}(T/2-\mu)}{A^{(+)}(T/2+\mu)} = \frac{F_{11}(2\mu)}{\Psi_+(\mu)}$ with the CDD factor $P_{\omega/2} = (\frac{T}{2}-\frac{\omega}{2})_I(\frac{T}{2}+\frac{\omega}{2})_I$) telescopes the breather amplitude to ([eq. 34.9](book:eq-an-neumann-breather)):
+2. **Combining with the scalar factor $A^{(+)}(\mu)$:** The scalar factor must satisfy boundary unitarity and crossing-unitarity, $A^{(+)}(\mu)A^{(+)}(-\mu)U_+ = 1$ and $\frac{A^{(+)}(T/2-\mu)}{A^{(+)}(T/2+\mu)} = \frac{F_{11}(2\mu)}{\Psi_+(\mu)}$. These equations fix $A^{(+)}$ only up to CDD factors: every $P_x = (\frac{T}{2}-x)_I(\frac{T}{2}+x)_I$ is unitary and crossing-symmetric by itself. The book's $A^{(+)}$ contains the factor $P_{\omega/2} = (\frac{T}{2}-\frac{\omega}{2})_I(\frac{T}{2}+\frac{\omega}{2})_I$, chosen because it makes the continued result exactly dual to the uniform amplitude (see below). With this $A^{(+)}$, the book finds numerically, for $n = 2, 3, 4$, that $A^{(+)}(\mu_a)\,F_{11}(2\mu)\,A^{(+)}(\mu_b)\,c_+(\mu)$ reduces to three blocks (the book's [Neumann breather amplitude](book:eq-an-neumann-breather)):
    $$
    K_{B_1}^{(+)}(\mu) = \Big(-\frac{n}{2}\omega\Big)_I \Big(\frac{n}{2}\omega - \frac{1}{2}\Big)_I \Big(\frac{1}{2}\Big)_I.
    $$
@@ -129,104 +129,115 @@ Now let us do the exact same calculation for the non-diagonal Toeplitz soliton r
    \Big(-\frac{n}{2}\omega\Big)_I \Big(\frac{n}{2}\omega - \frac{1}{2}\Big)_I \Big(\frac{1}{2}\Big)_I
    \;\xrightarrow{\omega \to -2/B}\;
    (-n)\,\Big(n + \frac{B}{2}\Big)\,\Big(-\frac{B}{2}\Big)
-   = \frac{\big(h - 1 + \frac{B}{2}\big)}{(h - 1)\,\big(\frac{B}{2}\big)} \equiv K_1^N(\theta)!
+   = \frac{\big(h - 1 + \frac{B}{2}\big)}{(h - 1)\,\big(\frac{B}{2}\big)} \equiv K_1^N(\theta).
    $$
-   And iterating the bulk boundary bootstrap gives the full multiplet of **Neumann particle reflection amplitudes** ([eq. 36.5](book:eq-neumann-amplitude), [Conjecture 36.2](book:cnj-neumann-amplitude)):
+   Iterating the bulk boundary bootstrap gives the proposed **Neumann particle reflection amplitudes** (the book's [Neumann amplitude](book:eq-neumann-amplitude), stated as a [conjecture](book:cnj-neumann-amplitude)). Gandenberger had obtained $K_1^N$ this way for $a_2^{(1)}$ [@gandenberger1999a], and Delius and Gandenberger had proposed the general formula as the dual of the uniform amplitude [@delius_gandenberger1999]:
    $$
    \boxed{K_a^N(\theta) = \prod_{c=1}^a \frac{(c - 1)\,\big(h - c + \frac{B}{2}\big)}{(h - c)\,\big(c - 1 + \frac{B}{2}\big)}.}
    $$
 
-Look at $K_a^N(\theta)$ and compare it term-by-term with the uniform amplitude $K_a(\theta)$ of [eq. 36.4](book:eq-uniform-amplitude):
+Look at $K_a^N(\theta)$ and compare it term-by-term with the uniform amplitude $K_a(\theta)$ of Blackboard Calculation 1:
 
 - In $K_a(\theta)$, the $B$-dependent blocks are $\frac{(h + 1 - c - B/2)}{(c - B/2)}$.
-- If we replace $B \mapsto 2 - B$, then $h + 1 - c - \frac{2-B}{2} = h - c + \frac{B}{2}$ and $c - \frac{2-B}{2} = c - 1 + \frac{B}{2}$!
-- Therefore:
+- If we replace $B \mapsto 2 - B$, then $h + 1 - c - \frac{2-B}{2} = h - c + \frac{B}{2}$ and $c - \frac{2-B}{2} = c - 1 + \frac{B}{2}$.
+- Therefore, as an exact identity between the two formulas:
   $$
-  \boxed{K_a^N(\theta; B) = K_a(\theta; 2 - B)!}
+  \boxed{K_a^N(\theta; B) = K_a(\theta; 2 - B).}
   $$
 - And as $B \to 0$, every factor in $K_a^N(\theta; B)$ cancels cleanly:
   $$
   \lim_{B\to 0} K_a^N(\theta; B) = \prod_{c=1}^a \frac{(c - 1)\,(h - c)}{(h - c)\,(c - 1)} = +1,
   $$
-  which is the **exact classical linearized reflection factor of the Neumann boundary $C_j \equiv 0$** (and at $O(\beta^2)$ reproduces Kim's one-loop Neumann amplitudes [@kim1995])!
+  which is the **classical linearized reflection factor of the Neumann boundary $C_j \equiv 0$**. At $O(\beta^2)$, $K_a^N$ agrees with the one-loop Neumann expressions in the explicitly checked $a_2^{(1)}$ and $a_3^{(1)}$ cases, discussed by Kim and by Gandenberger [@kim1995; @gandenberger1999a]. One loop does not fix the higher orders or the CDD factor (@exr-lec6-kim-oneloop).
 
-What about the third soliton reflection matrix, $s = -1$ ($\prod_j(\hat\epsilon_j/\epsilon_*) = -1$)? Its continued breather amplitude gives ([Section 36.4](book:sec-neumann-duality)):
+**Where the CDD choice enters.** A CDD factor $P_x$ in $A^{(+)}$ multiplies the breather amplitude by $P_x(\mu_a)P_x(\mu_b)$. After continuation, with $\chi = 2x/\omega$ and the shift identity $(z)(\theta+iv)\,(z)(\theta-iv) = (z + \frac{hv}{\pi})(z - \frac{hv}{\pi})$ at $v = \pi\big(\frac12 + \frac{B}{2h}\big)$, this factor becomes
 $$
-K_a^{(-)}(\theta; B) = -(a)\,(h - a)\,K_a(\theta; B) = \frac{K_a(\theta; B)}{K_a^{\rm cl}(\theta)},
+D(\chi) = \Big(h + \chi + \frac B2\Big)\Big(\chi - \frac B2\Big)\Big(h - \chi + \frac B2\Big)\Big(-\chi - \frac B2\Big).
 $$
-whose weak–strong dual $-(a)(h-a)\,K_a^N(\theta; B)$ is the amplitude conjectured by Corrigan, Dorey, Rietdijk, and Sasaki [@cdrs1994] for $C \equiv -1$!
+At $B = 0$, $D(\chi) = 1$ for every $\chi$, since $(-x) = (x)^{-1}$ and $(h + \chi) = (\chi - h) = (h - \chi)^{-1}$ by the period $2h$. The choice $P_{\omega/2}$ has $\chi = 1$, and it is already contained in $K_1^N$ above. Replacing it by $P_{(\omega+1)/2}$, which is also unitary and crossing-symmetric, moves $\chi$ to $1 - \frac B2$ and multiplies $K_1^N$ by $D(1 - \frac B2)/D(1) = 1 + O(B^2)$. That alternative has the same classical limit and the same one-loop term as $K_1^N$, but it is not dual to the uniform amplitude. So neither test selects $P_{\omega/2}$: the CDD factor is chosen to make the duality exact, and the Neumann identification remains conjectural. The script checks $D(\chi)$, $D = 1$ at $B = 0$, and the nonzero $O(B^2)$ difference.
+
+What about the third soliton reflection matrix, $s = -1$ ($\prod_j(\hat\epsilon_j/\epsilon_*) = -1$)? With the book's scalar factor for $s = -1$ (taken without a CDD factor), its continued breather amplitude gives, numerically for $n \le 4$ (the book's [Neumann boundary and duality](book:sec-neumann-duality), "The third matrix"),
+$$
+K_a^{(-)}(\theta; B) = -(a)\,(h - a)\,K_a(\theta; B) = \frac{K_a(\theta; B)}{K_a^{\rm cl}(\theta)}, \qquad K_a^{\rm cl}(\theta) = -\frac{1}{(a)(h-a)}.
+$$
+Its weak–strong dual $-(a)(h-a)\,K_a^N(\theta; B)$ is, as the book checks for $n \le 7$, the amplitude that Corrigan, Dorey, Rietdijk and Sasaki proposed for $C \equiv -1$ [@cdrs1994]. No boundary condition is known for $s = -1$.
 
 ---
 
-## Solitonic Boundaries, the $a_2^{(1)}$ Bound-State Spectrum, and the Quantum Rotor
+## Solitonic Boundaries, the $a_2^{(1)}$ Bound-State Spectrum, and a Rotor-Like Tower
 
-What happens when the classical boundary parameters $C_j \in \{\pm 1\}$ satisfy $\prod_{j=0}^n C_j = +1$, but are **not** all $+1$ (for instance, the three solitonic patterns $(+--)$, $(-+-)$, $(--+)$ of $a_2^{(1)}$, [Section 36.5](book:sec-solitonic-boundaries) and [Section 36.6](book:sec-boundary-spectrum-a2))?
+What happens when the classical boundary parameters $C_j \in \{\pm 1\}$ satisfy $\prod_{j=0}^n C_j = +1$, but are **not** all $+1$ (for instance, the three solitonic patterns $(+--)$, $(-+-)$, $(--+)$ of $a_2^{(1)}$; see the book's [solitonic boundary conditions](book:sec-solitonic-boundaries) and [boundary spectrum of $a_2$](book:sec-boundary-spectrum-a2))?
 
-Recall from Lecture 3 that for these patterns, $\vec\phi = \vec 0$ is not a solution: the classical ground state is a **non-constant vacuum** obtained by trapping a stationary imaginary-coupling soliton of fundamental weight $\vec\lambda \in \Lambda_b$ in front of a uniform ($C \equiv +1$) wall and continuing $\beta \to -i\beta$!
+Recall from Lecture 3 that for these patterns, $\vec\phi = \vec 0$ is not a solution. The vacuum used here is a **non-constant background** built as follows. Start with the stationary imaginary-coupling soliton, whose topological charge $\vec\lambda$ is a weight of the fundamental representation $\Lambda_b$, and its mirror at the uniform ($C \equiv +1$) wall, including the vacuum shift of the mirror construction. Continuing this solution, $\beta \to -i\beta$, gives a real stationary background, and the branch of the continued field turns the boundary signs into the solitonic pattern. That this background is the ground state is believed, not proved (the book's [continuation assumptions](book:sec-continuation-assumptions)).
 
-By factorized scattering ([Section 36.5](book:sec-solitonic-boundaries)), a particle $a$ reflecting off this solitonic vacuum simply passes through the stationary soliton, reflects off the uniform wall with $K_a(\theta)$, and passes back through the stationary soliton! Continuing the breather–soliton S-matrix to real coupling dresses $K_a(\theta)$ by the **solitonic factor** $M_a^{(b)}(\theta)$ ([eq. 36.6](book:eq-solitonic-factor), [Proposition 36.3](book:prp-solitonic-amplitude)):
+At imaginary coupling, factorized scattering then motivates the amplitude: a breather reflecting off this configuration passes through the stationary soliton, reflects off the uniform wall, and passes back through the soliton. Continuing the breather–soliton S-matrix to real coupling dresses $K_a(\theta)$ by the **solitonic factor** $M_a^{(b)}(\theta)$ of Delius and Gandenberger [@delius_gandenberger1999] (the book's [solitonic factor](book:eq-solitonic-factor); its axioms are checked numerically for $n = 2, \dots, 6$ in [properties of the solitonic amplitudes](book:prp-solitonic-amplitude), and its identification with the solitonic boundary assumes the continuation conjecture):
 $$
 K_a^{(b)}(\theta) = K_a(\theta)\,M_a^{(b)}(\theta), \qquad
 M_a^{(b)}(\theta) = \prod_{k=1}^a \frac{\big(a + b + \frac{h}{2} - 2k + \frac{B}{2}\big)\,\big(b - a - \frac{h}{2} + 2k - \frac{B}{2}\big)}{\big(a + b - \frac{h}{2} - 2k + \frac{B}{2}\big)\,\big(b - a + \frac{h}{2} + 2k - \frac{B}{2}\big)}.
 $$
 
-### The $a_2^{(1)}$ Bound-State Lattice $b_{n,m}$ and the Quantized Vacuum Rotor
+### The $a_2^{(1)}$ Bound-State Lattice $b_{n,m}$ and the Rotor-Like Diagonal Tower
 
-Let us specialize to our laboratory $a_2^{(1)}$ ($h = 3$, $a = b = 1$, [Section 36.6](book:sec-boundary-spectrum-a2)). Here the ground-state reflection amplitude $K_1^{b_{0,0}}(\theta) = K_2^{b_{0,0}}(\theta)$ is
+Let us specialize to our laboratory $a_2^{(1)}$ ($h = 3$, $a = b = 1$; the book's [boundary spectrum of $a_2$](book:sec-boundary-spectrum-a2)). Here the ground-state reflection amplitude $K_1^{b_{0,0}}(\theta) = K_2^{b_{0,0}}(\theta)$ is
 $$
 K_1^{b_{0,0}}(\theta) = K_1(\theta)\,\Big(\tfrac{1}{2} - \tfrac{B}{2}\Big)\Big(\tfrac{3}{2} - \tfrac{B}{2}\Big)\Big(\tfrac{3}{2} + \tfrac{B}{2}\Big)\Big(\tfrac{5}{2} + \tfrac{B}{2}\Big).
 $$
-Look at the first two blocks: for $0 < B < 1$, both $\big(\frac{1}{2} - \frac{B}{2}\big)$ and $\big(\frac{3}{2} - \frac{B}{2}\big)$ have poles inside the physical strip $0 < \operatorname{Im}\theta < \frac{\pi}{2}$ (which corresponds to block labels $0 < x < \frac{3}{2}$)!
+Look at the first two blocks: for $0 < B < 1$, both $\big(\frac{1}{2} - \frac{B}{2}\big)$ and $\big(\frac{3}{2} - \frac{B}{2}\big)$ have poles inside the physical strip $0 < \operatorname{Im}\theta < \frac{\pi}{2}$ (which corresponds to block labels $0 < x < \frac{3}{2}$).
 
-Iterating the boundary bootstrap $K_a^{|\beta\rangle}(\theta) = K_a^{|\alpha\rangle}(\theta)\,S_{ab}(\theta - iv)\,S_{ab}(\theta + iv)$ at these poles generates a two-dimensional lattice of excited boundary states $b_{n,m}$ ($n + m \ge 0$), where $n$ and $m$ count bound particles of species $1$ and $2$, with reflection amplitudes ([eq. 36.7](book:eq-a2-excited), [Proposition 36.4](book:prp-a2-excited)):
+Iterating the boundary bootstrap $K_a^{|\beta\rangle}(\theta) = K_a^{|\alpha\rangle}(\theta)\,S_{ab}(\theta - iv)\,S_{ab}(\theta + iv)$ at these poles generates a two-dimensional lattice of excited boundary states $b_{n,m}$ ($n + m \ge 0$) [@delius_gandenberger1999]. For nonnegative indices, $n$ and $m$ count the successive bindings of particles of species $1$ and $2$. Negative labels describe states reached along the diagonal bootstrap paths $b_{0,0} \to b_{-1,1} \to b_{-2,2} \to \cdots$ and $b_{0,0} \to b_{1,-1} \to b_{2,-2} \to \cdots$; they are not negative numbers of particles. The bound $n + m \ge 0$ keeps every state above the ground state. The reflection amplitudes are (the book's [excited-state amplitudes](book:eq-a2-excited), checked numerically for $-3 \le n, m \le 3$ in [the excited-state proposition](book:prp-a2-excited)):
 $$
 \begin{aligned}
 K_1^{b_{n,m}}(\theta) = K_1(\theta)\,&\Big(\tfrac{1}{2} - (2n+1)\tfrac{B}{2}\Big)\Big(\tfrac{5}{2} + (2m+1)\tfrac{B}{2}\Big)\;\Big(\tfrac{1}{2} - (2n-1)\tfrac{B}{2}\Big)\Big(\tfrac{5}{2} + (2m-1)\tfrac{B}{2}\Big) \\
 \times\,&\Big(\tfrac{3}{2} + (2n-1)\tfrac{B}{2}\Big)\Big(\tfrac{3}{2} - (2m-1)\tfrac{B}{2}\Big)\;\Big(-\tfrac{5}{2} + (2n+1)\tfrac{B}{2}\Big)\Big(-\tfrac{1}{2} - (2m+1)\tfrac{B}{2}\Big),
 \end{aligned}
 $$
-and excitation energies ([eq. 36.8](book:eq-a2-energies)):
+and excitation energies (the book's [energy formula](book:eq-a2-energies)):
 $$
 \boxed{e_{b_{n,m}} - e_{b_{0,0}} = m_1\big[F(n) + F(m)\big], \qquad
 F(k) = \frac{\sin k\delta\,\cos\big(\frac{\pi}{6} - k\delta\big)}{\sin\delta}, \qquad
 \delta = \frac{\pi B}{6}.}
 $$
+The amplitudes and the energy formula are defined for every integer label, but the physical spectrum at fixed $B$ is finite. Delius and Gandenberger find [@delius_gandenberger1999]
+$$
+b_{n,m}\ \text{with}\ n + m > 0:\quad |n|, |m| < \frac{1}{2B} + \frac12; \qquad b_{n,-n},\ b_{-n,n}:\quad 0 \le n < \frac{3}{2B} + \frac12 .
+$$
+These bounds come from the physical-strip bootstrap, not from positivity of the energy. For the positive labels they say that the pole creating the state lies in the strip: $b_{n+1,m}$ is created from $b_{n,m}$ at $\theta = \frac{i\pi}{3}\big(\frac12 - (2n+1)\frac B2\big)$, which is in the strip exactly when $n + 1 < \frac{1}{2B} + \frac12$, and $b_{-n-1,n+1}$ is created from $b_{-n,n}$ at $\theta = \frac{i\pi}{3}\big(\frac32 - (2n+1)\frac B2\big)$, in the strip exactly when $n + 1 < \frac{3}{2B} + \frac12$.
 
 Now look at the **diagonal tower of states $b_{n,-n}$** ($m = -n$, plotted in red/orange/purple in the right panel of @fig-lec6-particles-duality):
 $$
 e_{b_{n,-n}} - e_{b_{0,0}} = m_1\big[F(n) + F(-n)\big]
 = m_1\,\frac{\sin(n\delta)\big[\cos(\frac{\pi}{6} - n\delta) - \cos(\frac{\pi}{6} + n\delta)\big]}{\sin\delta}
-= m_1\,\frac{\sin^2(n\delta)}{\sin\delta}!
+= m_1\,\frac{\sin^2(n\delta)}{\sin\delta}.
 $$
 Expand this energy as $\beta \to 0$ ($B \approx \frac{\beta^2}{2\pi} \to 0$, so $\delta = \frac{\pi B}{6} \to 0$):
 $$
-e_{b_{n,-n}} - e_{b_{0,0}} \;\underset{B\to 0}{\longrightarrow}\; m_1 \delta\,n^2 = m_1\frac{\pi B}{6}\,n^2 \approx \frac{\beta^2 m_1}{12}\,n^2 = \frac{n^2}{2I}, \qquad I = \frac{6}{\beta^2 m_1}!
+e_{b_{n,-n}} - e_{b_{0,0}} \;\underset{B\to 0}{\longrightarrow}\; m_1 \delta\,n^2 = m_1\frac{\pi B}{6}\,n^2 \approx \frac{\beta^2 m_1}{12}\,n^2 = \frac{n^2}{2I}, \qquad I = \frac{6}{\beta^2 m_1}.
 $$
 
 ::: {.callout-tip appearance="simple" title="Where Did the Classical Vacuum Modulus $\chi$ Go?"}
-Remember Lecture 3's puzzle? The classical $a_2^{(1)}$ solitonic vacuum had a continuous one-parameter family of solutions $\vec\phi_\chi(x)$ with **strictly $\chi$-independent classical energy** $\frac{dE}{d\chi} = 0$! In quantum field theory on the half-line ($0+1$-dimensional boundary mechanics), a compact flat direction $\chi$ cannot remain a family of degenerate vacua: it must be quantized as a **quantum mechanical rotor** $H_{\rm rot} = -\frac{1}{2I}\frac{\partial^2}{\partial\chi^2}$ with energy levels $E_n = \frac{n^2}{2I}$!
+Remember Lecture 3's flat direction? For a fixed solitonic sign pattern, the classical $a_2^{(1)}$ vacuum is a one-parameter family $\vec\phi_\chi(x)$ with $\frac{dE}{d\chi} = 0$. Treat $\chi$ as a slow collective coordinate $\chi(t)$. Its kinetic energy is $\frac12 I\dot\chi^2$, with the classical moment of inertia
+$$
+I = \int_{-\infty}^0 |\partial_\chi\vec\phi_\chi(x)|^2\,dx = \frac{6}{\beta^2 m_1}
+$$
+for Lecture 3's vacuum, independent of $\chi$ (the book's [boundary spectrum of $a_2$](book:sec-boundary-spectrum-a2); the script checks the integral numerically at several $\chi$). A free rotor with this inertia and period $2\pi$ in $\chi$ would have levels $\frac{n^2}{2I} = \frac{\beta^2 m_1}{12}n^2$, which is exactly the $B \to 0$ limit of the diagonal tower $b_{n,-n}$ above. That is why we call the tower **rotor-like**.
 
-Computing the classical kinetic moment of inertia $I = \int_{-\infty}^0 |\partial_\chi\vec\phi_\chi(x)|^2\,dx$ of Lecture 3's exact vacuum solution gives $I = \frac{6}{\beta^2 m_1}$ ([Section 36.6](book:sec-boundary-spectrum-a2))—which matches the $B \to 0$ limit $E_n = \frac{n^2}{2I}$ of the bootstrap tower $b_{n,-n}$ **to the exact numerical prefactor** when $\chi$ runs around the full $2\pi$ circle connecting all three quantum-equivalent solitonic patterns $(+--)$, $(-+-)$, $(--+)$!
+The rotor is an interpretation, not a derivation. For a fixed sign pattern the regular classical family covers only an interval of $\chi$ of length $\frac{2\pi}{3}$, and at its endpoints a $\tau_j$ vanishes at the wall. A period $2\pi$ would require the quantum theory to join the three intervals, which belong to the three solitonic patterns $(+--)$, $(-+-)$, $(--+)$ (these have identical particle amplitudes), with suitable endpoint conditions. That quantization has not been derived. Beyond leading order, $\frac{\sin^2(n\delta)}{\sin\delta}$ also departs from $n^2\delta$.
 :::
 
 ### Boundary Coleman–Thun Diagrams with Reflection at a Zero
 
-Finally, why is not every physical-strip pole of $K_1^{b_{n,m}}(\theta)$ a new bound state? According to Dorey, Tateo, and Watts [@dtw1999], a boundary scattering diagram with $P$ internal on-shell propagators and $L$ loops produces a pole of order
-$$
-\text{order} = P - 2L - Z,
-$$
-where $Z$ counts how many internal boundary reflections occur at a **zero** of an intermediate reflection factor!
+Finally, why is not every physical-strip pole of $K_1^{b_{n,m}}(\theta)$ a new bound state? In the bulk, an on-shell diagram with $P$ internal propagators and $L$ loops gives a pole of order $P - 2L$. Dorey, Tateo and Watts applied this rule to boundary diagrams in the boundary Lee–Yang model. For a diagram with internal boundary segments as well as bulk lines, the straightforward application of the bulk rule predicted a second-order pole; a zero of the internal reflection factor at the point where the reflection happens demotes it to first order [@dtw1999].
 
-In [Section 36.6](book:sec-boundary-spectrum-a2), we encounter a dramatic example on the state $b_{-n,n}$ in the coupling window $\frac{1}{2n-1} < B < \frac{2}{2n-1}$ (for instance, $n = 2$ at $B = \frac{9}{20}$, where the pole sits at $p = \frac{1}{2} + \frac{3B}{2} = \frac{47}{40}$). Below $B = \frac{1}{3}$, this pole creates the bound state $b_{-1,2}$. At threshold $B = \frac{1}{3}$, $b_{-1,2}$ unbinds into $b_{-1,1}$ plus a particle $2$ at rest, and for $\frac{1}{3} < B < \frac{2}{3}$:
+The book's [boundary spectrum of $a_2$](book:sec-boundary-spectrum-a2) contains an example of this mechanism on the state $b_{-n,n}$ in the coupling window $\frac{1}{2n-1} < B < \frac{2}{2n-1}$ (for instance, $n = 2$ at $B = \frac{9}{20}$, where the pole sits at $p = \frac{1}{2} + \frac{3B}{2} = \frac{47}{40}$). Below $B = \frac{1}{3}$, this pole creates the bound state $b_{-1,2}$. At threshold $B = \frac{1}{3}$, $b_{-1,2}$ unbinds into $b_{-1,1}$ plus a particle $2$ at rest, and for $\frac{1}{3} < B < \frac{2}{3}$:
 
-1. **Negative residue sign:** A genuine bound state must have $-i\operatorname{Res} K_1 = \frac{1}{2}g^2 > 0$. At $B = \frac{9}{20}$, we find $-i\operatorname{Res} K_1^{b_{-2,2}} = -1.1875 < 0$!
-2. **A two-loop diagram with reflection at a zero:** Inside $\frac{1}{3} < B < \frac{2}{3}$, the state $b_{-2,2}$ emits a virtual particle $1$ (dropping to $b_{-1,1}$), which fuses with the incoming particle $1$ into a particle $2$; that particle $2$ reflects off $b_{-1,1}$ precisely at a **simple zero** $\theta_R = \frac{i\pi}{3}\big(\frac{3B}{2} - \frac{1}{2}\big)$ of $K_2^{b_{-1,1}}(\theta)$ ($Z = 1$), splits back into two particles $1$, and re-forms $b_{-2,2}$! With $P = 5$ propagators, $L = 2$ loops, and $Z = 1$ reflection zero, the pole order is $5 - 2(2) - 1 = 1$ (a simple pole!), and its residue satisfies
+1. **Negative residue sign:** A genuine bound state must have $-i\operatorname{Res} K_1 = \frac{1}{2}g^2 > 0$. At $B = \frac{9}{20}$, we find $-i\operatorname{Res} K_1^{b_{-2,2}} = -1.1875 < 0$.
+2. **A two-loop diagram with reflection at a zero:** Inside $\frac{1}{3} < B < \frac{2}{3}$, the state $b_{-2,2}$ emits a virtual particle $1$ (dropping to $b_{-1,1}$), which fuses with the incoming particle $1$ into a particle $2$. That particle $2$ reflects off $b_{-1,1}$ precisely at a **simple zero** $\theta_R = \frac{i\pi}{3}\big(\frac{3B}{2} - \frac{1}{2}\big)$ of $K_2^{b_{-1,1}}(\theta)$, splits back into two particles $1$, and one of them is reabsorbed, re-forming $b_{-2,2}$. The diagram has the same shape as the Lee–Yang example of Dorey, Tateo and Watts. Its internal lines are four bulk lines (the emitted particle $1$, the particle $2$ before and after its reflection, and the reabsorbed particle $1$) and two boundary segments (the state $b_{-1,1}$ before and after the reflection): six in all, with two loops. The bulk rule gives $6 - 2\cdot 2 = 2$, and the reflection at the zero lowers this to a simple pole. Its residue satisfies
    $$
-   \operatorname{Res}_{\theta = \theta_{\rm pole}} K_1^{b_{-n,n}}(\theta) = \frac{1}{2}g^2\Gamma^2\,\big(K_2^{b_{-n+1,n-1}}\big)'(\theta_R)
+   \operatorname{Res}_{\theta = \theta_{\rm pole}} K_1^{b_{-n,n}}(\theta) = \frac{1}{2}g^2\Gamma^2\,\big(K_2^{b_{-n+1,n-1}}\big)'(\theta_R),
    $$
-   to machine precision (`code/lectures/halfline_l6_f1_particles_duality.py`)!
+   where $\frac{i}{2}g^2$ is the residue of $K_1^{b_{-n+1,n-1}}$ at the pole that creates $b_{-n,n}$, and $i\Gamma^2$ is the residue of $S_{11}$ at $\theta = \frac{2\pi i}{3}$. The script `code/lectures/halfline_l6_f1_particles_duality.py` checks this identity at $B = \frac{9}{20}$, $n = 2$, with relative tolerance $10^{-8}$. The identity supports the Coleman–Thun explanation; it does not by itself establish the diagram.
 
-![Left: weak–strong boundary duality $K_a^N(\theta; B) = K_a(\theta; 2-B)$ for $a_2^{(1)}$ ($h=3$), showing how the uniform reflection phase at $B$ coincides with the Neumann reflection phase at $2-B$, and how the classical ($B\to 0$) and strong-coupling ($B\to 2$) limits swap the two boundaries. Right: the $a_2^{(1)}$ solitonic boundary bound-state spectrum $(e_{b_{n,m}} - e_{b_{0,0}})/m_1$ versus $B$, highlighting the quantized rotor tower $b_{n,-n}$ ($E_n \sim n^2 \frac{\pi B}{6} = \frac{n^2}{2I m_1}$) of the classical vacuum modulus $\chi$ alongside the bound-particle states $b_{1,0}$ and $b_{1,1}$, generated by `code/lectures/halfline_l6_f1_particles_duality.py`.](figures/l6_f1_particles_duality.svg){#fig-lec6-particles-duality width=100%}
+![Left: the proposed uniform amplitude $K_1(\theta; B)$ and Neumann amplitude $K_1^N(\theta; B)$ of $a_2^{(1)}$ ($h=3$), as reflection phases at real rapidity. The uniform phase at $B$ coincides with the Neumann phase at $2-B$, the exact identity $K_a^N(\theta; B) = K_a(\theta; 2-B)$ of the two formulas, so the classical ($B\to 0$) and strong-coupling ($B\to 2$) limits of the two amplitudes are exchanged. Right: the $a_2^{(1)}$ solitonic boundary bound-state energies $(e_{b_{n,m}} - e_{b_{0,0}})/m_1$ versus $B$, each drawn over the range where the state exists: the rotor-like diagonal tower $b_{\pm n,\mp n}$, whose weak-coupling limit $n^2 \frac{\pi B}{6} = \frac{n^2}{2I m_1}$ is drawn for $n = 2$, and the bound-particle states $b_{1,0}$, $b_{0,1}$ and $b_{1,1}$. Generated by `code/lectures/halfline_l6_f1_particles_duality.py`.](figures/l6_f1_particles_duality.svg){#fig-lec6-particles-duality width=100%}
 
 ---
 
@@ -234,7 +245,7 @@ In [Section 36.6](book:sec-boundary-spectrum-a2), we encounter a dramatic exampl
 
 ::: {#exr-lec6-bootstrap-a2}
 ### Checking the $a_2^{(1)}$ Bulk Boundary Bootstrap $K_2 = K_1$ by Hand
-In $a_2^{(1)}$ ($h = 3$), particle $2$ is the antiparticle of particle $1$ ($\bar 1 = 2$), and two particles of species $1$ fuse into species $2$ at fusing angle $u_{11}^2 = \frac{\pi}{3}$ ($\bar u_{11}^2 = \frac{2\pi}{3}$), with bulk S-matrix
+In $a_2^{(1)}$ ($h = 3$), particle $2$ is the antiparticle of particle $1$ ($\bar 1 = 2$), and two particles of species $1$ fuse into species $2$ at fusing angle $u_{11}^2 = \frac{2\pi}{3}$ ($\bar u_{11}^2 = \frac{\pi}{3}$; the mass triangle $m_2^2 = 2m_1^2(1 + \cos u_{11}^2)$ with $m_2 = m_1$ gives $\cos u_{11}^2 = -\frac12$), so each constituent is shifted by $\pm\frac{i\pi}{3}$ from the rapidity of the bound particle. The bulk S-matrix is
 $$
 S_{11}(\theta) = \{1\}_B = \frac{(0)\,(2)}{(B)\,(2 - B)}.
 $$
@@ -242,44 +253,44 @@ $$
    $$
    K_1(\theta) = \frac{\big(3 - \frac{B}{2}\big)}{(2)\,\big(1 - \frac{B}{2}\big)}.
    $$
-2. Apply the bulk boundary bootstrap ([Section 36.3](book:sec-uniform-boundary)):
+2. Apply the bulk boundary bootstrap (the book's [uniform boundary](book:sec-uniform-boundary)):
    $$
    K_2(\theta) = K_1\Big(\theta + \frac{i\pi}{3}\Big)\,S_{11}(2\theta)\,K_1\Big(\theta - \frac{i\pi}{3}\Big).
    $$
-   Using the shift identity $(x)\big(\theta + \frac{i\pi}{3}\big)\,(x)\big(\theta - \frac{i\pi}{3}\big) = (x + 1)(x - 1)$ and the doubling identity $(x)(2\theta) = -\big(\frac{x}{2}\big)(\theta)\,\big(\frac{x}{2} + 3\big)(\theta)$, cancel the blocks step by step to prove that $K_2(\theta) = K_1(\theta)$, as required by charge conjugation!
+   Using the shift identity $(x)\big(\theta + \frac{i\pi}{3}\big)\,(x)\big(\theta - \frac{i\pi}{3}\big) = (x + 1)(x - 1)$ and the doubling identity $(x)(2\theta) = -\big(\frac{x}{2}\big)(\theta)\,\big(\frac{x}{2} + 3\big)(\theta)$, cancel the blocks step by step to prove that $K_2(\theta) = K_1(\theta)$, as required by charge conjugation.
 :::
 
 ::: {#exr-lec6-kim-oneloop}
 ### Why One-Loop Perturbation Theory Cannot See Whether a Boundary Is Self-Dual
-Let us see why Kim's self-dual ansatz [@kim1995] agreed with the true Neumann amplitude $K_a^N(\theta)$ at one loop ($O(\beta^2)$) but failed at two loops ($O(\beta^4)$).
+Let us see why Kim's self-dual proposal [@kim1995] agrees with the proposed Neumann amplitude $K_a^N(\theta)$ at one loop ($O(\beta^2)$) but differs from it at order $\beta^4$. No two-loop calculation is involved: the point is that one-loop agreement cannot decide between the two.
 
 1. Expand the ratio of blocks $\frac{(x + B/2)}{(x)}$ to first order in $B$ around $B = 0$:
    $$
    \frac{\big(x + \frac{B}{2}\big)}{(x)} = 1 + \frac{i\pi B}{2h}\,\frac{\sinh\theta}{\cosh\theta - \cos(\pi x/h)} + O(B^2).
    $$
-2. For $a_2^{(1)}$ ($h = 3$), use this formula to expand the true Neumann amplitude
+2. For $a_2^{(1)}$ ($h = 3$), use this formula to expand the proposed Neumann amplitude
    $$
-   K_1^N(\theta) = \frac{\big(2 + \frac{B}{2}\big)}{(2)\,\big(\frac{B}{2}\big)} = -\frac{\big(2 + \frac{B}{2}\big)}{(2)\,\big(3 - \frac{B}{2}\big)}
+   K_1^N(\theta) = \frac{\big(2 + \frac{B}{2}\big)}{(2)\,\big(\frac{B}{2}\big)}
    $$
-   to first order in $B = \frac{\beta^2}{2\pi} + O(\beta^4)$, and show that ([Section 36.4](book:sec-neumann-duality))
+   to first order in $B = \frac{\beta^2}{2\pi} + O(\beta^4)$, and show that (the book's [Neumann boundary and duality](book:sec-neumann-duality))
    $$
    K_1^N(\theta) = 1 - \frac{\beta^2}{4}\,\frac{\cos(\theta/2i)}{\sin(3\theta/2i)} + O(\beta^4).
    $$
-3. Now suppose someone replaces $K_1^N(\theta; B)$ by the self-dual product $K_1^{\rm sd}(\theta; B) = K_1^N(\theta; B)\big/ K_1(\theta; B)\cdot K_1^{\rm cl}(\theta)$. Since $K_1(\theta; B) = K_1^{\rm cl}(\theta)\big(1 + O(B)\big)$, explain why any modification that only adds terms symmetrical under $B \leftrightarrow 2 - B$ at $O(B(2-B))$ changes the $O(\beta^2)$ coefficient if not normalized, or if built from blocks $[x] = \frac{(x-1/2)(x+1/2)}{(x-1/2+B/2)(x+1/2-B/2)}$ matches $O(B)$ while differing at $O(B^2) = O(\beta^4)$!
+3. Kim's self-dual proposal for $a_n^{(1)}$, specialized to $h = 3$, is $K^{\rm Kim}(\theta; B) = [\tfrac12][\tfrac32]$, built from the blocks $[x] = \frac{(x-1/2)(x+1/2)}{(x-1/2+B/2)(x+1/2-B/2)}$ [@kim1995]. Show that each $[x]$ is invariant under $B \to 2 - B$ (its two denominator blocks are exchanged), so $K^{\rm Kim}$ is self-dual. Use part 1 to show that its $O(B)$ term equals that of $K_1^N$. Then show that the $O(B^2)$ terms differ, for example by evaluating the second derivatives in $B$ at $B = 0$ numerically at $\theta = 0.71$. Explain why one-loop agreement cannot decide between the two amplitudes.
 :::
 
 ::: {#exr-lec6-rotor-spectrum}
 ### Deriving the $a_2^{(1)}$ Bound-State Energies and the Rotor Limit
-In [Section 36.6](book:sec-boundary-spectrum-a2), the state $b_{n,m}$ is reached by binding $n$ particles of species $1$ at rapidities $iv_k = \frac{i\pi}{3}\big(\frac{1}{2} - (2k+1)\frac{B}{2}\big)$ ($k = 0, \dots, n-1$), and $m$ particles of species $2$ at the same rapidities.
+In the book's [boundary spectrum of $a_2$](book:sec-boundary-spectrum-a2), for $n, m \ge 0$ the state $b_{n,m}$ is reached from $b_{0,0}$ by binding $n$ particles of species $1$, the $k$-th at the pole $\theta = iv_k$ with $v_k = \frac{\pi}{3}\big(\frac{1}{2} - (2k+1)\frac{B}{2}\big)$ ($k = 0, \dots, n-1$), and $m$ particles of species $2$ at the poles given by the same formula with its own index $k = 0, \dots, m-1$. The two sets of bindings need not happen together. Each binding at $\theta = iv$ raises the energy by $m_1\cos v$, and the states exist only within the ranges given in the lecture.
 
 1. Use the trigonometric telescoping identity
    $$
    \sum_{k=0}^{n-1} \cos\Big(\frac{\pi}{6} - (2k+1)\delta\Big) = \frac{\sin(n\delta)\,\cos\big(\frac{\pi}{6} - n\delta\big)}{\sin\delta} \equiv F(n), \qquad \delta = \frac{\pi B}{6},
    $$
-   to prove [eq. 36.8](book:eq-a2-energies): $e_{b_{n,m}} - e_{b_{0,0}} = m_1\big[F(n) + F(m)\big]$.
-2. Verify that for the diagonal state $b_{-1, 1}$ (reached from $b_{0,0}$ by binding a single particle at $\theta = \frac{i\pi}{3}\big(\frac{3}{2} - \frac{B}{2}\big) = i\big(\frac{\pi}{2} - \delta\big)$), the energy formula gives
+   to prove the book's [energy formula](book:eq-a2-energies), $e_{b_{n,m}} - e_{b_{0,0}} = m_1\big[F(n) + F(m)\big]$, for $n, m \ge 0$.
+2. The formula for $F$ extends to negative labels. Verify that for the diagonal state $b_{-1, 1}$ (reached from $b_{0,0}$ along the diagonal bootstrap path, by binding a single particle at $\theta = \frac{i\pi}{3}\big(\frac{3}{2} - \frac{B}{2}\big) = i\big(\frac{\pi}{2} - \delta\big)$), the energy formula gives
    $$
    e_{b_{-1,1}} - e_{b_{0,0}} = m_1\big[F(-1) + F(1)\big] = m_1\sin\delta = m_1\sin\frac{\pi B}{6}.
    $$
-3. Show that at $B = \frac{1}{2}$, the rotor state $b_{-2,2}$ and the single-particle state $b_{0,1}$ become **exact energy degenerates**: $e_{b_{-2,2}} - e_{b_{0,0}} = e_{b_{0,1}} - e_{b_{0,0}}$!
+3. Show that at $B = \frac{1}{2}$, where both states are in the spectrum, the diagonal state $b_{-2,2}$ and the single-particle state $b_{0,1}$ are **exactly degenerate**: $e_{b_{-2,2}} - e_{b_{0,0}} = e_{b_{0,1}} - e_{b_{0,0}}$. (An equality of energies does not by itself say how the corresponding poles are explained.)
 :::

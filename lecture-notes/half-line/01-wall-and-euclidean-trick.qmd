@@ -1,7 +1,7 @@
 # The Wall at $x=0$ and the $90^\circ$ Euclidean Trick {#sec-lec1-wall-euclidean}
 
-> **Companion to [Chapter 29: Boundary scattering](book:sec-boundary-scattering).**
-> What happens to an integrable field theory when we slice space in half and erect an impenetrable wall at $x=0$? In this first lecture we discover why half of the bulk higher-spin charges can survive in a folded combination, why two particles bouncing off a wall must obey a quartic consistency equation (the boundary Yang–Baxter equation), and how a single $90^\circ$ rotation in Euclidean spacetime turns the spatial wall into a pair-creating initial state $|B\rangle$. That rotation gives us **boundary crossing-unitarity**—the master equation of boundary integrable models—which we put to work on the blackboard to solve boundary scaling Lee–Yang from scratch.
+> **Companion to the book's chapter on [boundary scattering](book:sec-boundary-scattering).**
+> What happens to an integrable field theory when we slice space in half and erect an impenetrable wall at $x=0$? In this first lecture we discover why half of the bulk higher-spin charges can survive in a folded combination, why two particles bouncing off a wall must obey a quartic consistency equation (the boundary Yang–Baxter equation), and how a single $90^\circ$ rotation in Euclidean spacetime turns the spatial wall into a pair-creating initial state $|B\rangle$. That rotation gives us **boundary crossing-unitarity**—the master equation of boundary integrable models—which we put to work on the blackboard to check the reflection factors of boundary scaling Lee–Yang and to fix their sign.
 
 ---
 
@@ -18,32 +18,39 @@ At first sight, this looks like a catastrophe for integrability:
 
 So how could an infinite tower of higher-spin conservation laws possibly survive on $x\le 0$?
 
-Let us write down the bulk continuity equations in light-cone coordinates $x^\pm = \frac{1}{2}(t\pm x)$ (see [Section 29.1](book:sec-half-line-kinematics)). In the bulk ($x<0$), a spin-$s$ charge $Q_s$ and its parity-reversed partner $Q_{-s}$ satisfy
+Let us write down the bulk continuity equations in light-cone coordinates $x^\pm = \frac{1}{2}(t\pm x)$, with $\partial_\pm = \partial/\partial x^\pm = \partial_t \pm \partial_x$. (The book uses $x^\pm=t\pm x$; the factor 2 drops out of every equation below.) We follow the book's conventions for [conserved charges](book:sec-factorization) and for [boundary kinematics](book:sec-half-line-kinematics). A conserved current of spin $-s$, with $s>0$, is a pair $(T_{s+1},\mathcal X_{s-1})$ of local densities with
 $$
-\partial_- T_{s+1} = \partial_+ \Theta_{s-1}, \qquad
-\partial_+ T_{-s-1} = \partial_- \Theta_{-s+1},
+\partial_- T_{s+1} = \partial_+ \mathcal X_{s-1}.
 $$
-where $\partial_\pm = \partial_t \pm \partial_x$. Convert these back to $(t,x)$ derivatives using $\partial_t = \frac{1}{2}(\partial_+ + \partial_-)$ and $\partial_x = \frac{1}{2}(\partial_+ - \partial_-)$:
+Its spin is negative because $\partial_+$ brings down a multiple of $e^{-\theta}$ on a particle of rapidity $\theta$. Parity $x\to-x$ exchanges $\partial_+$ and $\partial_-$, and turns this current into a current $(\bar T_{s+1},\bar{\mathcal X}_{s-1})$ of spin $+s$, with
+$$
+\partial_+ \bar T_{s+1} = \partial_- \bar{\mathcal X}_{s-1}.
+$$
+Expand $\partial_\pm=\partial_t\pm\partial_x$ and collect the time and space derivatives. The first equation reads $(\partial_t-\partial_x)T_{s+1}=(\partial_t+\partial_x)\mathcal X_{s-1}$, and similarly for the second:
 $$
 \begin{aligned}
-\partial_t(T_{s+1} + \Theta_{s-1}) &= \partial_x(T_{s+1} - \Theta_{s-1}), \\
-\partial_t(T_{-s-1} + \Theta_{-s+1}) &= -\partial_x(T_{-s-1} - \Theta_{-s+1}).
+\partial_t(T_{s+1} - \mathcal X_{s-1}) &= \partial_x(T_{s+1} + \mathcal X_{s-1}), \\
+\partial_t(\bar T_{s+1} - \bar{\mathcal X}_{s-1}) &= -\partial_x(\bar T_{s+1} + \bar{\mathcal X}_{s-1}).
 \end{aligned}
 $$
-If we integrate only the first equation over $x\in(-\infty,0]$, the fundamental theorem of calculus spits out a flux term at $x=0$:
+On the full line the charges
 $$
-\frac{d}{dt}\int_{-\infty}^0 (T_{s+1} + \Theta_{s-1})\,dx = \bigl(T_{s+1} - \Theta_{s-1}\bigr)\Big|_{x=0},
+Q_{-s}=\int(T_{s+1}-\mathcal X_{s-1})\,dx,\qquad Q_{s}=\int(\bar T_{s+1}-\bar{\mathcal X}_{s-1})\,dx
 $$
-which does not vanish! That is simply the statement that right-moving spin-$s$ charge pours into the wall.
+are therefore conserved. If we integrate the first equation only over $x\in(-\infty,0]$, the fundamental theorem of calculus leaves a flux term at $x=0$:
+$$
+\frac{d}{dt}\int_{-\infty}^0 (T_{s+1} - \mathcal X_{s-1})\,dx = \bigl(T_{s+1} + \mathcal X_{s-1}\bigr)\Big|_{x=0}.
+$$
+It does not vanish: charge flows through the end of the half-line, and $Q_{-s}$ alone is not conserved.
 
-*Wait:* when a right-moving wave hits the wall at $x=0$, it turns into a left-moving wave carrying spin $-s$! What if we add the spin-$s$ charge $Q_s$ and the spin-$(-s)$ charge $Q_{-s}$ together? Summing the two continuity equations gives
+A right-moving wave that hits the wall comes back as a left-moving wave, so the wall converts charge of one spin into charge of the opposite spin. This suggests adding the charges $Q_s$ and $Q_{-s}$. Summing the two continuity equations gives
 $$
-\frac{d}{dt}\int_{-\infty}^0 \bigl(T_{s+1} + \Theta_{s-1} + T_{-s-1} + \Theta_{-s+1}\bigr)\,dx
-= \bigl(T_{s+1} - \Theta_{s-1} - T_{-s-1} + \Theta_{-s+1}\bigr)\Big|_{x=0}.
+\frac{d}{dt}\int_{-\infty}^0 \bigl(T_{s+1} - \mathcal X_{s-1} + \bar T_{s+1} - \bar{\mathcal X}_{s-1}\bigr)\,dx
+= \bigl(T_{s+1} + \mathcal X_{s-1} - \bar T_{s+1} - \bar{\mathcal X}_{s-1}\bigr)\Big|_{x=0}.
 $$ {#eq-lec1-flux-balance}
 Look closely at the right-hand side of (-@eq-lec1-flux-balance). Suppose the boundary condition at $x=0$ is special enough that the net flux into the wall is a pure time derivative of some local boundary functional $\Sigma_s(t)$ living at $x=0$:
 $$
-\bigl(T_{s+1} - \Theta_{s-1} - T_{-s-1} + \Theta_{-s+1}\bigr)\Big|_{x=0} = -\frac{d}{dt}\Sigma_s(t).
+\bigl(T_{s+1} + \mathcal X_{s-1} - \bar T_{s+1} - \bar{\mathcal X}_{s-1}\bigr)\Big|_{x=0} = -\frac{d}{dt}\Sigma_s(t).
 $$ {#eq-lec1-surface-condition}
 Then we can pull $\Sigma_s(t)$ onto the left-hand side and obtain an **exact half-line conservation law**:
 $$
@@ -52,25 +59,25 @@ $$ {#eq-lec1-hat-q}
 This simple equation is the heartbeat of boundary integrability [@gz1994]. Notice what it says physically:
 
 - Neither $Q_s$ nor $Q_{-s}$ is conserved on its own, because the wall reverses the direction of motion.
-- Their **symmetric combination** $Q_s + Q_{-s}$, dressed by the energy/charge $\Sigma_s$ temporarily stored in the wall at $x=0$, *is* conserved!
-- For $s=1$, $Q_1 + Q_{-1} = E$ is the bulk energy (since $P^+ + P^- = 2E$, whereas $P^+ - P^- = 2P$ cancels out), and $\Sigma_1$ is the boundary potential energy $\mathcal B(\phi(0,t))$ stored at the wall.
+- Their **symmetric combination** $Q_s + Q_{-s}$, together with the contribution $\Sigma_s$ stored in the wall at $x=0$, *is* conserved.
+- For $s=1$ the book normalizes the charges as the light-cone momenta, $Q_{\pm1}=E\pm P$. Then $Q_1+Q_{-1}=2E_{\rm bulk}$, the momentum cancels, and $\Sigma_1=2\mathcal B(\phi(0,t))$ is twice the boundary potential. So $\widehat Q_1=2(E_{\rm bulk}+\mathcal B)$ is twice the total energy of Lecture 2. To check the factor 2, note that the bulk energy changes as $dE_{\rm bulk}/dt=\partial_t\phi\,\partial_x\phi\big|_{x=0}$, and the boundary condition $\partial_x\phi\big|_{x=0}=-\mathcal B'(\phi)$ turns this into $-d\mathcal B/dt$.
 
 ### How $\widehat Q_s$ Forces Elastic Reflection
 
 What does an infinite set of conserved charges $\widehat Q_s$ ($s\in\mathcal S$) do to an asymptotic state of particles far from the wall?
 
-On the full line, a single particle of mass $m_a$ and rapidity $\theta$ is an eigenstate of $Q_s$ with eigenvalue $\gamma_a^{(s)} e^{s\theta}$ and of $Q_{-s}$ with eigenvalue $\gamma_a^{(s)} e^{-s\theta}$. Far from the wall ($x\ll 0$), the boundary term $\Sigma_s$ does not act on well-separated wavepackets, so an asymptotic particle of species $a$ and rapidity $\theta$ is an eigenstate of $\widehat Q_s$ with eigenvalue
+On the full line, a single particle of mass $m_a$ and rapidity $\theta$ is an eigenstate of $Q_s$ with eigenvalue $\gamma_a^{(s)} e^{s\theta}$ and of $Q_{-s}$ with eigenvalue $\gamma_a^{(-s)} e^{-s\theta}$. If parity maps each particle to itself, $\gamma_a^{(-s)}=\gamma_a^{(s)}$, and we assume this here. (At imaginary coupling parity maps a soliton to its antisoliton, and then $\gamma_a^{(-s)}=\gamma_{\bar a}^{(s)}$; this is the root of the soliton-conjugating reflections of Lectures 2 and 3.) On asymptotic states, with every particle far from the wall, the boundary term $\Sigma_s$ acts as a constant $H^{(s)}$ that depends only on the state of the boundary. So an asymptotic particle of species $a$ and rapidity $\theta$ is an eigenstate of $\widehat Q_s$ with eigenvalue
 $$
-\widehat Q_s\,|a(\theta)\rangle = \gamma_a^{(s)}\bigl(e^{s\theta} + e^{-s\theta}\bigr)|a(\theta)\rangle
-= 2\gamma_a^{(s)}\cosh(s\theta)\,|a(\theta)\rangle.
+\widehat Q_s\,|a(\theta)\rangle = \Bigl(\gamma_a^{(s)}\bigl(e^{s\theta} + e^{-s\theta}\bigr)+H^{(s)}\Bigr)|a(\theta)\rangle
+= \Bigl(2\gamma_a^{(s)}\cosh(s\theta)+H^{(s)}\Bigr)|a(\theta)\rangle.
 $$ {#eq-lec1-cosh-eigenvalue}
 Look at $\cosh(s\theta)$: it is an **even** function of $\theta$!
 
-Suppose we fire a single incoming particle of species $a$ and rapidity $\theta>0$ rightward toward the wall at $x=0$. After it hits the wall and bounces back to $x\to -\infty$, it must emerge as left-moving particles with rapidities $-\theta'_1, \dots, -\theta'_k < 0$. Conservation of $\widehat Q_s$ for all odd spins $s\in\mathcal S$ demands
+Suppose we fire a single incoming particle of species $a$ and rapidity $\theta>0$ rightward toward the wall at $x=0$. After it hits the wall and bounces back to $x\to -\infty$, it must emerge as left-moving particles with rapidities $-\theta'_1, \dots, -\theta'_k < 0$. If the boundary ends in the state in which it started, the constant $H^{(s)}$ cancels (when the boundary changes state it need not), and conservation of $\widehat Q_s$ for all odd spins $s\in\mathcal S$ demands
 $$
 \gamma_a^{(s)}\cosh(s\theta) = \sum_{j=1}^k \gamma_{b_j}^{(s)}\cosh(s\theta'_j) \qquad \forall\,s\in\mathcal S.
 $$
-Because the functions $\cosh(s\theta)$ for infinitely many $s$ are linearly independent on $\theta>0$ ([Proposition 29.1](book:prp-boundary-elastic) and @exr-lec1-elastic), this identity can hold only if $k=1$, $\theta'_1 = \theta$, and $m_b = m_a$. In words:
+For a single species, or for species whose charge eigenvalues $\gamma^{(s)}$ coincide, @exr-lec1-elastic shows that this identity forces $k=1$ and $\theta'_1=\theta$. With several species the coefficients $\gamma_b^{(s)}$ depend on $s$, and the argument needs more input. The book's [elasticity statement](book:prp-boundary-elastic) gives the general result: if infinitely many charges $\widehat Q_s$ with nonzero eigenvalues survive, one particle comes out, with the reversed rapidity and a species of the same mass. In words:
 
 1. **No particle production at the wall:** One particle in means one particle out.
 2. **Exact rapidity reversal:** A particle arriving with rapidity $+\theta$ must leave with rapidity $-\theta$.
@@ -80,7 +87,7 @@ Because the functions $\cosh(s\theta)$ for infinitely many $s$ are linearly inde
 
 ## The Boundary Zamolodchikov–Faddeev Algebra and the Three Reflection Equations
 
-To turn this physical picture into algebra, we introduce Zamolodchikov–Faddeev (ZF) creation operators $A_a(\theta)$ for particles of species $a$ and rapidity $\theta$, together with a **boundary operator** $B$ that sits at the right end of every product of operators and represents the wall at $x=0$ inits ground state ([Section 29.1](book:sec-half-line-kinematics)).
+To turn this physical picture into algebra, we introduce Zamolodchikov–Faddeev (ZF) creation operators $A_a(\theta)$ for particles of species $a$ and rapidity $\theta$, together with a **boundary operator** $B$ that sits at the right end of every product of operators and represents the wall at $x=0$ in its ground state (see the book's [boundary kinematics](book:sec-half-line-kinematics)).
 
 Why at the right end? Because on the left half-line $x\le 0$, incoming particles have $\theta_1 > \theta_2 > \dots > \theta_N > 0$ ordered from left to right according to their slope, and the wall at $x=0$ sits to the right of every particle in the universe!
 
@@ -88,7 +95,7 @@ When two particles collide in the bulk ($x<0$), we swap their ZF operators using
 $$
 A_a(\theta_1)A_b(\theta_2) = S_{ab}^{cd}(\theta_1-\theta_2)\,A_d(\theta_2)A_c(\theta_1).
 $$ {#eq-lec1-bulk-zf}
-When a right-moving particle $A_a(\theta)$ ($\theta>0$) hits the wall $B$, it bounces back as a superposition of left-moving particles $A_b(-\theta)$ with amplitude $K_a^b(\theta)$, the **reflection matrix** (`eq-boundary-zf` in [Section 29.1](book:sec-half-line-kinematics)):
+When a right-moving particle $A_a(\theta)$ ($\theta>0$) hits the wall $B$, it bounces back as a superposition of left-moving particles $A_b(-\theta)$ with amplitude $K_a^b(\theta)$, the **reflection matrix** (the book's [boundary exchange relation](book:eq-boundary-zf)):
 $$
 A_a(\theta)\,B = K_a^b(\theta)\,A_b(-\theta)\,B.
 $$ {#eq-lec1-boundary-zf}
@@ -103,7 +110,7 @@ Because the faster particle $\theta_1$ starts to the left of the slower particle
 - Particle 1 and Particle 2 must cross each other once moving in the same direction, with relative rapidity $\theta_1 - \theta_2$.
 - Each particle must bounce off the wall once, at rapidity $\theta_1$ and $\theta_2$.
 
-By shifting the initial wavepackets backward or forward in time, we can make these four events happen in two different orders (see [Figure 29.1](book:fig-reflection-orders)):
+By shifting the initial wavepackets backward or forward in time, we can make these four events happen in two different orders (see the book's [figure of the two orders](book:fig-reflection-orders)):
 
 **History I (Particle 2 hits the wall first):**
 
@@ -147,29 +154,34 @@ By shifting the initial wavepackets backward or forward in time, we can make the
 
 Equating the coefficients of the independent basis state $A_h(-\theta_1)A_g(-\theta_2)B$ between History I and History II gives Cherednik's and Sklyanin's **boundary Yang–Baxter equation** (or **reflection equation**) [@cherednik1984; @sklyanin1988]!
 
-Let us write this equation in the three forms you will encounter across the literature and in [Section 29.2](book:sec-reflection-equation), because confusing them is one of the commonest sources of index headaches:
+Let us write this equation in the three forms you will encounter across the literature and in the book's [reflection-equation section](book:sec-reflection-equation), because confusing them is one of the commonest sources of index headaches:
 
-1. **The fixed-slot ($S/K$) tensor form** (`eq-reflection-sk` in [Section 29.2](book:sec-reflection-equation)): Writing $K_1(\theta) = K(\theta)\otimes\mathbf 1$ and $K_2(\theta) = \mathbf 1\otimes K(\theta)$ on $V_1\otimes V_2$,
+1. **The fixed-slot ($S/K$) tensor form** (the book's [S/K form](book:eq-reflection-sk)): Writing $K_1(\theta) = K(\theta)\otimes\mathbf 1$ and $K_2(\theta) = \mathbf 1\otimes K(\theta)$ on $V_1\otimes V_2$,
    $$
    S_{12}(\theta_1-\theta_2)\,K_1(\theta_1)\,S_{21}(\theta_1+\theta_2)\,K_2(\theta_2)
    = K_2(\theta_2)\,S_{12}(\theta_1+\theta_2)\,K_1(\theta_1)\,S_{21}(\theta_1-\theta_2).
    $$ {#eq-lec1-reflection-sk}
-2. **The braid ($\check S$ or $\check R$) form** (`eq-reflection-braid` in [Section 29.2](book:sec-reflection-equation)): In Part VI of the book, we work with the braid operator $\check S(\theta) = P\,S_{12}(\theta) = S_{21}(\theta)\,P$, which swaps the two vector spaces as well as scattering them. Multiplying (-@eq-lec1-reflection-sk) on the left by $P$ and using $P\,K_2(\theta) = K_1(\theta)\,P$ puts *every* reflection matrix in the **first** tensor slot:
+2. **The braid ($\check S$ or $\check R$) form** (the book's [braid form](book:eq-reflection-braid)): The book's quantum-group chapters work with the braid operator $\check S(\theta) = S_{12}(\theta)\,P = P\,S_{21}(\theta)$, which swaps the two vector spaces as well as scattering them. Here $P$ is the permutation of the two tensor factors, and $S_{21}=PS_{12}P$. In the braid form both reflection matrices act in the **second** tensor slot, the slot next to the wall:
    $$
    \check S(\theta_1-\theta_2)\,(\mathbf 1\otimes K(\theta_1))\,\check S(\theta_1+\theta_2)\,(\mathbf 1\otimes K(\theta_2))
-   = (\mathbf 1\otimes K(\theta_2))\,\check S(\theta_1+\theta_2)\,(\mathbf 1\otimes K(\theta_1))\,\check S(\theta_1-\theta_2),
+   = (\mathbf 1\otimes K(\theta_2))\,\check S(\theta_1+\theta_2)\,(\mathbf 1\otimes K(\theta_1))\,\check S(\theta_1-\theta_2).
    $$ {#eq-lec1-reflection-braid}
-   or symmetrically with $(K(\theta)\otimes\mathbf 1)$ when $\check R = P\,R_{12}$ is used on $V_1\otimes V_2$ (checked numerically in `code/lectures/halfline_l1_f1_reflection_crossing.py`).
-3. **The twisted (soliton-conjugating) form** (`eq-reflection-twisted` in [Section 29.2](book:sec-reflection-equation)): In $a_n^{(1)}$ ($n\ge 2$), as we will discover in Lectures 2 and 3, a standard integrable wall reflects a soliton in representation $V_\mu(\theta)$ into its **conjugate** representation $V_{\bar\mu}(-\theta)$! Then $K_\mu(\theta): V_\mu(\theta)\to V_{\bar\mu}(-\theta)$ changes the representation label at every bounce, so the four bulk braid matrices in (-@eq-lec1-reflection-braid) act on *four different pairs of representations*:
+   Substituting $\check S=S_{12}P$ and using $P\,K_2(\theta)=K_1(\theta)\,P$ turns (-@eq-lec1-reflection-braid) into (-@eq-lec1-reflection-sk) term by term. For the left-hand side,
+   $$
+   \bigl(S_{12}(\theta_1-\theta_2)P\bigr)K_2(\theta_1)\bigl(S_{12}(\theta_1+\theta_2)P\bigr)K_2(\theta_2)
+   = S_{12}(\theta_1-\theta_2)\,K_1(\theta_1)\,\bigl(PS_{12}(\theta_1+\theta_2)P\bigr)\,K_2(\theta_2),
+   $$
+   and $PS_{12}P=S_{21}$; the right-hand side works the same way. The convention matters: with $\check S=PS_{12}$ instead, every $S_{12}$ and $S_{21}$ would be exchanged. `code/lectures/halfline_l1_f1_reflection_crossing.py` checks the term-by-term conversion on arbitrary matrices, and checks both forms on a six-vertex example.
+3. **The twisted (soliton-conjugating) form** (the book's [twisted form](book:eq-reflection-twisted)): In $a_n^{(1)}$ ($n\ge 2$), as we will discover in Lectures 2 and 3, a standard integrable wall reflects a soliton in representation $V_\mu(\theta)$ into its **conjugate** representation $V_{\bar\mu}(-\theta)$! Then $K_\mu(\theta): V_\mu(\theta)\to V_{\bar\mu}(-\theta)$ changes the representation label at every bounce, so the four bulk braid matrices in (-@eq-lec1-reflection-braid) act on *four different pairs of representations*:
    $$
    \begin{aligned}
    \check R_{\bar\nu,\bar\mu}(\theta_1-\theta_2)\,(\mathbf 1_{\bar\nu}\otimes K_\mu(\theta_1))\,
    \check R_{\mu,\bar\nu}(\theta_1+\theta_2)\,(\mathbf 1_\mu\otimes K_\nu(\theta_2)) \\
-   = (\mathbf 1_{\bar\mu}\otimes K_\nu(\theta_2))\,\check R_{\bar\mu,\nu}(\theta_1+\theta_2)\,
+   = (\mathbf 1_{\bar\mu}\otimes K_\nu(\theta_2))\,\check R_{\nu,\bar\mu}(\theta_1+\theta_2)\,
    (\mathbf 1_\nu\otimes K_\mu(\theta_1))\,\check R_{\mu,\nu}(\theta_1-\theta_2).
    \end{aligned}
    $$ {#eq-lec1-reflection-twisted}
-   We will verify in @exr-lec1-twisted that both sides of (-@eq-lec1-reflection-twisted) cleanly map $V_\mu(\theta_1)\otimes V_\nu(\theta_2) \to V_{\bar\mu}(-\theta_1)\otimes V_{\bar\nu}(-\theta_2)$.
+   In @exr-lec1-twisted you check that both sides of (-@eq-lec1-reflection-twisted) map $V_\mu(\theta_1)\otimes V_\nu(\theta_2) \to V_{\bar\mu}(-\theta_1)\otimes V_{\bar\nu}(-\theta_2)$.
 
 ---
 
@@ -177,7 +189,7 @@ Let us write this equation in the three forms you will encounter across the lite
 
 Here comes our first big conceptual surprise. Suppose we are studying a theory with a single particle species (like sinh-Gordon or scaling Lee–Yang), or a diagonal reflection matrix $K_a^b(\theta) = \delta_a^b K_a(\theta)$ with a diagonal bulk $S$-matrix. Then all the matrices in (-@eq-lec1-reflection-sk) are numbers, and they commute! The reflection equation reduces to $K_a(\theta_1)K_b(\theta_2) = K_b(\theta_2)K_a(\theta_1)$, which is an empty tautology $1=1$.
 
-Does that mean *any* unitary function $K(\theta)$ satisfying **boundary unitarity** (`eq-boundary-unitarity` in [Section 29.3](book:sec-boundary-unitarity-crossing)),
+Does that mean *any* unitary function $K(\theta)$ satisfying **boundary unitarity** (the book's [boundary unitarity](book:eq-boundary-unitarity)),
 $$
 K_a^c(\theta)\,K_c^b(-\theta) = \delta_a^b,
 $$ {#eq-lec1-boundary-unitarity}
@@ -185,21 +197,25 @@ is an allowed reflection amplitude?
 
 **No!** And the reason why is the masterstroke of Ghoshal and Zamolodchikov [@gz1994].
 
-Think about our half-line $x\le 0$ with time $t\in(-\infty,\infty)$ running vertically. Continue to Euclidean time $t_E = i t$, and rotate the Euclidean spacetime plane by $90^\circ$ clockwise:
+Think about our half-line $x\le 0$ with time $t\in(-\infty,\infty)$ running vertically. Continue to Euclidean time $t_E = i t$, and rotate the Euclidean spacetime plane by $90^\circ$:
 $$
-(x,\,t_E) \;\longmapsto\; (\tilde x,\,\tilde t_E) = (-t_E,\,-x).
+(x,\,t_E) \;\longmapsto\; (\tilde x,\,\tilde t_E) = (t_E,\,-x).
 $$
-Look at what happens to the geometry (Panel (a) of @fig-lec1-reflection-crossing and [Figure 29.2](book:fig-boundary-state-rotation)):
+This map has determinant $+1$, so it is a rotation and not a reflection, and it sends the half-plane $x\le0$ to $\tilde t_E\ge0$. Look at what happens to the geometry (Panel (a) of @fig-lec1-reflection-crossing and the book's [boundary-state figure](book:fig-boundary-state-rotation)):
 
 - In the original **open-string (boundary) channel**, the boundary sits at $x=0$ for all time $t_E\in(-\infty,\infty)$, and bulk fields live in $x\le 0$.
-- In the rotated **closed-string (initial-state) channel**, space is the **entire full line** $\tilde x\in(-\infty,\infty)$, and the boundary is now located at $\tilde t_E = 0$, acting as an **initial state** $|B\rangle$ in the bulk Hilbert space that evolves forward into $\tilde t_E \ge 0$ under the ordinary *bulk* Hamiltonian $H_{\rm bulk}$!
+- In the rotated **closed-string (initial-state) channel**, space is the **entire full line** $\tilde x\in(-\infty,\infty)$, and the boundary is now located at $\tilde t_E = 0$, acting as an **initial state** $|B\rangle$ in the bulk Hilbert space that evolves forward into $\tilde t_E \ge 0$ under the ordinary *bulk* Hamiltonian $H_{\rm bulk}$.
 
-Let us track what the $90^\circ$ rotation does to a particle's rapidity $\theta$. In Minkowski variables, energy and momentum are $(E,p) = (m\cosh\theta, m\sinh\theta)$. A $90^\circ$ Euclidean rotation swaps the roles of energy and momentum:
+Let us track what the rotation does to a particle's rapidity. The rotation is the continuation of a Lorentz boost with imaginary rapidity $-i\pi/2$. Indeed, a boost by $\beta$ reads $\tilde x=x\cosh\beta-t\sinh\beta$, $\tilde t=t\cosh\beta-x\sinh\beta$; with $t=-it_E$, $\tilde t=-i\tilde t_E$ and $\beta=-i\pi/2$ (so $\cosh\beta=0$, $\sinh\beta=-i$) it gives exactly $\tilde x=t_E$ and $\tilde t_E=-x$. A boost by $\beta$ shifts every rapidity by $-\beta$, so a world line of rapidity $\theta$ has rapidity $\theta+i\pi/2$ in the rotated picture:
+
+- The reflected particle, of rapidity $-\theta$, becomes a particle of rapidity $\tilde\theta=i\pi/2-\theta$.
+- The incoming particle, of rapidity $\theta$, runs into the wall, which is now the initial surface. In the new time it therefore runs backwards. Read forwards, it is the antiparticle, with its rapidity shifted by $-i\pi$ as in bulk crossing: $\theta+i\pi/2-i\pi=-\tilde\theta$.
+
+So the reflection of a particle $\bar a$ into $b$ at rapidity
 $$
-\tilde E = -i p = m\cosh\tilde\theta, \qquad \tilde p = -i E = m\sinh\tilde\theta
-\quad\Longrightarrow\quad
-\theta = \frac{i\pi}{2} - \tilde\theta.
+\theta = \frac{i\pi}{2} - \tilde\theta
 $$ {#eq-lec1-rapidity-rotation}
+becomes the emission of the pair $a(-\tilde\theta)$, $b(\tilde\theta)$ from the boundary state.
 
 Now ask: what can the boundary state $|B\rangle$ at $\tilde t_E=0$ look like in terms of the bulk particle creation operators $A_a^\dagger(\tilde\theta)$?
 
@@ -208,36 +224,33 @@ Now ask: what can the boundary state $|B\rangle$ at $\tilde t_E=0$ look like in 
    $$
    \bigl(Q_s^{\rm bulk} - Q_{-s}^{\rm bulk}\bigr)|B\rangle = 0.
    $$
-3. On a two-particle state $|a(\tilde\theta_1)\,b(\tilde\theta_2)\rangle$, the operator $Q_s^{\rm bulk} - Q_{-s}^{\rm bulk}$ acts with eigenvalue $2\gamma_a^{(s)}\sinh(s\tilde\theta_1) + 2\gamma_b^{(s)}\sinh(s\tilde\theta_2)$. For this to vanish for all $s$, the boundary state $|B\rangle$ can only emit **Cooper-like pairs of particles with opposite rapidities** $(-\tilde\theta, +\tilde\theta)$ and conjugate quantum numbers (`eq-boundary-state` in [Section 29.3](book:sec-boundary-unitarity-crossing)):
+3. On a two-particle state $|a(\tilde\theta_1)\,b(\tilde\theta_2)\rangle$, the operator $Q_s^{\rm bulk} - Q_{-s}^{\rm bulk}$ acts with eigenvalue $2\gamma_a^{(s)}\sinh(s\tilde\theta_1) + 2\gamma_b^{(s)}\sinh(s\tilde\theta_2)$. For this to vanish for all $s$ at nonzero rapidities, the particles must come in **pairs with opposite rapidities** $(-\tilde\theta, +\tilde\theta)$. A single particle at zero rapidity also passes this test, since $\sinh 0=0$. If no particle has a one-point coupling to the boundary, Ghoshal and Zamolodchikov showed that (the book's [boundary state](book:eq-boundary-state))
    $$
    |B\rangle = \exp\!\left(\frac{1}{2}\int_{-\infty}^\infty \frac{d\tilde\theta}{2\pi}\,
-   \mathcal K^{ab}(\tilde\theta)\,A_a^\dagger(-\tilde\theta)\,A_b^\dagger(\tilde\theta)\right)|0\rangle,
+   \mathcal K^{ab}(\tilde\theta)\,A_a^\dagger(-\tilde\theta)\,A_b^\dagger(\tilde\theta)\right)|0\rangle.
    $$ {#eq-lec1-boundary-state}
-   where the pair-emission amplitude is nothing but the analytically continued reflection matrix at the rotated rapidity (-@eq-lec1-rapidity-rotation):
+   The measure $\frac12\,d\tilde\theta/2\pi$ belongs to one-particle states normalized as $\langle\theta|\theta'\rangle=2\pi\delta(\theta-\theta')$. If a particle $c$ has a nonzero one-point coupling $g^c$ to the boundary, $|B\rangle$ contains in addition a one-particle term proportional to $g^cA_c^\dagger(0)|0\rangle$ [@gz1994, eq. (3.42)], and the exponential (-@eq-lec1-boundary-state) describes its pair sector. We meet such a coupling in the Lee–Yang calculation below. The pair-emission amplitude is the analytically continued reflection matrix at the rotated rapidity (-@eq-lec1-rapidity-rotation):
    $$
    \mathcal K^{ab}(\tilde\theta) = K_{\bar a}^b\!\left(\frac{i\pi}{2} - \tilde\theta\right).
    $$ {#eq-lec1-pair-amplitude}
 
 ### Blackboard Calculation 2: Deriving Boundary Crossing-Unitarity from Pair Creation
 
-Look at the exponent of $|B\rangle$ in (-@eq-lec1-boundary-state). The integral runs over **all** $\tilde\theta\in(-\infty,\infty)$! That means the integrand at $+\tilde\theta$ creates the pair $A_a^\dagger(-\tilde\theta)A_b^\dagger(+\tilde\theta)$, while the integrand at $-\tilde\theta$ creates the *same* two particles in the opposite order, $A_c^\dagger(+\tilde\theta)A_d^\dagger(-\tilde\theta)$.
-
-In an interacting integrable theory, bulk creation operators do not commute—they obey the Zamolodchikov–Faddeev relation (-@eq-lec1-bulk-zf) at relative rapidity $\tilde\theta - (-\tilde\theta) = 2\tilde\theta$:
+Look at the exponent of $|B\rangle$ in (-@eq-lec1-boundary-state). The integral runs over **all** $\tilde\theta\in(-\infty,\infty)$. Take $t>0$. The integrand at $\tilde\theta=+t$ creates the pair $A_a^\dagger(-t)A_b^\dagger(t)$, an out-state (the faster particle is on the right). The integrand at $\tilde\theta=-t$ creates the *same* two rapidities in the opposite order, $\mathcal K^{cd}(-t)\,A_c^\dagger(t)A_d^\dagger(-t)$, an in-state. Ghoshal and Zamolodchikov read the two halves of the integral as the expansions of the same state $|B\rangle$ in out-states and in-states [@gz1994, eqs. (3.32)–(3.35)]. In an interacting integrable theory the two are related by the bulk scattering: reorder the in-state pair with the Zamolodchikov–Faddeev relation (-@eq-lec1-bulk-zf) at $\theta_1=t$, $\theta_2=-t$,
 $$
-A_a^\dagger(-\tilde\theta)\,A_b^\dagger(+\tilde\theta)
-= S_{ab}^{dc}(-2\tilde\theta)\,A_c^\dagger(+\tilde\theta)\,A_d^\dagger(-\tilde\theta)
-= \bigl(S^{-1}(2\tilde\theta)\bigr)_{ab}^{dc}\,A_c^\dagger(+\tilde\theta)\,A_d^\dagger(-\tilde\theta).
+A_c^\dagger(t)\,A_d^\dagger(-t)
+= S_{cd}^{ef}(2t)\,A_f^\dagger(-t)\,A_e^\dagger(t).
 $$
-For the pair-creation amplitude $\mathcal K^{ab}(\tilde\theta)$ to be unambiguously defined as the matrix element of the two-particle emission from $|B\rangle$ (see the loop diagram in Panel (a) of @fig-lec1-reflection-crossing), emitting the pair at $+\tilde\theta$ and commuting them past each other with $S(2\tilde\theta)$ must reproduce the emission amplitude at $-\tilde\theta$:
+The coefficient of $A_a^\dagger(-t)A_b^\dagger(t)$ is the term with $f=a$ and $e=b$. So the in-state half contributes $S_{cd}^{ba}(2t)\,\mathcal K^{cd}(-t)$ to the coefficient of the out-state pair, and consistency of the two expansions (see the diagram in Panel (a) of @fig-lec1-reflection-crossing) requires
 $$
-\mathcal K^{ab}(\tilde\theta) = S_{dc}^{ba}(2\tilde\theta)\,\mathcal K^{cd}(-\tilde\theta).
+\mathcal K^{ab}(t) = S_{cd}^{ba}(2t)\,\mathcal K^{cd}(-t).
 $$
-Substitute $\mathcal K^{ab}(\tilde\theta) = K_{\bar a}^b(\frac{i\pi}{2}-\tilde\theta)$ from (-@eq-lec1-pair-amplitude) and drop the tilde on $\theta$:
+Substitute $\mathcal K^{ab}(\tilde\theta) = K_{\bar a}^b(\frac{i\pi}{2}-\tilde\theta)$ from (-@eq-lec1-pair-amplitude) and write $\theta$ for $t$:
 $$
 K_{\bar a}^b\!\left(\frac{i\pi}{2}-\theta\right)
-= S_{dc}^{ba}(2\theta)\,K_{\bar c}^d\!\left(\frac{i\pi}{2}+\theta\right).
+= S_{cd}^{ba}(2\theta)\,K_{\bar c}^d\!\left(\frac{i\pi}{2}+\theta\right).
 $$ {#eq-lec1-crossing-unitarity}
-This is **boundary crossing-unitarity** (`eq-boundary-crossing-unitarity` in [Section 29.3](book:sec-boundary-unitarity-crossing)) [@gz1994]!
+This is **boundary crossing-unitarity** [@gz1994]. The book writes it as a vector equation, $k(\theta)=\check S(2\theta)\,k(-\theta)$ with $k(\theta)=\sum_{a,b}K_{\bar a}^b(\frac{i\pi}2-\theta)\,v_a\otimes v_b$ (the book's [crossing-unitarity](book:eq-boundary-crossing-unitarity)); since $\check S$ maps $v_c\otimes v_d$ to $\sum S_{cd}^{ef}\,v_f\otimes v_e$, its components are (-@eq-lec1-crossing-unitarity). The order of the lower indices $cd$ matters: for the sine-Gordon reflection matrix the equation with $S_{dc}^{ba}$ in place of $S_{cd}^{ba}$ fails.
 
 Pause for a moment to admire (-@eq-lec1-crossing-unitarity):
 
@@ -246,13 +259,13 @@ Pause for a moment to admire (-@eq-lec1-crossing-unitarity):
 
 #### The Three Diagonal Forms in the Literature
 
-When both bulk and boundary scattering are diagonal ($S_{ab}^{cd} = \delta_a^c\delta_b^d S_{ab}$ and $K_a^b = \delta_a^b K_a$), (-@eq-lec1-crossing-unitarity) simplifies, and three algebraically equivalent forms appear across classic papers (`eq-boundary-crossing-diagonal` in [Section 29.3](book:sec-boundary-unitarity-crossing)):
+When both bulk and boundary scattering are diagonal ($S_{ab}^{cd} = \delta_a^c\delta_b^d S_{ab}$ and $K_a^b = \delta_a^b K_a$), (-@eq-lec1-crossing-unitarity) simplifies, and three algebraically equivalent forms appear across classic papers (the book's [diagonal form](book:eq-boundary-crossing-diagonal)):
 
 1. **The book / Ghoshal–Zamolodchikov centered form** [@gz1994]:
    $$
    K_a\!\left(\frac{i\pi}{2}-\theta\right) = S_{a\bar a}(2\theta)\,K_{\bar a}\!\left(\frac{i\pi}{2}+\theta\right).
    $$ {#eq-lec1-cu-book}
-2. **The Corrigan–Dorey–Rietdijk–Sasaki product form** [@cdrs1994]: Multiply (-@eq-lec1-cu-book) by $K_{\bar a}(-\frac{i\pi}{2}-\theta)$, use boundary unitarity $K_{\bar a}(\frac{i\pi}{2}+\theta)K_{\bar a}(-\frac{i\pi}{2}-\theta)=1$, and replace $\theta\to -\theta$:
+2. **The Corrigan–Delius product form** [@corrigan_delius1999, eq. (2.7)]: Multiply (-@eq-lec1-cu-book) by $K_{\bar a}(-\frac{i\pi}{2}-\theta)$, use boundary unitarity $K_{\bar a}(\frac{i\pi}{2}+\theta)K_{\bar a}(-\frac{i\pi}{2}-\theta)=1$, and replace $\theta\to -\theta$:
    $$
    K_a\!\left(\theta+\frac{i\pi}{2}\right)K_{\bar a}\!\left(\theta-\frac{i\pi}{2}\right)S_{\bar a a}(2\theta) = 1.
    $$ {#eq-lec1-cu-cd}
@@ -260,10 +273,11 @@ When both bulk and boundary scattering are diagonal ($S_{ab}^{cd} = \delta_a^c\d
    $$
    K_a(\theta)\,K_{\bar a}(\theta+i\pi) = S_{aa}(2\theta).
    $$ {#eq-lec1-cu-dg}
+   (The shift gives $K_a(\theta+i\pi)K_{\bar a}(\theta)=S_{aa}(2\theta)$; exchanging $a$ and $\bar a$ and using $C$-invariance, $S_{\bar a\bar a}=S_{aa}$, gives the form shown. For the $a_2^{(1)}$ particles, Corrigan, Dorey, Rietdijk and Sasaki wrote the equivalent relation $K_1(\theta)K_2(\theta-i\pi)=S_{11}(2\theta)$ [@cdrs1994].)
 
-All three forms are verified side-by-side in `code/lectures/halfline_l1_f1_reflection_crossing.py`, and you will prove their equivalence step-by-step in @exr-lec1-crossing-forms.
+You will prove the equivalence of the three forms step-by-step in @exr-lec1-crossing-forms. `code/lectures/halfline_l1_f1_reflection_crossing.py` checks all three for the Lee–Yang reflection factors below, at sample rapidities.
 
-![**Left:** The $90^\circ$ Euclidean rotation $(x,t_E)\mapsto(-t_E,-x)$ turns reflection $K_a^b(\theta)$ off the spatial wall at $x=0$ into pair emission $\mathcal K^{ab}(\theta) = K_{\bar a}^b(i\frac{\pi}{2}-\theta)$ from the initial boundary state $|B\rangle$ at $t_E=0$. Crossing the two emitted particles through each other produces the bulk factor $S(2\theta)$ in boundary crossing-unitarity (-@eq-lec1-crossing-unitarity). **Right:** Trajectories of the physical-strip poles of the scaling Lee–Yang reflection factor $K_b(\theta)$ (-@eq-lec1-ly-kb) as a function of the boundary parameter $b$. Verified and plotted by `code/lectures/halfline_l1_f1_reflection_crossing.py`.](figures/l1_f1_reflection_crossing.svg){#fig-lec1-reflection-crossing width=100%}
+![**Left:** The $90^\circ$ Euclidean rotation $(x,t_E)\mapsto(\tilde x,\tilde t_E)=(t_E,-x)$ turns reflection $K_{\bar a}^b(\theta)$ off the spatial wall at $x=0$ into pair emission $\mathcal K^{ab}(\tilde\theta) = K_{\bar a}^b(\frac{i\pi}{2}-\tilde\theta)$ from the initial boundary state $|B\rangle$ at $\tilde t_E=0$. Reordering the two emitted particles produces the bulk factor $S(2\tilde\theta)$ in boundary crossing-unitarity (-@eq-lec1-crossing-unitarity), shown in its diagonal form. **Right:** Candidate positions of the physical-strip poles of the scaling Lee–Yang reflection factor $K_b(\theta)$ (-@eq-lec1-ly-kb) as functions of the boundary parameter $b$. At isolated values of $b$ a pole meets a zero and cancels: the moving pole at $b=0$, and the fixed pole at $\theta=i\pi/6$ at $b=-2$. The left panel is a schematic; both panels are drawn by `code/lectures/halfline_l1_f1_reflection_crossing.py`.](figures/l1_f1_reflection_crossing.svg){#fig-lec1-reflection-crossing width=100%}
 
 ---
 
@@ -273,37 +287,44 @@ In bulk scattering, the physical strip is $0 < \operatorname{Im}\theta < \pi$, b
 $$
 0 < \operatorname{Im}\theta < \frac{\pi}{2}.
 $$ {#eq-lec1-physical-strip}
-What do simple poles of $K_a(\theta)$ inside the strip $0 < \operatorname{Im}\theta < \frac{\pi}{2}$ mean physically ([Section 29.4](book:sec-boundary-bound-states))?
+What can simple poles of $K_a(\theta)$ inside the strip $0 < \operatorname{Im}\theta < \frac{\pi}{2}$ mean physically (see the book's [boundary bound states](book:sec-boundary-bound-states))? There are several possible explanations, and each pole has to be explained by one of them.
 
 1. **Boundary bound states (excited walls) at $\theta = i v$ ($0 < v < \frac{\pi}{2}$):**
-   Just as a pole of $S_{ab}(\theta)$ at $\theta = i u_{ab}^c$ signals a bulk bound state $c$, a pole of $K_a(\theta)$ at $\theta = i v$ signals that particle $a$ can stick to the wall in the ground state $|\alpha\rangle_B$ to form an **excited boundary state** $|\beta\rangle_B$! Since a particle at rapidity $\theta = i v$ has energy $m_a\cosh(iv) = m_a\cos v$, energy conservation gives the excitation gap of the wall (`eq-boundary-bound-state-energy` in [Section 29.4](book:sec-boundary-bound-states)):
+   Just as a pole of $S_{ab}(\theta)$ at $\theta = i u_{ab}^c$ can signal a bulk bound state $c$, a pole of $K_a(\theta)$ at $\theta = i v$ can signal that particle $a$ sticks to the wall in the ground state $|\alpha\rangle_B$ to form an **excited boundary state** $|\beta\rangle_B$. Since a particle at rapidity $\theta = i v$ has energy $m_a\cosh(iv) = m_a\cos v$, energy conservation gives the excitation gap of the wall (the book's [bound-state energy](book:eq-boundary-bound-state-energy)):
    $$
    e_\beta - e_\alpha = m_a \cos v.
    $$ {#eq-lec1-bound-state-energy}
-   What is the reflection amplitude $K_b^{(\beta)}(\theta)$ of another particle $b$ bouncing off this excited wall $|\beta\rangle_B = |a(iv);\alpha\rangle_B$? Since $|\beta\rangle_B$ is a composite of the ground-state wall $|\alpha\rangle_B$ and a trapped particle $a$ with rapidity $\pm iv$, the incoming particle $b(\theta)$ simply scatters through the trapped particle $a$ on the way in, bounces off the ground-state wall $|\alpha\rangle_B$, and scatters through $a$ again on the way out (`eq-boundary-bootstrap` in [Section 29.4](book:sec-boundary-bound-states)):
+   What is the reflection amplitude $K_b^{(\beta)}(\theta)$ of another particle $b$ bouncing off this excited wall $|\beta\rangle_B = |a(iv);\alpha\rangle_B$? Think of $|\beta\rangle_B$ as the ground-state wall $|\alpha\rangle_B$ together with a trapped particle $a$, which arrived with rapidity $iv$ and left with rapidity $-iv$. The incoming particle $b(\theta)$ scatters through the trapped particle on the way in, bounces off the ground-state wall $|\alpha\rangle_B$, and scatters through it again on the way out. For diagonal reflection the trapped particle keeps its species $a$, so both scatterings are in the channel $ba$ (the book's [boundary bootstrap](book:eq-boundary-bootstrap)):
    $$
-   K_b^{(\beta)}(\theta) = S_{ba}(\theta - iv)\,S_{b\bar a}(\theta + iv)\,K_b^{(\alpha)}(\theta).
+   K_b^{(\beta)}(\theta) = S_{ba}(\theta - iv)\,S_{ba}(\theta + iv)\,K_b^{(\alpha)}(\theta).
    $$ {#eq-lec1-excited-bootstrap}
+   (Replacing the second factor by $S_{b\bar a}$ generically breaks boundary unitarity when $S_{b\bar a}\ne S_{ba}$; `code/lectures/halfline_l1_f1_reflection_crossing.py` checks this, and that the factor above is unitary and compatible with crossing, for $a_2^{(1)}$.)
 
-2. **One-point bulk coupling poles at $\theta = i(\frac{\pi}{2} - \frac{1}{2}u_{a\bar a}^c)$:**
-   Even when the boundary has *no* excited states, $K_a(\theta)$ can still have a pole in the physical strip! Look at therotated channel $|B\rangle$: if the boundary has a non-zero one-point coupling $g_c^\alpha$ to a bulk particle $c$, then $|B\rangle$ can emit a single virtual particle $c$ at zero spatial momentum ($\tilde\theta_c = 0$, i.e. $\theta_c = \frac{i\pi}{2}$), which then splits via the bulk three-point coupling $\Gamma_{a\bar a}^c$ (with fusion angle $u_{a\bar a}^c$) into the outgoing pair $a(\theta)$ and $\bar a(-\theta)$. This tree-level diagram produces a universal pole at $\theta = i(\frac{\pi}{2} - \frac{1}{2}u_{a\bar a}^c)$ with residue (`eq-one-point-residue` in [Section 29.4](book:sec-boundary-bound-states)):
+2. **One-point bulk coupling poles at $\theta = i(\frac{\pi}{2} - \frac{1}{2}u_{ab}^c)$:**
+   Even when the boundary has *no* excited states, $K_a(\theta)$ can still have a pole in the physical strip. Look at the rotated channel $|B\rangle$: if the boundary has a nonzero one-point coupling $g^c$ to a bulk particle $c$, then $|B\rangle$ can emit a single particle $c$ at zero momentum ($\tilde\theta_c = 0$), which then splits via the bulk three-point coupling $\Gamma_{ab}^c$ (with fusion angle $u_{ab}^c$) into the pair $a(-\tilde\theta)$, $b(\tilde\theta)$. In the pair variable this tree diagram gives the pole [@gz1994, eq. (3.41)], as in the book's [one-point residue](book:eq-one-point-residue):
    $$
-   K_a^b(\theta) \;\sim\; \frac{i}{2}\,\frac{\Gamma_{a\bar b}^c\,g_c}{\theta - i\bigl(\frac{\pi}{2} - \frac{1}{2}u_{a\bar b}^c\bigr)}.
+   \mathcal K^{ab}(\tilde\theta)\;\simeq\;\frac{i}{2}\,\frac{\Gamma_{ab}^c\,g^c}{\tilde\theta-\frac{i}{2}u_{ab}^c}.
+   $$
+   Now change to the reflection rapidity $\theta=\frac{i\pi}{2}-\tilde\theta$ of (-@eq-lec1-rapidity-rotation). Since $\tilde\theta-\frac i2u_{ab}^c=-\bigl(\theta-i(\frac{\pi}{2}-\frac12u_{ab}^c)\bigr)$, the residue changes sign:
+   $$
+   K_{\bar a}^b(\theta) \;\simeq\; -\frac{i}{2}\,\frac{\Gamma_{ab}^c\,g^c}{\theta - i\bigl(\frac{\pi}{2} - \frac{1}{2}u_{ab}^c\bigr)}.
    $$ {#eq-lec1-one-point-residue}
-   Notice the diagnostic difference: the position of (-@eq-lec1-one-point-residue) is **fixed by the bulk fusion angle $u_{a\bar a}^c$** and cannot move when we vary a continuous boundary parameter, whereas a true boundary bound-state pole $\theta = iv(h)$ moves with the boundary coupling $h$!
+   The same change of variable turns Ghoshal and Zamolodchikov's double-reflection pole $\mathcal K^{cc'}(\tilde\theta)\simeq-\frac i2\,g^cg^{c'}/\tilde\theta$ [@gz1994, eq. (3.45)] into a pole of $K_{\bar c}^{c'}(\theta)$ at $\theta=\frac{i\pi}{2}$ with residue $+\frac i2\,g^cg^{c'}$.
+   A one-point pole has a location fixed by bulk kinematics. Its behaviour under a change of a boundary parameter can help to distinguish it from a bound-state pole, which may move. But neither this observation nor a simple pole alone excludes other explanations, such as the boundary Coleman–Thun diagrams of Lecture 6, or establishes a new state.
 
-3. **The bulk-fusion boundary bootstrap (`eq-boundary-bootstrap-bulk` in [Section 29.4](book:sec-boundary-bound-states)):**
-   Finally, if a bulk particle $c$ is a bound state of $a$ and $b$ at $\theta_a - \theta_b = i u_{ab}^c$ (so $\theta_a = \theta + i\bar u_{ac}^b$ and $\theta_b = \theta - i\bar u_{bc}^a$ with $\bar u = \pi - u$), then reflecting $c(\theta)$ off the wall must equal reflecting its constituents $a$ and $b$ and scattering them past each other on the way out. For diagonal scattering, this gives the **boundary bootstrap equation**:
+3. **The bulk-fusion boundary bootstrap (the book's [bulk-fusion bootstrap](book:eq-boundary-bootstrap-bulk)):**
+   Finally, if a bulk particle $c$ is a bound state of $a$ and $b$ at $\theta_a - \theta_b = i u_{ab}^c$ (so $\theta_a = \theta + i\bar u_{ac}^b$ and $\theta_b = \theta - i\bar u_{bc}^a$ with $\bar u = \pi - u$), then reflecting $c(\theta)$ off the wall must equal reflecting its constituents. The constituent $b$, nearer the wall, reflects first; then $a$ and the reflected $b$ scatter at rapidity difference $\theta_a+\theta_b$; then $a$ reflects. For diagonal reflection the species do not change, so the scattering is in the channel $ab$, and this gives the **boundary bootstrap equation**:
    $$
-   K_c(\theta) = K_a\bigl(\theta + i\bar u_{ac}^b\bigr)\,K_b\bigl(\theta - i\bar u_{bc}^a\bigr)\,
-   S_{b\bar a}\bigl(2\theta + i\bar u_{ac}^b - i\bar u_{bc}^a\bigr).
+   K_c(\theta) = K_a\bigl(\theta + i\bar u_{ac}^b\bigr)\,
+   S_{ab}\bigl(2\theta + i\bar u_{ac}^b - i\bar u_{bc}^a\bigr)\,K_b\bigl(\theta - i\bar u_{bc}^a\bigr).
    $$ {#eq-lec1-bulk-bootstrap}
+   For $a_2^{(1)}$, where $1\times1\to2$ and $\bar 1=2$, the script checks that this holds with $S_{11}$ and fails with $S_{1\bar1}=S_{12}$.
 
 ---
 
-## Blackboard Calculation 3: Solving Boundary Scaling Lee–Yang from Scratch
+## Blackboard Calculation 3: The Reflection Factors of Boundary Scaling Lee–Yang
 
-Let us put all of these weapons to work on the simplest interacting integrable field theory in $1+1$ dimensions: the **scaling Lee–Yang model** ([Section 29.7](book:sec-boundary-lee-yang)) [@gz1994; @dptw1998].
+Let us put all of these weapons to work on the simplest interacting integrable field theory in $1+1$ dimensions: the **scaling Lee–Yang model** (the book's [worked example](book:sec-boundary-lee-yang)) [@gz1994; @dptw1998].
 
 Recall the bulk data of scaling Lee–Yang:
 
@@ -319,6 +340,7 @@ Recall the bulk data of scaling Lee–Yang:
   $$
   \begin{aligned}
   \text{Unitarity ($\theta\to -\theta$):} &\qquad (x)\big|_{-\theta} = (-x) = (x)^{-1}, \\
+  \text{Period:} &\qquad (x+12) = (x), \qquad (6) = -1, \\
   \text{Shift by $i\pi a/6$:} &\qquad (x)\big|_{\theta + i\frac{\pi a}{6}}\,(x)\big|_{\theta - i\frac{\pi a}{6}} = (x+a)(x-a), \\
   \text{Pole in the strip:} &\qquad (x) \text{ has a simple pole at } \theta = i\frac{\pi x}{6} \text{ and a zero at } \theta = -i\frac{\pi x}{6}.
   \end{aligned}
@@ -346,62 +368,69 @@ We seek a reflection factor $K(\theta)$ satisfying:
    K(\theta) = S_{\rm LY}(2\theta)\,K\!\left(\theta + \frac{i\pi}{3}\right)K\!\left(\theta - \frac{i\pi}{3}\right).
    $$ {#eq-lec1-ly-bootstrap}
 
-### Step 2: Verifying the Identity Boundary $K_{(\mathbb 1)}(\theta)$ and Fixing the Sign Trap
+### Step 2: Checking the Identity Boundary $K_{(\mathbb 1)}(\theta)$ and Fixing Its Sign
 
-The conformal Lee–Yang model $\mathcal M(2,5)$ has two conformal boundary conditions: the identity cardy boundary $\mathbb 1$ (which has no relevant boundary operators) and the $\Phi$ boundary (which has a single relevant boundary operator $\phi_B$ of scaling dimension $x_B = -1/5$, giving a one-parameter family of massive boundary flows $\Phi(h)$).
+The conformal Lee–Yang model $\mathcal M(2,5)$ has two conformal boundary conditions: the identity Cardy boundary $\mathbb 1$ (which has no relevant boundary operators) and the $\Phi$ boundary (which has a single relevant boundary operator $\phi_B$ of scaling dimension $x_B = -1/5$, giving a one-parameter family of massive boundary flows $\Phi(h)$).
 
-For the unperturbed $\mathbb 1$ boundary, Dorey, Pocklington, Tateo, and Watts [@dptw1998] wrote the minimal solution (`eq-ly-reflection` in [Section 29.7](book:sec-boundary-lee-yang)):
+For the $\mathbb 1$ boundary, Dorey, Pocklington, Tateo and Watts [@dptw1998] proposed the minimal solution
 $$
 K_{(\mathbb 1)}(\theta) = +(1)(3)(4)^{-1}.
 $$ {#eq-lec1-ly-k1}
-Wait: in Ghoshal and Zamolodchikov's classic paper [@gz1994, eq. (3.51)], this formula was printed with an overall **minus** sign, $-(1)(3)(4)^{-1}$! How can we tell on the blackboard which sign is right?
+They identified it with the $\mathbb 1$ boundary by comparing the spectra of the boundary thermodynamic Bethe ansatz with truncated conformal space data. The book records this identification as checked numerically (its [statement on the Lee–Yang factors](book:prp-ly-reflection)). What we can check by hand is that (-@eq-lec1-ly-k1) solves the three equations of Step 1. Unitarity holds block by block, since $(x)\big|_{-\theta}=(x)^{-1}$. Crossing-unitarity can be checked in the same way; the script checks it numerically. Here we concentrate on the bootstrap, because it fixes the sign.
 
-Look at our three axioms: boundary unitarity and boundary crossing-unitarity are homogeneous of degree $2$ or $1$ on both sides, so if $K(\theta)$ satisfies them, then $-K(\theta)$ *also* satisfies them! **Only the boundary bootstrap (-@eq-lec1-ly-bootstrap) is quadratic on the right and linear on the left**, so it fixes the overall sign of $K(\theta)$ unambiguously!
+Ghoshal and Zamolodchikov printed this formula with an overall **minus** sign, $-(1)(3)(4)^{-1}$ [@gz1994, eq. (3.51)]. How can we tell on the blackboard which sign is right?
 
-Let us substitute $K_{(\mathbb 1)}(\theta) = \epsilon\,(1)(3)(4)^{-1}$ with $\epsilon \in \{\pm 1\}$ into the right-hand side of the bootstrap (-@eq-lec1-ly-bootstrap) using the shift identity $(x)|_{\theta+i\pi/3}(x)|_{\theta-i\pi/3} = (x+2)(x-2)$ from (-@eq-lec1-block-rules):
+Look at our three axioms: boundary unitarity and boundary crossing-unitarity are homogeneous of degree $2$ or $1$ on both sides, so if $K(\theta)$ satisfies them, then $-K(\theta)$ *also* satisfies them. **Only the boundary bootstrap (-@eq-lec1-ly-bootstrap) is quadratic on the right and linear on the left**, so it fixes the overall sign of $K(\theta)$.
+
+Put $K_{(\mathbb 1)}(\theta) = \epsilon\,(1)(3)(4)^{-1}$ with $\epsilon \in \{\pm 1\}$. We evaluate the right-hand side of the bootstrap (-@eq-lec1-ly-bootstrap) in three steps.
+
+**(a) The shifted product.** The shift identity $(x)|_{\theta+i\pi/3}(x)|_{\theta-i\pi/3} = (x+2)(x-2)$ from (-@eq-lec1-block-rules) gives
 $$
 \begin{aligned}
 K_{(\mathbb 1)}\!\left(\theta+\frac{i\pi}{3}\right)K_{(\mathbb 1)}\!\left(\theta-\frac{i\pi}{3}\right)
 &= \epsilon^2\,\bigl[(1+2)(1-2)\bigr]\,\bigl[(3+2)(3-2)\bigr]\,\bigl[(4+2)(4-2)\bigr]^{-1} \\
-&= (3)(-1)\,(5)(1)\,(6)^{-1}(2)^{-1}.
+&= \epsilon^2\,(3)(-1)\,(5)(1)\,(6)^{-1}(2)^{-1}
+= -\epsilon^2\,(3)(5)(2)^{-1},
 \end{aligned}
 $$ {#eq-lec1-boot-step1}
-Now we need $S_{\rm LY}(2\theta)$ in terms of blocks $(x)$ of argument $\theta$. Let us factor $\sinh\theta \pm i\sin(\pi x/6)$ into half-angle hyperbolic functions:
+where we used $(-1)(1)=1$ and $(6)=-1$.
+
+**(b) The doubling identity.** We need $S_{\rm LY}(2\theta)$ in terms of blocks of argument $\theta$. At rapidity $2\theta$ a block is
 $$
-\begin{aligned}
-f_{x/6}(2\theta) &= \frac{\sinh(2\theta) + i\sin\frac{\pi x}{6}}{\sinh(2\theta) - i\sin\frac{\pi x}{6}}
-= -\,(x)\,(6-x).
-\end{aligned}
+(x)\big|_{2\theta}=\frac{\sinh\bigl(\theta+\frac{i\pi x}{12}\bigr)}{\sinh\bigl(\theta-\frac{i\pi x}{12}\bigr)}.
 $$
-For $S_{\rm LY}(2\theta) = f_{2/3}(2\theta) = f_{4/6}(2\theta)$, setting $x=4$ gives
+Use $\sinh 2u=2\sinh u\cosh u$ with $u=\frac\theta2\pm\frac{i\pi(x/2)}{12}$. The sinh factors form the block $(x/2)$:
 $$
-S_{\rm LY}(2\theta) = -\,(4)\,(2) = -\,(2)(4).
+(x)\big|_{2\theta}=(x/2)\,\frac{\cosh\bigl(\frac\theta2+\frac{i\pi(x/2)}{12}\bigr)}{\cosh\bigl(\frac\theta2-\frac{i\pi(x/2)}{12}\bigr)}.
+$$
+Now write each cosh as a sinh, $\cosh z=-i\sinh(z+\frac{i\pi}2)$, with $\frac{i\pi}2=\frac{i\pi\cdot6}{12}$:
+$$
+\frac{\cosh\bigl(\frac\theta2+\frac{i\pi(x/2)}{12}\bigr)}{\cosh\bigl(\frac\theta2-\frac{i\pi(x/2)}{12}\bigr)}
+=\frac{\sinh\bigl(\frac\theta2+\frac{i\pi(6+x/2)}{12}\bigr)}{\sinh\bigl(\frac\theta2+\frac{i\pi(6-x/2)}{12}\bigr)}
+=-\frac{\sinh\bigl(\frac\theta2-\frac{i\pi(6-x/2)}{12}\bigr)}{\sinh\bigl(\frac\theta2+\frac{i\pi(6-x/2)}{12}\bigr)}
+=-(6-x/2)^{-1},
+$$
+where the middle step uses $\sinh(z+i\pi)=-\sinh z$ in the numerator. Hence
+$$
+(x)\big|_{2\theta}=-(x/2)\,(6-x/2)^{-1}.
+$$ {#eq-lec1-doubling}
+
+**(c) The bulk factor.** With $x=2$ and $x=4$, (-@eq-lec1-doubling) gives $(2)\big|_{2\theta}=-(1)(5)^{-1}$ and $(4)\big|_{2\theta}=-(2)(4)^{-1}$. So
+$$
+S_{\rm LY}(2\theta)=-(2)\big|_{2\theta}(4)\big|_{2\theta}=-(1)(2)(4)^{-1}(5)^{-1}.
 $$ {#eq-lec1-s2theta}
-Wait—let us be extra careful! In (-@eq-lec1-s-ly), $S_{\rm LY}(\theta) = -(2)(4)$ had argument $\theta$. At argument $2\theta$, each block $(y)(2\theta)$ splits into two blocks of argument $\theta$:
+
+**(d) The bootstrap.** Multiply (-@eq-lec1-s2theta) by (-@eq-lec1-boot-step1). The blocks $(2)$ and $(5)$ cancel and the two minus signs cancel:
 $$
-(y)(2\theta) = \frac{\sinh\theta + i\sin\frac{\pi y}{6}}{\sinh\theta - i\sin\frac{\pi y}{6}}
-= -(y)\,(6-y)\,(6)^{-1}\,\cdots
+S_{\rm LY}(2\theta)\,K_{(\mathbb 1)}\!\left(\theta+\frac{i\pi}{3}\right)K_{(\mathbb 1)}\!\left(\theta-\frac{i\pi}{3}\right)
+=\bigl[-(1)(2)(4)^{-1}(5)^{-1}\bigr]\bigl[-\epsilon^2(3)(5)(2)^{-1}\bigr]
+=\epsilon^2\,(1)(3)(4)^{-1}.
 $$
-Let us compute $S_{\rm LY}(2\theta)$ directly from $\sinh(2\theta) + i\sin(2\pi/3)$ using $\sinh(2\theta) + i\cos\alpha = 2\sinh(\theta + i\frac{\pi}{4} - i\frac{\alpha}{2})\cosh(\theta - i\frac{\pi}{4} + i\frac{\alpha}{2})$:
-since $\sin\frac{2\pi}{3} = \sin\frac{\pi}{3} = \cos\frac{\pi}{6}$, the roots of $\sinh(2\theta) = -i\frac{\sqrt{3}}{2}$ in $\theta\pmod{2\pi i}$ are at
+The bootstrap demands that this equal $K_{(\mathbb 1)}(\theta)=\epsilon\,(1)(3)(4)^{-1}$. So $\epsilon=\epsilon^2$, and the nonzero solution is
 $$
-2\theta = -i\frac{\pi}{3},\; -i\frac{2\pi}{3},\; i\frac{4\pi}{3},\; i\frac{5\pi}{3}
-\quad\Longrightarrow\quad
-\theta = -i\frac{\pi}{6},\; -i\frac{\pi}{3},\; i\frac{2\pi}{3},\; i\frac{5\pi}{6}.
+\epsilon = +1.
 $$
-In terms of the blocks $(x)$ whose zeros are at $\theta = -i\frac{\pi x}{6}$ (and remembering that $(x) = -(12-x)$? No, $\sinh(\frac{\theta}{2} + i\frac{\pi(x+6)}{12}) = i\cosh(\frac{\theta}{2} + i\frac{\pi x}{12})$), look at the product:
-$$
-(1)^{-1}(2)^{-1}(4)(5)\,(6) = \cdots
-$$
-Better yet, notice that in (-@eq-lec1-boot-step1) we have $(5)(-1)(6)^{-1}(2)^{-1}$ multiplying $(1)(3)$. By (-@eq-lec1-cu-book) evaluated at $\theta\to \frac{i\pi}{2}-\theta$, crossing-unitarity together with $(6) = -1$ at shifted arguments gives
-$$
-S_{\rm LY}(2\theta)\,(3)(-1)(5)(1)(6)^{-1}(2)^{-1} = +(1)(3)(4)^{-1}.
-$$
-Comparing this with the left-hand side $K_{(\mathbb 1)}(\theta) = \epsilon\,(1)(3)(4)^{-1}$ yields
-$$
-\epsilon = \epsilon^2 = +1!
-$$
-If you put $\epsilon = -1$, the left-hand side is $-(1)(3)(4)^{-1}$ while the right-hand side is $+(1)(3)(4)^{-1}$, violating the bootstrap by a factor of $-1$ ([Proposition 29.2](book:prp-ly-reflection), verified in `code/lectures/halfline_l1_f1_reflection_crossing.py`).
+If you put $\epsilon = -1$, the left-hand side is $-(1)(3)(4)^{-1}$ while the right-hand side is $+(1)(3)(4)^{-1}$: the sign printed by Ghoshal and Zamolodchikov violates the bootstrap by a factor of $-1$, as the book also notes. `code/lectures/halfline_l1_f1_reflection_crossing.py` checks the doubling identity, (-@eq-lec1-s2theta), and the final bootstrap identity for both signs at sample rapidities.
 
 ### Step 3: Extracting the Imaginary One-Point Coupling $g$
 
@@ -411,7 +440,7 @@ Look at the poles of $K_{(\mathbb 1)}(\theta) = (1)(3)(4)^{-1}$ in the physical 
 - $(1)$ has a simple pole at $\theta = i\frac{\pi}{6}$ ($x=1$). What is its origin? Since $u_{aa}^a = \frac{2\pi}{3}$, the one-point coupling pole (-@eq-lec1-one-point-residue) sits at $i(\frac{\pi}{2} - \frac{1}{2}u_{aa}^a) = i(\frac{\pi}{2} - \frac{\pi}{3}) = i\frac{\pi}{6}$!
 - $(3)$ has a simple pole at $\theta = i\frac{\pi}{2}$ ($x=3$), the boundary of the strip where the emitted pair in $|B\rangle$ has zero momentum ($\tilde\theta = 0$).
 
-Near $\theta = \frac{i\pi}{2}$, the residue of $K_{(\mathbb 1)}(\theta)$ is $\frac{i}{2}g^2$, where $g$ is the dimensionless one-point coupling of the bulk particle to the identity boundary [@gz1994, eq. (3.45)]. Let us compute this residue on the blackboard!
+By the change of variable below (-@eq-lec1-one-point-residue), the residue of $K_{(\mathbb 1)}(\theta)$ at $\theta = \frac{i\pi}{2}$ is $\frac{i}{2}g^2$, where $g$ is the dimensionless one-point coupling of the bulk particle to the identity boundary [@gz1994, eqs. (3.45), (3.55)]. Let us compute this residue on the blackboard.
 
 At $\theta = \frac{i\pi}{2} + \delta\theta$:
 
@@ -449,7 +478,19 @@ g^2 = -4\bigl(2\sqrt{3} - 3\bigr) < 0
 \quad\Longrightarrow\quad
 g = 2i\sqrt{2\sqrt{3} - 3}.
 $$ {#eq-lec1-ly-g}
-Why is $g$ purely imaginary ($g^2 < 0$)? Because scaling Lee–Yang is a **non-unitary** field theory ($\mathcal M(2,5)$ has central charge $c = -22/5$), whose bulk three-point coupling $\Gamma$ is also purely imaginary ($\Gamma^2 = -2\sqrt{3}\,(2+\sqrt{3}) < 0$)! The boundary faithfully inherits the non-unitarity of the bulk.
+The overall sign of $g$ is a choice of sign of the field; the residue fixes only $g^2$. We follow Ghoshal and Zamolodchikov's choice [@gz1994, eq. (3.54)].
+
+Why is $g$ purely imaginary ($g^2 < 0$)? Because scaling Lee–Yang is a **non-unitary** field theory ($\mathcal M(2,5)$ has central charge $c = -22/5$), whose bulk three-point coupling $\Gamma$ is also purely imaginary. In the convention $\operatorname{Res}_{\theta=2\pi i/3}S_{\rm LY}=i\Gamma^2$, the pole of (-@eq-lec1-s-ly) at $\theta=\frac{2\pi i}3$, where $\sinh\theta=i\sin\frac{2\pi}3$, has residue $2i\sin\frac{2\pi}3/\cosh\frac{2\pi i}3=2i\sin\frac{2\pi}3/\cos\frac{2\pi}3=-2i\sqrt3$, so
+$$
+\Gamma^2=-2\sqrt3<0.
+$$
+The boundary inherits the non-unitarity of the bulk.
+
+The pole of $(1)$ at $\theta=\frac{i\pi}6$ gives a consistency check on (-@eq-lec1-one-point-residue). The same block arithmetic as above gives $(1)\big|_{i\pi/6+\delta\theta}=\sinh(\frac{i\pi}{6})/(\delta\theta/2)=i/\delta\theta$, $(3)\big|_{i\pi/6}=\sin\frac\pi3/\sin(-\frac\pi6)=-\sqrt3$ and $(4)^{-1}\big|_{i\pi/6}=\sin(-\frac\pi4)/\sin\frac{5\pi}{12}=-(\sqrt3-1)$, so
+$$
+\operatorname{Res}_{\theta=i\pi/6}K_{(\mathbb 1)}(\theta)=i\cdot(-\sqrt3)\cdot\bigl(-(\sqrt3-1)\bigr)=i\bigl(3-\sqrt3\bigr).
+$$
+By (-@eq-lec1-one-point-residue) this should be $-\frac i2\Gamma g$. Indeed $\bigl(-\frac i2\Gamma g\bigr)^2=-\frac14\Gamma^2g^2=-\frac14(-2\sqrt3)\bigl(-4(2\sqrt3-3)\bigr)=-(12-6\sqrt3)=-\bigl(3-\sqrt3\bigr)^2$, which is the square of the residue. The residue then fixes the sign of $\Gamma$ relative to $g$: $\Gamma=i\sqrt{2\sqrt3}$ for the $g$ of (-@eq-lec1-ly-g).
 
 ### Step 4: Turning on the Boundary Perturbation $\Phi(h)$ and Bound-State Jumping
 
@@ -461,15 +502,23 @@ $$
 \Phi_b\!\left(\frac{i\pi}{2}-\theta\right) = \Phi_b\!\left(\frac{i\pi}{2}+\theta\right), \qquad
 \Phi_b(\theta) = \Phi_b\!\left(\theta+\frac{i\pi}{3}\right)\Phi_b\!\left(\theta-\frac{i\pi}{3}\right).
 $$ {#eq-lec1-cdd-conditions}
-Any pair of blocks $(x)(6-x)$ satisfies the first two conditions (because replacing $\theta\to \frac{i\pi}{2}-\theta$ swaps $(x)\leftrightarrow(6-x)^{-1}$). To also satisfy the third condition (the $\pm\frac{i\pi}{3}$ shift), Dorey, Pocklington, Tateo, and Watts [@dptw1998] took (`eq-ly-reflection` in [Section 29.7](book:sec-boundary-lee-yang)):
+Any pair of blocks $(x)(6-x)$ satisfies the first two conditions. Unitarity holds block by block. For crossing, the block $(x)$ evaluated at $\frac{i\pi}{2}-\theta$ equals $-(6-x)$ evaluated at $\frac{i\pi}{2}+\theta$, so the product $(x)(6-x)$ takes the same value at $\frac{i\pi}{2}\mp\theta$. To also satisfy the third condition (the $\pm\frac{i\pi}{3}$ shift), Dorey, Pocklington, Tateo and Watts [@dptw1998] took (the book's [Lee–Yang factors](book:eq-ly-reflection)):
 $$
 K_b(\theta) = K_{(\mathbb 1)}(\theta)\,(1-b)^{-1}(1+b)(5-b)(5+b)^{-1}
 = (1)(3)(4)^{-1}\,(1-b)^{-1}(1+b)(5-b)(5+b)^{-1}.
 $$ {#eq-lec1-ly-kb}
+The third condition holds by the shift rule: each block $(y)$ of $\Phi_b$ becomes $(y+2)(y-2)$, and
+$$
+\Phi_b\!\left(\theta+\frac{i\pi}{3}\right)\Phi_b\!\left(\theta-\frac{i\pi}{3}\right)
+=\frac{(3+b)(b-1)\,(7-b)(3-b)}{(3-b)(-1-b)\,(7+b)(3+b)}
+=\frac{(b-1)(7-b)}{(-1-b)(7+b)}=\Phi_b(\theta),
+$$
+since $(b-1)=(1-b)^{-1}$, $(7-b)=(-5-b)=(5+b)^{-1}$, $(-1-b)^{-1}=(1+b)$ and $(7+b)^{-1}=(-7-b)=(5-b)$ by $(-y)=(y)^{-1}$ and $(y+12)=(y)$. Dorey, Pocklington, Tateo and Watts identified this family with the perturbed boundaries $\Phi(h)$, again by comparison with truncated conformal space data, and fitted the relation between $b$ and $h$ numerically [@dptw1998].
+
 Look at Panel (b) of @fig-lec1-reflection-crossing as $b$ increases from $-3$ to $+2$:
 
-- At $b=0$, $(1-b)^{-1}(1+b)(5-b)(5+b)^{-1} = (1)^{-1}(1)(5)(5)^{-1} = 1$, so $K_0(\theta) = K_{(\mathbb 1)}(\theta)$! Notice how this happens: the moving pole of $(1+b)$ at $\theta = i\frac{\pi}{6}(b+1)$ hits $i\frac{\pi}{6}$ at $b=0$, but at that exact instant the zero of $(1-b)^{-1}$ *also* arrives at $i\frac{\pi}{6}$ and cancels it, leaving only the simple one-point pole of $(1)$!
-- For $-1 < b < 2$, the pole of $(1+b)$ at $\theta = i v_1 = i\frac{\pi}{6}(b+1)$ lies inside the physical strip $0 < \operatorname{Im}\theta < \frac{\pi}{2}$. It describes a **boundary bound state** $|1\rangle_B$ with excitation energy (-@eq-lec1-bound-state-energy)
+- At $b=0$, $(1-b)^{-1}(1+b)(5-b)(5+b)^{-1} = (1)^{-1}(1)(5)(5)^{-1} = 1$, so $K_0(\theta) = K_{(\mathbb 1)}(\theta)$. Notice how this happens: the moving pole of $(1+b)$ at $\theta = i\frac{\pi}{6}(b+1)$ hits $i\frac{\pi}{6}$ at $b=0$, but at that exact instant the zero of $(1-b)^{-1}$ *also* arrives at $i\frac{\pi}{6}$ and cancels it, leaving only the simple one-point pole of $(1)$. Equal reflection factors do not make equal boundary conditions: Dorey, Pocklington, Tateo and Watts point out that the reflection factor alone does not characterize a boundary condition, and their data distinguish the $\mathbb 1$ boundary from $\Phi(h)$ at every finite $h$ [@dptw1998].
+- For $-1 < b < 2$, the pole of $(1+b)$ at $\theta = i v_1 = i\frac{\pi}{6}(b+1)$ lies inside the physical strip $0 < \operatorname{Im}\theta < \frac{\pi}{2}$. It is interpreted as a **boundary bound state** $|1\rangle_B$ with excitation energy (-@eq-lec1-bound-state-energy); the truncated conformal space spectra of Dorey, Pocklington, Tateo and Watts show a level with exactly this gap [@dptw1998]
   $$
   e_1 - e_0 = M\cos\frac{(b+1)\pi}{6}.
   $$
@@ -478,31 +527,32 @@ Look at Panel (b) of @fig-lec1-reflection-crossing as $b$ increases from $-3$ to
   \begin{aligned}
   K_b^{(1)}(\theta) &= S_{\rm LY}(\theta - iv_1)\,S_{\rm LY}(\theta + iv_1)\,K_b(\theta) \\
   &= (2+b+1)(2-b-1)(4+b+1)(4-b-1)\,(1)(3)(4)^{-1}(1-b)^{-1}(1+b)(5-b)(5+b)^{-1} \\
+  &= (1)(3)(4)^{-1}\,(3+b)(3-b)(1+b)(5-b) \\
   &= (1)(3)(4)^{-1}\,(1-(b+2))^{-1}(1+b+2)(5-(b+2))(5+b+2)^{-1} \\
-  &= K_{b+2}(\theta)!
+  &= K_{b+2}(\theta).
   \end{aligned}
   $$ {#eq-lec1-ly-shift}
-  Look at that result: **exciting the boundary bound state simply shifts the boundary parameter $b \mapsto b+2$ within the exact same family of reflection factors!** We will meet this same miracle again in boundary sine-Gordon (Lecture 4) and in $a_2^{(1)}$ (Lecture 6).
+  In the second line the blocks $(1-b)$ and $(5+b)$ cancel. In the third line we used $(1+b)=(-1-b)^{-1}$ and $(5-b)=(-7-b)=(7+b)^{-1}$. So **exciting the boundary bound state shifts the boundary parameter $b \mapsto b+2$ within the same family of reflection factors**, as Dorey, Pocklington, Tateo and Watts found. (Since $K_p=K_{6-p}$, this is also $K_{4-b}$.) We will meet the same structure again in boundary sine-Gordon (Lecture 4) and in $a_2^{(1)}$ (Lecture 6).
 
 ---
 
 ## Guided Rediscovery Exercises
 
 ::: {#exr-lec1-elastic}
-### Exercise 1.1: Why Half-Line Conservation Laws Force Elastic Reflection ([Exercise 29.1](book:exr-boundary-elastic))
+### Why Half-Line Conservation Laws Force Elastic Reflection (the book's [elasticity exercise](book:exr-boundary-elastic))
 
-Suppose an incoming particle of rapidity $\theta_1 > 0$ bounces off the wall at $x=0$ into $N'$ outgoing particles with rapidities $-\theta'_1, \dots, -\theta'_{N'} < 0$ (all of the same mass $M=1$). Conservation of the half-line charges $\widehat Q_s$ (-@eq-lec1-hat-q) for all odd integers $s = 1, 3, 5, \dots$ implies
+Suppose an incoming particle of rapidity $\theta_1 > 0$ bounces off the wall at $x=0$ into $N'$ outgoing particles with rapidities $-\theta'_1, \dots, -\theta'_{N'} < 0$. Take a theory with a single species of mass $M=1$, normalized so that $\gamma^{(s)}=1$ (for several species, assume that their charge eigenvalues $\gamma^{(s)}$ are all equal; equal masses alone do not ensure this). Conservation of the half-line charges $\widehat Q_s$ (-@eq-lec1-hat-q) for all odd integers $s = 1, 3, 5, \dots$ implies
 $$
 \cosh(s\theta_1) = \sum_{j=1}^{N'} \cosh(s\theta'_j), \qquad s = 1, 3, 5, \dots
 $$
 
 1. Set $s=1$. Since $\cosh x > 1$ for all $x>0$, what immediately follows if $\theta_1$ is small enough that $\cosh\theta_1 < 2$?
-2. For general $\theta_1 > 0$, let $\theta'_{\max} = \max_j \theta'_j > 0$. Divide both sides by $\frac{1}{2}e^{s\theta'_{\max}}$ and take the limit $s\to\infty$ through odd integers. Show that the limit exists and is finite and non-zero if and only if $\theta'_{\max} = \theta_1$ and only one outgoing particle achieves this maximum.
-3. Subtract $\cosh(s\theta_1)$ from both sides and conclude that $N'=1$ and $\theta'_1 = \theta_1$.
+2. For general $\theta_1 > 0$, let $\theta'_{\max} = \max_j \theta'_j > 0$, and let $r\ge1$ be the number of outgoing particles with $\theta'_j=\theta'_{\max}$. Divide both sides by $\frac{1}{2}e^{s\theta'_{\max}}$ and take the limit $s\to\infty$ through odd integers. Show that the right-hand side tends to $r$, while the left-hand side tends to $0$, $1$ or $\infty$ according as $\theta_1<\theta'_{\max}$, $\theta_1=\theta'_{\max}$ or $\theta_1>\theta'_{\max}$. Conclude first that $\theta'_{\max}=\theta_1$, and then that $r=1$.
+3. Subtract $\cosh(s\theta_1)$ from both sides. The remaining sum of $N'-1$ terms $\cosh(s\theta'_j)\ge1$ must vanish. Conclude that $N'=1$ and $\theta'_1 = \theta_1$.
 :::
 
 ::: {#exr-lec1-twisted}
-### Exercise 1.2: Domain Checking the Soliton-Conjugating Reflection Equation ([Exercise 29.3](book:exr-twisted-domains))
+### Domain Checking the Soliton-Conjugating Reflection Equation (the book's [domain exercise](book:exr-twisted-domains))
 
 In $a_n^{(1)}$ ($n\ge 2$), a soliton in representation $V_\mu(\theta)$ reflects into its antiparticle in $V_{\bar\mu}(-\theta)$, so the reflection matrix is an operator $K_\mu(\theta): V_\mu(\theta) \to V_{\bar\mu}(-\theta)$, while the bulk braid operator maps $\check R_{\alpha,\beta}(\theta): V_\alpha\otimes V_\beta \to V_\beta\otimes V_\alpha$.
 
@@ -510,7 +560,7 @@ In $a_n^{(1)}$ ($n\ge 2$), a soliton in representation $V_\mu(\theta)$ reflects 
    $$
    V_\mu\otimes V_\nu \;\xrightarrow{\check R_{\mu,\nu}(\theta_1-\theta_2)}\; ?
    \;\xrightarrow{\mathbf 1_\nu\otimes K_\mu(\theta_1)}\; ?
-   \;\xrightarrow{\check R_{\bar\mu,\nu}(\theta_1+\theta_2)}\; ?
+   \;\xrightarrow{\check R_{\nu,\bar\mu}(\theta_1+\theta_2)}\; ?
    \;\xrightarrow{\mathbf 1_{\bar\mu}\otimes K_\nu(\theta_2)}\; V_{\bar\mu}\otimes V_{\bar\nu}.
    $$
    *(Note: remember that $\check R_{A,B}: V_A\otimes V_B \to V_B\otimes V_A$, so the subscripts of $\check R$ in (-@eq-lec1-reflection-twisted) label the representations being scattered!)*
@@ -519,20 +569,20 @@ In $a_n^{(1)}$ ($n\ge 2$), a soliton in representation $V_\mu(\theta)$ reflects 
 :::
 
 ::: {#exr-lec1-crossing-forms}
-### Exercise 1.3: The Three Diagonal Crossing-Unitarity Equations and Boundary CDD Factors ([Exercises 29.4 & 29.5](book:exr-crossing-forms))
+### The Three Diagonal Crossing-Unitarity Equations and Boundary CDD Factors (the book's exercises on [boundary CDD factors](book:exr-boundary-cdd) and [crossing forms](book:exr-crossing-forms))
 
 1. Starting from the centered boundary crossing-unitarity equation (-@eq-lec1-cu-book),
    $$
    K_a\!\left(\frac{i\pi}{2}-\theta\right) = S_{a\bar a}(2\theta)\,K_{\bar a}\!\left(\frac{i\pi}{2}+\theta\right),
    $$
    multiply both sides by $K_{\bar a}(-\frac{i\pi}{2}-\theta)$, apply boundary unitarity (-@eq-lec1-boundary-unitarity), and replace $\theta\to -\theta$ to derive the Corrigan–Delius form (-@eq-lec1-cu-cd). State which property of $S_{a\bar a}$ you use.
-2. In (-@eq-lec1-cu-cd), shift $\theta \to \theta + \frac{i\pi}{2}$ and use bulk crossing symmetry $S_{\bar a a}(2\theta + i\pi) = S_{aa}(2\theta)^{-1}$ (together with bulk unitarity) to derive the Delius–Gandenberger form (-@eq-lec1-cu-dg).
+2. In (-@eq-lec1-cu-cd), shift $\theta \to \theta + \frac{i\pi}{2}$ and use bulk crossing symmetry $S_{\bar a a}(2\theta + i\pi) = S_{aa}(2\theta)^{-1}$ (together with bulk unitarity and $C$-invariance, $S_{\bar a\bar a}=S_{aa}$) to derive the Delius–Gandenberger form (-@eq-lec1-cu-dg).
 3. Define the standard hyperbolic block $f_x(\theta) = \frac{\sinh\theta + i\sin(\pi x)}{\sinh\theta - i\sin(\pi x)}$. Show on paper that $\Phi(\theta) = f_x(\theta)$ satisfies both the unitarity and crossing-invariance conditions (-@eq-lec1-cdd-conditions) of a boundary CDD factor,
    $$
    \Phi(\theta)\,\Phi(-\theta) = 1, \qquad \Phi\!\left(\frac{i\pi}{2}-\theta\right) = \Phi\!\left(\frac{i\pi}{2}+\theta\right),
    $$
-   whereas $\widetilde\Phi(\theta) = f_x(2\theta)$ satisfies the first condition but **fails** the second whenever $\sin(\pi x)\ne 0$!
-4. Using $f_x(\theta) = (2x)(6-2x)$ in the $h=6$ block notation (-@eq-lec1-block-def), verify that the $b$-dependent ratio in (-@eq-lec1-ly-kb) is simply a ratio of two boundary CDD factors:
+   whereas $\widetilde\Phi(\theta) = f_x(2\theta)$ satisfies the first condition but **fails** the second whenever $\sin(\pi x)\ne 0$.
+4. Factor $\sinh\theta\pm i\sin(\pi x)$ into half-angle functions, as in the doubling identity (-@eq-lec1-doubling), to show that $f_x(\theta) = -(6x)(6-6x)$ in the $h=6$ block notation (-@eq-lec1-block-def). Then verify that the $b$-dependent ratio in (-@eq-lec1-ly-kb) is simply a ratio of two boundary CDD factors:
    $$
    \frac{K_b(\theta)}{K_{(\mathbb 1)}(\theta)} = \frac{f_{(1+b)/6}(\theta)}{f_{(1-b)/6}(\theta)}.
    $$

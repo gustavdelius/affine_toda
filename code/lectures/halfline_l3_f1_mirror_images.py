@@ -3,18 +3,23 @@
 Half-Line Lecture 3 figure & verification script:
   lecture-notes/half-line/figures/l3_f1_mirror_images.svg
 
-Verifies:
-  1. Mirror-pair Hirota tau-functions for a_2^(1) satisfy the imaginary-coupling
-     boundary condition at x=0 for C in {0, +1, -1} with exact mirror shift
-     xi_1 + xi_2 = -ln(1-s^2) (Neumann) and -2*ln(1+C*s) (C = +-1).
-  2. Time delay Delta t and virtual collision point d match asymptotic trajectories,
-     and Delta t_N = (Delta t_+1 + Delta t_-1)/2.
-  3. Real-coupling stationary-soliton vacuum tau_j(x) for a_2^(1) solves the static
-     bulk equation, satisfies the C_j = (+,-,-), (-,+,-), (-,-,+) boundary conditions
-     in the three open intervals of the modulus chi, and has chi-independent energy
-     E_vac = (2*m/beta^2)*(4 - 3*sqrt(3)).
-  4. Linearized classical reflection factor K_a^cl(theta) around phi=0 has a
-     physical-strip bound-state pole for C=-1 and none for C=+1.
+Verifies (m = beta = 1, a_2^(1), species a = 1, sampled parameters):
+  1. The mirror pair with shift xi_1 + xi_2 = -ln(1-s^2) (Neumann) or -2 ln(1+Cs) (C = +-1)
+     satisfies the imaginary-coupling boundary condition at x = 0, relative to the initial
+     boundary vacuum v_a computed from the solution.
+  2. The blackboard steps for C = +-1: d_x tau_j(0,t) = k/(1+Cs) (zeta^{ja}U + zeta^{-ja}/U + 2(1-Cs)),
+     k s = 2 m sin^2(pi a/h), and (d_x tau_j - m C sqrt(tau_{j+1} tau_{j-1}))/tau_j = k - m C with
+     the square root 4 c_{j+1} c_{j-1}/(1+Cs) at integer indices j +- 1.
+  3. Time delay and virtual collision point: Delta t_N = (Delta t_+1 + Delta t_-1)/2 and
+     d = -(xi_1 + xi_2 + ln A)/(2 m_a cosh theta) for C = +1.
+  4. Real-coupling stationary pair (eq-lec3-vacuum-pair): for several moduli chi in each of the
+     three intervals of the lecture's table, the field is positive-tau (regular) on x <= 0, solves
+     the static field equation, satisfies the boundary condition with exactly the sign pattern
+     that the table assigns to that interval (and with none of the other seven patterns), the
+     cosine-product formula eq-lec3-cj-from-chi at integer indices gives the same pattern, and
+     the energy is E_vac = 2 (4 - 3 sqrt 3).
+  5. Linearized classical reflection factor: the rational form satisfies the linearized
+     boundary condition, and equals [-(a)(h-a)]^{-C} for C = -1, 0, +1.
 """
 from pathlib import Path
 import sys
@@ -147,7 +152,38 @@ def run_checks():
         max_err_bc < 1e-13,
     )
 
-    # Check 2: Time delay and virtual collision point relations
+    # Check 2: blackboard steps of the C = +-1 perfect-square proof
+    m1 = np.sqrt(3.0)
+    sa = np.sin(np.pi / 3.0)
+    max_err_steps = 0.0
+    for C in (1, -1):
+        s_ = sa / np.cosh(theta)
+        k_ = m1 * np.cosh(theta)
+        D = 1.0 + C * s_
+        max_err_steps = max(max_err_steps, abs(k_ * s_ - 2.0 * sa**2))
+        for t in (-0.7, 0.2, 1.1):
+            T, dT = tau_mirror_a2(np.array([0.0]), t, theta, xi1, C)
+            xi2 = (-2.0 * np.log(1.0 + C * s_)) - xi1
+            U = np.exp(-m1 * np.sinh(theta) * t + 0.5 * (xi1 - xi2))
+            psi = np.log(U) / 2.0j
+            c = lambda kk: np.cos(psi + np.pi * kk / 3.0)
+            for j in range(3):
+                z = ZETA**j * U
+                d_pred = k_ / D * (z + 1.0 / z + 2.0 * (1.0 - C * s_))
+                root = 4.0 * c(j + 1) * c(j - 1) / D  # integer indices j +- 1
+                ratio = (dT[j, 0] - C * root) / T[j, 0]
+                max_err_steps = max(
+                    max_err_steps,
+                    abs(dT[j, 0] - d_pred),
+                    abs(root**2 - T[(j + 1) % 3, 0] * T[(j - 1) % 3, 0]),
+                    abs(ratio - (k_ - C)),
+                )
+    report(
+        f"C=+-1 steps: d_x tau_j(0) with 2(1-Cs), k s = 2m sin^2, ratio = k - mC (max err={max_err_steps:.2e})",
+        max_err_steps < 1e-10,
+    )
+
+    # Check 3: Time delay and virtual collision point relations
     m1 = np.sqrt(3.0)
     s = np.sin(np.pi / 3.0) / np.cosh(theta)
     dt_p1 = 2.0 * np.log(1.0 + s) / (m1 * np.sinh(theta))
@@ -165,81 +201,117 @@ def run_checks():
         max(err_dt_avg, err_d) < 1e-15,
     )
 
-    # Check 3: Real-coupling stationary-soliton vacuum (eq-vacuum-pair, prp-solitonic-vacua)
+    # Check 4: Real-coupling stationary-soliton vacuum against the lecture's interval table
     from scipy.integrate import quad
 
-    test_chis = [0.0, 2.0 * np.pi / 3.0, -2.0 * np.pi / 3.0]
-    max_err_vac_bc = 0.0
-    max_err_vac_eom = 0.0
-    max_err_vac_energy = 0.0
+    # the table printed in the lecture: interval of chi -> (C_0, C_1, C_2)
+    table = [
+        ((-np.pi, -np.pi / 3.0), (-1.0, 1.0, -1.0)),
+        ((-np.pi / 3.0, np.pi / 3.0), (1.0, -1.0, -1.0)),
+        ((np.pi / 3.0, np.pi), (-1.0, -1.0, 1.0)),
+    ]
+    all_patterns = [
+        tuple(float(c) for c in pat)
+        for pat in np.array(np.meshgrid([1, -1], [1, -1], [1, -1])).T.reshape(-1, 3)
+    ]
     E_exact = 2.0 * (4.0 - 3.0 * np.sqrt(3.0))
-
-    for chi_val in test_chis:
-        t_x, dxt_x, d2xt_x = tau_vac_a2(-0.7, chi_val)
-        phi_x = -sum(roots[j] * np.log(t_x[j]) for j in range(3))
-        d2x_phi = -sum(
-            roots[j] * (d2xt_x[j] / t_x[j] - (dxt_x[j] / t_x[j]) ** 2)
-            for j in range(3)
-        )
-        grad_V = sum(
-            roots[j] * np.exp(np.dot(roots[j], phi_x)) for j in range(3)
-        )
-        max_err_vac_eom = max(max_err_vac_eom, np.max(np.abs(d2x_phi - grad_V)))
-
-        t0, dxt0, _ = tau_vac_a2(0.0, chi_val)
-        phi_0 = -sum(roots[j] * np.log(t0[j]) for j in range(3))
-        dx_phi_0 = -sum(roots[j] * (dxt0[j] / t0[j]) for j in range(3))
-        best_C = None
-        best_err = 1e9
-        for C_pat in [(1.0, -1.0, -1.0), (-1.0, 1.0, -1.0), (-1.0, -1.0, 1.0)]:
-            rhs = -sum(
-                C_pat[j] * roots[j] * np.exp(0.5 * np.dot(roots[j], phi_0))
+    max_err_vac_eom = 0.0
+    max_err_vac_bc = 0.0
+    min_err_other = np.inf
+    max_err_vac_energy = 0.0
+    formula_ok = True
+    min_tau = np.inf
+    x_grid = np.linspace(-12.0, 0.0, 601)
+    for (lo, hi), C_pat in table:
+        for frac in (0.15, 0.5, 0.85):
+            chi_val = lo + frac * (hi - lo)
+            t_x, dxt_x, d2xt_x = tau_vac_a2(-0.7, chi_val)
+            phi_x = -sum(roots[j] * np.log(t_x[j]) for j in range(3))
+            d2x_phi = -sum(
+                roots[j] * (d2xt_x[j] / t_x[j] - (dxt_x[j] / t_x[j]) ** 2)
                 for j in range(3)
             )
-            err = np.max(np.abs(dx_phi_0 - rhs))
-            if err < best_err:
-                best_err = err
-                best_C = C_pat
-        max_err_vac_bc = max(max_err_vac_bc, best_err)
-
-        def edens(xv, cv=chi_val):
-            tv, dxtv, _ = tau_vac_a2(xv, cv)
-            phv = -sum(roots[j] * np.log(tv[j]) for j in range(3))
-            dxphv = -sum(roots[j] * (dxtv[j] / tv[j]) for j in range(3))
-            return 0.5 * np.sum(dxphv**2) + sum(
-                np.exp(np.dot(roots[j], phv)) - 1.0 for j in range(3)
+            grad_V = sum(
+                roots[j] * np.exp(np.dot(roots[j], phi_x)) for j in range(3)
             )
+            max_err_vac_eom = max(max_err_vac_eom, np.max(np.abs(d2x_phi - grad_V)))
+            tg, _, _ = tau_vac_a2(x_grid, chi_val)
+            min_tau = min(min_tau, np.min(tg))
 
-        bulk_E, _ = quad(edens, -np.inf, 0.0, epsabs=1e-12, epsrel=1e-12)
-        bdy_E = 2.0 * sum(
-            best_C[j] * (np.exp(0.5 * np.dot(roots[j], phi_0)) - 1.0)
-            for j in range(3)
-        )
-        tot_E = bulk_E + bdy_E
-        max_err_vac_energy = max(max_err_vac_energy, abs(tot_E - E_exact))
+            t0, dxt0, _ = tau_vac_a2(0.0, chi_val)
+            phi_0 = -sum(roots[j] * np.log(t0[j]) for j in range(3))
+            dx_phi_0 = -sum(roots[j] * (dxt0[j] / t0[j]) for j in range(3))
+
+            def bc_err(pat):
+                rhs = -sum(
+                    pat[j] * roots[j] * np.exp(0.5 * np.dot(roots[j], phi_0))
+                    for j in range(3)
+                )
+                return np.max(np.abs(dx_phi_0 - rhs))
+
+            max_err_vac_bc = max(max_err_vac_bc, bc_err(C_pat))
+            for pat in all_patterns:
+                if pat != C_pat:
+                    min_err_other = min(min_err_other, bc_err(pat))
+
+            # eq-lec3-cj-from-chi with integer (unreduced) indices j +- 1
+            cc = lambda kk: np.cos(0.5 * chi_val + np.pi * kk / 3.0)
+            C_formula = tuple(float(np.sign(cc(j + 1) * cc(j - 1))) for j in range(3))
+            formula_ok = formula_ok and (C_formula == C_pat)
+
+            def edens(xv, cv=chi_val):
+                tv, dxtv, _ = tau_vac_a2(xv, cv)
+                phv = -sum(roots[j] * np.log(tv[j]) for j in range(3))
+                dxphv = -sum(roots[j] * (dxtv[j] / tv[j]) for j in range(3))
+                return 0.5 * np.sum(dxphv**2) + sum(
+                    np.exp(np.dot(roots[j], phv)) - 1.0 for j in range(3)
+                )
+
+            bulk_E, _ = quad(edens, -np.inf, 0.0, epsabs=1e-12, epsrel=1e-12, limit=200)
+            bdy_E = 2.0 * sum(
+                C_pat[j] * (np.exp(0.5 * np.dot(roots[j], phi_0)) - 1.0)
+                for j in range(3)
+            )
+            max_err_vac_energy = max(max_err_vac_energy, abs(bulk_E + bdy_E - E_exact))
 
     report(
-        f"a_2^(1) real-coupling stationary vacuum solves EOM (err={max_err_vac_eom:.2e}), "
-        f"solitonic BC (err={max_err_vac_bc:.2e}), and E_vac=2(4-3*sqrt(3)) (err={max_err_vac_energy:.2e})",
-        max_err_vac_eom < 1e-13
-        and max_err_vac_bc < 1e-13
-        and max_err_vac_energy < 1e-10,
+        f"a_2^(1) stationary vacuum: tau_j > 0 on x<=0 (min={min_tau:.3f}), static EOM (err={max_err_vac_eom:.2e})",
+        min_tau > 0.0 and max_err_vac_eom < 1e-13,
+    )
+    report(
+        f"a_2^(1) stationary vacuum satisfies the BC with the table's pattern in each chi interval "
+        f"(err={max_err_vac_bc:.2e}), all other patterns fail (min err={min_err_other:.3f}), "
+        f"and eq-lec3-cj-from-chi at integer indices gives the table ({formula_ok})",
+        max_err_vac_bc < 1e-12 and min_err_other > 1e-2 and formula_ok,
+    )
+    report(
+        f"a_2^(1) stationary vacuum energy E_vac = 2(4-3*sqrt(3)) in all three intervals (err={max_err_vac_energy:.2e})",
+        max_err_vac_energy < 1e-10,
     )
 
-    # Check 4: Linearized classical reflection factor K_a^cl(theta) around phi=0
-    th_test = 0.52
-    p = m1 * np.sinh(th_test)
-    err_lin = 0.0
-    for C in (1.0, -1.0):
-        K_cl = (np.sinh(th_test) - 1.0j * C * np.sin(np.pi / 3.0)) / (
-            np.sinh(th_test) + 1.0j * C * np.sin(np.pi / 3.0)
+    # Check 5: Linearized classical reflection factor K_a^cl(theta) around phi=0
+    def block(xb, th, h=3):
+        return np.sinh(th / 2 + 1j * np.pi * xb / (2 * h)) / np.sinh(
+            th / 2 - 1j * np.pi * xb / (2 * h)
         )
-        lhs_lin = 1.0j * p * (1.0 - K_cl)
-        rhs_lin = -C * (m1**2 / 2.0) * (1.0 + K_cl)
-        err_lin = max(err_lin, abs(lhs_lin - rhs_lin))
+
+    err_lin = 0.0
+    err_blk = 0.0
+    for th_test in (0.52, 0.31 + 0.27j):
+        p = m1 * np.sinh(th_test)
+        for C in (1.0, 0.0, -1.0):
+            K_cl = (np.sinh(th_test) - 1.0j * C * np.sin(np.pi / 3.0)) / (
+                np.sinh(th_test) + 1.0j * C * np.sin(np.pi / 3.0)
+            )
+            lhs_lin = 1.0j * p * (1.0 - K_cl)
+            rhs_lin = -C * (m1**2 / 2.0) * (1.0 + K_cl)
+            err_lin = max(err_lin, abs(lhs_lin - rhs_lin))
+            K_blk = (-block(1, th_test) * block(2, th_test)) ** (-C)
+            err_blk = max(err_blk, abs(K_cl - K_blk))
     report(
-        f"Linearized classical reflection K_a^cl(theta) satisfies d_x eps|_0 = -(C m_a^2/2m) eps|_0 (err={err_lin:.2e})",
-        err_lin < 1e-15,
+        f"Linearized K_a^cl solves d_x eps|_0 = -(C m_a^2/2m) eps|_0 (err={err_lin:.2e}) and equals "
+        f"[-(a)(h-a)]^(-C) for C=+1,0,-1 (err={err_blk:.2e})",
+        err_lin < 1e-14 and err_blk < 1e-14,
     )
 
 
@@ -385,8 +457,8 @@ def make_figure():
     taus_x, _, _ = tau_vac_a2(x_plot, chi_demo)
     colors_tau = [BLUE, GREEN, ORANGE]
     labels_tau = [
-        r"$\tau_0(x)$ ($C_0=-1$)",
-        r"$\tau_1(x)$ ($C_1=+1$)",
+        r"$\tau_0(x)$ ($C_0=+1$)",
+        r"$\tau_1(x)$ ($C_1=-1$)",
         r"$\tau_2(x)$ ($C_2=-1$)",
     ]
     for j in range(3):
@@ -408,7 +480,7 @@ def make_figure():
         0.22,
         r"Modulus $\chi$: $E_{\rm vac} = \frac{2m}{\beta^2}(4-3\sqrt{3})$"
         "\n"
-        r"independent of $\chi$ on $|\chi|<\frac{\pi}{3}$!",
+        r"independent of $\chi$ on $|\chi|<\frac{\pi}{3}$",
         fontsize=7.3,
         color=GREY,
         ha="center",
