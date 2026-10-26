@@ -28,13 +28,15 @@ Checks:
     exact R-check; for the a_n vector representation (n <= 6) the coefficients are exactly the b_j of
     eq-coideal-generators, with eps = 0 (K = 1) or eps = (s eps_*, eps_*, ..., eps_*) (eq-an-k-matrix).
  9. Sine-Gordon eps_j near the Neumann point from eq-bsg-eta-theta and cnj-bsg-uv-ir (prp-dm-first-order): eps_1 depends
-    on mu_- ~ C_1 alone and eps_0 on mu_+ ~ C_0 alone (sign of phi_0 of eq-bsg-dirichlet).
+    on mu_- ~ C_1 alone and eps_0 on mu_+ ~ C_0 alone (sign of phi_0 of eq-bsg-dirichlet).  The branch of
+    eq-sg-neumann-eps, eps_* = 1/(2 cos(pi lambda/2)); the zeros of eps on phi_0 = 0, several for lambda > 2.
 10. Delius-MacKay's q (their (3.10)) is 1/q: their charges Q_+- are left-movers, the book's f_0 k_0 and f_1 k_1, and their
     Qbar_-+ are e_0, e_1; at the physical q these have DM's T-charges and coproducts with q_DM = 1/q, not with q.
 Runtime: about two minutes.
 """
 import numpy as np
 import sympy as sp
+from scipy.optimize import brentq
 from boundary_common import (report, q_phys, an_vector, sl2_spin, dn_vector, check_relations, cartan_a,
                              cartan_d, coideal_gen, coideal_gen_tensor, cop, k_intertwiner, rcheck,
                              re_twisted, re_preserving, dual, kron, intertwiners, nodes_of)
@@ -554,6 +556,32 @@ ok &= abs(eps_sg(np.cos(np.pi/(2*(lamS + 1))))) < 1e-12
 report(f'sine-Gordon: eq-bsg-eta-theta + cnj-bsg-uv-ir give eps_(1,0) = -cos((lambda+1) arccos mu_-+)/sin(pi lambda), '
        f'mu_- ~ C_1, mu_+ ~ C_0 (each node with its own parameter), = eps_* - (lambda+1)/(2 sin(pi lambda/2)) mu_-+ + O(mu^2) '
        f'near Neumann; eps = 0 at mu_+- = cos(pi/(2(lambda+1)))', ok)
+
+# eq-sg-neumann-eps names the branch: eps_* = 1/(2 cos(pi lambda/2)), the UV-IR value at mu = 0 and the value that gives
+# GZ's free boundary k = 1/sin(pi lambda/2); for 1 < lambda < 3 it is minus the principal root of 1/((1-q)(1-q^-1)).
+# Zeros of eps on phi_0 = 0, 0 < mu~/mu~_crit < 1: cos((2k+1) pi/(2(lambda+1))), 0 <= k < lambda/2 (eta = (2k+1) pi/2);
+# one zero for lambda < 2, several for lambda > 2, and cos(pi/(2(lambda+1))) is the one nearest the uniform point.
+ok = True
+for lamB in (np.sqrt(2)/2, np.sqrt(2), np.e - 0.3):
+    qB = -np.exp(-1j*np.pi*lamB)
+    root = 2*np.cos(np.pi*lamB/2)
+    ok &= abs((1 - qB)*(1 - 1/qB) - root**2) < 1e-12
+    ok &= abs(-np.cos((lamB + 1)*np.pi/2)/np.sin(np.pi*lamB) - 1/root) < 1e-12
+    ok &= abs(1/((1/root)*np.sin(np.pi*lamB)) - 1/np.sin(np.pi*lamB/2)) < 1e-12
+    ok &= abs(np.sqrt((1 - qB)*(1 - 1/qB)) - (-root if 1 < lamB < 3 else root)) < 1e-12
+nz = {}
+for lamB in (np.sqrt(2) + 0.3, np.sqrt(5) + 0.1, 4.3 + np.sqrt(2)/10, 5*np.sqrt(2)):
+    f = lambda m: -np.cos((lamB + 1)*np.arccos(m))/np.sin(np.pi*lamB)
+    grid = np.linspace(1e-6, 1 - 1e-6, 20001)
+    sgn = np.sign(f(grid))
+    zs = [brentq(f, grid[k], grid[k + 1], xtol=1e-14) for k in np.nonzero(sgn[:-1] != sgn[1:])[0]]
+    pred = [np.cos((2*k + 1)*np.pi/(2*(lamB + 1))) for k in range(50) if 2*k + 1 < lamB + 1]
+    ok &= len(zs) == len(pred) and np.allclose(sorted(zs), sorted(pred), atol=1e-10)
+    ok &= abs(max(zs) - np.cos(np.pi/(2*(lamB + 1)))) < 1e-10
+    nz[round(lamB, 2)] = len(zs)
+report(f'sine-Gordon: eps_* = 1/(2 cos(pi lambda/2)) is the UV-IR value at mu = 0 and gives GZ k = 1/sin(pi lambda/2); '
+       f'minus the principal root for 1 < lambda < 3. On phi_0 = 0 eps vanishes at cos((2k+1) pi/(2(lambda+1))), '
+       f'0 <= k < lambda/2, the largest at k = 0 [number of zeros {nz}]', ok)
 
 # ---------------------------------------------------------------- 10. Delius-MacKay's sine-Gordon q is a convention
 # DM (hep-th/0112023) sec. 3: Euclidean z = (t + ix)/2 with t = i t_M, so their holomorphic phi is a function of x^+:

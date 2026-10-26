@@ -204,4 +204,4 @@ Show that a shift $\vec x\mapsto\vec x+\vec s$ with $\vec\alpha_j\cdot\vec s\equ
 
 ## Notes and references {#sec-lattice-notes}
 
-The equivalence of sine-Gordon theory with a two-component Coulomb gas is classical [@frohlich1976; @benfatto1982]. Lidskii's theorem and Pringsheim's theorem are standard; see [@gohberg1971] for the former. Osterwalder–Schrader reconstruction, of which the Krein-space version here is a twisted form, is in [@osterwalder1973; @osterwalder1975]. The theorems of this chapter are new here.
+The equivalence of sine-Gordon theory with a two-component Coulomb gas is classical [@frohlich1976; @benfatto1982]. Lidskii's theorem and Pringsheim's theorem are standard; see @gohberg1971 for the former. Osterwalder–Schrader reconstruction, of which the Krein-space version here is a twisted form, is in @osterwalder1973 and @osterwalder1975. The theorems of this chapter are new here.

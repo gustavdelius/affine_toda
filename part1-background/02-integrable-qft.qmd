@@ -184,7 +184,7 @@ $$ {#eq-lee-yang-smatrix}
 
 It has poles at $\theta=2\pi i/3$ and $\theta=i\pi/3$. Interpreting the first as an $s$-channel bound state, (-@eq-bound-state-mass) gives $m_c^2=2m^2(1+\cos\frac{2\pi}3)=m^2$: the bound state is the particle itself, with $u_{aa}^a=2\pi/3$ and a mass triangle that is equilateral. The pole at $i\pi/3$ is its crossing image. The bootstrap (-@eq-bootstrap) with $\bar u=\pi/3$ requires $S(\theta)=S(\theta-i\pi/3)\,S(\theta+i\pi/3)$, which holds (@exr-lee-yang-bootstrap). This is the S-matrix of the scaling Lee–Yang model [@cardy1989], and @sec-lee-yang takes it up again.
 
-**Higher-order poles.** Integrable S-matrices often have double and higher poles in the physical strip. These are not bound states. They come from anomalous thresholds, that is from Landau singularities of on-shell diagrams in which several particles propagate on shell, as Coleman and Thun showed for sine-Gordon theory [@coleman_thun1978]. In affine Toda theory the pattern of higher-order poles is intricate and fully consistent with this explanation [@braden1990]. @sec-perturbation-theory treats it.
+**Higher-order poles.** Integrable S-matrices often have double and higher poles in the physical strip. These are not bound states. They come from anomalous thresholds, that is from Landau singularities of on-shell diagrams in which several particles propagate on shell, as Coleman and Thun [-@coleman_thun1978] showed for sine-Gordon theory. In affine Toda theory the pattern of higher-order poles is intricate and fully consistent with this explanation [@braden1990]. @sec-perturbation-theory treats it.
 
 ## Finite volume: the Bethe–Yang equations {#sec-bethe-yang}
 

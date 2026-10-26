@@ -66,7 +66,7 @@ For sine-Gordon ($h=2$, $\vec\alpha_1=-\vec\alpha_0=\sqrt2$) and $\operatorname{
 
 ## The vertex-operator construction {#sec-vertex-solitons}
 
-Olive, Turok and Underwood [@olive1993a; @olive1993b] showed that the $\tau$-functions are matrix elements in the fundamental representations of $\hat g$,
+Olive, Turok and Underwood [-@olive1993a; -@olive1993b] showed that the $\tau$-functions are matrix elements in the fundamental representations of $\hat g$,
 
 $$
 \tau_j(x,t)=\langle\Lambda_j\rvert\,\prod_k\exp\big(Q_kW_k(x,t)F^{a_k}(z_k)\big)\,\lvert\Lambda_j\rangle ,
@@ -101,7 +101,7 @@ $$ {#eq-soliton-mass}
 
 real and positive, although the field is complex (@exr-soliton-mass); `code/toda_classical.py` integrates the energy density numerically for $a_2^{(1)}$ and $a_3^{(1)}$ at complex $\xi$. For sine-Gordon this is $M=4m_0/\beta^2=8m_0/\beta_{\rm SG}^2$, as in (-@eq-sg-classical-mass). The soliton masses are proportional to the particle masses, with the factor $2h/\beta^2$, large at weak coupling.
 
-**Lie duality.** Folding makes the non-simply-laced case explicit. Take $c_n^{(1)}$, folded from $a_{2n-1}^{(1)}$ ($h=2n$) by the reflection that exchanges species $a$ and $2n-a$. Its solitons are the invariant parent solitons: a single soliton of species $n$, and coincident pairs of species $a$ and $2n-a$, $a=1,\dots,n-1$. Their masses are proportional to $\sin\frac{\pi n}{2n}=1$ and to $2\sin\frac{\pi a}{2n}$. The ratios $2\sin\frac{\pi a}{2n}$ are not the particle mass ratios of $c_n^{(1)}$, which are $m_a/m_n=\sin\frac{\pi a}{2n}$. They are the particle mass ratios of $b_n^{(1)}$, the untwisted algebra built on the dual root system $B_n=C_n^\vee$ (@exr-lie-duality). This is the general pattern stated in @sec-imaginary-coupling-vacua. Part III checks it only for $c_n^{(1)}$, by this folding argument. For the other untwisted non-simply-laced algebras it is quoted from [@kneipp1996]. In the quantum theory it is upgraded: the soliton S-matrices of $c_n^{(1)}$ are built from R-matrices of $U_q(d_{n+1}^{(2)})$, and their lowest breathers reproduce the particles of $c_n^{(1)}$ (@sec-sm-cn).
+**Lie duality.** Folding makes the non-simply-laced case explicit. Take $c_n^{(1)}$, folded from $a_{2n-1}^{(1)}$ ($h=2n$) by the reflection that exchanges species $a$ and $2n-a$. Its solitons are the invariant parent solitons: a single soliton of species $n$, and coincident pairs of species $a$ and $2n-a$, $a=1,\dots,n-1$. Their masses are proportional to $\sin\frac{\pi n}{2n}=1$ and to $2\sin\frac{\pi a}{2n}$. The ratios $2\sin\frac{\pi a}{2n}$ are not the particle mass ratios of $c_n^{(1)}$, which are $m_a/m_n=\sin\frac{\pi a}{2n}$. They are the particle mass ratios of $b_n^{(1)}$, the untwisted algebra built on the dual root system $B_n=C_n^\vee$ (@exr-lie-duality). This is the general pattern stated in @sec-imaginary-coupling-vacua. Part III checks it only for $c_n^{(1)}$, by this folding argument. For the other untwisted non-simply-laced algebras it is quoted from @kneipp1996. In the quantum theory it is upgraded: the soliton S-matrices of $c_n^{(1)}$ are built from R-matrices of $U_q(d_{n+1}^{(2)})$, and their lowest breathers reproduce the particles of $c_n^{(1)}$ (@sec-sm-cn).
 
 ## Multi-solitons and time delays {#sec-multi-solitons}
 
@@ -127,7 +127,7 @@ For two solitons this can be checked directly against the field equation (`code/
 
 ## Breathers {#sec-breathers}
 
-A soliton of species $a$ and one of the conjugate species $\bar a=h-a$, with complex-conjugate rapidities $\theta_0\pm iu$, $0<u<\frac\pi2$ (so $u$ here is $\frac\pi2$ minus the $u$ of @sec-sg-classical), and suitably related $\xi$'s, form a **neutral breather**: a localized solution of zero topological charge, periodic in time in its rest frame. Harder, Iskandar and McGhee [@harder1995] call these breathers of type B. By @prp-hirota-energy its energy is
+A soliton of species $a$ and one of the conjugate species $\bar a=h-a$, with complex-conjugate rapidities $\theta_0\pm iu$, $0<u<\frac\pi2$ (so $u$ here is $\frac\pi2$ minus the $u$ of @sec-sg-classical), and suitably related $\xi$'s, form a **neutral breather**: a localized solution of zero topological charge, periodic in time in its rest frame. Harder, Iskandar and McGhee [-@harder1995] call these breathers of type B. By @prp-hirota-energy its energy is
 
 $$
 M_a\cosh(\theta_0+iu)+M_{\bar a}\cosh(\theta_0-iu)=2M_a\cosh\theta_0\cos u ,
@@ -144,7 +144,7 @@ $$
 In the rest frame ($\theta_0=0$) the $\tau$-functions take the form $\tau_j=1+r\big(s\,e^{i\psi}+s^{-1}e^{-i\psi}\big)e^{i\delta}+A_{a\bar a}r^2e^{2i\delta}$. Here $r>0$ grows with $x$, $\psi$ runs through a full period as $t$ does, and the constants $s>0$ and $\delta$ are fixed by $\xi_1,\xi_2$.
 
 - If $A_{a\bar a}<0$, that is $\lvert\frac\pi2-\frac{\pi a}h\rvert<u<\frac\pi2$, the choice $\xi_2=\bar\xi_1+i\pi$ gives $s=1$ and $\delta=\frac\pi2$, so $\operatorname{Re}\tau_j=1+\lvert A_{a\bar a}\rvert r^2>0$ and no $\tau_j$ vanishes.
-- If $0<A_{a\bar a}<1$, every $\tau_j$ vanishes somewhere, whatever $\xi_1$ and $\xi_2$. Indeed, $\tau_j=0$ means $s\,e^{i\psi}+s^{-1}e^{-i\psi}=-\big(r^{-1}e^{-i\delta}+A_{a\bar a}re^{i\delta}\big)$. As $\psi$ varies, the left side traces an ellipse with semi-axes $s+s^{-1}\ge2$ and $\lvert s-s^{-1}\rvert$, or the segment $[-2,2]$ if $s=1$. At $r=A_{a\bar a}^{-1/2}$ the right side is the real number $-2A_{a\bar a}^{1/2}\cos\delta$, inside the ellipse or on the segment, and as $r\to0$ or $r\to\infty$ it goes to infinity. So for some $r$ it lies on the ellipse. Harder, Iskandar and McGhee state that type-B breathers with positive interaction coefficient are not possible [@harder1995].
+- If $0<A_{a\bar a}<1$, every $\tau_j$ vanishes somewhere, whatever $\xi_1$ and $\xi_2$. Indeed, $\tau_j=0$ means $s\,e^{i\psi}+s^{-1}e^{-i\psi}=-\big(r^{-1}e^{-i\delta}+A_{a\bar a}re^{i\delta}\big)$. As $\psi$ varies, the left side traces an ellipse with semi-axes $s+s^{-1}\ge2$ and $\lvert s-s^{-1}\rvert$, or the segment $[-2,2]$ if $s=1$. At $r=A_{a\bar a}^{-1/2}$ the right side is the real number $-2A_{a\bar a}^{1/2}\cos\delta$, inside the ellipse or on the segment, and as $r\to0$ or $r\to\infty$ it goes to infinity. So for some $r$ it lies on the ellipse. Harder, Iskandar and McGhee [-@harder1995] state that type-B breathers with positive interaction coefficient are not possible.
 
 So the regular neutral breathers of species $a$ have masses $2M_a\cos u$ in the band $0<2M_a\cos u<2M_a\sin\frac{\pi a}h$, which is the whole interval $(0,2M_a)$ only for $a=h/2$. `code/toda_classical.py` checks the formula for $A_{a\bar a}$, the regular family and a zero of $\tau_j$ for $0<A_{a\bar a}<1$. For $a_2^{(1)}$ the band ends at $\sqrt3M_a$, while the quantum spectrum suggests breathers with masses up to $2M_a$ [@tw1999]. Two solitons of the same species form breathers of type A, which carry topological charge. Their interaction coefficient, $A_{aa}(2iu)=-\sin^2u/\big(\sin^2\frac{\pi a}h-\sin^2u\big)$, changes sign at $u=\frac{\pi a}h$, and regular type-A breathers exist for both signs [@harder1995].
 
@@ -192,7 +192,7 @@ For sine-Gordon, write down the breather $\tau$-functions using (-@eq-n-soliton)
 
 - The topological charges of single solitons do not fill the expected representations [@mcghee1994].
 - Some solutions are singular at isolated spacetime points.
-- Khastgir and Sasaki [@khastgir1996] showed that single solitons of complex rapidity, which have complex energy, become singular in finite time. They also gave initial data of finite negative energy, $\vec\phi=0$ and $\partial_t\vec\phi=i\vec f(x)$ with $\vec f$ real, for which $E=-\frac12\int\vec f\cdot\vec f\,dx$; they did not determine whether these solutions stay regular. These data are invariant under the antilinear symmetry $\Theta$ of @sec-real-imaginary, so $\Theta$-invariance does not make the energy positive.
+- Khastgir and Sasaki [-@khastgir1996] showed that single solitons of complex rapidity, which have complex energy, become singular in finite time. They also gave initial data of finite negative energy, $\vec\phi=0$ and $\partial_t\vec\phi=i\vec f(x)$ with $\vec f$ real, for which $E=-\frac12\int\vec f\cdot\vec f\,dx$; they did not determine whether these solutions stay regular. These data are invariant under the antilinear symmetry $\Theta$ of @sec-real-imaginary, so $\Theta$-invariance does not make the energy positive.
 - In $a_2^{(1)}$, soliton–breather scattering produces *complex* classical time delays and can drive regular initial data into singular final states [@tw1999].
 
 @sec-classical returns to the last three points. It gives a sufficient condition for the charges of regular Hirota solutions to be real; it does not single out the physical solutions.

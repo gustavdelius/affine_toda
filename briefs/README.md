@@ -210,3 +210,11 @@ Protocol for the editor:
 4. When the report is in, integrate it with the `integrate-referee-report` skill, and record here which errors each phase found.
 
 **Integrated (2026-10-25).** 104 checklist items: 90 verified, 14 modified, none rejected; the course is no longer frozen. Every major mathematical error was already found by the blind phase 1; phase 2 added index and sign slips inside derivations, exercise defects, and the provenance and scope items. Main changes: the $a_2$ vacuum sign table and Figure 3 legend, the Lee–Yang doubling proof and $\Gamma^2$, the continuity equations and the Euclidean rotation, the twisted reflection equation, the crossing index order and bootstrap channels, the one-point residue sign, the Dirichlet argument, the mirror-shift proof, the obstruction proof of Lecture 5, the CDD choice behind the uniform–Neumann duality, the Coleman–Thun count, and the status of every conjectural identification (UV–IR relation, Neumann coideal and amplitudes, rotor). The six lecture scripts now test the corrected claims (52 checks). No status label changed. Eleven book findings (B1–B11 in the combined file) are pending for a separate book PR.
+## Half-line lecture referee pass: book findings B1–B12 (2026-10-25)
+
+The two-phase referee pass on `lecture-notes/half-line/` (branch `claude/referee-halfline-lectures`) recorded twelve findings in the book, B1–B12, for a separate book change. All twelve were verified independently and integrated in chapters 21, 23, 29–36 and Appendix D; no status label changed.
+
+| File | What it is |
+|---|---|
+| `halfline_book_findings_integration.md` | Verdict, evidence and change for each finding (Rule 1 record) |
+| `halfline_book_findings_scripts/` | The integrator's own checks (`verify_findings.py`) and its log |
