@@ -70,6 +70,7 @@ The book's conventions are in `01-introduction.qmd`, section `sec-conventions`. 
   - Theme variables such as `$body-bg` exist only in `scss:rules`, not in `scss:defaults`.
   - `scroll-padding-top` keeps link targets clear of the title bar. Do not add `scroll-behavior: smooth`, which broke fragment links.
 - **Bibliography backlinks** come from the post-render script `add-backlinks.py`. A Lua filter or citetools cannot do it, because citeproc runs last and refills the references page.
+- **Search index cleanup.** `clean-search-index.py` runs as a post-render script to strip hidden per-chapter bibliography blocks from `_site/search.json`, so that searching for author names or citations matches `references.html` (and prose mentions) rather than every chapter's "Notes and references" section.
 - **Visual checks.** Serve the scratch `_site` with `python3 -m http.server`. Pages opened with `file://` cannot be screenshotted, and the first screenshot after navigating is often blank.
 - **CI and the PDF.** CI renders HTML only (the book and each `lecture-notes/<name>/`), on pushes to `main`. The PDFs are built locally by the editor with `publish-pdf.sh`.
 
