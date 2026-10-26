@@ -237,7 +237,7 @@ $$
 K(\theta)=K\Big(\theta+\frac{i\pi}3\Big)\,S(2\theta)\,K\Big(\theta-\frac{i\pi}3\Big).
 $$
 
-Unitarity and crossing-unitarity are linear in $K$, so they cannot fix the sign of $K$. The bootstrap is quadratic and does.
+Unitarity is quadratic in $K$ and crossing-unitarity is linear and homogeneous, so both are invariant under $K\to-K$ and cannot fix the sign of $K$. The bootstrap is linear on the left and quadratic on the right, so it changes under $K\to-K$ and does fix the sign.
 
 **The two boundary conditions.** The conformal minimal model $\mathcal M(2,5)$ has two conformal boundary conditions, $\mathbb 1$ and $\Phi$. The first has no relevant boundary field, and the second has one, $\phi$, of dimension $-1/5$. With the bulk perturbation switched on, the $\mathbb 1$ boundary gives a single boundary theory, and the $\Phi$ boundary a one-parameter family $\Phi(h)$, with $h$ the coefficient of the boundary perturbation. Dorey, Pocklington, Tateo and Watts identified their reflection factors by comparing the boundary TBA with boundary TCSA spectra:
 

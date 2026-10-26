@@ -25,6 +25,9 @@ Checks:
  4. a_3: P_{(omega+1)/2} satisfies the soliton-bootstrap condition sigma(mu) = prod_{k=1}^n sigma(mu + T - k omega), as P_{omega/2}
     does; K^N_1 and the alternative both agree with Kim (hep-th/9506031) (33) at O(beta^2); so does K^(-)_1(theta + i pi),
     which differs from Kim's exact [1/2][3/2][5/2] (his (42)) at B = 0.6.
+    All n = 1..6 (book finding B8 of the half-line lecture referee pass): for odd n every P_x satisfies the condition
+    (x = omega/2, (omega+1)/2 and a random x); for even n no P_x does, and -P_x does only when T/2 - x is a multiple of
+    omega/2 (DG's sigma_c, c = 1..n); P_{omega/2}, P_{(omega+1)/2} and their ratio fail for even n.
  5. d_5, particle 3: prod_b S_3b(theta, B = 1) has poles of order +1, -2, +1, -2 at theta = i pi z/8, z = 1..4 (block content,
     confirmed by epsilon scaling), a nonzero residue at 3 i pi/8, p = i(1 + sqrt2) m and Omega = m there; every other pole
     of every particle of d_4, d_5 with 0 < Im theta < pi/2 has p = i m_2/2.
@@ -227,6 +230,34 @@ for th in PTS:
 report(f'4. a_3: P_((omega+1)/2) and P_(omega/2) satisfy the soliton-bootstrap condition; K^N_1, its alternative and '
        f'K^(-)_1(theta + i pi) agree with Kim (33) at O(beta^2) [{mp.nstr(w4, 2)}]; K^(-)_1(theta + i pi) differs from '
        f'Kim (42) at B = 0.6 by >= {mp.nstr(fin, 2)}', w4 < mp.mpf('1e-20') and fin > 0.05)
+
+
+# all n: the condition does not separate P_{omega/2} from P_{(omega+1)/2}; for even n it fails for every P_x
+def boot_defect(sig, nn, T_, om_):
+    mus4 = (mp.mpc('0.19', '0.13'), mp.mpc('-0.4', '0.35'))
+    return max(abs(sig(m)/mp.fprod(sig(m + T_ - k*om_) for k in range(1, nn + 1)) - 1) for m in mus4)
+
+
+om4 = mp.sqrt(2) + mp.mpf(1)/7
+odd_ok, even_min, ctrl = 0, mp.inf, 0
+for nn in range(1, 7):
+    T4 = (nn + 1)*om4/2
+    Px = lambda x, T_=T4: (lambda m: blkI(T_/2 - x, m, T_)*blkI(T_/2 + x, m, T_))
+    xs = (om4/2, (om4 + 1)/2, mp.mpf('0.2713'))
+    for x in xs:
+        if nn % 2:
+            odd_ok = max(odd_ok, boot_defect(Px(x), nn, T4, om4))
+        else:
+            even_min = min(even_min, boot_defect(Px(x), nn, T4, om4), boot_defect(lambda m: -Px(x)(m), nn, T4, om4))
+    if nn % 2 == 0:
+        ratio = lambda m: Px(xs[1])(m)/Px(xs[0])(m)
+        even_min = min(even_min, boot_defect(ratio, nn, T4, om4))
+    for c in range(1, nn + 1):
+        ctrl = max(ctrl, boot_defect(lambda m: -Px(T4/2 - c*om4/2)(m), nn, T4, om4))
+report(f'4b. soliton-bootstrap condition, n = 1..6: every P_x passes for odd n [{mp.nstr(odd_ok, 2)}]; for even n P_x and '
+       f'-P_x fail for x = omega/2, (omega+1)/2, random, and so does P_((omega+1)/2)/P_(omega/2) [min defect '
+       f'{mp.nstr(even_min, 2)}]; -P_x with T/2 - x = c omega/2 (DG sigma_c) passes [{mp.nstr(ctrl, 2)}]',
+       odd_ok < mp.mpf('1e-25') and even_min > mp.mpf('1e-3') and ctrl < mp.mpf('1e-25'))
 
 
 # ---------------------------------------------------------------- 5. poles of prod_b S_ab(theta, 1)

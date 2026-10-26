@@ -224,10 +224,10 @@ Once the vacuum is known, the particles are its small fluctuations, and their cl
 For the uniform conditions of $a_n^{(1)}$ the vacuum is $\vec\phi=0$, and the problem is diagonal in the eigenvectors $\vec\rho_a$ of the mass matrix. The linearized boundary condition is $\partial_x\vec\epsilon=-\frac C{2m}M^2\vec\epsilon$, so $ip(1-K_a)=-C\frac{m_a^2}{2m}(1+K_a)$, and with $\frac{m_a^2}{2m}=m_a\sin\frac{\pi a}h$,
 
 $$
-K_a^{\rm cl}(\theta)=\frac{\sinh\theta-iC\sin\frac{\pi a}h}{\sinh\theta+iC\sin\frac{\pi a}h}=-\Big[(a)(h-a)\Big]^{-C},
+K_a^{\rm cl}(\theta)=\frac{\sinh\theta-iC\sin\frac{\pi a}h}{\sinh\theta+iC\sin\frac{\pi a}h}=\Big[-(a)(h-a)\Big]^{-C},\qquad C\in\{-1,0,1\},
 $$ {#eq-linear-reflection}
 
-in the blocks (-@eq-blocks) at $B=0$. For Neumann, $K_a^{\rm cl}=1$. This is the reflection factor (4.7) of Corrigan, Dorey and Rietdijk [-@cdr1995] with their $A=2C$; for $a_2^{(1)}$ and $C=-1$ it is their (5.3), $-(1)(2)$.
+in the blocks (-@eq-blocks) at $B=0$. For Neumann, $C=0$, $K_a^{\rm cl}=1$. This is the reflection factor (4.7) of Corrigan, Dorey and Rietdijk [-@cdr1995] with their $A=2C$; for $a_2^{(1)}$ and $C=-1$ it is their (5.3), $-(1)(2)$.
 
 - **$C=-1$.** $K_a^{\rm cl}$ has a pole in the physical strip at $\theta=i\pi\min(a,h-a)/h$ for every $a\ne h/2$, corresponding to classical boundary bound states with $\Omega_a=m_a|\cos\frac{\pi a}h|=m|\sin\frac{2\pi a}h|$ [@cdr1995]. For $h$ even and $a=h/2$ the pole sits at $\theta=i\pi/2$, $\Omega_{h/2}=0$: this is the zero mode of the vacuum family of @prp-self-conjugate-vacuum.
 - **$C=+1$.** No poles in the physical strip. The classical limit $B\to0$ of Delius and Gandenberger's quantum amplitude (3.16) for the $(+\cdots+)$ boundary is exactly $-1/((a)(h-a))$, the $C=+1$ value of (-@eq-linear-reflection) (checked numerically for $a_2,\dots,a_5$ in `code/particle_reflection.py`). This independently supports their assignment of that amplitude to $C\equiv+1$ (@sec-uniform-boundary), and agrees with the identification of the diagonal soliton reflection matrix with the uniform boundary in @sec-an-diagonal-k. Their Neumann amplitude tends to 1 [@delius_gandenberger1999], as it should.
