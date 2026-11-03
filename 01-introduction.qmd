@@ -41,6 +41,8 @@ $$
 
 The sums run over the $r+1$ simple roots $\vec\alpha_0,\dots,\vec\alpha_r\in\mathbb R^r$ of $\hat g$, the $n_j$ are positive integers called Kac labels, $m$ sets the mass scale and $\beta>0$ is the coupling. Part II defines the roots and labels (@sec-affine-dynkin), and Part III takes up the theory again from these potentials (-@eq-imaginary-potential). Until then two facts suffice. The labels satisfy $\sum_jn_j\vec\alpha_j=0$, so $\vec\phi=0$ is a stationary point of both potentials. For the smallest algebra, $a_1^{(1)}$, one has $r=1$, $\alpha_1=-\alpha_0=\sqrt2$ and $n_0=n_1=1$, and the two potentials are those of sinh-Gordon and sine-Gordon theory (@sec-sg-dictionary). Replacing the affine algebra by an affine Lie superalgebra gives related integrable theories that also contain fermions, some of them supersymmetric. They are not part of the family above, and @sec-super-toda describes them.
 
+The name records an origin in classical mechanics rather than field theory. Toda [@toda1967] studied a chain of particles with exponential nearest-neighbour interactions and found exact solutions of its equations of motion. Bogoyavlensky [@bogoyavlensky1976] generalized the periodic chain to every simple Lie algebra, and Olshanetsky and Perelomov [@olshanetsky1981] review these and related integrable systems. Mikhailov, Olshanetsky and Perelomov [@mikhailov1981] made them into field theories in two dimensions.
+
 These theories have been a laboratory for several central ideas in two-dimensional quantum field theory:
 
 - exact factorized S-matrices and the bootstrap [@zz1979; @braden1990];
